@@ -28,7 +28,7 @@ echo "# Generated from ${SOURCE}"
 if [ "$4" = "NOMSB" ] ; then
     if [ "$3" = 1 ] ; then
 	@CHARMAP_CAT@ $1 \
-	    | sed -n -e "$2 p" \
+	    | sed -n -e "$2p" \
 	    | sed -e 's/xa/x2/g' -e 's/xb/x3/g' -e 's/xc/x4/g' \
 	          -e 's/xd/x5/g' -e 's/xe/x6/g' -e 's/xf/x7/g' \
 	          -e 's,<U\([^>]*\)>[ 	]*/x\(..\).*$,0x\2 0x\1,' \
@@ -36,7 +36,7 @@ if [ "$4" = "NOMSB" ] ; then
 	    | ${LASTFILTER}
     else
 	@CHARMAP_CAT@ $1 \
-	    | sed -n -e "$2 p" \
+	    | sed -n -e "$2p" \
 	    | sed -e 's/xa/x2/g' -e 's/xb/x3/g' -e 's/xc/x4/g' \
 	          -e 's/xd/x5/g' -e 's/xe/x6/g' -e 's/xf/x7/g' \
 	          -e 's,<U\([^>]*\)>[ 	]*/x\(..\)/x\(..\).*$,0x\2\3 0x\1,' \
@@ -46,13 +46,13 @@ if [ "$4" = "NOMSB" ] ; then
 else
     if [ "$3" = 1 ] ; then
 	@CHARMAP_CAT@ $1 | \
-	    sed -n -e "$2 p" \
+	    sed -n -e "$2p" \
 	    | sed -e 's,<U\([^>]*\)>[ 	]*/x\(..\).*$,0x\2 0x\1,' \
 	    | sort \
 	    | ${LASTFILTER}
     else
 	@CHARMAP_CAT@ $1 | \
-	    sed -n -e "$2 p" \
+	    sed -n -e "$2p" \
 	    | sed -e 's,<U\([^>]*\)>[ 	]*/x\(..\)/x\(..\).*$,0x\2\3 0x\1,' \
 	    | sort \
 	    | ${LASTFILTER}
