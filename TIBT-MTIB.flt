@@ -26,8 +26,8 @@
 ;;; For the Tibetan TrueType font developped by Dr. Tomabechi to draw
 ;;; Tibetan script.  The font is available at:
 ;;; <ul>
-;;; <li> infopage: http://www.m17n.org/emacs-tibetan/
-;;; <li> download: http://www.m17n.org/emacs-tibetan/fonts/mtib.ttf
+;;; <li> infopage: http://www.m17n.org/emacs-ttf/
+;;; <li> download: http://www.m17n.org/emacs-ttf/fonts/tibetan/mtib.ttf
 ;;; </ul>
 
 (category
