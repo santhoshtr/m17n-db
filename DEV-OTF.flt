@@ -80,7 +80,7 @@
    ;; If [CR]H is followed by ZWNJ/ZWJ, move ZWNJ/ZWJ) to the head so
    ;; that the later stages find it quickly.
    ("([CR]n?H)([NJ])"
-    < | (2 =) (1 = =) | > )
+    < | (2 =) (1 = *) | > )
 
    ;; A syllable starting with RH (Reph) and ending with a vowel
    ;; and/or a vowel modifier.
