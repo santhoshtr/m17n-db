@@ -224,8 +224,8 @@
   ((nil freeserif unicode-bmp))))
 (hebrew
  (nil
-  ((iso10646-1))
-  ((nil freesans unicode-bmp) hebr)))
+  ((nil freesans unicode-bmp) hebr)
+  ((iso10646-1))))
 (arabic
  (nil
   ((nil riwaj unicode-bmp) arab-otf)
