@@ -139,7 +139,7 @@
   ((nil freesans unicode-bmp) hebrew)))
 (arabic
  (nil
-  ((nil misc iso10646-1) arabic)
+  ((nil mule iso10646-1) arabic)
   ((nil bitstream\ cyberbase unicode-bmp) arabic)))
 (devanagari
  (nil
@@ -155,6 +155,10 @@
  (nil
   ((tamil-cdac) tml-cdac)
   ((nil tm-ttvalluvar apple-roman) tml-cdac)))
+(bengali
+ (nil
+  ((nil mukti\ narrow unicode-bmp) ben-otf)
+  ((nil likhan unicode-bmp) ben-otf)))
 (georgian
  (nil
   ((nil \1col iso10646-1))
