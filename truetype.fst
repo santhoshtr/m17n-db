@@ -125,7 +125,6 @@
   ((nil ar\ pl\ mingti2l\ big5 unicode-bmp)))
  (ko
   ((nil baekmuk\ dotum unicode-bmp))))
- )
 
 (nil
  ((nil freesans unicode-bmp))
