@@ -1,5 +1,7 @@
 2004-08-09  Kenichi Handa  <handa@m17n.org>
 
+	* .cvsignore: Add m17n-db.
+
 	* MYANMAR-ZEDI.flt: Fix for special vowels.
 
 	* kk-arabic.mim: Add @verbatim and @endverbatim in the comment.
