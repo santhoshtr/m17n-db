@@ -1,4 +1,15 @@
+2004-06-14  Kenichi Handa  <handa@m17n.org>
+
+	* configure.ac: Version changed to 1.1.0.  Include m17n-db in
+	AC_CONFIG_FILES.
+
+	* Makefile.am (bin_SCRIPTS): New variable.
+
+	* m17n-db.in: New file.
+
 2004-05-28  Kenichi Handa  <handa@m17n.org>
+
+	* mapconv.in: Fix generating sed command from $2.
 
 	* truetype.fst: Add Bengali support.
 
