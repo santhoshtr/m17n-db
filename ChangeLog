@@ -1,6 +1,8 @@
 2004-08-13  Kenichi Handa  <handa@m17n.org>
 
-	* MYANMAR-ZEDI.flt: Fix typo in Medial Ya handling.
+	* MYANMAR-ZEDI.flt: Fix typo in Medial Ya handling.  Fix for the
+	case of preferring Medial Ra to Kinzi.  For for the case of Medial
+	Ra with single-width consonant to wide subscript.
 
 2004-08-13  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
