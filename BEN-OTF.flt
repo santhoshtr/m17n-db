@@ -72,7 +72,7 @@
  (0x09DF	?C)			; LETTER YYA
  (0x09E0 0x09E1	?V)			; LETTER VOCALIC RR, LL
  (0x09E2 0x09E3	?b)			; VOWEL SIGN L .. LL (below)
- (0x09F1 0x09F2	?C)			; LETTER RR', RR'' (assamese)
+ (0x09F0 0x09F1	?C)			; LETTER RR', RR'' (assamese)
  (0x09FE	?x)			; mark #1 (internal use)
  (0x09FF	?y)			; mark #2 (internal use)
  )
@@ -308,7 +308,7 @@
  (0x09CD	?H)			; SIGN VIRAMA (HASANT)
  (0x0995	?K)			; LETTER KA
  (0x09B7	?S)			; LETTER SSA
- (0x09A8	?M)			; LETTER NA
+ (0x09A3	?M)			; LETTER NNA
  (0x09AE	?M)			; LETTER MA
  (0x09FE	?x)			; mark #1 (internal use)
  )
@@ -370,7 +370,7 @@
     (3 = *)
     |)
 
-   ;; KA-SSA-NA and KA-SSA-MA are the only pre-base ligatures that
+   ;; KA-SSA-NNA and KA-SSA-MA are the only pre-base ligatures that
    ;; consist of three consonants.
    ;; 1        23   4   5   6    7
    (" ([^x ]*)x((KH)(SH)(M))(H)?x([^ ]*) "
@@ -379,7 +379,7 @@
     0x09FE				; x
     (3 otf:beng=haln)			; KAhalant
     (4 otf:beng=haln)			; SSAhalant
-    (5 =)				; NA or MA
+    (5 =)				; NNA or MA
     0x09FE				; x
     (2 otf:beng=half,haln,pres)		; ligature result
     0x09FE				; x
