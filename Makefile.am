@@ -120,7 +120,7 @@ INPUT_METHOD = \
 	kk-kbd.mim kk-arabic.mim \
 	km-yannis.mim \
 	kn-itrans.mim \
-	ko-han2.mim \
+	ko-han2.mim ko-romaja.mim \
 	lo-lrt.mim \
 	ml-itrans.mim \
 	my-kbd.mim \
