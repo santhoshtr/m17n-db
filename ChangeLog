@@ -1,3 +1,10 @@
+2004-08-16  Kenichi Handa  <handa@m17n.org>
+
+	* Mymr-MyaZedi.flt: Renamed from MYANMAR-ZEDI.flt.
+
+	* Makefile.am, mdb.dir, default.fst, truetype.fst: Adjusted for
+	the name change (MYANMAR-ZEDI.flt -> Mymr-MyaZedi.flt).
+
 2004-08-13  Kenichi Handa  <handa@m17n.org>
 
 	* MYANMAR-ZEDI.flt: Fix typo in Medial Ya handling.  Fix for the
