@@ -21,8 +21,9 @@ ko-romaja.mim (Korean Hangul script)
 my-kbd.mim (Myanmar script)
 si-samanala.mim (Sinhala script)
 zh-pinyin.min (PinYin script)
-bopo-kbd.mim (Bopomofa script)
+bopo-kbd.mim (Bopomofo script)
 syrc-phonetic.mim (Syriac script)
+latn-pre.mim (Latin script)
 
 ** Several new FLTs are added.
 
