@@ -75,12 +75,12 @@ The shell script m17n-db prints information about the m17n database.
 The arguments OPTIONS has the following meanings.
 
 - -h, --help\n
-	Print this information."
+	Print this information.
 - -v, --version\n
-	Print the version number."
+	Print the version number.
 - -l, --locate\n
 	Print absolute pathnames of database files.\n
-	TAG0 through TAG3 specifies the tags of the database."
+	TAG0 through TAG3 specifies the tags of the database.
 
 With no arguments, print where the m17n database is installed.  */ 
 EOF
