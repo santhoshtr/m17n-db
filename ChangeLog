@@ -1,3 +1,18 @@
+2004-09-22  Kenichi Handa  <handa@m17n.org>
+
+	* Mymr-MyaZedi.flt: Various fixes.
+
+2004-09-21  Kenichi Handa  <handa@m17n.org>
+
+	* DEV-OTF.flt: Change 0xXXXX -> #xXXXX, [ -> \[, ] -> \].
+
+2004-09-17  Kenichi Handa  <handa@m17n.org>
+
+	* FORMATS/IM.ja.txt: Fix coding: tag to euc-jp.
+
+	* TML-CDAC.flt: Fix reordering position of left part of vowels O,
+	OO, AU.
+
 2004-09-13  Kenichi Handa  <handa@m17n.org>
 
 	* ARABIC-OTF.flt: Explicitly combine a consotant with following
