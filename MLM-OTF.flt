@@ -23,7 +23,7 @@
 
 ;;; <li> MLM-OTF.flt
 ;;;
-;;; For Malayalam OpenType fonts to draw reformed Malayalam script.
+;;; For Malayalam OpenType fonts to draw the reformed Malayalam script.
 
 ;; The first stage is to extract a syllable and re-order characters.
 (category

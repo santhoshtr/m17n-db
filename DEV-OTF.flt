@@ -23,7 +23,7 @@
 
 ;;; <li> DEV-OTF.flt
 ;;;
-;;; For Devanagari OpenType fonts to draw devanagari script.
+;;; For Devanagari OpenType fonts to draw the Devanagari script.
 
 (category
  ;; C: consonant (except for R)

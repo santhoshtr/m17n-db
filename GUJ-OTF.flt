@@ -23,7 +23,7 @@
 
 ;;; <li> GUJ-OTF.flt
 ;;;
-;;; For Gujarati OpenType fonts to draw Gujarati.
+;;; For Gujarati OpenType fonts to draw the Gujarati script.
 ;;; Tested with padmaa-Medium-1.5.ttf <http://www.indictrans.org/>
 
 (category

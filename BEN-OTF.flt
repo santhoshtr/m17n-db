@@ -23,7 +23,7 @@
 
 ;;; <li> BEN-OTF.flt
 ;;;
-;;; For Bengali OpenType fonts to draw Bengali script.  Tested with
+;;; For Bengali OpenType fonts to draw the Bengali script.  Tested with
 ;;; MuktiNarrow.ttf <http://www.nongnu.org/freebangfont/index.html>
 ;;; and
 ;;; LikhanNormal.otf <http:http://www.stat.wisc.edu/~deepayan/Bengali/WebPage/Font/fonts.html>
