@@ -41,6 +41,7 @@
   ((nil freesans unicode-bmp) hebrew)))
 (arabic
  (nil
+  ((nil riwaj unicode-bmp) arabic-otf)
   ((nil bitstream\ cyberbase unicode-bmp) arabic)))
 (thaana
  (nil

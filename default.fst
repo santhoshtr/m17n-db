@@ -39,6 +39,11 @@
 ;;; <li> infopage: http://www.gnu.org/directory/all/freefont.html
 ;;; <li> download: http://savannah.nongnu.org/download/freefont/freefont-ttf.tar.gz
 ;;; </ul>
+;;; <li>Riwaj.ttf (family: Riwaj; for Arabic)
+;;; <ul>
+;;; <li> infopage: http://www.geocities.com/hifazatequran/font.htm
+;;; <li> download: http://www.geocities.com/hifazatequran/Riwaj.zip
+;;; </ul>
 ;;; <li> Cyberbase.ttf (family: Bitstream CyberBase; for Arabic)
 ;;; <ul>
 ;;; <li> infopage: ftp://ftp.NetBSD.org/pub/NetBSD/packages/pkgsrc/fonts/cyberbase-ttf/README.html
@@ -192,8 +197,9 @@
   ((nil freesans unicode-bmp) hebrew)))
 (arabic
  (nil
-  ((nil mule iso10646-1) arabic)
-  ((nil bitstream\ cyberbase unicode-bmp) arabic)))
+  ((nil riwaj unicode-bmp) arabic-otf)
+  ((nil bitstream\ cyberbase unicode-bmp) arabic)
+  ((nil mule iso10646-1) arabic)))
 (thaana
  (nil
   ((nil thaana\ unicode\ akeh unicode-bmp) thaana-otf)))
