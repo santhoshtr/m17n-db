@@ -382,7 +382,7 @@ MACRO-NAME ::= SYMBOL
 @endverbatim
 
 @c MACRO-NAME is a symbol that appears in one of @c MACRO-DEF.  It is
-exapanded to the sequence of the correponding @c RULSs.
+exapanded to the sequence of the correponding @c RULEs.
 
 @section flt-context-dependent CONTEXT DEPENDENT BEHAVIOR
 
