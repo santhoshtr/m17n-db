@@ -98,6 +98,7 @@
 (input-method he kbd "he-kbd.mim")
 (input-method hi itrans "hi-itrans.mim")
 (input-method hr kbd "hr-kbd.mim")
+(input-method hy kbd "hy-kbd.mim")
 (input-method ja anthy "ja-anthy.mim")
 (input-method ja tcode "ja-tcode.mim")
 (input-method ka kdb "ka-kbd.mim")

@@ -115,6 +115,7 @@ INPUT_METHOD = \
 	he-kbd.mim \
 	hi-itrans.mim \
 	hr-kbd.mim \
+	hy-kbd.mim \
 	ja-anthy.mim ja-tcode.mim \
 	ka-kbd.mim \
 	kk-kbd.mim kk-arabic.mim \
