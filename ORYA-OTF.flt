@@ -216,9 +216,9 @@
     (6 =)				; [Mbelow]
     (7 =)				; [Mabove]
     (1 otf:orya=rphf+)			; [Reph]
-    (9 =)				; [VMabove]
     (4 otf:orya=pstf+)			; [Cpost + H]
     (8 =)				; [Mpost]
+    (9 =)				; [VMabove]
     (10 =)				; [VMpost]
     (11 = *)				; optional HALANT
     |)
