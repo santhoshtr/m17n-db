@@ -1,6 +1,12 @@
 2004-03-18  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* sk-kbd.min, lo-lrt.mim: Fix typo.
+	* sk-kbd.mim, lo-lrt.mim: Fix typo.
+
+	* sr-kbd.mim: New input method for Serbian.
+
+	* hr-kbd.mim: New input method for Croatian.
+
+	* Makefile.am, mdb: Add above two input methods.
 
 2004-03-17  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
