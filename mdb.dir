@@ -148,6 +148,7 @@
 (font layouter tib-mtib "TIB-MTIB.flt")
 (font layouter tib-mule "TIB-MULE.flt")
 (font layouter tml-cdac "TML-CDAC.flt")
+(font layouter tml-otf "TML-OTF.flt")
 ;;; </ul>
 
 ;;; @section fontset-list Fontset
