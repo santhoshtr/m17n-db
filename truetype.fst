@@ -96,4 +96,5 @@
 
 (nil
  ((nil freesans unicode-bmp))
+ ((nil freeserif unicode-bmp))
  ((nil freemono unicode-bmp)))
