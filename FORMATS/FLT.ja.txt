@@ -89,7 +89,7 @@ STAGE ::= CATEGORY-TABLE ? GENERATOR
 CATEGORY-TABLE ::= '(' 'category' CATEGORY-SPEC + ')'
 
 CATEGORY-SPEC ::= '(' CODE CATEGORY ')'
-	      	  | '(' CODE CODE CATEGORY ')'
+                  | '(' CODE CODE CATEGORY ')'
 
 CODE ::= INTEGER
 
@@ -108,8 +108,8 @@ CATEGORY ::= INTEGER
 GENERATOR ::= '(' 'generator' RULE MACRO-DEF * ')'
 
 RULE ::= REGEXP-BLOCK | MATCH-BLOCK | SUBST-BLOCK | COND-BLOCK
-	 | DIRECT-CODE | COMBINING-SPEC | OTF-SPEC
-	 | PREDEFINED-RULE | MACRO-NAME
+         | DIRECT-CODE | COMBINING-SPEC | OTF-SPEC
+         | PREDEFINED-RULE | MACRO-NAME
 
 MACOR-DEF ::= '(' MACRO-NAME RULE + ')'
 @endverbatim
@@ -207,10 +207,10 @@ MATCH-INDEX ::= INTEGER
 行のラン全体に合致する。
 
 @verbatim
-SUBST-BLOCK ::=	'(' SOURCE-PATTERN RULE * ')'
+SUBST-BLOCK ::= '(' SOURCE-PATTERN RULE * ')'
 
 SOURCE-PATTERN ::= '(' CODE + ')'
-	       	   | (' 'range' CODE CODE ')'
+                   | (' 'range' CODE CODE ')'
 @endverbatim
 
 現行のランのコード列が @c SOURCE-PATTERN と合致すれば、この規則は一時
