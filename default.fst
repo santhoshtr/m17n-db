@@ -39,10 +39,16 @@
 ;;; <li> infopage: http://www.gnu.org/directory/all/freefont.html
 ;;; <li> download: http://savannah.nongnu.org/download/freefont/freefont-ttf.tar.gz
 ;;; </ul>
-;;; <li>Riwaj.ttf (family: Riwaj; for Arabic)
+;;; <li> Riwaj.ttf (family: Riwaj; for Arabic)
 ;;; <ul>
 ;;; <li> infopage: http://www.geocities.com/hifazatequran/font.htm
 ;;; <li> download: http://www.geocities.com/hifazatequran/Riwaj.zip
+;;; </ul>
+;;; <li> PakType Naqsh 2.2.ttf (family: PakType Naqsh; for Arabic)
+;;; <li> PakType Tehreer 1.2.tty (family: PakType Tehreer; for Arabic)
+;;; <ul>
+;;; <li> infopage: http://www.zaban.net/paktype/index.htm
+;;; <li> download: http://sourceforge.net/projects/paktype/
 ;;; </ul>
 ;;; <li> Cyberbase.ttf (family: Bitstream CyberBase; for Arabic)
 ;;; <ul>
@@ -80,6 +86,11 @@
 ;;; <ul>
 ;;; <li> infopage: http://guca.sourceforge.net/typography/fonts/saab/index.shtml
 ;;; <li> download: http://prdownloads.sourceforge.net/guca/saab.0.91.otf?download
+;;; </ul>
+;;; <li> utkalm.ttf (family utkal; for Oriya)
+;;; <ul>
+;;; <li> infopage: http://oriya.sarovar.org/docs/getting_started/node13.html
+;;; <li> download: http://oriya.sarovar.org/download/utkalm.ttf.gz
 ;;; </ul>
 ;;; <li> akruti1.ttf, akruti1b.ttf (family akrutitml1; for Tamil), \n
 ;;;      akruti2.ttf, akruti2b.ttf (family akrutitml2; for Tamil), \n
@@ -198,6 +209,8 @@
 (arabic
  (nil
   ((nil riwaj unicode-bmp) arabic-otf)
+  ((nil paktype\ tehreer unicode-bmp) arabic-otf)
+  ((nil paktype\ naqsh unicode-bmp) arabic-otf)
   ((nil bitstream\ cyberbase unicode-bmp) arabic)
   ((nil mule iso10646-1) arabic)))
 (thaana
@@ -219,6 +232,9 @@
 (gujarati
  (nil
   ((nil padmaa unicode-bmp) guj-otf)))
+(oriya
+ (nil
+  ((nil utkal unicode-bmp) ori-otf)))
 (tamil
  (nil
   ((nil tm-ttvalluvar apple-roman) tml-cdac)

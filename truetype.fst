@@ -61,6 +61,9 @@
 (gujarati
  (nil
   ((nil padmaa unicode-bmp) guj-otf)))
+(oriya
+ (nil
+  ((nil utkal unicode-bmp) ori-otf)))
 (tamil
  (nil
   ((nil akrutitml1 unicode-bmp) tml-otf)
