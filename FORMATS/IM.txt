@@ -28,7 +28,7 @@ INPUT-METHOD ::= TITLE MAP-LIST MACRO-LIST ? MODULE-LIST ? STATE-LIST
 TITLE ::= '(' 'title' MTEXT ')'
 @endverbatim
 
-@c MTEXT is displayed on the screen when this input method is
+@c MTEXT is a text displayed on the screen when this input method is
 active.
 
 @verbatim
@@ -88,10 +88,10 @@ FUNCTION ::= SYMBOL
 @endverbatim
 
 Each @c MODULE declares the name of external module (i.e. dynamic
-library) and function names exported by the module.  If a FUNCTION has
+library) and function names exported by the module.  If a @c FUNCTION has
 name "init", it is called with only the default arguments (see the
 section about @c CALL) when an input context is created for the input
-method.  If a FUNCTION has name "fini", it is called with only the
+method.  If a @c FUNCTION has name "fini", it is called with only the
 default arguments when an input context is destroyed.
 
 @verbatim
@@ -110,8 +110,8 @@ In the first form of @c BRANCH, @c MAP-NAME must be an item that appears
 in @c MAP.  In this case, if a key sequence matching one of @c
 KEYSEQs of @c MAP-NAME is typed, @c BRANCH-ACTIONs are executed.
 
-In the second form of @c BRACNH, @c BRANCH-ACTIONs are executed if a
-key sequence that doesn't match any of @c BRNACHs of the current
+In the second form of @c BRANCH, @c BRANCH-ACTIONs are executed if a
+key sequence that doesn't match any of @c Branch's of the current
 state is typed.
 
 In the third form of @c BRANCH, @c BRANCH-ACTIONs are executed if we
@@ -243,7 +243,7 @@ The first form treats @c PREDEFINED-SYMBOL as a candidate index (as
 described above) that specifies a new candidate in the candidate list.
 
 The second form treats @c INTEGER as a candidate index that specifies a
-new candidate in the canidate list.
+new candidate in the candidate list.
 
 @verbatim
 SHOW ::= '(show)'
@@ -325,23 +325,23 @@ SET ::= '(' OPERAND SYMBOL1 [ INTEGER | SYMBOL2 ] ')'
 OPERAND ::= 'set' | 'add' | 'sub' | 'mul' | 'div'
 @endverbatim
 
-This action treats @c SYMBOL1 and @c SYMBOL2 as varibles and sets the
+This action treats @c SYMBOL1 and @c SYMBOL2 as variables and sets the
 value of @c SYMBOL1 as below.
 
-If @c OPERAND is 'set', it sets the value of SYMBOL1 to INTEGER or the
-value of SYMBOL2.
+If @c OPERAND is 'set', it sets the value of @c SYMBOL1 to @c INTEGER or the
+value of @c SYMBOL2.
 
-If @c OPERAND is 'add', it increments the value of SYMBOL1 by INTEGER
-or the value of SYMBOL2.
+If @c OPERAND is 'add', it increments the value of @c SYMBOL1 by @c INTEGER
+or the value of @c SYMBOL2.
 
-If @c OPERAND is 'sub', it decrements the value of SYMBOL1 by INTEGER
-or the value of SYMBOL2.
+If @c OPERAND is 'sub', it decrements the value of @c SYMBOL1 by @c INTEGER
+or the value of @c SYMBOL2.
 
-If @c OPERAND is 'mul', it multiplies the value of SYMBOL1 by INTEGER
-or the value of SYMBOL2.
+If @c OPERAND is 'mul', it multiplies the value of @c SYMBOL1 by @c INTEGER
+or the value of @c SYMBOL2.
 
-If @c OPERAND is 'div', it divides the value of SYMBOL1 by INTEGER or
-the value of SYMBOL2.
+If @c OPERAND is 'div', it divides the value of @c SYMBOL1 by @c INTEGER or
+the value of @c SYMBOL2.
 
 @verbatim
 IF ::= '(' 'if' CONDITION ACTION-LIST1 ACTION-LIST2 * ')'
@@ -373,7 +373,7 @@ diacritical marks (acute and cedilla).  For instance, when you type:
 @verbatim
     Comme'die-Franc,ais, chic,,
 @endverbatim
-you wil get this:
+you will get this:
 @if FOR-HTML
 @verbatim
     Commédie-Français, chic,
