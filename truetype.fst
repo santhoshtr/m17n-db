@@ -53,6 +53,9 @@
 (gurmukhi
  (nil
   ((nil saab unicode-bmp) gur-otf)))
+(gujarati
+ (nil
+  ((nil padmaa unicode-bmp) guj-otf)))
 (tamil
  (nil
   ((nil tm-ttvalluvar apple-roman) tml-cdac)))
