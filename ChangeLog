@@ -2,6 +2,10 @@
 
 	* Version 1.0 Patch Level 2 released.
 
+2004-03-29  Kenichi Handa  <handa@m17n.org>
+
+	* configure.ac: Version changed to 1.0.2.
+
 2004-03-23  Kenichi Handa  <handa@m17n.org>
 
 	* CHARSET.tbl: Fix mapfile names.
