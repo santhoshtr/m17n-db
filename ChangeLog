@@ -1,3 +1,13 @@
+2004-03-09  TAKAHASHI Naoto <ntakahas@m17n.org>
+
+	* ar-kbd.mim: Add keys for inputting punctuations.
+
+	* ARABIC.flt: Add support for Kazakh.
+
+	* FORMATS/FLT.txt (MACRO-NAME): Fix typo.
+
+	* latin-post.mim: Fix many keys for consistency.
+
 2004-03-01  Kenichi Handa  <handa@m17n.org>
 
 	* Version 1.0 released.
