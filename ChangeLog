@@ -1,5 +1,9 @@
 2004-08-16  Kenichi Handa  <handa@m17n.org>
 
+	* Version 1.1.0 released.
+
+2004-08-16  Kenichi Handa  <handa@m17n.org>
+
 	* Mymr-MyaZedi.flt: Renamed from MYANMAR-ZEDI.flt.
 
 	* Makefile.am, mdb.dir, default.fst, truetype.fst: Adjusted for
