@@ -4,6 +4,8 @@
 
 2004-08-16  Kenichi Handa  <handa@m17n.org>
 
+	* truetype.fst: Fix for Thaana.
+
 	* Mymr-MyaZedi.flt: Renamed from MYANMAR-ZEDI.flt.
 
 	* Makefile.am, mdb.dir, default.fst, truetype.fst: Adjusted for
