@@ -46,6 +46,8 @@
  ;;
  (0x200C	?N)			; ZWNJ
  (0x200D	?J)			; ZWJ
+ (0x0964	?E)			; DANDA
+ (0x0965	?E)			; DOUBLE DANDA
  (0x0A00 0x0A7F	?E)			; ELSE
  (0x0A01	?A)			; SIGN ADAK BINDI (above)
  (0x0A02	?A)			; SIGN BINDI (above)
