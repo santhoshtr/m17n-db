@@ -71,6 +71,18 @@
 ;;; <li> infopage: http://guca.sourceforge.net/typography/fonts/saab/index.shtml
 ;;; <li> download: http://prdownloads.sourceforge.net/guca/saab.0.91.otf?download
 ;;; </ul>
+;;; <li> akruti1.ttf, akruti1b.ttf (family akrutitml1; for Tamil), \n
+         akruti2.ttf, akruti2b.ttf (family akrutitml2; for Tamil), \n
+         TSCu_Comic.ttf (family tscu_comic; for Tamil), \n
+         TSCu_Paranar.ttf, TSCu_paranarb.ttf, TSCu_paranari.ttf (family tscu_paranar; for Tamil), \n
+         TSCu_Times.ttf (family tscu_times; for Tamil), \n
+         TAMu_Kadampari.ttf (family tamu_kadambri; for Tamil), \n
+         TAMu_Kalyani.ttf (family tamu_kalyani; for Tamil), \n
+         TAMu_Maduram.ttf (family tamu_maduram; for Tamil)
+;;; <ul>
+;;; <li> infopage: http://tamillinux.sourceforge.net/
+;;; <li> download: http://sourceforge.net/projects/tamillinux/
+;;; </ul>
 ;;; <li> Pothana2000.ttf (family: Pothana2000; for Telugu)
 ;;; <ul>
 ;;; <li> infopage: http://www.kavya-nandanam.com/
@@ -180,8 +192,8 @@
 (devanagari
  (nil
   ((devanagari-cdac) dev-cdac)
-  ((nil gargi-1.3 unicode-bmp) dev-otf)
   ((nil raghindi unicode-bmp) dev-otf)
+  ((nil gargi-1.3 unicode-bmp) dev-otf)
   ((nil dv-ttyogesh apple-roman) dev-cdac)))
 (bengali
  (nil
@@ -196,7 +208,15 @@
 (tamil
  (nil
   ((tamil-cdac) tml-cdac)
-  ((nil tm-ttvalluvar apple-roman) tml-cdac)))
+  ((nil tm-ttvalluvar apple-roman) tml-cdac)
+  ((nil akrutitml1 unicode-bmp) tml-otf)
+  ((nil akrutitml2 unicode-bmp) tml-otf)
+  ((nil tscu_paranar unicode-bmp) tml-otf)
+  ((nil tscu_comic unicode-bmp) tml-otf)
+  ((nil tscu_times unicode-bmp) tml-otf)
+  ((nil tamu_kadambri unicode-bmp) tml-otf)
+  ((nil tamu_kalyani unicode-bmp) tml-otf)
+  ((nil tamu_maduram unicode-bmp) tml-otf)))
 (telugu
  (nil
   ((nil pothana2000 unicode-bmp) tel-otf)))
