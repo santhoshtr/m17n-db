@@ -1,3 +1,7 @@
+2004-08-13  Kenichi Handa  <handa@m17n.org>
+
+	* MYANMAR-ZEDI.flt: Fix typo in Medial Ya handling.
+
 2004-08-13  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* Makefile.am, mdb.dir, truetype.fst, default.fst, ORI-OTF.flt:
