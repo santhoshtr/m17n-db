@@ -131,11 +131,12 @@ INPUT_METHOD = \
 	si-samanala.mim \
 	sk-kbd.mim \
 	sr-kbd.mim \
+	sv-post.mim \
 	ta-itrans.mim \
 	te-itrans.mim \
 	th-kesmanee.mim \
 	vi-viqr.mim vi-telex.mim \
-	zh-py.mim zh-pinyin.mim \
+	zh-py.mim zh-pinyin.mim zh-tonepy.mim \
 	latn-post.mim latn-pre.mim \
 	syrc-phonetic.mim \
 	bopo-kbd.mim \
