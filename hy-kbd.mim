@@ -25,10 +25,12 @@
 ;;;
 ;;; Input method for Armenian.
 ;;; Simulating Eastern Armenian keyboard on American keyboard.
+;;; @image html hy-kbd.png "Keyboard Layout"
+;;; @image latex hy-kbd.eps "Keyboard Layout" width=\narrowwidth
 
 ;; :1  ձՁ  յՅ  ՛3  ,4  -9  .և  «(  »)  օՕ  ռՌ  ժԺ  ՝՜
-;;   խԽ  ւՒ  էԷ  րՐ  տՏ  եԵ  ըԸ  իԻ  ոՈ  պՊ  չՉ  ջՋ  '՞
-;;    աԱ  սՍ  դԴ  ֆՖ  քՔ  հՀ  ճՃ  կԿ  լԼ  թԹ  փՓ
+;;   խԽ  ւՒ  էԷ  րՐ  տՏ  եԵ  ըԸ  իԻ  ոՈ  պՊ  չՉ  ջՋ
+;;    աԱ  սՍ  դԴ  ֆՖ  քՔ  հՀ  ճՃ  կԿ  լԼ  թԹ  փՓ  '՞
 ;;      զԶ  ցՑ  գԳ  վՎ  բԲ  նՆ  մՄ  շՇ  ղՂ  ծԾ
 
 (title "HY")
