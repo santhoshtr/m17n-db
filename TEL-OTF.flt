@@ -54,7 +54,7 @@
  (0x0C3E 0x0C40	?u)			; VOWEL SIGN AA, I, II (above)
  (0x0C41 0x0C44	?p)			; VOWEL SIGN U, UU, R, RR (post)
  (0x0C46 0x0C47	?u)			; VOWEL SIGN E, EE (above)
- (0x0C48	?t)			; VOWEL SIGN AI (tow-part)
+ (0x0C48	?t)			; VOWEL SIGN AI (two-part)
  (0x0C4A 0x0C4C	?u)			; VOWEL SIGN O, OO, AU (above)
  (0x0C4D	?H)			; SIGN VIRAMA (HALANT)
  (0x0C55	?u)			; LENGTH SIGN (above)
