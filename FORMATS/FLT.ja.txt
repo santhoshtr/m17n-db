@@ -1,0 +1,425 @@
+/* Copyright (C) 2003, 2004
+     National Institute of Advanced Industrial Science and Technology (AIST)
+     Registration Number H15PRO112
+   See the end for copying conditions.  */
+
+/***ja
+
+@page mdbFLT フォントレイアウトテーブル
+
+@section flt-description 説明
+
+単純なスクリプトの場合、表示エンジンは選択したフォントのエンコーディン
+グに応じて文字コードをグリフコードに一文字ずつ変換する。しかし、複雑な
+レイアウトを要求する文書、たとえばタイやインド系のスクリプトなどの場合、
+１対１の変換では不十分である。複数の文字が一つのリガチャとして描かれたり、
+２次元的にずらした位置に描かなくてはならないグリフがあったりする。
+
+このような複雑なスクリプトを処理するため、m17n ライブラリはフォントレ
+イアウトテーブル (短縮して FLT と呼ぶことにする) を用いる。FLT ドライ
+バは FLT を解釈し、文字列を表示エンジンに渡すことのできるグリフ列に変
+換する。
+
+FLT は OpenType Layout Table に見られる情報 (CMAP, GSUB, and GPOS) に
+加えて、文字列から書記素 (grapheme) クラスタを抽出したり、クラスタ内で
+文字を並べ変えたりするための情報を持つことができる。
+
+FLT は 1 つ以上の変換ステージが続いたものである。各ステージでコード列
+は別のものに変換され、次のステージに読まれる。列の長さはステージ毎に異
+なることがある。コード列の各要素は以下の整数値の属性を持つ。
+
+<ul>
+<li> コード
+
+変換の最初のステージでは、元の文字列の文字コード。最後のステージでは、
+表示エンジンに渡されるグリフコード。それ以外では中間的なグリフコード。
+
+<li> カテゴリ
+
+そのステージの @c CATEGORY-TABLE で定義されたカテゴリーコード。
+
+<li> 結合規則
+
+0 でなければ、この（中間）グリフを前のものとどう結合するかを指定する。
+
+<li> 左パディングフラグ
+
+0 でなければ、表示関数にこの（中間）グリフの前にスペースを挿入して、前
+のグリフと重ならないようにするよう指示する。
+
+<li> 右パディングフラグ
+
+0 でなければ、表示関数にこの（中間）グリフの後にスペースを挿入して、後
+のグリフと重ならないようにするよう指示する。
+
+</ul>
+
+レイアウトエンジンがテキストを描く際には、まずテキストの各文字に対して
+それぞれフォントとFLT を決定する。同じフォントと FLT を用いる部分文字
+列に関して、レイアウトエンジンは対応する中間的なグリフの列を生成する。
+中間的なグリフコードの各要素は、コードの属性として対応する文字コード、
+他の属性として 0 を持つ。この列はFLT の最初のステージで現行の @e ラン 
+(部分列) として処理される。
+
+各ステージは以下のように働く。
+
+まずこのステージに @c CATEGORY-TABLE があれば、現行のランのすべてのグ
+リフのカテゴリが更新される。カテゴリの無いグリフがあれば、ランはそのグ
+リフの前で終る。
+
+次にこのステージのコードオフセット、結合規則、左パディングフラグが 0 
+に初期化される。
+
+次いで、このステージの最初の変換規則が現行のランに適用される。
+
+最後に現行のランは新しく作られた（中間）グリフ列に置き換えられる。
+
+@section flt-syntax 文法と意味
+
+m17n ライブラリ は m17n データベースからタグ \<font, layouter,
+FLT-NAME\> を用いて FLT をロードする。FLT のデータのフォーマットは以下の通り：
+
+@verbatim
+FONT-LAYOUT-TABLE ::= STAGE0 STAGE *
+
+STAGE0 ::= CATEGORY-TABLE GENERATOR
+
+STAGE ::= CATEGORY-TABLE ? GENERATOR
+
+CATEGORY-TABLE ::= '(' 'category' CATEGORY-SPEC + ')'
+
+CATEGORY-SPEC ::= '(' CODE CATEGORY ')'
+	      	  | '(' CODE CODE CATEGORY ')'
+
+CODE ::= INTEGER
+
+CATEGORY ::= INTEGER
+@endverbatim
+
+@c CATEGORY-SPEC の定義中で、 @c CODE はグリフコード @c CATEGORY は大
+文字あるいは小文字の ASCII code、すなわち 'A', ... 'Z', 'a', .. 'z' の
+いずれかである。
+
+@c CATEGORY-SPEC の最初の形式は、@c CATEGORY をコード @c CODE を持つグ
+リフに割り当て、二つ目の形式は @c CATEGORY を二つの @c CODE の間のコー
+ドを持つグリフに割り当てる。
+
+@verbatim
+GENERATOR ::= '(' 'generator' RULE MACRO-DEF * ')'
+
+RULE ::= REGEXP-BLOCK | MATCH-BLOCK | SUBST-BLOCK | COND-BLOCK
+	 | DIRECT-CODE | COMBINING-SPEC | OTF-SPEC
+	 | PREDEFINED-RULE | MACRO-NAME
+
+MACOR-DEF ::= '(' MACRO-NAME RULE + ')'
+@endverbatim
+
+各 @c RULE は、消費するグリフと生成するグリフを指定する。「消費された」
+グリフは現行のランから取り除かれる。ルールは状況によっては失敗する。明
+示的に失敗と書かれている場合をのぞき、成功とみなす。
+
+@verbatim
+DIRECT-CODE ::= INTEGER
+@endverbatim
+
+このルールはグリフを消費せず、以下の属性を持つグリフを生成する。
+
+<ul>
+<li> コード : @c INTEGER ＋ デフォルトのコードオフセットplus the default code-offset
+<li> 結合規則 : デフォルト値
+<li> 左パデイングフラグ : デフォルト値
+<li> 右パデイングフラグ : 0
+</ul>
+
+グリフ生成後、デフォルトのコードオフセット、結合規則, 左パディングフラ
+グ はすべて 0 にリセットされる。
+
+@verbatim
+PREDEFINED-RULE ::= '=' | '*' | '<' | '>' | '|' | '[' | ']'
+@endverbatim
+
+これらは以下のように働く。
+
+<ul>
+<li> @c =
+
+現行のランの最初のグリフを消費し、同じグリフを生成する。現行のランが空
+ならば失敗する。
+
+<li> @c *
+
+前のルールを繰り返し実行する。前のルールが失敗すれば、何もせず失敗する。
+
+<li> @c @<
+
+書記素クラスタの始めを示す。
+
+<li> @c @>
+
+書記素クラスタの終りを示す。
+
+<li> @c @[
+
+この規則はデフォルトの左パディングフラグを 1 にする。グリフの消費や生
+成はしない。
+
+<li> @c @]
+
+この規則は最近生成されたグリフの右パディングフラグを 1 にする。グリフ
+の消費や生成はしない。
+
+<li> @c |
+
+グリフを消費せず、カテゴリが ' ' で他の属性が 0 である特別なグリフを生
+成する。この規則だけがこの特別なグリフを生成する。
+
+</ul>
+
+@verbatim
+REGEXP-BLOCK ::= '(' REGEXP RULE * ')'
+
+REGEXP ::= MTEXT
+@endverbatim
+
+@c MTEXT は現行のランのカテゴリ列に合致すべき正規表現である。合致すれ
+ば、この規則は一時的に現行のランを合致した部分だけに限定した上で、@c
+RULE を実行する。合致した部分はこの規則によって消費される。
+
+括弧のついた部分表現があれば、@c RULE の中に出現するかもしれない @c
+MATCH-BLOCK によって使用するために記録される。
+
+合致する部分が無ければ、この規則は失敗する。
+
+@verbatim
+MATCH-BLOCK ::= '(' MATCH-INDEX RULE * ')'
+
+MATCH-INDEX ::= INTEGER
+@endverbatim
+
+@c MATCH-INDEX は直前の @c REGEXP-BLOCK によって記録された部分表現を指
+定する整数である。このような部分表現があれば、この規則は一時的に現行の
+ランを合致した部分表現だけに限定した上で、@c RULE を実行する。合致した
+部分はこの規則によって消費される。
+
+合致する部分が無ければ、この規則は失敗する。
+
+この規則がステージの最初に規則であれば、@c MATCH-INDEX は 0 であり、現
+行のラン全体に合致する。
+
+@verbatim
+SUBST-BLOCK ::=	'(' SOURCE-PATTERN RULE * ')'
+
+SOURCE-PATTERN ::= '(' CODE + ')'
+	       	   | (' 'range' CODE CODE ')'
+@endverbatim
+
+現行のランのコード列が @c SOURCE-PATTERN と合致すれば、この規則は一時
+的に現行のランを合致した部分だけに限定した上で、@c RULE を実行する。
+合致した部分は消費される。
+
+@c SOURCE-PATTERN の最初の形式は、合致するグリフコードの列を指定する。
+この場合、この規則はデフォルトのコードオフセットを 0 にリセットする。
+
+二つめの形式は、コード列の最初のグリフコードの範囲を指定する。この場合、
+この規則はデフォルトのコードオフセットを最初のグリフコードから範囲を指
+定する初めの @c CODE を引いたものに設定する。
+
+合致する部分が無ければ、この規則は失敗する。
+
+@verbatim
+COND-BLOCK ::= '(' 'cond' RULE + ')'
+@endverbatim
+
+この規則は @c RULE を順に、どれかが成功するまで実行する。どのルールも
+成功しなければ、この規則は失敗する。そうでなければ成功である。
+
+@verbatim
+OTF-SPEC ::= SYMBOL
+@endverbatim
+
+@c OTF-SPEC は、OTF ドライバへの指示を指定する名前を持つシンボルである。
+名前は以下の文法に従う。
+
+@verbatim
+  OTF-SPEC-NAME ::= 'otf:' SCRIPT LANGSYS ? GSUB-FEATURES ? GPOS-FEATURES ?
+
+  SCRIPT ::= SYMBOL
+
+  LANGSYS ::= '/' SYMBOL
+
+  GSUB-FEATURES ::= '=' FEATURE-LIST ?
+
+  GPOS-FEATURES ::= '+' FEATURE-LIST ?
+
+  FEATURE-LIST ::= ( SYMBOL ',' ) * [ SYMBOL | '*' ]
+
+@endverbatim
+
+各 @c SYMBOL は OpenType specification 中でのタグ名を指定する。
+
+@c SCRIPT については、@c SYMBOL はスクリプトタグ名を表す。Devanagari 
+は deva など。)
+
+@c LANGSYS の場合は、@c SYMBOL は言語システムタグ名を指定する。@c
+LANGSYS が省略されれば、デフォルトの言語システムテーブルが使用される。
+
+@c GSUB-FEATURES では、 @c FEATURE LIST 中の各 @c SYMBOL は 適用する 
+GSUB feature タグ名を指定する。'*' は残りすべての feature を指定するた
+めに最後の要素として用いることができる。 @c SYMBOL の前に'~' がついて
+おり、最後の要素が '*' ならば、@c SYMBOL は適用するfeature から除かれ
+る。@c SYMBOL が指定されていなければ、GSUB feature は適用されない。@c
+GSUB-FEATURES 自体が省略されればすべての GSUB feature が適用される。
+
+@c GPOS-FEATURES の指定は @c GSUB-FEATURES の場合と同様である。
+
+OpenType の指定方法については次のページを参照のこと。\n
+    <http://www.microsoft.com/typography/otspec/default.htm>
+
+@verbatim
+COMBINING ::= SYMBOL
+@endverbatim
+
+@c COMBINING は、 次のグリフを前のものとどう結合するかの指示を名前とし
+て持つシンボルである。このルールはデフォルトの結合規則をシンボル名固有
+の整数コードにセットする。名前は以下の文法に従う。
+following syntax.
+
+@verbatim
+  COMBINING-NAME ::= VPOS HPOS OFFSET VPOS HPOS
+
+  VPOS ::= 't' | 'c' | 'b' | 'B'
+
+  HPOS ::= 'l' | 'c' | 'r'
+
+  OFFSET :: = '.' | XOFF | YOFF XOFF ?
+
+  XOFF ::= ('<' | '>') INTEGER ?
+
+  YOFF ::= ('+' | '-') INTEGER ?
+@endverbatim
+
+@c VPOS と @c HPOS は次のように垂直、水平位置を指定する。
+
+@verbatim
+                                POINT VPOS HPOS
+                                ----- ---- ----
+    0----1----2 <---- top       0     t    l
+    |         |                 1     t    c
+    |         |                 2     t    r
+    |         |                 3     B    l
+    9   10   11 <---- center    4     B    c
+    |         |                 5     B    r
+  --3----4----5-- <-- baseline  6     b    l
+    |         |                 7     b    c
+    6----7----8 <---- bottom    8     b    r
+                                9     c    l
+    |    |    |                10     c    c
+  left center right            11     c    r
+@endverbatim
+
+左の図はあるグリフの 12 の参照点を 0 から 11 までの数字で示している。
+四角形 0-6-8-2 はグリフの表示領域であり、位置3, 4, 5 はベースライン上
+にある。 9 と 11 はそれぞれ線0-6 と 2-8 の中心である。1, 10, 4, 7 はそ
+れぞれ線1-2, 3-5, 9-11, 6-8 の中心である。
+
+右の表は、各参照点が@c VPOS と @c HPOS の組合せによってどのように指定
+されるかを示している。
+
+@c COMBINING-NAME の定義中の最初の @c VPOS と @c HPOS は、前のグリフの
+参照点を、二つ目の @c VPOS と @c HPOS は次のグリフの参照点を指定する。
+次のグリフはこの二個の参照点が重なるように描かれる。
+
+@c OFFSET は重なりか他の詳細を指定する。'.' であれば、参照点二つは同じ
+位置にある。
+
+@c XOFF は、次のグリフの参照点の X 座標を、前の参照点からどれほど右 
+('<') あるいは左 ('>') へずらすか指定する。
+
+@c YOFF は、次のグリフの参照点の Y 座標を、前の参照点からどれほど上 
+('+') あるいは下 ('-') へずらすか指定する。
+
+どちらの場合にも、@c INTEGER はフォントサイズの何％ずらすかを示す値で
+ある。すなわち、もし @c INTEGER が 10 ならばフォントサイズの10% (1/10) 
+ずらすことになる。 @c INTEGER が省略された場合には、5 が指定されたもの
+とする。
+
+次のグリフが前のグリフに結合されると、それらは一つの結合グリフとして扱
+われる。
+
+@verbatim
+MACRO-NAME ::= SYMBOL
+@endverbatim
+
+@c MACRO-NAME は @c MACRO-DEF のいずれかに現われるシンボルであり、対応
+する@c RULE の列に展開される。
+
+@section flt-context-dependent 文脈に依存する振舞
+
+ここまでは、特定のフォントで描かれる各文字／グリフ列が文脈自由であるこ
+と、すなわち前後のグリフに影響されないことを前提としてきた。これは、列 
+S1 がフォントF1 によって描かれ、先行する列 S0 が常にフォント F0 を要求
+する場合には正しい。
+
+@verbatim
+  列				S0	S1
+  現行のフォント		F0	F1
+  利用可能なフォント		F0	F1
+@endverbatim
+
+しかし時には、列を明確に区切ることができない場合もある。先行する列 S0
+が F0 だけでなく F1 でも描けるとしよう。
+
+@verbatim
+  列				S0	S1
+  現行のフォント		F0	F1
+  利用可能なフォント		F0,F1	F1
+@endverbatim
+
+この場合、先行する S0 を描くために使われたグリフが S1 のグリフの生成に
+影響を与えることもある。そこで S1 の処理の際にすでに処理の終った S0 に
+関する情報にアクセスする必要がある。最初のステージ（このステージのみ）
+の生成規則は、処理済みの部分へアクセスする特別な正規表現を許している。
+
+@verbatim
+  "RE0 RE1"
+@endverbatim
+
+@c RE0 と @c RE1 は先行の列 S0 と後続の列 S1 にそれぞれ対応する正規表
+現である。
+
+二つの正規表現の間のスペースに注意。これは特別なカテゴリ ' ' を示して
+いる (上記参照) 。この正規表現はフォント F1 を使用するグリフ生成規則に
+属しており、したがって RE1 だけでなくRE0 も F1 用のカテゴリを用いて表
+現されなければならない。つまり、先行する列S0 が F1 用のカテゴリで表せ
+ない場合には(上の最初の例のように) このパターンを持つ生成規則には合致
+しない。
+
+@section flt-seealso 参照
+
+@ref mdbGeneral "mdbGeneral(5)", 
+@ref flt-list "FLTs provided by the m17n database"
+*/
+
+/* 
+Copyright (C) 2003, 2004
+  National Institute of Advanced Industrial Science and Technology (AIST)
+  Registration Number H15PRO112
+
+This file is part of the m17n database; a sub-part of the m17n
+library.
+
+The m17n library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1 of
+the License, or (at your option) any later version.
+
+The m17n library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with the m17n library; if not, write to the Free
+Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+02111-1307, USA.
+*/

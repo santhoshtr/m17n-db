@@ -3,15 +3,15 @@
      Registration Number H15PRO112
    See the end for copying conditions.  */
 
-/***en
+/***ja
 
-@page mdbFontset Fontset
+@page mdbFontset フォントセット
 
-@section fontset-description DESCRIPTION
+@section fontset-description 説明
 
-The m17n library loads a fontset definition from the m17n database by
-the tags \<fontset, FONTSET-NAME\>.  The plist format of the data is
-as follows:
+m17n ライブラリは、m17n データベースから \<fontset, FONTSET-NAME\> タ
+グによってフォントセットの定義をロードする。このデータは以下のフォーマッ
+トのプロパティリストとしてロードされる。
 
 @verbatim
 FONTSET ::= PER-SCRIPT * PER-CHARSET * FALLBACK *
@@ -32,19 +32,19 @@ FONT-SPEC ::=
          REGISTRY ')'
 @endverbatim    
 
-@c SCRIPT is a symbol of script name (e.g. latin, han) or @c nil.  @c
-LANGUAGE is a two-letter symbol of language name code defined by ISO
-639 (e.g. ja, zh) or @c nil.
+@c SCRIPT はスクリプト名 (e.g. latin, han) を示すシンボルか @c nilであ
+る。@c LANGUAGE はISO 639 に定義された言語名コード (e.g. ja, zh) であ
+る２文字のシンボルか @c nil である。
 
-@c FONT-SPEC is to specify properties of a font.  @c FOUNDRY to @c
-REGISTRY are symbols corresponding to #Mfoundry to #Mregistry property
-of a font.  See @ref m17nFont for the meaning of each property.
+@c FONT-SPEC はフォントのプロパティを指定する。@c FOUNDRY から @c
+REGISTRY はフォントの #Mfoundry から #Mregistry プロパティに対応するシ
+ンボルである。各プロパティの意味については @ref m17nFont 参照。
 
-@c FLT-NAME is a name of Font Layout Table (@ref mdbFLT).
+@c FLT-NAME はフォントレイアウトテーブルの名前である。(@ref mdbFLT).
 
-@section fontset-example EXAMPLE
+@section fontset-example 例
 
-This is an example of @c PER_SCRIPT.
+これは @c PER_SCRIPT の例である。
 
 @verbatim
 (han
@@ -56,16 +56,15 @@ This is an example of @c PER_SCRIPT.
     ((big5-0))))
 @endverbatim
 
-It instructs the font selector to use a font of registry
-"jisx0208.1983-0" for a "han" character (i.e. a character whose
-#Mscript property is 'han') if the character has #Mlanguage text
-property "ja" in an M-text and the character is in the repertories of
-such fonts.  Otherwise, try a font of registry "gb2312.1980-0" or
-"big5-0".  If that "han" character does not have #Mlanguage text
-property, try all three fonts.
+これによってフォントセレクタは、"han" 文字 (つまり#Mscript プロパティ
+が 'han' である文字)のうち、文字の M-text 中での #Mlanguage テキストプ
+ロパティが "ja" でありその文字がフォントのレパートリーに含まれていれも
+のについては、レジストリが"jisx0208.1983-0" であるフォントを使うことを
+指示される。そうでなければ、レジストリが "gb2312.1980-0" や"big5-0" で
+あるものが試される。"han" 文字に #Mlanguage テキストプロパティが無けれ
+ば、３つとも試される。
 
-See the function mdraw_text () for the detail of how a font is
-selected.
+フォント選択の詳細については関数 mdraw_text () 参照。
 */
 
 /* 

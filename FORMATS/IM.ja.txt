@@ -1,0 +1,386 @@
+/* Copyright (C) 2003, 2004
+     National Institute of Advanced Industrial Science and Technology (AIST)
+     Registration Number H15PRO112
+   See the end for copying conditions.  */
+
+/* sections for example found in English vesion omitted */
+
+/***ja
+
+@page mdbIM インプットメソッド
+
+@section im-description 説明
+
+m17n ライブラリは、m17n データベースから動的にロードできる入力メソッド
+ドライバを提供している。(@ref m17nInputMethod 参照。 @latexonly
+(P.\pageref{group__m17nInputMethod}) @endlatexonly).
+
+ここでは入力メソッド定義のデータフォーマットを説明する。
+
+@section im-format 文法と意味
+
+以下のデータフォーマットによって入力メソッドが定義される。ドライバはファ
+イルやストリームから定義をロードし、プロパティリストの形式に変換する。
+
+@verbatim
+INPUT-METHOD ::= TITLE MAP-LIST MACRO-LIST ? MODULE-LIST ? STATE-LIST
+
+TITLE ::= '(' 'title' MTEXT ')'
+@endverbatim
+
+@c MTEXT はこの入力メソッドが有効な際スクリーン上に表示されるテキストである 。
+
+@verbatim 
+MAP-LIST ::= '(' 'map' MAP * ')'
+
+MAP ::= '(' MAP-NAME RULE * ')'
+
+MAP-NAME ::= SYMBOL
+
+RULE ::= '(' KEYSEQ MAP-ACTION * ')'
+
+KEYSEQ ::= MTEXT | '(' [ SYMBOL | INTEGER ] * ')'
+@endverbatim
+
+@c MAP-NAME 定義中の @c SYMBOL は、 @c t あるいは @c nil であってはな
+らない。
+
+@c KEYSEQ 定義中の @c MTEXT は、キーボードから生成できる文字で構成され
+る。すなわち @c MTEXT は通常ASCII 文字のみを含む。しかし、入力メソッド
+がたとえば西ヨーロッパ用キーボードを使うことを想定したものであれば、@c
+MTEXT は Latin-1 文字を含んでもよい。
+
+@c KEYSEQ 定義中の @c SYMBOL は、関数 minput_event_to_key () の戻り値
+でなくてはならない。
+
+@c KEYSEQ 定義中の @c INTEGER は、有効な文字コードでなくてはならない。
+
+@verbatim
+MAP-ACTION ::= ACTION
+
+ACTION ::= INSERT | DELETE | SELECT | MOVE | MARK |
+           | SHOW | HIDE | PUSHBACK | UNDO | SHIFT | CALL
+	   | SET | IF | '(' MACRO-NAME ')'
+
+PREDEFINED-SYMBOL ::=
+    '@<' | '@=' | '@>' | '@-' | '@+' | '@[' | '@]'
+@endverbatim
+@verbatim
+MACRO-LIST ::= '(' 'macro' MACRO * ')'
+
+MACRO ::= '(' MACRO-NAME MACRO-ACTION * ')'
+
+MACRO-NAME ::= SYMBOL
+
+MACRO-ACTION ::= ACTION
+@endverbatim
+@verbatim
+MODULE-LIST ::= '(' 'module' MODULE * ')'
+
+MODULE ::= '(' MODULE-NAME FUNCTION * ')'
+
+MODULE-NAME ::= SYMBOL
+
+FUNCTION ::= SYMBOL
+@endverbatim
+
+各 @c MODULE は外部モジュール (動的ライブラリ) の名前とそのモジュール
+が公開する関数名を宣言する。@c FUNCTION が "init" という名前であれば、
+この入力メソッド用の入力コンテキストが生成される際にのみ、デフォルトの
+引数 (@c CALL の節参照) とともに呼ばれる。 @c FUNCTION が "fini" とい
+う名前を持てば, 入力コンテキストが破壊される際にのみ、デフォルトの引数
+とともに呼ばれる。
+
+@verbatim
+STATE-LIST ::= '(' 'state' STATE * ')'
+
+STATE ::= '(' STATE-NAME BRANCH * ')'
+
+STATE-NAME ::= SYMBOL
+
+BRANCH ::= '(' MAP-NAME BRANCH-ACTION * ')'
+	   | '(' nil BRANCH-ACTION * ')'
+	   | '(' t BRANCH-ACTION * ')'
+@endverbatim
+
+@c BRANCH の最初の形式では、@c MAP-NAME は @c MAP に現われるものでなく
+てはならない。この場合、@c MAP-NAME の @c KEYSEQ の一つに合致するキー
+列がタイプされれば、 @c BRANCH-ACTION が実行される。
+
+@c BRANCH の二つ目の形式では、その時点の状態のいずれの @c BRANCH にも
+合致しないキー列がタイプされれば、@c BRANCH-ACTIONが実行される。
+
+@c BRANCH の三つ目の形式では、すべてのキーを処理した後でその状態に移動
+した場合に @c BRANCH-ACTION が実行される。もし初期状態であれば、入力メ
+ソッドの入力コンテクストを生成した直後に @c BRANCH-ACTION を実行する。
+
+@verbatim
+BRANCH-ACTION ::= ACTION
+@endverbatim
+
+入力メソッドは次の二つのシンボルのリストを持つ。
+
+<ul>
+<li> マーカリスト
+
+マーカは preediting テキスト中での文字位置を示すシンボルである。@c
+MARK アクションはマーカをある位置に設定する。@c MOVE と @c DELETE アク
+ションはマーカの位置を参照する。
+
+<li> 変数リスト
+
+変数は整数の値を持つシンボルである。値は@c SET アクションによって設定
+され、@c SET, @c INSERT, @c IF に参照される。すべての変数の初期値は 0 
+である。
+
+</ul>
+
+@c PREDEFINED-SYMBOL はマーカとして用いられた場合特別な意味を持つ。
+
+<ul>
+<li> @c @@<, @c @@=, @c @@>
+
+最初の、今の、最後の位置
+
+<li> @c @@-, @c @@+
+
+前の、次の位置
+
+<li> @c @@[, @c @@]
+
+候補リストが変化する際の前と次の位置
+</ul>
+
+@c PREDEFINED-SYMBOL は @c SELECT アクション中で候補のインデックスとし
+て用いられた際特別な意味を持つ。
+
+<ul>
+<li> @c @@<, @c @@=, @c @@>
+
+現在の候補グループ中での最初の、今の、最後の候補
+
+<li> @c @@-
+
+前候補。今の候補が今の候補グループ中での最初のものであれば、前の候補グ
+ループの最後の候補。
+
+<li> @c @@+
+
+次候補。今の候補が今の候補グループ中での最後のものであれば、次の候補グ
+ループの最初の候補。
+
+<li> @c @@[, @c @@]
+
+それぞれ前と後の候補グループ中で、今の候補と同じ候補インデックスを持つ
+もの。
+</ul>
+
+各アクションの引数と振舞いは以下の通り。
+
+@verbatim
+INSERT ::= '(' 'insert' MTEXT ')'
+           | MTEXT
+	   | INTEGER
+           | '(' 'insert' SYMBOL ')'
+           | '(' 'insert' '(' CANDIDATES * ')' ')'
+           | '(' CANDIDATES * ')' 
+
+CANDIDATES ::= MTEXT | '(' MTEXT * ')'
+@endverbatim
+
+第一、第二の形式は @c MTEXT を現在の位置の前に挿入する。
+
+第三の形式は、文字 @c INTEGER を現在の位置の前に挿入する。
+
+第四の形式は、@c SYMBOL を変数として扱い、その値が正しい文字コードで
+あれば現在の位置の前に挿入する。
+
+第五、第六の形式では、@c CANDIDATES は候補グループを表し、@c
+CANDIDATES の各要素が候補を表す。つまり@c CANDIDATES が M-text であれ
+ば、候補はそのM-text 中の文字であり、@c CANDIDATES が M-text のリスト
+であれば、候補はそれらの M-text である。
+
+これらの形式は現在の位置の直前に最初の候補を挿入する。挿入された文字列
+には、候補のリストと現在選択されている候補を指す情報が付加されている。
+
+挿入によってマーカの位置は自動的に変更される。
+
+@verbatim
+DELETE ::= '(' 'delete' SYMBOL ')'
+           | '(' 'delete' INTEGER ')'
+@endverbatim
+
+第一の形式は @c SYMBOL をマーカとして、マーカと現在の位置の間の文字を
+削除する。
+
+第二の形式は @c INTEGER を文字位置として、その文字位置と現在の位置の間
+の文字を削除する。
+
+削除によってマーカの位置は自動的に変更される。
+
+@verbatim
+SELECT ::= '(' 'select' PREDEFINED-SYMBOL ')'
+           | '(' 'select' INTEGER ')'
+@endverbatim
+
+このアクションはまず、現在の位置の直前の文字が、候補リストが付加されて
+いる文字列に属すかどうかを調べる。そうであれば、その文字列を引数によっ
+て指定された候補に入れ換える。
+
+第一の形式では @c PREDEFINED-SYMBOL を前述の候補インデックスとして扱い、
+それによって候補リスト中の新しい候補が指定される。
+
+第二の形式では @c INTEGER は候補インデックスであり、候補リスト中の新し
+い候補を指定する。
+
+@verbatim
+SHOW ::= '(show)'
+@endverbatim
+
+このアクションは、入力メソッドドライバに現在の位置の前にある文字列に付
+加されている候補リストを示すように指示する。
+
+@verbatim
+HIDE ::= '(hide)'
+@endverbatim
+
+このアクションは、入力メソッドドライバに現在示されている候補リストを隠
+すように指示する。
+
+@verbatim
+MOVE ::= '(' 'move' SYMBOL ')'
+         | '(' 'move' INTEGER ')'
+@endverbatim
+
+第一の形式は @c SYMBOL をマーカとして、それを新しい現在の位置とする。
+
+第二の形式は @c INTEGER を文字位置として、その位置を新しい現在の位置と
+する。
+
+@verbatim
+MARK ::= '(' 'mark' SYMBOL ')'
+@endverbatim
+
+このアクションは @c SYMBOL をマーカとして、それを現在の位置に設定する。
+@c SYMBOL は @c PREDEFINED-SYMBOL であってはならない。
+
+
+@verbatim
+PUSHBACK :: = '(pushback INTEGER)'
+@endverbatim
+
+このアクションは最新のキーイベントをイベントキューに戻す。
+
+@verbatim
+UNDO :: = '(undo)'
+@endverbatim
+
+このアクションは最後のキーイベントを取り消す。
+
+@verbatim
+SHIFT :: = '(' 'shift' STATE-NAME ')'
+@endverbatim
+
+このアクションは現在の状態を @c STATE-NAME に移動させる。 @c
+STATE-NAME は @c STATE-LIST に現われるものでなくてはならない。
+
+@verbatim
+CALL ::= '(' 'call' MODULE-NAME FUNCTION ARG * ')'
+
+ARG ::= INTEGER | SYMBOL | MTEXT | PLIST
+@endverbatim
+
+このアクションは外部モジュール @c MODULE-NAME の関数 @c FUNCTION を呼
+ぶ。@c MODULE-NAME と @c FUNCTION は @c MODULE-LIST に現われるものでな
+くてはならない。
+
+関数は (#MPlist *) 型の引数とともに呼ばれる。最初の要素のキーは #Mt で
+あり、その値は#MInputContext 型のオブジェクトへのポインタである。第二
+の要素のキーは#Msymbol であり、値は現在の状態名である。 @c ARGs は三つ
+目以降の要素の値として用いられる。それらの要素のキーは自動的に決定され
+る。@c ARG が整数値ならば対応するキーは #Minteger であり、@c ARG がシ
+ンボルならば、対応するキーは #Msymbol、などのように。
+
+関数は NULL を返すか、または行うべきアクションのリストを表す (#MPlist
+*) 型の値を返さなくてはならない。
+
+@verbatim
+SET ::= '(' OPERAND SYMBOL1 [ INTEGER | SYMBOL2 ] ')'
+
+OPERAND ::= 'set' | 'add' | 'sub' | 'mul' | 'div'
+@endverbatim
+
+このアクションは @c SYMBOL1 と @c SYMBOL2 を変数として、@c SYMBOL1 の
+値を以下のように設定する。
+
+@c OPERAND が 'set' ならば、@c SYMBOL1 の値は @c INTEGER または @c
+SYMBOL2 に設定される。
+
+@c OPERAND が 'add' ならば、@c SYMBOL1 の値を @c INTEGER または @c
+SYMBOL2 の値だけ増やす。
+
+@c OPERAND が 'sub' ならば、@c SYMBOL1 の値を @c INTEGER または @c
+SYMBOL2 の値だけ減らす。
+
+@c OPERAND が 'mul' ならば、@c SYMBOL1 の値に @c INTEGER または @c
+SYMBOL2 の値を掛ける。
+
+@c OPERAND が 'div' ならば、@c SYMBOL1 の値を @c INTEGER または @c
+SYMBOL2 の値で割る。
+
+@verbatim
+IF ::= '(' 'if' CONDITION ACTION-LIST1 ACTION-LIST2 * ')'
+
+CONDITION ::= '(' OPERAND VAL1 VAL2 ')'
+
+ACTION-LIST1 ::= '(' ACTION * ')'
+
+ACTION-LIST2 ::= '(' ACTION * ')'
+
+OPERAND ::= '=' '<' '>'
+
+VAL1 ::= [ INTEGER1 | SYMBOL1 ]
+
+VAL2 ::= [ INTEGER2 | SYMBOL2 ]
+@endverbatim
+
+このアクションは、 @c CONDITION が真であれば @c ACTION-LIST1 を実行し、
+そうでなければ @c ACTION-LIST2 を (もしあれば) 実行する。
+
+@c SYMBOL1 と @c SYMBOL2 は変数として扱われる。
+
+@ifnot FOR-MAN
+
+@section im-seealso SEE ALSO
+
+@ref mim-list "Input Methods provided by the m17n database",
+@ref mdbGeneral "mdbGeneral(5)"
+*/
+
+/* 
+Copyright (C) 2003, 2004
+  National Institute of Advanced Industrial Science and Technology (AIST)
+  Registration Number H15PRO112
+
+This file is part of the m17n database; a sub-part of the m17n
+library.
+
+The m17n library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1 of
+the License, or (at your option) any later version.
+
+The m17n library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with the m17n library; if not, write to the Free
+Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+02111-1307, USA.
+*/
+
+/* Local Variables: */
+/* coding: utf-8 */
+/* End: */

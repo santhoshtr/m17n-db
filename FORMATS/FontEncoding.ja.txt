@@ -1,0 +1,78 @@
+/* Copyright (C) 2003, 2004
+     National Institute of Advanced Industrial Science and Technology (AIST)
+     Registration Number H15PRO112
+   See the end for copying conditions.  */
+
+/***ja
+
+@page mdbFontEncoding フォントエンコーディング
+
+@section font-encoding-description 説明
+
+m17n ライブラリは、m17n データベースから \<font, encoding\> タグによっ
+て個々のフォントのエンコーディングに関する情報をロードする。このデータ
+は以下のフォーマットのプロパティリストとしてロードされる。
+
+@verbatim
+FONT-ENCODING ::= PER-FONT *
+
+PER-FONT ::= '(' FONT-SPEC ENCODING [ REPERTORY ] ')'
+
+FONT-SPEC ::=
+    '(' [ FOUNDRY FAMILY
+    	  [ WEIGHT [ STYLE [ STRETCH [ ADSTYLE ]]]]]
+	REGISTRY ')'
+
+ENCODING ::= SYMBOL
+@endverbatim
+
+@c FONT-SPEC はフォントのプロパティを指定する。@c FOUNDRY から @c
+REGISTRY はフォントの #Mfoundry から #Mregistry プロパティに対応するシ
+ンボルである。各プロパティの意味については @ref m17nFont 参照。
+
+たとえばこの @c FONT-SPEC:
+
+@verbatim
+    (nil alice0\ lao iso8859-1)
+@endverbatim
+
+はフォントのファミリ名が "alice0 lao" でレジストリが "iso8859-1" であ
+るすべてのフォントに適用できる。
+
+@c ENCODING は文字セットを示すシンボルである。@c FONT-SPEC に合致する
+フォントは、その文字セットの全文字をサポートし、その文字セットによって
+文字コードはそのフォントの対応するグリフコードにマップされる。
+
+@c REPERTORY は文字セットを示すシンボルか "nil" である。省略した場合は、
+@c ENCODING を @c REPERTORY に指定したのと同じ意味になる。"nil" でなけ
+れば、文字セットはフォントのレパートリ、すなわちサポートする文字を示す。
+そうでなければ、特定の文字がそのフォントでサポートされているかどうかは
+個々のフォントドライバに問い合わせる。
+
+いわゆるユニコードフォント (レジストリは "iso10646-1") については、普
+通ユニコード文字の一部しかサポートしていないため、@c REPERTORY を 
+"nil" にすることが望ましい。     */
+
+/* 
+Copyright (C) 2003, 2004
+  National Institute of Advanced Industrial Science and Technology (AIST)
+  Registration Number H15PRO112
+
+This file is part of the m17n database; a sub-part of the m17n
+library.
+
+The m17n library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1 of
+the License, or (at your option) any later version.
+
+The m17n library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with the m17n library; if not, write to the Free
+Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+02111-1307, USA.
+*/
