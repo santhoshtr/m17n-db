@@ -10,8 +10,8 @@
 @section coding-list-description DESCRIPTION
 
 The m17n library loads a list of coding system definitions from the
-data of tag \<coding-list\> at initialization time.  The data is
-loaded as a plist of this format.
+m17n database by the tags \<coding-list\> at initialization time.  The
+data is loaded as a plist of this format.
 
 @verbatim
 CODING-LIST ::= DEFINITION *
