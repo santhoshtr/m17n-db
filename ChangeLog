@@ -1,3 +1,8 @@
+2004-03-16  Kenichi Handa  <handa@m17n.org>
+
+	* ja-anthy.mim (henkan-eidt): Fix calling syntax of resize
+	function.
+
 2004-03-16  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* ARABIC.flt: Add ZWJ & ZWNJ in phase 2.
