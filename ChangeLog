@@ -1,4 +1,14 @@
+2004-07-21  Kenichi Handa  <handa@m17n.org>
+
+	* default.fst: Fix previous change.
+
+	* truetype.fst: Fix previous change. 
+
 2004-07-20  Kenichi Handa  <handa@m17n.org>
+
+	* MYANMAR-ZEDI.flt: Implement complex rules.
+
+	* TML-OTF.flt: Fix typo (gujr -> taml).
 
 	* my-kbd.mim: New input method for Myanmar.
 
