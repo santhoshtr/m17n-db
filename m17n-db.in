@@ -64,11 +64,11 @@ cat > /dev/null <<EOF
 /***ja @page m17n-config m17n データベースの情報を表示 */
 
 /***
-@section synopsis SYNOPSIS
+@section m17n-db-synopsis SYNOPSIS
 
 m17n-db  [ OPTIONS ] [ TAG0 [ TAG1 [ TAG2 [ TAG3 ] ] ] ]
 
-@section description DESCRIPTION
+@section m17n-db-description DESCRIPTION
 
 The shell script m17n-db prints information about the m17n database.
 
