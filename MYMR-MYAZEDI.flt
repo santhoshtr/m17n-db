@@ -34,39 +34,49 @@
 
 (category
  (0x1000 0x107F ?O)			; other
- (0x1000 0x1021 ?C)			; consonant except for c and K
+ (0x1000 0x1021 ?C)			; consonant except for c, K, n, M
  (0x1000 0x1003 ?c)			; consonant that has subscript form
  (0x1004	?K)			; consonant NGA
  (0x1005 0x1008 ?c)
  (0x100B 0x100C ?c)
  (0x100F 0x1019 ?c)
+ (0xE014 	?c)
+ (0xE01B 	?c)
  (0x1014	?n)			; consonant NA
  (0x101C	?c)
- (0x101A	?M)			; cosonant that may be used as Medial
- (0x101B	?r)			; Medial Ra
- (0x101D	?M)
- (0x101F	?M)
+ ;; cosonants that can be a Medial
+ (0x101A	?M)			; medial Ya
+ (0x101B	?M)			; medial Ra 
+ (0x101D	?M)			; medial Wa
+ (0x101F	?M)			; medial Ha
  (0x1021 0x102A ?I)			; independent vowel
  (0x102C 0x1032	?V)			; dependent Vowel
  (0x1036	?A)			; sign ANUSVARA
  (0x1037 0x1038	?S)			; other sign
  (0x1039	?H)			; HALANT (VIRAMA)
  (0x200C	?N)			; ZWNJ (Zero Width Non Joiner)
+ (0x200D	?J)			; ZWJ (Zero Width Joiner)
  )
 
 (generator
  (0
   (cond
-   ;; Special case for Medial Ra: don't use Kinzi for this pattern.
-   ("(K)(Hr(HM)*)(V*A?H?)N?(S*)"
-    | < (1 =) (2 remove-halant *) (4 = *) (5 = *) > |)
-
-   ;; The following regular expression matches a syllable pattern
-   ;; described in Table 10-3 of the Unicode Standard 4.0 .
-   ;;<1-> <--------2--------><--4--><--6--->  <7->
-   ;;             <---3--->   <5->
-   ("(KH)?([CcnKMr](H[CcnK])?)((H[Mr])*)(V*A?H?)N?(S*)"
+   ;; The following regular expression matches a graphme cluster pattern
+   ;; described in Table 10-3 of the Unicode Standard 4.0 except for
+   ;; Kinzi which is encoded by the sequence "U+1004 U+1039 U+200D".
+   ;; 
+   ;;<-1-> <---------2--------><--4--><--6--->  <7->
+   ;;               <---3--->   <5->
+   ("(KHJ)([CcnKMr](H[CcnK])?)((HM)*)(V*A?H?)N?(S*)"
     | < (1 0xE390) (2 consonant) (4 remove-halant *) (6 = *) (7 = *) > |)
+
+   ;; Irregular independent Kinzi
+   ("KHJ"
+    [ 0xE390 ])
+
+   ;; Cluster without Kinzi
+   ("([CcnKMr](H[CcnK])?)((HM)*)(V*A?H?)N?(S*)"
+    | < (1 consonant) (3 remove-halant *) (5 = *) (6 = *) > |)
 
    ;; Fixme: I'm not sure about the syllable pattern for an
    ;; independent vowel.
@@ -91,7 +101,7 @@
    ("." =)))
 
  (subscript
-  (cond ((range 0x1000 0x101c) 0xE000)))
+  (cond ((range 0x1000 0x101C) 0xE000)))
 
  (remove-halant
   (cond
@@ -173,7 +183,7 @@
 
    ;; Medial Ha (U+101F)
    ((0x100A 0x101F)	0x100A 0xE1F3)
-   ("(..?)f"		(1 = =) 0xE1F1))))
+   ("(..?)f"		(1 = *) 0xE1F1))))
 
 ;; 3rd stage
 ;; Reorder Kinzi and Vowel E.  Handle Kinzi-vowel combination.
@@ -200,13 +210,15 @@
  (0x1036 0x1038	?D)
  (0x1039	?H)
  (0x200C	?N)
+ (0x200D	?J)
  (0xE000 0xE3FF ?O)
  (0xE000 0xE01D ?b)
+ (0xE140	?B)
  (0xE1A1 0xE1B0 ?b)
  (0xE1B1 0xE1BA ?B)
- (0xE140	?C)
+ (0xE1D1 0xE1F1 ?B)
  (0xE390	?K)			; Kinzi
-)
+ )
 
 (generator
  (0
@@ -237,19 +249,30 @@
  (0
   (cond
    (" ([^ ]*) "
+    |
     (1
      (cond
       ;; Consonant substituion.
       ((0x1009 0x1039) 0xE009 0x1039)
-      ((0x1009 0xE005) 0xE109 0xE005)
+      ((0x1009 0xE005) 0xE109 Br>5Bl 0xE005)
       ((0x101B 0x102F) 0xE01B 0x102F)
+      ((0x101B 0x1030) 0xE01B 0x1030)
+      ((0x1014 0x102F) 0xE140 0x102F)
+      ((0x1014 0x1030) 0xE140 0x1030)
 
-      ;; Sign substituion.
-      ((0x1014 0x1037) 0x1014 0xE037)
-      ((0x101B 0x1037) 0x101B 0xE137)
+      ;; Sign substituion.		;
+      ((0x102F 0x1037) 0x102F 0xE137)
+      ((0x1030 0x1037) 0x1030 0xE137)
+      ((0xE01D 0x1037) 0xE01D 0xE137)
+      ((0xE1A1 0x1036 0x1037) 0xE1A1 0x1036 0xE137)
+      ((0xE1A1 0x1032 0x1037) 0xE1A1 0x1032 0xE137)
+      ((0xE01D 0x1032 0x1037) 0xE01D 0x1032 0xE137)
+      ((0xE01D 0x1036 0x1037) 0xE01D 0x1036 0xE137)
 
-      ;; Vowel substituion.
+      ;; Vowel substituion.		;
       ((0xE1F1 0x102F)	0xE1F2)
+      ((0xE1F1 0x102D 0x102F)	0xE1F2 0x102E)
+      ((0xE1F1 0x102E 0x102F)	0xE1F2 0x102E)
       ("BcK?A"		= = = =)
       ("cAH"		= 0xE02D)
       ("cA"		= 0xE02C)
@@ -262,10 +285,37 @@
       ("([bB][^u]*)u"	(1 = *) 0xE2F1)
       ("([bB][^u]*)U"	(1 = *) 0xE2F2)
       ("." =))
-     *))
+     *)
+    |)
    ((0x200C)	0x4E tc.cc 0x48)
    ("."
     =))
+  *))
+
+(category
+ (0x1000 0x107F ?O)
+ (0xE000 0xE3FF ?O)
+ (0x1014	?T)			; Tall consonant
+ (0x101B	?T)
+ (0x102F	?B)			; Below position
+ (0xE01D	?B)
+ (0xE1A1	?B)
+ (0xE1D1	?B)
+ (0xE1F1 0xE1F2	?B)
+ )
+
+(generator
+ (0
+  (cond
+   (" ([^ ]*) "
+    (1
+     (cond
+      ("(T)(B)"
+       (1 (cond ((0x1014) 0xE140) ((0x101B) 0xE01B)))
+       (2 =))
+      ("." =))
+     *))
+   ("." =))
   *))
 
 ;; Local Variables:
