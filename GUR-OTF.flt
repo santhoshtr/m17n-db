@@ -84,7 +84,7 @@
 
    ;; A syllable without a vowel sign nor a vowel modifier.
    ("(([CRY]n?H)*[CRY]n?)(H)?"
-    < | (0 move-base-Halant) | >)
+    < | move-base-Halant | >)
 
    ;; A syllable starting with an independent vowel.
    ("V[Aa]?"
@@ -94,20 +94,20 @@
   *)
 
  ;; Move Halant on the base consonant to the tail.
- ;; 0x0A7F indicates the postion for above- or below Matra.
+ ;; 0x0A7F indicates the position for above- or below Matra.
  (move-base-Halant
   (cond
-   ("(([CRY]n?H)*[CRY]n?)(H)(Y)"
+   ("(([CRY]n?H)*[CRY]n?)(H)(Y)$"
     (1 = *)
     0x0A7F
     (4 =)
     (3 =))
-   ("(([CRY]n?H)*[CRY]n?)(H)(R)"
+   ("(([CRY]n?H)*[CRY]n?)(H)(R)$"
     (1 = *)
     (4 =)
     (3 =)
     0x0A7F)
-   ("([CRY]n?H)*[CRY]n?H"
+   ("([CRY]n?H)*[CRY]n?H$"
     = * 0x200C)
    (".*"
     = * 0x0A7F))))
