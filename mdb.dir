@@ -106,6 +106,7 @@
 (input-method ko hangul2 "ko-han2.mim")
 (input-method lo lrt "lo-lrt.mim")
 (input-method ml itrans "mlm-itrans.mim")
+(input-method my kdb "my-kbd.mim")
 (input-method or itrans "ori-itrans.mim")
 (input-method pa itrans "pnj-itrans.mim")
 (input-method ru yawerty "ru-yawerty.mim")
