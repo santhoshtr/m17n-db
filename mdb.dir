@@ -111,6 +111,7 @@
 (input-method or itrans "ori-itrans.mim")
 (input-method pa itrans "pnj-itrans.mim")
 (input-method ru yawerty "ru-yawerty.mim")
+(input-method si samanala "si-samanala.mim")
 (input-method sk kbd "sk-kbd.mim")
 (input-method sr kbd "sr-kbd.mim")
 (input-method ta itrans "tml-itrans.mim")

@@ -110,6 +110,7 @@ INPUT_METHOD = \
 	asm-itrans.mim dev-itrans.mim knd-itrans.mim ori-itrans.mim \
 	tlg-itrans.mim bng-itrans.mim gjr-itrans.mim mlm-itrans.mim \
 	pnj-itrans.mim tml-itrans.mim \
+	si-samanala.mim \
 	bo-wylie.mim \
 	my-kbd.mim \
 	th-kesmanee.mim \
