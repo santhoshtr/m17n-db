@@ -123,6 +123,7 @@
 (input-method vi telex "vi-telex.mim")
 (input-method vi viqr "vi-viqr.mim")
 (input-method zh py "zh-py.mim")
+(input-method zh pinyin "zh-pinyin.mim")
 (input-method t latn-post "latn-post.mim")
 (input-method t syrc-phonetic "syrc-phonetic.mim")
 (input-method t bopo-kbd "bopo-kbd.mim")
