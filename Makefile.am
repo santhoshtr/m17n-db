@@ -92,8 +92,9 @@ FONT_LAYOUT_TABLE = \
 
 INPUT_METHOD = \
 	am-sera.mim el-kbd.mim he-kbd.mim ru-yawerty.mim sk-kbd.mim \
+	kk-kbd.mim \
 	vi-viqr.mim vi-telex.mim \
-	ar-kbd.mim fa-isiri.mim \
+	ar-kbd.mim fa-isiri.mim kk-arabic.mim\
 	asm-itrans.mim dev-itrans.mim knd-itrans.mim ori-itrans.mim \
 	tlg-itrans.mim bng-itrans.mim gjr-itrans.mim mlm-itrans.mim \
 	pnj-itrans.mim tml-itrans.mim \
