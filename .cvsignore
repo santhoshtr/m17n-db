@@ -9,3 +9,4 @@ glibc*
 *.tab
 *.map
 mapconv
+m17n-db
