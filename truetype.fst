@@ -44,6 +44,7 @@
   ((nil bitstream\ cyberbase unicode-bmp) arabic)))
 (devanagari
  (nil
+  ((nil gargi-1.3 unicode-bmp) dev-otf)
   ((nil raghindi t) dev-otf)
   ((nil dv-ttyogesh apple-roman) dev-cdac)))
 (bengali
@@ -58,7 +59,6 @@
   ((nil padmaa unicode-bmp) guj-otf)))
 (tamil
  (nil
-  ((nil tm-ttvalluvar apple-roman) tml-cdac)
   ((nil akrutitml1 unicode-bmp) tml-otf)
   ((nil akrutitml2 unicode-bmp) tml-otf)
   ((nil tscu_paranar unicode-bmp) tml-otf)
@@ -66,7 +66,8 @@
   ((nil tscu_times unicode-bmp) tml-otf)
   ((nil tamu_kadambri unicode-bmp) tml-otf)
   ((nil tamu_kalyani unicode-bmp) tml-otf)
-  ((nil tamu_maduram unicode-bmp) tml-otf)))
+  ((nil tamu_maduram unicode-bmp) tml-otf))
+  ((nil tm-ttvalluvar apple-roman) tml-cdac))
 (telugu
  (nil
   ((nil pothana2000 unicode-bmp) tel-otf)))

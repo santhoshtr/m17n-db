@@ -191,14 +191,14 @@
   ((nil bitstream\ cyberbase unicode-bmp) arabic)))
 (devanagari
  (nil
-  ((devanagari-cdac) dev-cdac)
-  ((nil raghindi unicode-bmp) dev-otf)
   ((nil gargi-1.3 unicode-bmp) dev-otf)
-  ((nil dv-ttyogesh apple-roman) dev-cdac)))
+  ((nil raghindi unicode-bmp) dev-otf)
+  ((nil dv-ttyogesh apple-roman) dev-cdac))
+  ((devanagari-cdac) dev-cdac))
 (bengali
  (nil
-  ((nil likhan unicode-bmp) ben-otf)
-  ((nil mukti\ narrow unicode-bmp) ben-otf)))
+  ((nil mukti\ narrow unicode-bmp) ben-otf)
+  ((nil likhan unicode-bmp) ben-otf)))
 (gurmukhi
  (nil
   ((nil saab unicode-bmp) gur-otf)))
@@ -207,7 +207,6 @@
   ((nil padmaa unicode-bmp) guj-otf)))
 (tamil
  (nil
-  ((tamil-cdac) tml-cdac)
   ((nil tm-ttvalluvar apple-roman) tml-cdac)
   ((nil akrutitml1 unicode-bmp) tml-otf)
   ((nil akrutitml2 unicode-bmp) tml-otf)
@@ -216,7 +215,8 @@
   ((nil tscu_times unicode-bmp) tml-otf)
   ((nil tamu_kadambri unicode-bmp) tml-otf)
   ((nil tamu_kalyani unicode-bmp) tml-otf)
-  ((nil tamu_maduram unicode-bmp) tml-otf)))
+  ((nil tamu_maduram unicode-bmp) tml-otf)
+  ((tamil-cdac) tml-cdac)))
 (telugu
  (nil
   ((nil pothana2000 unicode-bmp) tel-otf)))
@@ -225,9 +225,9 @@
   ((nil sampige unicode-bmp) kan-otf)))
 (malayalam
  (nil
+  ((nil thoolikaunicode unicode-bmp) mlm-otf)
   ((malayalam-cdac) mlm-cdac)
-  ((nil ml-ttkarthika apple-roman) mlm-cdac)
-  ((nil thoolikaunicode unicode-bmp) mlm-otf)))
+  ((nil ml-ttkarthika apple-roman) mlm-cdac)))
 (thai
  (nil
   ((tis620.2529-1) thai-tis620)
