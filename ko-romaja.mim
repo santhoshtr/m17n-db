@@ -1,0 +1,224 @@
+;; ko-romaja.mim -- Input method for Korean Hangul with Romaja keys.
+;; Copyright (C) 2004
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; <li> ko-romaja.mim
+;;;
+;;; Input method for Korean Hangul using Romaja keys.
+
+(title "로마자")
+
+(macro
+ (compose
+  ;; Convert Jamo sequence LVT to a precomposed character.
+  ;; See the Unicode Standard Version 3.0, Section 3.11.
+  (> L 0
+     ((set LIndex L) (sub LIndex 0x1100)
+      (set VIndex V) (sub VIndex 0x1161)
+      (set TIndex T) (sub TIndex 0x11A7)
+      ;; S = (LIndex * VCount + Vindex) * TCount + TIndex + SBase
+      (set S LIndex)
+      (mul S 21) ;; VCount
+      (add S VIndex)
+      (mul S 28) ;; TCount
+      (add S TIndex)
+      (add S 0xAC00) ;; SBase
+      (delete @<)
+      (insert S))))
+
+ ;; If L is not negatice, convert Jame sequence LV to a precomposed
+ ;; character while assuming T is 0x11A7.  If L is 0 (i.e. missing),
+ ;; set L to 0x110B.
+ (compose-vowel
+  (< L 0
+     ()
+     ((= L 0 ((set L 0x110B)))
+      (set T1 T)
+      (set T 0x11A7)
+      (compose)
+      (set T T1)))))
+
+(map
+ ;; Common keys for CHOSEONG and JONGSEONG.
+ ;; Set L1 to CHOSEONG, T to JONGSEONG, insert a Compatibility Jamo.
+ (X
+  ("g"  (set L1 0x1100) (set T 0x11A8) ?ㄱ (compose))
+  ("gg" (set L1 0x1101) (set T 0x11A9) ?ㄲ (compose))
+  ("G"  (set L1 0x1101) (set T 0x11A9) ?ㄲ (compose))
+  ("n"  (set L1 0x1102) (set T 0x11AB) ?ㄲ (compose))
+  ("d"  (set L1 0x1103) (set T 0x11AE) ?ㄷ (compose))
+  ("m"  (set L1 0x1106) (set T 0x11B7) ?ㅁ (compose))
+  ("b"  (set L1 0x1107) (set T 0x11B8) ?ㅂ (compose))
+  ("s"  (set L1 0x1109) (set T 0x11BA) ?ㅅ (compose))
+  ("ss" (set L1 0x110A) (set T 0x11BB) ?ㅆ (compose))
+  ("j"  (set L1 0x110C) (set T 0x11BD) ?ㅈ (compose))
+  ("z"  (set L1 0x110C) (set T 0x11BD) ?ㅈ (compose))
+  ("ch" (set L1 0x110E) (set T 0x11BE) ?ㅊ (compose))
+  ("k"  (set L1 0x110F) (set T 0x11BF) ?ㅋ (compose))
+  ("t"  (set L1 0x1110) (set T 0x11C0) ?ㅌ (compose))
+  ("p"  (set L1 0x1111) (set T 0x11C1) ?ㅍ (compose))
+  ("h"  (set L1 0x1112) (set T 0x11C2) ?ㅎ (compose)))
+
+ ;; Keys starting X.
+ (X-head
+  ("g") ("G") ("n") ("d") ("m") ("b") ("s") ("j") ("z") ("c")
+  ("k") ("t") ("p") ("h"))
+
+ ;; Keys only for CHOSEONG.
+ ;; Set L to CHOSEONG, insert a Compatibility Jamo.
+ (L
+  ("dd" (set L 0x1104) ?ㄸ)
+  ("D"  (set L 0x1104) ?ㄸ)
+  ("r"  (set L 0x1105) ?ㄹ)
+  ("bb" (set L 0x1108) ?ㅃ)
+  ("B"  (set L 0x1108) ?ㅃ)
+  ("S"  (set L 0x110A) ?ㅆ)
+  ("jj" (set L 0x110D) ?ㅉ)
+  ("J"  (set L 0x110D) ?ㅉ)
+  ("zz" (set L 0x110D) ?ㅉ)
+  ("Z"  (set L 0x110D) ?ㅉ)
+  ("q"  (set L 0x110F) ?ㅋ))
+
+ ;; Keys only for JONGSEONG.
+ ;; Set T to JONGSEONG, insert a Compatibility Jamo.
+ (T
+  ("gs" (set T 0x11AA) ?ㄳ (compose))
+  ("nj" (set T 0x11AC) ?ㄵ (compose))
+  ("nh" (set T 0x11AD) ?ㄶ (compose))
+  ("l"  (set T 0x11AF) ?ㄹ (compose))
+  ("lg" (set T 0x11B0) ?ㄺ (compose))
+  ("lm" (set T 0x11B1) ?ㄻ (compose))
+  ("lb" (set T 0x11B2) ?ㄼ (compose))
+  ("ls" (set T 0x11B3) ?ㄽ (compose))
+  ("lt" (set T 0x11B4) ?ㄾ (compose))
+  ("lp" (set T 0x11B5) ?ㄿ (compose))
+  ("lh" (set T 0x11B6) ?ㅀ (compose))
+  ("bs" (set T 0x11B9) ?ㅄ (compose))
+  ("ng" (set T 0x11BC) ?ㅇ (compose)))
+
+ ;; Keys only for JUNGSEONG.
+ ;; Set V to JUNGSEONG, insert a Compatibility Jamo.
+ (V
+  ("a"   (set V 0x1161) ?ㅏ (compose-vowel))
+  ("ai"  (set V 0x1162) ?ㅐ (compose-vowel))
+  ("ae"  (set V 0x1162) ?ㅐ (compose-vowel))
+  ("ya"  (set V 0x1163) ?ㅑ (compose-vowel))
+  ("yai" (set V 0x1164) ?ㅒ (compose-vowel))
+  ("yae" (set V 0x1164) ?ㅒ (compose-vowel))
+  ("eo"  (set V 0x1165) ?ㅓ (compose-vowel))
+  ("e"   (set V 0x1166) ?ㅔ (compose-vowel))
+  ("eoi" (set V 0x1166) ?ㅔ (compose-vowel))
+  ("yeo" (set V 0x1167) ?ㅕ (compose-vowel))
+  ("ye"  (set V 0x1168) ?ㅖ (compose-vowel))
+  ("yeoi"(set V 0x1168) ?ㅖ (compose-vowel))
+  ("o"   (set V 0x1169) ?ㅗ (compose-vowel))
+  ("oa"  (set V 0x116A) ?ㅘ (compose-vowel))
+  ("wa"  (set V 0x116A) ?ㅘ (compose-vowel))
+  ("oai" (set V 0x116B) ?ㅙ (compose-vowel))
+  ("wae" (set V 0x116B) ?ㅙ (compose-vowel))
+  ("oi"  (set V 0x116C) ?ㅚ (compose-vowel))
+  ("oe"  (set V 0x116C) ?ㅚ (compose-vowel))
+  ("yo"  (set V 0x116D) ?ㅛ (compose-vowel))
+  ("u"   (set V 0x116E) ?ㅜ (compose-vowel))
+  ("ueo" (set V 0x116F) ?ㅝ (compose-vowel))
+  ("wo"  (set V 0x116F) ?ㅝ (compose-vowel))
+  ("ue"  (set V 0x1170) ?ㅞ (compose-vowel))
+  ("we"  (set V 0x1170) ?ㅞ (compose-vowel))
+  ("ui"  (set V 0x1171) ?ㅟ (compose-vowel))
+  ("wi"  (set V 0x1171) ?ㅟ (compose-vowel))
+  ("yu"  (set V 0x1172) ?ㅠ (compose-vowel))
+  ("eu"  (set V 0x1173) ?ㅡ (compose-vowel))
+  ("eui" (set V 0x1174) ?ㅢ (compose-vowel))
+  ("ui"  (set V 0x1174) ?ㅢ (compose-vowel))
+  ("i"   (set V 0x1175) ?ㅣ (compose-vowel)))
+
+ ;; Keys starting V.
+ (V-head
+  ("a") ("y") ("e") ("o") ("w") ("u") ("i"))
+
+ (punctuation
+  ("," ?,)
+  (",," ?、)
+  ("." ?.)
+  (".." ?。)
+  ("?" ??)
+  ("??" ?？)
+  ("!" ?!)
+  ("!!" ?！))
+
+ (backspace
+  ((BackSpace) (undo)))
+
+ (tilda
+  ("~")))
+
+(state
+ (init
+  (t (set L 0))
+  (X (set L L1) (shift after-L))
+  (L (shift after-L))
+  (V (shift after-LV))
+  (punctuation)
+  (backspace)
+  (tilda (shift single)))
+
+ (after-L
+  (V (shift after-LV))
+  (backspace))
+ (after-LV
+  (X (shift after-LVX))
+  (T (shift init))
+  (backspace))
+ (after-LVX
+  (V-head (delete @<) (pushback 0) (shift fix-LV-redo-L))
+  (backspace)
+  (nil    (delete @<) (pushback 0) (shift fix-LVT-redo-L)))
+
+ (fix-LVT-redo-L
+  (t (set L 0))
+  (X (set L L1) (shift fix-LVT-redo-V))
+  (L (shift fix-LVT-redo-V))
+  (V (shift fix-LVT-redo-T)))
+ (fix-LVT-redo-V
+  (V (shift fix-LVT-redo-T)))
+ (fix-LVT-redo-T
+  (X (shift init)))
+
+ (fix-LV-redo-L
+  (t (set L 0))
+  (X (set L L1) (shift fix-LV-redo-V))
+  (L (shift fix-LV-redo-V))
+  (V (shift init)))
+ (fix-LV-redo-V
+  (V (shift init)))
+
+ (single
+  (t (set L -1))
+  (X (shift init))
+  (L (shift init))
+  (T (shift init))
+  (V (shift init))))
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: lisp
+;; End:
