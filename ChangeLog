@@ -1,3 +1,11 @@
+2004-07-05  Kenichi Handa  <handa@m17n.org>
+
+	* MYANMAR-ZEDI.flt: New file, still experimental.
+
+	* default.fst, truetype.fst, mdb.dir, Makefile.am: Add Myanmar entry.
+
+	* Makefile.am (FONT_LAYOUT_TABLE): Add MYANMAR-ZEDI.flt.
+
 2004-06-30  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* KAN-OTF.flt, default.fst, mdb.dir, Makefile.am:
