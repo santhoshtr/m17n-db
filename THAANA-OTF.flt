@@ -35,7 +35,8 @@
 (generator
  (0
   (cond
-   ("cv" < = = >)
+   ;; GPOS of OTF wil override this combining rule.
+   ("cv" < = Bl.Bl = >)
    ("v" [ = ])
    ("." =))
   *))
