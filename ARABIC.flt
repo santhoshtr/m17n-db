@@ -25,9 +25,38 @@
 ;;;
 ;;; For Arabic fonts of Unicode encoding to draw Arabic script.
 
-;; phase 1: ligatures
+;; phase 1: Kazakh high hamza
 (category
- (0x0600 0x06ff		?x)		; general
+ (0x0600 0x06FF		?x)
+ (0x0675 0x0678		?p)
+ (0x0643		?n)
+ (0x06AF		?n)
+ (0x06D5		?n)
+ )
+
+(generator
+ (0
+  (cond
+   (".*p.*"
+    (cond
+     (".*n.*"
+      rmhamza)
+     (0
+      < 0x0674 = > rmhamza)))
+   (0 = *)))
+
+ (rmhamza
+  (cond
+   ((0x0675)	0x0627)
+   ((0x0676)	0x0648)
+   ((0x0677)	0x06C7)
+   ((0x0678)	0x0649)
+   ("."		=))
+  *))
+
+;; phase 2: ligatures
+(category
+ (0x0600 0x06FF		?x)		; general
  (0x0622		?a)		; alef madda
  (0x0623		?b)		; alef hamza above
  (0x0625		?c)		; alef hamza below
@@ -64,7 +93,7 @@
     =))
   *))
 
-;; phase 2: joining
+;; phase 3: joining
 (category
  ;; D: Dual-joining (beh, teh, etc. & zwj)
  ;; R: Right-joining (alef, dal, thal, reh, zain)
@@ -406,6 +435,7 @@
    ((0x06AF)	0xFB94)
    ((0x06B1)	0xFB9C)
    ((0x06B3)	0xFB98)
+   ((0x06BA)	0xFEE7)
    ((0x06BB)	0xFBA2)
    ((0x06BE)	0xFBAC)
    ((0x06C1)	0xFBA8)
@@ -459,6 +489,7 @@
    ((0x06AF)	0xFB95)
    ((0x06B1)	0xFB9D)
    ((0x06B3)	0xFB99)
+   ((0x06BA)	0xFEE8)
    ((0x06BB)	0xFBA3)
    ((0x06BE)	0xFBAD)
    ((0x06C1)	0xFBA9)
