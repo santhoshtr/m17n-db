@@ -1,4 +1,4 @@
-;; latin-post.mim -- Latin input method with postfix modifiers
+;; latn-post.mim -- Latin input method with postfix modifiers
 ;; Copyright (C) 2003, 2004
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
@@ -20,11 +20,11 @@
 ;; the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
-;;; <li> latin-post.mim
+;;; <li> latn-post.mim
 ;;;
 ;;; Input method for Latin script with postfix modifiers.
-;;; @image html latin-post.png
-;;; @image latex latin-post.eps "Examples" width=\narrowwidth
+;;; @image html latn-post.png
+;;; @image latex latn-post.eps "Examples" width=\narrowwidth
 
 ;; | mark       | postfix | examples
 ;; |------------+---------+----------
