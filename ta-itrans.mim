@@ -1,4 +1,4 @@
-;; tml-itrans.mim -- Tamil input method with ITRANS method
+;; ta-itrans.mim -- Tamil input method with ITRANS method
 ;; Copyright (C) 2003, 2004
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
@@ -21,7 +21,7 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> tml-itrans.mim
+;;; <li> ta-itrans.mim
 ;;;
 ;;; Input method for Tamil script with ITRANS method.  For the detail
 ;;; of ITRAN, see the page http://www.aczone.com/itrans/.
