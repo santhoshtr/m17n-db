@@ -1,5 +1,11 @@
 2004-12-27  Kenichi Handa  <handa@m17n.org>
 
+	* Version 1.2.0 released.
+
+2004-12-27  Kenichi Handa  <handa@m17n.org>
+
+	* m17n-db.in: Doxygen's section name fixed.
+
 	* ko-romaja.mim: Make Shift-SPC key commit the current preedit.
 
 	* latn-pre.mim: New input method.
