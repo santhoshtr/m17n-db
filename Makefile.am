@@ -84,7 +84,7 @@ FONT_LAYOUT_TABLE = \
 	ARABIC.flt \
 	HEBREW.flt HEBREW-FF.flt \
 	DEV-CDAC.flt DEV-OTF.flt TML-CDAC.flt MLM-CDAC.flt MLM-OTF.flt \
-	BEN-OTF.flt \
+	BEN-OTF.flt GUR-OTF.flt \
 	THAI-TIS620.flt THAI-NORASI.flt \
 	LAO-MULE.flt LAO-ALICE.flt \
 	TIB-MULE.flt TIB-MTIB.flt \
