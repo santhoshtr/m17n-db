@@ -1,0 +1,117 @@
+;; SINH-OTF.flt -- Font Layout Table for Sinhala OpenType fonts
+;; Copyright (C) 2004
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; <li> SINH-OTF.flt
+;;;
+;;; For Sinhala OpenType fonts to draw Sinhala.
+;;; A Font is available from <http://sinhala.linux.lk/>.
+
+(category
+ ;; V : independent vowels
+ ;; C : consonants
+ ;; H : AL-LAKUNA (virama)
+ ;; m : MATRA (pre)
+ ;; b : MATRA (below)
+ ;; u : MATRA (above)
+ ;; p : MATRA (post)
+ ;; t : MATRA (two-part)
+ ;; a : AVUSVARAYA & VISARGAYA
+ ;; h : Internal use
+ ;; E : else
+ ;; J : ZERO WIDTH JOINER
+ (0x0D80 0x0DFF ?E)
+ (0x0D82 0x0D83 ?a)
+ (0x0D85 0x0D96 ?V)
+ (0x0D96 0x0DC6 ?C)
+ (0x0DCA	?H)
+ (0x0DCF 0x0DD1 ?p)
+ (0x0DD2 0x0DD3 ?u)
+ (0x0DD4 0x0DD6 ?b)
+ (0x0DD8	?p)
+ (0x0DD9	?m)
+ (0x0DDA	?t)
+ (0x0DDB	?m)
+ (0x0DDC 0x0DDE ?t)
+ (0x0DDF	?p)
+ (0x0DF2 0x0DF3 ?p)
+ (0x0DFF	?h)
+ (0x200D	?J)
+ )
+
+;; Step 0 : Syllable identification
+(generator
+ (0
+  (cond
+   ;; A syllable ending with a two-part vowel sign.
+   ("((CHJ)*C)(t)(a)?"
+    < | (1 otf:sinh=akhn,vatu) (3 two-part) (4 =) | >)
+
+   ;; A syllable ending with a vowel sign and/or a various sign.
+   ;; Note that a two-part vowel may be expressed with two vowel marks.
+
+   ("((CHJ)*C)([mbup]+a?|a)"
+    < | (1 otf:sinh=akhn,vatu) (3 = *) | >)
+
+   ;; No signs.
+   ("(CHJ)*CH?"
+    < | otf:sinh=akhn,vatu | >)
+
+   ;; Independent vowels.
+   ("Va?"
+    < | = * | >)
+
+   ("." =))
+  *)
+
+ ;; Split two-part dependent vowel signs for canonicalisation.
+ (two-part
+  (cond
+   ((0x0DDA)	0x0DD9 0x0DFF)
+   ((0x0DDC)	0x0DD9 0x0DCF)
+   ((0x0DDD)	0x0DD9 0x0DCF 0x0DFF)
+   ((0x0DDE)	0x0DD9 0x0DDF)))
+ )
+
+;; Step 1 : Matra movements.
+(generator
+ (0
+  (cond
+   ;; 1          2         3   4   5   6   7   8
+   (" ([^ mbup]*)([^ mbup])(m)?(b)?(u)?(p)?(h)?(a)? "
+    | (1 = *) (3 =) (2 =) (4 =) (5 =) (6 =) (7 0x0DCA) (8 =) |)
+   ("." =))
+  *))
+
+;; Step 2 : OTF substitutions.
+(generator
+ (0
+  (cond
+   (" ([^ ]*) "
+    (1 otf:sinh))
+   ("."
+    [ otf:sinh=+ ]))
+  *))
+
+;; Local Variables:
+;; mode: emacs-lisp
+;; End:
