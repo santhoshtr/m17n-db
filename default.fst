@@ -55,6 +55,13 @@
 ;;; <li> infopage: ftp://ftp.NetBSD.org/pub/NetBSD/packages/pkgsrc/fonts/cyberbase-ttf/README.html
 ;;; <li> download: ftp://ftp.netbsd.org/pub/NetBSD/packages/1.6.1/amiga/All/cyberbase-ttf-2.0.tgz
 ;;; </ul>
+;;; <li> SyrCOMEdessa.otf (family: Estrangelo Edessa; for Syriac),\n
+;;;      SyrCOMJerusalem.otf (family: Serto Jerusalem; for Syriac),\n
+;;;      SyrCOMAdiabene.otf (family: East Syriac Adiabene; for Syriac)
+;;; <ul>
+;;; <li> infopage: http://www.bethmardutho.org/meltho/
+;;; <li> download: http://www.bethmardutho.org/support/meltho/download/
+;;; </ul>
 ;;; <li> Thaana1U.TTF (family:Thaana Unicode Akeh; for Thaana)
 ;;; <ul>
 ;;; <li> infopage: http://www.mitf.net/index.php/projects/thaana/font-unicode.html
@@ -67,10 +74,15 @@
 ;;; <li> infopage: http://www.iiit.net/ltrc/iscii/FAQ.htm#SEC2.1
 ;;; <li> download: http://www.iiit.net/ltrc/iscii/iscii_plugin_linux.tar.gz
 ;;; </ul>
-;;; <li> raghu.ttf
+;;; <li> raghu.ttf (family: Raghindi; for Devanagari)
 ;;; <ul>
 ;;; <li> infopage: http://www.nepali.info/nepali/help.asp
 ;;; <li> download: http://www.nepali.info/nepali/fonts/raghu.ttf
+;;; </ul>
+;;; <li> Gargi-1.3.ttf (family: Gargi-1.3; for Devanagari)
+;;; <ul>
+;;; <li> infopage: http://www.indictrans.org/
+;;; <li> dowvload: http://www.indictrans.org/Fonts_files/English/f2.php#freefont
 ;;; </ul>
 ;;; <li> MuktiNarrow.ttf (family: mukti narrow; for Bengali)
 ;;; <ul>
@@ -86,6 +98,11 @@
 ;;; <ul>
 ;;; <li> infopage: http://guca.sourceforge.net/typography/fonts/saab/index.shtml
 ;;; <li> download: http://prdownloads.sourceforge.net/guca/saab.0.91.otf?download
+;;; </ul>
+;;; <li> padmaa-Medium-0.5.ttf (family: padmaa; for Gujarati)
+;;; <ul>
+;;; <li> infopage: http://www.indictrans.org/
+;;; <li> dowvload: http://www.indictrans.org/Fonts_files/English/f2.php#freefont
 ;;; </ul>
 ;;; <li> utkalm.ttf (family utkal; for Oriya)
 ;;; <ul>
@@ -114,16 +131,15 @@
 ;;; <li> infopage: http://kannada.sourceforge.net/
 ;;; <li> download: http://brahmi.sourceforge.net/dl/Sampige.ttf
 ;;; </ul>
-;;; <li> Gargi-1.3.ttf (family: Gargi-1.3; for Devanagari), \n
-;;;      padmaa-Medium-0.5.ttf (family: padmaa; for Gujarati)
-;;; <ul>
-;;; <li> infopage: http://www.indictrans.org/
-;;; <li> dowvload: http://www.indictrans.org/Fonts_files/English/f2.php#freefont
-;;; </ul>
 ;;; <li> THOOLIUC.TTF (family: thoolikaunicode; for Malayalam)
 ;;; <ul>
 ;;; <li> infopage: http://www.supersoftweb.com/Unicode.htm
 ;;; <li> downpage: http://www.supersoftweb.com/THOOLIUC.TTF
+;;; </ul>
+;;; <li> lklug.otf (family: LKLUG; for Sinhala)
+;;; <ul>
+;;; <li> infopage: http://sinhala.linux.lk/
+;;; <li> download: http://sinhala.linux.lk/pub/0.1/
 ;;; </ul>
 ;;; <li> mtib.ttf (family: mtib; for Tibetan)
 ;;; <ul>
@@ -217,6 +233,11 @@
   ((nil paktype\ naqsh unicode-bmp) arabic-otf)
   ((nil bitstream\ cyberbase unicode-bmp) arabic)
   ((nil mule iso10646-1) arabic)))
+(syriac
+ (nil
+  ((nil estrangelo\ edessa unicode-bmp) syriac-otf)
+  ((nil serto\ jerusalem unicode-bmp) syriac-otf)
+  ((nil east\ syriac\ adiabene unicode-bmp) syriac-otf)))
 (thaana
  (nil
   ((nil thaana\ unicode\ akeh unicode-bmp) thaana-otf)))
@@ -262,6 +283,9 @@
   ((nil thoolikaunicode unicode-bmp) mlm-otf)
   ((malayalam-cdac) mlm-cdac)
   ((nil ml-ttkarthika apple-roman) mlm-cdac)))
+(sinhala
+ (nil
+  ((nil lklug unicode-bmp) sinh-otf)))
 (thai
  (nil
   ((tis620.2529-1) thai-tis620)
