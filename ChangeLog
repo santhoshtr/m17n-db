@@ -6,6 +6,7 @@
 2004-03-16  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* ARABIC.flt: Add ZWJ & ZWNJ in phase 2.
+	ZWJ & ZWNJ output themselves in phase 3.
 
 2004-03-15  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
