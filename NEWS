@@ -5,6 +5,13 @@ Copyright (C) 2004
 See the end for copying conditions.
 
 
+* Changes in the m17n database 1.2
+
+** Several new input methods are added.
+
+ko-romaja.mim (Korean Hangul script)
+
+
 * Changes in the m17n database 1.1
 
 ** Several new FLTs are added.

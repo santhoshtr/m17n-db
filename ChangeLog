@@ -1,3 +1,14 @@
+2004-10-22  Kenichi Handa  <handa@m17n.org>
+
+	* FONTENC.tbl: Give `nil' encoding to those fonts that can't be
+	used without a FLT.
+
+	* Makefile.am (INPUT_METHOD): Add ko-romaja.mim.
+
+	* mdb.dir: Add ko-romaja.mim.
+
+	* ko-romaja.mim: New file.
+
 2004-10-21  Kenichi Handa  <handa@m17n.org>
 
 	* ko-han2.mim: Fix rule for "J"->HJF.
