@@ -181,13 +181,13 @@
  )
 
 ;; Step 2 : Move Reph and Matra if necessary.  From now on, we care
-;; for only those syllables that were identified in Step 1.
+;; only for those syllables that have been identified in Step 1.
 (generator
  (0
   (cond
    ;; This is the most generic pattern.  It follows Case A-C and a
    ;; part of Case E in Step 1.  Now Mark #1 is used to indicate the
-   ;; critical part that require pre-base substitution in the
+   ;; critical part that requires pre-base substitution in the
    ;; following steps.
 
    ;; 1    2         3        4    5   6   7   8   9
@@ -199,7 +199,7 @@
     ;; all the necessary Nukta forms are precomposed in the Unicode
     ;; standard.  Even if a Nukta consonant is given in the form of
     ;; the combination of the base consonant and a Nukta sign, we can
-    ;; safely perm the composition here because it does not affect
+    ;; safely perform the composition here because it does not affect
     ;; surrounding letters in the syllable.  The Akhand ligature
     ;; operation is also applied here, before applying the half form
     ;; operation because the Mukti font generates Akhand ligatures
@@ -217,7 +217,7 @@
 
    ;; Syllables that begin with an independent vowel (following up
    ;; Step 1, Case F).  If a YH sequence exist, it is changed to the
-   ;; post base form.  This type of syllables do not require further
+   ;; post-base form.  Syllables of this type do not require further
    ;; modification.
    (" (V)(YH)(.*) "
     |
@@ -227,7 +227,7 @@
     |)
 
    ;; Ya-phalaa (following up Step 1, Case D).  Remove N and change YH
-   ;; to the post base form.  This type of syllables do not require
+   ;; to the post base form.  Syllables of this type do not require
    ;; further modification.
    (" ([CBRY])N(YH) "
     |
@@ -235,9 +235,9 @@
     (2 otf:beng=pstf)
     |)
 
-   ;; Syllables that end with H and an optional N or J (following up a
-   ;; part of Step 1, Case E).  This type of syllables also require
-   ;; pre-base substitution in the following steps.
+   ;; Syllables that end with an H and an optional N or J (following
+   ;; up a part of Step 1, Case E).  Syllables of this type also
+   ;; require pre-base substitution in the following steps.
    (" ([^ ]+H[NJ]?) "
     |
     0x09FE
@@ -441,9 +441,9 @@
    ("." =))
   *))
 
-;; Step 5 : Fine adjustments.  Select appropriate glyph variants and
-;; apply GPOS features.  Now the syllable boundary marks are removed
-;; so that the final step can find word boundaries.
+;; Step 5 : Select appropriate glyph variants for fine adjustments.
+;; Now the syllable boundary marks are removed so that the final step
+;; can find word boundaries.
 (generator
  (0
   (cond
@@ -454,10 +454,10 @@
   *)
  )
 
-;; Step 6 : Word initial substitute.  As the syllable boundaries has
+;; Step 6 : Word initial substitute.  As the syllable boundaries have
 ;; been eliminated in the previous step, this rule is applied to a run
 ;; of Bengali glyphs, i.e. word by word.  We finally apply the init
-;; feature to the word initial gylphs and everything is over.
+;; feature to the word initial gylphs to get the final result.
 (generator
  (0
   ("(.)(.*)"
