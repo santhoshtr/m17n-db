@@ -61,7 +61,7 @@ exit 0
 
 cat > /dev/null <<EOF
 /***en @page m17n-db Print information about the m17n database */
-/***ja @page m17n-config m17n データベースの情報を表示 */
+/***ja @page m17n-db m17n データベースの情報を表示 */
 
 /***
 @section m17n-db-synopsis SYNOPSIS
