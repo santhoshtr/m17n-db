@@ -51,6 +51,11 @@
 ;;; <li> infopage: http://www.iiit.net/ltrc/iscii/FAQ.htm#SEC2.1
 ;;; <li> download: http://www.iiit.net/ltrc/iscii/iscii_plugin_linux.tar.gz
 ;;; </ul>
+;;; <li> raghu.ttf
+;;; <ul>
+;;; <li> infopage: http://www.nepali.info/nepali/help.asp
+;;; <li> download: http://www.nepali.info/nepali/fonts/raghu.ttf
+;;; </ul>
 ;;; <li> MuktiNarrow.ttf (family: mukti narrow; for Bengali)
 ;;; <ul>
 ;;; <li> infopage: http://www.nongnu.org/freebangfont/downloads.html
@@ -171,15 +176,6 @@
   ((devanagari-cdac) dev-cdac)
   ((nil raghindi unicode-bmp) dev-otf)
   ((nil dv-ttyogesh apple-roman) dev-cdac)))
-(malayalam
- (nil
-  ((malayalam-cdac) mlm-cdac)
-  ((nil ml-ttkarthika apple-roman) mlm-cdac)
-  ((nil thoolikaunicode unicode-bmp) mlm-otf)))
-(tamil
- (nil
-  ((tamil-cdac) tml-cdac)
-  ((nil tm-ttvalluvar apple-roman) tml-cdac)))
 (bengali
  (nil
   ((nil likhan unicode-bmp) ben-otf)
@@ -187,16 +183,50 @@
 (gurmukhi
  (nil
   ((nil saab unicode-bmp) gur-otf)))
+(tamil
+ (nil
+  ((tamil-cdac) tml-cdac)
+  ((nil tm-ttvalluvar apple-roman) tml-cdac)))
 (telugu
  (nil
   ((nil pothana2000 unicode-bmp) tel-otf)))
 (kannada
  (nil
   ((nil sampige unicode-bmp) kan-otf)))
+(malayalam
+ (nil
+  ((malayalam-cdac) mlm-cdac)
+  ((nil ml-ttkarthika apple-roman) mlm-cdac)
+  ((nil thoolikaunicode unicode-bmp) mlm-otf)))
+(thai
+ (nil
+  ((tis620.2529-1) thai-tis620)
+  ((tis620.2533-0) thai-tis620)
+  ((nil norasi unicode-bmp) thai-norasi)))
+(lao
+ (nil
+  ((mulelao-1) lao-mule)
+  ((nil alice0\ lao iso8859-1) lao-alice)
+  ((nil alice0\ lao apple-roman) lao-alice)))
+(tibetan
+ (nil
+  ((muletibetan-2) tib-mule)
+  ((nil mtib unicode-bmp) tib-mtib)))
+(myanmar
+ (nil
+  ((nil myazedi_m17n unicode-bmp) myanmar-zedi)))
 (georgian
  (nil
   ((nil \1col iso10646-1))
   ((nil bpg\ classic\ 99u unicode-bmp))))
+(ethiopic
+ (nil
+  ((ethiopic-unicode))
+  ((nil freeserif unicode-bmp))))
+(khmer
+ (nil
+  ((mulekhmer-1) khmer-mule)
+  ((nil anlongvill\ khek apple-roman) khmer-anlong)))
 (hiragana
  (ja
   ((jisx0208.1983-0))
@@ -218,28 +248,6 @@
  (nil
   ((ksc5601.1987-0))
   ((nil baekmuk\ dotum unicode-bmp))))
-(ethiopic
- (nil
-  ((ethiopic-unicode))
-  ((nil freeserif unicode-bmp))))
-(lao
- (nil
-  ((mulelao-1) lao-mule)
-  ((nil alice0\ lao iso8859-1) lao-alice)
-  ((nil alice0\ lao apple-roman) lao-alice)))
-(khmer
- (nil
-  ((mulekhmer-1) khmer-mule)
-  ((nil anlongvill\ khek apple-roman) khmer-anlong)))
-(tibetan
- (nil
-  ((muletibetan-2) tib-mule)
-  ((nil mtib unicode-bmp) tib-mtib)))
-(thai
- (nil
-  ((tis620.2529-1) thai-tis620)
-  ((tis620.2533-0) thai-tis620)
-  ((nil norasi unicode-bmp) thai-norasi)))
 (han
  (ja
   ((jisx0208.1983-0))

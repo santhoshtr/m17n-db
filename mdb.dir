@@ -140,6 +140,7 @@
 (font layouter lao-mule "LAO-MULE.flt")
 (font layouter mlm-cdac "MLM-CDAC.flt")
 (font layouter mlm-otf "MLM-OTF.flt")
+(font layouter myanmar-zedi "MYANMAR-ZEDI.flt")
 (font layouter no-ctl "NO-CTL.flt")
 (font layouter thai-norasi "THAI-NORASI.flt")
 (font layouter thai-tis620 "THAI-TIS620.flt")
