@@ -1,4 +1,4 @@
-;; KAN-OTF.flt -- Font Layout Table for Kannada OpenType fonts
+;; KNDA-OTF.flt -- Font Layout Table for Kannada OpenType fonts
 ;; Copyright (C) 2004
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
@@ -21,7 +21,7 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> KAN-OTF.flt
+;;; <li> KNDA-OTF.flt
 ;;;
 ;;; For Kannada OpenType fonts to draw Kannada.
 ;;; Designed for Sampige.ttf <http://kannada.sourceforge.net/>

@@ -1,4 +1,4 @@
-;; DEV-CDAC.flt -- Font Layout Table for Devanagari (C-DAC font)
+;; DEVA-CDAC.flt -- Font Layout Table for Devanagari (C-DAC font)
 ;; Copyright (C) 2003, 2004
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
@@ -21,7 +21,7 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> DEV-CDAC.flt
+;;; <li> DEVA-CDAC.flt
 ;;;
 ;;; For the font DVYG0ntt.ttf (developed by C-DAC, encoding is ISFOC)
 ;;; to draw Devanagari script.  The font is available at:

@@ -1,4 +1,4 @@
-;; KHMER-MULE.flt -- Font Layout Table for Khmer (mule font)
+;; KHMR-MULE.flt -- Font Layout Table for Khmer (mule font)
 ;; Copyright (C) 2003, 2004
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
@@ -21,7 +21,7 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> KHMER-MULE.flt
+;;; <li> KHMR-MULE.flt
 ;;;
 ;;; For Khmer fonts of mule encoding to draw Khmer script.  The font is
 ;;; available at: <ftp://ftp.m17n.org/m17n-fonts/>

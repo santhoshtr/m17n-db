@@ -1,4 +1,4 @@
-;; LAO-ALICE.flt -- Font Layout Table for Lao (Alice font)
+;; LAOO-ALICE.flt -- Font Layout Table for Lao (Alice font)
 ;; Copyright (C) 2003, 2004
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
@@ -21,7 +21,7 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> LAO-ALICE.flt
+;;; <li> LAOO-ALICE.flt
 ;;;
 ;;; For the font ALICE0.TTF to draw Lao script.  The font is
 ;;; available at:

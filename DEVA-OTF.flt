@@ -1,4 +1,4 @@
-;; DEV-OTF.flt -- Font Layout Table for Devanagari OpenType font
+;; DEVA-OTF.flt -- Font Layout Table for Devanagari OpenType font
 ;; Copyright (C) 2003, 2004
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
@@ -21,7 +21,7 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> DEV-OTF.flt
+;;; <li> DEVA-OTF.flt
 ;;;
 ;;; For Devanagari OpenType fonts to draw the Devanagari script.
 

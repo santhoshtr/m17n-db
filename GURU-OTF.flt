@@ -1,4 +1,4 @@
-;; GUR-OTF.flt -- Font Layout Table for Gurmukhi OpenType fonts
+;; GURU-OTF.flt -- Font Layout Table for Gurmukhi OpenType fonts
 ;; Copyright (C) 2004
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
@@ -21,7 +21,7 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> GUR-OTF.flt
+;;; <li> GURU-OTF.flt
 ;;;
 ;;; For Gurmukhi OpenType fonts to draw the Punjabi script.
 ;;; Designed for saab.otf (version 0.91).

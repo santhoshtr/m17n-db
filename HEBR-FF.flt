@@ -1,4 +1,4 @@
-;; HEBREW-FF.flt -- Font Layout Table for Hebrew fonts (Unicode encoding)
+;; HEBR-FF.flt -- Font Layout Table for Hebrew fonts (Unicode encoding)
 ;; Copyright (C) 2003, 2004
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
@@ -21,7 +21,7 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> HEBREW-FF.flt
+;;; <li> HEBR-FF.flt
 ;;;
 ;;; For Hebrew fonts of Unicode encoding to draw the Hebrew script.
 ;;; This is for such fonts that do not require an explicit combining
