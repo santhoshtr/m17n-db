@@ -34,6 +34,8 @@
  (0x06D5		?n)
  (0x200C		?x)
  (0x200D		?x)
+ (0xFB50 0xFDFF		?x)		; Arabic Presentation Froms-A
+ (0xFE70 0xFEFC		?x)		; Arabic Presentation Froms-B
  )
 
 (generator
@@ -72,6 +74,8 @@
  (0x06E9		?x)
  (0x200C		?x)
  (0x200D		?x)
+ (0xFB50 0xFDFF		?x)
+ (0xFE70 0xFEFC		?x)
  )
 
 (generator
@@ -103,6 +107,7 @@
  ;; R: Right-joining (alef, dal, thal, reh, zain)
  ;; U: Non-joining (Hamza, etc. & zwnj)
  ;; T: Transparent (combining marks)
+ ;; P: Already in Arabic Presentation Form A & B
  (0x060C 0x060F		?U)
  (0x0610 0x0615		?T)
  (0x061B		?U)
@@ -145,6 +150,8 @@
  (0x06FA 0x06FC		?D)
  (0x06FD 0x06FE		?U)
  (0x06FF		?D)
+ (0xFB50 0xFDFF		?P)
+ (0xFE70 0xFEFC		?P)
  (0xFEF5		?R)
  (0xFEF7		?R)
  (0xFEF9		?R)
@@ -156,7 +163,10 @@
 (generator
  (0
   (cond
-   ("D.*"
+   ("PT*"
+    = combining *)
+
+   ("D[^P]*"
     (cond
      ("(.)(T*)([DR].*)"
       (1 initial)
@@ -167,14 +177,16 @@
       (2 combining *)
       (3 disjoin))))
 
-   ("([RU])(T*)(.*)"
+   ("([RU])(T*)([^P]*)"
     (1 isolated)
     (2 combining *)
     (3 disjoin))
 
-   ("(T+)(.*)"
+   ("(T+)([^P]*)"
     (1 = *)
-    (2 disjoin))))
+    (2 disjoin)))
+
+  *)
 
  (join
   (cond
