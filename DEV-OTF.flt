@@ -77,7 +77,7 @@
 (generator
  (0
   (cond
-   ;; If [CR]H is followed by ZWNJ/ZWJ, move ZWNJ/ZWJ) to the head so
+   ;; If [CR]H is followed by ZWNJ/ZWJ, move ZWNJ/ZWJ to the head so
    ;; that the later stages find it quickly.
    ("([CR]n?H)([NJ])"
     < | (2 =) (1 = *) | > )
