@@ -288,6 +288,7 @@ SCRIPT.tab: UNIDATA/Scripts.txt Makefile
 
 pkgdatadir=$(datadir)/m17n
 
+bin_SCRIPTS = m17n-db
 
 # Clear files that are automatically generated.
 clean:
