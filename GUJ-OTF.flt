@@ -124,15 +124,32 @@
 (generator
  (0
   (cond
-   ;; 1        2    3   4       5
-   (" ([^X ]*)X(RH)?(m)?([bup])?([Aa])? "
-    | (3 =) (1 otf:gujr=~rphf,*) (4 =) (2 otf:gujr=rphf) (5 =) |)
+   ;; 1    2        3    4   5       6
+   (" (RH)?([^X ]*)X(RH)?(m)?([bup])?([Aa])? "
+    |
+    (4 =)
+    (1 otf:gujr=~rphf,~blwf,*)
+    (2 otf:gujr=~rphf,*)
+    (5 =)
+    (3 otf:gujr=rphf)
+    (6 =)
+    |)
 
-   (" ([^X ]*)X(RH)?(HJ) "
-    | (1 = *) (2 otf:gujr=rphf) (3 = =) |)
+   (" (RH)?([^X ]*)X(RH)?(HJ) "
+    |
+    (1 = =)
+    (2 otf:gujr=~rphf)
+    (3 otf:gujr=rphf)
+    (4 = =)
+    |)
 
-   (" ([^X ]*)X(RH)?(H)N "
-    | (1 otf:gujr=~rphf,*) (2 otf:gujr=rphf) (3 =) |)
+   (" (RH)?([^X ]*)X(RH)?(H)N "
+    |
+    (1 otf:gujr=~rphf,~blwf,*)
+    (2 otf:gujr=~rphf,*)
+    (3 otf:gujr=rphf)
+    (4 =)
+    |)
 
    ("." =))
   *))
@@ -142,7 +159,7 @@
  (0
   (cond
    (" (.*)J "
-    (1 otf:gujr=~rphf,*))
+    (1 otf:gujr=~rphf,~blwf,*))
    (" ([^ ]*) "
     (1 otf:gujr=~rphf,~blwf,~half,~haln,*))
    ("."
