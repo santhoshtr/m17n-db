@@ -81,6 +81,12 @@
 ;;; <li> infopage: http://kannada.sourceforge.net/
 ;;; <li> download: http://brahmi.sourceforge.net/dl/Sampige.ttf
 ;;; </ul>
+;;; <li> Gardi-1.3.ttf (family: Gardi-1.3; for Devanagari), \n
+         padmaa-Medium-0.5.ttf (family: padmaa; for Gujarati)
+;;; <ul>
+;;; <li> infopage: http://www.indictrans.org/
+;;; <li> dowvload: http://www.indictrans.org/Fonts_files/English/f2.php#freefont
+;;; </ul>
 ;;; <li> THOOLIUC.TTF (family: thoolikaunicode; for Malayalam)
 ;;; <ul>
 ;;; <li> infopage: http://www.supersoftweb.com/Unicode.htm
@@ -174,6 +180,7 @@
 (devanagari
  (nil
   ((devanagari-cdac) dev-cdac)
+  ((nil gardi-1.3 unicode-bmp) dev-otf)
   ((nil raghindi unicode-bmp) dev-otf)
   ((nil dv-ttyogesh apple-roman) dev-cdac)))
 (bengali
@@ -193,6 +200,9 @@
 (kannada
  (nil
   ((nil sampige unicode-bmp) kan-otf)))
+(gujarati
+ (nil
+  ((nil padmaa unicode-bmp) guj-otf)))
 (malayalam
  (nil
   ((malayalam-cdac) mlm-cdac)
