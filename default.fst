@@ -51,7 +51,6 @@
 ;;; <li> infopage: http://www.iiit.net/ltrc/iscii/FAQ.htm#SEC2.1
 ;;; <li> download: http://www.iiit.net/ltrc/iscii/iscii_plugin_linux.tar.gz
 ;;; </ul>
-
 ;;; <li> MuktiNarrow.ttf (family: mukti narrow; for Bengali)
 ;;; <ul>
 ;;; <li> infopage: http://www.nongnu.org/freebangfont/downloads.html
@@ -62,6 +61,13 @@
 ;;; <li> infopage: http://www.stat.wisc.edu/~deepayan/Bengali/WebPage/Font/fonts.html
 ;;; <li> download: http://www.stat.wisc.edu/~deepayan/Bengali/WebPage/Font/LinkhanNormal.otf
 ;;; </ul>
+
+;;; <li> Saab.otf (family: Saab; for Gurmukhi)
+;;; <ul>
+;;; <li> infopage: http://guca.sourceforge.net/typography/fonts/saab/index.shtml
+;;; <li> download: http://prdownloads.sourceforge.net/guca/saab.0.91.otf?download
+;;; </ul>
+
 ;;; <li> THOOLIUC.TTF (family: thoolikaunicode; for Malayalam)
 ;;; <ul>
 ;;; <li> infopage: http://www.supersoftweb.com/Unicode.htm
@@ -170,6 +176,9 @@
  (nil
   ((nil mukti\ narrow unicode-bmp) ben-otf)
   ((nil likhan unicode-bmp) ben-otf)))
+(gurmukhi
+ (nil
+  ((nil saab unicode-bmp) gur-otf)))
 (georgian
  (nil
   ((nil \1col iso10646-1))
