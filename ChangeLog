@@ -1,3 +1,9 @@
+2004-07-16  Kenichi Handa  <handa@m17n.org>
+
+	* default.fst: Fix font orders.
+
+	* truetype.fst: Fix font orders.
+
 2004-07-08  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* Makefile.am, default.fst, truetype.fst, mdb.dir:
