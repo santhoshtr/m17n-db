@@ -1,3 +1,8 @@
+2004-06-22  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* GUR-OTF.flt, default.fst, mdb.dir, Makefile.am:
+	Add Gurmukhi support.
+
 2004-06-16  Kenichi Handa  <handa@m17n.org>
 
 	* truetype.fst: Add "baekmuk dotum" for han/ko.
