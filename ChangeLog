@@ -1,6 +1,11 @@
-2004-12-10  Kenichi Handa  <handa@m17n.org>
+2004-12-20  Kenichi Handa  <handa@m17n.org>
 
 	* Version 1.2.0 release.
+
+2004-12-20  Kenichi Handa  <handa@m17n.org>
+
+	* MYMR-MYAZEDI.flt: Adjusted for the new way of Kinzi encoding.
+	Add special rules for U+1014 and U+101B.
 
 2004-12-10  Kenichi Handa  <handa@m17n.org>
 
