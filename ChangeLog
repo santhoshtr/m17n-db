@@ -1,3 +1,20 @@
+2004-09-02  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* BEN-OTF.flt: K.SS.NNA makes a ligature.  K.SS.NA does not.
+
+	* default.fst: Give priority to likhan for Bengali.
+
+2004-08-16  Kenichi Handa  <handa@duron>
+
+	* Makefile.am, truetype.fst, default.fst, mdb.dir:
+	Adjusted for the name change (MYANMAR-ZEDI.flt -> Mymr-MyaZedi.flt).
+
+	* Mymr-MyaZedi.flt: Renamed from MYANMAR-ZEDI.flt.
+
+	* MYANMAR-ZEDI.flt:
+	Fix for the case of preferring Medial Ra to Kinzi.  For for the case
+	of Medial Ra with single-width consonant to wide subscript.
+
 2004-08-16  Kenichi Handa  <handa@m17n.org>
 
 	* Version 1.1.0 released.
