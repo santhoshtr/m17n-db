@@ -171,7 +171,10 @@
   ((BackSpace) (undo)))
 
  (tilda
-  ("~")))
+  ("~"))
+
+ (space
+  (" ")))
 
 (state
  (init
@@ -181,17 +184,21 @@
   (V (shift after-LV))
   (punctuation)
   (backspace)
+  (space)
   (tilda (shift single)))
 
  (after-L
   (V (shift after-LV))
+  (space (shift init))
   (backspace))
  (after-LV
   (X (shift after-LVX))
   (T (shift init))
+  (space (shift init))
   (backspace))
  (after-LVX
   (V-head (delete @<) (pushback 0) (shift fix-LV-redo-L))
+  (space (shift init))
   (backspace)
   (nil    (delete @<) (pushback 0) (shift fix-LVT-redo-L)))
 
