@@ -163,14 +163,10 @@ The previous and the next position.
 The previous and the next position where a candidate list changes.
 </ul>
 
-Each @c PREDEFINED-SYMBOL has a special meaning when used as a candidate
+Some of the @c PREDEFINED-SYMBOL has a special meaning when used as a candidate
 index in the @c SELECT action.
 
 <ul>
-
-<li> @c @@0, @c @@1, @c @@2, @c @@3, @c @@4, @c @@5, @c @@6, @c @@7, @c @@8, @c @@9
-
-The 0th, 1st, 2nd, ... 9th candidate of the current candidate group.
 
 <li> @c @@<, @c @@=, @c @@>
 
@@ -293,7 +289,7 @@ current position.  @c SYMBOL must not be a @c PREDEFINED-SYMBOL.
 PUSHBACK :: = '(pushback INTEGER)'
 @endverbatim
 
-This action pushes back the latest key events to the event queue.
+This action pushes back the latest @c INTEGER number of key events to the event queue.
 
 @verbatim
 UNDO :: = '(undo)'
