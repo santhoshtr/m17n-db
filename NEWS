@@ -9,13 +9,21 @@ See the end for copying conditions.
 
 ** Several new FLTs are added.
 
+ARABIC-OTF.flt (Arabic script)
 BEN-OTF.flt (Bengali script)
+GUJ-OTF.flt (Gujarati script)
 GUR-OTF.flt (Gurmukhi script)
+KAN-OTF.flt (Kannada script)
+MYANMAR-ZEDI.flt (Myanmar script)
+TEL-OTF.flt (Telugu script)
+THAANA-OTF.flt (Thaana script)
+TML-OTF.flt (Tamil script)
 
 ** Several new input methods are added.
 
 sr-kbd.mim (Serbian)
 hr-kbd.mim (Croatian)
+ka-kdb.mim (Georgian)
 kk-arabic.mim (Kazakh in Arabic script)
 kk-kdb.mim (Kazakh in Cyrillic script)
 

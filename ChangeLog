@@ -1,3 +1,9 @@
+2004-08-07  Kenichi Handa  <handa@m17n.org>
+
+	* ka-kbd.mim, rfc1345.mim: New input methods.
+	
+	* Makefile.am, mdb.dir: Add ka-kbd.mim and rfc1345.mim.
+
 2004-08-06  Kenichi Handa  <handa@m17n.org>
 
 	* MLM-OTF.flt: Apply GSUB to prebase part and postbase part in
