@@ -16,6 +16,8 @@ hr-kbd.mim (Croatian)
 kk-arabic.mim (Kazakh in Arabic script)
 kk-kdb.mim (Kazakh in Cyrillic script)
 
+** New command m17n-db prints information about the installed m17n database.
+
 
 * Changes in the m17n database 1.0
 
