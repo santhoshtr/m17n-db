@@ -382,5 +382,5 @@ Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 */
 
 /* Local Variables: */
-/* coding: utf-8 */
+/* coding: euc-jp */
 /* End: */
