@@ -1,4 +1,4 @@
-;; ORI-OTF.flt -- Font Layout Table for Oriya OpenType font
+;; ORYA-OTF.flt -- Font Layout Table for Oriya OpenType font
 ;; Copyright (C) 2004
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
@@ -21,7 +21,7 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> ORI-OTF.flt
+;;; <li> ORYA-OTF.flt
 ;;;
 ;;; For Oriya OpenType fonts to draw the Oriya script.  Tested with
 ;;; utkalm.ttf <http://oriya.sarovar.org/download/utkalm.ttf.gz>

@@ -1,4 +1,4 @@
-;; TML-CDAC.flt -- Font Layout Table for Tamil (C-DAC font)
+;; TAML-CDAC.flt -- Font Layout Table for Tamil (C-DAC font)
 ;; Copyright (C) 2003, 2004
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
@@ -21,7 +21,7 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> TML-CDAC.flt
+;;; <li> TAML-CDAC.flt
 ;;;
 ;;; For the font TMVL0ntt.ttf (developped by C-DAC, encoding is ISFOC)
 ;;; to draw Tamil script.  The font is available at:

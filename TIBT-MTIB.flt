@@ -1,4 +1,4 @@
-;; TIB-MTIB.flt -- Font Layout Table for Tibetan (Tomabechi font)
+;; TIBT-MTIB.flt -- Font Layout Table for Tibetan (Tomabechi font)
 ;; Copyright (C) 2003, 2004
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
@@ -21,7 +21,7 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> TIB-MTIB.flt
+;;; <li> TIBT-MTIB.flt
 ;;;
 ;;; For the Tibetan TrueType font developped by Dr. Tomabechi to draw
 ;;; Tibetan script.  The font is available at:
