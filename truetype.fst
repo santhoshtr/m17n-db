@@ -66,8 +66,8 @@
   ((nil tscu_times unicode-bmp) tml-otf)
   ((nil tamu_kadambri unicode-bmp) tml-otf)
   ((nil tamu_kalyani unicode-bmp) tml-otf)
-  ((nil tamu_maduram unicode-bmp) tml-otf))
-  ((nil tm-ttvalluvar apple-roman) tml-cdac))
+  ((nil tamu_maduram unicode-bmp) tml-otf)
+  ((nil tm-ttvalluvar apple-roman) tml-cdac)))
 (telugu
  (nil
   ((nil pothana2000 unicode-bmp) tel-otf)))

@@ -72,13 +72,13 @@
 ;;; <li> download: http://prdownloads.sourceforge.net/guca/saab.0.91.otf?download
 ;;; </ul>
 ;;; <li> akruti1.ttf, akruti1b.ttf (family akrutitml1; for Tamil), \n
-         akruti2.ttf, akruti2b.ttf (family akrutitml2; for Tamil), \n
-         TSCu_Comic.ttf (family tscu_comic; for Tamil), \n
-         TSCu_Paranar.ttf, TSCu_paranarb.ttf, TSCu_paranari.ttf (family tscu_paranar; for Tamil), \n
-         TSCu_Times.ttf (family tscu_times; for Tamil), \n
-         TAMu_Kadampari.ttf (family tamu_kadambri; for Tamil), \n
-         TAMu_Kalyani.ttf (family tamu_kalyani; for Tamil), \n
-         TAMu_Maduram.ttf (family tamu_maduram; for Tamil)
+;;;      akruti2.ttf, akruti2b.ttf (family akrutitml2; for Tamil), \n
+;;;      TSCu_Comic.ttf (family tscu_comic; for Tamil), \n
+;;;      TSCu_Paranar.ttf, TSCu_paranarb.ttf, TSCu_paranari.ttf (family tscu_paranar; for Tamil), \n
+;;;      TSCu_Times.ttf (family tscu_times; for Tamil), \n
+;;;      TAMu_Kadampari.ttf (family tamu_kadambri; for Tamil), \n
+;;;      TAMu_Kalyani.ttf (family tamu_kalyani; for Tamil), \n
+;;;      TAMu_Maduram.ttf (family tamu_maduram; for Tamil)
 ;;; <ul>
 ;;; <li> infopage: http://tamillinux.sourceforge.net/
 ;;; <li> download: http://sourceforge.net/projects/tamillinux/
@@ -94,7 +94,7 @@
 ;;; <li> download: http://brahmi.sourceforge.net/dl/Sampige.ttf
 ;;; </ul>
 ;;; <li> Gargi-1.3.ttf (family: Gargi-1.3; for Devanagari), \n
-         padmaa-Medium-0.5.ttf (family: padmaa; for Gujarati)
+;;;      padmaa-Medium-0.5.ttf (family: padmaa; for Gujarati)
 ;;; <ul>
 ;;; <li> infopage: http://www.indictrans.org/
 ;;; <li> dowvload: http://www.indictrans.org/Fonts_files/English/f2.php#freefont
@@ -193,8 +193,8 @@
  (nil
   ((nil gargi-1.3 unicode-bmp) dev-otf)
   ((nil raghindi unicode-bmp) dev-otf)
-  ((nil dv-ttyogesh apple-roman) dev-cdac))
-  ((devanagari-cdac) dev-cdac))
+  ((nil dv-ttyogesh apple-roman) dev-cdac)
+  ((devanagari-cdac) dev-cdac)))
 (bengali
  (nil
   ((nil mukti\ narrow unicode-bmp) ben-otf)
