@@ -16,8 +16,8 @@ See ChangeLog for details.
 ** Several new input methods are added.
 
 dv-phonetic.mim (Thaana script)
-ko-romaja.mim (Korean Hangul script)
 hy-kbd.mim (Armenian script)
+ko-romaja.mim (Korean Hangul script)
 my-kbd.mim (Myanmar script)
 si-samanala.mim (Sinhala script)
 zh-pinyin.min (PinYin script)
