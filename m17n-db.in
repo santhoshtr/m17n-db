@@ -29,7 +29,7 @@ if test $# -gt 0; then
 fi
 
 if test -z "$DIRFILE" ; then
-  echo $datadir
+  echo $datadir/m17n
   exit 0
 fi
 
