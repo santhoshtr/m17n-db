@@ -71,6 +71,11 @@
 ;;; <li> infopage: http://www.kavya-nandanam.com/
 ;;; <li> download: http://www.kavya-nandanam.com/dload.htm
 ;;; </ul>
+;;; <li> Sampige.ttf (family: Sampige; for Kannada)
+;;; <ul>
+;;; <li> infopage: http://kannada.sourceforge.net/
+;;; <li> download: http://brahmi.sourceforge.net/dl/Sampige.ttf
+;;; </ul>
 ;;; <li> THOOLIUC.TTF (family: thoolikaunicode; for Malayalam)
 ;;; <ul>
 ;;; <li> infopage: http://www.supersoftweb.com/Unicode.htm
@@ -185,6 +190,9 @@
 (telugu
  (nil
   ((nil pothana2000 unicode-bmp) tel-otf)))
+(kannada
+ (nil
+  ((nil sampige unicode-bmp) kan-otf)))
 (georgian
  (nil
   ((nil \1col iso10646-1))
