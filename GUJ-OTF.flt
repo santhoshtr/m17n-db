@@ -62,8 +62,6 @@
  (0x0ACD	?H)			; SIGN VIRAMA (HALANT)
  (0x0AE0 0x0AE1	?V)			; LETTER VOCALIC RR, LL
  (0x0AE2 0x0AE3	?b)			; VOWEL SIGN VOCALIC RR, LL (below)
- (0x0AFD	?Z)			; internal use
- (0x0AFE	?Y)			; internal use
  (0x0AFF	?X)			; internal use
  )
 
