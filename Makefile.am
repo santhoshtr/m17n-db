@@ -136,7 +136,7 @@ INPUT_METHOD = \
 	th-kesmanee.mim \
 	vi-viqr.mim vi-telex.mim \
 	zh-py.mim zh-pinyin.mim \
-	latn-post.mim \
+	latn-post.mim latn-pre.mim \
 	syrc-phonetic.mim \
 	bopo-kbd.mim \
 	unicode.mim rfc1345.mim \
