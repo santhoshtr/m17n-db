@@ -43,33 +43,33 @@
  ;; J: ZWJ (ZERO WIDTH JOINER)
  ;; E: ELSE
  ;;
- (0x0900 0x097F	?E)			; ELSE
- (0x0901	?A)			; SIGN CANDRABINDU (above)
- (0x0902	?A)			; SIGN ANUSVARA (above)
- (0x0903	?a)			; SIGN VISARGA (post)
- (0x0905 0x0914	?V)			; LETTER A .. LETTER AU
- (0x0915 0x0939 ?C)			; LETTER KA .. LETTER HA
- (0x0930	?R)			; LETTER RA
- (0x093C	?n)			; SIGN NUKTA
- (0x093D	?E)			; SIGN AVAGRAHA
- (0x093E 0x094C	?p)			; VOWEL SIGN (post)
- (0x093F	?m)			; VOWEL SIGN I (pre)
- (0x0941 0x0944	?b)			; VOWEL SIGN (below)
- (0x0945 0x0948	?u)			; VOWEL SIGN (above)
- (0x094D	?H)			; SIGN VIRAMA (HALANT)
- (0x0950	?E)			; OM
- (0x0951 0x0954	?S)		    ; STRESS SIGN or TONE MARK (above)
- (0x0952	?s)		    ; STRESS SIGN or TONE MARK (below)
- (0x0958 0x095E	?C)			; LETTER QA .. LETTER YYA
- (0x0960	?V)			; LETTER VOCALIC RR
- (0x0961	?V)			; LETTER VOCALIC LL
- (0x0962 0x0963	?b)			; VOWEL SIGN (below)
- (0x0964 0x0970	?E)			; DANDA .. ABBREVIATION SIGN
- (0x200C	?N)			; ZWNJ
- (0x200D	?J)			; ZWJ
- (0x097D	?x)		; internally used tag to indicate Reph
- (0x097E	?y)		; internally used tag to indicate Mpost
- (0x097F	?z)		; internally used tag to indicate Cbase
+ (#x0900 #x097F	?E)			; ELSE
+ (#x0901	?A)			; SIGN CANDRABINDU (above)
+ (#x0902	?A)			; SIGN ANUSVARA (above)
+ (#x0903	?a)			; SIGN VISARGA (post)
+ (#x0905 #x0914	?V)			; LETTER A .. LETTER AU
+ (#x0915 #x0939 ?C)			; LETTER KA .. LETTER HA
+ (#x0930	?R)			; LETTER RA
+ (#x093C	?n)			; SIGN NUKTA
+ (#x093D	?E)			; SIGN AVAGRAHA
+ (#x093E #x094C	?p)			; VOWEL SIGN (post)
+ (#x093F	?m)			; VOWEL SIGN I (pre)
+ (#x0941 #x0944	?b)			; VOWEL SIGN (below)
+ (#x0945 #x0948	?u)			; VOWEL SIGN (above)
+ (#x094D	?H)			; SIGN VIRAMA (HALANT)
+ (#x0950	?E)			; OM
+ (#x0951 #x0954	?S)		    ; STRESS SIGN or TONE MARK (above)
+ (#x0952	?s)		    ; STRESS SIGN or TONE MARK (below)
+ (#x0958 #x095E	?C)			; LETTER QA .. LETTER YYA
+ (#x0960	?V)			; LETTER VOCALIC RR
+ (#x0961	?V)			; LETTER VOCALIC LL
+ (#x0962 #x0963	?b)			; VOWEL SIGN (below)
+ (#x0964 #x0970	?E)			; DANDA .. ABBREVIATION SIGN
+ (#x200C	?N)			; ZWNJ
+ (#x200D	?J)			; ZWJ
+ (#x097D	?x)		; internally used tag to indicate Reph
+ (#x097E	?y)		; internally used tag to indicate Mpost
+ (#x097F	?z)		; internally used tag to indicate Cbase
  )
 
 ;; The first stage is to extract a syllable and re-order characters in
@@ -85,12 +85,12 @@
    ;; A syllable starting with RH (Reph) and ending with a vowel
    ;; and/or a vowel modifier.
    ("(RH)(([CR]n?H)*[CR]n?)([mubp][Aa]?[Ss]?|[Aa][Ss]?|[Ss])"
-    < | (1 0x097D = =) (2 move-base-Halant) (4 reorder-post-base) | >)
+    < | (1 #x097D = =) (2 move-base-Halant) (4 reorder-post-base) | >)
 
    ;; A syllable starting with RH (Reph) and ending without a vowel
    ;; nor a vowel modifier.
    ("(RH)(([CR]n?H)*[CR]n?)(H)?"
-    < | (1 0x097D = =) (2 move-base-Halant) (4 =) | >)
+    < | (1 #x097D = =) (2 move-base-Halant) (4 =) | >)
 
    ;; A syllable starting with the other consonant and ending with a
    ;; vowel and/or a vowel modifier.
@@ -124,7 +124,7 @@
   ;; 12   3   4   5    67   8     9   10
   ("((m)|(u)|(b)|(p))?((A)|(a))?((S)|(s))?$"
    (2 =) (4 =) (10 =) (3 =) (5 =)
-   0x097E
+   #x097E
    (7 =) (9 =) (8))))
 
 ;; The second stage is to reorder Reph and Mpre.
@@ -164,7 +164,7 @@
     (1 otf:deva=~rphf,*))
 
    ("."
-    [ otf:deva=+ ] ))
+    \[ otf:deva=+ \] ))
   *))
 
 ;; Local Variables:
