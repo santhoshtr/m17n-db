@@ -150,12 +150,11 @@
 
  (V-head
   ("y") ("u") ("i") ("o") ("p") ("O") ("P")
-  ("h") ("j") ("J") ("k") ("K") ("l")
+  ("h") ("j") ("k") ("K") ("l")
   ("b") ("n") ("m"))
 
  (V
   ;; Set V to JUNGSEONG.
-  ("J" (set V ?ᅠ) ?ᅠ (compose))
   ("k" (set V ?ᅡ) ?ㅏ (compose))
   ("o" (set V ?ᅢ) ?ㅐ (compose))
   ("i" (set V ?ᅣ) ?ㅑ (compose))
@@ -269,6 +268,9 @@
   ("ga" (set T ?ᇷ) ?ᇷ (compose))
   ("gq" (set T ?ᇸ) ?ᇸ (compose)))
 
+ (special
+  ("J" (set V ?ᅠ) ?ᅠ (compose)))
+
  (backspace
   ((BackSpace) (undo))))
 
@@ -278,6 +280,7 @@
   (L (set T 0x11A7) (shift state-L))
   (V)
   (T)
+  (special)
   (backspace))
  (state-L
   (V (shift state-LV))
