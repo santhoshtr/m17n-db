@@ -5,11 +5,12 @@ Copyright (C) 2004
 See the end for copying conditions.
 
 
-* Changes in the m17n database 1.2
+* Changes in the m17n database 1.2.0
 
 ** Several new input methods are added.
 
 ko-romaja.mim (Korean Hangul script)
+zh-pinyin.min (PinYin script)
 
 
 * Changes in the m17n database 1.1
