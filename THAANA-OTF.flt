@@ -40,8 +40,25 @@
 
 (generator
  (0
-  otf:thaa
- ))
+  (cond
+   ((range 0x07a6 0x07b0) 0xe7a6)
+   ("." =))
+  *))
+
+(generator
+ (0
+  otf:thaa))
+
+(generator
+ (0
+  (cond
+   ((range 0xe7a6 0xe7b0) 0x07a6)
+   ("." =))
+  *))
+
+(generator
+ (0
+  otf:thaa))
 
 ;; Local Variables:
 ;; mode: lisp
