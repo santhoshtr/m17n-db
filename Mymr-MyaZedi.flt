@@ -37,7 +37,7 @@
  (0x1000 0x1021 ?C)			; consonant except for c and K
  (0x1000 0x1003 ?c)			; consonant that has subscript form
  (0x1004	?K)			; consonant NGA
- (0x1005 0x1007 ?c)
+ (0x1005 0x1008 ?c)
  (0x100B 0x100C ?c)
  (0x100F 0x1019 ?c)
  (0x1014	?n)			; consonant NA
@@ -59,7 +59,7 @@
   (cond
    ;; Special case for Medial Ra: don't use Kinzi for this pattern.
    ("(K)(Hr(HM)*)(V*A?H?)N?(S*)"
-    | (1 =) (2 remove-halant *) (4 = *) (5 = *) |)
+    | < (1 =) (2 remove-halant *) (4 = *) (5 = *) > |)
 
    ;; The following regular expression matches a syllable pattern
    ;; described in Table 10-3 of the Unicode Standard 4.0 .
@@ -156,34 +156,34 @@
    ("(..?)bdf"		0xE1B9 (1 = *))
    ("([Waf]|.[Ww])bd"	0xE1B8 (1 = *))
    ("(..?)bd"		0xE1B7 (1 = *))
-   ("([Waf]|.[Ww])b(V)"	0xE1B6 (1 = *) (2 =))
-   ("(..?)b(V)"		0xE1B5 (1 = *) (2 =))
-   ;; Case of Single-width consonant + a wide subscript + Medial Ra.
+   ("([Waf]|.[Ww])b(f)?(V)"	0xE1B6 (1 = *) (2 0xE1F3) (3 =))
+   ("(..?)b(f)?(V)"		0xE1B5 (1 = *) (2 0xE1F3) (3 =))
+   ;; Single-width consonant + a wide subscript + Medial Ra.
    ;; To use glyph E1B4, we must shift the single-width consonant to
    ;; the right.
    ("([Sd][Ww])b"	0xE1B4 Br>32Bl (1 = *))
    ("([Waf].|.[Ww])b"	0xE1B4 (1 = *))
    ("(s|..)b"		0xE1B3 (1 = *))
-   ("([Waf])b"		0xE1B2 (1 = *))
-   ("(.)b"		0xE1B1 (1 = *))
+   ("([Waf])b(f)?"	0xE1B2 (1 = *) (2 0xE1F3))
+   ("(.)b(f)?"		0xE1B1 (1 = *) (2 0xE1F3))
    
    ;; Medial Wa (U+101D)
-   ("(..?)df"	(1 = *) 0xE1D1)
-   ("(..?)d"	(1 = *) 0xE01D)
+   ("(..?)df"		(1 = *) 0xE1D1)
+   ("(..?)d"		(1 = *) 0xE01D)
 
    ;; Medial Ha (U+101F)
    ((0x100A 0x101F)	0x100A 0xE1F3)
-   ("(..?)f"	(1 = *) 0xE1F1))))
+   ("(..?)f"		(1 = =) 0xE1F1))))
 
 ;; 3rd stage
 ;; Reorder Kinzi and Vowel E.  Handle Kinzi-vowel combination.
 
 (category
  (0x1000 0x107F ?O)
- (0x1000 0x1021 ?C)
- (0x1001 0x1002 ?c)
- (0x1004	?c)
- (0x1013	?c)
+ (0x1000 0x1021 ?C)			; Consonants except for c
+ (0x1001 0x1002 ?c)			; Consonants affecting the shape of 
+ (0x1004	?c)			;   the following vowel U+102C
+ (0x1012	?c)
  (0x1015	?c)
  (0x101D	?c)
  (0x1008	?b)
@@ -202,18 +202,20 @@
  (0x200C	?N)
  (0xE000 0xE3FF ?O)
  (0xE000 0xE01D ?b)
- (0xE1A1 0xE1B8 ?b)
+ (0xE1A1 0xE1B0 ?b)
+ (0xE1B1 0xE1BA ?B)
+ (0xE140	?C)
  (0xE390	?K)			; Kinzi
 )
 
 (generator
  (0
   (cond
-   (" K([Ccb]*)(e)([^ ]*) "
+   (" K([CcbB]*)(e)([^ ]*) "
     | (2 =) (1 = *) (3 kinzi-vowel = *) |)
-   (" K([Ccb]*)([^ ]*) "
+   (" K([CcbB]*)([^ ]*) "
     | (1 = *) (2 kinzi-vowel = *) |)
-   (" ([Ccb]*)(e)([^ ]*) "
+   (" ([CcbB]*)(e)([^ ]*) "
     | (2 =) (1 = *) (3 = *) |)
    (" ([^ ]*) "
     = *)
@@ -247,13 +249,21 @@
       ((0x101B 0x1037) 0x101B 0xE137)
 
       ;; Vowel substituion.
-      ("(c)AH"	(1 =) 0xE02D)
-      ("(c)A"	(1 =) 0xE02C)
-      ((0x102D 0x1036) 0xE2D1)
-      ("(b)u"	(1 =) 0xE2F1)
-      ("(b)U"	(1 =) 0xE2F2)
+      ((0xE1F1 0x102F)	0xE1F2)
+      ("BcK?A"		= = = =)
+      ("cAH"		= 0xE02D)
+      ("cA"		= 0xE02C)
+      ("cKA"		= = Br>Bl 0xE02C)
+      ((0x1012 0xE012 0x102C 0x1039) = = 0xE02D)
+      ((0x1012 0xE01D 0x102C 0x1039) = = 0xE02D)
+      ((0x1012 0xE012 0x102C) = = 0xE02C)
+      ((0x1012 0xE01D 0x102C) = = 0xE02C)
+      ((0x102D 0x1036)	0xE2D1)
+      ("([bB][^u]*)u"	(1 = *) 0xE2F1)
+      ("([bB][^u]*)U"	(1 = *) 0xE2F2)
       ("." =))
      *))
+   ((0x200C)	0x4E tc.cc 0x48)
    ("."
     =))
   *))
