@@ -126,6 +126,7 @@
 ;;; See @ref mdbFLT for the format of these files.
 ;;; <ul>
 (font layouter arabic "ARABIC.flt")
+(font layouter ben-otf "BEN-OTF.flt")
 (font layouter dev-cdac "DEV-CDAC.flt")
 (font layouter dev-otf "DEV-OTF.flt")
 (font layouter hebrew "HEBREW.flt")
