@@ -1,3 +1,12 @@
+2004-06-29  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* TEL-OTF.flt, default.fst, mdb.dir, Makefile.am:
+	Add Telugu support.
+
+2004-06-25  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* GUR-OTF.flt, DEV-OTF.flt: Fix typo.
+
 2004-06-22  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* GUR-OTF.flt, default.fst, mdb.dir, Makefile.am:
