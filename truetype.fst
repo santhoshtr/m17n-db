@@ -45,6 +45,10 @@
  (nil
   ((nil raghindi t) dev-otf)
   ((nil dv-ttyogesh apple-roman) dev-cdac)))
+(bengali
+ (nil
+  ((nil mukti\ narrow unicode-bmp) ben-otf)
+  ((nil likhan unicode-bmp) ben-otf)))
 (malayalam
  (nil
   ((nil thoolikaunicode unicode-bmp) mlm-otf)
