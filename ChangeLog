@@ -1,3 +1,12 @@
+2004-10-12  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* si-samanala.mim, Makefile.am, mdb.dir:
+	Add Sinhala input method.
+
+2004-09-23  Kenichi Handa  <handa@duron>
+
+	* SYRIAC-OTF.flt: Add Syriac support.
+
 2004-09-23  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* SYRIAC-OTF.flt, default.fst, mdb.dir, truetype.fst, Makefile.am:
