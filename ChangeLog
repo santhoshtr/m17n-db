@@ -1,3 +1,15 @@
+2005-02-15  Kenichi Handa  <handa@m17n.org>
+
+	* default.fst: For Hebrew, prefer freesans font.
+
+	* sv-post.mim: New input method.
+
+	* zh-tonepy.mim: New input method.
+
+	* Makefile.am (INPUT_METHOD): Add sv-post.mim and zh-tonepy.mim.
+
+	* mdb.dir: Add sv-post.mim and zh-tonepy.mim.
+
 2004-12-27  Kenichi Handa  <handa@m17n.org>
 
 	* Version 1.2.0 released.
