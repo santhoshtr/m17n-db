@@ -1,3 +1,7 @@
+2004-03-23  Kenichi Handa  <handa@m17n.org>
+
+	* CHARSET.tbl: Fix mapfile names.
+
 2004-03-19  Kenichi Handa  <handa@m17n.org>
 
 	* Version 1.0 Patch Level 1 released.

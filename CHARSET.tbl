@@ -59,7 +59,7 @@
 (iso-8859-2
  dimension 1
  ascii-compatible t
- mapfile "ISO-8859-2.map"
+ mapfile "8859-2.map"
  define-coding t)
 (iso-8859-2-rhp
  method subset
@@ -72,7 +72,7 @@
 (iso-8859-3
  dimension 1
  ascii-compatible t
- mapfile "ISO-8859-3.map"
+ mapfile "8859-3.map"
  define-coding t)
 (iso-8859-3-rhp
  method subset
@@ -85,7 +85,7 @@
 (iso-8859-4
  dimension 1
  ascii-compatible t
- mapfile "ISO-8859-4.map"
+ mapfile "8859-4.map"
  define-coding t)
 (iso-8859-4-rhp
  method subset
@@ -98,7 +98,7 @@
 (iso-8859-5
  dimension 1
  ascii-compatible t
- mapfile "ISO-8859-5.map"
+ mapfile "8859-5.map"
  define-coding t)
 (iso-8859-5-rhp
  method subset
@@ -111,7 +111,7 @@
 (iso-8859-6
  dimension 1
  ascii-compatible t
- mapfile "ISO-8859-6.map"
+ mapfile "8859-6.map"
  define-coding t)
 (iso-8859-6-rhp
  method subset
@@ -124,7 +124,7 @@
 (iso-8859-7
  dimension 1
  ascii-compatible t
- mapfile "ISO-8859-7.map"
+ mapfile "8859-7.map"
  final-byte ?F
  define-coding t)
 (iso-8859-7-rhp
@@ -138,7 +138,7 @@
 (iso-8859-8
  dimension 1
  ascii-compatible t
- mapfile "ISO-8859-8.map"
+ mapfile "8859-8.map"
  define-coding t)
 (iso-8859-8-rhp
  method subset
@@ -151,7 +151,7 @@
 (iso-8859-9
  dimension 1
  ascii-compatible t
- mapfile "ISO-8859-9.map"
+ mapfile "8859-9.map"
  define-coding t)
 (iso-8859-9-rhp
  method subset
@@ -164,7 +164,7 @@
 (iso-8859-10
  dimension 1
  ascii-compatible t
- mapfile "ISO-8859-10.map"
+ mapfile "8859-10.map"
  define-coding t)
 (iso-8859-10-rhp
  method subset
@@ -177,17 +177,17 @@
 (iso-8859-11
  dimension 1
  ascii-compatible t
- mapfile "ISO-8859-11.map"
+ mapfile "8859-11.map"
  define-coding t)
 (iso-8859-13
  dimension 1
  ascii-compatible t
- mapfile "ISO-8859-13.map"
+ mapfile "8859-13.map"
  define-coding t)
 (iso-8859-14
  dimension 1
  ascii-compatible t
- mapfile "ISO-8859-14.map"
+ mapfile "8859-14.map"
  final-byte ?_
  define-coding t)
 (iso-8859-14-rhp
@@ -201,7 +201,7 @@
 (iso-8859-15
  dimension 1
  ascii-compatible t
- mapfile "ISO-8859-15.map"
+ mapfile "8859-15.map"
  define-coding t)
 (iso-8859-15-rhp
  method subset
@@ -214,7 +214,7 @@
 (iso-8859-16
  dimension 1
  ascii-compatible t
- mapfile "ISO-8859-16.map"
+ mapfile "8859-16.map"
  define-coding t)
 
 ;; IBM codepage series.
