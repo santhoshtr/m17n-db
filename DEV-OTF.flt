@@ -84,7 +84,7 @@
 
    ;; A syllable starting with RH (Reph) and ending with a vowel
    ;; and/or a vowel modifier.
-   ("(RH)(([CR]n?H)*[CR]n?)([mubp][Aa]?[Ss]?)"
+   ("(RH)(([CR]n?H)*[CR]n?)([mubp][Aa]?[Ss]?|[Aa][Ss]?|[Ss])"
     < | (1 0x097D = =) (2 move-base-Halant) (4 reorder-post-base) | >)
 
    ;; A syllable starting with RH (Reph) and ending without a vowel
