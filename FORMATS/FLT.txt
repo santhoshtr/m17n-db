@@ -215,8 +215,8 @@ MATCH-BLOCK ::= '(' MATCH-INDEX RULE * ')'
 MATCH-INDEX ::= INTEGER
 @endverbatim
 
-MATCH-INDEX is an integer specifying a parenthesized subexpression
-recoded by the previous @c REGEXP-BLOCK.  If such a subexpression was
+@c MATCH-INDEX is an integer specifying a parenthesized subexpression
+recorded by the previous @c REGEXP-BLOCK.  If such a subexpression was
 found by the previous regular expression matching, this rule executes @c
 RULEs temporarily limiting the current run to the matched part
 of the subexpression.  The matched part is consumed by this rule.
@@ -243,8 +243,9 @@ zero.
 
 The second form specifies a range of codes that should match the first
 glyph code of the code sequence.  In this case, this rule sets the
-default code-offset to the first glyph code minus the first @c CODE in @c
-SOURCE-RANGE.
+default code-offset to the first glyph code minus the first @c CODE
+specifying the range.
+
 
 If no match is found, this rule fails.
 
@@ -287,7 +288,7 @@ For @c LANGSYS, @c SYMBOL specifies a Language System tag name.  If @c
 LANGSYS is omitted, the Default Language System
 table is used.
 
-For @c GSUB-FEATURES, each @c SYMBOL specifies a GSUB Feature tag name
+For @c GSUB-FEATURES, each @c SYMBOL in @c FEATURE LIST specifies a GSUB Feature tag name
 to apply.  '*' is allowed as the last item to specify all remaining
 features.  If @c SYMBOL is preceded by '~' and the last item is '*',
 @c SYMBOL is excluded from the features to apply.  If no @c SYMBOL is
