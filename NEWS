@@ -7,13 +7,30 @@ See the end for copying conditions.
 
 * Changes in the m17n database 1.2.0
 
+** Naming convention for *.flt and *.mim is changed.
+
+Script names : ISO 15924 (four letter codes)
+Language names : ISO 639-1 (two letter codes)
+See ChangeLog for details.
+
 ** Several new input methods are added.
 
+dv-phonetic.mim (Thaana script)
+hy-kbd.mim (Armenian script)
 ko-romaja.mim (Korean Hangul script)
+my-kbd.mim (Myanmar script)
+si-samanala.mim (Sinhala script)
 zh-pinyin.min (PinYin script)
+bopo-kbd.mim (Bopomofo script)
+syrc-phonetic.mim (Syriac script)
+
+** Several new FLTs are added.
+
+SINH-OTF.flt (Sinhala script)
+SYRC-OTF.flt (Syriac script)
 
 
-* Changes in the m17n database 1.1
+* Changes in the m17n database 1.1.0
 
 ** Several new FLTs are added.
 

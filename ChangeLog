@@ -8,7 +8,7 @@
 
 2004-12-07  Kenichi Handa  <handa@m17n.org>
 
-	* zh-pinyin.mim: New file.
+	* zh-pinyin.mim, my-kbd.mim: New file.
 
 	* mdb.dir: Add zh-pinyin.mim.
 
