@@ -39,11 +39,16 @@
  (0x06D5		?n)
  (0x200C		?x)
  (0x200D		?x)
+ (0xFB50 0xFDFF		?X)		; Arabic Presentation Froms-A
+ (0xFE70 0xFEFC		?X)		; Arabic Presentation Froms-B
  )
 
 (generator
  (0
   (cond
+   ;; If a presentation from is found, draw the whole sequence as is.
+   (".*X.*" = *)
+
    (".*p.*"				; If a high hamza is found,
     (cond
      (".*n.*"				;   and a suppressor exists,
@@ -116,17 +121,17 @@
  (0x06FA 0x06FC		?D)
  (0x06FD 0x06FE		?U)
  (0x06FF		?D)
- (0xFEF5		?R)
- (0xFEF7		?R)
- (0xFEF9		?R)
- (0xFEFB		?R)
  (0x200C		?U)
  (0x200D		?D)
+ (0xFB50 0xFDFF		?X)		; Arabic Presentation Froms-A
+ (0xFE70 0xFEFC		?X)		; Arabic Presentation Froms-B
  )
 
 (generator
  (0
   (cond
+   (".*X.*" (cond ("[DRUX]T*" < = * >) ("." =)) *)
+
    ("D.*"
     (cond
      ("(.)(T*)([DR].*)"
@@ -170,7 +175,7 @@
       >
       (3 disjoin))))
 
-   ("(.)(T*)(.*)"			; == (R)(T*)(.*)
+   ("(.)(T*)(.*)"
     <
     (1 otf:arab=fina)
     (2 = *)
