@@ -1,3 +1,11 @@
+2004-08-09  Kenichi Handa  <handa@m17n.org>
+
+	* MYANMAR-ZEDI.flt: Fix for special vowels.
+
+	* kk-arabic.mim: Add @verbatim and @endverbatim in the comment.
+
+	* ka-kbd.mim: Fix some keys.
+
 2004-08-07  Kenichi Handa  <handa@m17n.org>
 
 	* ka-kbd.mim, rfc1345.mim: New input methods.
