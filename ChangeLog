@@ -23,7 +23,6 @@
 	* FORMATS/hy-kbd.png, FORMATS/hy-kbd.eps: New file.
 	* hy-kbd.mim: Add image file information (hy-kbd.png & hy-kbd.eps).
 
-
 2004-11-02  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* mdb.dir, Makefile.am: Add hy-kbd.mim.
@@ -108,10 +107,6 @@
 	* si-samanala.mim, Makefile.am, mdb.dir:
 	Add Sinhala input method.
 
-2004-09-23  Kenichi Handa  <handa@duron>
-
-	* SYRIAC-OTF.flt: Add Syriac support.
-
 2004-09-23  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* SYRIAC-OTF.flt, default.fst, mdb.dir, truetype.fst, Makefile.am:
@@ -125,14 +120,6 @@
 2004-09-22  Kenichi Handa  <handa@duron>
 
 	* ARABIC-OTF.flt: Accept Arabic presentation forms in input.
-
-	* Mymr-MyaZedi.flt: Various fixes.
-
-2004-09-22  Kenichi Handa  <handa@m17n.org>
-
-	* ARABIC-OTF.flt: Accept Arabic presentation forms in input.
-
-2004-09-22  Kenichi Handa  <handa@m17n.org>
 
 	* Mymr-MyaZedi.flt: Various fixes.
 
