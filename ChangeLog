@@ -1,5 +1,7 @@
 2004-07-05  Kenichi Handa  <handa@m17n.org>
 
+	* default.fst: Fix typo (gardi->gargi).
+
 	* truetype.fst: Add Gujarati.
 
 2004-07-05  TAKAHASHI Naoto  <ntakahas@m17n.org>
