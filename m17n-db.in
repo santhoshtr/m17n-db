@@ -1,0 +1,108 @@
+#!/bin/sh
+# m17n-db -- print information about the m17n database.
+# Copyright (C) 2004
+#   National Institute of Advanced Industrial Science and Technology (AIST)
+#   Registration Number H15PRO112
+# See the end for copying conditions.
+
+prefix=@prefix@
+datadir=@datadir@
+
+help ()
+{
+  echo "Usage: $0 [ OPTIONS ] [ TAG0 [ TAG1 [ TAG2 [ TAG3 ] ] ] ]"
+  echo "Options:"
+  echo "  -h, --help	Print this information."
+  echo "  -v, --version	Print the version number."
+  echo "  -l, --locate	Print absolute pathnames of database files."
+  echo "	TAG0 through TAG3 specifies the tags of the database."
+  echo "With no options, print the installed directory name."
+}
+
+if test $# -gt 0; then
+  case "$1" in
+    -h | --help) help; exit 0;;
+    -v | --version) echo "@VERSION@"; exit 0;;
+    -l | --locate) DIRFILE="$datadir/m17n/mdb.dir"; shift;;
+    *) help; exit 1;;
+  esac
+fi
+
+if test -z "$DIRFILE" ; then
+  echo $datadir
+  exit 0
+fi
+
+if test ! -f "$DIRFILE"; then
+  echo "Can't find the m17n database directory file \"$DIRFILE\"!"
+  exit 1
+fi
+
+if test -z "$1"; then
+  help
+  exit 1
+fi
+
+TAG="($1"
+if [ -n "$2" ] ; then
+  TAG="${TAG}[ 	][ 	]*$2"
+fi
+if [ -n "$3" ] ; then
+  TAG="${TAG}[ 	][ 	]*$3"
+fi
+if [ -n "$4" ] ; then
+  TAG="${TAG}[ 	][ 	]*$4"
+fi
+
+sed -n "/${TAG}/ s,[^\"]*\"\([^\"]*\)\".*$,\1,p" < $DIRFILE |\
+  sed -e "/^[^/]/ s,\(.*\),$datadir/\1,"
+
+exit 0
+
+cat > /dev/null <<EOF
+/***en @page m17n-db Print information about the m17n database */
+/***ja @page m17n-config m17n データベースの情報を表示 */
+
+/***
+@section synopsis SYNOPSIS
+
+m17n-db  [ OPTIONS ] [ TAG0 [ TAG1 [ TAG2 [ TAG3 ] ] ] ]
+
+@section description DESCRIPTION
+
+The shell script m17n-db prints information about the m17n database.
+
+The arguments OPTIONS has the following meanings.
+
+- -h, --help\n
+	Print this information."
+- -v, --version\n
+	Print the version number."
+- -l, --locate\n
+	Print absolute pathnames of database files.\n
+	TAG0 through TAG3 specifies the tags of the database."
+
+With no arguments, print where the m17n database is installed.  */ 
+EOF
+
+# Copyright (C) 2004
+#   National Institute of Advanced Industrial Science and Technology (AIST)
+#   Registration Number H15PRO112
+
+# This file is part of the m17n database; a sub-part of the m17n
+# library.
+
+# The m17n library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public License
+# as published by the Free Software Foundation; either version 2.1 of
+# the License, or (at your option) any later version.
+
+# The m17n library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+
+# You should have received a copy of the GNU Lesser General Public
+# License along with the m17n library; if not, write to the Free
+# Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+# 02111-1307, USA.
