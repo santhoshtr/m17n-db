@@ -1,3 +1,7 @@
+2004-03-19  Kenichi Handa  <handa@m17n.org>
+
+	* HEBREW.flt: Fix combining code.
+
 2004-03-18  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* sk-kbd.mim, lo-lrt.mim: Fix typo.
