@@ -21,8 +21,8 @@
 # 02111-1307, USA.
 
 # Process this file with autoconf to produce a configure script.
-AC_INIT(m17n-db, 1.0.1, bugs-m17n-db@m17n.org)
-AM_INIT_AUTOMAKE(m17n-db, 1.0.1)
+AC_INIT(m17n-db, 1.0.2, bugs-m17n-db@m17n.org)
+AM_INIT_AUTOMAKE(m17n-db, 1.0.2)
 
 # Checks for programs.
 AC_PROG_INSTALL
