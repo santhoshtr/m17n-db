@@ -138,6 +138,7 @@ INPUT_METHOD = \
 	zh-py.mim \
 	latn-post.mim \
 	syrc-phonetic.mim \
+	bopo-kbd.mim \
 	unicode.mim rfc1345.mim \
 	ispell.mim
 
