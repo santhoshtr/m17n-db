@@ -135,7 +135,7 @@ INPUT_METHOD = \
 	te-itrans.mim \
 	th-kesmanee.mim \
 	vi-viqr.mim vi-telex.mim \
-	zh-py.mim \
+	zh-py.mim zh-pinyin.mim \
 	latn-post.mim \
 	syrc-phonetic.mim \
 	bopo-kbd.mim \
