@@ -54,7 +54,7 @@
  (0x0303	?T)
  (0x0330	?T)
  (0x0304	?T)
- (0x0320	?T)
+ (0x0331	?T)
  (0x0307	?T)
  (0x0323	?T)
  (0x0308	?T)
@@ -76,7 +76,7 @@
     (2 = *)
     (3 dalath-rish))
 
-   ("(D)(T*)([^U].*)"
+   ("(D)(T*)([DRAr].*)"
     (1 otf:syrc=init)
     (2 = *)
     (3 join))
@@ -109,7 +109,7 @@
 
  (disjoin
   (cond
-   ("(D)(T*)([^U].*)"
+   ("(D)(T*)([DRAr].*)"
     (1 otf:syrc=init)
     (2 = *)
     (3 join))
@@ -119,7 +119,7 @@
     (2 = *)
     (3 dalath-rish))
 
-   ("(A)(T*)([^U].*)"
+   ("(A)(T*)([DRAr].*)"
     (1 otf:syrc=med2)
     (2 = *)
     (3 disjoin))
@@ -136,7 +136,7 @@
 
  (dalath-rish
   (cond
-   ("(D)(T*)([^U].*)"
+   ("(D)(T*)([DRAr].*)"
     (1 otf:syrc=init)
     (2 = *)
     (3 join))
@@ -146,7 +146,7 @@
     (2 = *)
     (3 dalath-rish))
 
-   ("(A)(T*)([^U].*)"
+   ("(A)(T*)([DRAr].*)"
     (1 otf:syrc=med2)
     (2 = *)
     (3 disjoin))
