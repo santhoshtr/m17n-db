@@ -31,31 +31,16 @@
  (0x07b1	?c)			; consonant
  )
 
-;; (generator
-;;  (0
-;;   (cond
-;;    ("cv" < = = >)
-;;    ("." =))
-;;   *))
-
+;; Grouping.
 (generator
  (0
   (cond
-   ((range 0x07a6 0x07b0) 0xe7a6)
+   ("cv" < = = >)
+   ("v" [ = ])
    ("." =))
   *))
 
-(generator
- (0
-  otf:thaa))
-
-(generator
- (0
-  (cond
-   ((range 0xe7a6 0xe7b0) 0x07a6)
-   ("." =))
-  *))
-
+;; Drive OTF.
 (generator
  (0
   otf:thaa))
