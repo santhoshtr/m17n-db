@@ -23,7 +23,7 @@
 
 ;;; <li> sk-kdb.mim
 ;;;
-;;; Input method for Hebrew simulating the standard Slovak keyboard.
+;;; Input method for Slovak simulating the standard Slovak keyboard.
 
 (title "SK")
 

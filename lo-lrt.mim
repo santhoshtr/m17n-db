@@ -23,7 +23,7 @@
 
 ;;; <li> lo-lrt.mim
 ;;;
-;;; Input method for Thai with Lao-Roman transliteration.
+;;; Input method for Lao with Lao-Roman transliteration.
 
 (title "ກ")
 (map
