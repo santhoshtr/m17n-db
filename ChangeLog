@@ -1,6 +1,17 @@
+2004-11-05  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* bopo-kbd.mim, FORMATS/bopo-kbd.png, FORMATS/bopo-kbd.eps: New file.
+	* mdb.dir, Makefile.am: Add bopo-kbd.mim.
+	Add bopomofo input method.
+	
+	* FORMATS/hy-kbd.png, FORMATS/hy-kbd.eps: New file.
+	* hy-kbd.mim: Add image file information (hy-kbd.png & hy-kbd.eps).
+
+
 2004-11-02  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* mdb.dir, Makefile.am, hy-kbd.mim:
+	* mdb.dir, Makefile.am: Add hy-kbd.mim.
+	* hy-kbd.mim: New file.
 	Add Armenian input method (hy-kbd.mim).
 
 2004-10-22  Kenichi Handa  <handa@m17n.org>
