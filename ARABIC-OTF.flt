@@ -130,17 +130,23 @@
    ("D.*"
     (cond
      ("(.)(T*)([DR].*)"
+      <
       (1 otf:arab=init)
       (2 = *)
+      >
       (3 join))
      ("(.)(T*)(.*)"			; == (D)(T*)(U.*)
+      <
       (1 otf:arab=isol)
       (2 = *)
+      >
       (3 disjoin))))
 
    ("([RU])(T*)(.*)"
+    <
     (1 otf:arab=isol)
     (2 = *)
+    >
     (3 disjoin))
 
    ("(T+)(.*)"
@@ -152,17 +158,23 @@
    ("D.*"
     (cond
      ("(.)(T*)([DR].*)"
+      <
       (1 otf:arab=medi)
       (2 = *)
+      >
       (3 join))
      ("(.)(T*)(.*)"			; == (D)(T*)(U.*)
+      <
       (1 otf:arab=fina)
       (2 = *)
+      >
       (3 disjoin))))
 
    ("(.)(T*)(.*)"			; == (R)(T*)(.*)
+    <
     (1 otf:arab=fina)
     (2 = *)
+    >
     (3 disjoin))))
 
  (disjoin
@@ -170,17 +182,23 @@
    ("D.*"
     (cond
      ("(.)(T*)([DR].*)"
+      <
       (1 otf:arab=init)
       (2 = *)
+      >
       (3 join))
      ("(.)(T*)(.*)"			; == (D)(T*)(U.*)
+      <
       (1 otf:arab=isol)
       (2 = *)
+      >
       (3 disjoin))))
 
    ("(.)(T*)(.*)"			; == ([RU])(T*)(.*)
+    <
     (1 otf:arab=isol)
     (2 = *)
+    >
     (3 disjoin)))))
 
 ;; Step 3: Other GSUB features (ligatures, etc.)
