@@ -22,7 +22,7 @@
 ;; 02111-1307, USA.
 ;;
 ;; The file format is this:
-;;	(FONT-SPEC ENCODING) ...
+;;	(FONT-SPEC ENCODING-CHARSET [ REPERTORY-CHARSET ]) ...
 ;;
 ;; FONT-SPEC has this form:
 ;;	([FOUNDRY FAMILY [WEIGHT [STYLE [STRETCH [ADSTYLE]]]]] REGISTRY)
@@ -63,10 +63,16 @@
 ((nil nil big5.eten-0)		big5)
 ((nil nil big5-1)		big5)
 ((nil nil ethiopic-unicode)	unicode unicode-ethiopic)
-((nil nil devanagari-cdac)	unicode unicode-devanagari)
-((nil nil malayalam-cdac)	unicode unicode-malayalam)
-((nil nil tamil-cdac)		unicode unicode-tamil)
 ((nil nil mulelao-1)		unicode unicode-lao)
 ((nil nil iso10646-1)		unicode nil)
 ((nil nil unicode-bmp)		unicode nil)
 ((nil nil unicode-full)		unicode nil)
+
+;; These fonts can't be use without a FLT.
+((nil nil devanagari-cdac)	nil)
+((nil nil malayalam-cdac)	nil)
+((nil nil tamil-cdac)		nil)
+((nil dv-ttyogesh nil)		nil)
+((nil tm-ttvalluvar nil)	nil)
+((nil ml-ttkarthika nil)	nil)
+((nil alice0\ lao nil)		nil)
