@@ -81,7 +81,7 @@ CHAR_TABLE = \
 	CATEGORY.tab COMBINE.tab BIDI.tab
 
 FONT_LAYOUT_TABLE = \
-	ARABIC.flt \
+	ARABIC.flt ARABIC-OTF.flt \
 	HEBREW.flt HEBREW-FF.flt \
 	THAANA-OTF.flt \
 	DEV-CDAC.flt DEV-OTF.flt TML-CDAC.flt TML-OTF.flt \
