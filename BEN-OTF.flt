@@ -202,10 +202,9 @@
     0x09FE
     |)
 
-   ;; This is the most generic pattern.  It follows Case A-C and a
-   ;; part of Case E in Step 1.  Now Mark #1 is used to indicate the
-   ;; critical part that requires pre-base substitution in the
-   ;; following steps.
+   ;; This is the most generic pattern.  It follows Cases A, B, C and
+   ;; E in Step 1.  Now Mark #1 is used to indicate the critical part
+   ;; that requires pre-base substitution in the following steps.
 
    ;; 1    2         3        4    5   6   7   8   9   10
    (" (RH)?([^ xy]+)x([^ y]*)y(YH)?(m)?(b)?(p)?(A)?(a)?(HN|HJ|H)? "
