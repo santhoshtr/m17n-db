@@ -1,5 +1,9 @@
 2004-09-22  Kenichi Handa  <handa@m17n.org>
 
+	* ARABIC-OTF.flt: Accept Arabic presentation forms in input.
+
+2004-09-22  Kenichi Handa  <handa@m17n.org>
+
 	* Mymr-MyaZedi.flt: Various fixes.
 
 2004-09-21  Kenichi Handa  <handa@m17n.org>
