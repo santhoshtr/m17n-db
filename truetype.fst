@@ -50,31 +50,43 @@
  (nil
   ((nil mukti\ narrow unicode-bmp) ben-otf)
   ((nil likhan unicode-bmp) ben-otf)))
+(gurmukhi
+ (nil
+  ((nil saab unicode-bmp) gur-otf)))
+(tamil
+ (nil
+  ((nil tm-ttvalluvar apple-roman) tml-cdac)))
+(telugu
+ (nil
+  ((nil pothana2000 unicode-bmp) tel-otf)))
+(kannada
+ (nil
+  ((nil sampige unicode-bmp) kan-otf)))
 (malayalam
  (nil
   ((nil thoolikaunicode unicode-bmp) mlm-otf)
   ((nil ml-ttkarthika apple-roman) mlm-cdac)))
-(tamil
- (nil
-  ((nil tm-ttvalluvar apple-roman) tml-cdac)))
 (thai
  (nil
   ((nil norasi unicode-bmp) thai-norasi)))
 (lao
  (nil
   ((nil alice0\ lao apple-roman) lao-alice)))
-(khmer
- (nil
-  ((nil anlongvill\ khek apple-roman) khmer-anlong)))
 (tibetan
  (nil
   ((nil mtib unicode-bmp) tib-mtib)))
+(myanmar
+ (nil
+  ((nil myazedi_m17n unicode-bmp) myanmar-zedi)))
 (georgian
  (nil
   ((nil bpg\ classic\ 99u unicode-bmp))))
 (ethiopic
  (nil
   ((nil freeserif unicode-bmp))))
+(khmer
+ (nil
+  ((nil anlongvill\ khek apple-roman) khmer-anlong)))
 (hiragana
  (nil
   ((nil kochi\ gothic unicode-bmp))
