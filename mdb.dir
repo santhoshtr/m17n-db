@@ -106,6 +106,7 @@
 (input-method km yannis "km-yannis.mim")
 (input-method kn itrans "kn-itrans.mim")
 (input-method ko hangul2 "ko-han2.mim")
+(input-method ko romaja "ko-romaja.mim")
 (input-method lo lrt "lo-lrt.mim")
 (input-method ml itrans "ml-itrans.mim")
 (input-method my kdb "my-kbd.mim")
