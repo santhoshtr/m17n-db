@@ -23,32 +23,30 @@
 ;;; <li> latin-post.mim
 ;;;
 ;;; Input method for Latin script with postfix modifiers.
-;;; @verbatim
-;;; | mark       | postfix | examples
-;;; |------------+---------+----------
-;;; | acute      |    '    | a' -> á
-;;; | grave      |    `    | a` -> à
-;;; | circumflex |    ^    | a^ -> â
-;;; | diaeresis  |    "    | a" -> ä
-;;; | tilde      |    ~    | a~ -> ã
-;;; | cedilla    |    ,    | c, -> ç
-;;; | ogonek     |    ,    | a, -> ą
-;;; | breve      |    ~    | g~ -> ğ
-;;; | caron      |    ~    | c~ -> č
-;;; | dbl. acute |    :    | o: -> ő
-;;; | ring       |    .    | u. -> ů
-;;; | dot        |    .    | z. -> ż
-;;; | stroke     |    /    | l/ -> ł
-;;; | others     | /, etc. | d/ -> ð   t/ -> þ   a/ -> å   o/ -> ø
-;;; |            |         | ae/ -> æ  ij -> ĳ   oe/ -> œ  s/ -> ß
-;;; |            |         | ?/ -> ¿   !/ -> ¡   // -> °
-;;; |            |         | << -> «   >> -> »   o_ -> º   a_ -> ª
-;;; 
-;;; Repeating the postfix changes ambiguous combining marks: for example,
-;;;   A~   -> Ã
-;;;   A~~  -> Ă
-;;;   A~~~ -> A~
-;;; @endverbatim
+;;; @image html latin-post.png
+
+;; | mark       | postfix | examples
+;; |------------+---------+----------
+;; | acute      |    '    | a' -> á
+;; | grave      |    `    | a` -> à
+;; | circumflex |    ^    | a^ -> â
+;; | diaeresis  |    "    | a" -> ä
+;; | tilde      |    ~    | a~ -> ã
+;; | cedilla    |    ,    | c, -> ç
+;; | ogonek     |    ,    | a, -> ą
+;; | breve      |    ~    | g~ -> ğ
+;; | caron      |    ~    | c~ -> č
+;; | dbl. acute |    :    | o: -> ő
+;; | ring       |    .    | u. -> ů
+;; | dot        |    .    | z. -> ż
+;; | stroke     |    /    | l/ -> ł
+;; | others     | /, etc. | d/ -> ð   t/ -> þ   a/ -> å   o/ -> ø
+;; |            |         | ae/ -> æ  ij -> ĳ   oe/ -> œ  s/ -> ß
+;; |            |         | ?/ -> ¿   !/ -> ¡   // -> °
+;; |            |         | << -> «   >> -> »   o_ -> º   a_ -> ª
+;; 
+;; Repeating the postfix changes ambiguous combining marks:
+;;  Ex: A~ -> Ã, A~~ -> Ă, A~~~ -> A~
 
 (title "Latin-post")
 

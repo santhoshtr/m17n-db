@@ -24,15 +24,19 @@
 ;;; <li> ru-yawerty.mim
 ;;;
 ;;; Input method for Russian simulating the keyboard layout based on
-;;; Roman transcription by phonetic resemblance.  When preceded by a
-;;; '/', the second and the third rows (number key row) change
-;;; as follows.
-;;;
-;;; @verbatim
-;;; keytop | Q  W  E  R  T  Y  U  I  O  P  A  S  D
-;;; -------+---------------------------------------
-;;; input  | Ђ  Ѓ  Є  Ѕ  І  Ї  Ј  Љ  Њ  Ћ  Ќ  Ў  Џ
-;;; @endverbatim
+;;; Roman transcription by phonetic resemblance.
+;;; @image html ru-yawerty.png "Keyboard Layout"
+;;	1!  2ё  3ъ  4Ё  5%  6^  7&  8*  9(  0)  -_  чЧ  юЮ  
+;;	  яЯ  вВ  еЕ  рР  тТ  ыЫ  уУ  иИ  оО  пП  шШ  щЩ  
+;;	   аА  сС  дД  фФ  гГ  хХ  йЙ  кК  лЛ  ;:  '"  эЭ  
+;;	     зЗ  ьЬ  цЦ  жЖ  бБ  нН  мМ  ,<  .>  /?  
+;;; When preceded by a '/', the second and the third rows (number key
+;;; row) change as follows.
+;;; @image html ru-yawerty2.png
+;; keytop | Q  W  E  R  T  Y  U  I  O  P  A  S  D
+;; -------+---------------------------------------
+;; input  | Ђ  Ѓ  Є  Ѕ  І  Ї  Ј  Љ  Њ  Ћ  Ќ  Ў  Џ
+
 
 (title "ЖЯ")
 

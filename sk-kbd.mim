@@ -24,6 +24,20 @@
 ;;; <li> sk-kdb.mim
 ;;;
 ;;; Input method for Slovak simulating the standard Slovak keyboard.
+;;; @image html sk-kbd.png "Keyboard Layout"
+;;      +1  ľ2  š3  č4  ť5  ž6  ý7  á8  í9  é0  =%  '+  ;^ 
+;;        qQ  wW  eE  rR  tT  zZ  uU  iI  oO  pP  ú/  ä( 
+;;         aA  sS  dD  fF  gG  hH  jJ  kK  lL  ô"  §!  ň) 
+;;           yY  xX  cC  vV  bB  nN  mM  ,?  .:  -_ 
+
+;;; You can also input more characters by the following key sequences:
+;;; @image html sk-kbd2.png
+
+;; key char key char key char key char key char key char
+;; --- ---- --- ---- --- ---- --- ---- --- ---- --- ----
+;; +C  Č    +L  Ľ    +S  Š    +Y  Ž    +r  ř    =R  Ŕ
+;; +D  Ď    +N  Ň    +T  Ť    +d  ď    +u  ů    =l  ĺ
+;; +E  Ě    +R  Ř    +U  Ů    +e  ě    =L  Ĺ    =r  ŕ
 
 (title "SK")
 

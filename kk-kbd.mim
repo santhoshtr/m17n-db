@@ -26,12 +26,12 @@
 ;;; Input method for Kazakh written in the Cyrillic script.
 ;;; Simulating Kazakh keyboard.
 ;;;
-;;; @verbatim
-;;; ()  "!  әӘ  іІ  ӊӉ  ғҒ  ,;  .:  үҮ  ұҰ  қҚ  өӨ  һҺ
-;;;       йЙ  цЦ  уУ  кК  еЕ  нН  гГ  шШ  щЩ  зЗ  хХ  ъЪ
-;;;         фФ  ыЫ  вВ  аА  пП  рР  оО  лЛ  дД  жЖ  эЭ
-;;;       \|  яЯ  чЧ  сС  мМ  иИ  тТ  ьЬ  бБ  юЮ  №?
-;;; @endverbatim
+;;; @image html kk-kbd.png "Keyboard Layout"
+
+;;     "!  әӘ  іІ  ӊӉ  ғҒ  ,;  .:  үҮ  ұҰ  қҚ  өӨ  һҺ  ()
+;;       йЙ  цЦ  уУ  кК  еЕ  нН  гГ  шШ  щЩ  зЗ  хХ  ъЪ
+;;        фФ  ыЫ  вВ  аА  пП  рР  оО  лЛ  дД  жЖ  эЭ  \|
+;;          яЯ  чЧ  сС  мМ  иИ  тТ  ьЬ  бБ  юЮ  №?
 
 (title "ҚА")
 
