@@ -355,9 +355,9 @@ If @c OPERAND is 'div', it divides the value of @c SYMBOL1 by @c INTEGER or
 the value of @c SYMBOL2.
 
 @verbatim
-IF ::= '(' 'if' CONDITION ACTION-LIST1 ACTION-LIST2 * ')'
+IF ::= '(' CONDITION ACTION-LIST1 ACTION-LIST2 * ')'
 
-CONDITION ::= '(' OPERAND VAL1 VAL2 ')'
+CONDITION ::= OPERAND VAL1 VAL2
 
 ACTION-LIST1 ::= '(' ACTION * ')'
 
