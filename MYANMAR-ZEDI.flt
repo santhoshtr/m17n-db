@@ -23,60 +23,167 @@
 
 ;;; <li> MYANMAR-ZEDI.flt
 ;;;
-;;; For the Myanmar Zedi family fonts to draw Myanmar script.  Please
-;;; note that this is not yet completed, i.e. no rules for ligature,
-;;; etc are added.  The fonts are available at:
+;;; For the Myanmar Zedi family fonts to draw Myanmar script.
 ;;; <ul>
-;;; <li> infopage: ???
+;;; <li> infopage: http://www.myazedi.com/downloads/MyaZedi_M17N.ttf
 ;;; </ul>
 
 (category
  ;; C: Consonant
+ ;; c: NGA
+ ;; I: Independent vowel
  ;; V: Dependent vowel
- ;; E: VIWEL SIGN E
  ;; H: Halant
  ;; D: Dependent sign
  ;; Z: ZWNJ
  ;; O: Other
  (0x1000 0x107F ?O)
  (0x1000 0x1020 ?C)
- (0x1021 0x102A	?O)
- (0x102C 0x1030	?V)
- (0x1031	?E)
- (0x1032	?V)
+ (0x1004	?c)
+ (0x1021 0x102A ?I)
+ (0x102C 0x1032	?V)
  (0x1036 0x1038	?D)
  (0x1039	?H)
  (0x1056 0x1059	?D)
- (0x200C	?Z)
+ (0x200C	?n)
  )
 
 (generator
  (0
   (cond
-   ;; Consonant + VOWEL SIGN E
-   ("(C)(E)"
-    ;; Put E at the head.
-    < (2 =) (1 = ) >)
-   ;; Consonant + Halant followed by ZWNJ
-   ("(CH)Z"
-    ;; Display Halant.
-    < (1 = =) >)
-   ;; Consonant + Halant not followed by ZWNJ
-   ("CH"
-    ;; Don't display Halant.
-    =)
-   ;; Consonant + the other dependend vowel/sign
-   ("C[VD]"
-    < = = >)
-   ;; Single E
-   ("E"
-    ;; Append dotted circle.
-    = 0x25CC)
-   ;; The other single combining character
-   ("[VHD]"
-    ;; Prepend dotted circle.
-    0x25CC =)
-   ;; The othe single character
+   ;;
+   ("(([Cc]Hn?)*[Cc])(V[VH]?D?|D)"
+    | (1 kinzi-halant) (3 = *) |)
+   ("(([Cc]Hn?)*[Cc]Hn?)(V[VH]?D?|D)"
+    | (1 kinzi-halant) (3 = *) |)
+   ("(([Cc]Hn?)*[Cc])(Hn?)?"
+    | kinzi-halant |)
+   ("IV*"
+    | = * |)
    ("."
     [ = ]))
+  *)
+
+ (kinzi-halant
+  (cond
+   ("(cHn)(.*)"
+    (1 = =) (2 kinzi-halant))
+   ("(cH)([Cc]H?n?)(.*)"
+    (2 (cond ("..." = =) (".*" =)) (1 0xE390) (3 kinzi-halant)))
+   ("(CHn)(.*)"
+    (1 = =) (2 kinzi-halant))
+   ("(CH)(.*)"
+    (1 =) (2 kinzi-halant))
+   ("." =))))
+
+(category
+ (0x1000 0x107F ?O)
+ (0x1000 0x1020 ?C)
+ (0x1000 0x1003 ?S)
+ (0x1005 0x1007 ?S)
+ (0x100B 0x100C ?S)
+ (0x100F 0x1019 ?S)
+ (0x101C	?S)
+ (0x1039	?H)
+ (0x200C	?n)
+ (0xE390	?K)			; Kinzi
+ )
+
+(generator
+ (0
+  (cond
+   (" ([CSHK][CSHK]*)([^ ]*) "
+    | (1 consonant *) (2 = *) |)
+   (" ([^ ]*]) "
+    | (1 = *) |)
+   ("."
+    =))
+  *)
+
+ (consonant
+  (cond
+   ((0x1009 0x1039)	0xE009 0x1039)
+   ((0x1009 0x1005)	0xE109 0xE005)
+   ((0x1014 0x1010)	0xE140 0xE010)
+   ((0x101B 0x102F)	0xE01B 0x102F)
+   ((0x1001 0x101A)	0x1001 0xE1A1)
+   ((0x1001 0x101B)	0xE1B1 0x1001)
+   ((0x1001 0x101D)	0x1001 0xE01D)
+   ((0x101C 0x101F)	0x101C 0xE1F1)
+   ((0x100B 0x100C)	0xE10C)
+   ((0x100D 0x100D)	0xE00D)
+   ((0x100E 0x100D)	0xE10D)
+   ((0x100F 0x100D)	0xE20D)
+   ((0x101E 0x101E)	0xE01E)
+   ("([CS])(S)" (1 =) (2 subscript))
+   ("." =)))
+
+ (subscript
+  ((range 0x1000 0x101C) 0xE000)))
+
+(category
+ (0x1000 0x107F ?O)
+ (0x1000 0x1020 ?C)
+ (0x1001 0x1002 ?c)
+ (0x1004	?c)
+ (0x1013	?c)
+ (0x101D	?c)
+ (0x102C	?A)			; Vowel AA
+ (0x102C 0x1032	?V)
+ (0x1031	?E)			; Vowel E
+ (0x1036 0x1038	?D)
+ (0x1039	?H)
+ (0x1056 0x1059	?D)
+ (0x200C	?n)
+ (0xE000 0xE7FF ?C)
+ (0xE390	?K)			; Kinzi
+)
+
+(generator
+ (0
+  (cond
+   (" ([CcKH]*)([Cc][KH]?)(E)([^ ]*) "
+    | (1 = *) (3 =) (2 = *) (4 = *) |)
+   (" ([CcKH]*)(c)(AH)([^ ]*) "
+    | (1 = *) (2 =) 0xE02D (4 = *) |)
+   (" ([CcKH]*)(c)(A)([^ H]*) "
+    | (1 = *) (2 =) 0xE02C (4 = *) |)
+   (" ([^ ]*) "
+    | (1 = *) |)
+   ("."
+    =))
+  *))
+
+(category
+ (0x1000 0x107F ?O)
+ (0x1000 0x1003 ?b)
+ (0x1005 0x1007 ?b)
+ (0x100B 0x100C ?b)
+ (0x100F 0x1019 ?b)
+ (0x100C	?b)
+ (0x102F	?U)			; Vowel U
+ (0x1030	?u)			; Vowel UU
+ (0xE000 0xE7FF	?O)
+ (0xE000 0xE01D ?b)
+ (0xE1A1 0xE1B8 ?b))
+
+(generator
+ (0
+  (cond
+   (" ([^ ]*) "
+    <
+    (1 (cond
+	((0xE390 0x102D) 0xE391)
+	((0xE390 0x102E) 0xE392)
+	((0xE390 0x1036) 0xE393)
+	((0x1014 0x1037) 0x1014 0xE037)
+	((0x101B 0x1037) 0x101B 0xE137)
+	((0x102D 0x1037) 0xE2D1)
+	("(b)U" (1 =) 0xE2F1)
+	("(b)u" (1 =) 0xE2F2)
+	("." =))
+       *)
+    >)
+   ("."
+    =))
   *))
