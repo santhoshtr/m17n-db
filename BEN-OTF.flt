@@ -38,8 +38,7 @@
  ;; m: MATRA (pre)
  ;; b: MATRA (below)
  ;; p: MATRA (post)
- ;; o: MATRA (two-part O)
- ;; u: MATRA (two-part AU)
+ ;; t: MATRA (two-part)
  ;; U: AU LENGTH MARK
  ;; A: vowel modifier (above)
  ;; a: vowel modifier (post)
