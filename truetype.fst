@@ -96,7 +96,7 @@
   ((nil mtib unicode-bmp) tib-mtib)))
 (myanmar
  (nil
-  ((nil myazedi_m17n unicode-bmp) myanmar-zedi)))
+  ((nil myazedi_m17n unicode-bmp) mymr-myazedi)))
 (georgian
  (nil
   ((nil bpg\ classic\ 99u unicode-bmp))))

@@ -93,7 +93,7 @@ FONT_LAYOUT_TABLE = \
 	TEL-OTF.flt \
 	KAN-OTF.flt \
 	MLM-CDAC.flt MLM-OTF.flt \
-	MYANMAR-ZEDI.flt \
+	Mymr-MyaZedi.flt \
 	THAI-TIS620.flt THAI-NORASI.flt \
 	LAO-MULE.flt LAO-ALICE.flt \
 	TIB-MULE.flt TIB-MTIB.flt \

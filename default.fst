@@ -144,6 +144,10 @@
 ;;; <li> infopage: http://www.cambodia.org/fonts/index.html#dl
 ;;; <li> download: http://www.cambodia.org/fonts/khmerfnt.zip
 ;;; </ul>
+;;; <li> MyaZedi_M17N.ttf (family: MyaZedi; for Myanmar)
+;;; <ul>
+;;; <li> download: http://www.myazedi.com/downloads/MyaZedi_M17N.ttf
+;;; </ul>
 ;;; <li> BPG-Classic-99Um.ttf (family: BPG Classic 99U; for Georgian) 
 ;;; <ul>
 ;;; <li> infopage: http://beso.tripod.com/bpg_classic.htm
@@ -274,7 +278,7 @@
   ((nil mtib unicode-bmp) tib-mtib)))
 (myanmar
  (nil
-  ((nil myazedi_m17n unicode-bmp) myanmar-zedi)))
+  ((nil myazedi_m17n unicode-bmp) mymr-myazedi)))
 (georgian
  (nil
   ((nil \1col iso10646-1))
