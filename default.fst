@@ -81,7 +81,7 @@
 ;;; <li> infopage: http://kannada.sourceforge.net/
 ;;; <li> download: http://brahmi.sourceforge.net/dl/Sampige.ttf
 ;;; </ul>
-;;; <li> Gardi-1.3.ttf (family: Gardi-1.3; for Devanagari), \n
+;;; <li> Gargi-1.3.ttf (family: Gargi-1.3; for Devanagari), \n
          padmaa-Medium-0.5.ttf (family: padmaa; for Gujarati)
 ;;; <ul>
 ;;; <li> infopage: http://www.indictrans.org/
@@ -180,7 +180,7 @@
 (devanagari
  (nil
   ((devanagari-cdac) dev-cdac)
-  ((nil gardi-1.3 unicode-bmp) dev-otf)
+  ((nil gargi-1.3 unicode-bmp) dev-otf)
   ((nil raghindi unicode-bmp) dev-otf)
   ((nil dv-ttyogesh apple-roman) dev-cdac)))
 (bengali
