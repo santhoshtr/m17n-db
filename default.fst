@@ -225,64 +225,64 @@
 (hebrew
  (nil
   ((iso10646-1))
-  ((nil freesans unicode-bmp) hebrew)))
+  ((nil freesans unicode-bmp) hebr)))
 (arabic
  (nil
-  ((nil riwaj unicode-bmp) arabic-otf)
-  ((nil paktype\ tehreer unicode-bmp) arabic-otf)
-  ((nil paktype\ naqsh unicode-bmp) arabic-otf)
-  ((nil bitstream\ cyberbase unicode-bmp) arabic)
-  ((nil mule iso10646-1) arabic)))
+  ((nil riwaj unicode-bmp) arab-otf)
+  ((nil paktype\ tehreer unicode-bmp) arab-otf)
+  ((nil paktype\ naqsh unicode-bmp) arab-otf)
+  ((nil bitstream\ cyberbase unicode-bmp) arab)
+  ((nil mule iso10646-1) arab)))
 (syriac
  (nil
-  ((nil estrangelo\ edessa unicode-bmp) syriac-otf)
-  ((nil serto\ jerusalem unicode-bmp) syriac-otf)
-  ((nil east\ syriac\ adiabene unicode-bmp) syriac-otf)))
+  ((nil estrangelo\ edessa unicode-bmp) syrc-otf)
+  ((nil serto\ jerusalem unicode-bmp) syrc-otf)
+  ((nil east\ syriac\ adiabene unicode-bmp) syrc-otf)))
 (thaana
  (nil
-  ((nil thaana\ unicode\ akeh unicode-bmp) thaana-otf)))
+  ((nil thaana\ unicode\ akeh unicode-bmp) thaa-otf)))
 (devanagari
  (nil
-  ((nil gargi-1.3 unicode-bmp) dev-otf)
-  ((nil raghindi unicode-bmp) dev-otf)
-  ((nil dv-ttyogesh apple-roman) dev-cdac)
-  ((devanagari-cdac) dev-cdac)))
+  ((nil gargi-1.3 unicode-bmp) deva-otf)
+  ((nil raghindi unicode-bmp) deva-otf)
+  ((nil dv-ttyogesh apple-roman) deva-cdac)
+  ((devanagari-cdac) deva-cdac)))
 (bengali
  (nil
-  ((nil likhan unicode-bmp) ben-otf)
-  ((nil mukti\ narrow unicode-bmp) ben-otf)))
+  ((nil likhan unicode-bmp) beng-otf)
+  ((nil mukti\ narrow unicode-bmp) beng-otf)))
 (gurmukhi
  (nil
-  ((nil saab unicode-bmp) gur-otf)))
+  ((nil saab unicode-bmp) guru-otf)))
 (gujarati
  (nil
-  ((nil padmaa unicode-bmp) guj-otf)))
+  ((nil padmaa unicode-bmp) gujr-otf)))
 (oriya
  (nil
-  ((nil utkal unicode-bmp) ori-otf)))
+  ((nil utkal unicode-bmp) orya-otf)))
 (tamil
  (nil
-  ((nil tm-ttvalluvar apple-roman) tml-cdac)
-  ((nil akrutitml1 unicode-bmp) tml-otf)
-  ((nil akrutitml2 unicode-bmp) tml-otf)
-  ((nil tscu_paranar unicode-bmp) tml-otf)
-  ((nil tscu_comic unicode-bmp) tml-otf)
-  ((nil tscu_times unicode-bmp) tml-otf)
-  ((nil tamu_kadambri unicode-bmp) tml-otf)
-  ((nil tamu_kalyani unicode-bmp) tml-otf)
-  ((nil tamu_maduram unicode-bmp) tml-otf)
-  ((tamil-cdac) tml-cdac)))
+  ((nil tm-ttvalluvar apple-roman) taml-cdac)
+  ((nil akrutitml1 unicode-bmp) taml-otf)
+  ((nil akrutitml2 unicode-bmp) taml-otf)
+  ((nil tscu_paranar unicode-bmp) taml-otf)
+  ((nil tscu_comic unicode-bmp) taml-otf)
+  ((nil tscu_times unicode-bmp) taml-otf)
+  ((nil tamu_kadambri unicode-bmp) taml-otf)
+  ((nil tamu_kalyani unicode-bmp) taml-otf)
+  ((nil tamu_maduram unicode-bmp) taml-otf)
+  ((tamil-cdac) taml-cdac)))
 (telugu
  (nil
-  ((nil pothana2000 unicode-bmp) tel-otf)))
+  ((nil pothana2000 unicode-bmp) telu-otf)))
 (kannada
  (nil
-  ((nil sampige unicode-bmp) kan-otf)))
+  ((nil sampige unicode-bmp) knda-otf)))
 (malayalam
  (nil
-  ((nil thoolikaunicode unicode-bmp) mlm-otf)
-  ((malayalam-cdac) mlm-cdac)
-  ((nil ml-ttkarthika apple-roman) mlm-cdac)))
+  ((nil thoolikaunicode unicode-bmp) mlym-otf)
+  ((malayalam-cdac) mlym-cdac)
+  ((nil ml-ttkarthika apple-roman) mlym-cdac)))
 (sinhala
  (nil
   ((nil lklug unicode-bmp) sinh-otf)))
@@ -293,13 +293,13 @@
   ((nil norasi unicode-bmp) thai-norasi)))
 (lao
  (nil
-  ((mulelao-1) lao-mule)
-  ((nil alice0\ lao iso8859-1) lao-alice)
-  ((nil alice0\ lao apple-roman) lao-alice)))
+  ((mulelao-1) laoo-mule)
+  ((nil alice0\ lao iso8859-1) laoo-alice)
+  ((nil alice0\ lao apple-roman) laoo-alice)))
 (tibetan
  (nil
-  ((muletibetan-2) tib-mule)
-  ((nil mtib unicode-bmp) tib-mtib)))
+  ((muletibetan-2) tibt-mule)
+  ((nil mtib unicode-bmp) tibt-mtib)))
 (myanmar
  (nil
   ((nil myazedi_m17n unicode-bmp) mymr-myazedi)))
@@ -313,8 +313,8 @@
   ((nil freeserif unicode-bmp))))
 (khmer
  (nil
-  ((mulekhmer-1) khmer-mule)
-  ((nil anlongvill\ khek apple-roman) khmer-anlong)))
+  ((mulekhmer-1) khmr-mule)
+  ((nil anlongvill\ khek apple-roman) khmr-anlong)))
 (hiragana
  (ja
   ((jisx0208.1983-0))

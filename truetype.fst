@@ -38,70 +38,70 @@
   ((nil freemono unicode-bmp))))
 (hebrew
  (nil
-  ((nil freesans unicode-bmp) hebrew)))
+  ((nil freesans unicode-bmp) hebr)))
 (arabic
  (nil
-  ((nil riwaj unicode-bmp) arabic-otf)
-  ((nil bitstream\ cyberbase unicode-bmp) arabic)))
+  ((nil riwaj unicode-bmp) arab-otf)
+  ((nil bitstream\ cyberbase unicode-bmp) arab)))
 (syriac
  (nil
-  ((nil estrangelo\ talada unicode-bmp) syriac-otf)
-  ((nil serto\ jerusalem unicode-bmp) syriac-otf)
-  ((nil east\ syriac adiabene unicode-bmp) syriac-otf)))
+  ((nil estrangelo\ talada unicode-bmp) syrc-otf)
+  ((nil serto\ jerusalem unicode-bmp) syrc-otf)
+  ((nil east\ syriac adiabene unicode-bmp) syrc-otf)))
 (thaana
  (nil
-  ((nil thaana\ unicode\ akeh unicode-bmp) thaana-otf)))
+  ((nil thaana\ unicode\ akeh unicode-bmp) thaa-otf)))
 (devanagari
  (nil
-  ((nil gargi-1.3 unicode-bmp) dev-otf)
-  ((nil raghindi t) dev-otf)
-  ((nil dv-ttyogesh apple-roman) dev-cdac)))
+  ((nil gargi-1.3 unicode-bmp) deva-otf)
+  ((nil raghindi t) deva-otf)
+  ((nil dv-ttyogesh apple-roman) deva-cdac)))
 (bengali
  (nil
-  ((nil mukti\ narrow unicode-bmp) ben-otf)
-  ((nil likhan unicode-bmp) ben-otf)))
+  ((nil mukti\ narrow unicode-bmp) beng-otf)
+  ((nil likhan unicode-bmp) beng-otf)))
 (gurmukhi
  (nil
-  ((nil saab unicode-bmp) gur-otf)))
+  ((nil saab unicode-bmp) guru-otf)))
 (gujarati
  (nil
-  ((nil padmaa unicode-bmp) guj-otf)))
+  ((nil padmaa unicode-bmp) gujr-otf)))
 (oriya
  (nil
-  ((nil utkal unicode-bmp) ori-otf)))
+  ((nil utkal unicode-bmp) orya-otf)))
 (tamil
  (nil
-  ((nil akrutitml1 unicode-bmp) tml-otf)
-  ((nil akrutitml2 unicode-bmp) tml-otf)
-  ((nil tscu_paranar unicode-bmp) tml-otf)
-  ((nil tscu_comic unicode-bmp) tml-otf)
-  ((nil tscu_times unicode-bmp) tml-otf)
-  ((nil tamu_kadambri unicode-bmp) tml-otf)
-  ((nil tamu_kalyani unicode-bmp) tml-otf)
-  ((nil tamu_maduram unicode-bmp) tml-otf)
-  ((nil tm-ttvalluvar apple-roman) tml-cdac)))
+  ((nil akrutitml1 unicode-bmp) taml-otf)
+  ((nil akrutitml2 unicode-bmp) taml-otf)
+  ((nil tscu_paranar unicode-bmp) taml-otf)
+  ((nil tscu_comic unicode-bmp) taml-otf)
+  ((nil tscu_times unicode-bmp) taml-otf)
+  ((nil tamu_kadambri unicode-bmp) taml-otf)
+  ((nil tamu_kalyani unicode-bmp) taml-otf)
+  ((nil tamu_maduram unicode-bmp) taml-otf)
+  ((nil tm-ttvalluvar apple-roman) taml-cdac)))
 (telugu
  (nil
-  ((nil pothana2000 unicode-bmp) tel-otf)))
+  ((nil pothana2000 unicode-bmp) telu-otf)))
 (kannada
  (nil
-  ((nil sampige unicode-bmp) kan-otf)))
+  ((nil sampige unicode-bmp) knda-otf)))
 (sinhala
  (nil
   ((nil lklug unicode-bmp) sinh-otf)))
 (malayalam
  (nil
-  ((nil thoolikaunicode unicode-bmp) mlm-otf)
-  ((nil ml-ttkarthika apple-roman) mlm-cdac)))
+  ((nil thoolikaunicode unicode-bmp) mlym-otf)
+  ((nil ml-ttkarthika apple-roman) mlym-cdac)))
 (thai
  (nil
   ((nil norasi unicode-bmp) thai-norasi)))
 (lao
  (nil
-  ((nil alice0\ lao apple-roman) lao-alice)))
+  ((nil alice0\ lao apple-roman) laoo-alice)))
 (tibetan
  (nil
-  ((nil mtib unicode-bmp) tib-mtib)))
+  ((nil mtib unicode-bmp) tibt-mtib)))
 (myanmar
  (nil
   ((nil myazedi_m17n unicode-bmp) mymr-myazedi)))
@@ -113,7 +113,7 @@
   ((nil freeserif unicode-bmp))))
 (khmer
  (nil
-  ((nil anlongvill\ khek apple-roman) khmer-anlong)))
+  ((nil anlongvill\ khek apple-roman) khmr-anlong)))
 (hiragana
  (nil
   ((nil kochi\ gothic unicode-bmp))
