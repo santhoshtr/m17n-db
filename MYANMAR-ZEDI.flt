@@ -42,7 +42,8 @@
  (0x100F 0x1019 ?c)
  (0x1014	?n)			; consonant NA
  (0x101C	?c)
- (0x101A 0x101B	?M)			; cosonant that may be used as Medial
+ (0x101A	?M)			; cosonant that may be used as Medial
+ (0x101B	?r)
  (0x101D	?M)
  (0x101F	?M)
  (0x1021 0x102A ?I)			; independent vowel
@@ -56,11 +57,15 @@
 (generator
  (0
   (cond
+   ;; Special pattern to prefer Medial Ra to Kinzi.
+   ("(K)(Hr(HM)*)(V*A?H?)N?(S*)"
+    | (1 =) (2 remove-halant *) (4 = *) (5 = *) |)
+
    ;; The following regular expression matches a syllable pattern
    ;; described in Table 10-3 of the Unicode Standard 4.0 .
    ;;<1-> <--------2--------><--4--><--6--->  <7->
    ;;             <---3--->   <5->
-   ("(KH)?([CcnKM](H[CcnK])?)((HM)*)(V*A?H?)N?(S*)"
+   ("(KH)?([CcnKMr](H[CcnK])?)((H[Mr])*)(V*A?H?)N?(S*)"
     | < (1 0xE390) (2 consonant) (4 remove-halant *) (6 = *) (7 = *) > |)
    ;; Fixme: I'm not sure about the syllable pattern for an
    ;; independent vowel.
@@ -77,10 +82,9 @@
    ((0x100D 0x1039 0x100D) 0xE00D)
    ((0x100E 0x1039 0x100D) 0xE10D)
    ((0x100F 0x1039 0x100D) 0xE20D)
-   ((0x1014 0x1039 0x1010) 0xE140 0xE010)
    ((0x101E 0x1039 0x101E) 0xE01E)
-   ("(n)H(c)" 0xE140 (2 subscript))
-   ("(.)H(c)" (1 =) (2 subscript))
+   ("(n)H([cn])" 0xE140 (2 subscript))
+   ("(.)H([cn])" (1 =) (2 subscript))
    ("(.)H(.)" (1 =) (2 =))
    ("." =)))
 
@@ -129,7 +133,7 @@
 (generator
  (0
   (cond
-   (" (K)?([WSabdfws][WSKws]?[abdf]*[^ ]*) "
+   (" (K)?([WSabdfws][WSKws]?[abdf][abdf]*[^ ]*) "
     | (1 =) (2 medial = *) |)
    (" ([^ ]*) "
     = *)
@@ -146,14 +150,16 @@
    ("(..?)a"	(1 = *) 0xE1A1)
 
    ;; Medial Ra (U+101B)
-   ;; Fixme: Don't work well with a single-width consonant and a wide
-   ;; subscript sequence,
    ("([Waf]|.[Ww])bdf"	0xE1BA (1 = *))
    ("(..?)bdf"		0xE1B9 (1 = *))
    ("([Waf]|.[Ww])bd"	0xE1B8 (1 = *))
    ("(..?)bd"		0xE1B7 (1 = *))
    ("([Waf]|.[Ww])b(V)"	0xE1B6 (1 = *) (2 =))
    ("(..?)b(V)"		0xE1B5 (1 = *) (2 =))
+   ;; Case of Single-width consonant + a wide subscript + Medial Ra.
+   ;; To use glyph E1B4, we must shift the single-width consonant to
+   ;; the right.
+   ("([Sd][Ww])b"	0xE1B4 Br>32Bl (1 = *))
    ("([Waf].|.[Ww])b"	0xE1B4 (1 = *))
    ("(s|..)b"		0xE1B3 (1 = *))
    ("([Waf])b"		0xE1B2 (1 = *))
