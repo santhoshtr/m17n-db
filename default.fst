@@ -51,6 +51,17 @@
 ;;; <li> infopage: http://www.iiit.net/ltrc/iscii/FAQ.htm#SEC2.1
 ;;; <li> download: http://www.iiit.net/ltrc/iscii/iscii_plugin_linux.tar.gz
 ;;; </ul>
+
+;;; <li> MuktiNarrow.ttf (family: mukti narrow; for Bengali)
+;;; <ul>
+;;; <li> infopage: http://www.nongnu.org/freebangfont/downloads.html
+;;; <li> download: http://savannah.nongnu.org/download/freebangfont/MukutiNarrow-0.94.tar.bz2
+;;; </ul>
+;;; <li> LikhanNormal.otf (family: likhan; for Bengali)
+;;; <ul>
+;;; <li> infopage: http://www.stat.wisc.edu/~deepayan/Bengali/WebPage/Font/fonts.html
+;;; <li> download: http://www.stat.wisc.edu/~deepayan/Bengali/WebPage/Font/LinkhanNormal.otf
+;;; </ul>
 ;;; <li> THOOLIUC.TTF (family: thoolikaunicode; for Malayalam)
 ;;; <ul>
 ;;; <li> infopage: http://www.supersoftweb.com/Unicode.htm
