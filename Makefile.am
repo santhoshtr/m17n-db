@@ -102,6 +102,7 @@ INPUT_METHOD = \
 	tlg-itrans.mim bng-itrans.mim gjr-itrans.mim mlm-itrans.mim \
 	pnj-itrans.mim tml-itrans.mim \
 	bo-wylie.mim \
+	my-kbd.mim \
 	th-kesmanee.mim \
 	lo-lrt.mim \
 	kh-yannis.mim \
