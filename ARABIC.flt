@@ -200,16 +200,16 @@
     (cond
      ("(.)(T*)([DR].*)"
       (1 initial)
-      (2 combining)
+      (2 combining *)
       (3 join))
      ("(.)(T*)(.*)"			; == (D)(T*)(U.*)
       (1 isolated)
-      (2 combining)
+      (2 combining *)
       (3 disjoin))))
 
    ("(.)(T*)(.*)"			; == ([RU])(T*)(.*)
     (1 isolated)
-    (2 combining)
+    (2 combining *)
     (3 disjoin))))
 
  (isolated
