@@ -131,6 +131,7 @@
 (font layouter dev-otf "DEV-OTF.flt")
 (font layouter gur-otf "GUR-OTF.flt")
 (font layouter tel-otf "TEL-OTF.flt")
+(font layouter kan-otf "KAN-OTF.flt")
 (font layouter hebrew "HEBREW.flt")
 (font layouter hebrew-ff "HEBREW-FF.flt")
 (font layouter khmer-anlong "KHMER-ANLONG.flt")
