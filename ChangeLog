@@ -1,3 +1,61 @@
+2004-10-15  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* Change naming convention.
+	Script names : ISO 15924 (four letter codes)
+	Language names : ISO 639-1 (two letter codes)
+	
+	* ARABIC-OTF.flt:   renamed to ARAB-OTF.flt
+	* ARABIC.flt:       renamed to ARAB.flt
+	* BEN-OTF.flt:      renamed to BENG-OTF.flt
+	* DEV-CDAC.flt:     renamed to DEVA-CDAC.flt
+	* DEV-OTF.flt:      renamed to DEVA-OTF.flt
+	* GUJ-OTF.flt:      renamed to GUJR-OTF.flt
+	* GUR-OTF.flt:      renamed to GURU-OTF.flt
+	* HEBREW-FF.flt:    renamed to HEBR-FF.flt	
+	* HEBREW.flt:       renamed to HEBR.flt
+	* KAN-OTF.flt:      renamed to KNDA-OTF.flt
+	* KHMER-ANLONG.flt: renamed to KHMR-ANLONG.flt
+	* KHMER-MULE.flt:   renamed to KHMR-MULE.flt
+	* LAO-ALICE.flt:    renamed to LAOO-ALICE.flt
+	* LAO-MULE.flt:	    renamed to LAOO-MULE.flt
+	* MLM-CDAC.flt:	    renamed to MLYM-CDAC.flt
+	* MLM-OTF.flt:      renamed to MLYM-OTF.flt
+	* Mymr-MyaZedi.flt: renamed to MYMR-MYAZEDI.flt
+	* ORI-OTF.flt:	    renamed to ORYA-OTF.flt
+	* SYRIAC-OTF.flt:   renamed to SYRC-OTF.flt
+	* TML-CDAC.flt:     renamed to TAML-CDAC.flt
+	* TML-OTF.flt:      renamed to TAML-OTF.flt
+	* TEL-OTF.flt:      renamed to TELU-OTF.flt
+	* THAANA-OTF.flt:   renamed to THAA-OTF.flt
+	* TIB-MTIB.flt:     renamed to TIBT-MTIB.flt
+	* TIB-MULE.flt:     renamed to TIBT-MULE.flt
+
+	* asm-itrans.mim:   renamed to as-itrans.mim
+	* bng-itrans.mim:   renamed to bn-itrans.mim
+	* dev-itrans.mim:   renamed to hi-itrans.mim
+	* gjr-itrans.mim:   renamed to gu-itrans.mim
+	* kh-yannis.mim:    renamed to km-yannis.mim
+	* knd-itrans.mim:   renamed to kn-itrans.mim
+	* latin-post.mim:   renamed to latn-post.mim
+	* mlm-itrans.mim:   renamed to ml-itrans.mim
+	* ori-itrans.mim:   renamed to or-itrans.mim
+	* pnj-itrans.mim:   renamed to pa-itrans.mim
+	* tml-itrans.mim:   renamed to ta-itrans.mim
+	* tlg-itrans.mim:   renamed to te-itrans.mim
+	
+	* Makefile.am, mdb.dir, defaults.fst, truetype.fst:
+	Changed accordingly.
+
+2004-10-14  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* kh-yannis.mim: Fix typo.
+
+	* dv-phonetic.mim, syrc-phonetic.mim: New file.
+
+	* SYRIAC-OTF.flt: Add Arabic marks as transparent.
+
+	* SYRIAC-OTF.flt: Change RE pattern [^U] to [DRAr].
+
 2004-10-12  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* si-samanala.mim, Makefile.am, mdb.dir:
