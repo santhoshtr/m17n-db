@@ -1,3 +1,14 @@
+2004-07-23  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* Makefile.am, truetype.fst, mdb.dir, default.fst, THAANA-OTF.flt
+	Add Thaana support.
+
+2004-07-21  Kenichi Handa  <handa@duron>
+
+	* truetype.fst: Fix previous change.
+
+	* default.fst: Fix previous change.
+
 2004-07-21  Kenichi Handa  <handa@m17n.org>
 
 	* default.fst: Fix previous change.
@@ -74,23 +85,6 @@
 
 	* GUJ-OTF.flt, default.fst, mdb.dir, Makefile.am:
 	Add Gujarati support.
-	
-2004-07-05  Kenichi Handa  <handa@duron>
-
-	* ChangeLog: *** empty log message ***
-
-	* Makefile.am:
-	* default.fst, truetype.fst, mdb.dir, Makefile.am: Add Myanmar entry.
-
-	* Makefile.am (FONT_LAYOUT_TABLE): Add MYANMAR-ZEDI.flt.
-
-	* mdb.dir: Add Myanmar entry.
-
-	* truetype.fst: Likewise.
-
-	* default.fst: Add Myanmar entry.
-
-	* MYANMAR-ZEDI.flt: New file, still experimental.
 
 2004-07-05  Kenichi Handa  <handa@m17n.org>
 

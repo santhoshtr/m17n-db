@@ -196,8 +196,7 @@
   ((nil bitstream\ cyberbase unicode-bmp) arabic)))
 (thaana
  (nil
-  ((nil thaana\ unicode\ akeh unicode-bmp) thaana-otf)
-  ((nil mv\ boli unicode-bmp) thaana-otf)))
+  ((nil thaana\ unicode\ akeh unicode-bmp) thaana-otf)))
 (devanagari
  (nil
   ((nil gargi-1.3 unicode-bmp) dev-otf)
