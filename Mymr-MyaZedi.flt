@@ -42,13 +42,8 @@
  (0x100F 0x1019 ?c)
  (0x1014	?n)			; consonant NA
  (0x101C	?c)
-<<<<<<< MYANMAR-ZEDI.flt
  (0x101A	?M)			; cosonant that may be used as Medial
  (0x101B	?r)			; Medial Ra
-=======
- (0x101A	?M)			; cosonant that may be used as Medial
- (0x101B	?r)
->>>>>>> 1.6
  (0x101D	?M)
  (0x101F	?M)
  (0x1021 0x102A ?I)			; independent vowel
@@ -62,26 +57,15 @@
 (generator
  (0
   (cond
-<<<<<<< MYANMAR-ZEDI.flt
    ;; Special case for Medial Ra: don't use Kinzi for this pattern.
-   ("K(Hr(HM)*)(V*A?H?)N?(S*)"
-    | (1 remove-halant) (3 = *) (4 = *) |)
-
-=======
-   ;; Special pattern to prefer Medial Ra to Kinzi.
    ("(K)(Hr(HM)*)(V*A?H?)N?(S*)"
-    | (1 =) (2 remove-halant *) (4 = *) (5 = *) |)
+    | (1 =) (2 remove-halant) (4 = *) (5 = *) |)
 
->>>>>>> 1.6
    ;; The following regular expression matches a syllable pattern
    ;; described in Table 10-3 of the Unicode Standard 4.0 .
    ;;<1-> <--------2--------><--4--><--6--->  <7->
    ;;             <---3--->   <5->
-<<<<<<< MYANMAR-ZEDI.flt
-   ("(KH)?([CcnKMr](H[CcnK])?)((HMr)*)(V*A?H?)N?(S*)"
-=======
    ("(KH)?([CcnKMr](H[CcnK])?)((H[Mr])*)(V*A?H?)N?(S*)"
->>>>>>> 1.6
     | < (1 0xE390) (2 consonant) (4 remove-halant *) (6 = *) (7 = *) > |)
 
    ;; Fixme: I'm not sure about the syllable pattern for an
