@@ -68,12 +68,6 @@
 
 ;; Step 1: ccmp
 
-;; (generator
-;;  (0
-;;   otf:arab=ccmp))
-
-;; Step 2: Initial, medial, or final.
-
 (category
  ;; D: Dual-joining (beh, teh, etc. & zwj)
  ;; R: Right-joining (alef, dal, thal, reh, zain)
@@ -126,6 +120,12 @@
  (0xFB50 0xFDFF		?X)		; Arabic Presentation Froms-A
  (0xFE70 0xFEFC		?X)		; Arabic Presentation Froms-B
  )
+
+;; (generator
+;;  (0
+;;   otf:arab=ccmp))
+
+;; Step 2: Initial, medial, or final.
 
 (generator
  (0

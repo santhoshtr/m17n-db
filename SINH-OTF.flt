@@ -64,17 +64,17 @@
   (cond
    ;; A syllable ending with a two-part vowel sign.
    ("((CHJ)*C)(t)(a)?"
-    < | (1 otf:sinh=akhn,vatu) (3 two-part) (4 =) | >)
+    < | (1 otf:sinh=akhn,vatu,pres) (3 two-part) (4 =) | >)
 
    ;; A syllable ending with a vowel sign and/or a various sign.
    ;; Note that a two-part vowel may be expressed with two vowel marks.
 
    ("((CHJ)*C)([mbup]+a?|a)"
-    < | (1 otf:sinh=akhn,vatu) (3 = *) | >)
+    < | (1 otf:sinh=akhn,vatu,pres) (3 = *) | >)
 
    ;; No signs.
    ("(CHJ)*CH?"
-    < | otf:sinh=akhn,vatu | >)
+    < | otf:sinh=akhn,vatu,pres | >)
 
    ;; Independent vowels.
    ("Va?"

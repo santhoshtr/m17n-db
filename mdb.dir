@@ -89,6 +89,7 @@
 (input-method as itrans "asm-itrans.mim")
 (input-method bn itrans "bng-itrans.mim")
 (input-method bo wylie "bo-wylie.mim")
+(input-method dv phonetic "dv-phonetic.mim")
 (input-method el kbd "el-kbd.mim")
 (input-method en ispell "ispell.mim")
 (input-method ar kbd "ar-kbd.mim")
@@ -121,6 +122,7 @@
 (input-method vi viqr "vi-viqr.mim")
 (input-method zh py "zh-py.mim")
 (input-method t latin-post "latin-post.mim")
+(input-method t syrc-phonetic "syrc-phonetic.mim")
 (input-method t unicode "unicode.mim")
 (input-method t rfc1345 "rfc1345.mim")
 ;;; </ul>
