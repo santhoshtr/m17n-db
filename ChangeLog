@@ -1,5 +1,13 @@
 2004-03-19  Kenichi Handa  <handa@m17n.org>
 
+	* Version 1.0 Patch Level 1 released.
+
+2004-03-19  Kenichi Handa  <handa@m17n.org>
+
+	* configure.ac: Version changed to 1.0.1.
+
+2004-03-19  Kenichi Handa  <handa@m17n.org>
+
 	* HEBREW.flt: Fix combining code.
 
 2004-03-18  TAKAHASHI Naoto  <ntakahas@m17n.org>
