@@ -1,3 +1,13 @@
+2004-04-28  Kenichi Handa  <handa@m17n.org>
+
+	* el-kbd.png, he-kbd.png, hr-kbd.png, kk-kbd.png, latin-post.png,
+	ru-yawerty.png, ru-yawerty2.png, sk-kbd.png, sk-kbd2.png,
+	sr-kbd.png: New image files.
+
+	* el-kbd.mim, he-kbd.mim, hr-kbd.mim, kk-kbd.mim, latin-post.mim,
+	ru-yawerty.mim, sk-kbd.mim, sr-kbd.mim: Add Doxygen command
+	@image.
+
 2004-04-13  Kenichi Handa  <handa@m17n.org>
 
 	* DEV-OTF.flt ("([CR]n?H)([NJ])"): Fix for the case of this
