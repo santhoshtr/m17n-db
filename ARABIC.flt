@@ -70,6 +70,8 @@
  (0x06E5		?x)
  (0x06E6		?x)
  (0x06E9		?x)
+ (0x200C		?x)
+ (0x200D		?x)
  )
 
 (generator
