@@ -1,4 +1,17 @@
-2004-07-29  Kenichi Handa  <handa@m17n.org>
+2004-08-05  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* ARABIC-OTF.flt, mdb.dir, truetype.fst, default.fst, Makefile.am:
+	Arabic OTF support.
+
+2004-08-04  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* THAANA-OTF.flt: Simplified, thanks to libotf upgrade.
+
+2004-08-03  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* ARABIC.flt: Add missing '*' in 'disjoin'.
+
+2004-07-29  Kenichi Handa  <handa@duron>
 
 	* MYANMAR-ZEDI.flt: Implement more complrex rules.
 
