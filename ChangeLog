@@ -1,3 +1,25 @@
+2004-07-05  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* GUJ-OTF.flt, default.fst, mdb.dir, Makefile.am:
+	Add Gujarati support.
+	
+2004-07-05  Kenichi Handa  <handa@duron>
+
+	* ChangeLog: *** empty log message ***
+
+	* Makefile.am:
+	* default.fst, truetype.fst, mdb.dir, Makefile.am: Add Myanmar entry.
+
+	* Makefile.am (FONT_LAYOUT_TABLE): Add MYANMAR-ZEDI.flt.
+
+	* mdb.dir: Add Myanmar entry.
+
+	* truetype.fst: Likewise.
+
+	* default.fst: Add Myanmar entry.
+
+	* MYANMAR-ZEDI.flt: New file, still experimental.
+
 2004-07-05  Kenichi Handa  <handa@m17n.org>
 
 	* MYANMAR-ZEDI.flt: New file, still experimental.
