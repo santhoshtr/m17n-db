@@ -43,6 +43,11 @@
  (nil
   ((nil riwaj unicode-bmp) arabic-otf)
   ((nil bitstream\ cyberbase unicode-bmp) arabic)))
+(syriac
+ (nil
+  ((nil estrangelo\ talada unicode-bmp) syriac-otf)
+  ((nil serto\ jerusalem unicode-bmp) syriac-otf)
+  ((nil east\ syriac adiabene unicode-bmp) syriac-otf)))
 (thaana
  (nil
   ((nil thaana\ unicode\ akeh unicode-bmp) thaana-otf)))
@@ -81,6 +86,9 @@
 (kannada
  (nil
   ((nil sampige unicode-bmp) kan-otf)))
+(sinhala
+ (nil
+  ((nil lklug unicode-bmp) sinh-otf)))
 (malayalam
  (nil
   ((nil thoolikaunicode unicode-bmp) mlm-otf)
