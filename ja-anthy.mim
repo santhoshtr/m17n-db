@@ -191,8 +191,8 @@
  (henkan-edit
   ((Left) (move @[))
   ((Right) (move @]))
-  ((S-Left) (call resize t))
-  ((S-Right) (call resize nil)))
+  ((S-Left) (call libmimx-anthy resize t))
+  ((S-Right) (call libmimx-anthy resize nil)))
 
  (change-candidate
   ((C-A) (select @<))
