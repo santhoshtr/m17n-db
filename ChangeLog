@@ -6,7 +6,7 @@
 
 	* hr-kbd.mim: New input method for Croatian.
 
-	* Makefile.am, mdb: Add above two input methods.
+	* Makefile.am, mdb.dir: Add above two input methods.
 
 2004-03-17  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
