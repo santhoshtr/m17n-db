@@ -12,7 +12,7 @@
 
 	* mdb.dir, Makefile.am: Add hy-kbd.mim.
 	* hy-kbd.mim: New file.
-	Add Armenian input method (hy-kbd.mim).
+	Add Armenian input method.
 
 2004-10-22  Kenichi Handa  <handa@m17n.org>
 
