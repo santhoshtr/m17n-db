@@ -1,3 +1,45 @@
+2004-07-08  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* Makefile.am, default.fst, truetype.fst, mdb.dir:
+	Add Tamil OTF entries.
+
+	* TML-OTF.flt: New file.
+
+2004-07-06  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* GUJ-OTF.flt: Fix a very rare case (Syllables beginning with "RHRHC".)
+
+2004-07-05  Kenichi Handa  <handa@duron>
+
+	* default.fst: Fix typo (gardi->gargi).
+
+	* default.fst, ChangeLog: *** empty log message ***
+
+	* truetype.fst: Add Gujarati.
+
+2004-07-05  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* Makefile.am, mdb.dir: Add GUJ-OTF.flt.
+
+	* default.fst: Add gardi-1.3 for Devanagari.
+	Add padmaa for Gujarati.
+
+	* GUJ-OTF.flt: New file.
+
+2004-07-05  Kenichi Handa  <handa@duron>
+
+	* default.fst, truetype.fst, mdb.dir, Makefile.am: Add Myanmar entry.
+
+	* Makefile.am (FONT_LAYOUT_TABLE): Add MYANMAR-ZEDI.flt.
+
+	* mdb.dir: Add Myanmar entry.
+
+	* truetype.fst: Likewise.
+
+	* default.fst: Add Myanmar entry.
+
+	* MYANMAR-ZEDI.flt: New file, still experimental.
+
 2004-07-05  Kenichi Handa  <handa@m17n.org>
 
 	* default.fst: Fix typo (gardi->gargi).
