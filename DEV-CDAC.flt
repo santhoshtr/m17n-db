@@ -23,7 +23,7 @@
 
 ;;; <li> DEV-CDAC.flt
 ;;;
-;;; For the font DVYG0ntt.ttf (developped by C-DAC, encoding is ISFOC)
+;;; For the font DVYG0ntt.ttf (developed by C-DAC, encoding is ISFOC)
 ;;; to draw Devanagari script.  The font is available at:
 ;;; <ul>
 ;;; <li>	infopage: http://www.iiit.net/ltrc/iscii/FAQ.htm#SEC2.1
