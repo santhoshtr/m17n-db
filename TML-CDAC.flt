@@ -69,25 +69,25 @@
     (3 consonant)
     (4 dependent-vowel))
    ("((CV)*)(C)(L)"
-    <
+    < |
     (4 dependent-vowel)
     (1 consonant-virama *)
     (3 consonant)
-    >)
+    | >)
    ("((CV)*)(C)(B)"
-    <
+    < |
     0xAA
     (1 consonant-virama *)
     (3 consonant)
     (4 dependent-vowel)
-    >)
+    | >)
    ("((CV)*)(C)(b)"
-    <
+    < |
     0xAB
     (1 consonant-virama *)
     (3 consonant)
     (4 dependent-vowel)
-    >)
+    | >)
    ("CV"
     < consonant-virama >)
    ("[RLBb]"
@@ -202,9 +202,10 @@
  ;; K: CONSONANT K
  ;; R: CONSONANT R
  ;; S: CONSONANT S'
- ;; V: LIGATURE VOWEL (OR RIGHT PART OF VOWEL) (except for I)
+ ;; V: LIGATURE VOWEL (except for I,i)
  ;; I: DEPENDENT VOWEL I
  ;; i: DEPENDENT VOWEL I~
+ ;; L: LEFT PART OF VOWEL 
  ;; v: VIRAMA
  ;; E: ELSE
  ;;
@@ -217,15 +218,20 @@
  (0xA4		?I)			; i
  (0xA6		?i)			; i~
  (0xA7 0xA8	?V)			; u, u~
+ (0xAA 0xAC	?L)
  )
 
 (generator
  (0
   (cond
-   ("KvSv"	0x7A)
-   ("KvS[Ii]"
+   ;; 1  23      4      5    6
+   (" (L)(([CKRS](v)?)*)(KvS)(.)? "
+    (2 = *) (1 =) (5 0xFE) (6 =))
+   ;; 1  23      4      5
+   (" (L)(([CKRS](v)?)*)([CKRS].?) "
+    (2 = *) (1 =) (5 = =))
+   ("KvS[Iiv]?"
     ligature-ks)
-   ("KvS"	0xFE)
    ("[CKRS][IiV]"
     ligature = =)
    ("SvRi"	0xFF)
@@ -237,6 +243,8 @@
   (cond
    ((0xE8 0xA2 0xFB 0xA4)	0x56)	; ksi
    ((0xE8 0xA2 0xFB 0xA6)	0x72)	; ksi~
+   ((0xE8 0xA2 0xFB 0xA2)	0x7A)	; ks
+   ((0xE8 0xA2 0xFB)		0xFE)	; ks
    ))
 
  (ligature
