@@ -1,0 +1,82 @@
+;; MYANMAR-ZEDI.flt -- Font Layout Table for Myanmar (Zedi font)
+;; Copyright (C) 2004
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; <li> MYANMAR-ZEDI.flt
+;;;
+;;; For the Myanmar Zedi family fonts to draw Myanmar script.  Please
+;;; note that this is not yet completed, i.e. no rules for ligature,
+;;; etc are added.  The fonts are available at:
+;;; <ul>
+;;; <li> infopage: ???
+;;; </ul>
+
+(category
+ ;; C: Consonant
+ ;; V: Dependent vowel
+ ;; E: VIWEL SIGN E
+ ;; H: Halant
+ ;; D: Dependent sign
+ ;; Z: ZWNJ
+ ;; O: Other
+ (0x1000 0x107F ?O)
+ (0x1000 0x1020 ?C)
+ (0x1021 0x102A	?O)
+ (0x102C 0x1030	?V)
+ (0x1031	?E)
+ (0x1032	?V)
+ (0x1036 0x1038	?D)
+ (0x1039	?H)
+ (0x1056 0x1059	?D)
+ (0x200C	?Z)
+ )
+
+(generator
+ (0
+  (cond
+   ;; Consonant + VOWEL SIGN E
+   ("(C)(E)"
+    ;; Put E at the head.
+    < (2 =) (1 = ) >)
+   ;; Consonant + Halant followed by ZWNJ
+   ("(CH)Z"
+    ;; Display Halant.
+    < (1 = =) >)
+   ;; Consonant + Halant not followed by ZWNJ
+   ("CH"
+    ;; Don't display Halant.
+    =)
+   ;; Consonant + the other dependend vowel/sign
+   ("C[VD]"
+    < = = >)
+   ;; Single E
+   ("E"
+    ;; Append dotted circle.
+    = 0x25CC)
+   ;; The other single combining character
+   ("[VHD]"
+    ;; Prepend dotted circle.
+    0x25CC =)
+   ;; The othe single character
+   ("."
+    [ = ]))
+  *))
