@@ -44,6 +44,11 @@
 ;;; <li> infopage: ftp://ftp.NetBSD.org/pub/NetBSD/packages/pkgsrc/fonts/cyberbase-ttf/README.html
 ;;; <li> download: ftp://ftp.netbsd.org/pub/NetBSD/packages/1.6.1/amiga/All/cyberbase-ttf-2.0.tgz
 ;;; </ul>
+;;; <li> Thaana1U.TTF (family:Thaana Unicode Akeh; for Thaana)
+;;; <ul>
+;;; <li> infopage: http://www.mitf.net/index.php/projects/thaana/font-unicode.html
+;;; <li> download: http://www.mitf.net/download/thaana1u.zip
+;;; </ul>
 ;;; <li> DVYG0ntt.ttf (family: DV-TTYogesh; for Devanagari),\n
 ;;;      MLKR0ntt.ttf (family: ML-TTKarthika; for Malayalam),\n
 ;;;      TMVL0ntt.ttf (family: TM-TTValluvar; for Tamil)
@@ -189,6 +194,10 @@
  (nil
   ((nil mule iso10646-1) arabic)
   ((nil bitstream\ cyberbase unicode-bmp) arabic)))
+(thaana
+ (nil
+  ((nil thaana\ unicode\ akeh unicode-bmp) thaana-otf)
+  ((nil mv\ boli unicode-bmp) thaana-otf)))
 (devanagari
  (nil
   ((nil gargi-1.3 unicode-bmp) dev-otf)
