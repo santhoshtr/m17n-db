@@ -61,13 +61,16 @@
 ;;; <li> infopage: http://www.stat.wisc.edu/~deepayan/Bengali/WebPage/Font/fonts.html
 ;;; <li> download: http://www.stat.wisc.edu/~deepayan/Bengali/WebPage/Font/LinkhanNormal.otf
 ;;; </ul>
-
 ;;; <li> Saab.otf (family: Saab; for Gurmukhi)
 ;;; <ul>
 ;;; <li> infopage: http://guca.sourceforge.net/typography/fonts/saab/index.shtml
 ;;; <li> download: http://prdownloads.sourceforge.net/guca/saab.0.91.otf?download
 ;;; </ul>
-
+;;; <li> Pothana2000.ttf (family: Pothana2000; for Telugu)
+;;; <ul>
+;;; <li> infopage: http://www.kavya-nandanam.com/
+;;; <li> download: http://www.kavya-nandanam.com/dload.htm
+;;; </ul>
 ;;; <li> THOOLIUC.TTF (family: thoolikaunicode; for Malayalam)
 ;;; <ul>
 ;;; <li> infopage: http://www.supersoftweb.com/Unicode.htm
@@ -174,11 +177,14 @@
   ((nil tm-ttvalluvar apple-roman) tml-cdac)))
 (bengali
  (nil
-  ((nil mukti\ narrow unicode-bmp) ben-otf)
-  ((nil likhan unicode-bmp) ben-otf)))
+  ((nil likhan unicode-bmp) ben-otf)
+  ((nil mukti\ narrow unicode-bmp) ben-otf)))
 (gurmukhi
  (nil
   ((nil saab unicode-bmp) gur-otf)))
+(telugu
+ (nil
+  ((nil pothana2000 unicode-bmp) tel-otf)))
 (georgian
  (nil
   ((nil \1col iso10646-1))
