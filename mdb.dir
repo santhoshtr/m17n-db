@@ -144,6 +144,7 @@
 (font layouter mlm-otf "MLM-OTF.flt")
 (font layouter myanmar-zedi "MYANMAR-ZEDI.flt")
 (font layouter no-ctl "NO-CTL.flt")
+(font layouter thaana-otf "THAANA-OTF.flt")
 (font layouter thai-norasi "THAI-NORASI.flt")
 (font layouter thai-tis620 "THAI-TIS620.flt")
 (font layouter tib-mtib "TIB-MTIB.flt")
