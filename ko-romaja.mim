@@ -173,7 +173,7 @@
  (tilda
   ("~"))
 
- (space
+ ((S-\ )
   (" ")))
 
 (state
@@ -184,7 +184,6 @@
   (V (shift after-LV))
   (punctuation)
   (backspace)
-  (space)
   (tilda (shift single)))
 
  (after-L
