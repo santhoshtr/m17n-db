@@ -2,20 +2,11 @@
 
 	* SINH-OTF.flt: Pre-matra is put to the left of consonant ligature.
 
-2005-02-28  Mikiko Nisikimi  <nisikimi@duron>
-
-	* FORMATS/IM.ja.txt: *** empty log message ***
-
 2005-02-15  TAKAHASHI Naoto  <ntakahas@m17n.org>
-
-	* ChangeLog: *** empty log message ***
 
 	* ORYA-OTF.flt: Disable VMabove reordering in Step 2.
 
-2005-02-15  Kenichi Handa  <handa@duron>
-
-	* ChangeLog: *** empty log message ***
-
+2005-02-15  Kenichi Handa  <handa@m17n.org>
 	* default.fst: For Hebrew, prefer freesans font.
 
 	* Makefile.am (INPUT_METHOD): Add sv-post.mim and zh-tonepy.mim.
