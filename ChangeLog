@@ -1,10 +1,18 @@
+2004-05-28  Kenichi Handa  <handa@m17n.org>
+
+	* truetype.fst: Add Bengali support.
+
+2004-05-25  Kenichi Handa  <handa@m17n.org>
+
+	* Makefile.am (FONT_LAYOUT_TABLE): Add BEN-OTF.flt.
+
 2004-05-21  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* ARABIC.flt: Fix shadda+kasra[tan] combination
+	* ARABIC.flt: Fix shadda+kasra[tan] combination.
 
 2004-05-21  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* BEN-OTF.flt, default.fst, mdb.dir: Add Bengali support
+	* BEN-OTF.flt, default.fst, mdb.dir: Add Bengali support.
 
 2004-04-28  Kenichi Handa  <handa@m17n.org>
 
