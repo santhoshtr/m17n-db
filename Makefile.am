@@ -83,7 +83,8 @@ CHAR_TABLE = \
 FONT_LAYOUT_TABLE = \
 	ARABIC.flt \
 	HEBREW.flt HEBREW-FF.flt \
-	DEV-CDAC.flt DEV-OTF.flt TML-CDAC.flt MLM-CDAC.flt MLM-OTF.flt \
+	DEV-CDAC.flt DEV-OTF.flt TML-CDAC.flt TML-OTF.flt \
+	MLM-CDAC.flt MLM-OTF.flt \
 	BEN-OTF.flt GUR-OTF.flt TEL-OTF.flt KAN-OTF.flt GUJ-OTF.flt \
 	MYANMAR-ZEDI.flt \
 	THAI-TIS620.flt THAI-NORASI.flt \
