@@ -33,8 +33,8 @@
 ;; | circumflex |   ^    | ^a -> â  ^^ -> ^
 ;; | diaeresis  |   "    | "a -> ä  "" -> ¨
 ;; | tilde      |   ~    | ~a -> ã
-;; | cedilla    |   ~    | ~c -> ç  ~s -> ş  ~~ -> ¸
 ;; | breve      |   ~    | ~g -> ğ  ~` -> ˘
+;; | cedilla    |   ~    | ~c -> ç  ~s -> ş  ~~ -> ¸
 ;; | caron      |   ~    | ~z -> ž  ~ss -> š
 ;; | dot above  |  . /   | .g -> ġ  /g -> ġ
 ;; | misc       |   /    | /a -> å  /e -> æ  /h -> ħ  /o -> ø  /oe -> œ
