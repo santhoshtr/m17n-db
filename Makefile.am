@@ -81,48 +81,61 @@ CHAR_TABLE = \
 	CATEGORY.tab COMBINE.tab BIDI.tab
 
 FONT_LAYOUT_TABLE = \
-	HEBREW.flt HEBREW-FF.flt \
-	ARABIC.flt ARABIC-OTF.flt \
-	SYRIAC-OTF.flt \
-	THAANA-OTF.flt \
-	DEV-CDAC.flt DEV-OTF.flt \
-	BEN-OTF.flt \
-	GUR-OTF.flt \
-	GUJ-OTF.flt \
-	ORI-OTF.flt \
-	TML-CDAC.flt TML-OTF.flt \
-	TEL-OTF.flt \
-	KAN-OTF.flt \
-	MLM-CDAC.flt MLM-OTF.flt \
+	ARAB.flt ARAB-OTF.flt \
+	BENG-OTF.flt \
+	DEVA-CDAC.flt DEVA-OTF.flt \
+	GUJR-OTF.flt \
+	GURU-OTF.flt \
+	HEBR.flt HEBR-FF.flt \
+	KHMR-MULE.flt KHMR-ANLONG.flt \
+	KNDA-OTF.flt \
+	LAOO-MULE.flt LAOO-ALICE.flt \
+	MLYM-CDAC.flt MLYM-OTF.flt \
+	MYMR-MYAZEDI.flt \
+	ORYA-OTF.flt \
 	SINH-OTF.flt \
-	TIB-MULE.flt TIB-MTIB.flt \
-	Mymr-MyaZedi.flt \
+	SYRC-OTF.flt \
+	TAML-CDAC.flt TAML-OTF.flt \
+	TELU-OTF.flt \
+	THAA-OTF.flt \
 	THAI-TIS620.flt THAI-NORASI.flt \
-	LAO-MULE.flt LAO-ALICE.flt \
-	KHMER-MULE.flt KHMER-ANLONG.flt \
+	TIBT-MULE.flt TIBT-MTIB.flt \
 	NO-CTL.flt
 
 INPUT_METHOD = \
-	sk-kbd.mim vi-viqr.mim vi-telex.mim hr-kbd.mim \
-	el-kbd.mim \
-	ru-yawerty.mim ka-kbd.mim kk-kbd.mim sr-kbd.mim \
-	ar-kbd.mim fa-isiri.mim kk-arabic.mim \
-	he-kbd.mim \
-	dv-phonetic.mim \
 	am-sera.mim \
-	asm-itrans.mim dev-itrans.mim knd-itrans.mim ori-itrans.mim \
-	tlg-itrans.mim bng-itrans.mim gjr-itrans.mim mlm-itrans.mim \
-	pnj-itrans.mim tml-itrans.mim \
-	si-samanala.mim \
+	ar-kbd.mim \
+	as-itrans.mim \
+	bn-itrans.mim \
 	bo-wylie.mim \
-	my-kbd.mim \
-	th-kesmanee.mim \
-	lo-lrt.mim \
-	kh-yannis.mim \
+	dv-phonetic.mim \
+	el-kbd.mim \
+	fa-isiri.mim \
+	gu-itrans.mim \
+	he-kbd.mim \
+	hi-itrans.mim \
+	hr-kbd.mim \
 	ja-anthy.mim ja-tcode.mim \
-	zh-py.mim \
+	ka-kbd.mim \
+	kk-kbd.mim kk-arabic.mim \
+	km-yannis.mim \
+	kn-itrans.mim \
 	ko-han2.mim \
-	latin-post.mim \
+	lo-lrt.mim \
+	ml-itrans.mim \
+	my-kbd.mim \
+	or-itrans.mim \
+	pa-itrans.mim \
+	ru-yawerty.mim \
+	si-samanala.mim \
+	sk-kbd.mim \
+	sr-kbd.mim \
+	ta-itrans.mim \
+	te-itrans.mim \
+	th-kesmanee.mim \
+	vi-viqr.mim vi-telex.mim \
+	zh-py.mim \
+	latn-post.mim \
 	syrc-phonetic.mim \
 	unicode.mim rfc1345.mim \
 	ispell.mim
