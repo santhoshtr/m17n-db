@@ -1,3 +1,7 @@
+2004-10-21  Kenichi Handa  <handa@m17n.org>
+
+	* ko-han2.mim: Fix rule for "J"->HJF.
+
 2004-10-15  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* Change naming convention.
