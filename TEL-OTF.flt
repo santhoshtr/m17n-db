@@ -78,13 +78,13 @@
 
    ;; Forced Halant form
    ("((RH)?(CH)*)(CH)N"
-    < | (1 move-base-Halant) | >
-    < | (4 move-base-Halant) | >)
+    (1 < | move-base-Halant | >)
+    (4 < | move-base-Halant | >))
 
-   ;; Forced Half form
+   ;; Forced Below form
    ("((RH)?(CH)*)(CH)J"
-    < | (1 move-base-Halant) >
-    < | (4 otf:telu=blwf) | >)
+    (1 < | move-base-Halant >)
+    (4 < | otf:telu=blwf | >))
 
    ;; A syllable without a vowel sign nor a vowel modifier.
    ("[CR](HC)*H?"
