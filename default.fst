@@ -228,8 +228,8 @@
   ((devanagari-cdac) dev-cdac)))
 (bengali
  (nil
-  ((nil mukti\ narrow unicode-bmp) ben-otf)
-  ((nil likhan unicode-bmp) ben-otf)))
+  ((nil likhan unicode-bmp) ben-otf)
+  ((nil mukti\ narrow unicode-bmp) ben-otf)))
 (gurmukhi
  (nil
   ((nil saab unicode-bmp) gur-otf)))
