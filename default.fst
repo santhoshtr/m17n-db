@@ -190,6 +190,9 @@
 (gurmukhi
  (nil
   ((nil saab unicode-bmp) gur-otf)))
+(gujarati
+ (nil
+  ((nil padmaa unicode-bmp) guj-otf)))
 (tamil
  (nil
   ((tamil-cdac) tml-cdac)
@@ -200,9 +203,6 @@
 (kannada
  (nil
   ((nil sampige unicode-bmp) kan-otf)))
-(gujarati
- (nil
-  ((nil padmaa unicode-bmp) guj-otf)))
 (malayalam
  (nil
   ((malayalam-cdac) mlm-cdac)
