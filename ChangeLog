@@ -1,3 +1,7 @@
+2004-05-21  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* BEN-OTF.flt, default.fst, mdb.dir: Add Bengali support
+
 2004-04-28  Kenichi Handa  <handa@m17n.org>
 
 	* el-kbd.png, he-kbd.png, hr-kbd.png, kk-kbd.png, latin-post.png,
