@@ -124,7 +124,7 @@
 (generator
  (0
   (cond
-   (" ([^ ]*HN) "
+   (" ([^ ]*H)N "
     (1 otf:guru=nukt))
    (" ([^ ]*) "
     (1 otf:guru=nukt,vatu,pstf,abvs,blws))
