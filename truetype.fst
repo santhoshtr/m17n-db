@@ -92,6 +92,8 @@
  (zh
   ((nil ar\ pl\ sungtil\ gb unicode-bmp))
   ((nil ar\ pl\ mingti2l\ big5 unicode-bmp)))
+ (ko
+  ((nil baekmuk\ dotum unicode-bmp))))
  )
 
 (nil
