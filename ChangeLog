@@ -1,3 +1,8 @@
+2004-11-02  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* mdb.dir, Makefile.am, hy-kbd.mim:
+	Add Armenian input method (hy-kbd.mim).
+
 2004-10-22  Kenichi Handa  <handa@m17n.org>
 
 	* FONTENC.tbl: Give `nil' encoding to those fonts that can't be
