@@ -1,0 +1,57 @@
+;; -*- mode: lisp; coding: utf-8; -*- This file is part of the m17n
+;; database; a sub-part of the m17n library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;; ALIASES: the format of elements is (ALIAS-NAME LOCAL-NAME).
+;; Copyright (C) 2003, 2004
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+(catalan ca_ES.iso-8859-1)
+(croatian hr_HR.iso-8859-2)
+(czech cs_CZ.iso-8859-2)
+(danish da_DK.iso-8859-1)
+(dansk da_DK.iso-8859-1)
+(deutsch de_DE.iso-8859-1)
+(dutch nl_NL.iso-8859-1)
+(eesti et_EE.iso-8859-1)
+(estonian et_EE.iso-8859-1)
+(finnish fi_FI.iso-8859-1)
+(français fr_FR.iso-8859-1)
+(french fr_FR.iso-8859-1)
+(german de_DE.iso-8859-1)
+(greek el_GR.iso-8859-7)
+(hebrew iw_IL.iso-8859-8)
+(hrvatski hr_HR.iso-8859-2)
+(hungarian hu_HU.iso-8859-2)
+(icelandic is_IS.iso-8859-1)
+(italian it_IT.iso-8859-1)
+(japanese ja_JP.sjis)
+(japanese.euc ja_JP.euc-jp)
+(korean ko_KR.euc-kr)
+(lithuanian lt_LT.iso-8859-13)
+(norwegian no_NO.iso-8859-1)
+(polish pl_PL.iso-8859-2)
+(portuguese pt_PT.iso-8859-1)
+(romanian ro_RO.iso-8859-2)
+(russian ru_RU.iso-8859-5)
+(slovak sk_SK.iso-8859-2)
+(slovene sl_SI.iso-8859-2)
+(slovenian sl_SI.iso-8859-2)
+(spanish es_ES.iso-8859-1)
+(swedish sv_SE.iso-8859-1)
+(turkish tr_TR.iso-8859-9)

@@ -1,0 +1,172 @@
+;; DEV-OTF.flt -- Font Layout Table for Devanagari OpenType font
+;; Copyright (C) 2003, 2004
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; <li> DEV-OTF.flt
+;;;
+;;; For Devanagari OpenType fonts to draw devanagari script.
+
+(category
+ ;; C: consonant (except for R)
+ ;; R: consonant RA
+ ;; n: NUKTA
+ ;; H: HALANT
+ ;; m: MATRA (pre)
+ ;; u: MATRA (above)
+ ;; b: MATRA (below)
+ ;; p: MATRA (post)
+ ;; A: vowel modifier (above)
+ ;; a: vowel modifier (post)
+ ;; S: stress sign (above)
+ ;; s: stress sign (below)
+ ;; V: independent vowel
+ ;; N: ZWNJ (ZERO WIDTH NON-JOINER)
+ ;; J: ZWJ (ZERO WIDTH JOINER)
+ ;; E: ELSE
+ ;;
+ (0x0900 0x097F	?E)			; ELSE
+ (0x0901	?A)			; SIGN CANDRABINDU (above)
+ (0x0902	?A)			; SIGN ANUSVARA (above)
+ (0x0903	?a)			; SIGN VISARGA (post)
+ (0x0905 0x0914	?V)			; LETTER A .. LETTER AU
+ (0x0915 0x0939 ?C)			; LETTER KA .. LETTER HA
+ (0x0930	?R)			; LETTER RA
+ (0x093C	?n)			; SIGN NUKTA
+ (0x093D	?E)			; SIGN AVAGRAHA
+ (0x093E 0x094C	?p)			; VOWEL SIGN (post)
+ (0x093F	?m)			; VOWEL SIGN I (pre)
+ (0x0941 0x0944	?b)			; VOWEL SIGN (below)
+ (0x0945 0x0948	?u)			; VOWEL SIGN (above)
+ (0x094D	?H)			; SIGN VIRAMA (HARANT)
+ (0x0950	?E)			; OM
+ (0x0951 0x0954	?S)		    ; STRESS SIGN or TONE MARK (above)
+ (0x0952	?s)		    ; STRESS SIGN or TONE MARK (below)
+ (0x0958 0x095E	?C)			; LETTER QA .. LETTER YYA
+ (0x0960	?V)			; LETTER VOCALIC RR
+ (0x0961	?V)			; LETTER VOCALIC LL
+ (0x0962 0x0963	?b)			; VOWEL SIGN (below)
+ (0x0964 0x0970	?E)			; DANDA .. ABBREVIATION SIGN
+ (0x200C	?N)			; ZWNJ
+ (0x200D	?J)			; ZWJ
+ (0x097D	?x)		; internally used tag to indicate Reph
+ (0x097E	?y)		; internally used tag to indicate Mpost
+ (0x097F	?z)		; internally used tag to indicate Cbase
+ )
+
+;; The first stage is to extract a syllable and re-order characters in
+;; it.
+(generator
+ (0
+  (cond
+   ;; If [CR]H is followed by ZWNJ/ZWJ, move ZWNJ/ZWJ) to the head so
+   ;; that the later stages find it quickly.
+   ("([CR]n?H)([NJ])"
+    < | (2 =) (1 = =) | > )
+
+   ;; A syllable starting with RH (Reph) and ending with a vowel
+   ;; and/or a vowel modifier.
+   ("(RH)(([CR]n?H)*[CR]n?)([mubp][Aa]?[Ss]?)"
+    < | (1 0x097D = =) (2 move-base-Halant) (4 reorder-post-base) | >)
+
+   ;; A syllable starting with RH (Reph) and ending without a vowel
+   ;; nor a vowel modifier.
+   ("(RH)(([CR]n?H)*[CR]n?)(H)?"
+    < | (1 0x097D = =) (2 move-base-Halant) (4 =) | >)
+
+   ;; A syllable starting with the other consonant and ending with a
+   ;; vowel and/or a vowel modifier.
+   ("(([CR]n?H)*[CR]n?)([mubp][Aa]?[Ss]?|[Aa][Ss]?|[Ss])"
+    < | (1 move-base-Halant) (3 reorder-post-base) | >)
+
+   ;; A syllable starting with the other consonant and ending without
+   ;; a vowel nor a vowel modifier.
+   ("(([CR]n?H)*[CR]n?)(H)?"
+    < | (1 move-base-Halant) (3 =) | >)
+
+   ;; A syllable starting with an independent vowel.
+   ("V[Aa]?[Ss]?"
+    < | = * | > )
+
+   ("." =))
+  *)
+
+ ;; Move Halant on a base consonant to the tail.
+ (move-base-Halant
+  (cond
+   ("(([CR]n?H)*[CR]n?)(H)(R)"
+    (1 = *)
+    (4 =)
+    (3 =))
+   (".*"
+    = *)))
+
+ ;; Re-order post modifiers.
+ (reorder-post-base
+  ;; 12   3   4   5    67   8     9   10
+  ("((m)|(u)|(b)|(p))?((A)|(a))?((S)|(s))?$"
+   (2 =) (4 =) (10 =) (3 =) (5 =)
+   0x097E
+   (7 =) (9 =) (8))))
+
+;; The second stage is to reorder Reph and Mpre.
+(generator
+ (0
+  (cond
+   (" [NJ]([^ ]*) "
+    = *)
+   (" (x(..))([CRnH]*) "
+    | (3 = *) (2 otf:deva=rphf) |)
+   (" (x(..))([CRnH]*)(m?)([^y]*)y([^ ]*) "
+    | (4 =) (3 = *) (5 = *) (2 otf:deva=rphf) (6 = *) |)
+   (" ([CRnH][CRnH]*) "
+    = *)
+   (" ([CRnH][CRnH]*)(m?)([^y]*)y([^ ]*) "
+    | (2 =) (1 = *) (3 = *) (4 = *) |)
+   ("." =))
+  *))
+
+;; The third stage is to drive OTF tables.  For the moment, we use
+;; the default LangSys, and try all GSUB/GPOS features except for the
+;; sequence followed by ZWNJ in which case try "nukt" and "haln"
+;; features only.
+(generator
+ (0
+  (cond
+   (" N([^ ]*) "
+    (1 otf:deva=nukt,haln))
+
+   (" J([^ ]*) "
+    (1 otf:deva))
+
+   (" ([^ ]*)(CH) "
+    (1 otf:deva=~rphf,*) (2 otf:deva=haln))
+
+   (" ([^ ]*) "
+    (1 otf:deva=~rphf,*))
+
+   ("."
+    [ otf:deva=+ ] ))
+  *))
+
+;; Local Variables:
+;; mode: emacs-lisp
+;; End:

@@ -1,0 +1,460 @@
+/* Copyright (C) 2003, 2004
+     National Institute of Advanced Industrial Science and Technology (AIST)
+     Registration Number H15PRO112
+   See the end for copying conditions.  */
+
+/***en
+
+@page mdbFLT Font Layout Table
+
+@section flt-description DESCRIPTION
+
+For simple scripts, the rendering engine converts character codes into glyph
+codes one by one by consulting the encoding of each selected font.
+But, to render text that requires complicated layout (e.g. Thai and
+Indic scripts), one to one conversion is not sufficient.  A sequence
+of characters may have to be drawn as a single ligature.  Some
+glyphs may have to be drawn at 2-dimensionally shifted positions.
+
+To handle those complicated scripts, the m17n library uses Font Layout
+Tables (FLTs for short).  The FLT driver interprets an FLT and
+converts a character sequence into a glyph sequence that is ready to
+be passed to the rendering engine.
+
+An FLT can contain information to extract a grapheme cluster from a
+character sequence and to reorder the characters in the cluster, in
+addition to information found in OpenType Layout Tables (CMAP, GSUB,
+and GPOS).
+
+An FLT is a cascade of one or more conversion stages.  In each stage, a
+sequence is converted into another sequence to be read in the
+next stage.  The length of sequences may differ from stage to
+stage.  Each element in a sequence has the following integer attributes.
+
+<ul>
+<li> code
+
+In the first conversion stage, this is the character code in the
+original character sequence.  In the last stage, it is the glyph code
+passed to the rendering engine.  In other cases, it is an intermediate
+glyph code.
+
+<li> category
+
+This is the category code defined in the @c CATEGORY-TABLE
+of the current stage.
+
+<li> combining-spec
+
+If nonzero, it specifies how to combine this (intermediate) glyph
+with the previous one.
+
+<li> left-padding-flag
+
+If nonzero, it instructs the rendering function to insert a padding
+space before this (intermediate) glyph so that the glyph does not
+overlap with the previous one.
+
+<li> right-padding-flag
+
+If nonzero, it instructs the rendering function to insert a padding
+space after this (intermediate) glyph so that the glyph does not
+overlap with the next one.
+
+</ul>
+
+When the layout engine draws text, it at first determines a font and
+an FLT for each character in the text.  For each subsequence of
+characters that use use the same font and FLT, the layout engine
+generates an intermediate glyph sequence from the character
+subsequence.  Each element in the intermediate glyph sequence
+has the corresponding character code as the code attribute and zeroes
+for other attributes.  This sequence is processed in the
+first stage of FLT as the current @e run (substring).
+
+Each stage works as follows.
+
+At first, if the stage has a @c CATEGORY-TABLE, the category of each glyph
+in the current run is updated.  If there is a glyph that has no category,
+the current run ends before that glyph.
+
+Then, the default values of code-offset, combining-spec, and left-padding-flag
+of this stage are initialized to zero.
+
+Next, the initial conversion rule of the stage is applied to the
+current run.
+
+Lastly, the current run is replaced with the newly produced
+(intermediate) glyph sequence.
+
+@section flt-syntax SYNTAX and SEMANTICS
+
+The m17n library loads an FLT from the m17n database using the tag
+\<font, layouter, FLT-NAME\>.  The date format of an FLT is as follows:
+
+@verbatim
+FONT-LAYOUT-TABLE ::= STAGE0 STAGE *
+
+STAGE0 ::= CATEGORY-TABLE GENERATOR
+
+STAGE ::= CATEGORY-TABLE ? GENERATOR
+
+CATEGORY-TABLE ::= '(' 'category' CATEGORY-SPEC + ')'
+
+CATEGORY-SPEC ::= '(' CODE CATEGORY ')'
+	      	  | '(' CODE CODE CATEGORY ')'
+
+CODE ::= INTEGER
+
+CATEGORY ::= INTEGER
+@endverbatim
+
+In the definition of @c CATEGORY-SPEC, @c CODE is a glyph code, and @c
+CATEGORY is ASCII code of an upper or lower letter, i.e. one of 'A',
+... 'Z', 'a', .. 'z'.
+
+The first form of @c CATEGORY-SPEC assigns @c CATEGORY to a glyph
+whose code @c CODE.  The second form assigns @c CATEGORY to glyphs
+whose code falls between the two @c CODEs.
+
+@verbatim
+GENERATOR ::= '(' 'generator' RULE MACRO-DEF * ')'
+
+RULE ::= REGEXP-BLOCK | MATCH-BLOCK | SUBST-BLOCK | COND-BLOCK
+	 | DIRECT-CODE | COMBINING-SPEC | OTF-SPEC
+	 | PREDEFINED-RULE | MACRO-NAME
+
+MACOR-DEF ::= '(' MACRO-NAME RULE + ')'
+@endverbatim
+
+Each @c RULE specifies glyphs to be consumed and glyphs to be produced.  When
+some glyphs are consumed, they are taken away from the current run.  A
+rule may fail in some condition.  If not described explicitly to
+fail, it should be regarded that the rule succeeds.
+
+@verbatim
+DIRECT-CODE ::= INTEGER
+@endverbatim
+
+This rule consumes no glyph and produces a glyph which has the
+following attributes:
+
+<ul>
+<li> code : @c INTEGER plus the default code-offset
+<li> combining-spec : default value
+<li> left-padding-flag : default value
+<li> right-padding-flag : zero
+</ul>
+
+After having produced the glyph, the default code-offset,
+combining-spec, and left-padding-flag are all reset to zero.
+
+@verbatim
+PREDEFINED-RULE ::= '=' | '*' | '<' | '>' | '|' | '[' | ']'
+@endverbatim
+
+They perform actions as follows.
+
+<ul>
+<li> @c =
+
+This rule consumes the first glyph in the current run and produces the
+same glyph.  It fails if the current run is empty.
+
+<li> @c *
+
+This rule repeatedly executes the previous rule.
+If the previous rule fails, this rule does nothing and fails.
+
+<li> @c @<
+
+This rule specifies the start of a grapheme cluster.
+
+<li> @c @>
+
+This rule specifies the end of a grapheme cluster.
+
+<li> @c @[
+
+This rule sets the default left-padding-flag to 1.
+No glyph is consumed.  No glyph is produced.
+
+<li> @c @]
+
+This rule changes the right-padding-flag of the lastly generated
+glyph to 1.
+No glyph is consumed.  No glyph is produced.
+
+<li> @c |
+
+This rule consumes no glyph and produces a special glyph whose
+category is ' ' and other attributes are zero.  
+This is the only rule that produces that special glyph.
+
+</ul>
+
+@verbatim
+REGEXP-BLOCK ::= '(' REGEXP RULE * ')'
+
+REGEXP ::= MTEXT
+@endverbatim
+
+@c MTEXT is a regular expression that should match the sequence of
+categories of the current run.  If a match is found, this rule
+executes @c RULEs temporarily limiting the current run to the matched
+part.  The matched part is consumed by this rule.
+
+Parenthesized subexpressions, if any, are recorded to be used in @c
+MATCH-BLOCK that may appear in one of @c RULEs.
+
+If no match is found, this rule fails.
+
+@verbatim
+MATCH-BLOCK ::= '(' MATCH-INDEX RULE * ')'
+
+MATCH-INDEX ::= INTEGER
+@endverbatim
+
+MATCH-INDEX is an integer specifying a parenthesized subexpression
+recoded by the previous @c REGEXP-BLOCK.  If such a subexpression was
+found by the previous regular expression matching, this rule executes @c
+RULEs temporarily limiting the current run to the matched part
+of the subexpression.  The matched part is consumed by this rule.
+
+If no match was found, this rule fails.
+
+If this is the first rule of the stage, @c MATCH-INDEX must be 0, and
+it matches the whole current run.
+
+@verbatim
+SUBST-BLOCK ::=	'(' SOURCE-PATTERN RULE * ')'
+
+SOURCE-PATTERN ::= '(' CODE + ')'
+	       	   | (' 'range' CODE CODE ')'
+@endverbatim
+
+If the sequence of codes of the current run matches @c SOURCE-PATTERN,
+this rule executes @c RULEs temporarily limiting the current run to
+the matched part.  The matched part is consumed.
+
+The first form of @c SOURCE-PATTERN specifies a sequence of glyph codes to be
+matched.  In this case, this rule resets the default code-offset to
+zero.
+
+The second form specifies a range of codes that should match the first
+glyph code of the code sequence.  In this case, this rule sets the
+default code-offset to the first glyph code minus the first @c CODE in @c
+SOURCE-RANGE.
+
+If no match is found, this rule fails.
+
+@verbatim
+COND-BLOCK ::= '(' 'cond' RULE + ')'
+@endverbatim
+
+This rule sequentially executes @c RULEs until one succeeds.  If no
+rule succeeds, this rule fails.  Otherwise, it succeeds.
+
+@verbatim
+OTF-SPEC ::= SYMBOL
+@endverbatim
+
+@c OTF-SPEC is a symbol whose name specifies an instruction to the OTF
+driver.  The name has the following syntax.
+
+@verbatim
+  OTF-SPEC-NAME ::= 'otf:' SCRIPT LANGSYS ? GSUB-FEATURES ? GPOS-FEATURES ?
+
+  SCRIPT ::= SYMBOL
+
+  LANGSYS ::= '/' SYMBOL
+
+  GSUB-FEATURES ::= '=' FEATURE-LIST ?
+
+  GPOS-FEATURES ::= '+' FEATURE-LIST ?
+
+  FEATURE-LIST ::= ( SYMBOL ',' ) * [ SYMBOL | '*' ]
+
+@endverbatim
+
+Each @c SYMBOL specifies a tag name defined in the OpenType
+specification.
+
+For @c SCRIPT, @c SYMBOL specifies a Script tag name (e.g. deva for
+Devanagari).
+
+For @c LANGSYS, @c SYMBOL specifies a Language System tag name.  If @c
+LANGSYS is omitted, the Default Language System
+table is used.
+
+For @c GSUB-FEATURES, each @c SYMBOL specifies a GSUB Feature tag name
+to apply.  '*' is allowed as the last item to specify all remaining
+features.  If @c SYMBOL is preceded by '~' and the last item is '*',
+@c SYMBOL is excluded from the features to apply.  If no @c SYMBOL is
+specified, no GSUB feature is applied.  If @c GSUB-FEATURES itself is
+omitted, all GSUB features are applied.
+
+The specification of @c GPOS-FEATURES is analogous to that of @c
+GSUB-FEATURES.
+
+See the following page for the OpenType specification.\n
+    <http://www.microsoft.com/typography/otspec/default.htm>
+
+@verbatim
+COMBINING ::= SYMBOL
+@endverbatim
+
+@c COMBINING is a symbol whose name specifies how
+to combine the next glyph with the previous one.  This rule sets the
+default combining-spec to an integer code that is unique to the symbol
+name.  The name has the following syntax.
+
+@verbatim
+  COMBINING-NAME ::= VPOS HPOS OFFSET VPOS HPOS
+
+  VPOS ::= 't' | 'c' | 'b' | 'B'
+
+  HPOS ::= 'l' | 'c' | 'r'
+
+  OFFSET :: = '.' | XOFF | YOFF XOFF ?
+
+  XOFF ::= ('<' | '>') INTEGER ?
+
+  YOFF ::= ('+' | '-') INTEGER ?
+@endverbatim
+
+@c VPOS and @c HPOS specify the vertical and horizontal positions
+as described below.
+
+@verbatim
+                                POINT VPOS HPOS
+                                ----- ---- ----
+    0----1----2 <---- top       0     t    l
+    |         |                 1     t    c
+    |         |                 2     t    r
+    |         |                 3     B    l
+    9   10   11 <---- center    4     B    c
+    |         |                 5     B    r
+  --3----4----5-- <-- baseline  6     b    l
+    |         |                 7     b    c
+    6----7----8 <---- bottom    8     b    r
+                                9     c    l
+    |    |    |                10     c    c
+  left center right            11     c    r
+@endverbatim
+
+The left figure shows 12 reference points of a glyph by numbers 0 to
+11.  The rectangle 0-6-8-2 is the bounding box of the glyph, the
+positions 3, 4, and 5 are on the baseline, 9 and 11 are on the center
+of the lines 0-6 and 2-8 respectively, 1, 10, 4, and 7 are on the
+center of the lines 1-2, 3-5, 9-11, and 6-8 respectively.
+
+The right table shows how those reference points are specified by a
+pair of @c VPOS and @c HPOS.
+
+The first @c VPOS and @c HPOS in the definition of @c COMBINING-NAME
+specify the
+reference point of the previous glyph, and the second @c VPOS and @c
+HPOS specify that of the next glyph.
+The next glyph is drawn so that these two reference points align.
+
+@c OFFSET specifies the way of alignment in detail.  If it is '.', the
+reference points are on the same position.
+
+@c XOFF specifies how much the X position of the next reference point
+should be shifted to the right ('<') or left ('>') from the previous
+reference point.
+
+@c YOFF specifies how much the Y position of the next reference point
+should be shifted upward ('+') or downward ('-') from the previous reference
+point.
+
+In both cases, @c INTEGER is the amount of shift expressed as a
+percentage of the font size, i.e., if @c INTEGER is 10, it means
+10% (1/10) of the font size.  If @c INTEGER is omitted, it is assumed that
+5 is specified.
+
+Once the next glyph is combined with the previous one, they
+are treated as a single combined glyph.
+
+@verbatim
+MACRO-NAME ::= SYMBOL
+@endverbatim
+
+@c MACRO-NAME is a symbol that appears in one of @c MACRO-DEF.  It is
+exapanded to the sequence of the correponding @c RULSs.
+
+@section flt-context-dependent CONTEXT DEPENDENT BEHAVIOR
+
+So far, it has been assumed that each sequence, which is drawn with a
+specific font, is context free, i.e. not affected by the glyphs
+preceding or following that sequence.  This is true when sequence S1
+is drawn with font F1 while the preceding sequence S0 unconditionally
+requires font F0.
+
+@verbatim
+  sequence				S0	S1
+  currently used font			F0	F1
+  usable font(s)			F0	F1
+@endverbatim
+
+Sometimes, however, a clear separation of sequences is not possible.
+Suppose that the preceding sequence S0 can be drawn not only with F0
+but also with F1.
+
+@verbatim
+  sequence				S0	S1
+  currently used font			F0	F1
+  usable font(s)			F0,F1	F1
+@endverbatim
+
+In this case, glyphs used to draw the preceding S0 may affect glyph
+generation of S1.  Therefore it is necessary to access information
+about S0, which has already been processed, when processing S1.
+Generation rules in the first stage (only in the first stage) accept a
+special regular expression to access already processed parts.
+
+@verbatim
+  "RE0 RE1"
+@endverbatim
+
+@c RE0 and @c RE1 are regular expressions that match the preceding
+sequence S0 and the following sequence S1, respectively.
+
+Pay attention to the space between the two regular expressions.  It
+represents the special category ' ' (see above).  Note that the
+regular expression above belongs to glyph generation rules using font
+F1, therefore not only RE1 but also RE0 must be expressed with the
+categories for F1.  This means when the preceding sequence S0 cannot
+be expressed with the categories for F1 (as in the first example
+above) generation rules having these patterns never match.
+
+@section flt-seealso SEE ALSO
+
+@ref mdbGeneral "mdbGeneral(5)", 
+@ref flt-list "FLTs provided by the m17n database"
+*/
+
+/* 
+Copyright (C) 2003, 2004
+  National Institute of Advanced Industrial Science and Technology (AIST)
+  Registration Number H15PRO112
+
+This file is part of the m17n database; a sub-part of the m17n
+library.
+
+The m17n library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1 of
+the License, or (at your option) any later version.
+
+The m17n library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with the m17n library; if not, write to the Free
+Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+02111-1307, USA.
+*/

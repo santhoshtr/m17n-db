@@ -1,0 +1,188 @@
+;; tlg-itrans.mim -- Telugu input method with ITRANS method
+;; Copyright (C) 2003, 2004
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; <li> tlg-itrans.mim
+;;;
+;;; Input method for Telugu script with ITRANS method.  For the detail
+;;; of ITRAN, see the page http://www.aczone.com/itrans/.
+
+(title "క")
+
+(map
+ (starter
+  (".") ("~") ("#") ("$") ("^") ("*") ((S-\ )) ((C-@))
+  ("0") ("1") ("2") ("3") ("4")
+  ("5") ("6") ("7") ("8") ("9")
+  ("A") ("C") ("D") ("G") ("H") ("I") ("J") ("K") ("L")
+  ("M") ("N") ("O") ("R") ("S") ("T") ("U") ("Y")
+  ("a") ("b") ("c") ("d") ("e") ("f") ("g") ("h") ("i")
+  ("j") ("k") ("l") ("m") ("n") ("o") ("p") ("q") ("r")
+  ("s") ("t") ("u") ("v") ("w") ("x") ("y") ("z"))
+
+ (consonant
+  ("k" "క్")
+  ("kh" "ఖ్")
+  ("g" "గ్")
+  ("gh" "ఘ్")
+  ("~N" "ఙ్")
+  ("N^" "ఙ్")
+  ("ch" "చ్")
+  ("Ch" "ఛ్")
+  ("chh" "ఛ్")
+  ("j" "జ్")
+  ("jh" "ఝ్")
+  ("~n" "ఞ్")
+  ("JN" "ఞ్")
+  ("T" "ట్")
+  ("Th" "ఠ్")
+  ("D" "డ్")
+  ("Dh" "ఢ్")
+  ("N" "ణ్")
+  ("t" "త్")
+  ("th" "థ్")
+  ("d" "ద్")
+  ("dh" "ధ్")
+  ("n" "న్")
+  ("p" "ప్")
+  ("ph" "ఫ్")
+  ("b" "బ్")
+  ("bh" "భ్")
+  ("m" "మ్")
+  ("y" "య్")
+  ("r" "ర్")
+  ("rh" "ఱ్")
+  ("l" "ల్")
+  ("L" "ళ్")
+  ("ld" "ళ్")
+  ("v" "వ్")
+  ("w" "వ్")
+  ("sh" "శ్")
+  ("Sh" "ష్")
+  ("shh" "ష్")
+  ("s" "స్")
+  ("h" "హ్")
+  ("GY" "జ్ఞ్")
+  ("dny" "జ్ఞ్")
+  ("x" "క్ష్"))
+
+ (independent
+  ("a" "అ")
+  ("aa" "ఆ")
+  ("A" "ఆ")
+  ("i" "ఇ")
+  ("ii" "ఈ")
+  ("I" "ఈ")
+  ("u" "ఉ")
+  ("uu" "ఊ")
+  ("U" "ఊ")
+  ("RRi" "ఋ")
+  ("R^i" "ఋ")
+  ("LLi" "ఌ")
+  ("L^i" "ఌ")
+  ("E" "ఏ")
+  ("e" "ఎ")
+  ("ai" "ఐ")
+  ("O" "ఓ")
+  ("o" "ఒ")
+  ("au" "ఔ")
+  ("RRI" "ౠ")
+  ("R^I" "ౠ")
+  ("LLI" "ౡ")
+  ("L^I" "ౡ")
+  (".N" "ఁ")
+  (".n" "ం")
+  ("M" "ం")
+  ("H" "ః")
+  (".h" "్")
+  ("0" "౦")
+  ("1" "౧")
+  ("2" "౨")
+  ("3" "౩")
+  ("4" "౪")
+  ("5" "౫")
+  ("6" "౬")
+  ("7" "౭")
+  ("8" "౮")
+  ("9" "౯")
+  ("#" "్ర")
+  ("$" "ర్")
+  ("^" "త్ర")
+  ("*" "శ్ర")
+  ((S-\ ) "‌")
+  ((C-@) "‍"))
+
+ (dependent
+  ("a" (delete @-) "")
+  ("aa" (delete @-) "ా")
+  ("A" (delete @-) "ా")
+  ("i" (delete @-) "ి")
+  ("ii" (delete @-) "ీ")
+  ("I" (delete @-) "ీ")
+  ("u" (delete @-) "ు")
+  ("uu" (delete @-) "ూ")
+  ("U" (delete @-) "ూ")
+  ("RRi" (delete @-) "ృ")
+  ("R^i" (delete @-) "ృ")
+  ("LLi" (delete @-) "")
+  ("L^i" (delete @-) "")
+  ("E" (delete @-) "ే")
+  ("e" (delete @-) "ె")
+  ("ai" (delete @-) "ై")
+  ("O" (delete @-) "ో")
+  ("o" (delete @-) "ొ")
+  ("au" (delete @-) "ౌ")
+  ("RRI" (delete @-) "ౄ")
+  ("R^I" (delete @-) "ౄ")
+  ("LLI" (delete @-) "")
+  ("L^I" (delete @-) ""))
+
+ (return
+  ((Return)))
+
+ (backspace
+  ((BackSpace) (undo))))
+
+(state
+ (init
+  (starter (pushback 1) (shift intermediate)))
+
+ (intermediate
+  (consonant (shift second))
+  (independent (shift finish))
+  (backspace)
+  (return (shift init)))
+
+ (second
+  (consonant)
+  (dependent (shift finish))
+  (backspace)
+  (return (shift init)))
+
+ (finish
+  (return)
+  (t (shift init))))
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: lisp
+;; End:

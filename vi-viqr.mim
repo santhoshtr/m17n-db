@@ -1,0 +1,185 @@
+;; vi-viqr.mim -- Input method for Vietnames with VIQR key sequence
+;; Copyright (C) 2003, 2004
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; <li> vi-viqr.mim
+;;;
+;;; Input method for Vietnames with VIQR key sequence.
+
+(title "ắ")
+(map
+ (map
+  ("a('" "ắ")
+  ("a(`" "ằ")
+  ("a(." "ặ")
+  ("a^'" "ấ")
+  ("a^`" "ầ")
+  ("a^?" "ẩ")
+  ("a^." "ậ")
+  ("e~" "ẽ")
+  ("e." "ẹ")
+  ("e^'" "ế")
+  ("e^`" "ề")
+  ("e^?" "ể")
+  ("e^~" "ễ")
+  ("e^." "ệ")
+  ("o^'" "ố")
+  ("o^`" "ồ")
+  ("o^?" "ổ")
+  ("o^~" "ỗ")
+  ("o^." "ộ")
+  ("o+`" "ờ")
+  ("o+?" "ở")
+  ("i." "ị")
+  ("o+" "ơ")
+  ("o+'" "ớ")
+  ("a(?" "ẳ")
+  ("a(~" "ẵ")
+  ("y`" "ỳ")
+  ("u+'" "ứ")
+  ("a." "ạ")
+  ("y?" "ỷ")
+  ("u+`" "ừ")
+  ("u+?" "ử")
+  ("y~" "ỹ")
+  ("y." "ỵ")
+  ("o+~" "ỡ")
+  ("u+" "ư")
+  ("a`" "à")
+  ("a'" "á")
+  ("a^" "â")
+  ("a~" "ã")
+  ("a?" "ả")
+  ("a(" "ă")
+  ("u+~" "ữ")
+  ("a^~" "ẫ")
+  ("e`" "è")
+  ("e'" "é")
+  ("e^" "ê")
+  ("e?" "ẻ")
+  ("i`" "ì")
+  ("i'" "í")
+  ("i~" "ĩ")
+  ("i?" "ỉ")
+  ("dd" "đ")
+  ("u+." "ự")
+  ("o`" "ò")
+  ("o'" "ó")
+  ("o^" "ô")
+  ("o~" "õ")
+  ("o?" "ỏ")
+  ("o." "ọ")
+  ("u." "ụ")
+  ("u`" "ù")
+  ("u'" "ú")
+  ("u~" "ũ")
+  ("u?" "ủ")
+  ("y'" "ý")
+  ("o+." "ợ")
+  ("A('" "Ắ")
+  ("A(`" "Ằ")
+  ("A(." "Ặ")
+  ("A^'" "Ấ")
+  ("A^`" "Ầ")
+  ("A^?" "Ẩ")
+  ("A^." "Ậ")
+  ("E~" "Ẽ")
+  ("E." "Ẹ")
+  ("E^'" "Ế")
+  ("E^`" "Ề")
+  ("E^?" "Ể")
+  ("E^~" "Ễ")
+  ("E^." "Ệ")
+  ("O^'" "Ố")
+  ("O^`" "Ồ")
+  ("O^?" "Ổ")
+  ("O^~" "Ỗ")
+  ("O^." "Ộ")
+  ("O+`" "Ờ")
+  ("O+?" "Ở")
+  ("I." "Ị")
+  ("O+" "Ơ")
+  ("O+'" "Ớ")
+  ("A(?" "Ẳ")
+  ("A(~" "Ẵ")
+  ("Y`" "Ỳ")
+  ("U+'" "Ứ")
+  ("A." "Ạ")
+  ("Y?" "Ỷ")
+  ("U+`" "Ừ")
+  ("U+?" "Ử")
+  ("Y~" "Ỹ")
+  ("Y." "Ỵ")
+  ("O+~" "Ỡ")
+  ("U+" "Ư")
+  ("A`" "À")
+  ("A'" "Á")
+  ("A^" "Â")
+  ("A~" "Ã")
+  ("A?" "Ả")
+  ("A(" "Ă")
+  ("U+~" "Ữ")
+  ("A^~" "Ẫ")
+  ("E`" "È")
+  ("E'" "É")
+  ("E^" "Ê")
+  ("E?" "Ẻ")
+  ("I`" "Ì")
+  ("I'" "Í")
+  ("I~" "Ĩ")
+  ("I?" "Ỉ")
+  ("DD" "Đ")
+  ("dD" "Đ")
+  ("Dd" "Đ")
+  ("U+." "Ự")
+  ("O`" "Ò")
+  ("O'" "Ó")
+  ("O^" "Ô")
+  ("O~" "Õ")
+  ("O?" "Ỏ")
+  ("O." "Ọ")
+  ("U." "Ụ")
+  ("U`" "Ù")
+  ("U'" "Ú")
+  ("U~" "Ũ")
+  ("U?" "Ủ")
+  ("Y'" "Ý")
+  ("O+." "Ợ")
+  ("\\(" "(")
+  ("\\^" "^")
+  ("\\+" "+")
+  ("\\'" "'")
+  ("\\`" "`")
+  ("\\?" "?")
+  ("\\~" "~")
+  ("\\." ".")
+  ("\\d" "d")
+  ("\\\\" "\\")))
+
+(state
+ (init
+  (map)))
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: lisp
+;; End:

@@ -1,0 +1,72 @@
+;; FONTENC.tbl -- Font Encoding					-*- lisp -*-
+;; Copyright (C) 2003, 2004
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+;;
+;; The file format is this:
+;;	(FONT-SPEC ENCODING) ...
+;;
+;; FONT-SPEC has this form:
+;;	([FOUNDRY FAMILY [WEIGHT [STYLE [STRETCH [ADSTYLE]]]]] REGISTRY)
+;;
+;; See the file FORMAT/FontEncoding.txt for the detail.
+
+;;; <li> FONTENC.tbl
+;;;
+;;; Information about encodings of fonts.  See the section @ref
+;;; mdbFontEncoding.
+
+((nil nil iso8859-1)		iso-8859-1)
+((nil nil iso8859-2)		iso-8859-2)
+((nil nil iso8859-3)		iso-8859-3)
+((nil nil iso8859-4)		iso-8859-4)
+((nil nil iso8859-5)		iso-8859-5)
+((nil nil iso8859-6)		iso-8859-6)
+((nil nil iso8859-7)		iso-8859-7)
+((nil nil iso8859-8)		iso-8859-8)
+((nil nil iso8859-9)		iso-8859-9)
+((nil nil iso8859-10)		iso-8859-10)
+((nil nil tis620.2529-1)	iso-8859-11)
+((nil nil tis620.2533-0)	iso-8859-11)
+((nil nil iso8859-13)		iso-8859-13)
+((nil nil iso8859-14)		iso-8859-14)
+((nil nil iso8859-15)		iso-8859-15)
+((nil nil jisx0201.1976-0)	jisx0201)
+((nil nil jisx0208.1983-0)	jisx0208.1983)
+((nil nil jisx0208.1990-0)	jisx0208.1990)
+((nil nil jisx0212.1990-0)	jisx0212)
+((nil nil jisx0213.2000-1)	jisx0213-1)
+((nil nil jisx0213.2000-2)	jisx0213-2)
+((nil nil jisx0213.2004-1)	jisx0213.2004-1)
+((nil nil gb2312.1980-0)	gb2312.1980)
+((nil nil gbk-0)		gbk)
+((nil nil ksc5601.1987-0)	ksc5601.1987)
+((nil nil viscii1.1-1)		viscii)
+((nil nil big5.eten-0)		big5)
+((nil nil big5-1)		big5)
+((nil nil ethiopic-unicode)	unicode unicode-ethiopic)
+((nil nil devanagari-cdac)	unicode unicode-devanagari)
+((nil nil malayalam-cdac)	unicode unicode-malayalam)
+((nil nil tamil-cdac)		unicode unicode-tamil)
+((nil nil mulelao-1)		unicode unicode-lao)
+((nil nil iso10646-1)		unicode nil)
+((nil nil unicode-bmp)		unicode nil)
+((nil nil unicode-full)		unicode nil)

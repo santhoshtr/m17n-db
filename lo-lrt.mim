@@ -1,0 +1,247 @@
+;; lo-lrt.mim -- Lao input method with Lao-Roman transliteration
+;; Copyright (C) 2003, 2004
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; <li> lo-lrt.mim
+;;;
+;;; Input method for Thai with Lao-Roman transliteration.
+
+(title "ກ")
+(map
+ (consonant
+  ("k" "ກ")
+  ("kh" "ຂ")
+  ("qh" "ຄ")
+  ("ng" "ງ")
+  ("j" "ຈ")
+  ("s" "ສ")
+  ("x" "ຊ")
+  ("y" "ຍ")
+  ("d" "ດ")
+  ("t" "ຕ")
+  ("th" "ຖ")
+  ("dh" "ທ")
+  ("n" "ນ")
+  ("b" "ບ")
+  ("p" "ປ")
+  ("hp" "ຜ")
+  ("fh" "ຝ")
+  ("ph" "ພ")
+  ("f" "ຟ")
+  ("m" "ມ")
+  ("gn" "ຢ")
+  ("l" "ລ")
+  ("r" "ຣ")
+  ("v" "ວ")
+  ("w" "ວ")
+  ("hh" "ຫ")
+  ("O" "ອ")
+  ("h" "ຮ")
+  ("nh" "ໜ")
+  ("mh" "ໝ")
+  ("lh" "ຫຼ")
+  ("ngh" "ຫງ")
+  ("yh" "ຫຽ")
+  ("wh" "ຫວ")
+  ("hl" "ຫລ")
+  ("hy" "ຫຍ")
+  ("hn" "ຫນ")
+  ("hm" "ຫມ")
+  )
+
+ (semi-vowel
+  ("r" (move 1) "ຼ" (move @>)))
+
+ (vowel-simple
+  ("ar" "າ")
+  ("i" "ິ" (mark @tone))
+  ("ii" "ີ" (mark @tone))
+  ("eu" "ຶ" (mark @tone))
+  ("ur" "ື" (mark @tone))
+  ("u" "ຸ" (mark @tone))
+  ("uu" "ູ" (mark @tone))
+  ("aM" "ຳ")
+
+  ("ee" (move @-) (move @-) "ເ" (move @+) (move @+))
+  ("aa" (move @-) (move @-) "ແ" (move @+) (move @+))
+  ("oo" (move @-) (move @-) "ໂ" (move @+) (move @+))
+  ("ai" (move @-) (move @-) "ໄ" (move @+) (move @+))
+  ("ei" (move @-) (move @-) "ໃ" (move @+) (move @+))
+
+  ("er" (move @-) (move @-) "ເ" (move @+) (move @+) "ິ" (mark @tone))
+  ("ir" (move @-) (move @-) "ເ" (move @+) (move @+) "ີ" (mark @tone))
+  ("ea" (move @-) (move @-) "ເ" (move @+) (move @+) "ຶ" (mark @tone) "ອ")
+  ("eaa" (move @-) (move @-) "ເ" (move @+) (move @+) "ື" (mark @tone) "ອ")
+  ("ao" (move @-) (move @-) "ເ" (move @+) (move @+) "ົ" (mark @tone) "າ"))
+
+ (vowel-a-e-ae
+  ("a" "ະ")
+  ("e" (move @-) (move @-) "ເ" (move @+) (move @+) "ະ")
+  ("ae" (move @-) (move @-) "ແ" (move @+) (move @+) "ະ"))
+
+ (vowel-oe
+  ("oe" (move @-) (move @-) "ເ" (move @+) (move @+) "າະ"))
+
+ (vowel-o
+  ("o" (move @-) (move @-) "ໂ" (move @+) (move @+) "ະ"))
+
+ (vowel-or
+  ("or" "ໍ" (mark @tone)))
+
+ (vowel-ua
+  ("ua" "ົ" (mark @tone) "ວະ"))
+
+ (vowel-uaa
+  ("uaa" "ົ" (mark @tone) "ວ"))
+
+ (vowel-ie
+  ("ie" (move @-) (move @-) "ເ" (move @+) (move @+) "ັ" (mark @tone) "ຽະ"))
+
+ (vowel-ia
+  ("ia" (move @-) (move @-) "ເ" (move @+) (move @+) "ັ" (mark @tone) "ຽ"))
+
+ (maa-sakod
+  ("k" "ກ")
+  ("g" "ງ")
+  ("y" "ຍ")
+  ("d" "ດ")
+  ("n" "ນ")
+  ("b" "ບ")
+  ("m" "ມ")
+  ("v" "ວ")
+  ("w" "ວ"))
+
+ (maa-sakod-y-v
+  ("y" "ຍ")
+  ("v" "ວ")
+  ("w" "ວ"))
+
+ (maa-sakod-non-y-v
+  ("k" "ກ")
+  ("g" "ງ")
+  ("d" "ດ")
+  ("n" "ນ")
+  ("b" "ບ")
+  ("m" "ມ"))
+
+ (tone
+  ("'" (move @tone) "່" (move @>))
+  ("\"" (move @tone) "້" (move @>))
+  ("^" (move @tone) "໊" (move @>))
+  ("+" (move @tone) "໋" (move @>))
+  ("~" (move @tone) "໌" (move @>)))
+
+ (punctuation
+  ("\\0" "໐")
+  ("\\1" "໑")
+  ("\\2" "໒")
+  ("\\3" "໓")
+  ("\\4" "໔")
+  ("\\5" "໕")
+  ("\\6" "໖")
+  ("\\7" "໗")
+  ("\\8" "໘")
+  ("\\9" "໙")
+  ("\\\\" "ໆ")
+  ("\\$" "ຯ")))
+
+(state
+ (init
+  (consonant (move 1) (mark @tone) (move @>) (shift c-state))
+  (vowel-simple)
+  (vowel-a-e-ae)
+  (vowel-oe)
+  (vowel-o)
+  (vowel-or)
+  (vowel-ua)
+  (vowel-uaa)
+  (vowel-ie)
+  (vowel-ia)
+  (tone)
+  (punctuation))
+
+ (c-state
+  (semi-vowel (shift cs-state))
+  (nil (shift cs-state)))
+
+ (cs-state
+  (vowel-simple (shift csv-state))
+  (vowel-a-e-ae (shift csv-a-e-ae-state))
+  (vowel-oe (shift csv-oe-state))
+  (vowel-o (shift csv-o-state))
+  (vowel-or (shift csv-or-state))
+  (vowel-ua (shift csv-ua-state))
+  (vowel-uaa (shift csv-uaa-state))
+  (vowel-ie (shift csv-ie-state))
+  (vowel-ia (shift csv-ia-state))
+  (nil (shift csv-state)))
+
+ (csv-state
+  (maa-sakod (shift csvm-state))
+  (nil (shift csvm-state)))
+
+ (csv-a-e-ae-state
+  (maa-sakod (move @-) (delete @-) "ັ" (mark @tone) (move @>)
+	     (shift csvm-state))
+  (nil (shift csvm-state)))
+
+ (csv-oe-state
+  (maa-sakod (move @-) (delete @-) (delete @-) "ັ" (mark @tone) "ອ" (move @>)
+	     (shift csvm-state))
+  (nil (shift csvm-state)))
+
+ (csv-o-state
+  (maa-sakod-y-v (move @-) (delete @-) "ັ" (mark @tone) (move @>)
+		 (shift csvm-state))
+  (maa-sakod-non-y-v (move @-) (delete @-) "ົ" (mark @tone)
+		     (move 0) (delete @+) (move @>)
+		     (shift csvm-state))
+  (nil (shift csvm-state)))
+
+ (csv-or-state
+  (maa-sakod (move @-) (delete @-) "ອ" (move @+) (shift csvm-state))
+  (nil (shift csvm-state)))
+
+ (csv-ua-state
+  (maa-sakod (move @-) (delete -3) "ັວ" (move @+) (shift csvm-state))
+  (nil (shift csvm-state)))
+
+ (csv-uaa-state
+  (maa-sakod (move @-) (move @-) (delete @-) (move @+) (move @+)
+	     (shift csvm-state))
+  (nil (shift csvm-state)))
+
+ (csv-ie-state
+  (maa-sakod (move @-) (delete @-)  (move @+) (shift csvm-state))
+  (nil (shift csvm-state)))
+
+ (csv-ia-state
+  (maa-sakod (move @-) (move @-) (delete @-)  (move @+) (move @+)
+	     (shift csvm-state))
+  (nil (shift csvm-state)))
+
+ (csvm-state
+  (tone (shift init))))
+
+;; Local Variables:
+;; mode: lisp
+;; End:

@@ -1,0 +1,78 @@
+/* Copyright (C) 2003, 2004
+     National Institute of Advanced Industrial Science and Technology (AIST)
+     Registration Number H15PRO112
+   See the end for copying conditions.  */
+
+/***en
+
+@page mdbFontEncoding Font Encoding
+
+@section font-encoding-description DESCRIPTION
+
+The m17n library loads information about the encoding of each font
+form the m17n database by the tags \<font, encoding\>.  The data is
+loaded as a plist of this format.
+
+@verbatim
+FONT-ENCODING ::= PER-FONT *
+
+PER-FONT ::= '(' FONT-SPEC ENCODING [ REPERTORY ] ')'
+
+FONT-SPEC ::=
+    '(' [ FOUNDRY FAMILY
+    	  [ WEIGHT [ STYLE [ STRETCH [ ADSTYLE ]]]]]
+	REGISTRY ')'
+
+ENCODING ::= SYMBOL
+@endverbatim
+
+@c FONT-SPEC is to specify properties of a font.  @c FOUNDRY to @c
+REGISTRY are symbols corresponding to #Mfoundry to #Mregistry property
+of a font.  See @ref m17nFont for the meaning of each property.
+
+For instance, this @c FONT-SPEC:
+
+@verbatim
+    (nil alice0\ lao iso8859-1)
+@endverbatim
+
+should be applied to all fonts whose family name is "alice0 lao", and
+registry is "iso8859-1".
+
+@c ENCODING is a symbol representing a charset.  A font matching @c
+FONT-SPEC supports all characters of the charset, and a character code
+is mapped to the corresponding glyph code of the font by this charset.
+
+@c REPERTORY is a symbol representing a charset or "nil".  Omitting it
+is the same as specifying @c ENCODING as @c REPERTORY.  If it is not
+"nil", the charset specifies the repertory of the font, i.e, which
+character it supports.  Otherwise, whether a specific character is
+supported by the font or not is asked to each font driver.
+
+For so called Unicode fonts (registry is "iso10646-1"), it is
+recommended to specify "nil" as @c REPERTORY because such fonts
+usually supports only a subset of Unicode characters.  */
+
+/* 
+Copyright (C) 2003, 2004
+  National Institute of Advanced Industrial Science and Technology (AIST)
+  Registration Number H15PRO112
+
+This file is part of the m17n database; a sub-part of the m17n
+library.
+
+The m17n library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1 of
+the License, or (at your option) any later version.
+
+The m17n library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with the m17n library; if not, write to the Free
+Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+02111-1307, USA.
+*/

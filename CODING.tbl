@@ -1,0 +1,135 @@
+;; CODING.tbl -- List of coding definitions		-*- mode: lisp; -*-
+;; Copyright (C) 2003, 2004
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; <li> CODING.tbl
+;;;
+;;; List of coding system definitions.  See the section @ref
+;;; mdbCodingList for the format of this file.
+
+;; ISO-2022 codings
+(iso-2022-7bit
+ type iso-2022
+ charsets (ascii)
+ designation (0)
+ flags (reset-at-eol reset-at-cntl designation-g0 full-support))
+(iso-2022-jp
+ type iso-2022
+ charsets (ascii jisx0208.1990 jisx0208.1983 jisx0201-roman jisx0208.1978)
+ designation (0 -4 -4 -4 -4)
+ flags (reset-at-eol reset-at-cntl designation-g0))
+(iso-2022-jp-2
+ type iso-2022
+ charsets (ascii jisx0208.1990 jisx0208.1983 jisx0201-roman
+		 jisx0208.1978 jisx0212
+		  gb2312.1980 ksc5601.1987
+		  iso-8859-1-rhp iso-8859-7-rhp)
+ designation (0 -4 -4 -4 -4 -4 -4 -4 -2 -2)
+ flags (reset-at-eol reset-at-cntl designation-g0 single-shift))
+(iso-2022-jp-2004
+ type iso-2022
+ charsets (ascii jisx0208.1990 jisx0213.2004-1 jisx0213-1 jisx0213-2)
+ designation (0 -4 -4 -4 -4)
+ aliases (iso-2022-jp-3)
+ flags (reset-at-eol reset-at-cntl designation-g0))
+(euc-jis-2004
+ type iso-2022
+ charsets (ascii jisx0213.2004-1 jisx0201-kana jisx0213-2)
+ designation (0 1 2 3)
+ invocation (0 1)
+ flags (eight-bit single-shift))
+
+(iso-2022-cn
+ type iso-2022
+ charsets (ascii gb2312.1980 cns11643-1 cns11643-2)
+ designation (0 -3 -3 -2)
+ flags  (reset-at-eol reset-at-cntl designation-g1
+		       locking-shift single-shift))
+(iso-2022-kr
+ type iso-2022
+ charsets (ascii ksc5601.1987)
+ designation (0 -3)
+ flags (reset-at-eol reset-at-cntl designation-g1 locking-shift))
+(compound-text
+ type iso-2022
+ charsets (ascii iso-8859-1-rhp iso-8859-2-rhp iso-8859-3-rhp iso-8859-4-rhp
+		  iso-8859-5-rhp iso-8859-6-rhp iso-8859-7-rhp iso-8859-8-rhp
+		  iso-8859-9-rhp
+		  jisx0201-roman jisx0201-kana
+		  jisx0208.1990 jisx0208.1983 gb2312.1980 ksc5601.1987
+		  iso-8859-14-rhp iso-8859-15-rhp koi8-r big5)
+ designation (0 1 -3 -3 -3 -3
+		 -3 -3 -3 -3
+		 -4 -4
+		 -4 -4 -4 -4 -4
+		 -5 -5 -5 -5)
+ invocation (0 1)
+ flags (reset-at-eol designation-ctext-ext eight-bit))
+(euc-jp
+ type iso-2022
+ charsets (ascii jisx0208.1990 jisx0201-kana jisx0212)
+ designation (0 1 2 3)
+ invocation (0 1)
+ flags (eight-bit single-shift))
+(euc-cn
+ type iso-2022
+ charsets (ascii gb2312.1980)
+ designation (0 1)
+ invocation (0 1)
+ flags (eight-bit)
+ aliases (gb2312))
+(euc-kr
+ type iso-2022
+ charsets (ascii ksc5601.1987)
+ designation (0 1)
+ invocation (0 1)
+ flags (eight-bit))
+(euc-tw
+ type iso-2022
+ charsets (ascii cns11643-1 cns11643-2 cns11643-3 cns11643-4
+		  cns11643-5 cns11643-6 cns11643-7 cns11643-15)
+ designation (0 1 -2 -2 -2 -2 -2 -2 -2)
+ invocation (0 1)
+ flags (eight-bit euc-tw-shift))
+
+;; Other codings based on a double-byte charset
+(gbk
+ type charset
+ charsets (ascii gbk))
+
+(gb18030
+ type charset
+ charsets (ascii gb18030-2-byte-bmp
+		 gb18030-4-byte-bmp gb18030-4-byte-smp
+		 gb18030-4-byte-ext-1 gb18030-4-byte-ext-2))
+
+(big5
+ type charset
+ charsets (ascii big5))
+
+(big5-hkscs
+ type charset
+ charsets (ascii big5-hkscs))
+
+(cp949
+ type charset
+ charsets (ascii cp949-2-byte))

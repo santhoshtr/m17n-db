@@ -1,0 +1,185 @@
+;; bng-itrans.mim -- Bengali input method with ITRANS method
+;; Copyright (C) 2003, 2004
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; <li> bng-itrans.mim
+;;;
+;;; Input method for Bengali script (Bengali language) with ITRANS
+;;; method.  For the detail of ITRAN, see the page
+;;; http://www.aczone.com/itrans/.
+
+(title "ক")
+
+(map
+ (starter
+  (".") ("~") ("#") ("$") ("^") ("*") ((S-\ )) ((C-@))
+  ("0") ("1") ("2") ("3") ("4")
+  ("5") ("6") ("7") ("8") ("9")
+  ("A") ("C") ("D") ("G") ("H") ("I") ("J") ("K") ("L")
+  ("M") ("N") ("O") ("R") ("S") ("T") ("U") ("Y")
+  ("a") ("b") ("c") ("d") ("e") ("f") ("g") ("h") ("i")
+  ("j") ("k") ("l") ("m") ("n") ("o") ("p") ("q") ("r")
+  ("s") ("t") ("u") ("v") ("w") ("x") ("y") ("z"))
+
+ (consonant
+  ("k" "ক্")
+  ("kh" "খ্")
+  ("g" "গ্")
+  ("gh" "ঘ্")
+  ("~N" "ঙ্")
+  ("N^" "ঙ্")
+  ("ch" "চ্")
+  ("Ch" "ছ্")
+  ("chh" "ছ্")
+  ("j" "জ্")
+  ("jh" "ঝ্")
+  ("~n" "ঞ্")
+  ("JN" "ঞ্")
+  ("T" "ট্")
+  ("Th" "ঠ্")
+  ("D" "ড্")
+  ("Dh" "ঢ্")
+  ("N" "ণ্")
+  ("t" "ত্")
+  ("th" "থ্")
+  ("d" "দ্")
+  ("dh" "ধ্")
+  ("n" "ন্")
+  ("p" "প্")
+  ("ph" "ফ্")
+  ("b" "ব্")
+  ("bh" "ভ্")
+  ("m" "ম্")
+  ("y" "য্")
+  ("r" "র্")
+  ("l" "ল্")
+  ("sh" "শ্")
+  ("Sh" "ষ্")
+  ("shh" "ষ্")
+  ("s" "স্")
+  ("h" "হ্")
+  (".D" "ড়্")
+  (".Dh" "ঢ়্")
+  ("Y" "য়্")
+  ("yh" "য়্")
+  ("GY" "জ্ঞ্")
+  ("dny" "জ্ঞ্")
+  ("x" "ক্ষ্"))
+
+ (independent
+  ("a" "অ")
+  ("aa" "আ")
+  ("A" "আ")
+  ("i" "ই")
+  ("ii" "ঈ")
+  ("I" "ঈ")
+  ("u" "উ")
+  ("uu" "ঊ")
+  ("U" "ঊ")
+  ("RRi" "ঋ")
+  ("R^i" "ঋ")
+  ("LLi" "ঌ")
+  ("L^i" "ঌ")
+  ("e" "এ")
+  ("ai" "ঐ")
+  ("o" "ও")
+  ("au" "ঔ")
+  ("RRI" "ৠ")
+  ("R^I" "ৠ")
+  ("LLI" "ৡ")
+  ("L^I" "ৡ")
+  (".N" "ঁ")
+  (".n" "ং")
+  ("M" "ং")
+  ("H" "ঃ")
+  (".h" "্")
+  ("0" "০")
+  ("1" "১")
+  ("2" "২")
+  ("3" "৩")
+  ("4" "৪")
+  ("5" "৫")
+  ("6" "৬")
+  ("7" "৭")
+  ("8" "৮")
+  ("9" "৯")
+  ("#" "্র")
+  ("$" "র্")
+  ("^" "ত্র")
+  ("*" "শ্র")
+  ("]" "়")
+  ((S-\ ) "‌")
+  ((C-@) "‍"))
+
+ (dependent
+  ("a" (delete @-) "")
+  ("aa" (delete @-) "া")
+  ("A" (delete @-) "া")
+  ("i" (delete @-) "ি")
+  ("ii" (delete @-) "ী")
+  ("I" (delete @-) "ী")
+  ("u" (delete @-) "ু")
+  ("uu" (delete @-) "ূ")
+  ("U" (delete @-) "ূ")
+  ("RRi" (delete @-) "ৃ")
+  ("R^i" (delete @-) "ৃ")
+  ("LLi" (delete @-) "ৢ")
+  ("L^i" (delete @-) "ৢ")
+  ("e" (delete @-) "ে")
+  ("ai" (delete @-) "ৈ")
+  ("o" (delete @-) "ো")
+  ("au" (delete @-) "ৌ")
+  ("RRI" (delete @-) "ৄ")
+  ("R^I" (delete @-) "ৄ")
+  ("LLI" (delete @-) "ৣ")
+  ("L^I" (delete @-) "ৣ"))
+
+ (return
+  ((Return)))
+
+ (backspace
+  ((BackSpace) (undo))))
+
+(state
+ (init
+  (starter (pushback 1) (shift intermediate)))
+
+ (intermediate
+  (consonant (shift second))
+  (independent (shift finish))
+  (backspace)
+  (return (shift init)))
+
+ (second
+  (consonant)
+  (dependent (shift finish))
+  (backspace)
+  (return (shift init)))
+
+ (finish
+  (return)
+  (t (shift init))))
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: lisp
+;; End:

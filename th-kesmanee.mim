@@ -1,0 +1,133 @@
+;; th-kesmanee.mim -- Thai input method with Kesmanee keyboard layout
+;; Copyright (C) 2003, 2004
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; <li> th-kesmanee.mim
+;;;
+;;; Input method for Thai with Kesmanee keyboard layout.
+
+(title "กก")
+
+(map
+ (map
+  ("!" "#")
+  ("\"" "ฦ")
+  ("#" "๒")
+  ("$" "๓")
+  ("%" "๔")
+  ("&" "ั้")
+  ("'" "ง")
+  ("(" "๖")
+  (")" "๗")
+  ("*" "๕")
+  ("+" "๙")
+  ("," "ม")
+  ("-" "ข")
+  ("." "ใ")
+  ("/" "ฝ")
+  ("0" "จ")
+  ("1" "ล")
+  ("2" "/")
+  ("3" "_")
+  ("4" "ภ")
+  ("5" "ถ")
+  ("6" "ุ")
+  ("7" "ึ")
+  ("8" "ค")
+  ("9" "ต")
+  (":" "ซ")
+  (";" "ว")
+  ("<" "ฒ")
+  ("=" "ช")
+  (">" "ฬ")
+  ("?" "ฦ")
+  ("@" "๑")
+  ("A" "ฤ")
+  ("B" "ฺ")
+  ("C" "ฉ")
+  ("D" "ฏ")
+  ("E" "ฎ")
+  ("F" "โ")
+  ("G" "ฌ")
+  ("H" "็")
+  ("I" "ณ")
+  ("J" "๋")
+  ("K" "ษ")
+  ("L" "ศ")
+  ("M" "๎")
+  ("N" "์")
+  ("O" "ฯ")
+  ("P" "ญ")
+  ("Q" "๐")
+  ("R" "ฑ")
+  ("S" "ฆ")
+  ("T" "ธ")
+  ("U" "๊")
+  ("V" "ฮ")
+  ("W" "\"")
+  ("X" ")")
+  ("Y" "ํ")
+  ("Z" "(")
+  ("[" "บ")
+  ("\\" "฿")
+  ("]" "ล")
+  ("^" "ู")
+  ("_" "๘")
+  ("`" "ฃ")
+  ("a" "ฟ")
+  ("b" "ิ")
+  ("c" "แ")
+  ("d" "ก")
+  ("e" "ำ")
+  ("f" "ด")
+  ("g" "เ")
+  ("h" "้")
+  ("i" "ร")
+  ("j" "่")
+  ("k" "า")
+  ("l" "ส")
+  ("m" "ท")
+  ("n" "ื")
+  ("o" "น")
+  ("p" "ย")
+  ("q" "ๆ")
+  ("r" "พ")
+  ("s" "ห")
+  ("t" "ะ")
+  ("u" "ี")
+  ("v" "อ")
+  ("w" "ไ")
+  ("x" "ป")
+  ("y" "ั")
+  ("z" "ผ")
+  ("{" "ฐ")
+  ("|" "๏")
+  ("}" ".")
+  ("~" "ฅ")))
+
+(state
+ (init
+  (map)))
+
+;; Local Variables:
+;; mode: lisp
+;; End:

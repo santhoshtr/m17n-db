@@ -1,0 +1,124 @@
+;; THAI-NORASI.flt -- Font Layout Table for Thai (Norasi font)
+;; Copyright (C) 2003, 2004
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; <li> THAI-NORASI.flt
+;;;
+;;; For the Thai Norasi family fonts to draw Thai script.  The fonts are
+;;; available at:
+;;; <ul>
+;;; <li> infopage: <http://packages.debian.org/stable/x11/xfonts-thai-ttf.html>
+;;; </ul>
+
+;; 1st stage: basic composition of CVT
+(category
+ ;; C: CONSONANT
+ ;; V: VOWEL upper and lower
+ ;; A: SARA-AM
+ ;; T: TONE
+ ;; E: else
+ (0x0E00 0x0E5F ?E)
+ (0x0E01 0x0E2E	?C)
+ (0x0E31	?V)
+ (0x0E33	?A)
+ (0x0E34 0x0E3A	?V)
+ (0x0E47	?V)
+ (0x0E48 0x0E4E	?T)
+ )
+
+(generator
+ (0
+  (cond
+   ("(C)(T)?(A)"			; SARA-AM -> NIKHAHIT+SARA-AA
+    (1 = 0x0E4D) (2 =) (3 0x0E32))
+   ("(C)(T)(V)?"			; CTV -> CVT
+    (1 =) (3 =) (2 =))
+   ("(C)(V)?(T)?"
+    (1 =) (2 =) (3 =))
+   ("[^C]"
+    [ = ]))
+  *))
+
+(category
+ ;; C: CONSONANT tall
+ ;; c: CONSONANT normal
+ ;; d: CONSONANT deep
+ ;; V: VOWEL upper, NIKHAHIT, and YAMAKKAN
+ ;; v: VOWEL lower
+ ;; T: TONE
+ ;; E: ELSE
+ (0x0E00 0x0E5F	?E)
+ (0x0E01 0x0E2E	?c)
+ (0x0E0D 0x0E10	?d)
+ (0x0E1B	?C)
+ (0x0E1D	?C)
+ (0x0E1F	?C)
+ (0x0E2C	?C)
+ (0x0E31	?V)
+ (0x0E34 0x0E37	?V)
+ (0x0E38 0x0E3A	?v)
+ (0x0E47	?V)
+ (0x0E48 0x0E4C	?T)
+ (0x0E4D 0x0E4E	?V))
+
+(generator
+ (0
+  (cond 
+   ("(C)(V)(T)?"
+    < (1 =) (2 vowel-upper-left) (3 tone-high-left) >)
+   ("(C)(v)?(T)?"
+    < (1 =) (2 =) (3 tone-low-left) >)
+   ("([cd])(V)(T)?"
+    < (1 =) (2 =) (3 =) >)
+   ("(c)(v)?(T)?"
+    < (1 =) (2 =) (3 tone-low) >)
+   ("(d)(v)?(T)?"
+    < (1 =) (2 vowel-deep) (3 tone-low) >)
+   ("[VvT]"
+    [ = ])
+   ("."
+    =))
+  *)
+
+ (vowel-upper-left
+  (cond
+   ((0x0E31) =)
+   ((range 0x0E34 0x0E37) 0xF701)
+   ((0x0E47) =)
+   ((0x0E4D) 0xF711)
+   ((0x0E4E) =)))
+
+ (vowel-deep
+  ((range 0x0E38 0x0E3A) 0xF718))
+
+ (tone-high-left
+  ((range 0x0E48 0x0E4C) 0xF713))
+
+ (tone-low-left
+  ((range 0x0E48 0x0E4C) 0xF705))
+
+ (tone-low
+  ((range 0x0E48 0x0E4C) 0xF70A)))
+
+;; Local Variables:
+;; mode: lisp
+;; End:

@@ -1,0 +1,49 @@
+/* Copyright (C) 2003, 2004
+     National Institute of Advanced Industrial Science and Technology (AIST)
+     Registration Number H15PRO112
+   See the end for copying conditions.  */
+
+/***en
+
+@page mdbDir List of data in a database directory.
+
+@section dir-description DESCRIPTION
+
+The m17n library loads a list of definitions of data of the m17n
+database from files of name "mdb.dir" in each database directory at
+initialization time.  The plist format of this file is as follows:
+
+@verbatim
+MDB-DIR ::= DEFINITION *
+
+DEFINITION ::= '(' TAG [ TAG [ TAG [ TAG ] ] ] FILE ')'
+
+TAG ::= SYMBOL
+
+FILE ::= MTEXT
+@endverbatim
+*/
+
+/* 
+Copyright (C) 2003, 2004
+  National Institute of Advanced Industrial Science and Technology (AIST)
+  Registration Number H15PRO112
+
+This file is part of the m17n database; a sub-part of the m17n
+library.
+
+The m17n library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1 of
+the License, or (at your option) any later version.
+
+The m17n library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with the m17n library; if not, write to the Free
+Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+02111-1307, USA.
+*/

@@ -1,0 +1,292 @@
+# Makefile.am -- Makefile for the m17n database
+# Copyright (C) 2003, 2004
+#   National Institute of Advanced Industrial Science and Technology (AIST)
+#   Registration Number H15PRO112
+
+# This file is part of the m17n database; a sub-part of the m17n
+# library.
+
+# The m17n library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public License
+# as published by the Free Software Foundation; either version 2.1 of
+# the License, or (at your option) any later version.
+
+# The m17n library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+
+# You should have received a copy of the GNU Lesser General Public
+# License along with the m17n library; if not, write to the Free
+# Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+# 02111-1307, USA.
+
+pkgdata_DATA = \
+	${CHARSETS} \
+	${CHAR_TABLE} \
+	${FONT_LAYOUT_TABLE} \
+	${INPUT_METHOD} \
+	${MISC_TABLE} \
+	mdb.dir
+
+EXTRA_DIST = \
+	${FONT_LAYOUT_TABLE} \
+	${INPUT_METHOD} \
+	${MISC_TABLE} \
+	mdb.dir \
+	${UNIDATA} \
+	mapconv compact.awk gb180302.awk gb180304.awk \
+	CHARTAB.awk NAME.awk \
+	get-glibc.sh \
+	${FORMATS}
+
+CHARSETS = ${ISO8859} ${IBM} ${CODEPAGE} ${CJK} ${MISC}
+
+ISO8859 = \
+	8859-2.map 8859-3.map 8859-4.map 8859-5.map 8859-6.map 8859-7.map \
+	8859-8.map 8859-9.map 8859-10.map 8859-11.map 8859-13.map 8859-14.map \
+	8859-15.map 8859-16.map
+
+IBM = \
+	IBM037.map IBM038.map \
+	IBM256.map IBM273.map IBM274.map IBM275.map IBM277.map IBM278.map \
+	IBM280.map IBM281.map IBM284.map IBM285.map IBM290.map IBM297.map \
+	IBM420.map IBM423.map IBM424.map IBM437.map IBM500.map IBM850.map \
+	IBM851.map IBM852.map IBM855.map IBM857.map IBM860.map IBM861.map \
+	IBM862.map IBM863.map IBM864.map IBM865.map IBM866.map IBM868.map \
+	IBM869.map IBM870.map IBM871.map IBM874.map IBM875.map IBM880.map \
+	IBM891.map IBM903.map IBM904.map IBM905.map IBM918.map \
+	IBM1004.map IBM1026.map IBM1047.map
+
+CODEPAGE = \
+	CP737.map CP775.map CP949-2BYTE.map \
+	CP1250.map CP1251.map CP1252.map CP1253.map CP1254.map \
+	CP1255.map CP1256.map CP1257.map CP1258.map \
+	CP10007.map
+
+CJK =   GB_1988-80.map GB2312.map GBK.map GB180302.map GB180304.map \
+	BIG5.map BIG5-HKSCS.map\
+	CNS-1.map CNS-2.map CNS-3.map CNS-4.map CNS-5.map CNS-6.map CNS-7.map \
+	CNS-F.map \
+	JISX0201.map JISX0208.map JISX0212.map JISX2131.map JISX2132.map \
+	JISX213A.map \
+	KSC5601.map KSC5636.map JOHAB.map
+
+MISC =  KOI-8.map KOI8-R.map KOI8-U.map KOI8-T.map \
+	TIS-620.map VISCII.map VSCII.map\
+	KA-PS.map KA-ACADEMY.map
+
+CHAR_TABLE = \
+	NAME.tab SCRIPT.tab CASE-S.tab CASE-C.tab \
+	CATEGORY.tab COMBINE.tab BIDI.tab
+
+FONT_LAYOUT_TABLE = \
+	ARABIC.flt \
+	HEBREW.flt HEBREW-FF.flt \
+	DEV-CDAC.flt DEV-OTF.flt TML-CDAC.flt MLM-CDAC.flt MLM-OTF.flt \
+	THAI-TIS620.flt THAI-NORASI.flt \
+	LAO-MULE.flt LAO-ALICE.flt \
+	TIB-MULE.flt TIB-MTIB.flt \
+	KHMER-MULE.flt KHMER-ANLONG.flt \
+	NO-CTL.flt
+
+INPUT_METHOD = \
+	am-sera.mim el-kbd.mim he-kbd.mim ru-yawerty.mim sk-kbd.mim \
+	vi-viqr.mim vi-telex.mim \
+	ar-kbd.mim fa-isiri.mim \
+	asm-itrans.mim dev-itrans.mim knd-itrans.mim ori-itrans.mim \
+	tlg-itrans.mim bng-itrans.mim gjr-itrans.mim mlm-itrans.mim \
+	pnj-itrans.mim tml-itrans.mim \
+	bo-wylie.mim \
+	th-kesmanee.mim \
+	lo-lrt.mim \
+	kh-yannis.mim \
+	ja-anthy.mim ja-tcode.mim \
+	zh-py.mim \
+	ko-han2.mim \
+	latin-post.mim \
+	unicode.mim \
+	ispell.mim
+
+MISC_TABLE = \
+	LOCALE.cs LOCALE.ali \
+	default.fst xfont.fst truetype.fst FONTENC.tbl FONTSIZE.tbl \
+	CHARSET.tbl CODING.tbl
+
+UNIDATA = \
+	UNIDATA/README \
+	UNIDATA/UnicodeData.txt UNIDATA/Scripts.txt UNIDATA/CaseFolding.txt
+
+FORMATS = \
+	FORMATS/README \
+	FORMATS/0General.txt FORMATS/CharsetList.txt FORMATS/CodingList.txt \
+	FORMATS/Dir.txt FORMATS/FontEncoding.txt FORMATS/Fontset.txt \
+	FORMATS/FLT.txt	FORMATS/FontSize.txt FORMATS/IM.txt
+
+all: ${CHARSETS} ${CHAR_TABLE}
+
+# Rules for charsets
+
+CHARMAPS = @CHARMAPS@
+CHARMAP_EXT = @CHARMAP_EXT@
+CHARMAP_CAT = @CHARMAP_CAT@
+
+GB2312.map: ${CHARMAPS}/GB2312${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*[ 	]\/x[a-f]/' 2 NOMSB compact > $@
+
+GBK.map: ${CHARMAPS}/GBK${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*[ 	]\/x[89a-f]/' 2 WITHMSB compact > $@
+
+GB180302.map: ${CHARMAPS}/GB18030${CHARMAP_EXT} mapconv gb180302.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*[ 	]\/x..\/x..[ 	]/' 2 WITHMSB gb180302 > $@
+
+GB180304.map: GB180302.map gb180304.awk
+	@echo "Generating $@..."
+	@$(AWK) -f gb180304.awk < $< > $@
+
+JISX0201.map: ${CHARMAPS}/JIS_X0201${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*[ 	]\/x[0-9]/' 1 WITHMSB compact > $@
+	@echo "# Generated by hand" >> $@
+	@echo "0x00A1-0x00DF 0xFF61" >> $@
+
+JISX0208.map: ${CHARMAPS}/EUC-JP${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*[ 	]\/x[a-f]/' 2 NOMSB compact \
+	  | sed 's/0x2015/0x2014/' > $@> $@
+
+JISX0212.map: ${CHARMAPS}/EUC-JP${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*[ 	]\/x8f/ s,/x8f,,' 2 NOMSB compact > $@
+
+JISX2131.map: ${CHARMAPS}/EUC-JISX0213${CHARMAP_EXT} mapconv
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*[ 	]\/x[a-f]/' 2 NOMSB \
+	  | sed 's/0x2015/0x2014/' > $@> $@
+
+JISX2132.map: ${CHARMAPS}/EUC-JISX0213${CHARMAP_EXT} mapconv
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*[ 	]\/x8f/ s,/x8f,,' 2 NOMSB > $@
+
+JISX213A.map:
+	@echo "Generating $@"
+	@(echo "0x2E21 0x4FF1"; \
+	  echo "0x2F7E 0x525D"; \
+	  echo "0x4F54 0x20B9F"; \
+	  echo "0x4F7E 0x541E"; \
+	  echo "0x7427 0x5653"; \
+	  echo "0x7E7A 0x59F8"; \
+	  echo "0x7E7B 0x5C5B"; \
+	  echo "0x7E7C 0x5E77"; \
+	  echo "0x7E7D 0x7626"; \
+	  echo "0x7E7E 0x7E6B") > $@
+
+KSC5601.map: ${CHARMAPS}/EUC-KR${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*[ 	]\/x[a-f]/' 2 NOMSB compact > $@
+
+BIG5.map: ${CHARMAPS}/BIG5${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*[ 	]\/x[a-f]/' 2 WITHMSB compact > $@
+
+BIG5-HKSCS.map: ${CHARMAPS}/BIG5-HKSCS${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*[ 	]\/x[89a-f].\//' 2 WITHMSB compact > $@
+
+JOHAB.map: ${CHARMAPS}/JOHAB${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*[ 	]\/x[89a-f]/' 2 WITHMSB compact > $@
+
+CNS-1.map: ${CHARMAPS}/EUC-TW${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*[ 	]\/x[a-f]/' 2 NOMSB compact > $@
+
+CNS-2.map: ${CHARMAPS}/EUC-TW${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*\/x8e\/xa2/ s,/x8e/xa2,,' 2 NOMSB compact > $@
+
+CNS-3.map: ${CHARMAPS}/EUC-TW${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*\/x8e\/xa3/ s,/x8e/xa3,,' 2 NOMSB compact > $@
+
+CNS-4.map: ${CHARMAPS}/EUC-TW${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*\/x8e\/xa4/ s,/x8e/xa4,,' 2 NOMSB compact > $@
+
+CNS-5.map: ${CHARMAPS}/EUC-TW${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*\/x8e\/xa5/ s,/x8e/xa5,,' 2 NOMSB compact > $@
+
+CNS-6.map: ${CHARMAPS}/EUC-TW${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*\/x8e\/xa6/ s,/x8e/xa6,,' 2 NOMSB compact > $@
+
+CNS-7.map: ${CHARMAPS}/EUC-TW${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*\/x8e\/xa7/ s,/x8e/xa7,,' 2 NOMSB compact > $@
+
+CNS-F.map: ${CHARMAPS}/EUC-TW${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*\/x8e\/xaf/ s,/x8e/xaf,,' 2 NOMSB compact > $@
+
+CP949-2BYTE.map: ${CHARMAPS}/CP949${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*[ 	]\/x[89a-f]/' 2 WITHMSB compact > $@
+
+VSCII.map: ${CHARMAPS}/TCVN5712-1${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*[ 	]\/x[0-9a-f]. /' 1 WITHMSB compact > $@
+
+# General target to produce map files for single-byte charsets.
+
+8859-%.map: ${CHARMAPS}/ISO-8859-%${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*[ 	]\/x/' 1 WITHMSB compact > $@
+
+KA-%.map: ${CHARMAPS}/GEORGIAN-%${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*[ 	]\/x/' 1 WITHMSB compact > $@
+
+%.map: ${CHARMAPS}/%${CHARMAP_EXT} mapconv compact.awk
+	@echo "Generating $@..."
+	@sh mapconv $< '/^<.*[ 	]\/x/' 1 WITHMSB compact > $@
+
+# Rules for chartables
+
+CASE-S.tab: UNIDATA/CaseFolding.txt Makefile
+	echo "# Generated from $<." > $@
+	@$(AWK) '/^[0-9A-Z]/ { \
+	  if ($$2 == "F") print "0x"$$1,"0xFFFF"; \
+	  else print "0x"$$1,"0x"$$3; }' FS="[; ][; ]*" $< >> $@
+
+CASE-C.tab: UNIDATA/CaseFolding.txt Makefile
+	echo "# Generated from $<." > $@
+	@$(AWK) '/^[0-9A-Z]*; F/ { \
+	  print "0x"$$1" "; \
+	  for (i = 3; $$i != "#"; i++) \
+	    print "\\x"$$i; \
+	  print "\n"; }'  FS="[; ][; ]*" ORS="" $< >> $@
+
+NAME.tab: UNIDATA/UnicodeData.txt NAME.awk
+	echo "# Generated from $<." > $@
+	@$(AWK) -f NAME.awk $< >> $@
+
+SCRIPT.tab: UNIDATA/Scripts.txt Makefile
+	echo "# Generated from $<." > $@
+	@$(AWK) '/^[0-9A-F]/ { print "0x"$$1, $$3; }' $< | \
+	  sed -e 's/\.\./-0x/' | \
+	  tr '[:upper:]' '[:lower:]' >> $@
+
+%.tab: UNIDATA/UnicodeData.txt CHARTAB.awk
+	echo "# Generated from $<." > $@
+	@$(AWK) -f CHARTAB.awk FIELD=$@ $< >>$@
+
+pkgdatadir=$(datadir)/m17n
+
+
+# Clear files that are automatically generated.
+clean:
+	rm -f ${CHARSETS} ${CHAR_TABLE}

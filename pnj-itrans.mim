@@ -1,0 +1,171 @@
+;; pnj-itrans.mim -- Punjabi input method with ITRANS method
+;; Copyright (C) 2003, 2004
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; <li> pnj-itrans.mim
+;;;
+;;; Input method for Gurmukhi script (Punjabi language) with ITRANS
+;;; method.  For the detail of ITRAN, see the page
+;;; http://www.aczone.com/itrans/.
+
+(title "ਕ")
+
+(map
+ (starter
+  (".") ("~") ("#") ("$") ("^") ("*") ((S-\ )) ((C-@))
+  ("0") ("1") ("2") ("3") ("4")
+  ("5") ("6") ("7") ("8") ("9")
+  ("A") ("C") ("D") ("G") ("H") ("I") ("J") ("K") ("L")
+  ("M") ("N") ("O") ("R") ("S") ("T") ("U") ("Y")
+  ("a") ("b") ("c") ("d") ("e") ("f") ("g") ("h") ("i")
+  ("j") ("k") ("l") ("m") ("n") ("o") ("p") ("q") ("r")
+  ("s") ("t") ("u") ("v") ("w") ("x") ("y") ("z"))
+
+ (consonant
+  ("k" "ਕ੍")
+  ("kh" "ਖ੍")
+  ("g" "ਗ੍")
+  ("gh" "ਘ੍")
+  ("~N" "ਙ੍")
+  ("N^" "ਙ੍")
+  ("ch" "ਚ੍")
+  ("Ch" "ਛ੍")
+  ("chh" "ਛ੍")
+  ("j" "ਜ੍")
+  ("jh" "ਝ੍")
+  ("~n" "ਞ੍")
+  ("JN" "ਞ੍")
+  ("T" "ਟ੍")
+  ("Th" "ਠ੍")
+  ("D" "ਡ੍")
+  ("Dh" "ਢ੍")
+  ("N" "ਣ੍")
+  ("t" "ਤ੍")
+  ("th" "ਥ੍")
+  ("d" "ਦ੍")
+  ("dh" "ਧ੍")
+  ("n" "ਨ੍")
+  ("p" "ਪ੍")
+  ("ph" "ਫ੍")
+  ("b" "ਬ੍")
+  ("bh" "ਭ੍")
+  ("m" "ਮ੍")
+  ("y" "ਯ੍")
+  ("r" "ਰ੍")
+  ("l" "ਲ੍")
+  ("L" "ਲ਼੍")
+  ("ld" "ਲ਼੍")
+  ("v" "ਵ੍")
+  ("w" "ਵ੍")
+  ("sh" "ਸ਼੍")
+  ("s" "ਸ੍")
+  ("h" "ਹ੍")
+  ("K" "ਖ਼੍")
+  ("G" "ਗ਼੍")
+  ("J" "ਜ਼੍")
+  ("z" "ਜ਼੍")
+  (".D" "ੜ੍")
+  ("f" "ਫ਼੍")
+  ("GY" "ਜ੍ਞ੍")
+  ("dny" "ਜ੍ਞ੍"))
+
+ (independent
+  ("a" "ਅ")
+  ("aa" "ਆ")
+  ("A" "ਆ")
+  ("i" "ਇ")
+  ("ii" "ਈ")
+  ("I" "ਈ")
+  ("u" "ਉ")
+  ("uu" "ਊ")
+  ("U" "ਊ")
+  ("e" "ਏ")
+  ("ai" "ਐ")
+  ("o" "ਓ")
+  ("au" "ਔ")
+  (".n" "ਂ")
+  ("M" "ਂ")
+  (".h" "੍")
+  ("0" "੦")
+  ("1" "੧")
+  ("2" "੨")
+  ("3" "੩")
+  ("4" "੪")
+  ("5" "੫")
+  ("6" "੬")
+  ("7" "੭")
+  ("8" "੮")
+  ("9" "੯")
+  ("#" "੍ਰ")
+  ("$" "ਰ੍")
+  ("^" "ਤ੍ਰ")
+  ("*" "ਸ਼੍ਰ")
+  ("]" "਼")
+  ((S-\ ) "‌")
+  ((C-@) "‍"))
+
+ (dependent
+  ("a" (delete @-) "")
+  ("aa" (delete @-) "ਾ")
+  ("A" (delete @-) "ਾ")
+  ("i" (delete @-) "ਿ")
+  ("ii" (delete @-) "ੀ")
+  ("I" (delete @-) "ੀ")
+  ("u" (delete @-) "ੁ")
+  ("uu" (delete @-) "ੂ")
+  ("U" (delete @-) "ੂ")
+  ("e" (delete @-) "ੇ")
+  ("ai" (delete @-) "ੈ")
+  ("o" (delete @-) "ੋ")
+  ("au" (delete @-) "ੌ"))
+
+ (return
+  ((Return)))
+
+ (backspace
+  ((BackSpace) (undo))))
+
+
+(state
+ (init
+  (starter (pushback 1) (shift intermediate)))
+
+ (intermediate
+  (consonant (shift second))
+  (independent (shift finish))
+  (backspace)
+  (return (shift init)))
+
+ (second
+  (consonant)
+  (dependent (shift finish))
+  (backspace)
+  (return (shift init)))
+
+ (finish
+  (return)
+  (t (shift init))))
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: lisp
+;; End:

@@ -1,0 +1,93 @@
+/* Copyright (C) 2003, 2004
+     National Institute of Advanced Industrial Science and Technology (AIST)
+     Registration Number H15PRO112
+   See the end for copying conditions.  */
+
+/***en
+
+@page mdbFontset Fontset
+
+@section fontset-description DESCRIPTION
+
+The m17n library loads a fontset definition from the m17n database by
+the tags \<fontset, FONTSET-NAME\>.  The plist format of the data is
+as follows:
+
+@verbatim
+FONTSET ::= PER-SCRIPT * PER-CHARSET * FALLBACK *
+
+PER-SCRIPT ::= '(' SCRIPT PER-LANGUAGE + ')'
+
+PER-LANGUAGE ::= '(' LANGUAGE FONT-SPEC-ELEMENT + ')'
+
+PER-CHARSET ::= '(' CHARSET FONT-SPEC-ELEMENT + ')'
+
+FALLBACK ::= FONT-SPEC-ELEMENT
+
+FONT-SPEC-ELEMENT ::= '(' FONT-SPEC [ FLT-NAME ] ')'
+
+FONT-SPEC ::=
+     '(' [ FOUNDRY FAMILY
+           [ WEIGHT [ STYLE [ STRETCH [ ADSTYLE ]]]]]
+         REGISTRY ')'
+@endverbatim    
+
+@c SCRIPT is a symbol of script name (e.g. latin, han) or @c nil.  @c
+LANGUAGE is a two-letter symbol of language name code defined by ISO
+639 (e.g. ja, zh) or @c nil.
+
+@c FONT-SPEC is to specify properties of a font.  @c FOUNDRY to @c
+REGISTRY are symbols corresponding to #Mfoundry to #Mregistry property
+of a font.  See @ref m17nFont for the meaning of each property.
+
+@c FLT-NAME is a name of Font Layout Table (@ref mdbFLT).
+
+@section fontset-example EXAMPLE
+
+This is an example of @c PER_SCRIPT.
+
+@verbatim
+(han
+  (ja
+    ((jisx0208.1983-0)))
+  (zh
+    ((gb2312.1980-0)))
+  (nil
+    ((big5-0))))
+@endverbatim
+
+It instructs the font selector to use a font of registry
+"jisx0208.1983-0" for a "han" character (i.e. a character whose
+#Mscript property is 'han') if the character has #Mlanguage text
+propert "ja" in an M-text and the character is in the repertories of
+such fonts.  Otherwise, try a font of registry "gb2312.1980-0" or
+"big5-0".  If that "han" character does not have #Mlanguage text
+property, try all three fonts.
+
+See the function mdraw_text () for the detail of how a font is
+selected.
+*/
+
+/* 
+Copyright (C) 2003, 2004
+  National Institute of Advanced Industrial Science and Technology (AIST)
+  Registration Number H15PRO112
+
+This file is part of the m17n database; a sub-part of the m17n
+library.
+
+The m17n library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1 of
+the License, or (at your option) any later version.
+
+The m17n library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with the m17n library; if not, write to the Free
+Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+02111-1307, USA.
+*/

@@ -1,0 +1,40 @@
+;; FONTSIZE.tbl -- Font Resizing				-*- lisp -*-
+;; Copyright (C) 2003, 2004
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; <li> FONTSIZE.tbl
+;;;
+;;; Information about how much to resize fonts.  See the section @ref
+;;; mdbFontSize.
+
+((devanagari-cdac) 150)
+((tamil-cdac) 150)
+((malayalam-cdac) 150)
+((nil dv-ttyogesh apple-roman) 150)
+((nil tm-ttvalluvar apple-roman) 150)
+((nil ml-ttkarthika apple-roman) 150)
+((unknown nf3 adobe-fontspecific) 150)
+((nil nf3 \7-2) 150)
+((nil norasi unicode-bmp) 150)
+((altsys nahkt ascii-0) 120)
+((nil anlongvill apple-roman) 90)
+

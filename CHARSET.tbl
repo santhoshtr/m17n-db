@@ -1,0 +1,807 @@
+;; CHARSET.tbl -- List of charset definitions			-*- lisp -*-
+;; Copyright (C) 2003, 2004
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; <li> CHARSET.tbl
+;;;
+;;; List of charset definitions.  See the section @ref mdbCharsetList
+;;; for the format of this file.
+
+;; Each element has this form:
+;;	(CHARSET-NAME KEYWORD1 VALUE1 KEYWORD2 VALUE2 ...)
+;; Valid KEYWORDs are:
+;;  method -- map, unify, offset, subset, or superset (default map)
+;;  dimension -- 1, 2, 3, or 4 (default 1)
+;;  min-range -- unsigned (default 0x00)
+;;  max-range -- unsigned (default 0xFF, 0xFFFF, 0xFFFFFF, or 0xFFFFFFFF)
+;;  min-code -- integer (default min-range)
+;;  max-code -- integer (default max-range)
+;;  ascii-compatible -- nil or t (default nil)
+;;  final-byte -- 0 or 32..127 (default 0)
+;;  revision -- 0..127 (default 0)
+;;  min-char -- integer (default 0)
+;;  mapfile -- mapping file name (method must be map or unify)
+;;  parents -- list of charset symbols (method must be subset or superset)
+;;  subset-offset -- 
+;;  define-coding -- nil or t (default nil, dimension must be 1,
+;;	and code-range must be "\x00\xFF")
+;;  aliases -- list of alias name symbols
+;;
+
+;; ISO-8859 series.
+(iso-8859-1-rhp
+ method subset
+ dimension 1
+ parents (iso-8859-1)
+ min-range 0x20
+ max-range 0x7F
+ final-byte ?A
+ subset-offset -128)
+(iso-8859-2
+ dimension 1
+ ascii-compatible t
+ mapfile "ISO-8859-2.map"
+ define-coding t)
+(iso-8859-2-rhp
+ method subset
+ dimension 1
+ parents (iso-8859-2)
+ min-range 0x20
+ max-range 0x7F
+ final-byte ?B
+ subset-offset -128)
+(iso-8859-3
+ dimension 1
+ ascii-compatible t
+ mapfile "ISO-8859-3.map"
+ define-coding t)
+(iso-8859-3-rhp
+ method subset
+ dimension 1
+ parents (iso-8859-3)
+ min-range 0x20
+ max-range 0x7F
+ final-byte ?C
+ subset-offset -128)
+(iso-8859-4
+ dimension 1
+ ascii-compatible t
+ mapfile "ISO-8859-4.map"
+ define-coding t)
+(iso-8859-4-rhp
+ method subset
+ dimension 1
+ parents (iso-8859-4)
+ min-range 0x20
+ max-range 0x7F
+ final-byte ?D
+ subset-offset -128)
+(iso-8859-5
+ dimension 1
+ ascii-compatible t
+ mapfile "ISO-8859-5.map"
+ define-coding t)
+(iso-8859-5-rhp
+ method subset
+ dimension 1
+ parents (iso-8859-5)
+ min-range 0x20
+ max-range 0x7F
+ final-byte ?L
+ subset-offset -128)
+(iso-8859-6
+ dimension 1
+ ascii-compatible t
+ mapfile "ISO-8859-6.map"
+ define-coding t)
+(iso-8859-6-rhp
+ method subset
+ dimension 1
+ parents (iso-8859-6)
+ min-range 0x20
+ max-range 0x7F
+ final-byte ?G
+ subset-offset -128)
+(iso-8859-7
+ dimension 1
+ ascii-compatible t
+ mapfile "ISO-8859-7.map"
+ final-byte ?F
+ define-coding t)
+(iso-8859-7-rhp
+ method subset
+ dimension 1
+ parents (iso-8859-7)
+ min-range 0x20
+ max-range 0x7F
+ final-byte ?F
+ subset-offset -128)
+(iso-8859-8
+ dimension 1
+ ascii-compatible t
+ mapfile "ISO-8859-8.map"
+ define-coding t)
+(iso-8859-8-rhp
+ method subset
+ dimension 1
+ parents (iso-8859-8)
+ min-range 0x20
+ max-range 0x7F
+ final-byte ?H
+ subset-offset -128)
+(iso-8859-9
+ dimension 1
+ ascii-compatible t
+ mapfile "ISO-8859-9.map"
+ define-coding t)
+(iso-8859-9-rhp
+ method subset
+ dimension 1
+ parents (iso-8859-9)
+ min-range 0x20
+ max-range 0x7F
+ final-byte ?M
+ subset-offset -128)
+(iso-8859-10
+ dimension 1
+ ascii-compatible t
+ mapfile "ISO-8859-10.map"
+ define-coding t)
+(iso-8859-10-rhp
+ method subset
+ dimension 1
+ parents (iso-8859-10)
+ min-range 0x20
+ max-range 0x7F
+ final-byte ?V
+ subset-offset -128)
+(iso-8859-11
+ dimension 1
+ ascii-compatible t
+ mapfile "ISO-8859-11.map"
+ define-coding t)
+(iso-8859-13
+ dimension 1
+ ascii-compatible t
+ mapfile "ISO-8859-13.map"
+ define-coding t)
+(iso-8859-14
+ dimension 1
+ ascii-compatible t
+ mapfile "ISO-8859-14.map"
+ final-byte ?_
+ define-coding t)
+(iso-8859-14-rhp
+ method subset
+ dimension 1
+ parents (iso-8859-14)
+ min-range 0x20
+ max-range 0x7F
+ final-byte ?_
+ subset-offset -128)
+(iso-8859-15
+ dimension 1
+ ascii-compatible t
+ mapfile "ISO-8859-15.map"
+ define-coding t)
+(iso-8859-15-rhp
+ method subset
+ dimension 1
+ parents (iso-8859-15)
+ min-range 0x20
+ max-range 0x7F
+ final-byte ?b
+ subset-offset -128)
+(iso-8859-16
+ dimension 1
+ ascii-compatible t
+ mapfile "ISO-8859-16.map"
+ define-coding t)
+
+;; IBM codepage series.
+(ibm037
+ dimension 1
+ mapfile "IBM037.map"
+ define-coding t)
+(ibm038
+ dimension 1
+ mapfile "IBM038.map"
+ define-coding t)
+(ibm256
+ dimension 1
+ mapfile "IBM256.map"
+ define-coding t)
+(ibm273
+ dimension 1
+ mapfile "IBM273.map"
+ define-coding t)
+(ibm274
+ dimension 1
+ mapfile "IBM274.map"
+ define-coding t)
+(ibm275
+ dimension 1
+ mapfile "IBM275.map"
+ define-coding t)
+(ibm277
+ dimension 1
+ mapfile "IBM277.map"
+ define-coding t)
+(ibm278
+ dimension 1
+ mapfile "IBM278.map"
+ define-coding t)
+(ibm280
+ dimension 1
+ mapfile "IBM280.map"
+ define-coding t)
+(ibm281
+ dimension 1
+ mapfile "IBM281.map"
+ define-coding t)
+(ibm284
+ dimension 1
+ mapfile "IBM284.map"
+ define-coding t)
+(ibm285
+ dimension 1
+ mapfile "IBM285.map"
+ define-coding t)
+(ibm290
+ dimension 1
+ mapfile "IBM290.map"
+ define-coding t)
+(ibm297
+ dimension 1
+ mapfile "IBM297.map"
+ define-coding t)
+(ibm420
+ dimension 1
+ mapfile "IBM420.map"
+ define-coding t)
+(ibm423
+ dimension 1
+ mapfile "IBM423.map"
+ define-coding t)
+(ibm424
+ dimension 1
+ mapfile "IBM424.map"
+ define-coding t)
+(ibm437
+ dimension 1
+ ascii-compatible t
+ mapfile "IBM437.map"
+ define-coding t)
+(ibm500
+ dimension 1
+ mapfile "IBM500.map"
+ define-coding t)
+(ibm850
+ dimension 1
+ ascii-compatible t
+ mapfile "IBM850.map"
+ define-coding t)
+(ibm851
+ dimension 1
+ ascii-compatible t
+ mapfile "IBM851.map"
+ define-coding t)
+(ibm852
+ dimension 1
+ ascii-compatible t
+ mapfile "IBM852.map"
+ define-coding t)
+(ibm855
+ dimension 1
+ ascii-compatible t
+ mapfile "IBM855.map"
+ define-coding t)
+(ibm857
+ dimension 1
+ ascii-compatible t
+ mapfile "IBM857.map"
+ define-coding t)
+(ibm860
+ dimension 1
+ ascii-compatible t
+ mapfile "IBM860.map"
+ define-coding t)
+(ibm861
+ dimension 1
+ ascii-compatible t
+ mapfile "IBM861.map"
+ define-coding t)
+(ibm862
+ dimension 1
+ ascii-compatible t
+ mapfile "IBM862.map"
+ define-coding t)
+(ibm863
+ dimension 1
+ ascii-compatible t
+ mapfile "IBM863.map"
+ define-coding t)
+(ibm864
+ dimension 1
+ mapfile "IBM864.map"
+ define-coding t)
+(ibm865
+ dimension 1
+ ascii-compatible t
+ mapfile "IBM865.map"
+ define-coding t)
+(ibm866
+ dimension 1
+ ascii-compatible t
+ mapfile "IBM866.map"
+ define-coding t)
+(ibm868
+ dimension 1
+ ascii-compatible t
+ mapfile "IBM868.map"
+ define-coding t)
+(ibm869
+ dimension 1
+ ascii-compatible t
+ mapfile "IBM869.map"
+ define-coding t)
+(ibm870
+ dimension 1
+ mapfile "IBM870.map"
+ define-coding t)
+(ibm871
+ dimension 1
+ mapfile "IBM871.map"
+ define-coding t)
+(ibm874
+ dimension 1
+ ascii-compatible t
+ mapfile "IBM874.map"
+ define-coding t)
+(ibm875
+ dimension 1
+ mapfile "IBM875.map"
+ define-coding t)
+(ibm880
+ dimension 1
+ mapfile "IBM880.map"
+ define-coding t)
+(ibm891
+ dimension 1
+ ascii-compatible t
+ mapfile "IBM891.map"
+ define-coding t)
+(ibm903
+ dimension 1
+ ascii-compatible t
+ mapfile "IBM903.map"
+ define-coding t)
+(ibm904
+ dimension 1
+ ascii-compatible t
+ mapfile "IBM904.map"
+ define-coding t)
+(ibm905
+ dimension 1
+ mapfile "IBM905.map"
+ define-coding t)
+(ibm918
+ dimension 1
+ mapfile "IBM918.map"
+ define-coding t)
+(ibm1004
+ dimension 1
+ ascii-compatible t
+ mapfile "IBM1004.map"
+ define-coding t)
+(ibm1026
+ dimension 1
+ mapfile "IBM1026.map"
+ define-coding t)
+(ibm1047
+ dimension 1
+ mapfile "IBM1047.map"
+ define-coding t)
+
+;; Microsoft codepage series.
+(cp737
+ dimension 1
+ ascii-compatible t
+ mapfile "CP737.map"
+ define-coding t)
+(cp775
+ dimension 1
+ ascii-compatible t
+ mapfile "CP775.map"
+ define-coding t)
+(cp949-2-byte
+ dimension 2
+ mapfile "CP949-2BYTE.map")
+(cp949
+ method superset
+ dimension 2
+ parents (ascii cp949-2-byte))
+(cp1250
+ dimension 1
+ ascii-compatible t
+ mapfile "CP1250.map"
+ define-coding t)
+(cp1251
+ dimension 1
+ ascii-compatible t
+ mapfile "CP1251.map"
+ define-coding t)
+(cp1252
+ dimension 1
+ ascii-compatible t
+ mapfile "CP1252.map"
+ define-coding t)
+(cp1253
+ dimension 1
+ ascii-compatible t
+ mapfile "CP1253.map"
+ define-coding t)
+(cp1254
+ dimension 1
+ ascii-compatible t
+ mapfile "CP1254.map"
+ define-coding t)
+(cp1255
+ dimension 1
+ ascii-compatible t
+ mapfile "CP1255.map"
+ define-coding t)
+(cp1256
+ dimension 1
+ ascii-compatible t
+ mapfile "CP1256.map"
+ define-coding t)
+(cp1257
+ dimension 1
+ ascii-compatible t
+ mapfile "CP1257.map"
+ define-coding t)
+(cp1258
+ dimension 1
+ ascii-compatible t
+ mapfile "CP1258.map"
+ define-coding t)
+(cp10007
+ dimension 1
+ ascii-compatible t
+ mapfile "CP10007.map"
+ define-coding t)
+
+;; CJK charsets.
+(gb_1988-80
+ dimension 1
+ mapfile "GB_1988-80.map"
+ define-coding t)
+(gb2312.1980
+ method unify
+ dimension 2
+ min-range 0x2121
+ max-range 0x7E7E
+ final-byte ?A
+ mapfile "GB2312.map")
+(gbk
+ method map
+ dimension 2
+ min-range 0x8100
+ max-range 0xFEFF
+ mapfile "GBK.map")
+
+;; GB18030 subsets
+(gb18030-2-byte-bmp
+ method map
+ dimension 2
+ min-range 0x8140
+ max-range 0xFEFE
+ mapfile "GB180302.map")
+(gb18030-4-byte-bmp
+ method map
+ dimension 4
+ min-range 0x81308130
+ max-range 0x8439FE39
+ mapfile "GB180304.map")
+(gb18030-4-byte-smp
+ method offset
+ dimension 4
+ min-range 0x90308130
+ max-range 0xE339FE39
+ min-code 0x90308130
+ max-code 0xE3329A35
+ min-char 0x10000)
+(gb18030-4-byte-ext-1
+ method offset
+ dimension 4
+ min-range 0x84308130
+ max-range 0x8F39FE39
+ min-code 0x8431A530
+ max-code 0x8F39FE39
+ min-char 0x200000)			; .. 0x22484B
+(gb18030-4-byte-ext-2
+ method offset
+ dimension 4
+ min-range 0xE3308130
+ max-range 0xFE39FE39
+ min-code 0xE3329A36
+ max-code 0xFE39FE39
+ min-char 0x22484C)			; ... 0x279F93
+
+(gb18030
+ method superset
+ dimension 4
+ min-code 0
+ max-code 0xFE39FE39
+ parents (ascii gb18030-2-byte-bmp
+		 gb18030-4-byte-bmp gb18030-4-byte-smp
+		 gb18030-4-byte-ext-1 gb18030-4-byte-ext-2))
+
+(big5
+ method unify
+ dimension 2
+ min-range 0xA140
+ max-range 0xFEFE
+ mapfile "BIG5.map")
+(big5-hkscs
+ method unify
+ dimension 2
+ min-range 0x8840
+ max-range 0xFEFE
+ mapfile "BIG5-HKSCS.map")
+(cns11643-1
+ method unify
+ dimension 2
+ min-range 0x2121
+ max-range 0x7E7E
+ final-byte ?G
+ mapfile "CNS-1.map")
+(cns11643-2
+ method unify
+ dimension 2
+ min-range 0x2121
+ max-range 0x7E7E
+ final-byte ?H
+ mapfile "CNS-2.map")
+(cns11643-3
+ method unify
+ dimension 2
+ min-range 0x2121
+ max-range 0x7E7E
+ final-byte ?I
+ mapfile "CNS-3.map")
+(cns11643-4
+ method unify
+ dimension 2
+ min-range 0x2121
+ max-range 0x7E7E
+ final-byte ?J
+ mapfile "CNS-4.map")
+(cns11643-5
+ method unify
+ dimension 2
+ min-range 0x2121
+ max-range 0x7E7E
+ final-byte ?K
+ mapfile "CNS-5.map")
+(cns11643-6
+ method unify
+ dimension 2
+ min-range 0x2121
+ max-range 0x7E7E
+ final-byte ?L
+ mapfile "CNS-6.map")
+(cns11643-7
+ method unify
+ dimension 2
+ min-range 0x2121
+ max-range 0x7E7E
+ final-byte ?M
+ mapfile "CNS-7.map")
+(cns11643-15
+ method unify
+ dimension 2
+ min-range 0x2121
+ max-range 0x7E7E
+ mapfile "CNS-F.map")
+
+(jisx0201
+ dimension 1
+ mapfile "JISX0201.map")
+(jisx0201-roman
+ method subset
+ dimension 1
+ min-range 0x21
+ max-range 0x7E
+ final-byte ?J
+ parents (jisx0201))
+(jisx0201-kana
+ method subset
+ dimension 1
+ min-range 0x21
+ max-range 0x5F
+ final-byte ?I
+ parents (jisx0201)
+ subset-offset -128)
+(jisx0208.1978
+ method unify
+ dimension 2
+ min-range 0x2121
+ max-range 0x7E7E
+ final-byte ?@
+ mapfile "JISX0208.map")
+(jisx0208.1990
+ method unify
+ dimension 2
+ min-range 0x2121
+ max-range 0x7E7E
+ final-byte ?B
+ revision 1
+ mapfile "JISX0208.map")
+(jisx0208.1983
+ method subset
+ dimension 2
+ min-range 0x2121
+ max-range 0x7E7E
+ max-code 0x7424
+ final-byte ?B
+ parents (jisx0208.1990))
+(jisx0212
+ method unify
+ dimension 2
+ min-range 0x2121
+ max-range 0x7E7E
+ final-byte ?D
+ mapfile "JISX0212.map")
+(jisx0213-1
+ method unify
+ dimension 2
+ min-range 0x2121
+ max-range 0x7E7E
+ final-byte ?O
+ mapfile "JISX2131.map")
+(jisx0213-2
+ method unify
+ dimension 2
+ min-range 0x2121
+ max-range 0x7E7E
+ final-byte ?P
+ mapfile "JISX2132.map")
+(jisx0213-a
+ method map
+ dimension 2
+ min-range 0x2121
+ max-range 0x7E7E
+ mapfile "JISX2132.map")
+(jisx0213.2004-1
+ method superset
+ dimension 2
+ min-range 0x2121
+ max-range 0x7E7E
+ parents (jisx0213-1 jisx0213-a)
+ final-byte ?Q)
+
+(ksc5636
+ dimension 1
+ mapfile "KSC5636.map")
+(ksc5601.1987
+ method unify
+ dimension 2
+ min-range 0x2121
+ max-range 0x7E7E
+ final-byte ?C
+ mapfile "KSC5601.map")
+(ksc5601.1992-3
+ method map
+ dimension 2
+ min-range 0x4441
+ max-range 0xF9F3
+ mapfile "JOHAB.map")
+
+;; Miscellaneous
+(koi8
+ dimension 1
+ ascii-compatible t
+ mapfile "KOI-8.map"
+ define-coding t)
+(koi8-r
+ dimension 1
+ ascii-compatible t
+ mapfile "KOI8-R.map"
+ define-coding t)
+(koi8-u
+ dimension 1
+ ascii-compatible t
+ mapfile "KOI8-U.map"
+ define-coding t)
+(koi8-t
+ dimension 1
+ ascii-compatible t
+ mapfile "KOI8-T.map"
+ define-coding t)
+(tis-620
+ dimension 1
+ ascii-compatible t
+ mapfile "TIS-620.map"
+ final-byte ?T
+ define-coding t)
+(viscii
+ dimension 1
+ mapfile "VISCII.map"
+ define-coding t)
+(vscii
+ dimension 1
+ mapfile "VSCII.map"
+ define-coding t)
+(georgian-ps
+ dimension 1
+ mapfile "KA-PS.map"
+ define-coding t)
+(georgian-academy
+ dimension 1
+ mapfile "KA-ACADEMY.map"
+ define-coding t)
+
+;; Unicode subsets.
+(unicode-devanagari
+ method offset
+ dimension 2
+ min-range 0x0900
+ max-range 0x097F
+ min-char 0x0900)
+(unicode-tamil
+ method offset
+ dimension 2
+ min-range 0x0B80
+ max-range 0x0BFF
+ min-char 0x0B80)
+(unicode-malayalam
+ method offset
+ dimension 2
+ min-range 0x0D00
+ max-range 0x0D7F
+ min-char 0x0900)
+(unicode-lao
+ method offset
+ dimension 2
+ min-range 0x0E80
+ max-range 0x0EFF
+ min-char 0x0E80)
+(unicode-tibetan
+ method offset
+ dimension 2
+ min-range 0x0F00
+ max-range 0x0FFF
+ min-char 0x0F00)
+(unicode-ethiopic
+ method offset
+ dimension 2
+ min-range 0x1200
+ max-range 0x13FF
+ min-char 0x1200)
+(unicode-khmer
+ method offset
+ dimension 2
+ min-range 0x1780
+ max-range 0x17FF
+ min-char 0x1780)

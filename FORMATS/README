@@ -1,0 +1,3 @@
+The *.txt files in this directory describe the formats of files
+included in the m17n database.  As they are processed by Doxygen, they
+contain various Doxygen commands.

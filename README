@@ -1,0 +1,62 @@
+This directory tree holds version 1.0 of the m17n database.
+Copyright (C) 2003, 2004
+  National Institute of Advanced Industrial Science and Technology (AIST)
+  Registration Number H15PRO112
+See the end for copying conditions.
+
+INSTALL
+
+(0) Prerequisite
+
+The make procedure requires "charmap" files.  The configure script
+cheks the directory /usr/share/i18n/charmaps which usually should be
+found on GNU/Linux system.
+
+If you don't have that directory, you must get the files from the
+source of glibc, and inform the configure script of the directory by
+the argument "--with-charmaps=DIR".
+
+If you have "wget", the script "./get-glibc.sh" is a convenient tool
+to download the source of glibc (2.3) and extract files in a directory
+where the configure script finds automatically, thus no need of
+"--with-charmaps=DIR" argument.
+
+Please note that /usr/share/i18n/charmaps may contain incomplete
+GB18030.gz (e.g. /xfe/xa0.. /xfe/xfe are not mapped).  In that case,
+you need the newer glibc source (glibc-2.3) by using "./get-glibc.sh".
+
+(1) Installation from CVS working directory.
+
+Just after you checked out or updated this package, run the script
+"./bootstrap.sh", then follows (2).
+
+(2) Installation from a tar ball.
+
+% ./configure
+% make
+% make install
+
+----------------------------------------------------------------------
+Copyright information
+
+Copyright (C) 2003, 2004
+  National Institute of Advanced Industrial Science and Technology (AIST)
+  Registration Number H15PRO112
+
+This file is part of the m17n database; a sub-part of the m17n
+library.
+
+The m17n library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1 of
+the License, or (at your option) any later version.
+
+The m17n library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with the m17n library; if not, write to the Free
+Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+02111-1307, USA.

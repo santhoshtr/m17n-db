@@ -1,0 +1,186 @@
+;; gjr-itrans.mim -- Gujarati input method with ITRANS method
+;; Copyright (C) 2003, 2004
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; <li> gjr-itrans.mim
+;;;
+;;; Input method for Gujarati script with ITRANS method.  For the
+;;; detail of ITRAN, see the page http://www.aczone.com/itrans/.
+
+(title "ક")
+
+(map
+ (starter
+  (".") ("~") ("#") ("$") ("^") ("*") ((S-\ )) ((C-@))
+  ("0") ("1") ("2") ("3") ("4")
+  ("5") ("6") ("7") ("8") ("9")
+  ("A") ("C") ("D") ("G") ("H") ("I") ("J") ("K") ("L")
+  ("M") ("N") ("O") ("R") ("S") ("T") ("U") ("Y")
+  ("a") ("b") ("c") ("d") ("e") ("f") ("g") ("h") ("i")
+  ("j") ("k") ("l") ("m") ("n") ("o") ("p") ("q") ("r")
+  ("s") ("t") ("u") ("v") ("w") ("x") ("y") ("z"))
+
+ (consonant
+  ("k" "ક્")
+  ("kh" "ખ્")
+  ("g" "ગ્")
+  ("gh" "ઘ્")
+  ("~N" "ઙ્")
+  ("N^" "ઙ્")
+  ("ch" "ચ્")
+  ("Ch" "છ્")
+  ("chh" "છ્")
+  ("j" "જ્")
+  ("jh" "ઝ્")
+  ("~n" "ઞ્")
+  ("JN" "ઞ્")
+  ("T" "ટ્")
+  ("Th" "ઠ્")
+  ("D" "ડ્")
+  ("Dh" "ઢ્")
+  ("N" "ણ્")
+  ("t" "ત્")
+  ("th" "થ્")
+  ("d" "દ્")
+  ("dh" "ધ્")
+  ("n" "ન્")
+  ("p" "પ્")
+  ("ph" "ફ્")
+  ("b" "બ્")
+  ("bh" "ભ્")
+  ("m" "મ્")
+  ("y" "ય્")
+  ("r" "ર્")
+  ("l" "લ્")
+  ("L" "ળ્")
+  ("ld" "ળ્")
+  ("v" "વ્")
+  ("w" "વ્")
+  ("sh" "શ્")
+  ("Sh" "ષ્")
+  ("shh" "ષ્")
+  ("s" "સ્")
+  ("h" "હ્")
+  ("GY" "જ્ઞ્")
+  ("dny" "જ્ઞ્")
+  ("x" "ક્ષ્"))
+
+ (independent
+  ("a" "અ")
+  ("aa" "આ")
+  ("A" "આ")
+  ("i" "ઇ")
+  ("ii" "ઈ")
+  ("I" "ઈ")
+  ("u" "ઉ")
+  ("uu" "ઊ")
+  ("U" "ઊ")
+  ("RRi" "ઋ")
+  ("R^i" "ઋ")
+  (".c" "ઍ")
+  ("e.c" "ઍ")
+  ("e" "એ")
+  ("ai" "ઐ")
+  ("o.c" "ઑ")
+  ("o" "ઓ")
+  ("au" "ઔ")
+  ("RRI" "ૠ")
+  ("R^I" "ૠ")
+  (".N" "ઁ")
+  (".n" "ં")
+  ("M" "ં")
+  ("H" "ઃ")
+  (".a" "ઽ")
+  (".h" "્")
+  ("AUM" "ૐ")
+  ("OM" "ૐ")
+  ("0" "૦")
+  ("1" "૧")
+  ("2" "૨")
+  ("3" "૩")
+  ("4" "૪")
+  ("5" "૫")
+  ("6" "૬")
+  ("7" "૭")
+  ("8" "૮")
+  ("9" "૯")
+  ("#" "્ર")
+  ("$" "ર્")
+  ("^" "ત્ર")
+  ("*" "શ્ર")
+  ("]" "઼")
+  ((S-\ ) "‌")
+  ((C-@) "‍"))
+
+ (dependent
+  ("a" (delete @-) "")
+  ("aa" (delete @-) "ા")
+  ("A" (delete @-) "ા")
+  ("i" (delete @-) "િ")
+  ("ii" (delete @-) "ી")
+  ("I" (delete @-) "ી")
+  ("u" (delete @-) "ુ")
+  ("uu" (delete @-) "ૂ")
+  ("U" (delete @-) "ૂ")
+  ("RRi" (delete @-) "ૃ")
+  ("R^i" (delete @-) "ૃ")
+  (".c" (delete @-) "ૅ")
+  ("e.c" (delete @-) "ૅ")
+  ("e" (delete @-) "ે")
+  ("ai" (delete @-) "ૈ")
+  ("o.c" (delete @-) "ૉ")
+  ("o" (delete @-) "ો")
+  ("au" (delete @-) "ૌ")
+  ("RRI" (delete @-) "ૄ")
+  ("R^I" (delete @-) "ૄ"))
+
+ (return
+  ((Return)))
+
+ (backspace
+  ((BackSpace) (undo))))
+
+
+(state
+ (init
+  (starter (pushback 1) (shift intermediate)))
+
+ (intermediate
+  (consonant (shift second))
+  (independent (shift finish))
+  (backspace)
+  (return (shift init)))
+
+ (second
+  (consonant)
+  (dependent (shift finish))
+  (backspace)
+  (return (shift init)))
+
+ (finish
+  (return)
+  (t (shift init))))
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: lisp
+;; End:

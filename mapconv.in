@@ -1,0 +1,82 @@
+#!/bin/sh
+# mapconv -- shell script to generate a charset map to standard output
+# Copyright (C) 2003, 2004
+#   National Institute of Advanced Industrial Science and Technology (AIST)
+#   Registration Number H15PRO112
+# See the end for copying conditions.
+#
+# Arguments:
+#   $1: source map file
+#   $2: address pattern for sed (optionally with substitution command)
+#   $3: strip off MSB or not (NOMSB or WITHMSB)
+#   $4: dimension (1 or 2)
+#   $5: optional awk script file (sans ".awk")
+
+case $1 in
+*glibc*) SOURCE=`echo $1 | sed -e 's/.*\(glibc.*$\)/\1/'`;;
+*) SOURCE=$1;;
+esac
+
+if [ -n "$5" ] ; then
+  LASTFILTER="@AWK@ -f $5.awk"
+else
+  LASTFILTER="cat"
+fi
+
+echo "# Generated from ${SOURCE}"
+
+if [ "$4" = "NOMSB" ] ; then
+    if [ "$3" = 1 ] ; then
+	@CHARMAP_CAT@ $1 \
+	    | sed -n -e "$2 p" \
+	    | sed -e 's/xa/x2/g' -e 's/xb/x3/g' -e 's/xc/x4/g' \
+	          -e 's/xd/x5/g' -e 's/xe/x6/g' -e 's/xf/x7/g' \
+	          -e 's,<U\([^>]*\)>[ 	]*/x\(..\).*$,0x\2 0x\1,' \
+	    | sort \
+	    | ${LASTFILTER}
+    else
+	@CHARMAP_CAT@ $1 \
+	    | sed -n -e "$2 p" \
+	    | sed -e 's/xa/x2/g' -e 's/xb/x3/g' -e 's/xc/x4/g' \
+	          -e 's/xd/x5/g' -e 's/xe/x6/g' -e 's/xf/x7/g' \
+	          -e 's,<U\([^>]*\)>[ 	]*/x\(..\)/x\(..\).*$,0x\2\3 0x\1,' \
+	    | sort \
+	    | ${LASTFILTER}
+    fi
+else
+    if [ "$3" = 1 ] ; then
+	@CHARMAP_CAT@ $1 | \
+	    sed -n -e "$2 p" \
+	    | sed -e 's,<U\([^>]*\)>[ 	]*/x\(..\).*$,0x\2 0x\1,' \
+	    | sort \
+	    | ${LASTFILTER}
+    else
+	@CHARMAP_CAT@ $1 | \
+	    sed -n -e "$2 p" \
+	    | sed -e 's,<U\([^>]*\)>[ 	]*/x\(..\)/x\(..\).*$,0x\2\3 0x\1,' \
+	    | sort \
+	    | ${LASTFILTER}
+    fi
+fi
+
+# Copyright (C) 2003, 2004
+#   National Institute of Advanced Industrial Science and Technology (AIST)
+#   Registration Number H15PRO112
+
+# This file is part of the m17n database; a sub-part of the m17n
+# library.
+
+# The m17n library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public License
+# as published by the Free Software Foundation; either version 2.1 of
+# the License, or (at your option) any later version.
+
+# The m17n library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+
+# You should have received a copy of the GNU Lesser General Public
+# License along with the m17n library; if not, write to the Free
+# Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+# 02111-1307, USA.
