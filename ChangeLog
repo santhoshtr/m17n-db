@@ -1,3 +1,7 @@
+2005-02-15  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* ORYA-OTF.flt: Disable VMabove reordering in Step 2.
+
 2005-02-15  Kenichi Handa  <handa@m17n.org>
 
 	* default.fst: For Hebrew, prefer freesans font.
