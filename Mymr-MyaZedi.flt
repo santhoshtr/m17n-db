@@ -59,7 +59,7 @@
   (cond
    ;; Special case for Medial Ra: don't use Kinzi for this pattern.
    ("(K)(Hr(HM)*)(V*A?H?)N?(S*)"
-    | (1 =) (2 remove-halant) (4 = *) (5 = *) |)
+    | (1 =) (2 remove-halant *) (4 = *) (5 = *) |)
 
    ;; The following regular expression matches a syllable pattern
    ;; described in Table 10-3 of the Unicode Standard 4.0 .
