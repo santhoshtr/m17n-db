@@ -1,0 +1,167 @@
+;; KAN-OTF.flt -- Font Layout Table for Kannada OpenType fonts
+;; Copyright (C) 2004
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; <li> KAN-OTF.flt
+;;;
+;;; For Kannada OpenType fonts to draw Kannada.
+;;; Designed for Sampige.ttf <http://kannada.sourceforge.net/>
+
+(category
+ ;; C: general consonant
+ ;; R: no below-base consonat (RRA, NNNA, LLLA)
+ ;; r: RA
+ ;; H: HALANT
+ ;; u: MATRA (above)
+ ;; p: MATRA (post)
+ ;; t: MATRA (two-part)
+ ;; T: MATRA (three-part)
+ ;; a: vowel modifier (post)
+ ;; V: independent vowel
+ ;; N: ZWNJ (ZERO WIDTH NON-JOINER)
+ ;; J: ZWJ (ZERO WIDTH JOINER)
+ ;; E: ELSE
+ ;;
+ (0x200C	?N)			; ZWNJ
+ (0x200D	?J)			; ZWJ
+ (0x0964	?E)			; DANDA
+ (0x0965	?E)			; DOUBLE DANDA
+ (0x0C80 0x0CFF	?E)			; ELSE
+ (0x0C82	?a)			; SIGN ANUSVARA
+ (0x0C83	?a)			; SIGN VISARGA
+ (0x0C85 0x0C94	?V)			; LETTER A .. LETTER AU
+ (0x0C95 0x0CB9 ?C)			; LETTER KA .. LETTER HA
+ (0x0CB0	?r)			; LETTER RA
+ (0x0CBC	?n)			; SIGN NUKTA
+ (0x0CBD	?E)			; SIGN AVAGRAHA
+ (0x0CBE 	?p)			; VOWEL SIGN AA (post)
+ (0x0CBF	?u)			; VOWEL SIGN I (above)
+ (0x0CC0	?t)			; VOWEL SIGN II (two-part)
+ (0x0CC1 0x0CC4	?p)			; VOWEL SIGN U, UU, R, RR (post)
+ (0x0CC6	?u)			; VOWEL SIGN E (above)
+ (0x0CC7 0x0CCA	?t)			; VOWEL SIGN EE, AI, O (two-part)
+ (0x0CCB	?T)			; VOWEL SIGN OO (three-part)
+ (0x0CCC	?u)			; VOWEL SIGN AU (above)
+ (0x0CCD	?H)			; SIGN VIRAMA (HALANT)
+ (0x0CD5	?l)			; LENGTH MARK (length post)
+ (0x0CD6	?l)			; AI LENGTH MARK (length post)
+ (0x0CDE	?C)			; LETTER FA (LLLA)
+ (0x0CE0 0x0CE1	?V)			; LETTER VOCALIC RR, LL
+ (0x0CFD	?Z)			; internal use
+ (0x0CFE	?Y)			; internal use
+ (0x0CFF	?X)			; internal use
+ )
+
+;; Step 1 : Syllable identification and Halant movement.
+(generator
+ (0
+  (cond
+   ;; A syllable containing a three-part vowel sign.
+   ("([CRr](H[Cr])*)(T)(a)?"
+    < | (1 move-base-Halant) (3 0x0CC6 0x0CC2 0x0CD5) (4 =) | >)
+
+   ;; A syllable containing a two-part vowel sign.
+   ("([CRr](H[Cr])*)(t)(a)?"
+    < | (1 move-base-Halant) (3 two-part) (4 =) | >)
+
+   ;; A syllable ending with vowel signs and/or a vowel modifier.
+   ("([CRr](H[Cr])*)([upl]+a?|a)"
+    < | (1 move-base-Halant) (3 = *) | >)
+
+   ;; Forced Halant form.
+   ("((RH)?([Cr]H)*)([Cr]H)N"
+    < | (1 move-base-Halant) | >
+    < | (4 move-base-Halant) | >)
+
+   ;; Forced Half form.
+   ("((RH)?([Cr]H)*)([Cr]H)J"
+    < | (1 move-base-Halant) >
+    < | (4 otf:knda=blwf) | >)
+
+   ;; A syllable without a vowel sign nor a vowel modifier.
+   ("[CRr](H[Cr])*H?"
+    < | move-base-Halant | >)
+
+   ;; A syllable starting with an independent vowel.
+   ("Va?"
+    < | = * | > )
+
+   ("." =))
+  *)
+
+ ;; Move Halant on the base consonant to the tail if the syllable ends
+ ;; with a consonant.
+ ;; A leading 0x0CFF means Halant movement.
+ ;; A leading 0x0CFE means a syllable ending with a Halant.
+ ;; A leading 0x0CFD means Halant & Reph movements.
+ (move-base-Halant
+  (cond
+   (".*H$"
+    0x0CFE = *)
+   ("(rH)(.)$"
+    0x0CFD (2 =) (1 = =))
+   ("(rH)(.)(H)(.*)"
+    0x0CFD (2 =) (4 = *) (3 =) (1 = =))
+   ("(.)(H)(.*)"
+    0x0CFF (1 =) (3 = *) (2 =))
+   (".*"
+    = *)))
+
+ ;; Divide a two-part Matra into elements.
+ (two-part
+  (cond
+   ((0x0CC0)	0x0CBF 0x0CD5)
+   ((0x0CC7)	0x0CC6 0x0CD5)
+   ((0x0CC8)	0x0CC6 0x0CD6)
+   ((0x0CCA)	0x0CC6 0x0CC2)))
+ )
+
+;; Step 2 : Move Matra if applicable.
+;; The base consonant in a Halant-ending syllable is changed into Halant form.
+(generator
+ (0
+  (cond
+   ;;  1  2       3   4   5   6   7
+   (" Z(.)([CrH]*)(rH)(u)?(p)?(l*)(a)? "
+    | (1 =) (4 =) (5 =) (2 = *) (6 = *) (3 otf:knda=rphf) (7 =) |)
+   ;;  1  2       3   4   5   6
+   (" X(.)([CrH]*)(u)?(p)?(l*)(a)? "
+    | (1 =) (3 =) (4 =) (2 = *) (5 = *) (6 =) |)
+   (" Y(..)([^ ]*) "
+    ;; Sampige.ttf lacks the haln feature, so "otf:knda=haln" does not work.
+    | (1 otf:knda=~rphf,~blwf,*) (2 = *) |)
+   ("." =))
+  *))
+
+;; Step 3 : Drive OTF tables.
+(generator
+ (0
+  (cond
+   (" ([^ ]*) "
+    (1 otf:knda=~rphf,*))
+   ("."
+    [ otf:knda=+ ]))
+  *))
+
+;; Local Variables:
+;; mode: emacs-lisp
+;; End:
