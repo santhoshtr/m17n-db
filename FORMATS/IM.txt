@@ -66,6 +66,8 @@ ACTION ::= INSERT | DELETE | SELECT | MOVE | MARK |
 	   | SET | IF | '(' MACRO-NAME ')'
 
 PREDEFINED-SYMBOL ::=
+    '@0' | '@1' | '@2' | '@3' | '@4' |
+    '@5' | '@6' | '@7' | '@8' | '@9' |
     '@<' | '@=' | '@>' | '@-' | '@+' | '@[' | '@]'
 @endverbatim
 @verbatim
@@ -144,6 +146,10 @@ initialized to zero.
 Each @c PREDEFINED-SYMBOL has a special meaning when used as a marker.
 
 <ul>
+<li> @c @@0, @c @@1, @c @@2, @c @@3, @c @@4, @c @@5, @c @@6, @c @@7, @c @@8, @c @@9
+
+The 0th, 1st, 2nd, ... 9th position respectively.
+
 <li> @c @@<, @c @@=, @c @@>
 
 The first, the current, and the last position.
@@ -161,6 +167,11 @@ Each @c PREDEFINED-SYMBOL has a special meaning when used as a candidate
 index in the @c SELECT action.
 
 <ul>
+
+<li> @c @@0, @c @@1, @c @@2, @c @@3, @c @@4, @c @@5, @c @@6, @c @@7, @c @@8, @c @@9
+
+The 0th, 1st, 2nd, ... 9th candidate of the current candidate group.
+
 <li> @c @@<, @c @@=, @c @@>
 
 The first, the current, and the last candidate of the current candidate group.
