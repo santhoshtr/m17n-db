@@ -1,8 +1,26 @@
+2004-03-12  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* mdb.dir: Add kk-kbd.mim, kk-arabic.mim.
+
+	* Makefile.am (INPUT_METHOD): Add kk-kbd.mim, kk-arabic.mim.
+
+	* kk-arabic.mim: New input method for Kazakh (Arabic script)
+
+	* kk-kbd.mim: New input method for Kazakh (Cyrillic script)
+
+	* ar-kbd.mim: Add mirroring chars.
+
+	* fa-isiri.mim: Add mirroring chars.
+
+	* he-kbd.mim: Add mirroring chars.
+
+	* ru-yawerty.mim: Fix typo.
+
 2004-03-09  TAKAHASHI Naoto <ntakahas@m17n.org>
 
 	* ar-kbd.mim: Add keys for inputting punctuations.
 
-	* ARABIC.flt: Add support for Kazakh.
+	* ARABIC.flt: Add support for Kazakh high hamza.
 
 	* FORMATS/FLT.txt (MACRO-NAME): Fix typo.
 
