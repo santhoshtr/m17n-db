@@ -1,3 +1,12 @@
+2004-08-13  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* Makefile.am, mdb.dir, truetype.fst, default.fst, ORI-OTF.flt:
+	Add Oriya support.
+
+	* TEL-OTF.flt: Fix forced-*-form patterns.
+
+	* BEN-OTF.flt: Fix bug in base consonant finding.
+
 2004-08-09  Kenichi Handa  <handa@m17n.org>
 
 	* .cvsignore: Add m17n-db.
@@ -8,11 +17,21 @@
 
 	* ka-kbd.mim: Fix some keys.
 
+2004-08-08  Kenichi Handa  <handa@m17n.org>
+
+	* rfc1345.mim, ka-kbd.mim: New input method.
+
+	* mdb.dir, Makefile.am: Add ka-kbd.mim and rfc1345.mim.
+
 2004-08-07  Kenichi Handa  <handa@m17n.org>
 
 	* ka-kbd.mim, rfc1345.mim: New input methods.
 	
 	* Makefile.am, mdb.dir: Add ka-kbd.mim and rfc1345.mim.
+
+2004-08-06  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* BEN-OTF.flt: Fix typo.
 
 2004-08-06  Kenichi Handa  <handa@m17n.org>
 
