@@ -1,5 +1,7 @@
 2004-12-27  Kenichi Handa  <handa@m17n.org>
 
+	* ko-romaja.mim: Make Shift-SPC key commit the current preedit.
+
 	* latn-pre.mim: New input method.
 
 	* mdb.dir, Makefile.am: Add latn-pre.mim.
