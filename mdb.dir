@@ -99,6 +99,7 @@
 (input-method hr kbd "hr-kbd.mim")
 (input-method ja anthy "ja-anthy.mim")
 (input-method ja tcode "ja-tcode.mim")
+(input-method ka kdb "ka-kbd.mim")
 (input-method kk arabic "kk-arabic.mim")
 (input-method kk kbd "kk-kbd.mim")
 (input-method km yannis "kh-yannis.mim")
@@ -115,11 +116,12 @@
 (input-method ta itrans "tml-itrans.mim")
 (input-method te itrans "tlg-itrans.mim")
 (input-method th kesmanee "th-kesmanee.mim")
-(input-method vi telenx "vi-telex.mim")
+(input-method vi telex "vi-telex.mim")
 (input-method vi viqr "vi-viqr.mim")
 (input-method zh py "zh-py.mim")
 (input-method t latin-post "latin-post.mim")
 (input-method t unicode "unicode.mim")
+(input-method t rfc1345 "rfc1345.mim")
 ;;; </ul>
 
 ;;; @section flt-list Font Layout Table

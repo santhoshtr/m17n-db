@@ -96,7 +96,7 @@ FONT_LAYOUT_TABLE = \
 
 INPUT_METHOD = \
 	sk-kbd.mim vi-viqr.mim vi-telex.mim hr-kbd.mim \
-	ru-yawerty.mim kk-kbd.mim sr-kbd.mim\
+	ru-yawerty.mim ka-kbd.mim kk-kbd.mim sr-kbd.mim\
 	ar-kbd.mim fa-isiri.mim kk-arabic.mim\
 	am-sera.mim el-kbd.mim he-kbd.mim \
 	asm-itrans.mim dev-itrans.mim knd-itrans.mim ori-itrans.mim \
@@ -111,7 +111,7 @@ INPUT_METHOD = \
 	zh-py.mim \
 	ko-han2.mim \
 	latin-post.mim \
-	unicode.mim \
+	unicode.mim rfc1345.mim \
 	ispell.mim
 
 MISC_TABLE = \
