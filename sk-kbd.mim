@@ -25,6 +25,8 @@
 ;;;
 ;;; Input method for Slovak simulating the standard Slovak keyboard.
 ;;; @image html sk-kbd.png "Keyboard Layout"
+;;; @image latex sk-kbd.eps "Keyboard Layout" width=\narrowwidth
+
 ;;      +1  ľ2  š3  č4  ť5  ž6  ý7  á8  í9  é0  =%  '+  ;^ 
 ;;        qQ  wW  eE  rR  tT  zZ  uU  iI  oO  pP  ú/  ä( 
 ;;         aA  sS  dD  fF  gG  hH  jJ  kK  lL  ô"  §!  ň) 
@@ -32,6 +34,7 @@
 
 ;;; You can also input more characters by the following key sequences:
 ;;; @image html sk-kbd2.png
+;;; @image latex sk-kbd2.eps width=\narrowwidth
 
 ;; key char key char key char key char key char key char
 ;; --- ---- --- ---- --- ---- --- ---- --- ---- --- ----

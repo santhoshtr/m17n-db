@@ -25,6 +25,7 @@
 ;;;
 ;;; Input method for Hebrew simulating Hebrew keyboard.
 ;;; @image html he-kbd.png "Keyboard Layout"
+;;; @image latex he-kbd.eps "Keyboard Layout" width=\narrowwidth
 
 ;;      1!  2@  3#  4$  5%  6^  7&  8*  9(  0)  -_  =+  ;~ 
 ;;        /Q  'W  קE  רR  אT  טY  וU  ןI  םO  פP  [{  ]} 

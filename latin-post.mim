@@ -24,6 +24,7 @@
 ;;;
 ;;; Input method for Latin script with postfix modifiers.
 ;;; @image html latin-post.png
+;;; @image latex latin-post.eps width=\narrowwidth
 
 ;; | mark       | postfix | examples
 ;; |------------+---------+----------

@@ -25,6 +25,7 @@
 ;;;
 ;;; Input method for Greek simulating Greek keyboard.
 ;;; @image html el-kbd.png "Keyboard Layout"
+;;; @image latex el-kbd.eps "Keyboard Layout" width=\narrowwidth
 
 ;;      1!  2@  3#  4$  5%  6^  7&  8*  9(  0)  -_  =+  `~ 
 ;;        ;:  ςΣ  εΕ  ρΡ  τΤ  υΥ  θΘ  ιΙ  οΟ  πΠ  [{  ]} 

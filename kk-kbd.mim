@@ -27,6 +27,7 @@
 ;;; Simulating Kazakh keyboard.
 ;;;
 ;;; @image html kk-kbd.png "Keyboard Layout"
+;;; @image latex kk-kbd.eps "Keyboard Layout" width=\narrowwidth
 
 ;;     "!  әӘ  іІ  ӊӉ  ғҒ  ,;  .:  үҮ  ұҰ  қҚ  өӨ  һҺ  ()
 ;;       йЙ  цЦ  уУ  кК  еЕ  нН  гГ  шШ  щЩ  зЗ  хХ  ъЪ
