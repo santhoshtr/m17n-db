@@ -68,7 +68,7 @@
  (0x0A48	?u)			; VOWEL SIGN AI (above)
  (0x0A4B	?u)			; VOWEL SIGN OO (above)
  (0x0A4C	?u)			; VOWEL SIGN AU (above)
- (0x0A4D	?H)			; SIGN VIRAMA (HARANT)
+ (0x0A4D	?H)			; SIGN VIRAMA (HALANT)
  (0x0A59 0x0A5E	?C)			; LETTER KHHA .. LETTER FA
  (0x0A70	?A)			; TIPPI (above)
  (0x0A7F	?X)			; internal use

@@ -56,7 +56,7 @@
  (0x093F	?m)			; VOWEL SIGN I (pre)
  (0x0941 0x0944	?b)			; VOWEL SIGN (below)
  (0x0945 0x0948	?u)			; VOWEL SIGN (above)
- (0x094D	?H)			; SIGN VIRAMA (HARANT)
+ (0x094D	?H)			; SIGN VIRAMA (HALANT)
  (0x0950	?E)			; OM
  (0x0951 0x0954	?S)		    ; STRESS SIGN or TONE MARK (above)
  (0x0952	?s)		    ; STRESS SIGN or TONE MARK (below)
