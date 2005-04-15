@@ -27,6 +27,27 @@
 ;;; communicate with Anthy.  For more detail about Anthy, see the page
 ;;; http://sourceforge.jp/projects/anthy/.
 
+(description
+ "Japanese input method using Anthy as a background conversion program"
+ "Typed roma-ji is at first converted to Hiragana,
+and Space key converts the Hiragana sequences
+to Kanji-Hiragana mixed sequence.")
+
+(variable
+ (input-mode 
+  ("Hiragana or Katakana" "Select Hiragana or Katakana")
+  hiragana
+  hiragana katakana)
+ (zen-han ("Zenkaku or Hankaku")
+	  zenkaku
+	  hankaku))
+
+(command
+ (henkan
+  "Convert" "Convert Hiragana to Kanji"
+  (\ )
+  (Henkan)))
+
 (title "aあ")
 (map
  (starter
