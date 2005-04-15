@@ -1,5 +1,7 @@
 2005-04-15  Kenichi Handa  <handa@m17n.org>
 
+	* ja-anthy.mim (description, variable, command): New spec.
+
 	* mdb.dir: Add entries for im-cmd.tbl and LINEBREAK.tab.
 
 	* im-cmd.tbl: New file.
