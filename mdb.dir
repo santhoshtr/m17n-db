@@ -134,6 +134,8 @@
 (input-method t rfc1345 "rfc1345.mim")
 ;;; </ul>
 
+(input command "im-cmd.tbl")
+
 ;;; @section flt-list Font Layout Table
 ;;;
 ;;; See @ref mdbFLT for the format of these files.
@@ -189,5 +191,7 @@
 
 (locale codeset "LOCALE.cs")
 (locale alias "LOCALE.ali")
+
+(char-table symbol linebreak "LINEBREAK.tab")
 
 ;;; </ul>
