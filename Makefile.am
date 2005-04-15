@@ -146,7 +146,8 @@ INPUT_METHOD = \
 MISC_TABLE = \
 	LOCALE.cs LOCALE.ali \
 	default.fst xfont.fst truetype.fst FONTENC.tbl FONTSIZE.tbl \
-	CHARSET.tbl CODING.tbl
+	CHARSET.tbl CODING.tbl im-cmd.tbl \
+	LINEBREAK.tab
 
 UNIDATA = \
 	UNIDATA/README \
