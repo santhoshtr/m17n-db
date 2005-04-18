@@ -1,4 +1,6 @@
-2005-04-15  Kenichi Handa  <handa@m17n.org>
+2005-04-18  Kenichi Handa  <handa@m17n.org>
+
+	* LINEBREAK.tab: New file.
 
 	* ja-anthy.mim (description, variable, command): New spec.
 
