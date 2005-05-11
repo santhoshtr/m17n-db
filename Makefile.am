@@ -107,6 +107,7 @@ INPUT_METHOD = \
 	ar-kbd.mim \
 	as-itrans.mim \
 	bn-itrans.mim \
+	bn-unijoy.mim \
 	bo-wylie.mim \
 	dv-phonetic.mim \
 	el-kbd.mim \
