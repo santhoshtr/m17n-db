@@ -1,3 +1,11 @@
+2005-05-13  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* bn-unijoy.mim: New file.
+
+	* Makefile.am, mdb.dir: Add bn-unijoy.mim.
+
+	* truetype.fst, default.fst: Add sagar for Bengali.
+
 2005-04-18  Kenichi Handa  <handa@m17n.org>
 
 	* LINEBREAK.tab: New file.
