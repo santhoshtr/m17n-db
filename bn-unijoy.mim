@@ -14,12 +14,6 @@
   ("9" "৯") ;; BENGALI DIGIT NINE
   ("0" "০") ;; BENGALI DIGIT ZERO
 
-  ("~" "‍") ;; ZERO WIDTH JOINER
-  ("$" "৳") ;; BENGALI RUPEE SIGN
-  ("^" "÷") ;; DIVISION SIGN
-  ("&" "ঁ") ;; BENGALI SIGN CANDRABINDU
-  ("*" "×") ;; MULTIPLICATION SIGN
-
   ("q" "ঙ") ;; BENGALI LETTER NGA
   ("w" "য") ;; BENGALI LETTER YA
   ("e" "ড") ;; BENGALI LETTER DDA
@@ -31,6 +25,29 @@
   ("o" "গ") ;; BENGALI LETTER GA
   ("p" "ড়") ;; BENGALI LETTER RRA
   ("\\" "ঃ") ;; BENGALI SIGN VISARGA
+
+  ("a" "ৃ") ;; BENGALI VOWEL SIGN VOCALIC R
+  ("s" "ু") ;; BENGALI VOWEL SIGN U
+  ("d" "ি") ;; BENGALI VOWEL SIGN I
+  ("f" "া") ;; BENGALI VOWEL SIGN AA
+  ("h" "ব") ;; BENGALI LETTER BA
+  ("j" "ক") ;; BENGALI LETTER KA
+  ("k" "ত") ;; BENGALI LETTER TA
+  ("l" "দ") ;; BENGALI LETTER DA
+
+  ("z" "্র") ;; BENGALI SIGN VIRAMA + BENGALI LETTER RA
+  ("x" "ো") ;; BENGALI VOWEL SIGN O
+  ("c" "ে") ;; BENGALI VOWEL SIGN E
+  ("v" "র") ;; BENGALI LETTER RA
+  ("b" "ন") ;; BENGALI LETTER NA
+  ("n" "স") ;; BENGALI LETTER SA
+  ("m" "ম") ;; BENGALI LETTER MA
+
+  ("~" "‍") ;; ZERO WIDTH JOINER
+  ("$" "৳") ;; BENGALI RUPEE SIGN
+  ("^" "÷") ;; DIVISION SIGN
+  ("&" "ঁ") ;; BENGALI SIGN CANDRABINDU
+  ("*" "×") ;; MULTIPLICATION SIGN
 
   ("Q" "ং") ;; BENGALI SIGN ANUSVARA
   ("W" "য়") ;; BENGALI LETTER YYA
@@ -44,15 +61,7 @@
   ("P" "ঢ়") ;; BENGALI LETTER RHA
   ("|" "ৎ") ;; BENGALI SIGN KHANDATA
 
-  ("a" "ৃ") ;; BENGALI VOWEL SIGN VOCALIC R
-  ("s" "ু") ;; BENGALI VOWEL SIGN U
-  ("d" "ি") ;; BENGALI VOWEL SIGN I
-  ("f" "া") ;; BENGALI VOWEL SIGN AA
-  ("h" "ব") ;; BENGALI LETTER BA
-  ("j" "ক") ;; BENGALI LETTER KA
-  ("k" "ত") ;; BENGALI LETTER TA
-  ("l" "দ") ;; BENGALI LETTER DA
-
+  ("A" "র্") ;; BENGALI LETTER RA + BENGALI SIGN VIRAMA
   ("S" "ূ") ;; BENGALI VOWEL SIGN UU
   ("D" "ী") ;; BENGALI VOWEL SIGN II
   ("F" "অ") ;; BENGALI LETTER A
@@ -62,19 +71,14 @@
   ("K" "থ") ;; BENGALI LETTER THA
   ("L" "ধ") ;; BENGALI LETTER DHA
 
-  ("x" "ো") ;; BENGALI VOWEL SIGN O
-  ("c" "ে") ;; BENGALI VOWEL SIGN E
-  ("v" "র") ;; BENGALI LETTER RA
-  ("b" "ন") ;; BENGALI LETTER NA
-  ("n" "স") ;; BENGALI LETTER SA
-  ("m" "ম") ;; BENGALI LETTER MA
-
+  ("Z" "্য") ;; BENGALI SIGN VIRAMA + BENGALI LETTER YA
   ("X" "ৌ") ;; BENGALI VOWEL SIGN AU
   ("C" "ৈ") ;; BENGALI VOWEL SIGN AI
   ("V" "ল") ;; BENGALI LETTER LA
   ("B" "ণ") ;; BENGALI LETTER NNA
   ("N" "ষ") ;; BENGALI LETTER SSA
   ("M" "শ") ;; BENGALI LETTER SHA
+
 
   ((M-=) "≠")	;; NOT EQUAL TO
 
@@ -133,9 +137,6 @@
   ("x" (delete @-) "ও") ;; BENGALI LETTER O
   ("X" (delete @-) "ঔ") ;; BENGALI LETTER AU
   ("G" (delete @-) "॥") ;; DEVANAGARI DOUBLE DANDA
-  ("A" (delete @-) "র্") ;; BENGALI LETTER RA + BENGALI SIGN VIRAMA
-  ("z" (delete @-) "্র") ;; BENGALI SIGN VIRAMA + BENGALI LETTER RA
-  ("Z" (delete @-) "্য") ;; BENGALI SIGN VIRAMA + BENGALI LETTER YA
   ))
 
 (state
