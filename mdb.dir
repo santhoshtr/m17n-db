@@ -88,6 +88,7 @@
 (input-method am sera "am-sera.mim")
 (input-method as itrans "as-itrans.mim")
 (input-method bn itrans "bn-itrans.mim")
+(input-method bn unijoy "bn-unijoy.mim")
 (input-method bo wylie "bo-wylie.mim")
 (input-method dv phonetic "dv-phonetic.mim")
 (input-method el kbd "el-kbd.mim")
