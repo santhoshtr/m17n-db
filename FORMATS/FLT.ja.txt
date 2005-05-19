@@ -272,6 +272,8 @@ GSUB-FEATURES 自体が省略されればすべての GSUB feature が適用される。
 
 @c GPOS-FEATURES の指定は @c GSUB-FEATURES の場合と同様である。
 
+全てのタグ名は ASCII の４文字であること。
+
 OpenType の指定方法については次のページを参照のこと。\n
     <http://www.microsoft.com/typography/otspec/default.htm>
 

@@ -298,6 +298,8 @@ omitted, all GSUB features are applied.
 The specification of @c GPOS-FEATURES is analogous to that of @c
 GSUB-FEATURES.
 
+Please note that all the tags above must be 4 ASCII printable characters.
+
 See the following page for the OpenType specification.\n
     <http://www.microsoft.com/typography/otspec/default.htm>
 
