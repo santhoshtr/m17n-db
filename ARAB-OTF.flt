@@ -39,6 +39,7 @@
  (0x06D5		?n)
  (0x200C		?x)
  (0x200D		?x)
+ (0x25CC		?x)
  (0xFB50 0xFDFF		?X)		; Arabic Presentation Froms-A
  (0xFE70 0xFEFC		?X)		; Arabic Presentation Froms-B
  )
@@ -117,6 +118,7 @@
  (0x06FF		?D)
  (0x200C		?U)
  (0x200D		?D)
+ (0x25CC		?U)
  (0xFB50 0xFDFF		?X)		; Arabic Presentation Froms-A
  (0xFE70 0xFEFC		?X)		; Arabic Presentation Froms-B
  )
