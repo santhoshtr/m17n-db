@@ -58,10 +58,9 @@
   ((nil dv-ttyogesh apple-roman) deva-cdac)))
 (bengali
  (nil
-  ((nil sagar unicode-bmp) beng-otf)
-  ((nil likhan unicode-bmp) beng-otf)
   ((nil mukti\ narrow unicode-bmp) beng-otf)
-))
+  ((nil likhan unicode-bmp) beng-otf)
+  ((nil sagar unicode-bmp) beng-otf)))
 (gurmukhi
  (nil
   ((nil saab unicode-bmp) guru-otf)))

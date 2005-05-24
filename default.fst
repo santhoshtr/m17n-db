@@ -84,11 +84,6 @@
 ;;; <li> infopage: http://www.indictrans.org/
 ;;; <li> dowvload: http://www.indictrans.org/Fonts_files/English/f2.php#freefont
 ;;; </ul>
-;;; <li>
-;;; <ul>
-;;; <li> infopage: http://ekushey.sourceforge.net/
-;;; <li> download: http://prdownloads.sourceforge.net/ekushey/Sagar0.6_GPL.ttf?download
-;;; </ul>
 ;;; <li> MuktiNarrow.ttf (family: mukti narrow; for Bengali)
 ;;; <ul>
 ;;; <li> infopage: http://www.nongnu.org/freebangfont/downloads.html
@@ -98,6 +93,11 @@
 ;;; <ul>
 ;;; <li> infopage: http://www.stat.wisc.edu/~deepayan/Bengali/WebPage/Font/fonts.html
 ;;; <li> download: http://www.stat.wisc.edu/~deepayan/Bengali/WebPage/Font/LinkhanNormal.otf
+;;; </ul>
+;;; <li> Sagar0.6_GPL.ttf (family: sagar; for Bengali)
+;;; <ul>
+;;; <li> infopage: http://ekushey.sourceforge.net/
+;;; <li> download: http://prdownloads.sourceforge.net/ekushey/Sagar0.6_GPL.ttf?download
 ;;; </ul>
 ;;; <li> Saab.otf (family: Saab; for Gurmukhi)
 ;;; <ul>
@@ -254,9 +254,9 @@
   ((devanagari-cdac) deva-cdac)))
 (bengali
  (nil
-  ((nil sagar unicode-bmp) beng-otf)
+  ((nil mukti\ narrow unicode-bmp) beng-otf)
   ((nil likhan unicode-bmp) beng-otf)
-  ((nil mukti\ narrow unicode-bmp) beng-otf)))
+  ((nil sagar unicode-bmp) beng-otf)))
 (gurmukhi
  (nil
   ((nil saab unicode-bmp) guru-otf)))
