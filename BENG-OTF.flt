@@ -67,6 +67,7 @@
  (0x09C7 0x09C8	?m)			; VOWEL SIGN E, AI (pre)
  (0x09CB 0x09CC ?t)			; VOWEL SIGN O, AU (two-part)
  (0x09CD	?H)			; SIGN VIRAMA (HASANT)
+ (0x09CE	?C)			; LETTER KHANDA TA
  (0x09D7	?p)			; AU LENGTH MARK
  (0x09DC 0x09DD	?C)			; LETTER RRA, RHA
  (0x09DF	?C)			; LETTER YYA
@@ -290,9 +291,9 @@
 ;; C2.  Otherwise we remove L12.
 
 ;; In very few cases (I found only one in the Mukti font), the "C1 H"
-;; part need to be converted into C1halant to make a ligature with C2.
-;; So when try to generate a ligature form, we apply the GSUB features
-;; "half", "haln" and "pres" in this order.
+;; part need to be converted into C1halant (instead of C1half) to make
+;; a ligature with C2.  So when we try to generate a ligature form, we
+;; apply the GSUB features "half", "haln" and "pres" in this order.
 
 (category
  ;; C: consonant (excluding B, Y and R)
