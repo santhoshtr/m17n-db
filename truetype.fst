@@ -92,6 +92,7 @@
   ((nil lklug unicode-bmp) sinh-otf)))
 (malayalam
  (nil
+  ((nil rachana unicode-bmp) mlym-rachana))
   ((nil thoolikaunicode unicode-bmp) mlym-otf)
   ((nil ml-ttkarthika apple-roman) mlym-cdac)))
 (thai

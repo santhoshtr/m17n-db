@@ -136,6 +136,11 @@
 ;;; <li> infopage: http://kannada.sourceforge.net/
 ;;; <li> download: http://brahmi.sourceforge.net/dl/Sampige.ttf
 ;;; </ul>
+;;; <li> RanachaMedium.ttf (family: rachana; for Malayalam)
+;;; <ul>
+;;; <li> infopage: http://www.hackgnu.org/rachana/otf/
+;;; <li> download: http://www.hackgnu.org/rachana/otf/rachana.otf.bz2
+;;; </ul>
 ;;; <li> THOOLIUC.TTF (family: thoolikaunicode; for Malayalam)
 ;;; <ul>
 ;;; <li> infopage: http://www.supersoftweb.com/Unicode.htm
@@ -245,6 +250,7 @@
   ((nil east\ syriac\ adiabene unicode-bmp) syrc-otf)))
 (thaana
  (nil
+  ((nil nil otf:thaa unicode-bmp) thaa-otf)
   ((nil thaana\ unicode\ akeh unicode-bmp) thaa-otf)))
 (devanagari
  (nil
@@ -286,6 +292,7 @@
   ((nil sampige unicode-bmp) knda-otf)))
 (malayalam
  (nil
+  ((nil rachana unicode-bmp) mlym-rachana))
   ((nil thoolikaunicode unicode-bmp) mlym-otf)
   ((malayalam-cdac) mlym-cdac)
   ((nil ml-ttkarthika apple-roman) mlym-cdac)))
