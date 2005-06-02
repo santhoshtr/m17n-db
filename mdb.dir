@@ -157,6 +157,7 @@
 (font layouter laoo-mule "LAOO-MULE.flt")
 (font layouter mlym-cdac "MLYM-CDAC.flt")
 (font layouter mlym-otf "MLYM-OTF.flt")
+(font layouter mlym-rachana "MLYM-RACHANA.flt")
 (font layouter mymr-myazedi "MYMR-MYAZEDI.flt")
 (font layouter orya-otf "ORYA-OTF.flt")
 (font layouter sinh-otf "SINH-OTF.flt")
