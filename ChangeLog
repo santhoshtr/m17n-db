@@ -1,3 +1,21 @@
+2005-06-02  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* default.fst, truetype.fst: Add mlym-rachana.
+
+	* mdb.dir, Makefile.am: Add MLYM-RACHANA.flt.
+
+	* MLYM-RACHANA.flt: New file.
+
+2005-05-24  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* truetype.fst, default.fst: Rechange default to MuktiNarrow.ttf.
+
+	* SINH-OTF.flt: Fix copyright years.
+
+	* BENG-OTF.flt: Add LETTER KHANDA TA (U+09CE).
+
+	* ARAB-OTF.flt: Add DOTTED CIRCLE U+25CC.
+
 2005-05-13  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* bn-unijoy.mim: New file.
