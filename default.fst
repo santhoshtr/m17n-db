@@ -149,7 +149,7 @@
 ;;; <li> lklug.otf (family: LKLUG; for Sinhala)
 ;;; <ul>
 ;;; <li> infopage: http://sinhala.linux.lk/
-;;; <li> download: http://sinhala.linux.lk/pub/0.1/
+;;; <li> download: http://sinhala.linux.lk/pub/fonts/lklug.otf
 ;;; </ul>
 ;;; <li> mtib.ttf (family: mtib; for Tibetan)
 ;;; <ul>
