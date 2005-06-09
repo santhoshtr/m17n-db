@@ -53,7 +53,7 @@
   ((nil thaana\ unicode\ akeh unicode-bmp) thaa-otf)))
 (devanagari
  (nil
-  ((nil gargi-1.3 unicode-bmp) deva-otf)
+  ((nil gargi unicode-bmp) deva-otf)
   ((nil raghindi t) deva-otf)
   ((nil dv-ttyogesh apple-roman) deva-cdac)))
 (bengali
@@ -92,7 +92,7 @@
   ((nil lklug unicode-bmp) sinh-otf)))
 (malayalam
  (nil
-  ((nil rachana unicode-bmp) mlym-rachana))
+  ((nil rachana unicode-bmp) mlym-rachana)
   ((nil thoolikaunicode unicode-bmp) mlym-otf)
   ((nil ml-ttkarthika apple-roman) mlym-cdac)))
 (thai

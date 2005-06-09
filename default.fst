@@ -79,7 +79,7 @@
 ;;; <li> infopage: http://www.nepali.info/nepali/help.asp
 ;;; <li> download: http://www.nepali.info/nepali/fonts/raghu.ttf
 ;;; </ul>
-;;; <li> Gargi-1.3.ttf (family: Gargi-1.3; for Devanagari)
+;;; <li> Gargi-1.7.ttf (family: Gargi; for Devanagari)
 ;;; <ul>
 ;;; <li> infopage: http://www.indictrans.org/
 ;;; <li> dowvload: http://www.indictrans.org/Fonts_files/English/f2.php#freefont
@@ -254,7 +254,7 @@
   ((nil thaana\ unicode\ akeh unicode-bmp) thaa-otf)))
 (devanagari
  (nil
-  ((nil gargi-1.3 unicode-bmp) deva-otf)
+  ((nil gargi unicode-bmp) deva-otf)
   ((nil raghindi unicode-bmp) deva-otf)
   ((nil dv-ttyogesh apple-roman) deva-cdac)
   ((devanagari-cdac) deva-cdac)))
@@ -292,7 +292,7 @@
   ((nil sampige unicode-bmp) knda-otf)))
 (malayalam
  (nil
-  ((nil rachana unicode-bmp) mlym-rachana))
+  ((nil rachana unicode-bmp) mlym-rachana)
   ((nil thoolikaunicode unicode-bmp) mlym-otf)
   ((malayalam-cdac) mlym-cdac)
   ((nil ml-ttkarthika apple-roman) mlym-cdac)))
