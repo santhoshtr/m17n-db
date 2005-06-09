@@ -1,3 +1,22 @@
+2005-06-09  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* default.fst, truetype.fst:
+	Change gargi-1.3 to gargi so that newer fonts can also be used.
+
+2005-06-03  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* default.fst: Change Sinhala font download site.
+
+2005-06-02  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* ChangeLog: *** empty log message ***
+
+	* default.fst, truetype.fst: Add mlym-rachana.
+
+	* mdb.dir, Makefile.am: Add MLYM-RACHANA.flt.
+
+	* MLYM-RACHANA.flt: New file.
+
 2005-06-02  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* default.fst, truetype.fst: Add mlym-rachana.
