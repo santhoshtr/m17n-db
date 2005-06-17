@@ -1,3 +1,8 @@
+2005-06-17  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* default.fst, truetype.fst:
+	Add gargi_1.7 because it does not have "gargi" as family name.
+
 2005-06-09  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* default.fst, truetype.fst:
@@ -8,8 +13,6 @@
 	* default.fst: Change Sinhala font download site.
 
 2005-06-02  TAKAHASHI Naoto  <ntakahas@m17n.org>
-
-	* ChangeLog: *** empty log message ***
 
 	* default.fst, truetype.fst: Add mlym-rachana.
 
@@ -378,8 +381,6 @@
 2004-07-05  Kenichi Handa  <handa@duron>
 
 	* default.fst: Fix typo (gardi->gargi).
-
-	* default.fst, ChangeLog: *** empty log message ***
 
 	* truetype.fst: Add Gujarati.
 
