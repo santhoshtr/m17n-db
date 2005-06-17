@@ -53,6 +53,7 @@
   ((nil thaana\ unicode\ akeh unicode-bmp) thaa-otf)))
 (devanagari
  (nil
+  ((nil gargi_1.7 unicode-bmp) deva-otf)
   ((nil gargi unicode-bmp) deva-otf)
   ((nil raghindi t) deva-otf)
   ((nil dv-ttyogesh apple-roman) deva-cdac)))
