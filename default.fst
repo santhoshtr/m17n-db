@@ -156,6 +156,11 @@
 ;;; <li> infopage: http://www.m17n.org/emacs-ttf/
 ;;; <li> download: http://www.m17n.org/emacs-ttf/fonts/tibetan/mtib.ttf
 ;;; </ul>
+;;; <li> TibetanMachineUniAlpha.ttf (family: tibetan machine uni; for Tibetan)
+;;; <ul>
+;;; <li> infopage: http://www.thdl.org/
+;;; <li> download: http://ftp.debian.org/debian/pool/main/t/ttf-tmuni/ttf-tmuni_0.0.20040806.orig.tar.gz
+;;; </ul>
 ;;; <li> norasi_b.ttf, norasi_bi.ttf, norasi_i.ttf, norasi_n.ttf (family Norasi; for Thai)
 ;;; <ul>
 ;;; <li> infopage: http://packages.debian.org/stable/x11/xfonts-thai-ttf.html
@@ -313,7 +318,8 @@
 (tibetan
  (nil
   ((muletibetan-2) tibt-mule)
-  ((nil mtib unicode-bmp) tibt-mtib)))
+  ((nil mtib unicode-bmp) tibt-mtib)
+  ((nil tibetan\ machine\ uni unicode-bmp) tibt-otf)))
 (myanmar
  (nil
   ((nil myazedi_m17n unicode-bmp) mymr-myazedi)))

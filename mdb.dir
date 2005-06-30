@@ -170,6 +170,7 @@
 (font layouter thai-tis620 "THAI-TIS620.flt")
 (font layouter tibt-mtib "TIBT-MTIB.flt")
 (font layouter tibt-mule "TIBT-MULE.flt")
+(font layouter tibt-otf "TIBT-OTF.flt")
 (font layouter no-ctl "NO-CTL.flt")
 ;;; </ul>
 

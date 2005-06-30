@@ -104,7 +104,8 @@
   ((nil alice0\ lao apple-roman) laoo-alice)))
 (tibetan
  (nil
-  ((nil mtib unicode-bmp) tibt-mtib)))
+  ((nil mtib unicode-bmp) tibt-mtib)
+  ((nil tibetan\ machine\ uni unicode-bmp) tibt-otf)))
 (myanmar
  (nil
   ((nil myazedi_m17n unicode-bmp) mymr-myazedi)))
