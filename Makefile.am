@@ -99,7 +99,7 @@ FONT_LAYOUT_TABLE = \
 	TELU-OTF.flt \
 	THAA-OTF.flt \
 	THAI-TIS620.flt THAI-NORASI.flt \
-	TIBT-MULE.flt TIBT-MTIB.flt \
+	TIBT-MULE.flt TIBT-MTIB.flt TIBT-OTF.flt \
 	NO-CTL.flt
 
 INPUT_METHOD = \
