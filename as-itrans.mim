@@ -24,7 +24,7 @@
 ;;; <li> as-itrans.mim
 ;;;
 ;;; Input method for Bengali script (Assamese language) with ITRANS
-;;; method.  For the detail of ITRAN, see the page
+;;; method.  For the detail of ITRANS, see the page
 ;;; http://www.aczone.com/itrans/.
 
 (title "ক")
