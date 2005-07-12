@@ -24,8 +24,8 @@
 ;;; <li> pa-itrans.mim
 ;;;
 ;;; Input method for Gurmukhi script (Punjabi language) with ITRANS
-;;; method.  For the detail of ITRAN, see the page
-;;; http://www.aczone.com/itrans/.
+;;; method.  For the detail of ITRANS, see the page
+;;; http://www.aczoom.com/itrans/.
 
 (title "ਕ")
 

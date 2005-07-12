@@ -24,7 +24,7 @@
 ;;; <li> ml-itrans.mim
 ;;;
 ;;; Input method for Malayalam script with ITRANS method.  For the
-;;; detail of ITRAN, see the page http://www.aczone.com/itrans/.
+;;; detail of ITRANS, see the page http://www.aczoom.com/itrans/.
 
 (title "ക")
 
