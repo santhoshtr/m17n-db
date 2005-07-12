@@ -1,3 +1,8 @@
+2005-07-12  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* te-itrans.mim, ta-itrans.mim, pa-itrans.mim, or-itrans.mim, ml-itrans.mim, kn-itrans.mim, hi-itrans.mim, gu-itrans.mim, bn-itrans.mim, as-itrans.mim:
+	Fix typo.
+
 2005-06-30  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* mdb.dir, default.fst, truetype.fst: Add tibt-otf.
