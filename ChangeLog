@@ -37,14 +37,6 @@
 
 	* MLYM-RACHANA.flt: New file.
 
-2005-06-02  TAKAHASHI Naoto  <ntakahas@m17n.org>
-
-	* default.fst, truetype.fst: Add mlym-rachana.
-
-	* mdb.dir, Makefile.am: Add MLYM-RACHANA.flt.
-
-	* MLYM-RACHANA.flt: New file.
-
 2005-05-24  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* truetype.fst, default.fst: Rechange default to MuktiNarrow.ttf.
