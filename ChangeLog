@@ -1,7 +1,16 @@
+2005-07-21  Kenichi Handa  <handa@m17n.org>
+
+	* zh-py.mim: Map "pinyin" is replaced by the one generated from
+	Unihan.txt.
+
+	* UNIDATA/copyright.html: New file copied from
+	http://www.unicode.org/copyright.html.
+
 2005-07-12  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* te-itrans.mim, ta-itrans.mim, pa-itrans.mim, or-itrans.mim, ml-itrans.mim, kn-itrans.mim, hi-itrans.mim, gu-itrans.mim, bn-itrans.mim, as-itrans.mim:
-	Fix typo.
+	* te-itrans.mim, ta-itrans.mim, pa-itrans.mim, or-itrans.mim,
+	ml-itrans.mim, kn-itrans.mim, hi-itrans.mim, gu-itrans.mim,
+	bn-itrans.mim, as-itrans.mim: Fix typo.
 
 2005-06-30  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
