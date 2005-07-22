@@ -1,10 +1,22 @@
-2005-07-21  Kenichi Handa  <handa@m17n.org>
+2005-07-22  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* truetype.fst, default.fst: Add lohit punjabi.
+
+	* GURU-OTF.flt: Add GSUB features.
+
+2005-07-22  Mikiko Nisikimi  <nisikimi@duron>
+
+	* FORMATS/Dir.ja.txt: *** empty log message ***
+
+2005-07-21  Kenichi Handa  <handa@duron>
+
+	* zh-py.mim: Add several more pinyin data.
 
 	* zh-py.mim: Map "pinyin" is replaced by the one generated from
 	Unihan.txt.
 
-	* UNIDATA/copyright.html: New file copied from
-	http://www.unicode.org/copyright.html.
+	* UNIDATA/copyright.html:
+	New file copied from http://www.unicode.org/copyright.html.
 
 2005-07-12  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
