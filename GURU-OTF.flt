@@ -129,7 +129,7 @@
    (" ([^ ]*H)N "
     (1 otf:guru=nukt))
    (" ([^ ]*) "
-    (1 otf:guru=nukt,vatu,pstf,abvs,blws))
+    (1 otf:guru=nukt,blwf,pstf,vatu,pres,abvs,blws,psts))
    ((0x0A71)
     otf:guru)
    ("."
