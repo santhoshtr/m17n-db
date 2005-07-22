@@ -64,6 +64,7 @@
   ((nil sagar unicode-bmp) beng-otf)))
 (gurmukhi
  (nil
+  ((nil lohit\ punjabi unicode-bmp) guru-otf)
   ((nil saab unicode-bmp) guru-otf)))
 (gujarati
  (nil
