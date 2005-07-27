@@ -125,7 +125,7 @@ DIRECT-CODE ::= INTEGER
 このルールはグリフを消費せず、以下の属性を持つグリフを生成する。
 
 <ul>
-<li> コード : @c INTEGER ＋ デフォルトのコードオフセットplus the default code-offset
+<li> コード : @c INTEGER ＋ デフォルトのコードオフセット
 <li> 結合規則 : デフォルト値
 <li> 左パデイングフラグ : デフォルト値
 <li> 右パデイングフラグ : 0
