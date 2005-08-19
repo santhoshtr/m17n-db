@@ -175,6 +175,11 @@
 ;;; <li> infopage: http://www.cambodia.org/fonts/index.html#dl
 ;;; <li> download: http://www.cambodia.org/fonts/khmerfnt.zip
 ;;; </ul>
+;;; <li> KhmerOS.ttf (family: Khmer OS; for Khmer)
+;;; <ul>
+;;; <li> infopage: http://www.khmeros.info/drupal/?q=en/download/fonts
+;;; <li> download: http://www.khmeros.info/download/KhmerOS.ttf
+;;; </ul>
 ;;; <li> MyaZedi_M17N.ttf (family: MyaZedi; for Myanmar)
 ;;; <ul>
 ;;; <li> download: http://www.myazedi.com/downloads/MyaZedi_M17N.ttf
@@ -335,6 +340,7 @@
 (khmer
  (nil
   ((mulekhmer-1) khmr-mule)
+  ((nil khmer\ os unicode-bmp) khmr-otf)
   ((nil anlongvill\ khek apple-roman) khmr-anlong)))
 (hiragana
  (ja
