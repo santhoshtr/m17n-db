@@ -87,7 +87,7 @@ FONT_LAYOUT_TABLE = \
 	GUJR-OTF.flt \
 	GURU-OTF.flt \
 	HEBR.flt HEBR-FF.flt \
-	KHMR-MULE.flt KHMR-ANLONG.flt \
+	KHMR-MULE.flt KHMR-ANLONG.flt KHMR-OTF.flt\
 	KNDA-OTF.flt \
 	LAOO-MULE.flt LAOO-ALICE.flt \
 	MLYM-CDAC.flt MLYM-OTF.flt MLYM-RACHANA.flt\
