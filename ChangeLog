@@ -1,12 +1,39 @@
+2005-08-19  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* KHMR-OTF.flt: New file.
+
+	* Makefile.am: Add KHMR-OTF.flt.
+
+	* mdb.dir, default.fst, truetype.fst: Add khmr-otf.
+
+2005-08-15  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* UNIDATA/WordBreakProperty.txt, UNIDATA/SpecialCasing.txt, UNIDATA/PropList.txt:
+	New file.
+
+2005-08-12  Kenichi Handa  <handa@duron>
+
+	* UNIDATA/CaseFolding.txt, UNIDATA/README, UNIDATA/Scripts.txt, UNIDATA/UnicodeData.txt:
+	Files updated
+
+2005-07-27  Mikiko Nisikimi  <nisikimi@duron>
+
+	* FORMATS/FLT.ja.txt: *** empty log message ***
+
+2005-07-26  Kenichi Handa  <handa@duron>
+
+	* ko-romaja.mim: Add more romanization keys.  Use "I" for toggling
+	isolated Jamo input mode.
+
+2005-07-22  Mikiko Nisikimi  <nisikimi@duron>
+
+	* FORMATS/Dir.ja.txt: *** empty log message ***
+
 2005-07-22  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* truetype.fst, default.fst: Add lohit punjabi.
 
 	* GURU-OTF.flt: Add GSUB features.
-
-2005-07-22  Mikiko Nisikimi  <nisikimi@duron>
-
-	* FORMATS/Dir.ja.txt: *** empty log message ***
 
 2005-07-21  Kenichi Handa  <handa@duron>
 
