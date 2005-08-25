@@ -1,0 +1,69 @@
+;; SCRIPT-LANGUAGE.tbl -- Languages used in each script		-*- lisp -*-
+;; Copyright (C) 2005
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+;;
+;; The file format is this:
+;;	(SCRIPT [ ISO639-1 | ISO639-2 ] ...) ...
+;; SCRIPT: script name
+;; ISO639-1: 2-letter language code of ISO639-1.
+;; ISO639-2: 3-letter language code of ISO639-2.
+
+;;; <li> SCRIPT-LANGUAGE.tbl
+;;;
+;;; Table of scripts vs languages using the corresponding script.
+
+(arabic ar az fa ha kk ks ku ky pa ps sd ug ur)
+(armenian hy)
+(avesta ae)
+(bengali as bn)
+(cree cr)
+(cylliric ug)
+(cyrillic ab av az ba be bg ce cu cv kk ku kv ky mk mn os ru sr hr bs tg tk tt uk uz)
+(devanagari bh hi ks mr ne sa)
+(eskimo ik)
+(ethiopic am ti)
+(georgian ka)
+(glagolitic cu)
+(greek el)
+(gujarati gu)
+(gurmukhi pa)
+(han ja zh)
+(hangul ko)
+(hebrew he yi)
+(hiragana ja)
+(javanese jv)
+(kannada kn)
+(katakana ja)
+(khmer km)
+(lao lo)
+(latin aa af ak tw an ay bi bm br ca ch co cs cy da de ee en eo es et eu ff fi fj fo fr wa fy ga gd gl gn gv ha ho ht hu hz id ig ik is it iu jv kg ki kj kl kr ku kw la lb lg li ln lt lu lv mg mh mi ms mt na nd ng nl no nb nn nr nv ny oc oj om pl pt qu rm rn ro mo rw sc se sg sk sl sm sn so sq sr hr bs ss st su sv sw tl tn to tr ts ty ve vi wo xh yo za zu)
+(malayalam ml)
+(mongalian mn)
+(myanmar my pi)
+(oriya or)
+(sinhala pi si)
+(tamil ta)
+(telugu te)
+(thaana dv)
+(thai pi th)
+(tibetan bo dz)
+(yi ii)
