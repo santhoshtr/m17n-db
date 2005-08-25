@@ -1,5 +1,5 @@
 ;; FONTENC.tbl -- Font Encoding					-*- lisp -*-
-;; Copyright (C) 2003, 2004
+;; Copyright (C) 2003, 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -60,6 +60,7 @@
 ((nil nil gbk-0)		gbk)
 ((nil nil ksc5601.1987-0)	ksc5601.1987)
 ((nil nil viscii1.1-1)		viscii)
+((nil nil microsoft-cp1251)	cp1251)
 ((nil nil big5.eten-0)		big5)
 ((nil nil big5-1)		big5)
 ((nil nil ethiopic-unicode)	unicode unicode-ethiopic)
@@ -68,7 +69,7 @@
 ((nil nil unicode-bmp)		unicode nil)
 ((nil nil unicode-full)		unicode nil)
 
-;; These fonts can't be use without a FLT.
+;; These fonts can't be used without a FLT.
 ((nil nil devanagari-cdac)	nil)
 ((nil nil malayalam-cdac)	nil)
 ((nil nil tamil-cdac)		nil)
@@ -76,3 +77,10 @@
 ((nil tm-ttvalluvar nil)	nil)
 ((nil ml-ttkarthika nil)	nil)
 ((nil alice0\ lao nil)		nil)
+((nil cmex10 nil)		nil)
+((nil cmmi10 nil)		nil)
+((nil cmr10 nil)		nil)
+((nil cmsy10 nil)		nil)
+((nil msam10 nil)		nil)
+((nil msbm10 nil)		nil)
+((nil wasy10 nil)		nil)
