@@ -1,0 +1,68 @@
+;; SCRIPT-OTF.tbl -- Table of OTF script tag		-*- lisp -*-
+;; Copyright (C) 2005
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+;;
+;; The file format is this:
+;;	(SCRIPT OTF-TAG) ...
+;; SCRIPT: script name
+;; OTF-TAG: OTF script tag (the tailing spaces are omitted).
+
+;;; <li> SCRIPT-OTF.tbl
+;;;
+;;; Table of scripts vs the corresponding OTF script tags.
+
+(arabic		arab)
+(armenian	armn)
+(bengali	beng)
+(bopomofo	bopo)
+(braille	brai)
+(cherokee	cher)
+(han		hani)
+(cyrillic	cyrl)
+(devanagari	deva)
+(ethiopic	ethi)
+(georgian	geor)
+(greek		grek)
+(gujarati	gujr)
+(gurmukhi	guru)
+(hangul		hang)
+(hebrew		hebr)
+(hiragana	kana)
+(kannada	knda)
+(katakana	kana)
+(khmer		khmr)
+(lao		lao)
+(latin		latn)
+(malayalam	mlym)
+(mongolian	mong)
+(myanmar	mymr)
+(ogham		ogam)
+(oriya		orya)
+(runic		runr)
+(sinhala	sinh)
+(syriac		syrc)
+(tamil		taml)
+(telugu		telu)
+(thaana		thaa)
+(thai		thai)
+(tibetan	tibt)
+(yi		yi)
