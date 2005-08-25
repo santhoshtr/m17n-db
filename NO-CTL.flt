@@ -1,5 +1,5 @@
 ;; NO-CLT.flt -- Font Layout Table suppressing Complex Text Layout
-;; Copyright (C) 2003, 2004
+;; Copyright (C) 2003, 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -28,7 +28,7 @@
 ;;; a spacing glyph.
 
 (category
- (0x0900 0x137F ?C)
+ (0x0000 0x10FFFF ?C)
 )
 
 (generator
