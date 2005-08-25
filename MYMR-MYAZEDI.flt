@@ -1,5 +1,5 @@
 ;; MYMR-MYAZEDI.flt -- Font Layout Table for Myanmar (Zedi font)
-;; Copyright (C) 2004
+;; Copyright (C) 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -271,7 +271,7 @@
 
       ;; Vowel substituion.		;
       ((0xE1F1 0x102F)	0xE1F2)
-      ((0xE1F1 0x102D 0x102F)	0xE1F2 0x102E)
+      ((0xE1F1 0x102D 0x102F)	0xE1F2 0x102D)
       ((0xE1F1 0x102E 0x102F)	0xE1F2 0x102E)
       ("BcK?A"		= = = =)
       ("cAH"		= 0xE02D)
