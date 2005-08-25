@@ -1,5 +1,5 @@
 ;; THAA.flt -- Font Layout Table for Thaana OpenType font
-;; Copyright (C) 2004
+;; Copyright (C) 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -44,7 +44,7 @@
 ;; Drive OTF.
 (generator
  (0
-  otf:thaa))
+  otf:thaa=+mark))
 
 ;; Local Variables:
 ;; mode: lisp
