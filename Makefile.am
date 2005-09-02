@@ -78,10 +78,11 @@ MISC =  KOI-8.map KOI8-R.map KOI8-U.map KOI8-T.map \
 
 CHAR_TABLE = \
 	NAME.tab SCRIPT.tab CASE-S.tab CASE-C.tab \
-	CATEGORY.tab COMBINE.tab BIDI.tab
+	CATEGORY.tab COMBINE.tab BIDI.tab LINEBREAK.tab
+
 
 FONT_LAYOUT_TABLE = \
-	ARAB.flt ARAB-OTF.flt \
+	ARAB.flt ARAB-OTF.flt ARAB-OTF-NO-GPOS.flt \
 	BENG-OTF.flt \
 	DEVA-CDAC.flt DEVA-OTF.flt \
 	GUJR-OTF.flt \
@@ -89,8 +90,8 @@ FONT_LAYOUT_TABLE = \
 	HEBR.flt HEBR-FF.flt \
 	KHMR-MULE.flt KHMR-ANLONG.flt KHMR-OTF.flt\
 	KNDA-OTF.flt \
-	LAOO-MULE.flt LAOO-ALICE.flt \
-	MLYM-CDAC.flt MLYM-OTF.flt MLYM-RACHANA.flt\
+	LAOO-MULE.flt LAOO-ALICE.flt LAOO-GENERIC.flt \
+	MLYM-CDAC.flt MLYM-OTF.flt MLYM-RACHANA.flt \
 	MYMR-MYAZEDI.flt \
 	ORYA-OTF.flt \
 	SINH-OTF.flt \
@@ -98,7 +99,7 @@ FONT_LAYOUT_TABLE = \
 	TAML-CDAC.flt TAML-OTF.flt \
 	TELU-OTF.flt \
 	THAA-OTF.flt \
-	THAI-TIS620.flt THAI-NORASI.flt \
+	THAI-TIS620.flt THAI-NORASI.flt THAI-GENERIC.flt \
 	TIBT-MULE.flt TIBT-MTIB.flt TIBT-OTF.flt \
 	NO-CTL.flt
 
@@ -146,9 +147,10 @@ INPUT_METHOD = \
 
 MISC_TABLE = \
 	LOCALE.cs LOCALE.ali \
-	default.fst xfont.fst truetype.fst FONTENC.tbl FONTSIZE.tbl \
+	default.fst xfont.fst truetype.fst generic.fst \
+	FONTENC.tbl FONTSIZE.tbl \
 	CHARSET.tbl CODING.tbl im-cmd.tbl \
-	LINEBREAK.tab
+	LANGUAGE.tbl SCRIPT-OTF.tbl SCRIPT-LANGUAGE.tbl
 
 UNIDATA = \
 	UNIDATA/README \
@@ -313,9 +315,15 @@ NAME.tab: UNIDATA/UnicodeData.txt NAME.awk
 
 SCRIPT.tab: UNIDATA/Scripts.txt Makefile
 	echo "# Generated from $<." > $@
-	@$(AWK) '/^[0-9A-F]/ { print "0x"$$1, $$3; }' $< | \
+	@echo "0x0-0x3FFFFF common" >> $@
+	@sed '/; Common / d' $< | \
+	  $(AWK) '/^[0-9A-F]/ { print "0x"$$1, $$3; }' | \
 	  sed -e 's/\.\./-0x/' | \
 	  tr '[:upper:]' '[:lower:]' >> $@
+
+LINEBREAK.tab: UNIDATA/LineBreak.txt LINEBREAK.awk
+	echo "# Generated from $<." > $@
+	@$(AWK) -f LINEBREAK.awk $< >> $@
 
 %.tab: UNIDATA/UnicodeData.txt CHARTAB.awk
 	echo "# Generated from $<." > $@
