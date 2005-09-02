@@ -1,5 +1,7 @@
 2005-09-02  Kenichi Handa  <handa@m17n.org>
 
+	* UNIDATA/LineBreak.txt: New file.
+
 	* configure.ac: Change versions to 1.3.0.
 
 	* mdb.dir: Add ARAB-OTF-NO-GPOS.flt, LAOO-GENERIC.flt,
