@@ -1,3 +1,52 @@
+2005-09-02  Kenichi Handa  <handa@m17n.org>
+
+	* mdb.dir: Add ARAB-OTF-NO-GPOS.flt, LAOO-GENERIC.flt,
+	THAI-GENEIRC.flt, generic.fst, LANGUAGE.tbl, SCRIPT-OTF.tbl, and
+	SCRIPT-LANGUAGE.tbl.
+
+	* kn-itrans.mim: Tiny change by Hari Prasad Nadig.
+
+	* Makefile.am (CHAR_TABLE): Add LINEBREAK.tab.
+	(FONT_LAYOUT_TABLE): Add ARAB-OTF-NO-GPOS.flt, LAOO-GENERIC.flt,
+	and THAI-GENERIC.flt.
+	(MISC_TABLE): Add generic.fst, SCRIPT-OTF.tbl, and
+	SCRIPT-LANGUAGE.tab.
+	(SCRIPT.tab): Make the default to `common'.
+	(LINEBREAK.tab): New target.
+
+	* LINEBREAK.awk: New file.
+
+2005-08-25  Kenichi Handa  <handa@m17n.org>
+
+	* THAA-OTF.flt: Drive only mark GPOS.
+
+	* NO-CTL.flt: Include all unicode range in the category C.
+
+	* MYMR-MYAZEDI.flt: Fix type in 4th stage; 0x102E->0x102D.
+
+	* MLYM-OTF.flt: Fix typo mlum -> mlym.
+
+	* FONTENC.tbl (cp1251): Add this entry.
+	(cmex10, cmmi10, cmr10, cmsy10 msam10 msbm10 wasy10): Make them
+	usable only with proper FLTs.
+
+	* THAI-GENERIC.flt: New file.
+
+	* SCRIPT-LANGUAGE.tbl: New file.
+
+	* LAOO-GENERIC.flt: New file
+
+	* LANGUAGE.tbl: New file.
+
+	* SCRIPT-OTF.tbl: New file.
+
+	* ARAB-OTF-NO-GPOS.flt: New file.
+
+2005-07-26  Kenichi Handa  <handa@m17n.org>
+
+	* ko-romaja.mim: Add more romanization keys.  Use "I" for toggling
+	isolated Jamo input mode.
+
 2005-08-19  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* KHMR-OTF.flt: New file.
@@ -8,17 +57,17 @@
 
 2005-08-15  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* UNIDATA/WordBreakProperty.txt, UNIDATA/SpecialCasing.txt, UNIDATA/PropList.txt:
-	New file.
+	* UNIDATA/WordBreakProperty.txt, UNIDATA/SpecialCasing.txt,
+	UNIDATA/PropList.txt: New files.
 
 2005-08-12  Kenichi Handa  <handa@duron>
 
-	* UNIDATA/CaseFolding.txt, UNIDATA/README, UNIDATA/Scripts.txt, UNIDATA/UnicodeData.txt:
-	Files updated
+	* UNIDATA/CaseFolding.txt, UNIDATA/README, UNIDATA/Scripts.txt,
+	UNIDATA/UnicodeData.txt: Files updated
 
 2005-07-27  Mikiko Nisikimi  <nisikimi@duron>
 
-	* FORMATS/FLT.ja.txt: *** empty log message ***
+	* FORMATS/FLT.ja.txt: Fix the document.
 
 2005-07-26  Kenichi Handa  <handa@duron>
 
@@ -37,10 +86,8 @@
 
 2005-07-21  Kenichi Handa  <handa@duron>
 
-	* zh-py.mim: Add several more pinyin data.
-
-	* zh-py.mim: Map "pinyin" is replaced by the one generated from
-	Unihan.txt.
+	* zh-py.mim: Add several more pinyin data. Map "pinyin" is
+	replaced by the one generated from Unihan.txt.
 
 	* UNIDATA/copyright.html:
 	New file copied from http://www.unicode.org/copyright.html.
