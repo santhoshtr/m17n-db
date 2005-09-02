@@ -1,7 +1,10 @@
 ;; kn-itrans.mim -- Kannada input method with ITRANS method
-;; Copyright (C) 2003, 2004
+;; Copyright (C) 2003, 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
+
+;; Tiny change by Hari Prasad Nadig, Kannada l10n Team, kannada.l10n@gmail.com
+;; http://kannada.sourceforge.net/  18 Aug 2005. 
 
 ;; This file is part of the m17n database; a sub-part of the m17n
 ;; library.
@@ -24,7 +27,10 @@
 ;;; <li> kn-itrans.mim
 ;;;
 ;;; Input method for Kannada script with ITRANS method.  For the
-;;; detail of ITRANS, see the page http://www.aczoom.com/itrans/.
+;;; detail of ITRAN, see the page http://www.aczone.com/itrans/.
+;;; There are few changed from the ITRANS by Hari Prasad Nadig,
+;;; Kannada l10n Team, kannada.l10n@gmail.com
+;;; <http://kannada.sourceforge.net> on 18 Aug 2005. 
 
 (title "ಕ")
 
@@ -33,8 +39,8 @@
   (".") ("~") ("#") ("$") ("^") ("*") ((S-\ )) ((C-@))
   ("0") ("1") ("2") ("3") ("4")
   ("5") ("6") ("7") ("8") ("9")
-  ("A") ("C") ("D") ("G") ("H") ("I") ("J") ("K") ("L")
-  ("M") ("N") ("O") ("R") ("S") ("T") ("U") ("Y")
+  ("A") ("C") ("D") ("E") ("G") ("H") ("I") ("J") ("K") 
+  ("L") ("M") ("N") ("O") ("R") ("S") ("T") ("U") ("Y")
   ("a") ("b") ("c") ("d") ("e") ("f") ("g") ("h") ("i")
   ("j") ("k") ("l") ("m") ("n") ("o") ("p") ("q") ("r")
   ("s") ("t") ("u") ("v") ("w") ("x") ("y") ("z"))
@@ -96,19 +102,20 @@
   ("u" "ಉ")
   ("uu" "ಊ")
   ("U" "ಊ")
-  ("RRi" "ಋ")
+  ("Ru" "ಋ")
   ("R^i" "ಋ")
-  ("LLi" "ಌ")
+  ("Lru" "ಌ")
   ("L^i" "ಌ")
+  ("ee" "ಏ")
   ("E" "ಏ")
   ("e" "ಎ")
   ("ai" "ಐ")
   ("O" "ಓ")
   ("o" "ಒ")
   ("au" "ಔ")
-  ("RRI" "ೠ")
+  ("RU" "ೠ")
   ("R^I" "ೠ")
-  ("LLI" "ೡ")
+  ("LRU" "ೡ")
   ("L^I" "ೡ")
   (".n" "ಂ")
   ("M" "ಂ")
@@ -126,8 +133,6 @@
   ("9" "೯")
   ("#" "್ರ")
   ("$" "ರ್")
-  ("^" "ತ್ರ")
-  ("*" "ಶ್ರ")
   ((S-\ ) "‌")
   ((C-@) "‍"))
 
