@@ -143,6 +143,7 @@
 ;;; <ul>
 (font layouter arab "ARAB.flt")
 (font layouter arab-otf "ARAB-OTF.flt")
+(font layouter arab-otf-no-gpos "ARAB-OTF-NO-GPOS.flt")
 (font layouter beng-otf "BENG-OTF.flt")
 (font layouter deva-cdac "DEVA-CDAC.flt")
 (font layouter deva-otf "DEVA-OTF.flt")
@@ -156,6 +157,7 @@
 (font layouter knda-otf "KNDA-OTF.flt")
 (font layouter laoo-alice "LAOO-ALICE.flt")
 (font layouter laoo-mule "LAOO-MULE.flt")
+(font layouter laoo-generic "LAOO-GENERIC.flt")
 (font layouter mlym-cdac "MLYM-CDAC.flt")
 (font layouter mlym-otf "MLYM-OTF.flt")
 (font layouter mlym-rachana "MLYM-RACHANA.flt")
@@ -169,6 +171,7 @@
 (font layouter thaa-otf "THAA-OTF.flt")
 (font layouter thai-norasi "THAI-NORASI.flt")
 (font layouter thai-tis620 "THAI-TIS620.flt")
+(font layouter thai-generic "THAI-GENERIC.flt")
 (font layouter tibt-mtib "TIBT-MTIB.flt")
 (font layouter tibt-mule "TIBT-MULE.flt")
 (font layouter tibt-otf "TIBT-OTF.flt")
@@ -182,6 +185,7 @@
 (fontset default "default.fst")
 (fontset xfont "xfont.fst")
 (fontset truetype "truetype.fst")
+(fontset generic "generic.fst")
 ;;; </ul>
 
 ;;; @section misc-list The other data
@@ -196,6 +200,10 @@
 (locale codeset "LOCALE.cs")
 (locale alias "LOCALE.ali")
 
-(char-table symbol linebreak "LINEBREAK.tab")
+(char-table integer linebreak "LINEBREAK.tab")
+
+(standard language iso639 "LANGUAGE.tbl")
+(standard script otf "SCRIPT-OTF.tbl")
+(unicode script language "SCRIPT-LANGUAGE.tbl")
 
 ;;; </ul>
