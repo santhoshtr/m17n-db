@@ -79,6 +79,26 @@
 ;;; Unicode script name for each character that is available as
 ;;; #Mscript property.
 (char-table symbol script "SCRIPT.tab")
+
+;;; <li> CASED.tab
+;;;
+;;; Unicode properties for case operations.  Integer value 1 means
+;;; cased (D47, Unicode 4.0, p.89), 2 means case-ignorable (D47a,
+;;; Unicode 4.1.0), and 3 means both.  Available as #Mcased property.
+(char-table integer cased "CASED.tab")
+
+;;; <li> SOFT-DOTTED.tab
+;;;
+;;; Unicode property for case operations.  Available as #Msoft_dotted
+;;; property.
+(char-table symbol soft-dotted "SOFT-DOTTED.tab")
+
+;;; <li> CASE-MAPPING.tab
+;;;
+;;; Unicode case mapping of each character that is available as
+;;; #Mcase_mapping property.
+(char-table plist case-mapping "CASE-MAPPING.tab")
+
 ;;; </ul>
 
 ;;; @section mim-list Input method

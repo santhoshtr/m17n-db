@@ -37,6 +37,7 @@ EXTRA_DIST = \
 	${UNIDATA} \
 	mapconv compact.awk gb180302.awk gb180304.awk \
 	CHARTAB.awk NAME.awk \
+	CASED.awk SOFT-DOTTED.awk CASE-MAPPING.awk \
 	get-glibc.sh \
 	${FORMATS}
 
@@ -78,8 +79,8 @@ MISC =  KOI-8.map KOI8-R.map KOI8-U.map KOI8-T.map \
 
 CHAR_TABLE = \
 	NAME.tab SCRIPT.tab CASE-S.tab CASE-C.tab \
-	CATEGORY.tab COMBINE.tab BIDI.tab LINEBREAK.tab
-
+	CATEGORY.tab COMBINE.tab BIDI.tab LINEBREAK.tab \
+	CASED.tab SOFT-DOTTED.tab CASE-MAPPING.tab
 
 FONT_LAYOUT_TABLE = \
 	ARAB.flt ARAB-OTF.flt ARAB-OTF-NO-GPOS.flt \
@@ -88,7 +89,7 @@ FONT_LAYOUT_TABLE = \
 	GUJR-OTF.flt \
 	GURU-OTF.flt \
 	HEBR.flt HEBR-FF.flt \
-	KHMR-MULE.flt KHMR-ANLONG.flt KHMR-OTF.flt\
+	KHMR-MULE.flt KHMR-ANLONG.flt KHMR-OTF.flt \
 	KNDA-OTF.flt \
 	LAOO-MULE.flt LAOO-ALICE.flt LAOO-GENERIC.flt \
 	MLYM-CDAC.flt MLYM-OTF.flt MLYM-RACHANA.flt \
@@ -154,7 +155,9 @@ MISC_TABLE = \
 
 UNIDATA = \
 	UNIDATA/README \
-	UNIDATA/UnicodeData.txt UNIDATA/Scripts.txt UNIDATA/CaseFolding.txt
+	UNIDATA/UnicodeData.txt UNIDATA/Scripts.txt UNIDATA/CaseFolding.txt \
+	UNIDATA/PropList.txt UNIDATA/WordBreakProperty.txt \
+	UNIDATA/SpecialCasing.txt
 
 FORMATS = \
 	FORMATS/README \
@@ -320,6 +323,23 @@ SCRIPT.tab: UNIDATA/Scripts.txt Makefile
 	  $(AWK) '/^[0-9A-F]/ { print "0x"$$1, $$3; }' | \
 	  sed -e 's/\.\./-0x/' | \
 	  tr '[:upper:]' '[:lower:]' >> $@
+
+CASED.tab: UNIDATA/UnicodeData.txt UNIDATA/PropList.txt UNIDATA/WordBreakProperty.txt CASED.awk
+	echo "# Generated from UNIDATA/UnicodeData.txt, UNIDATA/PropList.txt, and UNIDATA/WordBreakProperty.txt." > $@
+	@cat UNIDATA/UnicodeData.txt UNIDATA/PropList.txt UNIDATA/WordBreakProperty.txt | $(AWK) -f CASED.awk >> $@
+
+SOFT-DOTTED.tab: UNIDATA/PropList.txt Makefile
+	echo "# Generated from $<." > $@
+	@$(AWK) '/^[^#;]+; *Soft_Dotted/ { \
+	  if (index ($$1, ".")) { \
+	    split ($$1, A, "\.\."); \
+	    print "0x"A[1]"-0x"A[2]" t"; } \
+	  else print "0x"$$1" t"; }' \
+	  $< >> $@
+
+CASE-MAPPING.tab: UNIDATA/SpecialCasing.txt UNIDATA/UnicodeData.txt CASE-MAPPING.awk
+	echo "# Generated from UNIDATA/SpecialCasing.txt and UNIDATA/UnicodeData.txt." > $@
+	@cat UNIDATA/SpecialCasing.txt UNIDATA/UnicodeData.txt | $(AWK) -f CASE-MAPPING.awk >> $@
 
 LINEBREAK.tab: UNIDATA/LineBreak.txt LINEBREAK.awk
 	echo "# Generated from $<." > $@
