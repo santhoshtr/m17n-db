@@ -37,7 +37,7 @@ EXTRA_DIST = \
 	${UNIDATA} \
 	mapconv compact.awk gb180302.awk gb180304.awk \
 	CHARTAB.awk NAME.awk \
-	CASED.awk SOFT-DOTTED.awk CASE-MAPPING.awk \
+	CASED.awk CASE-MAPPING.awk \
 	get-glibc.sh \
 	${FORMATS}
 
