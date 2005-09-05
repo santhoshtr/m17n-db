@@ -1,3 +1,20 @@
+2005-09-05  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* CASE-MAPPING.awk, CASED.awk: New file.
+
+	* Makefile.am, mdb.dir:
+	Add CASED.tab, SOFT-DOTTED.tab, and CASE-MAPPING.tab.
+
+	* KHMR-OTF.flt: Add (r)? after HR in Step 0.
+
+2005-09-05  Kenichi Handa  <handa@duron>
+
+	* generic.fst: New file.
+
+2005-09-02  Kenichi Handa  <handa@duron>
+
+	* LINEBREAK.tab: Delete it
+
 2005-09-02  Kenichi Handa  <handa@m17n.org>
 
 	* UNIDATA/LineBreak.txt: New file.
