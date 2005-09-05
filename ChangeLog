@@ -7,11 +7,11 @@
 
 	* KHMR-OTF.flt: Add (r)? after HR in Step 0.
 
-2005-09-05  Kenichi Handa  <handa@duron>
+2005-09-05  Kenichi Handa  <handa@m17n.org>
 
 	* generic.fst: New file.
 
-2005-09-02  Kenichi Handa  <handa@duron>
+2005-09-02  Kenichi Handa  <handa@m17n.org>
 
 	* LINEBREAK.tab: Delete it
 
