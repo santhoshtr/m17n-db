@@ -81,12 +81,12 @@
 	* UNIDATA/WordBreakProperty.txt, UNIDATA/SpecialCasing.txt,
 	UNIDATA/PropList.txt: New files.
 
-2005-08-12  Kenichi Handa  <handa@duron>
+2005-08-12  Kenichi Handa  <handa@m17n.org>
 
 	* UNIDATA/CaseFolding.txt, UNIDATA/README, UNIDATA/Scripts.txt,
 	UNIDATA/UnicodeData.txt: Files updated
 
-2005-07-27  Mikiko Nisikimi  <nisikimi@duron>
+2005-07-27  Mikiko Nisikimi  <nisikimi@m17n.org>
 
 	* FORMATS/FLT.ja.txt: Fix the document.
 
@@ -95,7 +95,7 @@
 	* ko-romaja.mim: Add more romanization keys.  Use "I" for toggling
 	isolated Jamo input mode.
 
-2005-07-22  Mikiko Nisikimi  <nisikimi@duron>
+2005-07-22  Mikiko Nisikimi  <nisikimi@m17n.org>
 
 	* FORMATS/Dir.ja.txt: *** empty log message ***
 
@@ -105,7 +105,7 @@
 
 	* GURU-OTF.flt: Add GSUB features.
 
-2005-07-21  Kenichi Handa  <handa@duron>
+2005-07-21  Kenichi Handa  <handa@m17n.org>
 
 	* zh-py.mim: Add several more pinyin data. Map "pinyin" is
 	replaced by the one generated from Unihan.txt.
@@ -336,7 +336,7 @@
 	* SINH-OTF.flt, default.fst, mdb.dir, truetype.fst, Makefile.am:
 	Add Sinhala support.
 
-2004-09-22  Kenichi Handa  <handa@duron>
+2004-09-22  Kenichi Handa  <handa@m17n.org>
 
 	* ARABIC-OTF.flt: Accept Arabic presentation forms in input.
 
@@ -370,7 +370,7 @@
 
 	* default.fst: Give priority to likhan for Bengali.
 
-2004-08-16  Kenichi Handa  <handa@duron>
+2004-08-16  Kenichi Handa  <handa@m17n.org>
 
 	* Makefile.am, truetype.fst, default.fst, mdb.dir:
 	Adjusted for the name change (MYANMAR-ZEDI.flt -> Mymr-MyaZedi.flt).
@@ -453,7 +453,7 @@
 
 	* ARABIC.flt: Add missing '*' in 'disjoin'.
 
-2004-07-29  Kenichi Handa  <handa@duron>
+2004-07-29  Kenichi Handa  <handa@m17n.org>
 
 	* MYANMAR-ZEDI.flt: Implement more complrex rules.
 
@@ -462,7 +462,7 @@
 	* Makefile.am, truetype.fst, mdb.dir, default.fst, THAANA-OTF.flt
 	Add Thaana support.
 
-2004-07-21  Kenichi Handa  <handa@duron>
+2004-07-21  Kenichi Handa  <handa@m17n.org>
 
 	* truetype.fst: Fix previous change.
 
@@ -503,7 +503,7 @@
 
 	* GUJ-OTF.flt: Fix a very rare case (Syllables beginning with "RHRHC".)
 
-2004-07-05  Kenichi Handa  <handa@duron>
+2004-07-05  Kenichi Handa  <handa@m17n.org>
 
 	* default.fst: Fix typo (gardi->gargi).
 
@@ -518,7 +518,7 @@
 
 	* GUJ-OTF.flt: New file.
 
-2004-07-05  Kenichi Handa  <handa@duron>
+2004-07-05  Kenichi Handa  <handa@m17n.org>
 
 	* default.fst, truetype.fst, mdb.dir, Makefile.am: Add Myanmar entry.
 
