@@ -1,3 +1,8 @@
+2005-09-06  Kenichi Handa  <handa@m17n.org>
+
+	* CASED.awk: Fix indentation.  Delete spaces between a functiuon
+	name and '('.
+
 2005-09-05  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* CASE-MAPPING.awk, CASED.awk: New file.
