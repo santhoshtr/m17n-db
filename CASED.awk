@@ -63,42 +63,48 @@ function decode_hex(str, idx) {
 }
 
 function single (str, bit) {
-i = decode_hex (str, 1);
-if (cased[i] != bit)
-     cased[i] += bit;
-     }
+  i = decode_hex(str, 1);
+  if (cased[i] != bit)
+    cased[i] += bit;
+}
 
 function range (str, bit) {
-end = decode_hex (str, index (str, "..") + 2);
-for (i = decode_hex (str, 1); i <= end; i++)
-     if (cased[i] != bit)
-     cased[i] += bit;
-     }
+  end = decode_hex(str, index (str, "..") + 2);
+  for (i = decode_hex(str, 1); i <= end; i++)
+    if (cased[i] != bit)
+      cased[i] += bit;
+}
 
 FILE == 1 && /^[^#]/ {
-		if ($3 ~ /L[ltu]/) single ($1, 1);
-		else if ($3 ~ /Mn|Me|Cf|Lm|Sk/) range ($1, 2);
-		}
+  if ($3 ~ /L[ltu]/)
+    single($1, 1);
+  else if ($3 ~ /Mn|Me|Cf|Lm|Sk/)
+    range($1, 2);
+}
 
 /^# PropList-.+\.txt/ {
-FILE = 2;
+  FILE = 2;
 }
 
 FILE == 2 && /^[^#;]+; *Other_(Upp|Low)ercase/ {
-if (index ($1, ".")) range ($1, 1);
-else single ($1, 1);
+  if (index ($1, "."))
+    range($1, 1);
+  else
+    single($1, 1);
 }
 
 /^# WordBreakProperty-.+\.txt/ {
-FILE = 3;
+  FILE = 3;
 }
 
 FILE == 3 && /^[^#;]+; *MidLetter/ {
-if (index ($1, ".")) range ($1, 2);
-else single ($1, 2);
+  if (index ($1, "."))
+    range($1, 2);
+  else
+    single($1, 2);
 }
 
 END {
-for (i in cased)
-     printf ("0x%X %d\n", i, cased[i]);
-     }
+  for (i in cased)
+    printf ("0x%X %d\n", i, cased[i]);
+}
