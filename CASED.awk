@@ -45,7 +45,6 @@ BEGIN {
   tohex["e"] = 15;
   tohex["f"] = 16;
 
-  FILE = "UnicodeData.txt";
   FS = "[ \t]*[;#][ \t]*";
 }
 
@@ -77,7 +76,7 @@ function range(str, bit) {
 
 /^[^\#]/ {
 
-  if (FILE == "UnicodeData.txt") {
+  if (FILENAME == "UNIDATA/UnicodeData.txt") {
     if ($3 ~ /L[ltu]/)
       single($1, 1);
     else if ($3 ~ /Mn|Me|Cf|Lm|Sk/)
@@ -85,7 +84,7 @@ function range(str, bit) {
     next;
   }
 
-  else if (FILE == "PropList.txt") {
+  else if (FILENAME == "UNIDATA/PropList.txt") {
     if ($2 ~ /Other_(Upp|Low)ercase/) {
       if (index($1, "."))
 	range($1, 1);
@@ -104,14 +103,6 @@ function range(str, bit) {
       next;
     }
   }
-}
-
-/^\# PropList-.+\.txt/ {
-  FILE = "PropList.txt";
-}
-
-/^\# WordBreakProperty-.+\.txt/ {
-  FILE = "WordBreakProperty.txt";
 }
 
 END {
