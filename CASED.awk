@@ -45,8 +45,8 @@ BEGIN {
   tohex["e"] = 15;
   tohex["f"] = 16;
 
-  FILE = 1;
-  FS = ";";
+  FILE = "UnicodeData.txt";
+  FS = "[ \t]*[;#][ \t]*";
 }
 
 function decode_hex(str, idx) {
@@ -54,7 +54,7 @@ function decode_hex(str, idx) {
   len = length(str);
   for (i = idx; i <= len; i++)
     {
-      c = tohex[substr (str, i, 1)];
+      c = tohex[substr(str, i, 1)];
       if (c == 0)
 	break;
       n = n * 16 + c - 1;
@@ -62,46 +62,56 @@ function decode_hex(str, idx) {
   return n;
 }
 
-function single (str, bit) {
+function single(str, bit) {
   i = decode_hex(str, 1);
   if (cased[i] != bit)
     cased[i] += bit;
 }
 
-function range (str, bit) {
-  end = decode_hex(str, index (str, "..") + 2);
+function range(str, bit) {
+  end = decode_hex(str, index(str, "..") + 2);
   for (i = decode_hex(str, 1); i <= end; i++)
     if (cased[i] != bit)
       cased[i] += bit;
 }
 
-FILE == 1 && /^[^#]/ {
-  if ($3 ~ /L[ltu]/)
-    single($1, 1);
-  else if ($3 ~ /Mn|Me|Cf|Lm|Sk/)
-    range($1, 2);
+/^[^\#]/ {
+
+  if (FILE == "UnicodeData.txt") {
+    if ($3 ~ /L[ltu]/)
+      single($1, 1);
+    else if ($3 ~ /Mn|Me|Cf|Lm|Sk/)
+      single($1, 2);
+    next;
+  }
+
+  else if (FILE == "PropList.txt") {
+    if ($2 ~ /Other_(Upp|Low)ercase/) {
+      if (index($1, "."))
+	range($1, 1);
+      else
+	single($1, 1);
+      next;
+    }
+  }
+
+  else {			# FILE == "WordBreakProperty.txt"
+    if ($2 == "MidLetter") {
+      if (index($1, "."))
+	range($1, 2);
+      else
+	single($1, 2);
+      next;
+    }
+  }
 }
 
-/^# PropList-.+\.txt/ {
-  FILE = 2;
+/^\# PropList-.+\.txt/ {
+  FILE = "PropList.txt";
 }
 
-FILE == 2 && /^[^#;]+; *Other_(Upp|Low)ercase/ {
-  if (index ($1, "."))
-    range($1, 1);
-  else
-    single($1, 1);
-}
-
-/^# WordBreakProperty-.+\.txt/ {
-  FILE = 3;
-}
-
-FILE == 3 && /^[^#;]+; *MidLetter/ {
-  if (index ($1, "."))
-    range($1, 2);
-  else
-    single($1, 2);
+/^\# WordBreakProperty-.+\.txt/ {
+  FILE = "WordBreakProperty.txt";
 }
 
 END {
