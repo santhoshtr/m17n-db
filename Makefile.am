@@ -326,7 +326,7 @@ SCRIPT.tab: UNIDATA/Scripts.txt Makefile
 
 CASED.tab: UNIDATA/UnicodeData.txt UNIDATA/PropList.txt UNIDATA/WordBreakProperty.txt CASED.awk
 	echo "# Generated from UNIDATA/UnicodeData.txt, UNIDATA/PropList.txt, and UNIDATA/WordBreakProperty.txt." > $@
-	@cat UNIDATA/UnicodeData.txt UNIDATA/PropList.txt UNIDATA/WordBreakProperty.txt | $(AWK) -f CASED.awk >> $@
+	@$(AWK) -f CASED.awk UNIDATA/UnicodeData.txt UNIDATA/PropList.txt UNIDATA/WordBreakProperty.txt >> $@
 
 SOFT-DOTTED.tab: UNIDATA/PropList.txt Makefile
 	echo "# Generated from $<." > $@
@@ -339,7 +339,7 @@ SOFT-DOTTED.tab: UNIDATA/PropList.txt Makefile
 
 CASE-MAPPING.tab: UNIDATA/SpecialCasing.txt UNIDATA/UnicodeData.txt CASE-MAPPING.awk
 	echo "# Generated from UNIDATA/SpecialCasing.txt and UNIDATA/UnicodeData.txt." > $@
-	@cat UNIDATA/SpecialCasing.txt UNIDATA/UnicodeData.txt | $(AWK) -f CASE-MAPPING.awk >> $@
+	@$(AWK) -f CASE-MAPPING.awk UNIDATA/SpecialCasing.txt UNIDATA/UnicodeData.txt >> $@
 
 LINEBREAK.tab: UNIDATA/LineBreak.txt LINEBREAK.awk
 	echo "# Generated from $<." > $@
