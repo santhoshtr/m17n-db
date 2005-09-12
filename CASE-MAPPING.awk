@@ -22,8 +22,7 @@
 # 02111-1307, USA.
 
 BEGIN {
-  FS = ";";
-  FILE = 1;
+  FS = "[ \t]*;[ \t]*";
 }
 
 function mtext (str) {
@@ -39,24 +38,21 @@ function mtext (str) {
   printf (" ");
 }
 
-FILE == 1 && /^[^\#]/ && NF == 5 {
-  printf ("0x%s ( ", $1);
-  mtext ($2);
-  mtext ($3);
-  mtext ($4);
-  printf (")\n");
-  X[$1] = 1;
-  next;
-}
+/^[^\#]/ {
+  if (FILENAME == "UNIDATA/SpecialCasing.txt" && NF == 5) {
+    printf ("0x%s ( ", $1);
+    mtext ($2);
+    mtext ($3);
+    mtext ($4);
+    printf (")\n");
+    X[$1] = 1;
+  }
 
-/^0000;/ {
-  FILE = 2;
-}
-
-FILE == 2 && /^[^\#]/ && ($13 || $14 || $15) && ! X[$1] {
-  if (! $13) $13 = $1;
-  if (! $14) $14 = $1;
-  if (! $15) $15 = $1;
-  printf ("0x%s ( \"\\u%s\" \"\\u%s\" \"\\u%s\" )\n",
-	  $1, $14, $15, $13);
+  else if (($13 || $14 || $15) && ! X[$1]) {
+    if (! $13) $13 = $1;
+    if (! $14) $14 = $1;
+    if (! $15) $15 = $1;
+    printf ("0x%s ( \"\\u%s\" \"\\u%s\" \"\\u%s\" )\n",
+	    $1, $14, $15, $13);
+  }
 }
