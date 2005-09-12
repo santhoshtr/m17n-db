@@ -1,7 +1,30 @@
+2005-09-12  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* Makefile.am: Change command lines of CASED.awk and CASE-MAPPING.awk.
+
+	* CASE-MAPPING.awk, CASED.awk: Use FILENAME built-in variable.
+
+2005-09-09  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* CASE-MAPPING.awk: Insert \ before # for auto-indent.
+
 2005-09-06  Kenichi Handa  <handa@m17n.org>
 
 	* CASED.awk: Fix indentation.  Delete spaces between a functiuon
 	name and '('.
+
+2005-09-05  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* CASE-MAPPING.awk, CASED.awk: New file.
+
+	* Makefile.am, mdb.dir:
+	Add CASED.tab, SOFT-DOTTED.tab, and CASE-MAPPING.tab.
+
+	* KHMR-OTF.flt: Add (r)? after HR in Step 0.
+
+2005-09-05  Kenichi Handa  <handa@duron>
+
+	* generic.fst: New file.
 
 2005-09-05  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
