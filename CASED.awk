@@ -75,13 +75,11 @@ function range(str, bit) {
 }
 
 /^[^\#]/ {
-
   if (FILENAME == "UNIDATA/UnicodeData.txt") {
     if ($3 ~ /L[ltu]/)
       single($1, 1);
     else if ($3 ~ /Mn|Me|Cf|Lm|Sk/)
       single($1, 2);
-    next;
   }
 
   else if (FILENAME == "UNIDATA/PropList.txt") {
@@ -90,7 +88,6 @@ function range(str, bit) {
 	range($1, 1);
       else
 	single($1, 1);
-      next;
     }
   }
 
@@ -100,7 +97,6 @@ function range(str, bit) {
 	range($1, 2);
       else
 	single($1, 2);
-      next;
     }
   }
 }
