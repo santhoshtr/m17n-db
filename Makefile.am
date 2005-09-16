@@ -36,7 +36,7 @@ EXTRA_DIST = \
 	mdb.dir \
 	${UNIDATA} \
 	mapconv compact.awk gb180302.awk gb180304.awk \
-	CHARTAB.awk NAME.awk \
+	CHARTAB.awk NAME.awk LINEBREAK.awk \
 	CASED.awk CASE-MAPPING.awk \
 	get-glibc.sh \
 	${FORMATS}
@@ -138,7 +138,7 @@ INPUT_METHOD = \
 	ta-itrans.mim \
 	te-itrans.mim \
 	th-kesmanee.mim \
-	vi-viqr.mim vi-telex.mim \
+	vi-viqr.mim vi-telex.mim vi-vni.mim \
 	zh-py.mim zh-pinyin.mim zh-tonepy.mim \
 	latn-post.mim latn-pre.mim \
 	syrc-phonetic.mim \
@@ -156,6 +156,7 @@ MISC_TABLE = \
 UNIDATA = \
 	UNIDATA/README \
 	UNIDATA/UnicodeData.txt UNIDATA/Scripts.txt UNIDATA/CaseFolding.txt \
+	UNIDATA/LineBreak.txt \
 	UNIDATA/PropList.txt UNIDATA/WordBreakProperty.txt \
 	UNIDATA/SpecialCasing.txt
 
@@ -332,7 +333,7 @@ SOFT-DOTTED.tab: UNIDATA/PropList.txt Makefile
 	echo "# Generated from $<." > $@
 	@$(AWK) '/^[^#;]+; *Soft_Dotted/ { \
 	  if (index ($$1, ".")) { \
-	    split ($$1, A, "\.\."); \
+	    split ($$1, A, "\\.\\."); \
 	    print "0x"A[1]"-0x"A[2]" t"; } \
 	  else print "0x"$$1" t"; }' \
 	  $< >> $@
