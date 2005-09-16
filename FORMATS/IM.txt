@@ -286,10 +286,15 @@ current position.  @c SYMBOL must not be a @c PREDEFINED-SYMBOL.
 
 
 @verbatim
-PUSHBACK :: = '(pushback INTEGER)'
+PUSHBACK :: = '(' 'pushback' INTEGER ')'
+              | '(' 'pushback' KEYSEQ ')'
 @endverbatim
 
-This action pushes back the latest @c INTEGER number of key events to the event queue.
+The first form pushes back the latest @c INTEGER number of key events
+to the event queue if @c INTEGER is positive, and pushes back all key
+events if @c INTEGER is zero.
+
+The second form pushes back keys in KEYSEQ to the event queue.
 
 @verbatim
 UNDO :: = '(undo)'
