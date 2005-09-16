@@ -1,5 +1,9 @@
 2005-09-16  Kenichi Handa  <handa@m17n.org>
 
+	* Makefile.am (SOFT-DOTTED.tab): Fix typo: "\.\."->"\\.\\.".
+
+	* CASE-MAPPING.awk: Delete space between function name and '('.
+
 	* FORMATS/IM.txt (PUSHBACK): Add descrition for (pushback KEYSEQ).
 
 	* zh-py.mim (map:focus-change): New map.
@@ -64,6 +68,10 @@
 
 	* LINEBREAK.tab: Delete it
 
+2005-09-02  Hari Prasad Nadig <hpnadig@gmail.com>  (slight change)
+
+	* kn-itrans.mim: Change several key mappings.
+
 2005-09-02  Kenichi Handa  <handa@m17n.org>
 
 	* UNIDATA/LineBreak.txt: New file.
@@ -73,8 +81,6 @@
 	* mdb.dir: Add ARAB-OTF-NO-GPOS.flt, LAOO-GENERIC.flt,
 	THAI-GENEIRC.flt, generic.fst, LANGUAGE.tbl, SCRIPT-OTF.tbl, and
 	SCRIPT-LANGUAGE.tbl.
-
-	* kn-itrans.mim: Tiny change by Hari Prasad Nadig.
 
 	* Makefile.am (CHAR_TABLE): Add LINEBREAK.tab.
 	(FONT_LAYOUT_TABLE): Add ARAB-OTF-NO-GPOS.flt, LAOO-GENERIC.flt,
