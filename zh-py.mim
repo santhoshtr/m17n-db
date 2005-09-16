@@ -1354,7 +1354,12 @@
   ((BackSpace)))
 
  (return
-  ((Return))))
+  ((Return)))
+
+ (focus-change
+  ((input-focus-move) (shift init))
+  ((input-focus-out) (delete @0) (pushback "ab") (undo))
+  ((input-focus-in) (delete @0) (pushback "ab") (undo))))
 
 (state
   ;; When an initial character of Pinyin is typed, re-handle it in
@@ -1366,10 +1371,13 @@
   ;; When a complete Pinyin sequence is typed, shift to "select" state
   ;; to allow users to select one from the candidates.
   (pinyin (shift select))
-  ;; When Backspace is typed, cancel the last input.
-  (backspace (hide) (undo))
   ;; When Return is typed, fix the current preedit.
   (return (shift init))
+  (nil (hide) (shift check-undo)))
+
+ (check-undo
+  ;; When Backspace is typed, cancel the last input.
+  (backspace (undo))
   ;; When anything else is typed, produce the current candidate (if
   ;; any), and re-handle the last input in "init" state.
   (nil (hide) (shift init)))
@@ -1377,6 +1385,7 @@
  (select
   ;; When a number is typed, select the corresponding canidate,
   ;; produce it, and shift to "init" state.
+  (focus-change)
   (choose (hide) (shift init))
   (change-candidate)
   (backspace (undo))
