@@ -1,3 +1,24 @@
+2005-09-16  Kenichi Handa  <handa@m17n.org>
+
+	* FORMATS/IM.txt (PUSHBACK): Add descrition for (pushback KEYSEQ).
+
+	* zh-py.mim (map:focus-change): New map.
+	(state:main): Don't handle the map backspace here.
+	(state:check-undo): New state.
+	(state:select): Handle the map focus-change.
+	
+	* ko-romaja.mim (map:uppercase): New map.
+	(map:L): Delete uppercase keys from this map.
+	(map:toggle-isolated-jamo): Toggle the value of ISOLATED.
+	(state:init): Check ISOLATED in the initial action.
+	(state:isolated): Shift ot init when a character is decided.
+
+2005-09-10  Kenichi Handa  <handa@m17n.org>
+
+	* zh-py.mim (main): Don't handle backspace here.  When an unknown
+	key is typed, shift to check-undo.
+	(check-undo): New state.
+
 2005-09-12  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* Makefile.am: Change command lines of CASED.awk and CASE-MAPPING.awk.
