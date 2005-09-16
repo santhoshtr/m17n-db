@@ -41,9 +41,9 @@ function mtext (str) {
 /^[^\#]/ {
   if (FILENAME == "UNIDATA/SpecialCasing.txt" && NF == 5) {
     printf ("0x%s ( ", $1);
-    mtext ($2);
-    mtext ($3);
-    mtext ($4);
+    mtext($2);
+    mtext($3);
+    mtext($4);
     printf (")\n");
     X[$1] = 1;
   }
