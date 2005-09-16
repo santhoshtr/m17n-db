@@ -60,6 +60,15 @@
       (set T T1)))))
 
 (map
+ (uppercase
+  ("B" (pushback "b")) ("C" (pushback "c")) ("D" (pushback "d"))
+  ("F" (pushback "f")) ("G" (pushback "g")) ("H" (pushback "h"))
+  ("J" (pushback "j")) ("K" (pushback "k")) ("L" (pushback "l"))
+  ("M" (pushback "m")) ("N" (pushback "n")) ("P" (pushback "p"))
+  ("Q" (pushback "q")) ("R" (pushback "r")) ("S" (pushback "s"))
+  ("T" (pushback "t")) ("V" (pushback "v")) ("X" (pushback "x"))
+  ("Z" (pushback "z")))
+
  ;; Keys common to CHOSEONG and JONGSEONG.
  ;; Set L1 to CHOSEONG, T to JONGSEONG, insert a Compatibility Jamo.
  (X
@@ -92,41 +101,11 @@
  ;; Keys only for CHOSEONG.
  ;; Set L to CHOSEONG, insert a Compatibility Jamo.
  (L
-  ("G"  (set L 0x1100) ?ㄱ)
-  ("Gg" (set L 0x1101) ?ㄲ)
-  ("Kk" (set L 0x1101) ?ㄲ)
-  ("Qq" (set L 0x1101) ?ㄲ)
-  ("C"  (set L 0x1101) ?ㄲ)
-  ("N"  (set L 0x1102) ?ㄴ)
-  ("D"  (set L 0x1103) ?ㄷ)
   ("dd" (set L 0x1104) ?ㄸ)
-  ("Dd" (set L 0x1104) ?ㄸ)
   ("tt" (set L 0x1104) ?ㄸ)
-  ("Tt" (set L 0x1104) ?ㄸ)
-  ("L"  (set L 0x1105) ?ㄹ)
-  ("R"  (set L 0x1105) ?ㄹ)
-  ("M"  (set L 0x1106) ?ㅁ)
-  ("B"  (set L 0x1107) ?ㅂ)
-  ("V"  (set L 0x1107) ?ㅂ)
   ("bb" (set L 0x1108) ?ㅃ)
-  ("Bb" (set L 0x1108) ?ㅃ)
-  ("S"  (set L 0x1109) ?ㅅ)
-  ("Ss" (set L 0x110A) ?ㅆ)
-  ("Ng" (set L 0x110B) ?ㅇ)
-  ("X"  (set L 0x110B) ?ㅇ)
-  ("J"  (set L 0x110C) ?ㅈ)
-  ("Z"  (set L 0x110C) ?ㅈ)
   ("jj" (set L 0x110D) ?ㅉ)
-  ("Jj" (set L 0x110D) ?ㅉ)
-  ("zz" (set L 0x110D) ?ㅉ)
-  ("Zz" (set L 0x110D) ?ㅉ)
-  ("ch" (set L 0x110E) ?ㅊ)
-  ("K"  (set L 0x110F) ?ㅋ)
-  ("Q"  (set L 0x110F) ?ㅋ)
-  ("T"  (set L 0x1110) ?ㅌ)
-  ("P"  (set L 0x1111) ?ㅍ)
-  ("F"  (set L 0x1111) ?ㅍ)
-  ("H"  (set L 0x1112) ?ㅎ))
+  ("zz" (set L 0x110D) ?ㅉ))
 
  ;; Keys only for JONGSEONG.
  ;; Set T to JONGSEONG, insert a Compatibility Jamo.
@@ -212,7 +191,7 @@
   ((BackSpace) (undo)))
 
  (toggle-isolated-jamo
-  ("I"))
+  ("I" (= ISOLATED 1 ((set ISOLATED 0)) ((set ISOLATED 1)))))
 
  (space
   (";")
@@ -220,7 +199,10 @@
 
 (state
  (init
-  (t (set L 0))
+  ;; This is to suppress compose action.
+  (t (= ISOLATED 1 ((shift isolated)) ((set L 0))))
+  ;; Uppercase keys are translated to the corresponding lowercase keys.
+  (uppercase)
   (X (set L L1) (shift after-L))
   (L (shift after-L))
   (V (shift after-LV))
@@ -255,10 +237,10 @@
  (isolated
   "자모"
   (t (set L -1))
-  (X)
-  (L)
-  (T)
-  (V)
+  (X (shift init))
+  (L (shift init))
+  (T (shift init))
+  (V (shift init))
   (toggle-isolated-jamo (shift init))))
 
 ;; Local Variables:
