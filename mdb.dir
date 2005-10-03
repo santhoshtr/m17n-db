@@ -144,6 +144,7 @@
 (input-method th kesmanee "th-kesmanee.mim")
 (input-method vi telex "vi-telex.mim")
 (input-method vi viqr "vi-viqr.mim")
+(input-method vi vni "vi-vni.mim")
 (input-method zh py "zh-py.mim")
 (input-method zh pinyin "zh-pinyin.mim")
 (input-method zh tonepy "zh-tonepy.mim")
