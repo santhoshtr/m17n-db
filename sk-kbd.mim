@@ -1,4 +1,4 @@
-;; sk-kdb.mim -- Slovak input method with Slovak keyboard layout
+;; sk-kbd.mim -- Slovak input method with Slovak keyboard layout
 ;; Copyright (C) 2003, 2004
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
@@ -21,7 +21,7 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> sk-kdb.mim
+;;; <li> sk-kbd.mim
 ;;;
 ;;; Input method for Slovak simulating the standard Slovak keyboard.
 ;;; @image html sk-kbd.png "Keyboard Layout"
