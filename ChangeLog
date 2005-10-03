@@ -1,5 +1,19 @@
 2005-10-03  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
+	* hy-kbd.mim: Fix typo.
+
+	* hr-kbd.mim: Fix typo.
+
+2005-10-03  Kenichi Handa  <handa@duron>
+
+	* ChangeLog: *** empty log message ***
+
+	* vi-vni.mim: New input method.
+
+	* mdb.dir: Add vi-vni.mim.
+
+2005-10-03  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
 	* hr-kbd.mim: Fix typo.
 
 2005-10-03  Kenichi Handa  <handa@duron>
