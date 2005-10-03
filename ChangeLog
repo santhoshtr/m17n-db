@@ -1,3 +1,9 @@
+2005-10-03  Kenichi Handa  <handa@m17n.org>
+
+	* mdb.dir: Ad vi-vni.mim.
+
+	* vi-vni.mim: New input method.
+
 2005-09-16  Kenichi Handa  <handa@m17n.org>
 
 	* Makefile.am (SOFT-DOTTED.tab): Fix typo: "\.\."->"\\.\\.".
