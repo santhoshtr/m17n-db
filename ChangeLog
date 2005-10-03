@@ -1,32 +1,15 @@
 2005-10-03  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* hy-kbd.mim: Fix typo.
-
-	* hr-kbd.mim: Fix typo.
-
-2005-10-03  Kenichi Handa  <handa@duron>
-
-	* ChangeLog: *** empty log message ***
-
-	* vi-vni.mim: New input method.
-
-	* mdb.dir: Add vi-vni.mim.
-
-2005-10-03  TAKAHASHI Naoto  <ntakahas@m17n.org>
-
-	* hr-kbd.mim: Fix typo.
+	* sr-kbd.mim, kk-kbd.mim, ka-kbd.mim, he-kbd.mim, el-kbd.mim,
+	ar-kbd.mim, bopo-kbd.mim, my-kbd.mim, sk-kbd.mim, hy-kbd.mim,
+	hr-kbd.mim:
+	Fix typo.
 
 2005-10-03  Kenichi Handa  <handa@duron>
 
 	* vi-vni.mim: New input method.
 
 	* mdb.dir: Add vi-vni.mim.
-
-2005-10-03  Kenichi Handa  <handa@m17n.org>
-
-	* mdb.dir: Ad vi-vni.mim.
-
-	* vi-vni.mim: New input method.
 
 2005-09-16  Kenichi Handa  <handa@m17n.org>
 
