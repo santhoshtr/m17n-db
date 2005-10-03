@@ -1,4 +1,4 @@
-;; bopo-kdb.mim -- Bopomofo input method
+;; bopo-kbd.mim -- Bopomofo input method
 ;; Copyright (C) 2004
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
@@ -21,7 +21,7 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> bopo-kdb.mim
+;;; <li> bopo-kbd.mim
 ;;;
 ;;; Input method for Bopomofo.
 ;;; @image html bopo-kbd.png "Keyboard Layout"

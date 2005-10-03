@@ -1,4 +1,4 @@
-;; sr-kdb.mim -- Serbian input method with Serbian keyboard layout
+;; sr-kbd.mim -- Serbian input method with Serbian keyboard layout
 ;; Copyright (C) 2004
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
@@ -21,7 +21,7 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> sr-kdb.mim
+;;; <li> sr-kbd.mim
 ;;;
 ;;; Input method for Serbian.
 ;;; Simulating Serbian Cyrillic keyboard on American keyboard.
