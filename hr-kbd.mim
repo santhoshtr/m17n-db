@@ -21,7 +21,7 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> hr-kdb.mim
+;;; <li> hr-kbd.mim
 ;;;
 ;;; Input method for Croatian.
 ;;; Simulating Croatian Latin keyboard on American keyboard.
