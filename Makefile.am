@@ -139,11 +139,11 @@ INPUT_METHOD = \
 	te-itrans.mim \
 	th-kesmanee.mim \
 	vi-viqr.mim vi-telex.mim vi-vni.mim \
-	zh-py.mim zh-pinyin.mim zh-tonepy.mim \
+	zh-py.mim zh-py-gb.mim zh-py-b5.mim zh-pinyin.mim zh-tonepy.mim \
 	latn-post.mim latn-pre.mim \
 	syrc-phonetic.mim \
 	bopo-kbd.mim \
-	unicode.mim rfc1345.mim \
+	unicode.mim rfc1345.mim cjk-util.mim \
 	ispell.mim
 
 MISC_TABLE = \
