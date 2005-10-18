@@ -25,7 +25,11 @@
 ;;;
 ;;; Input method for Korean Hangul using Hangul keyboard layout.
 
+(input-method ko han2)
+
 (title "한2")
+
+(description "Hangul input method with 2벌식")
 
 (macro
  (compose
