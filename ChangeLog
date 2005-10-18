@@ -1,3 +1,26 @@
+2005-10-18  Kenichi Handa  <handa@m17n.org>
+
+	* mdb.dir: Replace all (input-method ...) to single one of using a
+	wildcard.
+
+	* ja-anthy.mim: Add input-method, descrition, variable, and
+	command sections.
+
+	* ko-han2.mim: Add input-method and descrition sections.
+
+	* ko-romaja.mim: Add input-method and descrition sections.
+	Include cjk-util.
+
+	* CHARSET.tbl: New charset unicode-bmp.
+
+	* Makefile.am (INPUT_METHOD): Add zh-py-gb.mim, zh-py-b5.mim,
+	cjk-util.mim.
+
+	* zh-py-gb.mim, zh-py-b5.mim, cjk-util.mim: New input methods.
+
+	* zh-py.mim: Add input-method, descrition, and variable sections.
+	Re-format `pinyin' map.
+
 2005-10-03  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* sr-kbd.mim, kk-kbd.mim, ka-kbd.mim, he-kbd.mim, el-kbd.mim,
