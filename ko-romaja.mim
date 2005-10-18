@@ -27,7 +27,33 @@
 ;;; roman-transliteration rules follows that of IIIMF shown in this
 ;;; page: http://www3.sympatico.ca/d.moser/hangul.html
 
+(input-method ko romaja)
+
 (title "로마자")
+
+(description
+ "Hangul input method with romaja keys.
+Common to CHOSEONG and JONGSEONG:
+  ㄱ(g) ㄲ(gg,kk,qq,c) ㄴ(n) ㄷ(d) ㄹ(l) ㄹ(r) ㅁ(m) ㅂ(b,v) ㅅ(s)
+  ㅆ(ss) ㅇ(ng) ㅇ(x) ㅈ(j) ㅊ(ch) ㅋ(k,q) ㅌ(t) ㅍ(p,f) ㅎ(h)
+
+CHOSEONG:
+  ㄸ(dd,tt) ㅃ(bb,vv) ㅉ(jj)
+
+JONGSEONG:
+  ㄳ(gs) ㄵ(nj) ㄶ(nh) ㄺ(lg) ㄻ(lm) ㄼ(lb) ㄽ(ls) ㄾ(lt) ㄿ(lp) ㅀ(lh) ㅄ(bs)
+
+JUNGSEONG:
+  ㅏ(a) ㅐ(ai,ae) ㅑ (ya,ia) ㅒ(yai,yae,iae) ㅓ(eo) ㅔ(e,eoi) ㅕ(yeo,ieo)
+  ㅖ(ye,ie,yeoi) ㅗ(o) ㅘ(oa,wa,ua) ㅙ(oai,wae,uae,oae) ㅚ(oi,woe,uoe,oe)
+   ㅛ(yo,io) ㅜ(u,w,oo) ㅝ(ueo,wo,uo) ㅞ(ue,we) ㅟ(wi) ㅠ(yu,iu) ㅡ(eu)
+   ㅢ(eui,ui) ㅣ(i,y,ee)
+
+Special:
+  Type uppercase letter to specify CHOSEONG explicitly.
+  Type \"I\" to toggle the composed-syllable mode and isolated-jamo mode.
+  Type \">>\" to fullwidth ASCII letter mode, \"<<\" to shift out the mode.
+  Type \"Z\" and a key to input fullwidth version of the key.")
 
 (macro
  (compose
@@ -60,17 +86,22 @@
       (set T T1)))))
 
 (map
+ ;; This map is used only in init state, which means typing these
+ ;; uppercase letters in any other states causes shifting to init
+ ;; state, and they are re-handled in init state.
  (uppercase
   ("B" (pushback "b")) ("C" (pushback "c")) ("D" (pushback "d"))
   ("F" (pushback "f")) ("G" (pushback "g")) ("H" (pushback "h"))
   ("J" (pushback "j")) ("K" (pushback "k")) ("L" (pushback "l"))
   ("M" (pushback "m")) ("N" (pushback "n")) ("P" (pushback "p"))
   ("Q" (pushback "q")) ("R" (pushback "r")) ("S" (pushback "s"))
-  ("T" (pushback "t")) ("V" (pushback "v")) ("X" (pushback "x"))
-  ("Z" (pushback "z")))
+  ("T" (pushback "t")) ("V" (pushback "v")) ("X" (pushback "x")))
 
- ;; Keys common to CHOSEONG and JONGSEONG.
- ;; Set L1 to CHOSEONG, T to JONGSEONG, insert a Compatibility Jamo.
+ ;; Keys common to CHOSEONG and JONGSEONG.  Set L1 to CHOSEONG, T to
+ ;; JONGSEONG, insert a Compatibility Jamo.  When this map is used in
+ ;; init state, L is still 0, thus compose macro does nothing.
+ ;; Otherwise, L is already set to a CHOSEONG, thus compose macro
+ ;; composes LVT into a syllable.
  (X
   ("g"  (set L1 0x1100) (set T 0x11A8) ?ㄱ (compose))
   ("gg" (set L1 0x1101) (set T 0x11A9) ?ㄲ (compose))
@@ -89,7 +120,6 @@
   ("ng" (set L1 0x110B) (set T 0x11BC) ?ㅇ (compose))
   ("x"  (set L1 0x110B) (set T 0x11BC) ?ㅇ (compose))
   ("j"  (set L1 0x110C) (set T 0x11BD) ?ㅈ (compose))
-  ("z"  (set L1 0x110C) (set T 0x11BD) ?ㅈ (compose))
   ("ch" (set L1 0x110E) (set T 0x11BE) ?ㅊ (compose))
   ("k"  (set L1 0x110F) (set T 0x11BF) ?ㅋ (compose))
   ("q"  (set L1 0x110F) (set T 0x11BF) ?ㅋ (compose))
@@ -104,8 +134,8 @@
   ("dd" (set L 0x1104) ?ㄸ)
   ("tt" (set L 0x1104) ?ㄸ)
   ("bb" (set L 0x1108) ?ㅃ)
-  ("jj" (set L 0x110D) ?ㅉ)
-  ("zz" (set L 0x110D) ?ㅉ))
+  ("vv" (set L 0x1108) ?ㅃ)
+  ("jj" (set L 0x110D) ?ㅉ))
 
  ;; Keys only for JONGSEONG.
  ;; Set T to JONGSEONG, insert a Compatibility Jamo.
@@ -177,6 +207,7 @@
  (V-head
   ("a") ("y") ("e") ("o") ("w") ("u") ("i"))
 
+ ;; Input fullwidth punction characters by typing a punction twice.
  (punctuation
   ("," ?,)
   (",," ?、)
@@ -190,41 +221,46 @@
  (backspace
   ((BackSpace) (undo)))
 
- (toggle-isolated-jamo
-  ("I" (= ISOLATED 1 ((set ISOLATED 0)) ((set ISOLATED 1)))))
+ ;; Toggle normal syllable mode and isolated jamo mode.
+ (toggle-mode
+  ("I" (= ISOLATED 0 ((set ISOLATED 1)) ((set ISOLATED 0)))))
 
- (space
+ (commit-preedit
   (";")
   ((S-\ ))))
 
+(include (t nil cjk-util) map)
+
 (state
  (init
+  "로마자"
   ;; This is to suppress compose action.
-  (t (= ISOLATED 1 ((shift isolated)) ((set L 0))))
+  (t (set L 0))
   ;; Uppercase keys are translated to the corresponding lowercase keys.
   (uppercase)
   (X (set L L1) (shift after-L))
   (L (shift after-L))
   (V (shift after-LV))
   (T)
-  (punctuation)
   (backspace)
-  (toggle-isolated-jamo (shift isolated)))
+  (punctuation)
+  (enter-fullwidth-mode)
+  (enter-single-fullwidth-mode)
+  (toggle-mode (shift isolated-jamo-mode)))
 
  (after-L
   (V (shift after-LV))
-  (space (shift init))
+  (commit-preedit (shift init))
   (backspace))
  (after-LV
   (X (shift after-LVX))
   (T (shift init))
-  (space (shift init))
+  (commit-preedit (shift init))
   (backspace))
  (after-LVX
   (V-head (delete @<) (pushback 0) (shift fix-LV-redo-L))
-  (space (shift init))
-  (backspace)
-  )
+  (commit-preedit (shift init))
+  (backspace))
 
  (fix-LV-redo-L
   (t (set L 0))
@@ -234,14 +270,21 @@
  (fix-LV-redo-V
   (V (set T 0x11A7) (compose) (shift init)))
 
- (isolated
+ (isolated-jamo-mode
   "자모"
+  ;; Suppress both compose and compose-vowel action.
   (t (set L -1))
-  (X (shift init))
-  (L (shift init))
-  (T (shift init))
-  (V (shift init))
-  (toggle-isolated-jamo (shift init))))
+  (X (commit))
+  (L (set L -1) (commit))
+  (T (commit))
+  (V (commit))
+  (commit-preedit (commit))
+  (enter-fullwidth-mode)
+  (enter-single-fullwidth-mode)
+  (toggle-mode (shift init))
+  (nil (unhandle))))
+
+(include (t nil cjk-util) state fullwidth-mode single-fullwidth-mode)
 
 ;; Local Variables:
 ;; coding: utf-8
