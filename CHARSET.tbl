@@ -763,6 +763,12 @@
  define-coding t)
 
 ;; Unicode subsets.
+(unicode-bmp
+ method offset
+ dimension 2
+ min-range 0x0000
+ max-range 0xFFFF
+ min-char 0x0000)
 (unicode-devanagari
  method offset
  dimension 2
