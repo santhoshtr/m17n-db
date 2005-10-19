@@ -1,5 +1,10 @@
 2005-10-19  Kenichi Handa  <handa@m17n.org>
 
+	* ar-kbd.mim, as-itrans.mim, bn-itrans.mim, gu-itrans.mim,
+	hi-itrans.mim, kn-itrans.mim, ml-itrans.mim, or-itrans.mim,
+	pa-itrans.mim, ta-itrans.mim, te-itrans.mim: Delete ';;; <li> ...'
+	lines.  Add input-method and description elements.
+
 	* ja-tcode.mim, zh-pinyin.mim: Delete ';;; <li> ...' lines.  Add
 	input-method and description elements.
 
