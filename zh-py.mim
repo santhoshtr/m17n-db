@@ -25,10 +25,6 @@
 ;; to the "Unicode Character Database", and that part is governed by
 ;; the "Unicode Copyright" (see the file UNIDATA/copyright.html).
 
-;;; <li> zh-py.mim
-;;;
-;;; Input method for Chinese with Pinyin sequence.
-
 (input-method zh py)
 
 (description "Chinese input method with Pinyin sequence.
