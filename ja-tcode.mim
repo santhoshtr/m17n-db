@@ -21,9 +21,10 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> ja-tcode.mim
-;;;
-;;; Input method for Japanese with TCODE.
+(input-method ja tcode)
+
+(description "Input method for Japanese with TCODE.
+")
 
 (title "TC")
 (map
