@@ -1,5 +1,5 @@
 ;; zh-pinyin.mim -- Input method for Chinese Pinyin characters
-;; Copyright (C) 2004
+;; Copyright (C) 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -21,10 +21,11 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> zh-pinyin.mim
-;;;
-;;; Input method for Chinese Pinyin characters.  Note that it's not
-;;; for inputting Han characters.
+(input-method zh pinyin)
+
+(description "Input method for Chinese Pinyin characters.
+Note that it's not for inputting Han characters.
+")
 
 (title "PinYin")
 
