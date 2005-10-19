@@ -24,13 +24,16 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> kn-itrans.mim
-;;;
-;;; Input method for Kannada script with ITRANS method.  For the
-;;; detail of ITRAN, see the page http://www.aczone.com/itrans/.
-;;; There are few changed from the ITRANS by Hari Prasad Nadig,
-;;; Kannada l10n Team, kannada.l10n@gmail.com
-;;; <http://kannada.sourceforge.net> on 18 Aug 2005. 
+(input-method kn itrans)
+
+(description "Kannada input method by ITRANS transliteration.
+For the detail of ITRANS, see the page:
+  <http://www.aczoom.com/itrans/>
+There are few changes from the ITRANS by Hari Prasad Nadig,
+Kannada l10n Team, kannada.l10n@gmail.com
+  <http://kannada.sourceforge.net>
+on 18 Aug 2005. 
+")
 
 (title "ಕ")
 

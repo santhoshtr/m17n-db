@@ -1,5 +1,5 @@
 ;; ar-kbd.mim -- Arabic input method with Arabic keyboad layout
-;; Copyright (C) 2004
+;; Copyright (C) 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -21,10 +21,10 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> ar-kbd.mim
-;;;
-;;; Input method for Arabic simulating Arabic keyboard layout (MS
-;;; Windows).
+(input-method ar kbd)
+
+(description "Input Method for Arabic simulating Arabic keyboard (MS Windows).
+")
 
 (title "ض")
 
