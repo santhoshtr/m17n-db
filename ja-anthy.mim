@@ -20,21 +20,17 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> ja-anthy.mim
-;;;
-;;; Japanese input method using Anthy as a background conversion
-;;; program.  It uses the loadable module libmimx-anthy.so to
-;;; communicate with Anthy.  For more detail about Anthy, see the page
-;;; http://sourceforge.jp/projects/anthy/.
-
 (input-method ja anthy)
 
-(description
- ja anthy
- "Japanese input method using Anthy as a background conversion program
+(description "Japanese input method with Anthy as a kana-kanji converter.
 Typed roma-ji is at first converted to Hiragana,
 and Space key converts the Hiragana sequences
-to Kanji-Hiragana mixed sequence.")
+to Kanji-Hiragana mixed sequence.
+
+This input method uses the loadable module libmimx-anthy.so to
+communicate with Anthy.  For more detail about Anthy, see the page
+  <http://sourceforge.jp/projects/anthy/>.
+")
 
 (variable
  (input-mode 
