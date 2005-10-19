@@ -1,3 +1,13 @@
+2005-10-19  Kenichi Handa  <handa@m17n.org>
+
+	* ja-tcode.mim, zh-pinyin.mim: Delete ';;; <li> ...' lines.  Add
+	input-method and description elements.
+
+	* ja-anthy.mim: Delete ';;; <li> ...' lines.  Fix descpription
+	element.
+
+	* zh-py.mim: Delete ';;; <li> ...' lines.
+
 2005-10-18  Kenichi Handa  <handa@m17n.org>
 
 	* mdb.dir: Replace all (input-method ...) to single one of using a
