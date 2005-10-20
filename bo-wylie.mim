@@ -1,5 +1,5 @@
 ;; bo-wylie.mim -- Tibetan input method with Wylie method
-;; Copyright (C) 2003, 2004
+;; Copyright (C) 2003, 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -21,11 +21,12 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> bo-wylie.mim
-;;;
-;;; Input method for Tibetan with Extended Wylie transliteration.  For
-;;; more information, see the page
-;;; http://iris.lib.virginia.edu/tibet/tools/ewts.pdf.
+(input-method bo wylie)
+
+(description "Tibetan input method using the Extended Wylie transliteration.
+For more information, see the page:
+  http://iris.lib.virginia.edu/tibet/tools/ewts.pdf
+")
 
 (title "ཀ")
 (map

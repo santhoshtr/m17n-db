@@ -1,5 +1,5 @@
 ;; hr-kdb.mim -- Croatian input method with Croatian keyboard layout
-;; Copyright (C) 2004
+;; Copyright (C) 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -32,6 +32,16 @@
 ;;   qQ  wW  rR  eE  tT  zZ  uU  iI  oO  pP  šŠ  đĐ
 ;;    aA  sS  dD  fF  gG  hH  jJ  kK  lL  čČ  ćĆ  žŽ
 ;;      yY  xX  cC  vV  bB  nN  mM  ,;  .:  -_
+
+(input-method hr kbd)
+
+(description
+ "Croatian input method simulating the Croatian Latin keyboard.
+    1!  2\"  3#  4$  5%  6&  7/  8(  9)  0=  '?  +*  ¸¨
+     qQ  wW  rR  eE  tT  zZ  uU  iI  oO  pP  šŠ  đĐ
+      aA  sS  dD  fF  gG  hH  jJ  kK  lL  čČ  ćĆ  žŽ
+        yY  xX  cC  vV  bB  nN  mM  ,;  .:  -_
+")
 
 (title "HR")
 

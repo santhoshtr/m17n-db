@@ -21,11 +21,12 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> vi-vni.mim
-;;;
-;;; Input method for Vietnames with VNI key sequence based on the
-;;; information at:
-;;;    http://vietunicode.sourceforge.net/inputmethod.html
+(input-method vi vni)
+
+(description "Vietnames input method using the VNI key sequence
+It is based on the information at:
+  http://vietunicode.sourceforge.net/inputmethod.html
+")
 
 (title "ắ(VNI)")
 (map

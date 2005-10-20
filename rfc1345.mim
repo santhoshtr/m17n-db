@@ -1,5 +1,5 @@
 ;; rfc1345.mim -- Generic input method using RFC1345 mnemonics.
-;; Copyright (C) 2004
+;; Copyright (C) 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -21,13 +21,14 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> rfc1345.mim
-;;;
-;;; Generic input method using RFC1345 mnemonics.  Input characters by
-;;; typing & (ampersand) followed by two or three keys.  It doesn't
-;;; include RFC1345 mnemonics for ASCII and Control-1 characters
-;;; (U+0000..U+009F) except for & itself which can be input by typing
-;;; & twice.
+(input-method t rfc1345)
+
+(description "Generic input method using RFC1345 mnemonics.
+Input characters by typing & (ampersand) followed by two or three
+keys.  It doesn't include RFC1345 mnemonics for ASCII and
+Control-1 characters (U+0000..U+009F) except for & itself which
+can be input by typing & twice.
+")
 
 (title "RFC1345")
 

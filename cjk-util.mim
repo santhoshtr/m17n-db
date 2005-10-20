@@ -20,14 +20,21 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> fullwidth.mim
-
 (input-method t nil cjk-util)
 
 (title "AＡ")
 
-(description
- "")
+(description "Provide utilities for CJK input methods.
+This is acutually not a standalone input method, but is expected
+to be included in the other input method (e.g. zh-py).
+
+The fullwidth mode is turned on by typing \">>\", and turned off
+by typing \"<<\".
+
+The single fullwidth mode is turned on by typing \"Z\".  In this
+mode, any key typed is converted to the fullwidth character and
+is inserted, then the mode is turned off.
+")
 
 (map
  (fullwidth

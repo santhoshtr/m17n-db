@@ -29,7 +29,12 @@
 
 (title "한2")
 
-(description "Hangul input method with 2벌식")
+(description
+ "Hangul input method with 2벌식.
+This input method uses this keyboard layout:
+  KEY:	r R s e E f a q Q t T d w W c z x v g k i j p P u h y n b m l o O
+  한글:ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎㅏㅑㅓㅔㅖㅕㅗㅛㅜㅠㅡㅣㅐㅒ
+")
 
 (macro
  (compose

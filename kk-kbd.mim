@@ -1,5 +1,5 @@
 ;; kk-kbd.mim -- Input method for Kazakh in Cyrillic script
-;; Copyright (C) 2004
+;; Copyright (C) 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -29,10 +29,14 @@
 ;;; @image html kk-kbd.png "Keyboard Layout"
 ;;; @image latex kk-kbd.eps "Keyboard Layout" width=\narrowwidth
 
-;;     "!  әӘ  іІ  ӊӉ  ғҒ  ,;  .:  үҮ  ұҰ  қҚ  өӨ  һҺ  ()
-;;       йЙ  цЦ  уУ  кК  еЕ  нН  гГ  шШ  щЩ  зЗ  хХ  ъЪ
-;;        фФ  ыЫ  вВ  аА  пП  рР  оО  лЛ  дД  жЖ  эЭ  \|
-;;          яЯ  чЧ  сС  мМ  иИ  тТ  ьЬ  бБ  юЮ  №?
+(input-method kk kbd)
+
+(description "Kazakh (Cyrillic) input method simulating the Kazakh keyboard.
+    \"!  әӘ  іІ  ӊӉ  ғҒ  ,;  .:  үҮ  ұҰ  қҚ  өӨ  һҺ  ()
+      йЙ  цЦ  уУ  кК  еЕ  нН  гГ  шШ  щЩ  зЗ  хХ  ъЪ
+       фФ  ыЫ  вВ  аА  пП  рР  оО  лЛ  дД  жЖ  эЭ  \\|
+         яЯ  чЧ  сС  мМ  иИ  тТ  ьЬ  бБ  юЮ  №?
+")
 
 (title "ҚА")
 

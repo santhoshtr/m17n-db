@@ -1,5 +1,5 @@
 ;; kk-arabic.mim -- Input method for Kazakh in Arabic script
-;; Copyright (C) 2004
+;; Copyright (C) 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -21,8 +21,6 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> kk-arabic.mim
-;;;
 ;;; Transliteration input method for Kazakh written in the Arabic script
 ;;; @verbatim
 ;;;  1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17
@@ -31,6 +29,12 @@
 ;;; 18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33
 ;;;  o   O   p   r   s   t   w   u   U   f   H   h   c   S   I   i
 ;;; @endverbatim
+
+(input-method kk arabic)
+
+(description
+ "Kazakh (Arabic script) input method by transliteration.
+")
 
 (title "قا")
 

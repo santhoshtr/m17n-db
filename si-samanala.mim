@@ -1,5 +1,5 @@
 ;; si-samanala.mim -- Sinhala input method for Samanala transliteration scheme
-;; Copyright (C) 2004
+;; Copyright (C) 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -21,11 +21,13 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> si-samanala.mim
-;;;
-;;; Input method for Sinhala.  The transleteration system is based on
-;;; the Samanala version 2 developed by Prasad Dharmasena.
-;;; <http://www-texdev.mpce.mq.edu.au/l2h/indic/Indica/samanala/>
+(input-method si samanala)
+
+(description "Sinhala input method using transliteration.
+The transleteration system is based on the Samanala version 2
+developed by Prasad Dharmasena.
+  <http://www-texdev.mpce.mq.edu.au/l2h/indic/Indica/samanala/>
+")
 
 (title "Samanala")
 

@@ -1,5 +1,5 @@
 ;; sr-kbd.mim -- Serbian input method with Serbian keyboard layout
-;; Copyright (C) 2004
+;; Copyright (C) 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -32,6 +32,16 @@
 ;;        љЉ  њЊ  еЕ  рР  тТ  зЗ  уУ  иИ  оО  пП  шШ  ђЂ 
 ;;         аА  сС  дД  фФ  гГ  хХ  јЈ  кК  лЛ  чЧ  ћЋ  жЖ 
 ;;           ѕЅ  џЏ  цЦ  вВ  бБ  нН  мМ  ,;  .:  -_ 
+
+(input-method sr kbd)
+
+(description
+ "Serbian input method simulating the Serbian Cyrillic keyboard.
+    1!  2\"  3#  4$  5%  6&  7'  8(  9)  0=  /?  +*  <> 
+      љЉ  њЊ  еЕ  рР  тТ  зЗ  уУ  иИ  оО  пП  шШ  ђЂ 
+       аА  сС  дД  фФ  гГ  хХ  јЈ  кК  лЛ  чЧ  ћЋ  жЖ 
+         ѕЅ  џЏ  цЦ  вВ  бБ  нН  мМ  ,;  .:  -_ 
+")
 
 (title "SR")
 

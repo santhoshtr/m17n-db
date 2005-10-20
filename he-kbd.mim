@@ -1,5 +1,5 @@
 ;; he-kbd.mim -- Hebrew input method with Hebrew keyboard layout
-;; Copyright (C) 2003, 2004
+;; Copyright (C) 2003, 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -31,6 +31,16 @@
 ;;        /Q  'W  קE  רR  אT  טY  וU  ןI  םO  פP  [{  ]} 
 ;;         שA  דS  גD  כF  עG  יH  חJ  לK  ךL  ף:  ,"  \| 
 ;;           זZ  סX  בC  הV  נB  מN  צM  ת<  ץ>  .? 
+
+(input-method he kbd)
+
+(description 
+ "Hebrew input method simulating the Hebrew keyboard.
+    1!  2@  3#  4$  5%  6^  7&  8*  9(  0)  -_  =+  ;~ 
+      /Q  'W  קE  רR  אT  טY  וU  ןI  םO  פP  [{  ]} 
+       שA  דS  גD  כF  עG  יH  חJ  לK  ךL  ף:  ,\"  \\| 
+         זZ  סX  בC  הV  נB  מN  צM  ת<  ץ>  .? 
+")
 
 (title "ע")
 

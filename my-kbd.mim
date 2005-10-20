@@ -1,5 +1,5 @@
 ;; my-kbd.mim -- Myanmar input method with Myanmar keyboard layout
-;; Copyright (C) 2004
+;; Copyright (C) 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -21,10 +21,10 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> my-kbd.mim
-;;;
-;;; Input method for Myanmar.
-;;; Simulating Myanmar keyboard.
+(input-method my kbd)
+
+(description "Myanmar input method simulating the Myanmar keyboard.
+")
 
 (title "MY")
 

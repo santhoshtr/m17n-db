@@ -1,5 +1,5 @@
 ;; ka-kbd.mim -- Input method for Georgian
-;; Copyright (C) 2004
+;; Copyright (C) 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -31,6 +31,12 @@
 ;;; key char  [type a key sequence to insert the corresponding character]
 ;;; @image html ka-kbd2.png
 ;;; @image latex ka-kbd2.eps "Extra Keys" width=\narrowwidth
+
+(input-method ka kbd)
+
+(description
+ "Georgian input method simulating the Georgian keyboard.
+")
 
 (title "გ")
 

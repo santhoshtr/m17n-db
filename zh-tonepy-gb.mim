@@ -1,5 +1,5 @@
-;; unicode.mim -- Input method for Unicode characters by typing character code
-;; Copyright (C) 2003, 2004
+;; zh-tonepy-gb.mim -- Chinese GB2312 input method with Pinyin+Tone sequence
+;; Copyright (C) 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -21,39 +21,25 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> unicode.mim
-;;;
-;;; Input method for Unicode BMP characters by typing C-u followed by
-;;; four hexadecimal numbers [0-9A-Fa-f].
+(input-method zh tonepy-gb)
 
-(input-method t unicode)
+(description "Chinese GB2312 input method with Pinyin+Tone sequence.
+In addition to Chinese characters, fullwidth latin characters and
+symbols are available in fullwidth mode (turns on and off by
+\">>\" and \"<<\" respectively).  This mode can also be turned on
+temporarily by typing \"Z\".
+")
 
-(title "UNICODE")
+(title "调拼gb")
 
-(map
- (starter
-  ((C-U) "U+"))
+(variable
+ (candidates-group-size "" 10)
+ (candidates-charset "" gb2312.1980))
 
- (hex
-  ("0" "0") ("1" "1") ("2" "2") ("3" "3") ("4" "4")
-  ("5" "5") ("6" "6") ("7" "7") ("8" "8") ("9" "9")
-  ("A" "A") ("B" "B") ("C" "C") ("D" "D") ("E" "E") ("F" "F")
-  ("a" "A") ("b" "B") ("c" "C") ("d" "D") ("e" "E") ("f" "F")))
-
-(state
- (init
-  (starter (set code 0) (set count 0) (shift uni-hex)))
-
- (uni-hex
-  (hex (set this @-)
-       (< this ?A
-	  ((sub this 48))
-	  ((sub this 55)))
-       (mul code 16) (add code this)
-       (add count 1)
-       (= count 4
-	  ((delete @<) (insert code) (shift init))))))
+(include (zh tonepy) map)
+(include (zh tonepy) state)
 
 ;; Local Variables:
+;; coding: utf-8
 ;; mode: lisp
 ;; End:

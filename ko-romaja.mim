@@ -21,18 +21,17 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> ko-romaja.mim
-;;;
 ;;; Input method for Korean Hangul using Romaja keys.  The
 ;;; roman-transliteration rules follows that of IIIMF shown in this
 ;;; page: http://www3.sympatico.ca/d.moser/hangul.html
 
 (input-method ko romaja)
 
-(title "로마자")
-
 (description
  "Hangul input method with romaja keys.
+The roman-transliteration rules follows that of IIIMF shown in
+the page <http://www3.sympatico.ca/d.moser/hangul.html>.
+
 Common to CHOSEONG and JONGSEONG:
   ㄱ(g) ㄲ(gg,kk,qq,c) ㄴ(n) ㄷ(d) ㄹ(l) ㄹ(r) ㅁ(m) ㅂ(b,v) ㅅ(s)
   ㅆ(ss) ㅇ(ng) ㅇ(x) ㅈ(j) ㅊ(ch) ㅋ(k,q) ㅌ(t) ㅍ(p,f) ㅎ(h)
@@ -46,14 +45,17 @@ JONGSEONG:
 JUNGSEONG:
   ㅏ(a) ㅐ(ai,ae) ㅑ (ya,ia) ㅒ(yai,yae,iae) ㅓ(eo) ㅔ(e,eoi) ㅕ(yeo,ieo)
   ㅖ(ye,ie,yeoi) ㅗ(o) ㅘ(oa,wa,ua) ㅙ(oai,wae,uae,oae) ㅚ(oi,woe,uoe,oe)
-   ㅛ(yo,io) ㅜ(u,w,oo) ㅝ(ueo,wo,uo) ㅞ(ue,we) ㅟ(wi) ㅠ(yu,iu) ㅡ(eu)
-   ㅢ(eui,ui) ㅣ(i,y,ee)
+  ㅛ(yo,io) ㅜ(u,w,oo) ㅝ(ueo,wo,uo) ㅞ(ue,we) ㅟ(wi) ㅠ(yu,iu) ㅡ(eu)
+  ㅢ(eui,ui) ㅣ(i,y,ee)
 
 Special:
   Type uppercase letter to specify CHOSEONG explicitly.
   Type \"I\" to toggle the composed-syllable mode and isolated-jamo mode.
   Type \">>\" to fullwidth ASCII letter mode, \"<<\" to shift out the mode.
-  Type \"Z\" and a key to input fullwidth version of the key.")
+  Type \"Z\" and a key to input fullwidth version of the key.
+")
+
+(title "로마자")
 
 (macro
  (compose

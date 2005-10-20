@@ -1,5 +1,5 @@
 ;; ispell.mim -- English input method with spell checker (ISPELL).
-;; Copyright (C) 2003, 2004
+;; Copyright (C) 2003, 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -20,13 +20,14 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> ispell.mim
-;;;
-;;; Input method for English using ISPELL as a spell checker.  It uses
-;;; the loadable module libmimx-ispell.so to communicate with ISPELL
-;;; program.  You can check the spelll of typed word by TAB key.  Not
-;;; for an actual use, but for demonstrating what can be done by the
-;;; m17n input method.
+(input-method en ispell)
+
+(description "Input method for English using ISPELL as a spell checker.
+It uses the loadable module libmimx-ispell.so to communicate with
+ISPELL program.  You can check the spelll of typed word by TAB
+key.  Not for an actual use, but for demonstrating what can be
+done by the m17n input method.
+")
 
 (title "ISPELL")
 

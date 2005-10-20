@@ -1,5 +1,5 @@
 ;; th-kesmanee.mim -- Thai input method with Kesmanee keyboard layout
-;; Copyright (C) 2003, 2004
+;; Copyright (C) 2003, 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -21,9 +21,10 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> th-kesmanee.mim
-;;;
-;;; Input method for Thai with Kesmanee keyboard layout.
+(input-method th kesmanee)
+
+(description "Thai input method simulating the Kesmanee keyboard.
+")
 
 (title "กก")
 

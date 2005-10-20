@@ -1,5 +1,5 @@
 ;; vi-viqr.mim -- Input method for Vietnames with VIQR key sequence
-;; Copyright (C) 2003, 2004
+;; Copyright (C) 2003, 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -21,9 +21,10 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> vi-viqr.mim
-;;;
-;;; Input method for Vietnames with VIQR key sequence.
+(input-method vi viqr)
+
+(description "Vietnames input method using the VIQR key sequence.
+")
 
 (title "ắ")
 (map

@@ -1,5 +1,5 @@
 ;; latn-pre.mim -- Latin input method with prefix modifiers
-;; Copyright (C) 2004
+;; Copyright (C) 2004, 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -45,6 +45,31 @@
 ;; | symbol     |   ^    | ^1 -> ¹  ^2 -> ²  ^3 -> ³  ^r -> ®  ^cc -> ©
 ;; | symbol     |   /    | /2 -> ½  /3 -> ¾  /4 -> ¼  /= -> ?¬
 ;; | symbol     |   /    | /# -> £  /$ -> ¤  /c -> ¢  /. -> ˙  // -> °  /\ -> ×
+
+(input-method t latn-pre)
+
+(decsription
+ "Latin script input method using prefix modifiers.
+;; | mark       | prefix | examples
+;; |------------+--------+----------
+;; | acute      |   '    | 'a -> á, '' -> ´
+;; | grave      |   `    | `a -> à  `` -> `
+;; | circumflex |   ^    | ^a -> â  ^^ -> ^
+;; | diaeresis  |   \"    | \"a -> ä  \"\" -> ¨
+;; | tilde      |   ~    | ~a -> ã
+;; | breve      |   ~    | ~g -> ğ  ~` -> ˘
+;; | cedilla    |   ~    | ~c -> ç  ~s -> ş  ~~ -> ¸
+;; | caron      |   ~    | ~z -> ž  ~ss -> š
+;; | dot above  |  . /   | .g -> ġ  /g -> ġ
+;; | misc       |   /    | /a -> å  /e -> æ  /h -> ħ  /o -> ø  /oe -> œ
+;; | misc       | \" ~ /  | \"s -> ß  ~d -> ð  ~t -> þ  /a -> å  /e -> æ  /o -> ø
+;; | symbol     |   ~    | ~> -> »  ~< -> «  ~! -> ¡  ~? -> ¿  ~~ -> ¸  ~$ -> £
+;; | symbol     |   ~    | ~- -> ­  ~. -> ·  ~= -> ¯  ~| -> ¦  ~sss -> §
+;; | symbol     |   _    | _+ -> ±  _: -> ÷  _o -> º  _a -> ª  _y -> ¥
+;; | symbol     |   ^    | ^1 -> ¹  ^2 -> ²  ^3 -> ³  ^r -> ®  ^cc -> ©
+;; | symbol     |   /    | /2 -> ½  /3 -> ¾  /4 -> ¼  /= -> ?¬
+;; | symbol     |   /    | /# -> £  /$ -> ¤  /c -> ¢  /. -> ˙  // -> °  /\\ -> ×
+")
 
 (title "Latin-pre")
 
