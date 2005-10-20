@@ -2200,8 +2200,8 @@ temporarily by typing \"Z\".
   ;; to init.
   ((input-focus-move) (shift init))
   ;; When an input focus is out or in, keep the current preedit.
-  ((input-focus-out) (undo 1))
-  ((input-focus-in) (undo 1))))
+  ((input-focus-out) (set KK @@) (sub KK 1) (undo KK))
+  ((input-focus-in) (set KK @@) (sub KK 1) (undo KK))))
 
 (include (t nil cjk-util) map)
 
@@ -2230,6 +2230,7 @@ temporarily by typing \"Z\".
   (nil (hide) (shift init)))
 
  (select
+  (t (set K @@) (sub K 1))
   ;; When a number is typed, select the corresponding canidate,
   ;; produce it, and shift to "init" state.
   (focus-change)
