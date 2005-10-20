@@ -255,14 +255,17 @@ Convert Hiragana to Kanji"
 
  (henkan
   "漢"
+  (t (set K @@) (sub K 1))
   (henkan-edit)
   (change-candidate (call libmimx-anthy change) (show) (shift henkan2))
   (kakutei (call libmimx-anthy commit) (shift init))
-  (nil (shift init)))
+  (backspace (undo K))
+  (nil (call libmimx-anthy commit) (shift init)))
 
  (henkan2
   "漢"
   (change-candidate (call libmimx-anthy change) (show))
+  (backspace (undo K))
   (nil (hide) (shift henkan)))
 
  (fail
