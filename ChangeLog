@@ -1,3 +1,22 @@
+2005-10-20  Kenichi Handa  <handa@m17n.org>
+
+	* zh-py.mim, zh-tonepy.mim: Fix an argument to undo.
+
+	* generic.fst (khmer): Add an entry for an OTF font.
+
+	* romaji.mim: Deleted.
+
+	* am-sera.mim, bn-unijoy.mim, bo-wylie.mim, bopo-kbd.mim,
+	cjk-util.mim, dv-phonetic.mim, el-kbd.mim, fa-isiri.mim,
+	generic.fst, he-kbd.mim, hr-kbd.mim, hy-kbd.mim, ispell.mim,
+	ka-kbd.mim, kk-arabic.mim, kk-kbd.mim, km-yannis.mim, ko-han2.mim,
+	ko-romaja.mim, latn-post.mim, latn-pre.mim, lo-lrt.mim,
+	my-kbd.mim, rfc1345.mim, romaji.mim, ru-yawerty.mim,
+	si-samanala.mim, sk-kbd.mim, sr-kbd.mim, sv-post.mim,
+	syrc-phonetic.mim, th-kesmanee.mim, unicode.mim, vi-telex.mim,
+	vi-viqr.mim, vi-vni.mim, zh-tonepy.mim:  Add input-method and
+	descrition elements.
+
 2005-10-19  Kenichi Handa  <handa@m17n.org>
 
 	* ar-kbd.mim, as-itrans.mim, bn-itrans.mim, gu-itrans.mim,
