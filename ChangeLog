@@ -1,3 +1,7 @@
+2005-10-22  Kenichi Handa  <handa@m17n.org>
+
+	* m17n-db.in: Handle wildcard entry.
+
 2005-10-20  Kenichi Handa  <handa@m17n.org>
 
 	* zh-py.mim, zh-tonepy.mim: Fix an argument to undo.
