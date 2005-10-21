@@ -1,6 +1,6 @@
 #!/bin/sh
 # m17n-db -- print information about the m17n database.
-# Copyright (C) 2004
+# Copyright (C) 2004, 2005
 #   National Institute of Advanced Industrial Science and Technology (AIST)
 #   Registration Number H15PRO112
 # See the end for copying conditions.
@@ -10,52 +10,88 @@ datadir=@datadir@
 
 help ()
 {
-  echo "Usage: $0 [ OPTIONS ] [ TAG0 [ TAG1 [ TAG2 [ TAG3 ] ] ] ]"
-  echo "Options:"
-  echo "  -h, --help	Print this information."
-  echo "  -v, --version	Print the version number."
-  echo "  -l, --locate	Print absolute pathnames of database files."
-  echo "	TAG0 through TAG3 specifies the tags of the database."
-  echo "With no options, print the installed directory name."
+    echo "Usage: $0 [ OPTIONS ] [ TAG0 [ TAG1 [ TAG2 [ TAG3 ] ] ] ]"
+    echo "Options:"
+    echo "  -h, --help	Print this information."
+    echo "  -v, --version	Print the version number."
+    echo "  -l, --locate	Print absolute pathnames of database files."
+    echo "	TAG0 through TAG3 specifies the tags of the database."
+    echo "With no options, print the installed directory name."
 }
 
 if test $# -gt 0; then
-  case "$1" in
-    -h | --help) help; exit 0;;
-    -v | --version) echo "@VERSION@"; exit 0;;
-    -l | --locate) DIRFILE="$datadir/m17n/mdb.dir"; shift;;
-    *) help; exit 1;;
-  esac
+    case "$1" in
+	-h | --help) help; exit 0;;
+	-v | --version) echo "@VERSION@"; exit 0;;
+	-l | --locate) DIRFILE="$datadir/m17n/mdb.dir"; shift;;
+	*) help; exit 1;;
+    esac
 fi
 
 if test -z "$DIRFILE" ; then
-  echo $datadir/m17n
-  exit 0
+    echo $datadir/m17n
+    exit 0
 fi
 
 if test ! -f "$DIRFILE"; then
-  echo "Can't find the m17n database directory file \"$DIRFILE\"!"
-  exit 1
+    echo "Can't find the m17n database directory file \"$DIRFILE\"!"
+    exit 1
 fi
 
 if test -z "$1"; then
-  help
-  exit 1
+    help
+    exit 1
 fi
 
-TAG="($1"
-if [ -n "$2" ] ; then
-  TAG="${TAG}[ 	][ 	]*$2"
+TAG0=$1
+TAG1=$2
+if test -z "$TAG1"; then
+    TAG1="*"
 fi
-if [ -n "$3" ] ; then
-  TAG="${TAG}[ 	][ 	]*$3"
+TAG2=$3
+if test -z "$TAG2"; then
+    TAG2="*"
 fi
-if [ -n "$4" ] ; then
-  TAG="${TAG}[ 	][ 	]*$4"
+TAG3=$4
+if test -z "$TAG3"; then
+    TAG3="*"
 fi
 
-sed -n "/${TAG}/ s,[^\"]*\"\([^\"]*\)\".*$,\1,p" < $DIRFILE |\
-  sed -e "/^[^/]/ s,\(.*\),$datadir/\1,"
+SPC="[ 	]*"
+ANY="$SPC\([A-Za-z*][^ 	)]*\)\?"
+
+TAGS="$SPC\($TAG0\)$SPC$ANY$SPC$ANY$SPC$ANY"
+FILE="$SPC\"\([^\"]*\)\""
+ENTRIES=`sed -n "/$TAG0/s|$SPC($TAGS$FILE).*$|/\1/\2/\3/\4/\5|p" $DIRFILE`
+
+cd $datadir/m17n
+
+for e in $ENTRIES; do
+    FN=`expr "$e" : "/[^/]*/[^/]*/[^/]*/[^/]*/\(.*\)"`
+    case "$e" in
+	/$TAG0/\*/*/* | /$TAG0/*/\*/* | /$TAG0/*/*/\*)
+	    for f in $FN; do
+		if test -f $f; then
+		    ENTRY=`sed -n "/$TAG0/s|$SPC($TAGS).*$|/\1/\2/\3/\4|p" $f`
+		    if test -n "$ENTRY"; then
+			LIST="$LIST $ENTRY/$f"
+		    fi
+		fi
+	    done;;
+	*)
+	    if test -f $FN; then
+		LIST="$LIST $e"
+	    fi;;
+    esac
+done
+
+for l in $LIST; do
+    case "$l" in
+	/$TAG0/$TAG1/$TAG2/$TAG3)
+	    FN=`expr "$l" : "/[^/]*/[^/]*/[^/]*/[^/]*/\(.*\)"`
+	    echo "`pwd`/$FN"
+    esac
+done
 
 exit 0
 
@@ -106,3 +142,7 @@ EOF
 # License along with the m17n library; if not, write to the Free
 # Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 # 02111-1307, USA.
+
+# Local Variables:
+# coding: euc-japan
+# End:
