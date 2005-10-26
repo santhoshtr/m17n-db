@@ -46,7 +46,7 @@ temporarily by typing \"Z\".
   ;; ("i")
   ("j") ("k") ("l") ("m") ("n") ("o") ("p") ("q") ("r") ("s") ("t")
   ;; ("u") ("v")
-  ("w") ("x") ("y") ("z") )
+  ("w") ("x") ("y") ("z"))
 
  ;; Big table of Pinyin vs the corresponding Chinese characters.  This
  ;; part is generated automatically from the Unihan database
@@ -1337,23 +1337,10 @@ temporarily by typing \"Z\".
   ("zun" ("尊遵蹲撙樽鳟䔿僔噂墫壿嶟捘燇繜罇臶譐跧銌鐏鱒鷷"))
   ("zuo" ("作做坐左座昨琢撮凿乍佐柞阼唑嘬怍迮胙祚砟笮酢㑅㘀㘴㛗㝾㣱㤰㭮"
 	  "㶡㸲䇥䋏䎰䔘䜊䝫䞢䞰䟄䟶䦈䩦䬤䯿侳咗唨夎岝岞捽椊毑秨稓筰糳繓"
-	  "苲莋葃葄袏鈼鑿飵")))
-
- (backspace
-  ((BackSpace)))
-
- (return
-  ((Return)))
-
- (focus-change
-  ;; When an input spot is moved, commit the current predit by shifting
-  ;; to init.
-  ((input-focus-move) (shift init))
-  ;; When an input focus is out or in, keep the current preedit.
-  ((input-focus-out) (set KK @@) (sub KK 1) (undo KK))
-  ((input-focus-in) (set KK @@) (sub KK 1) (undo KK))))
+	  "苲莋葃葄袏鈼鑿飵"))))
 
 (include (t nil cjk-util) map)
+(include (t nil zh-util) map)
 
 (state
   ;; When an initial character of Pinyin is typed, re-handle it in
@@ -1367,33 +1354,10 @@ temporarily by typing \"Z\".
   ;; When a complete Pinyin sequence is typed, shift to "select" state
   ;; to allow users to select one from the candidates.
   (pinyin (shift select))
-  ;; When Return is typed, fix the current preedit.
-  (return (shift init))
-  (nil (hide) (shift check-undo)))
+  (nil (hide) (shift check-undo))))
 
- (check-undo
-  ;; When Backspace is typed, cancel the last input.
-  (backspace (undo))
-  (focus-change)
-  ;; When anything else is typed, produce the current candidate (if
-  ;; any), and re-handle the last input in "init" state.
-  (nil (hide) (shift init)))
-
- (select
-  (t (set K @@) (sub K 1))
-  ;; When a number is typed, select the corresponding canidate,
-  ;; produce it, and shift to "init" state.
-  (focus-change)
-  (choose (hide) (shift init))
-  (change-candidate)
-  (backspace (undo K))
-  ;; When Return is typed, fix the current preedit.
-  (return (shift init))
-  ;; When anything else is typed, produce the current candidate,
-  ;; and re-handle the last input in "init" state.
-  (nil (hide) (shift init))))
-
-(include (t nil cjk-util) state fullwidth-mode single-fullwidth-mode)
+(include (t nil cjk-util) state)
+(include (t nil zh-util) state)
 
 ;; Local Variables:
 ;; mode: lisp
