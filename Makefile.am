@@ -139,12 +139,15 @@ INPUT_METHOD = \
 	te-itrans.mim \
 	th-kesmanee.mim \
 	vi-viqr.mim vi-telex.mim vi-vni.mim \
-	zh-py.mim zh-py-gb.mim zh-py-b5.mim zh-pinyin.mim zh-tonepy.mim \
+	zh-py.mim zh-py-gb.mim zh-py-b5.mim \
+	zh-tonepy.mim zh-tonepy-gb.mim zh-tonepy-b5.mim \
+	zh-pinyin.mim \
 	latn-post.mim latn-pre.mim \
 	syrc-phonetic.mim \
 	bopo-kbd.mim \
-	unicode.mim rfc1345.mim cjk-util.mim \
-	ispell.mim
+	unicode.mim rfc1345.mim \
+	ispell.mim \
+	cjk-util.mim zh-util.mim
 
 MISC_TABLE = \
 	LOCALE.cs LOCALE.ali \
