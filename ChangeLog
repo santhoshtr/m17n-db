@@ -1,10 +1,27 @@
+2005-10-26  Kenichi Handa  <handa@m17n.org>
+
+	* Makefile.am (INPUT_METHOD): Add zh-tonepy-gb.mim,
+	zh-tonepy-b5.mim, and zh-util.mim.
+
+	* ko-romaja.mim: Include all states of cjk-util.
+
+	* zh-py.mim: Remove map (backspace, return focus-change), state
+	(check-undo, select).  Include zh-util.
+
+	* zh-util.mim: New file.
+
+	* cjk-util.mim: Remove title, map (choose and change-candidate),
+	state (init).
+
+	* zh-tonepy-gb, zh-tonepy-b5: New input methods.
+
 2005-10-22  Kenichi Handa  <handa@m17n.org>
 
 	* m17n-db.in: Handle wildcard entry.
 
 2005-10-20  Kenichi Handa  <handa@m17n.org>
 
-	* zh-py.mim, zh-tonepy.mim: Fix an argument to undo.
+	* ja-anthy.mim, zh-py.mim, zh-tonepy.mim: Fix an argument to undo.
 
 	* generic.fst (khmer): Add an entry for an OTF font.
 
