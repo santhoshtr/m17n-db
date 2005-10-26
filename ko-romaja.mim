@@ -286,7 +286,7 @@ Special:
   (toggle-mode (shift init))
   (nil (unhandle))))
 
-(include (t nil cjk-util) state fullwidth-mode single-fullwidth-mode)
+(include (t nil cjk-util) state)
 
 ;; Local Variables:
 ;; coding: utf-8
