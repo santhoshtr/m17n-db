@@ -221,7 +221,7 @@ Special:
   ("!!" ?！))
 
  (backspace
-  ((BackSpace) (undo)))
+  ((BackSpace) (> @@ 1 ((undo)) ((unhandle)))))
 
  ;; Toggle normal syllable mode and isolated jamo mode.
  (toggle-mode
