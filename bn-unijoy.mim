@@ -1,5 +1,5 @@
 ;; bn-unijoy.mim -- Bengali input method simulating Unijoy keyboard.
-;; Copyright (C) 2003, 2004, 2005
+;; Copyright (C) 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -24,6 +24,7 @@
 (input-method bn unijoy)
 
 (description "Bengali input method simulating Unijoy keyboard layout.
+  <http://ekushey.org/projects/shadhinota/uni_joy.html>
 ")
 
 (title "ক")
@@ -108,45 +109,45 @@
   ("M" "শ") ;; BENGALI LETTER SHA
 
 
-  ((M-=) "≠")	;; NOT EQUAL TO
+  ((A-=) "≠")	;; NOT EQUAL TO
 
-  ((M-e) "ঈ")	;; BENGALI LETTER II
-  ((M-u) "ঊ")	;; BENGALI LETTER UU
-  ((M-i) "ঐ")	;; BENGALI LETTER AI
-  ((M-o) "ঔ")	;; BENGALI LETTER AU
+  ((A-e) "ঈ")	;; BENGALI LETTER II
+  ((A-u) "ঊ")	;; BENGALI LETTER UU
+  ((A-i) "ঐ")	;; BENGALI LETTER AI
+  ((A-o) "ঔ")	;; BENGALI LETTER AU
 
-  ((M-a) "ঋ")	;; BENGALI LETTER VOCALIC R
-  ((M-s) "উ")	;; BENGALI LETTER U
-  ((M-d) "ই")	;; BENGALI LETTER I
-  ((M-f) "আ")	;; BENGALI LETTER AA
-  ((M-g) "্")	;; BENGALI SIGN VIRAMA //not a dead key now
-  ((M-h) "ৰ")	;; BENGALI LETTER RA WITH MIDDLE DIAGONAL
+  ((A-a) "ঋ")	;; BENGALI LETTER VOCALIC R
+  ((A-s) "উ")	;; BENGALI LETTER U
+  ((A-d) "ই")	;; BENGALI LETTER I
+  ((A-f) "আ")	;; BENGALI LETTER AA
+  ((A-g) "্")	;; BENGALI SIGN VIRAMA //not a dead key now
+  ((A-h) "ৰ")	;; BENGALI LETTER RA WITH MIDDLE DIAGONAL
 
-  ((M-x) "ও")	;; BENGALI LETTER O
-  ((M-c) "এ")	;; BENGALI LETTER E
-  ((M-v) "ৱ")	;; BENGALI LETTER RA WITH LOWER DIAGONAL
-  ((M-.) "়")	;; BENGALI SIGN NUKTA
+  ((A-x) "ও")	;; BENGALI LETTER O
+  ((A-c) "এ")	;; BENGALI LETTER E
+  ((A-v) "ৱ")	;; BENGALI LETTER RA WITH LOWER DIAGONAL
+  ((A-.) "়")	;; BENGALI SIGN NUKTA
 
-  ((M-!) "৴")	;; BENGALI CURRENCY NUMERATOR ONE
-  ((M-@) "৵")	;; BENGALI CURRENCY NUMERATOR TWO
-  ((M-#) "৶")	;; BENGALI CURRENCY NUMERATOR THREE
-  ((M-$) "৷")	;; BENGALI CURRENCY NUMERATOR FOUR
-  ((M-%) "৲")	;; BENGALI RUPEE MARK
-  ((M-&) "৺")	;; BENGALI ISSHAR
-  ((M-\)) "৸") ;;BENGALI CURRENCY NUMERATOR ONE LESS THAN THE DENOMINATOR
-  ((M-_) "৹")	;; BENGALI CURRENCY DENOMINATOR SIXTEEN
+  ((A-!) "৴")	;; BENGALI CURRENCY NUMERATOR ONE
+  ((A-@) "৵")	;; BENGALI CURRENCY NUMERATOR TWO
+  ((A-#) "৶")	;; BENGALI CURRENCY NUMERATOR THREE
+  ((A-$) "৷")	;; BENGALI CURRENCY NUMERATOR FOUR
+  ((A-%) "৲")	;; BENGALI RUPEE MARK
+  ((A-&) "৺")	;; BENGALI ISSHAR
+  ((A-\)) "৸") ;;BENGALI CURRENCY NUMERATOR ONE LESS THAN THE DENOMINATOR
+  ((A-_) "৹")	;; BENGALI CURRENCY DENOMINATOR SIXTEEN
 
-  ((M-Q) "ঌ")	;; BENGALI LETTER VOCALIC L
-  ((M-W) "ৡ")	;; BENGALI LETTER VOCALIC LL
-  ((M-I) "ঽ")	;; BENGALI LETTER AVAGRAHA
+  ((A-Q) "ঌ")	;; BENGALI LETTER VOCALIC L
+  ((A-W) "ৡ")	;; BENGALI LETTER VOCALIC LL
+  ((A-I) "ঽ")	;; BENGALI LETTER AVAGRAHA
 
-  ((M-Z) "ৢ")	;; BENGALI VOWEL SIGN VOCALIC L
-  ((M-X) "ৗ")	;; BENGALI AU LENGTH MARK
-  ((M-C) "ৠ")	;; BENGALI LETTER VOCALIC RR
-  ((M-V) "ৣ")	;; BENGALI VOWEL SIGN VOCALIC LL
-  ((M-B) "ৄ")	;; BENGALI VOWEL SIGN VOCALIC RR
-  ((M-<) "≤")	;; LESS-THAN OR EQUAL TO
-  ((M->) "≥")	;; GREATER-THAN OR EQUAL TO
+  ((A-Z) "ৢ")	;; BENGALI VOWEL SIGN VOCALIC L
+  ((A-X) "ৗ")	;; BENGALI AU LENGTH MARK
+  ((A-C) "ৠ")	;; BENGALI LETTER VOCALIC RR
+  ((A-V) "ৣ")	;; BENGALI VOWEL SIGN VOCALIC LL
+  ((A-B) "ৄ")	;; BENGALI VOWEL SIGN VOCALIC RR
+  ((A-<) "≤")	;; LESS-THAN OR EQUAL TO
+  ((A->) "≥")	;; GREATER-THAN OR EQUAL TO
   )
 
  (deadkey
@@ -175,3 +176,8 @@
  (virama
   (independent (shift init))
   (nil (shift init))))
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: lisp
+;; End:
