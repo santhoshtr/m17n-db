@@ -36,6 +36,9 @@ temporarily by typing \"Z\".
 
 (title "调拼")
 
+(variable
+ (candidates-group-size "" 10))
+
 (map
  ;; The initial character of Pinyin.
  (starter
@@ -2187,23 +2190,10 @@ temporarily by typing \"Z\".
   ("zuo2" ("琢昨作砟笮㶡㸲䇥䎰䝫䞢䞰䟄䯿捽椊秨稓筰苲莋葃鈼"))
   ("zuo3" ("撮左佐㝾䦈咗唨毑繓"))
   ("zuo4" ("凿乍柞做作坐座阼唑怍迮胙祚砟酢㑅㘀㘴㛗㣱㤰㭮㸲䋏䔘䜊䟶䩦䬤侳"
-	   "夎岝岞糳葄袏鑿飵")))
-
- (backspace
-  ((BackSpace)))
-
- (return
-  ((Return)))
-
- (focus-change
-  ;; When an input spot is moved, commit the current predit by shifting
-  ;; to init.
-  ((input-focus-move) (shift init))
-  ;; When an input focus is out or in, keep the current preedit.
-  ((input-focus-out) (set KK @@) (sub KK 1) (undo KK))
-  ((input-focus-in) (set KK @@) (sub KK 1) (undo KK))))
+	   "夎岝岞糳葄袏鑿飵"))))
 
 (include (t nil cjk-util) map)
+(include (t nil zh-util) map)
 
 (state
   ;; When an initial character of Pinyin is typed, re-handle it in
@@ -2217,33 +2207,10 @@ temporarily by typing \"Z\".
   ;; When a complete Pinyin sequence is typed, shift to "select" state
   ;; to allow users to select one from the candidates.
   (pinyin (shift select))
-  ;; When Return is typed, fix the current preedit.
-  (return (shift init))
-  (nil (hide) (shift check-undo)))
+  (nil (hide) (shift check-undo))))
 
- (check-undo
-  ;; When Backspace is typed, cancel the last input.
-  (backspace (undo))
-  (focus-change)
-  ;; When anything else is typed, produce the current candidate (if
-  ;; any), and re-handle the last input in "init" state.
-  (nil (hide) (shift init)))
-
- (select
-  (t (set K @@) (sub K 1))
-  ;; When a number is typed, select the corresponding canidate,
-  ;; produce it, and shift to "init" state.
-  (focus-change)
-  (choose (hide) (shift init))
-  (change-candidate)
-  (backspace (undo))
-  ;; When Return is typed, fix the current preedit.
-  (return (shift init))
-  ;; When anything else is typed, produce the current candidate,
-  ;; and re-handle the last input in "init" state.
-  (nil (hide) (shift init))))
-
-(include (t nil cjk-util) state fullwidth-mode single-fullwidth-mode)
+(include (t nil cjk-util) state)
+(include (t nil zh-util) state)
 
 ;; Local Variables:
 ;; mode: lisp
