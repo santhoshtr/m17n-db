@@ -1,4 +1,4 @@
-/* Copyright (C) 2003, 2004
+/* Copyright (C) 2003, 2004, 2005
      National Institute of Advanced Industrial Science and Technology (AIST)
      Registration Number H15PRO112
    See the end for copying conditions.  */
@@ -23,13 +23,54 @@ a definition from a file, a stream, etc.  A definitions is converted
 into the form of plist in the driver.
 
 @verbatim
-INPUT-METHOD ::= TITLE MAP-LIST MACRO-LIST ? MODULE-LIST ? STATE-LIST
+INPUT-METHOD ::=
+    IM-DECLARATION ? DESCRIPTION ? VARIABLE-LIST ? COMMAND-LIST ?
+    TITLE MAP-LIST MACRO-LIST ? MODULE-LIST ? STATE-LIST
 
-TITLE ::= '(' 'title' MTEXT ')'
+IM-DECLARATION ::= '(' 'input-method' LANGUAGE NAME ')'
+DESCRIPTION ::= '(' 'description' MTEXT ')'
+VARIABLE-LIST ::= '(' 'variable' VARIABLE-DECLARATION * ')'
+COMMAND-LIST ::= '(' 'command' COMMAND-DECLARATION * ')'
+TITLE ::= '(' 'title' TITLE-TEXT ')'
+
+VARIABLE-DECLARATION ::=
+    '(' VAR-NAME [ VAR-DESCRIPTION | nil ] VALUE VALUE-CANDIDATE * ')'
+
+COMMAND-DECLARATION ::=
+    '(' CMD-NAME [ CMD-DESCRIPTION | nil ] KEYSEQ * ')'
+
+LANGUAGE ::= SYMBOL
+NAME ::= SYMBOL
+IM-DESCRIPTION ::= MTEXT
+VAR-NAME ::= SYMBOL
+VAR-DESCRIPTION ::= MTEXT
+VALUE ::= MTEXT | SYMBOL | INTEGER
+VALUE-CANDIDATE ::= VALUE | '(' RANGE-FROM RANGE-TO ')'
+RANGE-FROM ::= INTEGER
+RANGE-TO ::= INTEGER
+CMD-NAME ::= SYMBOL
+CMD-DESCRIPTION ::= MTEXT
+TITLE-TEXT ::= MTEXT
 @endverbatim
 
-@c MTEXT is a text displayed on the screen when this input method is
-active.
+@c IM-DECLARATION
+
+...to be filled...
+
+@c DESCRIPTION
+
+...to be filled...
+
+@c VARIABLE-DECLARATION
+
+...to be filled...
+
+@c COMMAND-DECLARATION
+
+...to be filled...
+
+@c TITLE-TEXT is a text displayed on the screen when this input method
+is active.
 
 @verbatim
 MAP-LIST ::= '(' 'map' MAP * ')'
@@ -61,14 +102,15 @@ code.
 @verbatim
 MAP-ACTION ::= ACTION
 
-ACTION ::= INSERT | DELETE | SELECT | MOVE | MARK |
+ACTION ::= INSERT | DELETE | SELECT | MOVE | MARK
            | SHOW | HIDE | PUSHBACK | UNDO | SHIFT | CALL
 	   | SET | IF | '(' MACRO-NAME ')'
 
 PREDEFINED-SYMBOL ::=
-    '@0' | '@1' | '@2' | '@3' | '@4' |
-    '@5' | '@6' | '@7' | '@8' | '@9' |
-    '@<' | '@=' | '@>' | '@-' | '@+' | '@[' | '@]'
+    '@0' | '@1' | '@2' | '@3' | '@4'
+    | '@5' | '@6' | '@7' | '@8' | '@9'
+    | '@<' | '@=' | '@>' | '@-' | '@+' | '@[' | '@]'
+    | '@@
 @endverbatim
 @verbatim
 MACRO-LIST ::= '(' 'macro' MACRO * ')'
@@ -190,6 +232,15 @@ The candidate in the previous and the next candidate group having the same
 candidate index as the current one.
 </ul>
 
+And, this also has a special meaning.
+
+<ul>
+<li> @c @@@
+
+Number of handled keys at that moment.
+
+</ulL
+
 The arguments and the behavior of each action are listed below.
 
 @verbatim
@@ -297,10 +348,18 @@ events if @c INTEGER is zero.
 The second form pushes back keys in KEYSEQ to the event queue.
 
 @verbatim
-UNDO :: = '(undo)'
+UNDO :: = '(' 'undo' [ INTEGER | SYMBOL ] ')'
 @endverbatim
 
-This action cancels the last key event.
+If there's no argument, this action cancels the last two key events
+(i.e. the one that invoked this command, and the previous one).
+
+If there's an integer argument NUM, it must be positive or negative
+(not zero).  If positive, the NUMth event to the last one are
+cancelled.  If negative the last (- NUM) events are cancelled.
+
+If there's a symbol argument, it must be resolved to an integer number
+and the number is treated as the actual argument as above.
 
 @verbatim
 SHIFT :: = '(' 'shift' STATE-NAME ')'
@@ -551,7 +610,7 @@ as Backspace.
 */
 
 /* 
-Copyright (C) 2003, 2004
+Copyright (C) 2003, 2004, 2005
   National Institute of Advanced Industrial Science and Technology (AIST)
   Registration Number H15PRO112
 

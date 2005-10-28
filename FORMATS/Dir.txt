@@ -1,4 +1,4 @@
-/* Copyright (C) 2003, 2004
+/* Copyright (C) 2003, 2004, 2005
      National Institute of Advanced Industrial Science and Technology (AIST)
      Registration Number H15PRO112
    See the end for copying conditions.  */
@@ -16,16 +16,52 @@ initialization time.  The plist format of this file is as follows:
 @verbatim
 MDB-DIR ::= DEFINITION *
 
-DEFINITION ::= '(' TAG [ TAG [ TAG [ TAG ] ] ] FILE ')'
+DEFINITION ::= '(' TAG0 [ TAG1 [ TAG2 [ TAG3 ] ] ] FILE ')'
 
-TAG ::= SYMBOL
+TAGn ::= SYMBOL
 
 FILE ::= MTEXT
 @endverbatim
+
+If TAG0 is neither `charset' nor `char-table', and TAGn (n > 0) is a
+symbol `*', FILE can contain a wildcard charater, and all files
+matching FILE accoding to the rules used by the shell are the target
+of database files.  In that case, each file must contain a plist
+element providing the actual TAGn values by the form:
+
+@verbatim
+'(' TAG0 TAG1 TAG2 TAG3 ')'
+@endverbatim
+
+For instance, if a database directory contains these files:
+
+@verbatim
+zh-py.mim:
+(input-method zh py)
+...
+
+ko-han2.mim:
+(input-method ko han2)
+...
+@endverbatim
+
+these lines in "mdb.dir":
+
+@verbatim
+(input-method zh py "zh-py.mim")
+(input-method ko han2 "ko-han2.mim")
+@endverbatim
+
+can be shortened to this single line:
+
+@verbatim
+(input-method * "*.mim")
+@endverbatim
+
 */
 
 /* 
-Copyright (C) 2003, 2004
+Copyright (C) 2003, 2004, 2005
   National Institute of Advanced Industrial Science and Technology (AIST)
   Registration Number H15PRO112
 

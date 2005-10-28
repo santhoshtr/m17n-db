@@ -1,3 +1,12 @@
+2005-10-28  Kenichi Handa  <handa@m17n.org>
+
+	* zh-tonepy.mim: Remove maps (backspace, return focus-change) and
+	states (check-undo, select).  Include zh-util.mim.  Add
+	variable (candidates-group-size).
+
+	* ko-romaja.mim (Backspace): Undo only when the current key
+	sequence is not empty.  Otherwise unhandle it.
+
 2005-10-28  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* syrc-phonetic.mim, bn-unijoy.mim, dv-phonetic.mim: Change M- to A-.
@@ -9,8 +18,8 @@
 
 	* ko-romaja.mim: Include all states of cjk-util.
 
-	* zh-py.mim: Remove map (backspace, return focus-change), state
-	(check-undo, select).  Include zh-util.
+	* zh-py.mim: Remove maps (backspace, return focus-change) and
+	states (check-undo, select).  Include zh-util.
 
 	* zh-util.mim: New file.
 
