@@ -141,13 +141,14 @@ INPUT_METHOD = \
 	vi-viqr.mim vi-telex.mim vi-vni.mim \
 	zh-py.mim zh-py-gb.mim zh-py-b5.mim \
 	zh-tonepy.mim zh-tonepy-gb.mim zh-tonepy-b5.mim \
+	zh-cangjie.mim zh-quick.mim \
 	zh-pinyin.mim \
 	latn-post.mim latn-pre.mim \
 	syrc-phonetic.mim \
 	bopo-kbd.mim \
 	unicode.mim rfc1345.mim \
 	ispell.mim \
-	cjk-util.mim zh-util.mim
+	variable.mim cjk-util.mim zh-util.mim
 
 MISC_TABLE = \
 	LOCALE.cs LOCALE.ali \
