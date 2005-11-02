@@ -158,10 +158,10 @@ In the second form of @c BRANCH, @c BRANCH-ACTIONs are executed if a
 key sequence that doesn't match any of @c Branch's of the current
 state is typed.
 
-In the third form of @c BRANCH, @c BRANCH-ACTIONs are executed if we
-shift to the current state after handling all typed keys.  If the
-current state is the initial state, @c BRANCH-ACTIONs are executed
-just after an input context of the input method is created.
+In the third form of @c BRANCH, @c BRANCH-ACTIONs are executed when we
+shift to the current state.  If the current state is the initial
+state, @c BRANCH-ACTIONs are executed also when an input context of
+the input method is created.
 
 @verbatim
 BRANCH-ACTION ::= ACTION
@@ -442,17 +442,17 @@ true, and performs @c ACTION-LIST2 (if any) otherwise.
 This is a very simple example for inputting Latin characters with
 diacritical marks (acute and cedilla).  For instance, when you type:
 @verbatim
-    Comme'die-Franc,ais, chic,,
+    Comme'die-Franc,aise, chic,,
 @endverbatim
 you will get this:
 @if FOR-HTML
 @verbatim
-    Commédie-Français, chic,
+    Commédie-Française, chic,
 @endverbatim
 @endif
 @if FOR-LATEX
 @latexonly
-\hskip5mm\texttt{\footnotesize Comm\'{e}die-Fran\c{c}ais, chic,}
+\hskip5mm\texttt{\footnotesize Comm\'{e}die-Fran\c{c}aise, chic,}
 @endlatexonly
 @endif
 
