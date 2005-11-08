@@ -38,7 +38,7 @@ temporarily by typing \"Z\".
 (title "拼")
 
 (variable
-  (candidates-group-size nil 10))
+  (candidates-group-size))
 
 (map
  (starter

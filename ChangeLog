@@ -1,3 +1,24 @@
+2005-11-08  Kenichi Handa  <handa@m17n.org>
+
+	* zh-py.mim, zh-tonepy.mim, zh-quick.mim, zh-cangjie.mim: Don't
+	initialize candidates-group-size.
+
+	* zh-tonepy-b5.mim, zh-tonepy-gb.mim, zh-py-gb.mim, zh-py-b5.mim:
+	Don't initialize candidates-group-size, give nil documemnt to
+	candidates-charset.
+
+2005-11-01  Kenichi Handa  <handa@m17n.org>
+
+	* zh-py.mim, zh-tonepy.mim: Reorder characters by frequency
+	information in Unihan database.
+
+	* Makefile.am (INPUT_METHOD): Add zh-cangjie.mim, zh-quick.mim,
+	and variable.mim.
+
+	* zh-cangjie.mim, zh-quick.mim: New files.
+
+	* variable.mim: New file.
+
 2005-10-28  Kenichi Handa  <handa@m17n.org>
 
 	* zh-tonepy.mim: Remove maps (backspace, return focus-change) and
