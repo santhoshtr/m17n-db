@@ -33,8 +33,8 @@ temporarily by typing \"Z\".
 (title "调拼gb")
 
 (variable
- (candidates-group-size "" 10)
- (candidates-charset "" gb2312.1980))
+ (candidates-group-size)
+ (candidates-charset nil gb2312.1980))
 
 (include (zh tonepy) map)
 (include (zh tonepy) state)
