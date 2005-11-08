@@ -37,7 +37,7 @@ temporarily by typing \"Z\".
 
 (title "倉頡")
 (variable
-  (candidates-group-size nil 10))
+  (candidates-group-size))
 
 (map
  (starter
