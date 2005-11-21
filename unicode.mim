@@ -38,7 +38,10 @@
   ("0" "0") ("1" "1") ("2" "2") ("3" "3") ("4" "4")
   ("5" "5") ("6" "6") ("7" "7") ("8" "8") ("9" "9")
   ("A" "A") ("B" "B") ("C" "C") ("D" "D") ("E" "E") ("F" "F")
-  ("a" "A") ("b" "B") ("c" "C") ("d" "D") ("e" "E") ("f" "F")))
+  ("a" "A") ("b" "B") ("c" "C") ("d" "D") ("e" "E") ("f" "F"))
+
+ (backspace
+  ((BackSpace))))
 
 (state
  (init
@@ -46,13 +49,13 @@
 
  (uni-hex
   (hex (set this @-)
-       (< this ?A
-	  ((sub this 48))
-	  ((sub this 55)))
-       (mul code 16) (add code this)
-       (add count 1)
-       (= count 4
-	  ((delete @<) (insert code) (shift init))))))
+       (cond ((< @- ?A) (sub this 48))
+	     (1 (sub this 55)))
+       (set code (+ (* code 16) this))
+       (set count (+ count 1))
+       (cond ((= count 4)
+	      (delete @<) (insert code) (shift init))))
+  (backspace (undo))))
 
 ;; Local Variables:
 ;; mode: lisp
