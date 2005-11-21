@@ -109,8 +109,6 @@
 (input-method * "*.mim")
 ;;; </ul>
 
-(input command "im-cmd.tbl")
-
 ;;; @section flt-list Font Layout Table
 ;;;
 ;;; See @ref mdbFLT for the format of these files.
