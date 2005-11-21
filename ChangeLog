@@ -1,3 +1,10 @@
+2005-11-21  Kenichi Handa  <handa@m17n.org>
+
+	* unicode.mim (backspace): New map.
+	(init-hex): Use cond and expressions.
+
+	* mdb.dir: Delete an entry for "im-cmd.tbl".
+
 2005-11-08  Kenichi Handa  <handa@m17n.org>
 
 	* zh-py.mim, zh-tonepy.mim, zh-quick.mim, zh-cangjie.mim: Don't

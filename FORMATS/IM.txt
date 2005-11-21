@@ -104,7 +104,7 @@ MAP-ACTION ::= ACTION
 
 ACTION ::= INSERT | DELETE | SELECT | MOVE | MARK
            | SHOW | HIDE | PUSHBACK | UNDO | SHIFT | CALL
-	   | SET | IF | '(' MACRO-NAME ')'
+	   | SET | IF | COND | '(' MACRO-NAME ')'
 
 PREDEFINED-SYMBOL ::=
     '@0' | '@1' | '@2' | '@3' | '@4'
@@ -391,49 +391,55 @@ The function must return NULL or a value of the type (#MPlist *) that
 represents a list of actions to take.
 
 @verbatim
-SET ::= '(' OPERAND SYMBOL1 [ INTEGER | SYMBOL2 ] ')'
+SET ::= '(' CMD SYMBOL1 EXPRESSION ')'
 
-OPERAND ::= 'set' | 'add' | 'sub' | 'mul' | 'div'
+CMD ::= 'set' | 'add' | 'sub' | 'mul' | 'div'
+
+EXPRESSION ::= INTEGER | SYMBOL2 | '(' OPERAND EXPRESSION * ')'
+
+OPERAND ::= '+' | '-' | '*' | '/' | '|' | '&' | '!' | '=' | '<' | '>'
+
 @endverbatim
 
 This action treats @c SYMBOL1 and @c SYMBOL2 as variables and sets the
 value of @c SYMBOL1 as below.
 
-If @c OPERAND is 'set', it sets the value of @c SYMBOL1 to @c INTEGER or the
-value of @c SYMBOL2.
+If @c CMD is 'set', it sets the value of @c SYMBOL1 to the value of @c
+EXPRESSION.
 
-If @c OPERAND is 'add', it increments the value of @c SYMBOL1 by @c INTEGER
-or the value of @c SYMBOL2.
+If @c CMD is 'add', it increments the value of @c SYMBOL1 by the value
+of @c EXPRESSION.
 
-If @c OPERAND is 'sub', it decrements the value of @c SYMBOL1 by @c INTEGER
-or the value of @c SYMBOL2.
+If @c CMD is 'sub', it decrements the value of @c SYMBOL1 by the value
+of @c EXPRESSION.
 
-If @c OPERAND is 'mul', it multiplies the value of @c SYMBOL1 by @c INTEGER
-or the value of @c SYMBOL2.
+If @c CMD is 'mul', it multiplies the value of @c SYMBOL1 by the value
+of @c EXPRESSION.
 
-If @c OPERAND is 'div', it divides the value of @c SYMBOL1 by @c INTEGER or
-the value of @c SYMBOL2.
+If @c CMD is 'div', it divides the value of @c SYMBOL1 by the value of
+@c EXPRESSION.
 
 @verbatim
 IF ::= '(' CONDITION ACTION-LIST1 ACTION-LIST2 ')'
 
-CONDITION ::= OPERAND VAL1 VAL2
+CONDITION ::= [ '=' | '<' | '>' ] EXPRESSION1 EXPRESSION2
 
 ACTION-LIST1 ::= '(' ACTION * ')'
 
 ACTION-LIST2 ::= '(' ACTION * ')'
-
-OPERAND ::= '=' '<' '>'
-
-VAL1 ::= [ INTEGER1 | SYMBOL1 ]
-
-VAL2 ::= [ INTEGER2 | SYMBOL2 ]
 @endverbatim
 
 This action performs actions in @c ACTION-LIST1 if @c CONDITION is
 true, and performs @c ACTION-LIST2 (if any) otherwise.
 
 @c SYMBOL1 and @c SYMBOL2 are treated as variables.
+
+@verbatim
+COND ::= '(' 'cond' [ '(' EXPRESSION ACTION * ') ] * ')'
+@endverbatim
+
+This action performs the first actions @c ACTION whose corresponding
+@c EXPRESSION has nonzero value.
 
 @ifnot FOR-MAN
 
