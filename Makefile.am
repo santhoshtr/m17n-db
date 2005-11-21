@@ -148,13 +148,13 @@ INPUT_METHOD = \
 	bopo-kbd.mim \
 	unicode.mim rfc1345.mim \
 	ispell.mim \
-	variable.mim cjk-util.mim zh-util.mim
+	command.mim variable.mim cjk-util.mim zh-util.mim
 
 MISC_TABLE = \
 	LOCALE.cs LOCALE.ali \
 	default.fst xfont.fst truetype.fst generic.fst \
 	FONTENC.tbl FONTSIZE.tbl \
-	CHARSET.tbl CODING.tbl im-cmd.tbl \
+	CHARSET.tbl CODING.tbl \
 	LANGUAGE.tbl SCRIPT-OTF.tbl SCRIPT-LANGUAGE.tbl
 
 UNIDATA = \
