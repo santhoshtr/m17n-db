@@ -44,11 +44,7 @@ Select Hiragana or Katakana"
   hankaku))
 
 (command
- (henkan
-  "Convert
-Convert Hiragana to Kanji"
-  (\ )
-  (Henkan)))
+ (convert) (commit))
 
 (title "aあ")
 
@@ -196,12 +192,10 @@ Convert Hiragana to Kanji"
   ("ff"))
 
  (henkan
-  (" ")
-  ((Henkan)))
+  (convert))
 
  (kakutei
-  ((Return))
-  ((Linefeed)))
+  (commit))
 
  (backspace
   ((BackSpace)))
