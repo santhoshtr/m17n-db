@@ -1,5 +1,12 @@
 2005-11-21  Kenichi Handa  <handa@m17n.org>
 
+	* command.mim: New file.
+
+	* Makefile.am (INPUT_METHOD): Include command.mim.
+	(MISC_TABLE): Don't include im-cmd.tbl.
+
+	* ja-anthy.mim: Use global command convert and commit.
+
 	* unicode.mim (backspace): New map.
 	(init-hex): Use cond and expressions.
 
