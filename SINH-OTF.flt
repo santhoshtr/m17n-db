@@ -29,52 +29,68 @@
 (category
  ;; V : independent vowels
  ;; C : consonants
+ ;; R : RA
  ;; H : AL-LAKUNA (virama)
- ;; m : MATRA (pre)
- ;; b : MATRA (below)
- ;; u : MATRA (above)
- ;; p : MATRA (post)
- ;; t : MATRA (two-part)
+ ;; m : pre-consonant vowel signs
+ ;; b : below-consonant vowel signs
+ ;; u : above-consonant vowel signs
+ ;; p : post-consonant vowel signs
+ ;; q : AELA-PILLA
+ ;; r : GAYANUKITTA
+ ;; t : two-part vowel sign
  ;; a : AVUSVARAYA & VISARGAYA
- ;; h : Internal use
  ;; E : else
  ;; J : ZERO WIDTH JOINER
  (0x0D80 0x0DFF ?E)
  (0x0D82 0x0D83 ?a)
  (0x0D85 0x0D96 ?V)
  (0x0D96 0x0DC6 ?C)
+ (0x0DBB	?R)
  (0x0DCA	?H)
- (0x0DCF 0x0DD1 ?p)
+ (0x0DCF	?q)
+ (0x0DD0 0x0DD1 ?p)
  (0x0DD2 0x0DD3 ?u)
  (0x0DD4 0x0DD6 ?b)
  (0x0DD8	?p)
  (0x0DD9	?m)
  (0x0DDA	?t)
- (0x0DDB	?m)
+ (0x0DDB	?M)
  (0x0DDC 0x0DDE ?t)
- (0x0DDF	?p)
+ (0x0DDF	?r)
  (0x0DF2 0x0DF3 ?p)
- (0x0DFF	?h)
  (0x200D	?J)
  )
 
 ;; Step 0 : Syllable identification
 (generator
+
  (0
   (cond
    ;; A syllable ending with a two-part vowel sign.
-   ("((CHJ)*C)(t)(a)?"
+   ("(C(HJ[CR])*)(t)(a)?"
     < | (1 otf:sinh=akhn,vatu,pres) (3 two-part) (4 =) | >)
 
-   ;; A syllable ending with a vowel sign and/or a various sign.
-   ;; Note that a two-part vowel may be expressed with two vowel marks.
+   ;; Decomposed two-part vowel signs.
+   ("(C(HJ[CR])*)(m(H|qH?|r)a?)"
+    < | (1 otf:sinh=akhn,vatu,pres) (3 = *) | >)
 
-   ("((CHJ)*C)([mbup]+a?|a)"
+   ;; A syllable ending with a vowel sign and/or a various sign.
+   ("(C(HJ[CR])*)([mMbupqr]a?|a)"
     < | (1 otf:sinh=akhn,vatu,pres) (3 = *) | >)
 
    ;; No signs.
-   ("(CHJ)*CH?"
+   ("C(HJ[CR])*H?"
     < | otf:sinh=akhn,vatu,pres | >)
+
+   ;; Suppress repaya explicitly.
+   ("(R)(t)(a)?"
+    < | (1 =) (2 two-part) (3 =) | >)
+   ("Rm(H|qH?|r)a?"
+    < | = * | >)
+   ("R([mMbupqr]a?|a)"
+    < | = * | >)
+   ("RHJ?"
+    < | = = | >)
 
    ;; Independent vowels.
    ("Va?"
@@ -86,19 +102,19 @@
  ;; Split two-part dependent vowel signs for canonicalisation.
  (two-part
   (cond
-   ((0x0DDA)	0x0DD9 0x0DFF)
+   ((0x0DDA)	0x0DD9 0x0DCA)
    ((0x0DDC)	0x0DD9 0x0DCF)
-   ((0x0DDD)	0x0DD9 0x0DCF 0x0DFF)
+   ((0x0DDD)	0x0DD9 0x0DCF 0x0DCA)
    ((0x0DDE)	0x0DD9 0x0DDF)))
  )
 
-;; Step 1 : Matra movements.
+;; Step 1 : Move pre-consonant signs.
 (generator
  (0
   (cond
-   ;; 1          2   3   4   5   6   7
-   (" ([^ mbup]+)(m)?(b)?(u)?(p)?(h)?(a)? "
-    | (2 =) (1 = *) (3 =) (4 =) (5 =) (6 0x0DCA) (7 =) |)
+   ;; 1             2     3   4   5   6   7   8   9
+   (" ([^ mMbupqr]+)(m|M)?(b)?(u)?(p)?(q)?(r)?(H)?(a)? "
+    | (2 =) (1 = *) (3 =) (4 =) (5 =) (6 =) (7 =) (8 =) (9 =) |)
    ("." =))
   *))
 
