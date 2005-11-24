@@ -37,6 +37,7 @@
  ;; p : post-consonant vowel signs
  ;; q : AELA-PILLA
  ;; r : GAYANUKITTA
+ ;; s : KOMBUVA HAA AELA-PILLA
  ;; t : two-part vowel sign
  ;; a : AVUSVARAYA & VISARGAYA
  ;; E : else
@@ -55,7 +56,8 @@
  (0x0DD9	?m)
  (0x0DDA	?t)
  (0x0DDB	?M)
- (0x0DDC 0x0DDE ?t)
+ (0x0DDC	?s)
+ (0x0DDD 0x0DDE ?t)
  (0x0DDF	?r)
  (0x0DF2 0x0DF3 ?p)
  (0x200D	?J)
@@ -66,15 +68,19 @@
 
  (0
   (cond
-   ;; A syllable ending with a two-part vowel sign.
-   ("(C(HJ[CR])*)(t)(a)?"
-    < | (1 otf:sinh=akhn,vatu,pres) (3 two-part) (4 =) | >)
-
-   ;; Decomposed two-part vowel signs.
+   ;; A syllable containing a completely decomposed two-part vowel sign.
    ("(C(HJ[CR])*)(m(H|qH?|r)a?)"
     < | (1 otf:sinh=akhn,vatu,pres) (3 = *) | >)
 
-   ;; A syllable ending with a vowel sign and/or a various sign.
+   ;; A syllable containing KOMBUVA HAA AELA-PILLA.
+   ("(C(HJ[CR])*)(s)(H)?(a)?"
+    < | (1 otf:sinh=akhn,vatu,pres) (3 two-part) (4 =) (5 =) | >)
+
+   ;; A syllable with a two-part vowel sign.
+   ("(C(HJ[CR])*)(t)(a)?"
+    < | (1 otf:sinh=akhn,vatu,pres) (3 two-part) (4 =) | >)
+
+   ;; A syllable with a vowel sign and/or a various sign.
    ("(C(HJ[CR])*)([mMbupqr]a?|a)"
     < | (1 otf:sinh=akhn,vatu,pres) (3 = *) | >)
 
@@ -83,10 +89,12 @@
     < | otf:sinh=akhn,vatu,pres | >)
 
    ;; Suppress repaya explicitly.
-   ("(R)(t)(a)?"
-    < | (1 =) (2 two-part) (3 =) | >)
    ("Rm(H|qH?|r)a?"
     < | = * | >)
+   ("(R)(s)(H)?(a)?"
+    < | (1 =) (2 two-part) (3 =) (4 =) | >)
+   ("(R)(t)(a)?"
+    < | (1 =) (2 two-part) (3 =) | >)
    ("R([mMbupqr]a?|a)"
     < | = * | >)
    ("RHJ?"
