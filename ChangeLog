@@ -1,6 +1,14 @@
+2005-11-28  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* si-wijesekera.mim: Disable repaya.  Fix typo.
+
 2005-11-26  Kenichi Handa  <handa@m17n.org>
 
 	* LAOO-ALICE.flt: Improve handling of tall consonants and vowel AM.
+
+2005-11-24  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* SINH-OTF.flt: Support 0x0DDC + 0x0DCA -> 0x0DDD.
 
 2005-11-22  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
