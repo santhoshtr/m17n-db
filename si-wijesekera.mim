@@ -297,26 +297,26 @@
     ((> c 0)
      (insert c))))
 
-  ;; repaya
-  ("~"
-   (set c @-1)
-   (cond
-    ((| (= c 0x0DD9) (= c 0x0DDB))
-     (delete @-1))
-    (1
-     (set c 0)))
-   (backward)
-   (cond
-    ((& (> @-1 0x0D99) (< @-1 0x0DC7))
-     (set c1 @-1)
-     (delete @-1)
-     (insert c1)
-     (move @<)
-     0x0DBB 0x0DCA 0x200D))
-   (cond
-    ((> c 0)
-     (move @>)
-     (insert c))))
+;; Repaya is disabled.
+;;   ("~"
+;;    (set c @-1)
+;;    (cond
+;;     ((| (= c 0x0DD9) (= c 0x0DDB))
+;;      (delete @-1))
+;;     (1
+;;      (set c 0)))
+;;    (backward)
+;;    (cond
+;;     ((& (> @-1 0x0D99) (< @-1 0x0DC7))
+;;      (set c1 @-1)
+;;      (delete @-1)
+;;      (insert c1)
+;;      (move @<)
+;;      0x0DBB 0x0DCA 0x200D))
+;;    (cond
+;;     ((> c 0)
+;;      (move @>)
+;;      (insert c))))
 
   ((BackSpace)
    (delete-preceding-zw)
@@ -415,7 +415,7 @@
  (backward
   (set cc1 @-1)
   (cond
-   ((& (= @-3 0x0DCA) (> cc11 0x0D99) (< cc1 0x0DC7) (= @-2 0x200G))
+   ((& (= @-3 0x0DCA) (= @-2 0x200D) (> cc1 0x0D99) (< cc1 0x0DC7))
     (delete @-3)
     0x0DCA
     0x200D
