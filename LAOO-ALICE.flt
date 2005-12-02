@@ -79,10 +79,10 @@
     < (1 independent semi-vowel) (2 am-after-normal-c) > )
    ("(cs?)(T?A)"
     < (1 independent semi-vowel) (2 am-after-tall-c) > )
-   ("Cs?[vV]?T?"
-    < independent semi-vowel vowel-tone-after-c * > )
-   ("cs?[vV]?T?"
-    < independent semi-vowel Br<Bl vowel-tone-after-c * > )
+   ("(Cs?)([vV]?T?)"
+    < (1 independent semi-vowel) (2 vowel-tone-after-c *) > )
+   ("(cs?)([vV]?T?)"
+    < (1 independent semi-vowel) (2 Br<Bl vowel-tone-after-c *) > )
    ("[sVvTA]"
     [ isolated-dependent ])
    ("."
