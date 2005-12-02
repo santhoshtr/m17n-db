@@ -95,8 +95,14 @@
   ((nil myazedi_m17n unicode-bmp) mymr-myazedi)))
 (khmer
  (nil
-  ((nil nil unicode-bmp :lang=km) khmr-otf)
+  ((nil nil unicode-bmp :otf=khmr=pres) khmr-otf)
   ((nil anlongvill\ khek apple-roman) khmr-anlong)))
+(hiragana
+ (ja
+  ((nil nil unicode-bmp :lang=ja))))
+(katakana
+ (ja
+  ((nil nil unicode-bmp :lang=ja))))
 (han
  (ja
   ((nil nil unicode-bmp :lang=ja)))
