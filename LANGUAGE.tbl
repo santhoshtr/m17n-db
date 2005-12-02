@@ -22,7 +22,7 @@
 ;; 02111-1307, USA.
 ;;
 ;; The file format is this:
-;;	(ISO639-2 ISO639-1 ENGLISH-NAME [ "NATIVE-NAME" ]) ...
+;;	(ISO639-2 ISO639-1 ENGLISH-NAME [ "NATIVE-NAME" ] [ "EXTRA-CHARS" ]) ...
 ;; ISO639-2: 3-letter language code of ISO639-2.
 ;; ISO639-1: 2-letter language code of ISO639-1, or nil if it doesn't exist.
 ;; ENGLISH-NAME: English name of the language.  The first name listed
@@ -30,8 +30,9 @@
 ;; "NATIVE-NAME": Native name of the language extracted from:
 ;;    http://www.unicode.org/Public/cldr/cldr1.2.zip
 ;;    http://www.geonames.de/
-;;   h ttp://www.omniglot.com/language/names.htm
+;;    http://www.omniglot.com/language/names.htm
 ;;    http://www.mediaglyphs.org/mg/p/langnames.html
+;; "EXTRA-CHARS": Extra characters that uniquifies the language.
 ;;
 ;;  herero, kara-kalpak, kanuri, kuanyama, luba-katanga, ganda, ndonga,
 ;;  Southern/Nothern/LulæInari/Skolt Sami, Sundanese, Twi
@@ -138,8 +139,8 @@
 (chb nil chibcha)
 (che ce  chechen "Нохчийн")
 (chg nil chagatai)
-(chi zh  chinese "中文")
-(zho zh  chinese "中文")
+(chi zh  chinese "中文" "ㄅㄆㄇ")
+(zho zh  chinese "中文" "ㄅㄆㄇ")
 (chk nil chuukese "Chuk")
 (chm nil mari "марий")
 (chn nil chinook\ jargon "Chinook Wawa")
@@ -267,7 +268,7 @@
 (ita it  italian "italiano")
 (jav jv  javanese "basa Jawa")
 (jbo nil lojban "lojban")
-(jpn ja  japanese "日本語")
+(jpn ja  japanese "日本語" "あア♯〜")
 (jpr nil judeo-persian)
 (jrb nil judeo-arabic)
 (kaa nil kara-kalpak "ҝараҝалпаҝ")

@@ -1,3 +1,15 @@
+2005-12-02  Kenichi Handa  <handa@m17n.org>
+
+	* LANGUAGE.tbl (zh): Add extra characters.
+	(ja): Likewise.
+
+	* generic.fst: Fix the entry for khmer, add entries for hiragana
+	and katakana.
+
+	* LAOO-GENERIC.flt: Improve handling of tall consonants and vowel AM.
+
+	* LAOO-ALICE.flt: Fix previous change.
+
 2005-11-28  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* si-wijesekera.mim: Disable repaya.  Fix typo.
