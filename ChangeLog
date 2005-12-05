@@ -1,5 +1,9 @@
 2005-12-05  Kenichi Handa  <handa@m17n.org>
 
+	* lo-kbd.mim: New file.
+
+	* Makefile.am (INPUT_METHOD): Add lo-kbd.mim.
+
 	* LAOO-GENERIC.flt: Fix previous change.
 
 	* THAI-GENERIC.flt: Improve handling of tall consonants and SARA
