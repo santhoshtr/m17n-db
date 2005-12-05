@@ -99,6 +99,14 @@
 ;;; #Mcase_mapping property.
 (char-table plist case-mapping "CASE-MAPPING.tab")
 
+;;; <li> BLOCKS.tab
+;;;
+;;; Unicode fallback script name for each character that is available
+;;; as #Mblock property.  Generated manually by referring UCD
+;;; Blocks.txt.
+;;;
+(char-table symbol block "BLOCK.tab")
+
 ;;; </ul>
 
 ;;; @section mim-list Input method
