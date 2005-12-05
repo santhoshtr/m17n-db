@@ -80,7 +80,8 @@ MISC =  KOI-8.map KOI8-R.map KOI8-U.map KOI8-T.map \
 CHAR_TABLE = \
 	NAME.tab SCRIPT.tab CASE-S.tab CASE-C.tab \
 	CATEGORY.tab COMBINE.tab BIDI.tab LINEBREAK.tab \
-	CASED.tab SOFT-DOTTED.tab CASE-MAPPING.tab
+	CASED.tab SOFT-DOTTED.tab CASE-MAPPING.tab \
+	BLOCK.tab
 
 FONT_LAYOUT_TABLE = \
 	ARAB.flt ARAB-OTF.flt ARAB-OTF-NO-GPOS.flt \
@@ -125,7 +126,7 @@ INPUT_METHOD = \
 	km-yannis.mim \
 	kn-itrans.mim \
 	ko-han2.mim ko-romaja.mim \
-	lo-lrt.mim \
+	lo-kbd.mim lo-lrt.mim \
 	ml-itrans.mim \
 	my-kbd.mim \
 	or-itrans.mim \
