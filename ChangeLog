@@ -1,5 +1,7 @@
 2005-12-05  Kenichi Handa  <handa@m17n.org>
 
+	* mdb.dir: Add an entry for BLOCK.tab.
+
 	* lo-kbd.mim: New file.
 
 	* Makefile.am (INPUT_METHOD): Add lo-kbd.mim.
