@@ -1,4 +1,13 @@
+2005-12-05  Kenichi Handa  <handa@m17n.org>
+
+	* LAOO-GENERIC.flt: Fix previous change.
+
+	* THAI-GENERIC.flt: Improve handling of tall consonants and SARA
+	AM.
+
 2005-12-02  Kenichi Handa  <handa@m17n.org>
+
+	* Makefile.am (CHAR_TABLE): Add BLOCK.tab.
 
 	* LANGUAGE.tbl (zh): Add extra characters.
 	(ja): Likewise.
