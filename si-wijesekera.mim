@@ -321,6 +321,9 @@
   ((BackSpace)
    (delete-preceding-zw)
    (set c @-1)
+   (cond
+    ((< c 0)
+     (unhandle))
    (delete @-1)
    (cond
     ((= c 0x0D86)
