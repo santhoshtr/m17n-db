@@ -30,10 +30,11 @@ pkgdata_DATA = \
 	mdb.dir
 
 EXTRA_DIST = \
+	mdb.dir \
 	${FONT_LAYOUT_TABLE} \
 	${INPUT_METHOD} \
 	${MISC_TABLE} \
-	mdb.dir \
+	BLOCK.tab \
 	${UNIDATA} \
 	mapconv compact.awk gb180302.awk gb180304.awk \
 	CHARTAB.awk NAME.awk LINEBREAK.awk \

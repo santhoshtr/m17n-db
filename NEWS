@@ -13,6 +13,27 @@ For instance, the current mdb.dir file contains this single line:
   (input-method * "*.mim")
 instead of lines for each input methods.
 
+** Several new input methods are added.
+
+bn-unijoy.mim (Bengali)
+hi-typewriter.mim (Hindi)
+lo-kbd.mim (Lao)
+si-wijesekera.mim (Sinhalese)
+sv-post.mim (Swedish)
+vi-vni.mim (Vietnamese)
+zh-cangjie.mim, zh-quick.mim (Chinese)
+zh-py-b5.mim, zh-py-gb.mim (Chinese, restricted version of zh-py.mim)
+zh-tonepy-b5.mim, zh-tonepy-gb.mim (Chinese, restricted version of zh-tone.mim)
+
+** Several new FLTs are added.
+
+ARAB-OTF-NO-GPOS.flt (Arabic)
+KHMR-OTF.flt (Khmer)
+LAOO-GENERIC.flt (Lao)
+MLYM-RACHANA.flt (Malayalam)
+THAI-GENERIC.flt (Thai)
+TIBT-OTF.flt (Tibetan)
+
 
 * Changes in the m17n database 1.2.0
 
