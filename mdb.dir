@@ -113,7 +113,7 @@
 ;;;
 ;;; See @ref mdbIM for the format of these files.
 ;;; <ul>
-;; The actual tags and filename are defined in each file matching "*.mim".
+;; The actual tags and filename are defined in each file with extension "mim".
 (input-method * "*.mim")
 ;;; </ul>
 
