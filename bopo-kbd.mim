@@ -21,8 +21,6 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> bopo-kbd.mim
-;;;
 ;;; Input method for Bopomofo.
 ;;; @image html bopo-kbd.png "Keyboard Layout"
 ;;; @image latex bopo-kbd.eps "Keyboard Layout" width=\narrowwidth
