@@ -21,8 +21,6 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> hy-kbd.mim
-;;;
 ;;; Input method for Armenian.
 ;;; Simulating Eastern Armenian keyboard on American keyboard.
 ;;; @image html hy-kbd.png "Keyboard Layout"

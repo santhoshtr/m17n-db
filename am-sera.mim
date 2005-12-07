@@ -23,9 +23,8 @@
 
 (input-method am sera)
 
-(description "Amharic input method
-Amharic input method with SERA.  For more information,
-see the page http://www.geez.org/IM/.
+(description "Amharic input method with SERA.
+For more information, see the page http://www.geez.org/IM/.
 ")
 
 (title "ፊደል")

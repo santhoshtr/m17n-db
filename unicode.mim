@@ -21,12 +21,11 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> unicode.mim
-;;;
-;;; Input method for Unicode BMP characters by typing C-u followed by
-;;; four hexadecimal numbers [0-9A-Fa-f].
-
 (input-method t unicode)
+
+(description "Input method for Unicode BMP characters by typing C-u followed by
+four hexadecimal numbers [0-9A-Fa-f].
+")
 
 (title "UNICODE")
 

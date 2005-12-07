@@ -21,9 +21,12 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
+;;; Input method for Russian by simulating the Russian keyboard.
+
 (input-method ru kbd)
 
-(description "Russian input method simulating the Russian keyboard.
+(description
+ "Russian input method simulating the Russian keyboard.
     1! 2\" 3№ 4; 5% 6: 7? 8* 9( 0) -_ =+ ёЁ
      Й  Ц  У  К  Е  Н  Г  Ш  Щ  З  Х  Ъ
       Ф  Ы  В  А  П  Р  О  Л  Д  Ж  Э

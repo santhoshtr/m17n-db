@@ -21,8 +21,6 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> he-kbd.mim
-;;;
 ;;; Input method for Hebrew simulating Hebrew keyboard.
 ;;; @image html he-kbd.png "Keyboard Layout"
 ;;; @image latex he-kbd.eps "Keyboard Layout" width=\narrowwidth

@@ -23,8 +23,6 @@
 
 (input-method lo kbd)
 
-;;; <li> lo-kbd.mim
-;;;
 ;;; Input method for Lao using Lao keyboard layout.
 
 (description

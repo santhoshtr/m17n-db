@@ -24,7 +24,8 @@
 (input-method hi typewriter)
 
 (description "Hindi input method with `typewriter' method.
-Still experimental.")
+Still experimental.
+")
 
 (title "क")
 

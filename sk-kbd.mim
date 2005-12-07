@@ -21,8 +21,6 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; <li> sk-kbd.mim
-;;;
 ;;; Input method for Slovak simulating the standard Slovak keyboard.
 ;;; @image html sk-kbd.png "Keyboard Layout"
 ;;; @image latex sk-kbd.eps "Keyboard Layout" width=\narrowwidth

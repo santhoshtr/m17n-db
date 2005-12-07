@@ -20,8 +20,6 @@
 ;; the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
-;;; <li> latn-post.mim
-;;;
 ;;; Input method for Latin script with postfix modifiers.
 ;;; @image html latn-post.png
 ;;; @image latex latn-post.eps "Examples" width=\narrowwidth
