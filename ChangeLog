@@ -23,6 +23,8 @@
 
 	* Makefile.am (CHAR_TABLE): Add BLOCK.tab.
 
+	* BLOCK.tab: New file.
+
 	* LANGUAGE.tbl (zh): Add extra characters.
 	(ja): Likewise.
 

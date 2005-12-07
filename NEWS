@@ -60,6 +60,16 @@ latn-pre.mim (Latin script)
 SINH-OTF.flt (Sinhala script)
 SYRC-OTF.flt (Syriac script)
 
+** Several new char-tables are added.
+
+BLOCK.tab (Unicode Blocks)
+CASE-MAPPING.tab CASED.tab SOFT-DOTTED.tab (for case conversion)
+LINEBREAK.tab (for linebreaking)
+LANGUAGE.tbl (ISO639-1, ISO639-2 language codes)
+SCRIPT-LANGUAGE.tbl (script vs languages)
+
+** A new fontset generic.fst is added.
+
 
 * Changes in the m17n database 1.1.0
 
