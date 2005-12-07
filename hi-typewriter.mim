@@ -24,7 +24,7 @@
 (input-method hi typewriter)
 
 (description "Hindi input method with `typewriter' method.
-")
+Still experimental.")
 
 (title "क")
 
@@ -155,5 +155,3 @@
    (move @-) (delete @-) (move @>) (insert "ि")
    ;; Keep on reading the following [HC]* sequence.
    (shift after-consonant))))
-
-
