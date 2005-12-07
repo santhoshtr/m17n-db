@@ -23,7 +23,12 @@
 
 (input-method lo kbd)
 
-(description "Lao input method using Lao keyboard layout.
+;;; <li> lo-kbd.mim
+;;;
+;;; Input method for Lao using Lao keyboard layout.
+
+(description
+ "Lao input method using Lao keyboard layout.
 The layout is based on the information at this page:
   http://home.vicnet.net.au/~lao/lswin/laokbd.htm
     ຢ1  ຟ2  ໂ3  ຖ4  ◌ຸ◌໌  ◌ູ^  ຄ5  ຕ6  ຈ7  ຂ8  ຊ9  ◌ໍ◌ໍ່  ງ໌ 
