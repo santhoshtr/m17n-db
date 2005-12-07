@@ -53,21 +53,19 @@ CMD-DESCRIPTION ::= MTEXT
 TITLE-TEXT ::= MTEXT
 @endverbatim
 
-@c IM-DECLARATION
+@c IM-DECLARATION specifies the language and name of this input
+method.
 
-...to be filled...
+@c DESCRIPTION specifies the description text of this input method by
+MTEXT.
 
-@c DESCRIPTION
+@c VARIABLE-DECLARATION declares a variable used in this input method.
+If a variable must be initialized from the default value, or is to be
+customized by a user, it must be declared here.
 
-...to be filled...
-
-@c VARIABLE-DECLARATION
-
-...to be filled...
-
-@c COMMAND-DECLARATION
-
-...to be filled...
+@c COMMAND-DECLARATION declares a command used in this input method.
+If a command must be bound to the default key sequence, or is to be
+customized by a user, it must be declared here.
 
 @c TITLE-TEXT is a text displayed on the screen when this input method
 is active.
