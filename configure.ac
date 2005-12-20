@@ -62,7 +62,10 @@ else :
 fi
 
 
-AC_CONFIG_FILES([Makefile mapconv m17n-db])
+ICONS=`cd icons; echo *.png`
+AC_SUBST(ICONS)
+
+AC_CONFIG_FILES([Makefile mapconv m17n-db icons/Makefile])
 AC_OUTPUT
 
 # Print configuration message.
