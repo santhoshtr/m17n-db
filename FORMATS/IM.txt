@@ -101,7 +101,7 @@ code.
 MAP-ACTION ::= ACTION
 
 ACTION ::= INSERT | DELETE | SELECT | MOVE | MARK
-           | SHOW | HIDE | PUSHBACK | UNDO | SHIFT | CALL
+           | SHOW | HIDE | PUSHBACK | UNDO | UNHANDLE | SHIFT | CALL
 	   | SET | IF | COND | '(' MACRO-NAME ')'
 
 PREDEFINED-SYMBOL ::=
@@ -360,6 +360,13 @@ If there's a symbol argument, it must be resolved to an integer number
 and the number is treated as the actual argument as above.
 
 @verbatim
+UNHANDLE :: = '(unhandle)'
+@endverbatim
+
+This action commit the current preedit and return the last key as
+unhandled.
+
+@verbatim
 SHIFT :: = '(' 'shift' STATE-NAME ')'
 @endverbatim
 
@@ -395,7 +402,8 @@ CMD ::= 'set' | 'add' | 'sub' | 'mul' | 'div'
 
 EXPRESSION ::= INTEGER | SYMBOL2 | '(' OPERAND EXPRESSION * ')'
 
-OPERAND ::= '+' | '-' | '*' | '/' | '|' | '&' | '!' | '=' | '<' | '>'
+OPERAND ::= '+' | '-' | '*' | '/' | '|' | '&' | '!'
+            | '=' | '<' | '>' | '<=' | '>='
 
 @endverbatim
 
@@ -420,7 +428,7 @@ If @c CMD is 'div', it divides the value of @c SYMBOL1 by the value of
 @verbatim
 IF ::= '(' CONDITION ACTION-LIST1 ACTION-LIST2 ')'
 
-CONDITION ::= [ '=' | '<' | '>' ] EXPRESSION1 EXPRESSION2
+CONDITION ::= [ '=' | '<' | '>' | '<=' | '>=' ] EXPRESSION1 EXPRESSION2
 
 ACTION-LIST1 ::= '(' ACTION * ')'
 

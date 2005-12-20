@@ -22,5 +22,6 @@
 # 02111-1307, USA.
 
 pkgdata_DATA = @ICONS@
-
 pkgdatadir=$(datadir)/m17n/icons
+
+EXTRA_DIST = @ICONS@
