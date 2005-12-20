@@ -18,8 +18,8 @@ methods.
 
 @section im-format SYNTAX and SEMANTICS
 
-The following data format defines an input method.  The driver loads
-a definition from a file, a stream, etc.  A definitions is converted
+The following data format defines an input method.  The driver loads a
+definition from a file, a stream, etc.  The definition is converted
 into the form of plist in the driver.
 
 @verbatim
@@ -56,11 +56,11 @@ TITLE-TEXT ::= MTEXT
 @c IM-DECLARATION specifies the language and name of this input
 method.
 
-@c DESCRIPTION specifies the description text of this input method by
-MTEXT.
+@c DESCRIPTION specifies @c MTEXT as the description text of this
+input method.
 
 @c VARIABLE-DECLARATION declares a variable used in this input method.
-If a variable must be initialized from the default value, or is to be
+If a variable must be initialized to the default value, or is to be
 customized by a user, it must be declared here.
 
 @c COMMAND-DECLARATION declares a command used in this input method.
@@ -148,16 +148,16 @@ BRANCH ::= '(' MAP-NAME BRANCH-ACTION * ')'
 	   | '(' t BRANCH-ACTION * ')'
 @endverbatim
 
-In the first form of @c BRANCH, @c MAP-NAME must be an item that appears
-in @c MAP.  In this case, if a key sequence matching one of @c
+In the first form of @c BRANCH, @c MAP-NAME must be an item that
+appears in @c MAP.  In this case, if a key sequence matching one of @c
 KEYSEQs of @c MAP-NAME is typed, @c BRANCH-ACTIONs are executed.
 
 In the second form of @c BRANCH, @c BRANCH-ACTIONs are executed if a
 key sequence that doesn't match any of @c Branch's of the current
 state is typed.
 
-In the third form of @c BRANCH, @c BRANCH-ACTIONs are executed when we
-shift to the current state.  If the current state is the initial
+In the third form of @c BRANCH, @c BRANCH-ACTIONs are executed when
+shifted to the current state.  If the current state is the initial
 state, @c BRANCH-ACTIONs are executed also when an input context of
 the input method is created.
 
@@ -237,7 +237,7 @@ And, this also has a special meaning.
 
 Number of handled keys at that moment.
 
-</ulL
+</ul>
 
 The arguments and the behavior of each action are listed below.
 
@@ -333,7 +333,6 @@ MARK ::= '(' 'mark' SYMBOL ')'
 This action treats @c SYMBOL as a marker, and sets its position to the
 current position.  @c SYMBOL must not be a @c PREDEFINED-SYMBOL.
 
-
 @verbatim
 PUSHBACK :: = '(' 'pushback' INTEGER ')'
               | '(' 'pushback' KEYSEQ ')'
@@ -343,7 +342,7 @@ The first form pushes back the latest @c INTEGER number of key events
 to the event queue if @c INTEGER is positive, and pushes back all key
 events if @c INTEGER is zero.
 
-The second form pushes back keys in KEYSEQ to the event queue.
+The second form pushes back keys in @c KEYSEQ to the event queue.
 
 @verbatim
 UNDO :: = '(' 'undo' [ INTEGER | SYMBOL ] ')'
@@ -354,7 +353,7 @@ If there's no argument, this action cancels the last two key events
 
 If there's an integer argument NUM, it must be positive or negative
 (not zero).  If positive, the NUMth event to the last one are
-cancelled.  If negative the last (- NUM) events are cancelled.
+canceled.  If negative the last (- NUM) events are canceled.
 
 If there's a symbol argument, it must be resolved to an integer number
 and the number is treated as the actual argument as above.
@@ -444,7 +443,7 @@ true, and performs @c ACTION-LIST2 (if any) otherwise.
 COND ::= '(' 'cond' [ '(' EXPRESSION ACTION * ') ] * ')'
 @endverbatim
 
-This action performs the first actions @c ACTION whose corresponding
+This action performs the first action @c ACTION whose corresponding
 @c EXPRESSION has nonzero value.
 
 @ifnot FOR-MAN

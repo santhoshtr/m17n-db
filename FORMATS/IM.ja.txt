@@ -1,4 +1,4 @@
-/* Copyright (C) 2003, 2004
+/* Copyright (C) 2003, 2004, 2005
      National Institute of Advanced Industrial Science and Technology (AIST)
      Registration Number H15PRO112
    See the end for copying conditions.  */
@@ -23,12 +23,50 @@ m17n ライブラリは、m17n データベースから動的にロードできる入力メソッド
 イルやストリームから定義をロードし、プロパティリストの形式に変換する。
 
 @verbatim
-INPUT-METHOD ::= TITLE MAP-LIST MACRO-LIST ? MODULE-LIST ? STATE-LIST
+INPUT-METHOD ::=
+    IM-DECLARATION ? DESCRIPTION ? VARIABLE-LIST ? COMMAND-LIST ?
+    TITLE MAP-LIST MACRO-LIST ? MODULE-LIST ? STATE-LIST
 
-TITLE ::= '(' 'title' MTEXT ')'
+IM-DECLARATION ::= '(' 'input-method' LANGUAGE NAME ')'
+DESCRIPTION ::= '(' 'description' MTEXT ')'
+VARIABLE-LIST ::= '(' 'variable' VARIABLE-DECLARATION * ')'
+COMMAND-LIST ::= '(' 'command' COMMAND-DECLARATION * ')'
+TITLE ::= '(' 'title' TITLE-TEXT ')'
+
+VARIABLE-DECLARATION ::=
+    '(' VAR-NAME [ VAR-DESCRIPTION | nil ] VALUE VALUE-CANDIDATE * ')'
+
+COMMAND-DECLARATION ::=
+    '(' CMD-NAME [ CMD-DESCRIPTION | nil ] KEYSEQ * ')'
+
+LANGUAGE ::= SYMBOL
+NAME ::= SYMBOL
+IM-DESCRIPTION ::= MTEXT
+VAR-NAME ::= SYMBOL
+VAR-DESCRIPTION ::= MTEXT
+VALUE ::= MTEXT | SYMBOL | INTEGER
+VALUE-CANDIDATE ::= VALUE | '(' RANGE-FROM RANGE-TO ')'
+RANGE-FROM ::= INTEGER
+RANGE-TO ::= INTEGER
+CMD-NAME ::= SYMBOL
+CMD-DESCRIPTION ::= MTEXT
+TITLE-TEXT ::= MTEXT
 @endverbatim
 
-@c MTEXT はこの入力メソッドが有効な際スクリーン上に表示されるテキストである 。
+@c IM-DECLARATION はこの入力メソッドの言語と名前を指定する。
+
+@c DESCRIPTION はこの入力メソッドの説明である @c MTEXT を指定する。
+
+@c VARIABLE-DECLARATION はこの入力メソッドで使用される変数を宣言する。
+変数をデフォルト値に初期化したり、ユーザがカスタマイズしたりする場合に
+は、ここで宣言されなくてはならない。
+
+@c COMMAND-DECLARATION はこの入力メソッドで使用されるコマンドを宣言する。
+コマンドをデフォルトキーシーケンスに割り当てたり、ユーザがカスタマイズ
+したりする場合には、ここで宣言されなくてはならない。
+
+@c TITLE-TEXT はこの入力メソッドが有効な時、スクリーン上に表示されるテ
+キストである。
 
 @verbatim 
 MAP-LIST ::= '(' 'map' MAP * ')'
@@ -46,7 +84,7 @@ KEYSEQ ::= MTEXT | '(' [ SYMBOL | INTEGER ] * ')'
 らない。
 
 @c KEYSEQ 定義中の @c MTEXT は、キーボードから生成できる文字で構成され
-る。すなわち @c MTEXT は通常ASCII 文字のみを含む。しかし、入力メソッド
+る。すなわち @c MTEXT は通常 ASCII 文字のみを含む。しかし、入力メソッド
 がたとえば西ヨーロッパ用キーボードを使うことを想定したものであれば、@c
 MTEXT は Latin-1 文字を含んでもよい。
 
@@ -58,14 +96,14 @@ MTEXT は Latin-1 文字を含んでもよい。
 @verbatim
 MAP-ACTION ::= ACTION
 
-ACTION ::= INSERT | DELETE | SELECT | MOVE | MARK |
-           | SHOW | HIDE | PUSHBACK | UNDO | SHIFT | CALL
-	   | SET | IF | '(' MACRO-NAME ')'
-
+ACTION ::= INSERT | DELETE | SELECT | MOVE | MARK
+           | SHOW | HIDE | PUSHBACK | UNDO | UNHANDLE | SHIFT | CALL
+	   | SET | IF | COND | '(' MACRO-NAME ')'
 PREDEFINED-SYMBOL ::=
-    '@0' | '@1' | '@2' | '@3' | '@4' |
-    '@5' | '@6' | '@7' | '@8' | '@9' |
-    '@<' | '@=' | '@>' | '@-' | '@+' | '@[' | '@]'
+    '@0' | '@1' | '@2' | '@3' | '@4'
+    | '@5' | '@6' | '@7' | '@8' | '@9'
+    | '@<' | '@=' | '@>' | '@-' | '@+' | '@[' | '@]'
+    | '@@
 @endverbatim
 @verbatim
 MACRO-LIST ::= '(' 'macro' MACRO * ')'
@@ -86,12 +124,12 @@ MODULE-NAME ::= SYMBOL
 FUNCTION ::= SYMBOL
 @endverbatim
 
-各 @c MODULE は外部モジュール (動的ライブラリ) の名前とそのモジュール
-が公開する関数名を宣言する。@c FUNCTION が "init" という名前であれば、
-この入力メソッド用の入力コンテクストが生成される際にのみ、デフォルトの
-引数 (@c CALL の節参照) とともに呼ばれる。 @c FUNCTION が "fini" とい
-う名前を持てば, 入力コンテクストが破壊される際にのみ、デフォルトの引数
-とともに呼ばれる。
+各 @c MODULE は外部モジュール (動的ライブラリ) の名前とそのモジュールが
+公開している関数名を宣言する。@c FUNCTION が "init" という名前であれば、
+この入力メソッド用の入力コンテクストが生成される際に、デフォルトの引数
+(@c CALL の節参照) のみとともに呼ばれる。 @c FUNCTION が "fini" という
+名前を持てば, 入力コンテクストが破壊される際に、デフォルトの引数のみと
+ともに呼ばれる。
 
 @verbatim
 STATE-LIST ::= '(' 'state' STATE * ')'
@@ -105,44 +143,44 @@ BRANCH ::= '(' MAP-NAME BRANCH-ACTION * ')'
 	   | '(' t BRANCH-ACTION * ')'
 @endverbatim
 
-@c BRANCH の最初の形式では、@c MAP-NAME は @c MAP に現われるものでなく
-てはならない。この場合、@c MAP-NAME の @c KEYSEQ の一つに合致するキー
-列がタイプされれば、 @c BRANCH-ACTION が実行される。
+@c BRANCH の第一の形式では、@c MAP-NAME は @c MAP に現われるものでなく
+てはならない。この場合、@c MAP-NAME の @c KEYSEQ の一つに合致するキー列
+がタイプされれば、 @c BRANCH-ACTION が実行される。
 
-@c BRANCH の二つ目の形式では、その時点の状態のいずれの @c BRANCH にも
-合致しないキー列がタイプされれば、@c BRANCH-ACTIONが実行される。
+@c BRANCH の第二の形式では、その時点の状態のいずれの @c BRANCH にも合致
+しないキー列がタイプされれば、@c BRANCH-ACTIONが実行される。
 
-@c BRANCH の三つ目の形式では、すべてのキーを処理した後でその状態に移動
-した場合に @c BRANCH-ACTION が実行される。もし初期状態であれば、入力メ
-ソッドの入力コンテクストを生成した直後に @c BRANCH-ACTION を実行する。
+@c BRANCH の第三の形式では、その状態に移動した時点で @c BRANCH-ACTION
+が実行される。もし初期状態であれば、入力メソッドの入力コンテクストを生
+成した時点で @c BRANCH-ACTION を実行する。
 
 @verbatim
 BRANCH-ACTION ::= ACTION
 @endverbatim
 
-入力メソッドは次の二つのシンボルのリストを持つ。
+入力メソッドはシンボルのリストを二つ持つ。
 
 <ul>
 <li> マーカリスト
 
 マーカは preediting テキスト中での文字位置を示すシンボルである。@c
-MARK アクションはマーカをある位置に設定する。@c MOVE と @c DELETE アク
-ションはマーカの位置を参照する。
+MARK アクションはマーカを特定の位置に設定する。@c MOVE と @c DELETE ア
+クションはマーカの位置を参照する。
 
 <li> 変数リスト
 
-変数は整数の値を持つシンボルである。値は@c SET アクションによって設定
-され、@c SET, @c INSERT, @c IF に参照される。すべての変数の初期値は 0 
-である。
+変数は整数の値を持つシンボルである。値は@c SET アクションによって設定さ
+れ、@c SET, @c INSERT, @c IF に参照される。すべての変数の初期値は（暗黙
+に） 0 である。
 
 </ul>
 
-@c PREDEFINED-SYMBOL はマーカとして用いられた場合特別な意味を持つ。
+各 @c PREDEFINED-SYMBOL はマーカとして用いられた場合特別な意味を持つ。
 
 <ul>
 <li> @c @@0, @c @@1, @c @@2, @c @@3, @c @@4, @c @@5, @c @@6, @c @@7, @c @@8, @c @@9
 
-それぞれ０番目から９番目の位置
+それぞれ 0 番目から 9 番目の位置
 
 <li> @c @@<, @c @@=, @c @@>
 
@@ -157,8 +195,8 @@ MARK アクションはマーカをある位置に設定する。@c MOVE と @c DELETE アク
 候補リストが変化する際の前と次の位置
 </ul>
 
-@c PREDEFINED-SYMBOL は @c SELECT アクション中で候補のインデックスとし
-て用いられた際特別な意味を持つ。
+@c PREDEFINED-SYMBOL のいくつかは、 @c SELECT アクション中で候補のイン
+デックスとして用いられた際特別な意味を持つ。
 
 <ul>
 <li> @c @@<, @c @@=, @c @@>
@@ -181,6 +219,15 @@ MARK アクションはマーカをある位置に設定する。@c MOVE と @c DELETE アク
 もの。
 </ul>
 
+また、これも特別な意味を持つ。
+
+<ul>
+<li> @c @@@
+
+その時点で処理されているキーの数。
+
+</ul>
+
 各アクションの引数と振舞いは以下の通り。
 
 @verbatim
@@ -198,13 +245,13 @@ CANDIDATES ::= MTEXT | '(' MTEXT * ')'
 
 第三の形式は、文字 @c INTEGER を現在の位置の前に挿入する。
 
-第四の形式は、@c SYMBOL を変数として扱い、その値が正しい文字コードで
-あれば現在の位置の前に挿入する。
+第四の形式は、@c SYMBOL を変数として扱い、その値が正しい文字コードであ
+れば現在の位置の前に挿入する。
 
 第五、第六の形式では、@c CANDIDATES は候補グループを表し、@c
-CANDIDATES の各要素が候補を表す。つまり@c CANDIDATES が M-text であれ
-ば、候補はそのM-text 中の文字であり、@c CANDIDATES が M-text のリスト
-であれば、候補はそれらの M-text である。
+CANDIDATES の各要素が候補を表す。つまり@c CANDIDATES が M-text であれば、
+候補はそのM-text 中の文字であり、@c CANDIDATES が M-text のリストであれ
+ば、候補はそれらの M-text である。
 
 これらの形式は現在の位置の直前に最初の候補を挿入する。挿入された文字列
 には、候補のリストと現在選択されている候補を指す情報が付加されている。
@@ -270,18 +317,36 @@ MARK ::= '(' 'mark' SYMBOL ')'
 このアクションは @c SYMBOL をマーカとして、それを現在の位置に設定する。
 @c SYMBOL は @c PREDEFINED-SYMBOL であってはならない。
 
-
 @verbatim
-PUSHBACK :: = '(pushback INTEGER)'
+PUSHBACK :: = '(' 'pushback' INTEGER ')'
+              | '(' 'pushback' KEYSEQ ')'
 @endverbatim
 
-このアクションは最新のキーイベントをイベントキューに戻す。
+第一の形式は、@c INTEGER の値が正ならば最新の @c INTEGER 個のキーイベン
+トをイベントキューに差し戻す。0 ならばすべてのキーイベントを差し戻す。
+
+第二の形式は、@c KEYSEQ 中のキーをイベントキューに差し戻す。
 
 @verbatim
-UNDO :: = '(undo)'
+UNDO :: = '(' 'undo' [ INTEGER | SYMBOL ] ')'
 @endverbatim
 
-このアクションは最後のキーイベントを取り消す。
+引数が無い場合、このアクションは最新の二つのキーイベント、すなわちこの
+コマンドによって引き起こされたものとその直前のもの、をキャンセルする。
+
+整数値の引数 NUM がある場合、それは正か負であり 0 であってはならない。
+正ならば最新のものから数えて NUM 個目のイベントをキャンセルする。負なら
+ば最新の(- NUM) 個のイベントをキャンセルする。
+
+シンボルの引数がある場合、それは整数に帰着されなくてはならず、その値が
+上記の正数値引数の場合と同様に取り扱われる。
+
+@verbatim
+UNHANDLE :: = '(unhandle)'
+@endverbatim
+
+このアクションは現在の preediting テキストをコミットし、最新のキーを未
+処理として返す。
 
 @verbatim
 SHIFT :: = '(' 'shift' STATE-NAME ')'
@@ -311,49 +376,53 @@ ARG ::= INTEGER | SYMBOL | MTEXT | PLIST
 *) 型の値を返さなくてはならない。
 
 @verbatim
-SET ::= '(' OPERAND SYMBOL1 [ INTEGER | SYMBOL2 ] ')'
+SET ::= '(' CMD SYMBOL1 EXPRESSION ')'
 
-OPERAND ::= 'set' | 'add' | 'sub' | 'mul' | 'div'
+CMD ::= 'set' | 'add' | 'sub' | 'mul' | 'div'
+
+EXPRESSION ::= INTEGER | SYMBOL2 | '(' OPERAND EXPRESSION * ')'
+
+OPERAND ::= '+' | '-' | '*' | '/' | '|' | '&' | '!'
+            | '=' | '<' | '>' | '<=' | '>='
+
 @endverbatim
 
 このアクションは @c SYMBOL1 と @c SYMBOL2 を変数として、@c SYMBOL1 の
 値を以下のように設定する。
 
-@c OPERAND が 'set' ならば、@c SYMBOL1 の値は @c INTEGER または @c
-SYMBOL2 に設定される。
+@c CMD が 'set' ならば、@c SYMBOL1 の値を @c EXPRESSION の値に設定する。
 
-@c OPERAND が 'add' ならば、@c SYMBOL1 の値を @c INTEGER または @c
-SYMBOL2 の値だけ増やす。
+@c CMD が 'add' ならば、@c SYMBOL1 の値を @c EXPRESSION の値だけ増やす。
 
-@c OPERAND が 'sub' ならば、@c SYMBOL1 の値を @c INTEGER または @c
-SYMBOL2 の値だけ減らす。
+@c CMD が 'sub' ならば、@c SYMBOL1 の値を @c EXPRESSION の値だけ減らす。
 
-@c OPERAND が 'mul' ならば、@c SYMBOL1 の値に @c INTEGER または @c
-SYMBOL2 の値を掛ける。
+@c CMD が 'mul' ならば、@c SYMBOL1 の値を @c EXPRESSION の値を掛けたも
+のにする。
 
-@c OPERAND が 'div' ならば、@c SYMBOL1 の値を @c INTEGER または @c
-SYMBOL2 の値で割る。
+@c CMD が 'div' ならば、@c SYMBOL1 の値を @c EXPRESSION の値で割ったも
+のにする。
 
 @verbatim
-IF ::= '(' 'if' CONDITION ACTION-LIST1 ACTION-LIST2 * ')'
+IF ::= '(' CONDITION ACTION-LIST1 ACTION-LIST2 ')'
 
-CONDITION ::= '(' OPERAND VAL1 VAL2 ')'
+CONDITION ::= [ '=' | '<' | '>' | '<=' | '>=' ] EXPRESSION1 EXPRESSION2
 
 ACTION-LIST1 ::= '(' ACTION * ')'
 
 ACTION-LIST2 ::= '(' ACTION * ')'
-
-OPERAND ::= '=' '<' '>'
-
-VAL1 ::= [ INTEGER1 | SYMBOL1 ]
-
-VAL2 ::= [ INTEGER2 | SYMBOL2 ]
 @endverbatim
 
 このアクションは、 @c CONDITION が真であれば @c ACTION-LIST1 を実行し、
 そうでなければ @c ACTION-LIST2 を (もしあれば) 実行する。
 
 @c SYMBOL1 と @c SYMBOL2 は変数として扱われる。
+
+@verbatim
+COND ::= '(' 'cond' [ '(' EXPRESSION ACTION * ') ] * ')'
+@endverbatim
+
+このアクションは対応する @c EXPRESSION が 0 でない値をとる最初のアクショ
+ン @c ACTION を実行する。
 
 @ifnot FOR-MAN
 
@@ -364,7 +433,7 @@ VAL2 ::= [ INTEGER2 | SYMBOL2 ]
 */
 
 /* 
-Copyright (C) 2003, 2004
+Copyright (C) 2003, 2004, 2005
   National Institute of Advanced Industrial Science and Technology (AIST)
   Registration Number H15PRO112
 
