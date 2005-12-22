@@ -239,7 +239,7 @@
 ;; Step 3 : Now only those syllables that contain the pseudo character
 ;; x require pre-base substition.  Unlike the Mukti font for Bengali,
 ;; the Utkal font can produce the ligature for "C1 H C2" from
-;; "C1halnt" and "C2".  If such a ligature is not available, we get a
+;; "C1halant" and "C2".  If such a ligature is not available, we get a
 ;; sequence consisting of "C1halant" and "C2", which is satisfactory.
 
 (generator
@@ -307,7 +307,9 @@
  (0
   (cond
    (" ([^ ]*) "
-    (1 otf:orya=vatu,abvs,blws,psts))
+    ;; FIXME : The pres below is for the TTA ligature in the Utkal
+    ;; font.  It should be removed once the font is updated.
+    (1 otf:orya=vatu,abvs,blws,psts,pres))
    ("."
     [ otf:orya=+ ]))
   *))
