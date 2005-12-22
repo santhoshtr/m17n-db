@@ -13,6 +13,7 @@
 2005-12-20  Kenichi Handa  <handa@m17n.org>
 
 	* Makefile.am (SUBDIRS): Add icons.
+	(INPUT_METHOD): Add ru-kbd.mim.
 
 	* configure.ac: Setup the var ICONS.  Add icons/Makefile in
 	AC_CONFIG_FILES.
