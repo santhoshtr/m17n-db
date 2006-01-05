@@ -279,7 +279,7 @@ This input method uses this keyboard layout:
   ("J" (set V ?ᅠ) ?ᅠ (compose)))
 
  (backspace
-  ((BackSpace) (undo))))
+  ((BackSpace) (cond ((> @@ 1) (undo)) (1 (unhandle))))))
 
 (state
  (init
