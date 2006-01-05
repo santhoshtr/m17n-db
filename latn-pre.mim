@@ -46,7 +46,7 @@
 
 (input-method t latn-pre)
 
-(decsription
+(description
  "Latin script input method using prefix modifiers.
 ;; | mark       | prefix | examples
 ;; |------------+--------+----------
