@@ -1,3 +1,11 @@
+2006-01-05  Kenichi Handa  <handa@m17n.org>
+
+	* latn-pre.mim: Fix typo; decsription->description
+
+	* command.mim: Escape numbers by '\' to make them symbols.
+
+	* ko-han2.mim: Fix handling of Backspace key.
+
 2005-12-22  Kenichi Handa  <handa@m17n.org>
 
 	* Version 1.3.0 released.
