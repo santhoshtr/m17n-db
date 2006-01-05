@@ -69,43 +69,43 @@ Move to the next candidate group"
  (candidate-1
   "Select the 1st candidate
 Select the first candidate in the current group"
-  (1))
+  (\1))
  (candidate-2
   "Select the 2nd candidate
 Select the second candidate in the current group"
-  (2))
+  (\2))
  (candidate-3
   "Select the 3rd candidate
 Select the third candidate in the current group"
-  (3))
+  (\3))
  (candidate-4
   "Select the 4th candidate
 Select the fourth candidate in the current group"
-  (4))
+  (\4))
  (candidate-5
   "Select the 5th candidate
 Select the fifth candidate in the current group"
-  (5))
+  (\5))
  (candidate-6
   "Select the 6th candidate
 Select the sixth candidate in the current group"
-  (6))
+  (\6))
  (candidate-7
   "Select the 7th candidate
 Select the seventh candidate in the current group"
-  (7))
+  (\7))
  (candidate-8
   "select the 8th candidate
 Select the eighth candidate in the current group"
-  (8))
+  (\8))
  (candidate-9
   "Select the 9th candidate
 Select the ninth candidate in the current group"
-  (9))
+  (\9))
  (candidate-10
   "Select the 10th candidate
 Select the tenth candidate in the current group"
-  (0))
+  (\0))
  (prev-char
   "Previous character
 Move to the previous character"
