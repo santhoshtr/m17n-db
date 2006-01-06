@@ -1,3 +1,7 @@
+2006-01-06  Kenichi Handa  <handa@m17n.org>
+
+	* ko-han2.mim (init): Initialize L to 0.
+
 2006-01-05  Kenichi Handa  <handa@m17n.org>
 
 	* latn-pre.mim: Fix typo; decsription->description
