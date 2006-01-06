@@ -283,6 +283,8 @@ This input method uses this keyboard layout:
 
 (state
  (init
+  ;; This is to suppress compose action.
+  (t (set L 0))
   (L-or-T (set L L1) (set T 0x11A7) (shift state-L))
   (L (set T 0x11A7) (shift state-L))
   (V)
