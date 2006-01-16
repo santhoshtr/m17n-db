@@ -1,4 +1,4 @@
-# Copyright (C) 2003, 2004, 2005
+# Copyright (C) 2003, 2004, 2005, 2006
 #   National Institute of Advanced Industrial Science and Technology (AIST)
 #   Registration Number H15PRO112
 
@@ -21,8 +21,8 @@
 # 02111-1307, USA.
 
 # Process this file with autoconf to produce a configure script.
-AC_INIT(m17n-db, 1.3.0, bugs-m17n-db@m17n.org)
-AM_INIT_AUTOMAKE(m17n-db, 1.3.0)
+AC_INIT(m17n-db, 1.3.1, bugs-m17n-db@m17n.org)
+AM_INIT_AUTOMAKE(m17n-db, 1.3.1)
 
 # Checks for programs.
 AC_PROG_INSTALL
