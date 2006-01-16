@@ -1,5 +1,5 @@
 ;; ja-anthy.mim -- Japanese input method using Anthy as a conversion server.
-;; Copyright (C) 2003, 2004
+;; Copyright (C) 2003, 2004, 2005, 2006
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -34,12 +34,12 @@ communicate with Anthy.  For more detail about Anthy, see the page
 
 (variable
  (input-mode 
-  "Hiragana or Katakana
+  "Hiragana or Katakana (not yet implemented)
 Select Hiragana or Katakana"
   hiragana
   hiragana katakana)
  (zen-han
-  "Zenkaku or Hankaku"
+  "Zenkaku or Hankaku (not yet implemented)"
   zenkaku
   hankaku))
 
@@ -212,6 +212,18 @@ Select Hiragana or Katakana"
   ((S-Left) (call libmimx-anthy resize t))
   ((S-Right) (call libmimx-anthy resize nil)))
 
+ (choose
+  ("1" (select 0))
+  ("2" (select 1))
+  ("3" (select 2))
+  ("4" (select 3))
+  ("5" (select 4))
+  ("6" (select 5))
+  ("7" (select 6))
+  ("8" (select 7))
+  ("9" (select 8))
+  ("0" (select 9)))
+
  (change-candidate
   ((C-A) (select @<))
   ((C-P) (select @[))
@@ -252,6 +264,7 @@ Select Hiragana or Katakana"
   (t (set K @@) (sub K 1))
   (henkan-edit)
   (change-candidate (call libmimx-anthy change) (show) (shift henkan2))
+  (choose (hide) (shift init))
   (kakutei (call libmimx-anthy commit) (shift init))
   (backspace (undo K))
   (nil (call libmimx-anthy commit) (shift init)))
