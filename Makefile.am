@@ -362,6 +362,10 @@ pkgdatadir=$(datadir)/m17n
 
 bin_SCRIPTS = m17n-db
 
+pkgconfigdir = ${libdir}/pkgconfig
+
+pkgconfig_DATA = m17n-db.pc
+
 # Clear files that are automatically generated.
 clean:
 	rm -f ${CHARSETS} ${CHAR_TABLE}
