@@ -1,5 +1,5 @@
 ;; si-samanala.mim -- Sinhala input method for Samanala transliteration scheme
-;; Copyright (C) 2004, 2005
+;; Copyright (C) 2004, 2005, 2006
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -95,7 +95,8 @@ developed by Prasad Dharmasena.
   ("o" "ඔ")
   ("o~" "ඕ")
   ("au" "ඖ")
-  )
+  ("NG" "ං")
+  ("H" "ඃ"))
 
  (dependent
   ("a" (delete @-))
@@ -120,27 +121,19 @@ developed by Prasad Dharmasena.
   ("r" "‍ර්")
   ("y" "‍ය්"))
 
- (sign
-  ("NG" "ං")
-  ("H" "ඃ"))
-
  (underscore
   ("_"))
  )
 
 (state
- (initial
-  (consonant (shift medial))
-  (independent (shift final)))
+ (init
+  (consonant (shift second))
+  (independent))
 
- (medial
-  (underscore (shift initial))
-  (dependent (shift final))
+ (second
+  (underscore (shift init))
+  (dependent (shift init))
   (ry))
-
- (final
-  (sign (shift initial))
-  (t (shift initial)))
  )
 
 
