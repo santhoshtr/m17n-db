@@ -2,6 +2,7 @@
 
 	* si-samanala.mim: Remove the "final" state.
 	Merge the "sign" map with "independent".
+	Change reference URL.
 
 2006-01-16  Kenichi Handa  <handa@m17n.org>
 
