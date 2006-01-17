@@ -26,7 +26,7 @@
 (description "Sinhala input method using transliteration.
 The transleteration system is based on the Samanala version 2
 developed by Prasad Dharmasena.
-  <http://www-texdev.mpce.mq.edu.au/l2h/indic/Indica/samanala/>
+  <http://www.nongnu.org/sinhala/doc/transliteration/sinhala-transliteration_1.html>
 ")
 
 (title "Samanala")
