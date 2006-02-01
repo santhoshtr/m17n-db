@@ -1,5 +1,5 @@
 ;; TAML-OTF.flt -- Font Layout Table for Tamil OpenType fonts
-;; Copyright (C) 2004
+;; Copyright (C) 2004, 2006
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -62,6 +62,10 @@
 (generator
  (0
   (cond
+   ;; Special ligature SRI
+   ((0x0BB8 0x0BCD 0x0BB0 0x0BC0)
+    otf:taml=akhn)
+
    ;; A syllable ending with a two-part vowel sign.
    ("((CH)*C)(t)"
     < | (1 otf:taml=akhn) (3 two-part) | >)
