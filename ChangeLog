@@ -1,3 +1,7 @@
+2006-02-01  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* TAML-OTF.flt: Add special ligature SRI.
+
 2006-02-01  Kenichi Handa  <handa@m17n.org>
 
 	* MYMR-MYAZEDI.flt: Fix glyph substitutions for U+1014 and
