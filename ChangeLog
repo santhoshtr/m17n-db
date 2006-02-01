@@ -1,3 +1,8 @@
+2006-02-01  Kenichi Handa  <handa@m17n.org>
+
+	* MYMR-MYAZEDI.flt: Fix glyph substitutions for U+1014 and
+	U+101B.  Adjust position of wide subconsonants.
+
 2006-01-17  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* si-samanala.mim: Remove the "final" state.
