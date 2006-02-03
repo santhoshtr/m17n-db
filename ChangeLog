@@ -1,3 +1,16 @@
+2006-02-03  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* default.fst, truetype.fst: Add kedage and mallige for Kannada.
+
+	* gu-itrans.mim, kn-itrans.mim, ta-itrans.mim, bn-itrans.mim,
+	hi-itrans.mim, pa-itrans.mim, te-itrans.mim: Follow ITRANS
+	official page.
+
+	* as-itrans.mim, gu-itrans.mim, kn-itrans.mim, or-itrans.mim,
+	ta-itrans.mim, bn-itrans.mim, hi-itrans.mim, ml-itrans.mim,
+	pa-itrans.mim, te-itrans.mim: Remove the "finish" state and change
+	mode to emacs-lisp.
+
 2006-02-03  Kenichi Handa  <handa@m17n.org>
 
 	* xfont.fst (cyrillic): Add microsoft-cp1251.
@@ -55,7 +68,7 @@
 
 2005-12-22  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* ORYA-OTF.flt : Add pres in step 5 for workaround.
+	* ORYA-OTF.flt: Add pres in step 5 for workaround.
 
 2005-12-20  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
