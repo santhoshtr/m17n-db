@@ -239,6 +239,7 @@
 (cyrillic
  (nil
   ((iso8859-5))
+  ((microsoft-cp1251))
   ((iso10646-1))
   ((nil freesans unicode-bmp))
   ((nil freeserif unicode-bmp))))
