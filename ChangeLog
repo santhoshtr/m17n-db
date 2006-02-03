@@ -1,5 +1,9 @@
 2006-02-03  Kenichi Handa  <handa@m17n.org>
 
+	* xfont.fst (cyrillic): Add microsoft-cp1251.
+
+	* default.fst (cyrillic): Add microsoft-cp1251.
+
 	* configure.ac: Change versions to 1.3.2.
 
 2006-02-01  TAKAHASHI Naoto  <ntakahas@m17n.org>
