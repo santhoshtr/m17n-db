@@ -88,6 +88,8 @@
   ((nil pothana2000 unicode-bmp) telu-otf)))
 (kannada
  (nil
+  ((nil kedage unicode-bmp) knda-otf)
+  ((nil mallige unicode-bmp) knda-otf)
   ((nil sampige unicode-bmp) knda-otf)))
 (sinhala
  (nil

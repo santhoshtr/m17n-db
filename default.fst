@@ -131,6 +131,11 @@
 ;;; <li> infopage: http://www.kavya-nandanam.com/
 ;;; <li> download: http://www.kavya-nandanam.com/dload.htm
 ;;; </ul>
+;;; <li> Kedage-[bint].ttf (family kedage; for Kannada), \n
+;;;      Malige-[bint].ttf (family mallige; for Kannada)
+;;; <ul>
+;;; <li> download: http://brahmi.sourceforge.net/downloads.html
+;;; </ul>
 ;;; <li> Sampige.ttf (family: Sampige; for Kannada)
 ;;; <ul>
 ;;; <li> infopage: http://kannada.sourceforge.net/
@@ -302,6 +307,8 @@
   ((nil pothana2000 unicode-bmp) telu-otf)))
 (kannada
  (nil
+  ((nil kedage unicode-bmp) knda-otf)
+  ((nil mallige unicode-bmp) knda-otf)
   ((nil sampige unicode-bmp) knda-otf)))
 (malayalam
  (nil
