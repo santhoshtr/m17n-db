@@ -1,5 +1,5 @@
 ;; hi-itrans.mim -- Hindi input method with ITRANS method
-;; Copyright (C) 2003, 2004, 2005
+;; Copyright (C) 2003, 2004, 2005, 2006
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -49,7 +49,7 @@ For the detail of ITRANS, see the page:
   ("~N" "ङ्")
   ("N^" "ङ्")
   ("ch" "च्")
-  ("Ch" "छ्")
+  ("Ch" "छ्")			      ; not in ITRANS Devenagari table
   ("chh" "छ्")
   ("j" "ज्")
   ("jh" "झ्")
@@ -65,7 +65,7 @@ For the detail of ITRANS, see the page:
   ("d" "द्")
   ("dh" "ध्")
   ("n" "न्")
-  ("nh" "ऩ्")
+  ("nh" "ऩ्")			      ; not in ITRANS Devenagari table
   ("p" "प्")
   ("ph" "फ्")
   ("b" "ब्")
@@ -73,7 +73,7 @@ For the detail of ITRANS, see the page:
   ("m" "म्")
   ("y" "य्")
   ("r" "र्")
-  ("rh" "ऱ्")
+  ("rh" "ऱ्")			      ; not in ITRANS Devenagari table
   ("l" "ल्")
   ("L" "ळ्")
   ("ld" "ळ्")
@@ -92,10 +92,11 @@ For the detail of ITRANS, see the page:
   (".D" "ड़्")
   (".Dh" "ढ़्")
   ("f" "फ़्")
-  ("Y" "य़्")
-  ("yh" "य़्")
+  ("Y" "य़्")			      ; not in ITRANS Devanagari table
+  ("yh" "य़्")			      ; not in ITRANS Devanagari table
+  ("j~n" "ज्ञ्")
   ("GY" "ज्ञ्")
-  ("dny" "ज्ञ्")
+  ("dny" "ज्ञ्")		      ; not in ITRANS Devanagari table
   ("x" "क्ष्"))
 
  (independent
@@ -110,21 +111,21 @@ For the detail of ITRANS, see the page:
   ("U" "ऊ")
   ("RRi" "ऋ")
   ("R^i" "ऋ")
-  ("LLi" "ऌ")
-  ("L^i" "ऌ")
-  (".c" "ऍ")
+  ("LLi" "ऌ")			      ; not in ITRANS Devanagari table
+  ("L^i" "ऌ")			      ; not in ITRANS Devanagari table
+  (".c" "ऍ")			      ; not in ITRANS Devanagari table
   ("e.c" "ऍ")
-  ("E" "ऎ")
+  ("E" "ऎ")			      ; not in ITRANS Devanagari table
   ("e" "ए")
   ("ai" "ऐ")
   ("o.c" "ऑ")
-  ("O" "ऒ")
+  ("O" "ऒ")			      ; not in ITRANS Devanagari table
   ("o" "ओ")
   ("au" "औ")
-  ("RRI" "ॠ")
-  ("R^I" "ॠ")
-  ("LLI" "ॡ")
-  ("L^I" "ॡ")
+  ("RRI" "ॠ")			      ; not in ITRANS Devanagari table
+  ("R^I" "ॠ")			      ; not in ITRANS Devanagari table
+  ("LLI" "ॡ")			      ; not in ITRANS Devanagari table
+  ("L^I" "ॡ")			      ; not in ITRANS Devanagari table
   (".N" "ँ")
   (".n" "ं")
   ("M" "ं")
@@ -133,7 +134,7 @@ For the detail of ITRANS, see the page:
   (".h" "्")
   ("AUM" "ॐ")
   ("OM" "ॐ")
-  (".." "।")
+  (".." "।")			      ; not in ITRANS Devanagari table
   ("0" "०")
   ("1" "१")
   ("2" "२")
@@ -144,13 +145,13 @@ For the detail of ITRANS, see the page:
   ("7" "७")
   ("8" "८")
   ("9" "९")
-  ("#" "्र")
-  ("$" "र्")
-  ("^" "त्र")
-  ("*" "श्र")
-  ("]" "़")
-  ((S-\ ) "‌")
-  ((C-@) "‍"))
+  ("#" "्र")			      ; not in ITRANS Devanagari table
+  ("$" "र्")			      ; not in ITRANS Devanagari table
+  ("^" "त्र")			      ; not in ITRANS Devanagari table
+  ("*" "श्र")			      ; not in ITRANS Devanagari table
+  ("]" "़")			      ; not in ITRANS Devanagari table
+  ((S-\ ) "‌")			      ; not in ITRANS Devanagari table
+  ((C-@) "‍"))			      ; not in ITRANS Devanagari table
 
  (dependent
   ("a" (delete @-) "")
@@ -164,21 +165,21 @@ For the detail of ITRANS, see the page:
   ("U" (delete @-) "ू")
   ("RRi" (delete @-) "ृ")
   ("R^i" (delete @-) "ृ")
-  ("LLi" (delete @-) "ॢ")
-  ("L^i" (delete @-) "ॢ")
-  (".c" (delete @-) "ॅ")
+  ("LLi" (delete @-) "ॢ")	      ; not in ITRANS Devanagari table
+  ("L^i" (delete @-) "ॢ")	      ; not in ITRANS Devanagari table
+  (".c" (delete @-) "ॅ")	      ; not in ITRANS Devanagari table
   ("e.c" (delete @-) "ॅ")
-  ("E" (delete @-) "ॆ")
+  ("E" (delete @-) "ॆ")		      ; not in ITRANS Devanagari table
   ("e" (delete @-) "े")
   ("ai" (delete @-) "ै")
   ("o.c" (delete @-) "ॉ")
-  ("O" (delete @-) "ॊ")
+  ("O" (delete @-) "ॊ")		      ; not in ITRANS Devanagari table
   ("o" (delete @-) "ो")
   ("au" (delete @-) "ौ")
-  ("RRI" (delete @-) "ॄ")
-  ("R^I" (delete @-) "ॄ")
-  ("LLI" (delete @-) "ॣ")
-  ("L^I" (delete @-) "ॣ"))
+  ("RRI" (delete @-) "ॄ")	      ; not in ITRANS Devanagari table
+  ("R^I" (delete @-) "ॄ")	      ; not in ITRANS Devanagari table
+  ("LLI" (delete @-) "ॣ")	      ; not in ITRANS Devanagari table
+  ("L^I" (delete @-) "ॣ"))	      ; not in ITRANS Devanagari table
 
  (return
   ((Return)))
@@ -192,21 +193,17 @@ For the detail of ITRANS, see the page:
 
  (intermediate
   (consonant (shift second))
-  (independent (shift finish))
+  (independent (shift init))
   (backspace)
   (return (shift init)))
 
  (second
   (consonant)
-  (dependent (shift finish))
+  (dependent (shift init))
   (backspace)
-  (return (shift init)))
-
- (finish
-  (return)
-  (t (shift init))))
+  (return (shift init))))
 
 ;; Local Variables:
 ;; coding: utf-8
-;; mode: lisp
+;; mode: emacs-lisp
 ;; End:

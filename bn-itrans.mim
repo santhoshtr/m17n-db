@@ -1,5 +1,5 @@
 ;; bn-itrans.mim -- Bengali input method with ITRANS method
-;; Copyright (C) 2003, 2004, 2005
+;; Copyright (C) 2003, 2004, 2005, 2006
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -49,12 +49,13 @@ For the detail of ITRANS, see the page:
   ("~N" "ঙ্")
   ("N^" "ঙ্")
   ("ch" "চ্")
-  ("Ch" "ছ্")
   ("chh" "ছ্")
+  ("Ch" "ছ্")				; not in ITRANS Bengali table
   ("j" "জ্")
   ("jh" "ঝ্")
   ("~n" "ঞ্")
-  ("JN" "ঞ্")
+  ("n^" "ঞ্")
+  ("JN" "ঞ্")				; not in ITRANS Bengali table
   ("T" "ট্")
   ("Th" "ঠ্")
   ("D" "ড্")
@@ -70,20 +71,21 @@ For the detail of ITRANS, see the page:
   ("b" "ব্")
   ("bh" "ভ্")
   ("m" "ম্")
+  ("J" "য্")
   ("y" "য্")
   ("r" "র্")
   ("l" "ল্")
   ("sh" "শ্")
   ("Sh" "ষ্")
-  ("shh" "ষ্")
+  ("shh" "ষ্")				; not in ITRANS Bengali table
   ("s" "স্")
   ("h" "হ্")
   (".D" "ড়্")
   (".Dh" "ঢ়্")
   ("Y" "য়্")
-  ("yh" "য়্")
+  ("yh" "য়্")				; not in ITRANS Bengali table
   ("GY" "জ্ঞ্")
-  ("dny" "জ্ঞ্")
+  ("dny" "জ্ঞ্")			; not in ITRANS Bengali table
   ("x" "ক্ষ্"))
 
  (independent
@@ -98,21 +100,22 @@ For the detail of ITRANS, see the page:
   ("U" "ঊ")
   ("RRi" "ঋ")
   ("R^i" "ঋ")
-  ("LLi" "ঌ")
-  ("L^i" "ঌ")
+  ("LLi" "ঌ")				; not in ITRANS Bengali table
+  ("L^i" "ঌ")				; not in ITRANS Bengali table
   ("e" "এ")
   ("ai" "ঐ")
   ("o" "ও")
   ("au" "ঔ")
-  ("RRI" "ৠ")
-  ("R^I" "ৠ")
-  ("LLI" "ৡ")
-  ("L^I" "ৡ")
+  ("RRI" "ৠ")				; not in ITRANS Bengali table
+  ("R^I" "ৠ")				; not in ITRANS Bengali table
+  ("LLI" "ৡ")				; not in ITRANS Bengali table
+  ("L^I" "ৡ")				; not in ITRANS Bengali table
   (".N" "ঁ")
   (".n" "ং")
-  ("M" "ং")
+  ("M" "ং")				; not in ITRANS Bengali table
   ("H" "ঃ")
   (".h" "্")
+  ("t.h" "ৎ")
   ("0" "০")
   ("1" "১")
   ("2" "২")
@@ -123,13 +126,13 @@ For the detail of ITRANS, see the page:
   ("7" "৭")
   ("8" "৮")
   ("9" "৯")
-  ("#" "্র")
-  ("$" "র্")
-  ("^" "ত্র")
-  ("*" "শ্র")
-  ("]" "়")
-  ((S-\ ) "‌")
-  ((C-@) "‍"))
+  ("#" "্র")				; not in ITRANS Bengali table
+  ("$" "র্")				; not in ITRANS Bengali table
+  ("^" "ত্র")				; not in ITRANS Bengali table
+  ("*" "শ্র")				; not in ITRANS Bengali table
+  ("]" "়")				; not in ITRANS Bengali table
+  ((S-\ ) "‌")				; not in ITRANS Bengali table
+  ((C-@) "‍"))				; not in ITRANS Bengali table
 
  (dependent
   ("a" (delete @-) "")
@@ -143,16 +146,16 @@ For the detail of ITRANS, see the page:
   ("U" (delete @-) "ূ")
   ("RRi" (delete @-) "ৃ")
   ("R^i" (delete @-) "ৃ")
-  ("LLi" (delete @-) "ৢ")
-  ("L^i" (delete @-) "ৢ")
+  ("LLi" (delete @-) "ৢ")		; not in ITRANS Bengali table
+  ("L^i" (delete @-) "ৢ")		; not in ITRANS Bengali table
   ("e" (delete @-) "ে")
   ("ai" (delete @-) "ৈ")
   ("o" (delete @-) "ো")
   ("au" (delete @-) "ৌ")
-  ("RRI" (delete @-) "ৄ")
-  ("R^I" (delete @-) "ৄ")
-  ("LLI" (delete @-) "ৣ")
-  ("L^I" (delete @-) "ৣ"))
+  ("RRI" (delete @-) "ৄ")		; not in ITRANS Bengali table
+  ("R^I" (delete @-) "ৄ")		; not in ITRANS Bengali table
+  ("LLI" (delete @-) "ৣ")		; not in ITRANS Bengali table
+  ("L^I" (delete @-) "ৣ"))		; not in ITRANS Bengali table
 
  (return
   ((Return)))
@@ -166,21 +169,17 @@ For the detail of ITRANS, see the page:
 
  (intermediate
   (consonant (shift second))
-  (independent (shift finish))
+  (independent (shift init))
   (backspace)
   (return (shift init)))
 
  (second
   (consonant)
-  (dependent (shift finish))
+  (dependent (shift init))
   (backspace)
-  (return (shift init)))
-
- (finish
-  (return)
-  (t (shift init))))
+  (return (shift init))))
 
 ;; Local Variables:
 ;; coding: utf-8
-;; mode: lisp
+;; mode: emacs-lisp
 ;; End:

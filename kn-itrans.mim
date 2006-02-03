@@ -1,5 +1,5 @@
 ;; kn-itrans.mim -- Kannada input method with ITRANS method
-;; Copyright (C) 2003, 2004, 2005
+;; Copyright (C) 2003, 2004, 2005, 2006
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -79,21 +79,23 @@ on 18 Aug 2005.
   ("m" "ಮ್")
   ("y" "ಯ್")
   ("r" "ರ್")
-  ("rh" "ಱ್")
+  ("rh" "ಱ್")				; not in ITRANS Kannada table
   ("l" "ಲ್")
   ("L" "ಳ್")
-  ("ld" "ಳ್")
+  ("ld" "ಳ್")				; not in ITRANS Kannada table
   ("v" "ವ್")
-  ("w" "ವ್")
+  ("w" "ವ್")				; not in ITRANS Kannada table
   ("sh" "ಶ್")
   ("Sh" "ಷ್")
   ("shh" "ಷ್")
   ("s" "ಸ್")
   ("h" "ಹ್")
-  ("f" "ೞ್")
+  ("f" "ೞ್")				; not in ITRANS Kannada table
   ("GY" "ಜ್ಞ್")
-  ("dny" "ಜ್ಞ್")
-  ("x" "ಕ್ಷ್"))
+  ("j~n" "ಜ್ಞ್")
+  ("dny" "ಜ್ಞ್")			; not in ITRANS Kannada table
+  ("x" "ಕ್ಷ್")
+  ("ksh" "ಕ್ಷ್"))
 
  (independent
   ("a" "ಅ")
@@ -105,25 +107,30 @@ on 18 Aug 2005.
   ("u" "ಉ")
   ("uu" "ಊ")
   ("U" "ಊ")
-  ("Ru" "ಋ")
+  ("RRi" "ಋ")
   ("R^i" "ಋ")
-  ("Lru" "ಌ")
+  ("Ru" "ಋ")				; not in ITRANS Kannada table
+  ("LLi" "ಌ")
   ("L^i" "ಌ")
-  ("ee" "ಏ")
-  ("E" "ಏ")
+  ("Lru" "ಌ")				; not in ITRANS Kannada table
   ("e" "ಎ")
+  ("E" "ಏ")
+  ("ee" "ಏ")				; not in ITRANS Kannada table
   ("ai" "ಐ")
-  ("O" "ಓ")
   ("o" "ಒ")
+  ("O" "ಓ")
   ("au" "ಔ")
-  ("RU" "ೠ")
+  ("RRI" "ೠ")
   ("R^I" "ೠ")
-  ("LRU" "ೡ")
+  ("RU" "ೠ")				; not in ITRANS Kannada table
+  ("LLI" "ೡ")
   ("L^I" "ೡ")
+  ("LRU" "ೡ")				; not in ITRANS Kannada table
   (".n" "ಂ")
-  ("M" "ಂ")
+  ("M" "ಂ")				; not in ITRANS Kannada table
   ("H" "ಃ")
-  (".h" "್")
+  (".h" "್")				; not in ITRANS Kannada table
+  (".a" "ಽ")
   ("0" "೦")
   ("1" "೧")
   ("2" "೨")
@@ -134,10 +141,10 @@ on 18 Aug 2005.
   ("7" "೭")
   ("8" "೮")
   ("9" "೯")
-  ("#" "್ರ")
-  ("$" "ರ್")
-  ((S-\ ) "‌")
-  ((C-@) "‍"))
+  ("#" "್ರ")				; not in ITRANS Kannada table
+  ("$" "ರ್")				; not in ITRANS Kannada table
+  ((S-\ ) "‌")				; not in ITRANS Kannada table
+  ((C-@) "‍"))				; not in ITRANS Kannada table
 
  (dependent
   ("a" (delete @-) "")
@@ -151,18 +158,18 @@ on 18 Aug 2005.
   ("U" (delete @-) "ೂ")
   ("RRi" (delete @-) "ೃ")
   ("R^i" (delete @-) "ೃ")
-  ("LLi" (delete @-) "")
-  ("L^i" (delete @-) "")
-  ("E" (delete @-) "ೇ")
-  ("e" (delete @-) "ೆ")
-  ("ai" (delete @-) "ೈ")
-  ("O" (delete @-) "ೋ")
-  ("o" (delete @-) "ೊ")
-  ("au" (delete @-) "ೌ")
   ("RRI" (delete @-) "ೄ")
   ("R^I" (delete @-) "ೄ")
-  ("LLI" (delete @-) "")
-  ("L^I" (delete @-) ""))
+  ("LLi" (delete @-) "ೄ")		; not in ITRANS Kannada table
+  ("L^i" (delete @-) "ೄ")		; not in ITRANS Kannada table
+  ("e" (delete @-) "ೆ")
+  ("E" (delete @-) "ೇ")
+  ("ai" (delete @-) "ೈ")
+  ("o" (delete @-) "ೊ")
+  ("O" (delete @-) "ೋ")
+  ("au" (delete @-) "ೌ")
+  ("LLI" (delete @-) "")		; not in ITRANS Kannada table
+  ("L^I" (delete @-) ""))		; not in ITRANS Kannada table
 
  (return
   ((Return)))
@@ -177,21 +184,17 @@ on 18 Aug 2005.
 
  (intermediate
   (consonant (shift second))
-  (independent (shift finish))
+  (independent (shift init))
   (backspace)
   (return (shift init)))
 
  (second
   (consonant)
-  (dependent (shift finish))
+  (dependent (shift init))
   (backspace)
-  (return (shift init)))
-
- (finish
-  (return)
-  (t (shift init))))
+  (return (shift init))))
 
 ;; Local Variables:
 ;; coding: utf-8
-;; mode: lisp
+;; mode: emacs-lisp
 ;; End:

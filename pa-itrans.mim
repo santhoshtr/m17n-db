@@ -1,5 +1,5 @@
 ;; pa-itrans.mim -- Punjabi input method with ITRANS method
-;; Copyright (C) 2003, 2004, 2005
+;; Copyright (C) 2003, 2004, 2005, 2006
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -46,15 +46,16 @@ For the detail of ITRANS, see the page:
   ("kh" "ਖ੍")
   ("g" "ਗ੍")
   ("gh" "ਘ੍")
-  ("~N" "ਙ੍")
   ("N^" "ਙ੍")
-  ("ch" "ਚ੍")
-  ("Ch" "ਛ੍")
-  ("chh" "ਛ੍")
+  ("~N" "ਙ੍")				; not in ITRANS Gurmukhi table
+  ("c" "ਚ੍")
+  ("ch" "ਛ੍")
+  ("Ch" "ਛ੍")				; not in ITRANS Gurmukhi table
+  ("chh" "ਛ੍")				; not in ITRANS Gurmukhi table
   ("j" "ਜ੍")
   ("jh" "ਝ੍")
   ("~n" "ਞ੍")
-  ("JN" "ਞ੍")
+  ("JN" "ਞ੍")				; not in ITRANS Gurmukhi table
   ("T" "ਟ੍")
   ("Th" "ਠ੍")
   ("D" "ਡ੍")
@@ -74,9 +75,9 @@ For the detail of ITRANS, see the page:
   ("r" "ਰ੍")
   ("l" "ਲ੍")
   ("L" "ਲ਼੍")
-  ("ld" "ਲ਼੍")
+  ("ld" "ਲ਼੍")				; not in ITRANS Gurmukhi table
   ("v" "ਵ੍")
-  ("w" "ਵ੍")
+  ("w" "ਵ੍")				; not in ITRANS Gurmukhi table
   ("sh" "ਸ਼੍")
   ("s" "ਸ੍")
   ("h" "ਹ੍")
@@ -86,25 +87,27 @@ For the detail of ITRANS, see the page:
   ("z" "ਜ਼੍")
   (".D" "ੜ੍")
   ("f" "ਫ਼੍")
-  ("GY" "ਜ੍ਞ੍")
-  ("dny" "ਜ੍ਞ੍"))
+  ("GY" "ਜ੍ਞ੍")				; not in ITRANS Gurmukhi table
+  ("dny" "ਜ੍ਞ੍"))			; not in ITRANS Gurmukhi table
 
  (independent
   ("a" "ਅ")
   ("aa" "ਆ")
-  ("A" "ਆ")
+  ("A" "ਆ")				; not in ITRANS Gurmukhi table
   ("i" "ਇ")
   ("ii" "ਈ")
-  ("I" "ਈ")
+  ("I" "ਈ")				; not in ITRANS Gurmukhi table
   ("u" "ਉ")
   ("uu" "ਊ")
-  ("U" "ਊ")
+  ("U" "ਊ")				; not in ITRANS Gurmukhi table
   ("e" "ਏ")
   ("ai" "ਐ")
   ("o" "ਓ")
   ("au" "ਔ")
+  (".N" "ਁ")
   (".n" "ਂ")
   ("M" "ਂ")
+  ("H" "ਃ")
   (".h" "੍")
   ("0" "੦")
   ("1" "੧")
@@ -116,13 +119,13 @@ For the detail of ITRANS, see the page:
   ("7" "੭")
   ("8" "੮")
   ("9" "੯")
-  ("#" "੍ਰ")
-  ("$" "ਰ੍")
-  ("^" "ਤ੍ਰ")
-  ("*" "ਸ਼੍ਰ")
-  ("]" "਼")
-  ((S-\ ) "‌")
-  ((C-@) "‍"))
+  ("#" "੍ਰ")				; not in ITRANS Gurmukhi table
+  ("$" "ਰ੍")				; not in ITRANS Gurmukhi table
+  ("^" "ਤ੍ਰ")				; not in ITRANS Gurmukhi table
+  ("*" "ਸ਼੍ਰ")				; not in ITRANS Gurmukhi table
+  ("]" "਼")				; not in ITRANS Gurmukhi table
+  ((S-\ ) "‌")				; not in ITRANS Gurmukhi table
+  ((C-@) "‍"))				; not in ITRANS Gurmukhi table
 
  (dependent
   ("a" (delete @-) "")
@@ -152,21 +155,17 @@ For the detail of ITRANS, see the page:
 
  (intermediate
   (consonant (shift second))
-  (independent (shift finish))
+  (independent (shift init))
   (backspace)
   (return (shift init)))
 
  (second
   (consonant)
-  (dependent (shift finish))
+  (dependent (shift init))
   (backspace)
-  (return (shift init)))
-
- (finish
-  (return)
-  (t (shift init))))
+  (return (shift init))))
 
 ;; Local Variables:
 ;; coding: utf-8
-;; mode: lisp
+;; mode: emacs-lisp
 ;; End:

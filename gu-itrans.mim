@@ -1,5 +1,5 @@
 ;; gu-itrans.mim -- Gujarati input method with ITRANS method
-;; Copyright (C) 2003, 2004, 2005
+;; Copyright (C) 2003, 2004, 2005, 2006
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -46,15 +46,15 @@ For the detail of ITRANS, see the page:
   ("kh" "ખ્")
   ("g" "ગ્")
   ("gh" "ઘ્")
-  ("~N" "ઙ્")
-  ("N^" "ઙ્")
+  ("~N" "ઙ્")				; not in ITRANS Gujarati table
+  ("N^" "ઙ્")				; not in ITRANS Gujarati table
   ("ch" "ચ્")
   ("Ch" "છ્")
   ("chh" "છ્")
   ("j" "જ્")
   ("jh" "ઝ્")
-  ("~n" "ઞ્")
-  ("JN" "ઞ્")
+  ("~n" "ઞ્")				; not in ITRANS Gujarati table
+  ("JN" "ઞ્")				; not in ITRANS Gujarati table
   ("T" "ટ્")
   ("Th" "ઠ્")
   ("D" "ડ્")
@@ -73,8 +73,8 @@ For the detail of ITRANS, see the page:
   ("y" "ય્")
   ("r" "ર્")
   ("l" "લ્")
-  ("L" "ળ્")
   ("ld" "ળ્")
+  ("L" "ળ્")
   ("v" "વ્")
   ("w" "વ્")
   ("sh" "શ્")
@@ -82,8 +82,9 @@ For the detail of ITRANS, see the page:
   ("shh" "ષ્")
   ("s" "સ્")
   ("h" "હ્")
+  ("j~n" "જ્ઞ્")
   ("GY" "જ્ઞ્")
-  ("dny" "જ્ઞ્")
+  ("dny" "જ્ઞ્")			; not in ITRANS Gujarati table
   ("x" "ક્ષ્"))
 
  (independent
@@ -98,20 +99,20 @@ For the detail of ITRANS, see the page:
   ("U" "ઊ")
   ("RRi" "ઋ")
   ("R^i" "ઋ")
-  (".c" "ઍ")
+  (".c" "ઍ")				; not in ITRANS Gujarati table
   ("e.c" "ઍ")
   ("e" "એ")
   ("ai" "ઐ")
   ("o.c" "ઑ")
   ("o" "ઓ")
   ("au" "ઔ")
-  ("RRI" "ૠ")
-  ("R^I" "ૠ")
+  ("RRI" "ૠ")				; not in ITRANS Gujarati table
+  ("R^I" "ૠ")				; not in ITRANS Gujarati table
   (".N" "ઁ")
   (".n" "ં")
   ("M" "ં")
   ("H" "ઃ")
-  (".a" "ઽ")
+  (".a" "ઽ")				; not in ITRANS Gujarati table
   (".h" "્")
   ("AUM" "ૐ")
   ("OM" "ૐ")
@@ -125,13 +126,13 @@ For the detail of ITRANS, see the page:
   ("7" "૭")
   ("8" "૮")
   ("9" "૯")
-  ("#" "્ર")
-  ("$" "ર્")
-  ("^" "ત્ર")
-  ("*" "શ્ર")
-  ("]" "઼")
-  ((S-\ ) "‌")
-  ((C-@) "‍"))
+  ("#" "્ર")				; not in ITRANS Gujarati table
+  ("$" "ર્")				; not in ITRANS Gujarati table
+  ("^" "ત્ર")				; not in ITRANS Gujarati table
+  ("*" "શ્ર")				; not in ITRANS Gujarati table
+  ("]" "઼")				; not in ITRANS Gujarati table
+  ((S-\ ) "‌")				; not in ITRANS Gujarati table
+  ((C-@) "‍"))				; not in ITRANS Gujarati table
 
  (dependent
   ("a" (delete @-) "")
@@ -145,15 +146,16 @@ For the detail of ITRANS, see the page:
   ("U" (delete @-) "ૂ")
   ("RRi" (delete @-) "ૃ")
   ("R^i" (delete @-) "ૃ")
+  ("RRI" (delete @-) "ૄ")		; not in ITRANS Gujarati table
+  ("R^I" (delete @-) "ૄ")		; not in ITRANS Gujarati table
   (".c" (delete @-) "ૅ")
-  ("e.c" (delete @-) "ૅ")
+  ("e.c" (delete @-) "ૅ")		; not in ITRANS Gujarati table
   ("e" (delete @-) "ે")
   ("ai" (delete @-) "ૈ")
   ("o.c" (delete @-) "ૉ")
   ("o" (delete @-) "ો")
-  ("au" (delete @-) "ૌ")
-  ("RRI" (delete @-) "ૄ")
-  ("R^I" (delete @-) "ૄ"))
+  ("au" (delete @-) "ૌ"))
+
 
  (return
   ((Return)))
@@ -168,21 +170,17 @@ For the detail of ITRANS, see the page:
 
  (intermediate
   (consonant (shift second))
-  (independent (shift finish))
+  (independent (shift init))
   (backspace)
   (return (shift init)))
 
  (second
   (consonant)
-  (dependent (shift finish))
+  (dependent (shift init))
   (backspace)
-  (return (shift init)))
-
- (finish
-  (return)
-  (t (shift init))))
+  (return (shift init))))
 
 ;; Local Variables:
 ;; coding: utf-8
-;; mode: lisp
+;; mode: emacs-lisp
 ;; End:

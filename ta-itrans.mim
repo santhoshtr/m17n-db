@@ -1,5 +1,5 @@
 ;; ta-itrans.mim -- Tamil input method with ITRANS method
-;; Copyright (C) 2003, 2004, 2005
+;; Copyright (C) 2003, 2004, 2005, 2006
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -43,34 +43,44 @@ For the detail of ITRANS, see the page:
 
  (consonant
   ("k" "க்")
+  ("g" "க்")
   ("~N" "ங்")
   ("N^" "ங்")
   ("ch" "ச்")
   ("j" "ஜ்")
   ("~n" "ஞ்")
-  ("JN" "ஞ்")
+  ("JN" "ஞ்") 				; not in ITRANS Tamil table
   ("T" "ட்")
+  ("Th" "ட்")
   ("N" "ண்")
   ("t" "த்")
+  ("th" "த்")
   ("n" "ந்")
-  ("nh" "ன்")
+  ("^n" "ன்")
+  ("nh" "ன்")				; not in ITRANS Tamil table
   ("p" "ப்")
+  ("b" "ப்")
   ("m" "ம்")
   ("y" "ய்")
   ("r" "ர்")
-  ("rh" "ற்")
+  ("R" "ற்")
+  ("rh" "ற்")				; not in ITRANS Tamil table
   ("l" "ல்")
   ("L" "ள்")
   ("ld" "ள்")
+  ("J" "ழ")
+  ("z" "ழ")
   ("v" "வ்")
   ("w" "வ்")
+  ;; ("sh" "ஶ")				; not in Unicode 4.1
   ("Sh" "ஷ்")
-  ("shh" "ஷ்")
+  ("shh" "ஷ்")				; not in ITRANS Tamil table
   ("s" "ஸ்")
   ("h" "ஹ்")
-  ("GY" "ஜ்ஞ்")
-  ("dny" "ஜ்ஞ்")
-  ("x" "க்ஷ்"))
+  ("GY" "ஜ்ஞ்")				; not in ITRANS Tamil table
+  ("dny" "ஜ்ஞ்")				; not in ITRANS Tamil table
+  ("x" "க்ஷ்")
+  ("ksh" "க்ஷ்"))
 
  (independent
   ("a" "அ")
@@ -82,16 +92,17 @@ For the detail of ITRANS, see the page:
   ("u" "உ")
   ("uu" "ஊ")
   ("U" "ஊ")
-  ("E" "ஏ")
   ("e" "எ")
+  ("E" "ஏ")
   ("ai" "ஐ")
-  ("O" "ஓ")
   ("o" "ஒ")
+  ("O" "ஓ")
   ("au" "ஔ")
-  (".n" "ஂ")
-  ("M" "ஂ")
-  ("H" "ஃ")
-  (".h" "்")
+  (".n" "ஂ")				; not in ITRANS Tamil table
+  ("M" "ஂ")				; not in ITRANS Tamil table
+  ("q" "ஃ")
+  ("H" "ஃ")				; not in ITRANS Tamil table
+  (".h" "்")				; not in ITRANS Tamil table
   ("1" "௧")
   ("2" "௨")
   ("3" "௩")
@@ -101,11 +112,11 @@ For the detail of ITRANS, see the page:
   ("7" "௭")
   ("8" "௮")
   ("9" "௯")
-  ("#" "்ர")
-  ("$" "ர்")
-  ("^" "த்ர")
-  ((S-\ ) "‌")
-  ((C-@) "‍"))
+  ("#" "்ர")				; not in ITRANS Tamil table
+  ("$" "ர்")				; not in ITRANS Tamil table
+  ("^" "த்ர")				; not in ITRANS Tamil table
+  ((S-\ ) "‌")				; not in ITRANS Tamil table
+  ((C-@) "‍"))				; not in ITRANS Tamil table
 
  (dependent
   ("a" (delete @-) "")
@@ -120,8 +131,8 @@ For the detail of ITRANS, see the page:
   ("E" (delete @-) "ே")
   ("e" (delete @-) "ெ")
   ("ai" (delete @-) "ை")
-  ("O" (delete @-) "ோ")
   ("o" (delete @-) "ொ")
+  ("O" (delete @-) "ோ")
   ("au" (delete @-) "ௌ"))
 
  (return
@@ -136,22 +147,18 @@ For the detail of ITRANS, see the page:
 
  (intermediate
   (consonant (shift second))
-  (independent (shift finish))
+  (independent (shift init))
   (backspace)
   (return (shift init))
   (nil (shift init)))
 
  (second
   (consonant)
-  (dependent (shift finish))
+  (dependent (shift init))
   (backspace)
-  (return (shift init)))
-
- (finish
-  (return)
-  (t (shift init))))
+  (return (shift init))))
 
 ;; Local Variables:
 ;; coding: utf-8
-;; mode: lisp
+;; mode: emacs-lisp
 ;; End:
