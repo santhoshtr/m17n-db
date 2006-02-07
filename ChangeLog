@@ -1,3 +1,9 @@
+2006-02-07  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* hi-itrans.mim, kn-itrans.mim, ml-itrans.mim, ta-itrans.mim,
+	te-itrans.mim: Add ("E") in the starter map.  Add "ee" and "oo"
+	for "E" and "O" in the independent and dependent maps.
+
 2006-02-06  Kenichi Handa  <handa@m17n.org>
 
 	* Version 1.3.2 released.
