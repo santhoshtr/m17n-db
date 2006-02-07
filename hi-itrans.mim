@@ -35,7 +35,7 @@ For the detail of ITRANS, see the page:
   (".") ("~") ("#") ("$") ("^") ("*") ((S-\ )) ((C-@))
   ("0") ("1") ("2") ("3") ("4")
   ("5") ("6") ("7") ("8") ("9")
-  ("A") ("C") ("D") ("G") ("H") ("I") ("J") ("K") ("L")
+  ("A") ("C") ("D") ("E") ("G") ("H") ("I") ("J") ("K") ("L")
   ("M") ("N") ("O") ("R") ("S") ("T") ("U") ("Y")
   ("a") ("b") ("c") ("d") ("e") ("f") ("g") ("h") ("i")
   ("j") ("k") ("l") ("m") ("n") ("o") ("p") ("q") ("r")
@@ -115,10 +115,12 @@ For the detail of ITRANS, see the page:
   ("L^i" "ऌ")			      ; not in ITRANS Devanagari table
   (".c" "ऍ")			      ; not in ITRANS Devanagari table
   ("e.c" "ऍ")
+  ("ee" "ऎ")			      ; not in ITRANS Devanagari table
   ("E" "ऎ")			      ; not in ITRANS Devanagari table
   ("e" "ए")
   ("ai" "ऐ")
   ("o.c" "ऑ")
+  ("oo" "ऒ")			      ; not in ITRANS Devanagari table
   ("O" "ऒ")			      ; not in ITRANS Devanagari table
   ("o" "ओ")
   ("au" "औ")
@@ -169,10 +171,12 @@ For the detail of ITRANS, see the page:
   ("L^i" (delete @-) "ॢ")	      ; not in ITRANS Devanagari table
   (".c" (delete @-) "ॅ")	      ; not in ITRANS Devanagari table
   ("e.c" (delete @-) "ॅ")
+  ("ee" (delete @-) "ॆ")	      ; not in ITRANS Devanagari table
   ("E" (delete @-) "ॆ")		      ; not in ITRANS Devanagari table
   ("e" (delete @-) "े")
   ("ai" (delete @-) "ै")
   ("o.c" (delete @-) "ॉ")
+  ("oo" (delete @-) "ॊ")	      ; not in ITRANS Devanagari table
   ("O" (delete @-) "ॊ")		      ; not in ITRANS Devanagari table
   ("o" (delete @-) "ो")
   ("au" (delete @-) "ौ")

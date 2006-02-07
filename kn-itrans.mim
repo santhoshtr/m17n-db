@@ -119,6 +119,7 @@ on 18 Aug 2005.
   ("ai" "ಐ")
   ("o" "ಒ")
   ("O" "ಓ")
+  ("oo" "ಓ")				; not in ITRANS Kannada table
   ("au" "ಔ")
   ("RRI" "ೠ")
   ("R^I" "ೠ")
@@ -164,9 +165,11 @@ on 18 Aug 2005.
   ("L^i" (delete @-) "ೄ")		; not in ITRANS Kannada table
   ("e" (delete @-) "ೆ")
   ("E" (delete @-) "ೇ")
+  ("ee" (delete @-) "ೇ")		; not in ITRANS Kannada table
   ("ai" (delete @-) "ೈ")
   ("o" (delete @-) "ೊ")
   ("O" (delete @-) "ೋ")
+  ("oo" (delete @-) "ೋ")		; not in ITRANS Kannada table
   ("au" (delete @-) "ೌ")
   ("LLI" (delete @-) "")		; not in ITRANS Kannada table
   ("L^I" (delete @-) ""))		; not in ITRANS Kannada table
