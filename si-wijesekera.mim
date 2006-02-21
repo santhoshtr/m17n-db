@@ -348,14 +348,41 @@
     ((= c 0x0D96)
      0x0D94)
 
+    ((& (> c 0x0D99) (< c 0x0DC7) (= @-2 0x0DCA) (= @-1 0x200D))
+     (delete @-2))
+
     ((= c 0x0DD9)
      (cond
       ((| (< @-1 0x0D9A) (> @-1 0x0DC6)))
+      ((= @+1 0x0D91)
+       (delete @-1)
+       (delete @+1)
+       0x0D93)
+      ((& (> @+1 0x0D99) (< @+1 0x0DC7))
+       (set c1 @+1)
+       (cond
+	((= @+2 0x0DD9)
+	 (merge-combuva)
+	 0x0DDB)
+	((= @+2 0x0DCA)
+	 (merge-combuva)
+	 0x0DDA)
+	((= @+2 0x0DCF)
+	 (merge-combuva)
+	 0x0DDC)
+	((= @+2 0x0DDF)
+	 (merge-combuva)
+	 0x0DDE)
+	(1
+	 (delete @-1)
+	 (delete @+1)
+	 (insert c1)
+	 0x0DD9)))
       ((& (> @-2 0x0D99) (< @-2 0x0DC7))
        (delete @-1)
        0x200C
        0x0DD9)
-      ((& (> @-4 0x0D99) (< @-1 0x0DC7) (= @-3 0x0DCA) (= @-2 0x200D))
+      ((& (> @-4 0x0D99) (< @-4 0x0DC7) (= @-3 0x0DCA) (= @-2 0x200D))
        (delete @-3)
        0x0DD9)
       (1
@@ -373,7 +400,7 @@
        (delete @-1)
        0x200C
        0x0DDB)
-      ((& (> @-4 0x0D99) (< @-1 0x0DC7) (= @-3 0x0DCA) (= @-2 0x200D))
+      ((& (> @-4 0x0D99) (< @-4 0x0DC7) (= @-3 0x0DCA) (= @-2 0x200D))
        (delete @-3)
        0x0DDB)
       (1
@@ -387,9 +414,7 @@
     ((= c 0x0DDE)
      0x0DD9)
     ((= c 0x0DF2)
-     0x0DD8)
-    ((& (> c 0x0D99) (< c 0x0DC7) (= @-2 0x0DCA) (= @-1 0x200D))
-     (delete @-2)))
+     0x0DD8))
 
    (cond
     ((& (> @-1 0x0D99)
@@ -430,7 +455,12 @@
   (cond
    ((| (= @-1 0x200C) (= @-1 0x200D))
     (delete @-1)
-    (delete-preceding-zw)))))
+    (delete-preceding-zw))))
+
+ (merge-combuva
+  (delete @-1)
+  (delete @+2)
+  (insert c1)))
 
 (state
  (init
