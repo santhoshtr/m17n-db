@@ -1,3 +1,7 @@
+2006-02-21  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* si-wijesekera.mim: Fix bug in BackSpace handling.
+
 2006-02-07  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* hi-itrans.mim, kn-itrans.mim, ml-itrans.mim, ta-itrans.mim,
