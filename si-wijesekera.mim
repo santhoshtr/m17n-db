@@ -446,6 +446,11 @@
      0x0DCA)
     ((= c 0x0D93)
      0x0D91)
+
+    ((= c 0x0D9A)
+     (insert "A")
+     (delete @+1))
+
     ((& (>= c 0x0D9A) (<= c 0x0DC6))
      (forward)
      (cond
