@@ -1,5 +1,5 @@
 ;; ARAB-OTF-NO-GPOS.flt -- Font Layout Table for Arabic OpenType font sans GPOS
-;; Copyright (C) 2005
+;; Copyright (C) 2005, 2006
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -33,6 +33,7 @@
  ;; n: high hamza suppressor (n for negative)
  ;; x: don't care
  (0x0600 0x06FF		?x)
+ (0x0750 0x077F		?x)		; Arabic Supplement
  (0x0674 0x0678		?p)
  (0x0643		?n)
  (0x06AF		?n)
@@ -74,10 +75,10 @@
  ;; R: Right-joining (alef, dal, thal, reh, zain)
  ;; U: Non-joining (Hamza, etc. & zwnj)
  ;; T: Transparent (combining marks)
- (0x060C 0x060F		?U)
+ (0x060B 0x060F		?U)
  (0x0610 0x0615		?T)
  (0x061B		?U)
- (0x061F		?U)
+ (0x061E 0x061F		?U)
  (0x0621		?U)
  (0x0622 0x0623		?R)
  (0x0624		?R)
@@ -91,7 +92,7 @@
  (0x0633 0x0647		?D)
  (0x0648		?R)
  (0x0649 0x064A		?D)
- (0x064B 0x0658		?T)
+ (0x064B 0x065E		?T)
  (0x0660 0x066D		?U)
  (0x066E 0x066F		?D)
  (0x0670		?T)
@@ -116,6 +117,11 @@
  (0x06FA 0x06FC		?D)
  (0x06FD 0x06FE		?U)
  (0x06FF		?D)
+ (0x0750 0x0758		?D)
+ (0x0759 0x075B		?R)
+ (0x075C 0x076A		?D)
+ (0x076B 0x076C		?R)
+ (0x076D		?D)
  (0x200C		?U)
  (0x200D		?D)
  (0x25CC		?U)
@@ -225,8 +231,10 @@
    ((range 0x0651 0x0654) tc+bc =)
    ((0x0655) bc-tc =)
    ((0x0656) bc-tc =)
-   ((0x0657) tc+bc =)
-   ((0x0658) tc+bc =)
+   ((range 0x0657 0x065B) tc+bc =)
+   ((0x065C) bc-tc =)
+   ((0x065D) tc+bc =)
+   ((0x065E) tc+bc =)
    ((0x0670) tc+bc =)
    ((range 0x06D6 0x06DC) tc+bc =)
    ((range 0x06DF 0x06E2) tc+bc =)
