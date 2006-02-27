@@ -1,3 +1,7 @@
+2006-02-27  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* ARAB-OTF.flt, ARAB-OTF-NO-GPOS.flt: Update for Unicode 4.1.
+
 2006-02-23  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* si-wijesekera.mim: Add Delete handling.
