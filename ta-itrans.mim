@@ -68,8 +68,8 @@ For the detail of ITRANS, see the page:
   ("l" "ல்")
   ("L" "ள்")
   ("ld" "ள்")
-  ("J" "ழ")
-  ("z" "ழ")
+  ("J" "ழ்")
+  ("z" "ழ்")
   ("v" "வ்")
   ("w" "வ்")
   ;; ("sh" "ஶ")				; not in Unicode 4.1
@@ -78,7 +78,7 @@ For the detail of ITRANS, see the page:
   ("s" "ஸ்")
   ("h" "ஹ்")
   ("GY" "ஜ்ஞ்")				; not in ITRANS Tamil table
-  ("dny" "ஜ்ஞ்")				; not in ITRANS Tamil table
+  ("dny" "ஜ்ஞ்")			; not in ITRANS Tamil table
   ("x" "க்ஷ்")
   ("ksh" "க்ஷ்"))
 
