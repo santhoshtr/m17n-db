@@ -23,8 +23,9 @@
 
 (input-method t unicode)
 
-(description "Input method for Unicode BMP characters by hexadigits.
-Type C-u followed by four hexadecimal numbers [0-9A-Fa-f].
+(description "Input method for Unicode BMP characters using hexadigits.
+Type C-u followed by four hexadecimal numbers [0-9A-Fa-f]
+of a Unicode character code.
 ")
 
 (title "UNICODE")
