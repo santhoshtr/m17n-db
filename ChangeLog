@@ -1,3 +1,7 @@
+2006-05-23  Kenichi Handa  <handa@m17n.org>
+
+	* latn-post.mim: Fix typo (decsription->description).
+
 2006-02-28  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* ta-itrans.mim: Fix bug for "J" and "z" in the consonant map.
