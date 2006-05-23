@@ -1,5 +1,11 @@
 2006-05-23  Kenichi Handa  <handa@m17n.org>
 
+	* unicode.mim: Shorten the first line of description.
+
+	* syrc-phonetic.mim: Add period in the first line of description.
+
+	* vi-vni.mim: Add period in the first line of description.
+
 	* latn-post.mim: Fix typo (decsription->description).
 
 2006-02-28  TAKAHASHI Naoto  <ntakahas@m17n.org>
