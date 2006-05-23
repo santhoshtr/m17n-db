@@ -23,7 +23,7 @@
 
 (input-method t syrc-phonetic)
 
-(description "Syriac input method simulating the Syriac phonetic keyboard
+(description "Syriac input method simulating the Syriac phonetic keyboard.
 The keyboard layout was published by Beth Mardutho: The Syriac Institute.
   <http://www.BethMardutho.org>
 ")

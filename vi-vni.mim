@@ -23,7 +23,7 @@
 
 (input-method vi vni)
 
-(description "Vietnames input method using the VNI key sequence
+(description "Vietnames input method using the VNI key sequence.
 It is based on the information at:
   http://vietunicode.sourceforge.net/inputmethod.html
 ")
