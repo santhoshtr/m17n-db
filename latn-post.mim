@@ -49,7 +49,7 @@
 
 (input-method t latn-post)
 
-(decsription
+(description
  "Latin script input method using postfix modifiers.
    | mark       | postfix | examples
    |------------+---------+----------
