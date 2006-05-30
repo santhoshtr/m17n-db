@@ -226,7 +226,7 @@
    (" ([^ ]*) "
     (1 otf:khmr=pres,blws,abvs,psts,clig))
    ("."
-    [ otf:sinh=+ ]))
+    [ otf:khmr=+ ]))
   *))
 
 ;; Step 4.
