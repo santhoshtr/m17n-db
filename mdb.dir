@@ -183,7 +183,8 @@
 (char-table integer linebreak "LINEBREAK.tab")
 
 (standard language iso639 "LANGUAGE.tbl")
-(standard script otf "SCRIPT-OTF.tbl")
-(unicode script language "SCRIPT-LANGUAGE.tbl")
+(standard script otf "SCRIPT-OTF.tbl")		;obsolete
+(unicode script language "SCRIPT-LANGUAGE.tbl")	;obsolete
+(standard script unicode "SCRIPT.tbl")
 
 ;;; </ul>
