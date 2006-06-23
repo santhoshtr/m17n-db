@@ -24,7 +24,7 @@
 ;; The file format is this:
 ;;	(SCRIPT OTF-TAG) ...
 ;; SCRIPT: script name
-;; OTF-TAG: OTF script tag (the tailing spaces are omitted).
+;; OTF-TAG: OTF script tag.
 
 ;;; <li> SCRIPT-OTF.tbl
 ;;;
@@ -50,7 +50,7 @@
 (kannada	knda)
 (katakana	kana)
 (khmer		khmr)
-(lao		lao)
+(lao		lao\ )
 (latin		latn)
 (malayalam	mlym)
 (mongolian	mong)
@@ -65,4 +65,4 @@
 (thaana		thaa)
 (thai		thai)
 (tibetan	tibt)
-(yi		yi)
+(yi		yi\ \ )
