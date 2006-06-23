@@ -1,3 +1,13 @@
+2006-06-23  Kenichi Handa  <handa@m17n.org>
+
+	* mdb.dir: Add an entry for SCRIPT.tbl.
+
+	* SCRIPT-OTF.tbl: Add tailing spaces if necessary.
+
+	* Makefile.am (MISC_TABLE): Add SCRIPT.tbl.
+
+	* SCRIPT.tbl: New file.
+
 2006-05-30  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* KHMR-OTF.flt: Fix typo.
