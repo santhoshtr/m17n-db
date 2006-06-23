@@ -159,7 +159,7 @@ MISC_TABLE = \
 	default.fst xfont.fst truetype.fst generic.fst \
 	FONTENC.tbl FONTSIZE.tbl \
 	CHARSET.tbl CODING.tbl \
-	LANGUAGE.tbl SCRIPT-OTF.tbl SCRIPT-LANGUAGE.tbl
+	LANGUAGE.tbl SCRIPT.tbl SCRIPT-OTF.tbl SCRIPT-LANGUAGE.tbl
 
 UNIDATA = \
 	UNIDATA/README \
