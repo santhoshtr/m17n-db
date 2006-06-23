@@ -1,0 +1,163 @@
+;; SCRIPT.tbl -- Unicode Script					-*- lisp -*-
+;; Copyright (C) 2006
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+;;
+;; The file format is this:
+;;	(SCRIPT ([ ISO639-1 | ISO639-2 ] ...) (CHAR ...]) [OTF-TAG]) ...
+;; SCRIPT: script name
+;; ISO639-1: 2-letter language code of ISO639-1.
+;; ISO639-2: 3-letter language code of ISO639-2.
+
+;; CHAR: representative characters of the script selected from "last
+;; resort" glyph of Unicode and/or by arbitrary way.
+
+;;; <li> SCRIPT-LANGUAGE.tbl
+;;;
+;;; Table of scripts vs languages using the corresponding script.
+
+(arabic (ar az fa ha kk ks ku ky pa ps sd ug ur) (#x628 #x656) arab)
+(armenian (hy) (#x531 #x55E) armn)
+
+;new
+(balinese (ban sas) (#x1B13 #x1B02) bali) ;No "last resort" glyph
+
+(bengali (as bn mni kha sat) (#x995 #x981) beng)
+(bopomofo (zh) (#x3105) bopo)
+(braille () (#x281D) brai)
+(buginese (bug) (#x1A01 #x1A1B) bugi)	;No "last resort" glyph
+(buhid (tl fil) (#x1743 #x1753) buhd)
+(canadian_aboliginal (chp oj iu den cr) (#x14C0 #x166E) cans)
+
+;new
+(carian (xcr) (#x102A9))		;No "last resort" glyph
+					;639-3 code xcr
+
+(cherokee (chr) (#x13E3) cher)
+(coptic (cop) (#x2CB1 #2CFE) copt)	;No "last resort" glyph
+
+;new
+(cuneiform (sux akk elx hit xhu)(#x12000) xsux)	;No "last resort" glyph
+					;639-3 code xhu
+
+(cyrillic (ab av az ba be bg ce cu cv kk ku kv ky mk mn os
+	      ru sr hr bs tg tk tt ug uk uz) (#x42F) cyrl)
+(cypriot () (#x10800) cprt)
+(deseret (en) (#x10414) dsrt)
+(devanagari (bh hi ks mr ne sa awa new doi gon pa bra raj sd kru mwr mag mai) (#x915 #x902) deva)
+(ethiopic (am ti om byn tig gez) (#x1208 #x1361) ethi)
+(georgian (ka) (#x10D3) geor)
+(glagolitic (cu) (#x2C00) glag)		;No "last resort" glyph
+(gothic (got) (#x10330 #x1034A) goth)
+(greek (el cop) (#x3A9) grek)
+(gujarati (gu pa sd) (#xA95 #xA83) gujr)
+(gurmukhi (pa) (#xA15 #xA03) guru)
+(han (ja ko zh) (#x5B57) hani)
+(hangul (ko) (#xAC00) hang)
+(hanunoo (hnn) (#x1723 #x1732) hano)	;639-3 code hnn
+(hebrew (he yi jpr arc lad jrb) (#x5D0 #x591) hebr)
+(hiragana (ja) (#x304B) kana)
+(kannada (kn kok) (#xC95 #xC83) knda)
+(katakana (ja) (#x30AB) kana)
+
+;new
+(kayah_li (eky kyu) (#xA90A #xA92E))	;No "last resort" glyph
+					;639-3 code eky kyu
+
+(kharoshthi (sa) (#x10A10 #x10A0F) khar) ;No "last resort" glyph
+(khmer (km) (#x1780 #x17B6) khmr)
+(lao (lo) (#xEA5 #xEB1) lao\ )
+(latin (aa af ak tw an ay bi bm br ca ch co cs cy da de
+	ee en eo es et eu ff fi fj fo fr wa fy ga gd gl
+	gn gv ha ho ht hu hz id ig ik is it iu jv kg ki
+	kj kl kr ku kw la lb lg li ln lt lu lv mg mh mi
+	ms mt na nd ng nl no nb nn nr nv ny oc oj om pl
+	pt qu rm rn ro mo rw sc se sg sk sl sm sn so sq
+	sr hr bs ss st su sv sw tl tn to tr ts ty ve vi
+	wo xh yo za zu) (?A ?Z ?a ?z) latn)
+
+;new
+(lepcha (lep) (#x1C00 #x1C37))		;No "last resort" glyph 
+					;639-3 code lep 
+
+(limbu (lif) (#x1901 #x1920) limb)      ;639-3 code lif
+(linear_b (gmy) (#x10000) linb)         ;639-3 code gmy
+
+;new
+(lycian (xlc) (#x10280))		;No "last resort" glyph
+					;639-3 code xlc
+(lydian (xld)(#x10920 #x1093F))		;No "last resort" glyph
+					;639-3 code xld
+
+(malayalam (ml) (#xD15 #xD03) mlym)
+(mongolian (mn mnc) (#x1826 #x1803) mong)
+(myanmar (my pi shn kar) (#x1000 #x102C) mymr)
+(new_tai_lue () (#x1980 #x19B1))	;No "last resort" glyph 
+(ogham (gd ga) (#x168F #x169B) ogam)
+
+;new
+(ol_chiki (san) (#x1C5A #x1C7E))	;No "last resort" glyph
+
+(old_italic () (#x10300) ital)
+(old_persian (peo) (#x103A3 #x103D0) xpeo) ;No "last resort" glyph
+(oriya (or) (#xB15 #xB03) orya)
+(osmanya (so) (#x10480) osma)
+
+;new
+(phags-pa  (mn zh bo ug) (#xABA2 #xABB0) phag) ;No "last resort" glyph
+(phaistos_disc () (#x101D0))		       ;No "last resort" glyph
+(phoenician (phn) (#x10900 #x1091F) phnx)      ;No "last resort" glyph
+(rejang  (rej) (#xA930 #xA953))		       ;No "last resort" glyph
+					;639-3 code rej
+(rod_nums () (#x1D366))			;No "last resort" glyph
+
+
+(runic () (#x16A0) runr)
+
+
+;new
+(saurashtra (saz) (#xA892 #xA880))	;No "last resort" glyph
+					;639-3 code saz
+
+(shavian (eng) (#x10457) shaw)
+(sinhala (pi si sa) (#xD95 #xD83) sinh)
+
+;new
+(sundanese (sun) (#x1B8A #x1B80))	;No "last resort" glyph
+
+(syloti_nagri (syl) (#xA807 #xA802) sylo) ;No "last resort" glyph
+					;639-3 code syl
+(syriac (hy arc syr sam) (#x710 #x700) syrc)
+(tagalog (tl) (#x1703 #x1712) tglg)
+(tagbanwa (tbw) (#x1763 #x1772) tagb)	;639-3 code tbw
+(tamil (ta) (#xB95 #xB83) taml)
+(tai_le (tdd) (#x1950) tale)		;639-3 code tdd
+(telugu (te) (#xC15 #xC03) telu)
+(thaana (dv) (#x78C #7B0) thaa)
+(thai (pi th hmn) (#xE17 #xE34) thai)
+(tibetan (bo dz) (#xF40 #xF71) tibt)
+(tifinagh (tmh) (#x2D30) tfng)		;No "last resort" glyph
+(ugaritic (uga) (#x10380 #1039F) ugar)
+
+;new
+(vai (vai) (#xA501 #xA60A))             ;No "last resort" glyph
+
+(yi (ii) (#xA288) yi\ \  )
