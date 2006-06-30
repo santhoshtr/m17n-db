@@ -67,7 +67,7 @@
 (georgian (ka) (#x10D3) geor)
 (glagolitic (cu) (#x2C00) glag)		;No "last resort" glyph
 (gothic (got) (#x10330 #x1034A) goth)
-(greek (el cop) (#x3A9) grek)
+(greek (el cop) (#x3A9 #x3C9 #x3AC) grek)
 (gujarati (gu pa sd) (#xA95 #xA83) gujr)
 (gurmukhi (pa) (#xA15 #xA03) guru)
 (han (ja ko zh) (#x5B57) hani)
