@@ -1,3 +1,9 @@
+2006-06-30  Kenichi Handa  <handa@m17n.org>
+
+	* SCRIPT.tbl (greek): Add representative characters.
+
+	* LANGUAGE.tbl (ja): Change representative characters.
+
 2006-06-23  Kenichi Handa  <handa@m17n.org>
 
 	* mdb.dir: Add an entry for SCRIPT.tbl.
