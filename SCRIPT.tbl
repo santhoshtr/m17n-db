@@ -52,7 +52,7 @@
 					;639-3 code xcr
 
 (cherokee (chr) (#x13E3) cher)
-(coptic (cop) (#x2CB1 #2CFE) copt)	;No "last resort" glyph
+(coptic (cop) (#x2CB1 #x2CFE) copt)	;No "last resort" glyph
 
 ;new
 (cuneiform (sux akk elx hit xhu)(#x12000) xsux)	;No "last resort" glyph
@@ -151,11 +151,11 @@
 (tamil (ta) (#xB95 #xB83) taml)
 (tai_le (tdd) (#x1950) tale)		;639-3 code tdd
 (telugu (te) (#xC15 #xC03) telu)
-(thaana (dv) (#x78C #7B0) thaa)
+(thaana (dv) (#x78C #x7B0) thaa)
 (thai (pi th hmn) (#xE17 #xE34) thai)
 (tibetan (bo dz) (#xF40 #xF71) tibt)
 (tifinagh (tmh) (#x2D30) tfng)		;No "last resort" glyph
-(ugaritic (uga) (#x10380 #1039F) ugar)
+(ugaritic (uga) (#x10380 #x1039F) ugar)
 
 ;new
 (vai (vai) (#xA501 #xA60A))             ;No "last resort" glyph
