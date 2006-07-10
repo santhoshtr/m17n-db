@@ -1,3 +1,7 @@
+2006-07-10  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* im-indic/te-rts.mim: Follow RIT 3.0 specification.
+
 2006-06-15  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* im-indic/te-rts.mim: Move x, ksh, ksH and ks from consonant2 to
