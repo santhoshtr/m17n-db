@@ -1,3 +1,9 @@
+2006-07-10  Kenichi Handa  <handa@m17n.org>
+
+	* ru-phonetic.mim: New input method.
+
+	* Makefile.am (INPUT_METHOD): Add ru-phonetic.mim.
+
 2006-07-03  Kenichi Handa  <handa@m17n.org>
 
 	* SCRIPT.tbl: Fix typos (#XXXX -> #xXXXX).
