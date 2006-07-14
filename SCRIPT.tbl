@@ -34,7 +34,7 @@
 ;;;
 ;;; Table of scripts vs languages using the corresponding script.
 
-(arabic (ar az fa ha kk ks ku ky pa ps sd ug ur) (#x628 #x656) arab)
+(arabic (ar az fa ha kk ks ku ky pa ps sd ug ur) (#x621 #x627) arab)
 (armenian (hy) (#x531 #x55E) armn)
 
 ;new
