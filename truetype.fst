@@ -104,6 +104,7 @@
   ((nil norasi unicode-bmp) thai-norasi)))
 (lao
  (nil
+  ((nil phetsarath\ ot unicode-bmp) laoo-otf)
   ((nil alice0\ lao apple-roman) laoo-alice)))
 (tibetan
  (nil
