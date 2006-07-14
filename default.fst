@@ -175,6 +175,11 @@
 ;;; <li> infopage: http://seasrc.th.net/font/font.htm
 ;;; <li> download: http://seasrc.th.net/font/fontlao.dir/alice0.zip
 ;;; </ul>
+;;; <li> Phetsarath_OT.ttf (family: Phetsarath OT; for Lao)
+;;; <ul>
+;;; <li> infopage: http://sourceforge.net/projects/laofoss
+;;; <li> download: http://prdownloads.sourceforge.net/laofoss/Phetsarath_OT.zip
+;;; </ul>
 ;;; <li> ANLONG.TTF (family: Anlongvill Khek; for Khmer)
 ;;; <ul>
 ;;; <li> infopage: http://www.cambodia.org/fonts/index.html#dl
@@ -328,7 +333,8 @@
  (nil
   ((mulelao-1) laoo-mule)
   ((nil alice0\ lao iso8859-1) laoo-alice)
-  ((nil alice0\ lao apple-roman) laoo-alice)))
+  ((nil alice0\ lao apple-roman) laoo-alice)
+  ((nil phetsarath\ ot unicode-bmp) laoo-otf)))
 (tibetan
  (nil
   ((muletibetan-2) tibt-mule)
