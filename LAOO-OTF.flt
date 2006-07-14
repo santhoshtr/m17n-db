@@ -1,0 +1,88 @@
+;; LAOO-OTF.flt -- Font Layout Table for Lao
+;; Copyright (C) 2006
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; <li> LAOO-OTF.flt
+
+(category
+ ;; C: CONSONANT
+ ;; s: LAO SEMIVOWEL SIGN LO
+ ;; A: VOWEL AM
+ ;; V: VOWEL UPPER
+ ;; v: VOWEL LOWER
+ ;; T: TONE
+ ;; I: INDEPENDENT VOWEL (except A)
+ ;; S: SIGN
+ (0x0E81 0x0E82	?C)
+ (0x0E84	?C)
+ (0x0E87 0x0E88	?C)
+ (0x0E8A	?C)
+ (0x0E8D	?C)
+ (0x0E94 0x0E97	?C)
+ (0x0E99 0x0E9F	?C)
+ (0x0EA1 0x0EA3	?C)
+ (0x0EA5	?C)
+ (0x0EA7	?C)
+ (0x0EAA 0x0EAB	?C)
+ (0x0EAD 0x0EAE	?C)
+ (0x0EAF	?S)
+ (0x0EB0	?I)
+ (0x0EB1	?V)
+ (0x0EB2	?I)
+ (0x0EB3	?A)
+ (0x0EB4 0x0EB7	?V)
+ (0x0EB8 0x0EB9	?v)
+ (0x0EBB	?V)
+ (0x0EBC	?s)
+ (0x0EBD	?I)
+ (0x0EC0 0x0EC4 ?I)
+ (0x0EC6	?S)
+ (0x0EC8 0x0ECC	?T)
+ (0x0ECD	?V)
+ (0x0ED0 0x0ED9 ?S)
+ (0x0EDC 0x0EDD ?C))
+
+;; The only GSUB is the decomposition of AM.  We do it by hand because
+;; it requires reordering in addition to decomposition.
+
+(generator
+ (0
+  (cond
+   ("(Cs?)(T)?A"
+    < (1 = *) 0x0ECD (2 =) 0x0EB2 > )
+   ("Cs?[vV]?T?"
+    < = * > )
+   ("[sVvT]"
+    < 0x25CC = > )
+   ("."
+    =))
+  *))
+
+;; Then apply all GPOS features.
+
+(generator
+ (0
+  otf:lao\ =))
+
+;; Local Variables:
+;; mode: emacs-lisp
+;; End:
