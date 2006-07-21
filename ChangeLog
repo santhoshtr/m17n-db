@@ -1,3 +1,7 @@
+2006-07-21  Kenichi Handa  <handa@m17n.org>
+
+	* generic.fst: Add an entry for Thai OTF.
+
 2006-07-14  Kenichi Handa  <handa@m17n.org>
 
 	* SCRIPT.tbl (arabic):  Delete #x656, add #x621.
