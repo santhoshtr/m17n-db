@@ -81,6 +81,7 @@
   ((nil nil unicode-bmp :otf=mlym=haln) mlym-otf)))
 (thai
  (nil
+  ((nil nil unicode-bmp :otf=thai+mark,mkmk) thai-otf)
   ((nil norasi unicode-bmp) thai-norasi)
   ((nil nil unicode-bmp :lang=th) thai-generic)))
 (lao
