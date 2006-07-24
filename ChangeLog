@@ -1,3 +1,11 @@
+2006-07-24  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* THAI-OTF.flt: New file.
+
+	* LAOO-OTF.flt: Simplify category.  Add syllable segmentation.
+
+	* truetype.fst: Add an entry for Thai OTF.
+
 2006-07-24  Theppitak Karoonboonyanan  <thep@linux.thai.net>  (tiny change)
 
 	* th-kesmanee.mim: Several keys fixed.
