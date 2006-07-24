@@ -153,6 +153,7 @@
 (font layouter thai-norasi "THAI-NORASI.flt")
 (font layouter thai-tis620 "THAI-TIS620.flt")
 (font layouter thai-generic "THAI-GENERIC.flt")
+(font layouter thai-otf "THAI-OTF.flt")
 (font layouter tibt-mtib "TIBT-MTIB.flt")
 (font layouter tibt-mule "TIBT-MULE.flt")
 (font layouter tibt-otf "TIBT-OTF.flt")
