@@ -23,7 +23,7 @@
 (input-method si wijesekera)
 
 (description "Sinhala input method based on SLS 1134 Rev. 2:2004.
-  <http://http://www.fonts.lk/doc/sin-kbd-layout4.pdf>
+  <http://www.fonts.lk/doc/sin-kbd-layout4.pdf>
 ")
 
 (title "Wijesekera")
@@ -446,11 +446,6 @@
      0x0DCA)
     ((= c 0x0D93)
      0x0D91)
-
-    ((= c 0x0D9A)
-     (insert "A")
-     (delete @+1))
-
     ((& (>= c 0x0D9A) (<= c 0x0DC6))
      (forward)
      (cond
