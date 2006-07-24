@@ -4,7 +4,7 @@
 
 	* LAOO-OTF.flt: Simplify category.  Add syllable segmentation.
 
-	* truetype.fst: Add an entry for Thai OTF.
+	* truetype.fst, mdb.dir, Makefile.am: Add an entry for Thai OTF.
 
 2006-07-24  Theppitak Karoonboonyanan  <thep@linux.thai.net>  (tiny change)
 
