@@ -101,6 +101,7 @@
   ((nil ml-ttkarthika apple-roman) mlym-cdac)))
 (thai
  (nil
+  ((nil nil unicode-bmp :otf=thai+mark,mkmk) thai-otf)
   ((nil norasi unicode-bmp) thai-norasi)))
 (lao
  (nil
