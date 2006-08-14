@@ -109,6 +109,7 @@ PREDEFINED-SYMBOL ::=
     | '@5' | '@6' | '@7' | '@8' | '@9'
     | '@<' | '@=' | '@>' | '@-' | '@+' | '@[' | '@]'
     | '@@
+    | '@-N | '@+N
 @endverbatim
 @verbatim
 MACRO-LIST ::= '(' 'macro' MACRO * ')'
@@ -139,14 +140,20 @@ default arguments when an input context is destroyed.
 @verbatim
 STATE-LIST ::= '(' 'state' STATE * ')'
 
-STATE ::= '(' STATE-NAME BRANCH * ')'
+STATE ::= '(' STATE-NAME [ STATE-TITLE-TEXT ] BRANCH * ')'
 
 STATE-NAME ::= SYMBOL
+
+STATE-TITLE-TEXT ::= MTEXT
 
 BRANCH ::= '(' MAP-NAME BRANCH-ACTION * ')'
 	   | '(' nil BRANCH-ACTION * ')'
 	   | '(' t BRANCH-ACTION * ')'
 @endverbatim
+
+The optional @c STATE-TITLE-TEXT specifies a title text displayed on
+the screen when the input method is in this state.  If @c
+STATE-TITLE-TEXT is omitted, @c TITLE-TEXT is used.
 
 In the first form of @c BRANCH, @c MAP-NAME must be an item that
 appears in @c MAP.  In this case, if a key sequence matching one of @c
@@ -237,6 +244,24 @@ And, this also has a special meaning.
 
 Number of handled keys at that moment.
 
+</ul>
+
+These are for supporting surround text handling.
+
+<ul>
+<li> @c @@-N
+
+Here, @c N is a positive integer.  The value is a character at Nth
+previous position from the current caret of the surrounding text.
+When this is used as the argument of @c delete action, it specifies
+how many preceding characters in the surround text to delete.
+
+<li> @c @@+N
+
+Here, @c N is a positive integer.  The value is a character at Nth
+next position from the current caret of the surrounding text.
+When this is used as the argument of @c delete action, it specifies
+how many following characters in the surround text to delete.
 </ul>
 
 The arguments and the behavior of each action are listed below.
