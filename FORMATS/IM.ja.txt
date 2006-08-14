@@ -104,6 +104,7 @@ PREDEFINED-SYMBOL ::=
     | '@5' | '@6' | '@7' | '@8' | '@9'
     | '@<' | '@=' | '@>' | '@-' | '@+' | '@[' | '@]'
     | '@@
+    | '@-N | '@+N
 @endverbatim
 @verbatim
 MACRO-LIST ::= '(' 'macro' MACRO * ')'
@@ -134,14 +135,20 @@ FUNCTION ::= SYMBOL
 @verbatim
 STATE-LIST ::= '(' 'state' STATE * ')'
 
-STATE ::= '(' STATE-NAME BRANCH * ')'
+STATE ::= '(' STATE-NAME [ STATE-TITLE-TEXT ] BRANCH * ')'
 
 STATE-NAME ::= SYMBOL
+
+STATE-TITLE-TEXT ::= MTEXT
 
 BRANCH ::= '(' MAP-NAME BRANCH-ACTION * ')'
 	   | '(' nil BRANCH-ACTION * ')'
 	   | '(' t BRANCH-ACTION * ')'
 @endverbatim
+
+@STATE-TITLE-TEXT は、もし指定されていれば、インプットメソッドがこの状
+態にある時スクリーン上に表示されるテキストである。省略された場合には
+@STATE-TITLE-TEXT が用いられる。
 
 @c BRANCH の第一の形式では、@c MAP-NAME は @c MAP に現われるものでなく
 てはならない。この場合、@c MAP-NAME の @c KEYSEQ の一つに合致するキー列
@@ -225,6 +232,25 @@ MARK アクションはマーカを特定の位置に設定する。@c MOVE と @c DELETE ア
 <li> @c @@@
 
 その時点で処理されているキーの数。
+
+</ul>
+
+以下はサラウンドテキスト処理に用いられる。
+
+<ul>
+<li> @c @@-N
+
+ここで @c N は正の整数である。この変数の値は、サラウンドテキストの現在
+の caret から数えて @c N だけ前の位置の文字である。@c delete アクションの
+引数として用いられた場合、この変数はサラウンドテキストの中の先行する何
+文字を削除するかを指定する。
+
+<li> @c @@+N
+
+ここで @c N は正の整数である。この変数の値は、サラウンドテキストの現在
+の caret から数えて @c N だけ先の位置の文字である。@c delete アクション
+の引数として用いられた場合、この変数はサラウンドテキストの中の後続の何
+文字を削除するかを指定する。
 
 </ul>
 
