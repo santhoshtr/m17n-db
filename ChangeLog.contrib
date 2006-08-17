@@ -1,3 +1,31 @@
+2006-08-17  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* AUTHORS: Add more contributers.
+
+	* im-indic/te-inscript.mim: Modify comments.
+
+	* im-indic/te-apple.mim: Fix typo.
+
+	* im-indic/ta-tamil99.mim, im-indic/ta-phonetic.mim, im-indic/ta-inscript.mim, im-indic/pa-phonetic.mim, im-indic/pa-jhelum.mim, im-indic/pa-inscript.mim, im-indic/ne-trad.mim, im-indic/ne-rom.mim, im-indic/ml-inscript.mim, im-indic/kn-kgp.mim, im-indic/kn-inscript.mim, im-indic/hi-phonetic.mim, im-indic/hi-inscript.mim, im-indic/gu-phonetic.mim, im-indic/gu-inscript.mim, im-indic/bn-probhat.mim, im-indic/bn-inscript.mim:
+	Modify comments.
+
+2006-08-16  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* im-indic/hi-inscript.mim, im-indic/gu-inscript.mim, im-indic/bn-inscript.mim:
+	Fix typo.
+
+	* AUTHORS: Add te-apple.mim entry.
+
+	* AUTHORS: Fix typo.
+
+2006-07-10  Kenichi Handa  <handa@duron>
+
+	* im-indic/te-apple.mim: New input method.
+
+2006-07-10  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* im-indic/te-rts.mim: Follow RIT 3.0 specification.
+
 2006-07-10  Kenichi Handa  <handa@m17n.org>
 
 	* im-indic/te-apple.mim: New input method contributed by Chaitanya
