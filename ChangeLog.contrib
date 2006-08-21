@@ -1,3 +1,7 @@
+2006-08-21  Kenichi Handa  <handa@m17n.org>
+
+	* Version 1.0.0 released.
+
 2006-08-17  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* AUTHORS: Add more contributers.
@@ -6,13 +10,20 @@
 
 	* im-indic/te-apple.mim: Fix typo.
 
-	* im-indic/ta-tamil99.mim, im-indic/ta-phonetic.mim, im-indic/ta-inscript.mim, im-indic/pa-phonetic.mim, im-indic/pa-jhelum.mim, im-indic/pa-inscript.mim, im-indic/ne-trad.mim, im-indic/ne-rom.mim, im-indic/ml-inscript.mim, im-indic/kn-kgp.mim, im-indic/kn-inscript.mim, im-indic/hi-phonetic.mim, im-indic/hi-inscript.mim, im-indic/gu-phonetic.mim, im-indic/gu-inscript.mim, im-indic/bn-probhat.mim, im-indic/bn-inscript.mim:
-	Modify comments.
+	* im-indic/ta-tamil99.mim, im-indic/ta-phonetic.mim,
+	im-indic/ta-inscript.mim, im-indic/pa-phonetic.mim,
+	im-indic/pa-jhelum.mim, im-indic/pa-inscript.mim,
+	im-indic/ne-trad.mim, im-indic/ne-rom.mim,
+	im-indic/ml-inscript.mim, im-indic/kn-kgp.mim,
+	im-indic/kn-inscript.mim, im-indic/hi-phonetic.mim,
+	im-indic/hi-inscript.mim, im-indic/gu-phonetic.mim,
+	im-indic/gu-inscript.mim, im-indic/bn-probhat.mim,
+	im-indic/bn-inscript.mim: Modify comments.
 
 2006-08-16  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* im-indic/hi-inscript.mim, im-indic/gu-inscript.mim, im-indic/bn-inscript.mim:
-	Fix typo.
+	* im-indic/hi-inscript.mim, im-indic/gu-inscript.mim,
+	im-indic/bn-inscript.mim: Fix typo.
 
 	* AUTHORS: Add te-apple.mim entry.
 
@@ -42,7 +53,7 @@
 
 2006-03-31  Kenichi Handa  <handa@m17n.org>
 
-	* Version 1.0.0 released.
+	* Version 0.9.0 released.
 
 
 Copyright (C) 2006
