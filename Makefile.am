@@ -141,7 +141,9 @@ INPUT_METHOD = \
 	sv-post.mim \
 	ta-itrans.mim \
 	te-itrans.mim \
-	th-kesmanee.mim \
+	th-kesmanee.mim th-kesmanee-2.mim\
+	th-pattachote.mim th-pattachote-2.mim\
+	th-tis820.mim th-tis820-2.mim\
 	vi-viqr.mim vi-telex.mim vi-vni.mim \
 	zh-py.mim zh-py-gb.mim zh-py-b5.mim \
 	zh-tonepy.mim zh-tonepy-gb.mim zh-tonepy-b5.mim \
