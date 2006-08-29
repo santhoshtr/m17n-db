@@ -23,7 +23,10 @@
 
 (input-method th kesmanee)
 
-(description "Thai input method simulating the Kesmanee keyboard.
+(description "Thai input method simulating the Kesmanee keyboard
+with WTT 2.0 level 1 input sequence correction.
+The correction algorithm follows the one shown in the following 
+  <http://linux.thai.net/~thep/th-xim/>
 ")
 
 (title "กก")
@@ -125,10 +128,346 @@
   ("}" ",")
   ("~" "%")))
 
+(macro
+
+ ;; input global variable : arg1, arg2
+ ;; output global variable : ret
+ (cp
+  (set ret 0)
+  (cond
+
+   ;; next = BV1|BV2|BD|AD3|AV1|AV2|AV3, previous = CONS
+   ((| (= arg2 0x0E31)
+       (& (>= arg2 0x0E34) (<= arg2 0x0E3A))
+       (= arg2 0x0E4E))
+    (cond
+     ((| (& (>= arg1 0x0E01) (<= arg1 0x0E23))
+	 (= arg1 0x0E25)
+	 (& (>= arg1 0x0E27) (<= arg1 0x0E2E)))
+      (set ret 1))))
+
+   ;; next = TONE, previous = CONS|BV1|BV2|AV1|AV2|AV3
+   ((& (>= arg2 0x0E48) (<= arg2 0x0E4B))
+    (cond
+     ((| (& (>= arg1 0x0E01) (<= arg1 0x0E23))
+	 (= arg1 0x0E25)
+	 (& (>= arg1 0x0E27) (<= arg1 0x0E2E))
+	 (= arg1 0x0E31)
+	 (& (>= arg1 0x0E34) (<= arg1 0x0E39)))
+      (set ret 1))))
+
+   ;; next = AD1, previous = CONS|BV1|AV1
+   ((& (>= arg2 0x0E4C) (<= arg2 0x0E4D))
+    (cond
+     ((| (& (>= arg1 0x0E01) (<= arg1 0x0E23))
+	 (= arg1 0x0E25)
+	 (& (>= arg1 0x0E27) (<= arg1 0x0E2E))
+	 (= arg1 0x0E38)
+	 (= arg1 0x0E34))
+      (set ret 1))))
+
+   ;; next = AD2, previous = TONE| AV3
+   ((= arg2 0x0E47)
+    (cond
+     ((| (& (>= arg1 0x0E01) (<= arg1 0x0E23))
+	 (= arg1 0x0E25)
+	 (& (>= arg1 0x0E27) (<= arg1 0x0E2E))
+	 (= arg1 0x0E35)
+	 (= arg1 0x0E37))
+      (set ret 1))))))
+
+ ;; input global variable : arg1, arg2
+ ;; output global variable : ret
+ ;; This is Level 1 acceptance.
+ (ac
+  (set ret 1)
+  (cond
+   ((| (= arg2 0x0E31)
+       (& (>= arg2 0x0E34) (<= arg2 0x0E3A))
+       (& (>= arg2 0x0E47) (<= arg2 0x0E4E)))
+    (set ret 0)))))   
+
 (state
+
  (init
-  (map)))
+  (map
+   (delete @<)
+   (pushback 1)
+   (cond
+    ((= @-1 -2) (shift nst))
+    (1 (shift st)))))
+ 
+ ;; no surrounding text
+ (nst
+  (t
+   (set x -1)
+   (set y -1))
+
+  (map
+   (set z @-)
+   (set arg1 y)
+   (set arg2 z)
+   (cp)
+   (cond
+    ((= ret 1) ;; CP(y,z) succeeded.
+     (set x y)
+     (set y z))
+    (1
+     (ac)
+     (cond
+      ((= ret 1) ;; AC(y,z) succeeded.
+       (set x y)
+       (set y z))
+      (1
+       ;; WTT-based input sequence correction starts here.
+
+       ;; begin
+       ;; if CP(x,z) then
+       (set arg1 x)
+       (set arg2 z)
+       (cp)
+       (cond
+	((= ret 1)
+
+	 ;; if CP(z,y) then
+	 (set arg1 z)
+	 (set arg2 y)
+	 (cp)
+	 (cond
+	  ((= ret 1)
+
+	   ;; reorder(y -> zy)
+	   (delete @-)
+	   (delete @-)
+	   (insert z)
+	   (insert y)
+	   (set x z))
+
+	  ;; elif CP(x,y) then
+	  (1
+	   (set arg1 x)
+	   (set arg2 y)
+	   (cp)
+	   (cond
+	    ((= ret 1)
+
+	     ;; replace(y -> z)
+	     (delete @-)
+	     (delete @-)
+	     (insert z)
+	     (set y z))
+
+	    ;; elif y is FV1 and z is TONE then
+	    ((& (| (= y 0x0E30) (= y 0x0E32) (= y 0x0E33))
+		(>= z 0x0E48)
+		(<= z 0x0E4B))
+
+	     ;; reorder(y -> zy)
+	     (delete @-)
+	     (delete @-)
+	     (insert z)
+	     (insert y)
+	     (set x z))
+
+	    ;; else
+	    ;; reject(z)
+	    (1
+	     (delete @-))
+
+	    ;;endif
+	    ))))
+
+	;; elif AC(x,z) then
+	(1
+	 (set arg1 x)
+	 (set arg2 z)
+	 (ac)
+	 (cond
+	  ((& (= ret 1)
+	      ;; CTRL, NON and CONS should not be replaced.
+	      (| (= y 0x0E24)
+		 (= y 0x0E26)
+		 (& (>= y 0x0E30) (<= y 0x0E3A))
+		 (& (>= y 0x0E40) (<= y 0x0E45))
+		 (& (>= y 0x0E47) (<= y 0x0E4E)))
+	      (| (= z 0x0E24)
+		 (= z 0x0E26)
+		 (& (>= z 0x0E30) (<= z 0x0E3A))
+		 (& (>= z 0x0E40) (<= z 0x0E45))
+		 (& (>= z 0x0E47) (<= z 0x0E4E))))
+
+	   ;; replace(y -> z)
+	   (delete @-)
+	   (delete @-)
+	   (insert z)
+	   (set y z))
+
+	  ;; else
+	  ;; reject(z)
+	  (1
+	   (delete @-))
+
+	  ;; endif
+	  )))
+       ;; end
+
+       ))))
+
+   ;; Commit the preedit chars as soon as fixed.
+   (set w @-)
+   (cond
+    ;; If the last char is CTRL or NON, we can commit everything.
+    ((| (& (>= w 0x0000) (<= w 0x0E00))
+	(= w 0x0E2F)
+	(= w 0x0E3F)
+	(= w 0x0E46)
+	(>= w 0x0E4F))
+     (commit))
+
+    ;; If the last char is CONS, LV, FV2 or FV3, we can commit
+    ;; everything but the last.
+    ((| (& (>= w 0x0E01) (<= w 0x0E2E))
+	(& (>= w 0x0E40) (<= w 0x0E45)))
+     (delete @-)
+     (commit)
+     (insert w))
+
+    ;; If the last char is FV1 (excluding AM) and ...
+    ((| (= w 0x0E30) (= w 0x0E32))
+     (delete @-)
+     (set v @-)
+     (cond
+
+      ;; ... the before last is CONS, we can commit other than the
+      ;; last two.
+      ((| (& (>= v 0x0E01) (<= v 0x0E23))
+	  (= v 0x0E25)
+	  (& (>= v 0x0E27) (<= v 0x0E2E)))
+       (delete @-)
+       (commit)
+       (insert v)
+       (insert w))
+
+      ;; ... else if the before last is not CONS, we can commit
+      ;; everything but the last.
+      (1
+       (commit)
+       (insert w))))
+    )))
+
+ ;; with surrounding text
+ (st
+  (map
+   ;; z = next character
+   (set z @-)
+   ;; y = previous character
+   (set y @-1)
+   ;; x = character previous to y
+   (set x @-2)
+
+   (set arg1 y)
+   (set arg2 z)
+   (cp)
+   (cond
+    ((= ret 1))	;; CP(y,z) succeeded.
+    (1
+     (ac)
+     (cond
+      ((= ret 1)) ;; AC(y,z) succeeded.
+      (1
+       ;; WTT-based input sequence correction starts here.
+
+       ;; begin
+       ;; if CP(x,z) then
+       (set arg1 x)
+       (set arg2 z)
+       (cp)
+       (cond
+	((= ret 1)
+
+	 ;; if CP(z,y) then
+	 (set arg1 z)
+	 (set arg2 y)
+	 (cp)
+	 (cond
+	  ((= ret 1)
+
+	   ;; reorder(y -> zy)
+	   (delete @-)
+	   (delete @-1)
+	   (insert z)
+	   (insert y))
+
+	  ;; elif CP(x,y) then
+	  (1
+	   (set arg1 x)
+	   (set arg2 y)
+	   (cp)
+	   (cond
+	    ((= ret 1)
+
+	     ;; replace(y -> z)
+	     (delete @-)
+	     (delete @-1)
+	     (insert z))
+
+	    ;; elif y is FV1 and z is TONE then
+	    ((& (| (= y 0x0E30) (= y 0x0E32) (= y 0x0E33))
+		(>= z 0x0E48)
+		(<= z 0x0E4B))
+
+	     ;; reorder(y -> zy)
+	     (delete @-)
+	     (delete @-1)
+	     (insert z)
+	     (insert y))
+
+	    ;; else
+	    ;; reject(z)
+	    (1
+	     (delete @-))
+
+	    ;;endif
+	    ))))
+
+	;; elif AC(x,z) then
+	(1
+	 (set arg1 x)
+	 (set arg2 z)
+	 (ac)
+	 (cond
+	  ((& (= ret 1)
+	      ;; CTRL, NON and CONS should not be replaced.
+	      (| (= y 0x0E24)
+		 (= y 0x0E26)
+		 (& (>= y 0x0E30) (<= y 0x0E3A))
+		 (& (>= y 0x0E40) (<= y 0x0E45))
+		 (& (>= y 0x0E47) (<= y 0x0E4E)))
+	      (| (= z 0x0E24)
+		 (= z 0x0E26)
+		 (& (>= z 0x0E30) (<= z 0x0E3A))
+		 (& (>= z 0x0E40) (<= z 0x0E45))
+		 (& (>= z 0x0E47) (<= z 0x0E4E))))
+
+	   ;; replace(y -> z)
+	   (delete @-)
+	   (delete @-1)
+	   (insert z))
+
+	  ;; else
+	  ;; reject(z)
+	  (1
+	   (delete @-))
+
+	  ;; endif
+	  )))
+       ;; end
+
+       ))))
+   (commit)
+   )))
 
 ;; Local Variables:
-;; mode: lisp
+;; coding: utf-8
+;; mode: emacs-lisp
 ;; End:
