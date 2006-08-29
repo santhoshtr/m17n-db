@@ -1,0 +1,138 @@
+;; th-pattachote.mim -- Thai input method with Pattachote keyboard layout
+;; Copyright (C) 2006
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+;; 02110-1301, USA.
+
+(input-method th pattachote)
+
+(description "Thai input method simulating the Pattachote keyboard
+with WTT 2.0 level 1 input sequence correction.
+The correction algorithm follows the one shown in the following 
+  <http://linux.thai.net/~thep/th-xim/>
+")
+
+(title "กก")
+
+(map
+ (map
+  ("!" "+")
+  ("\"" "ฑ")
+  ("#" "/")
+  ("$" ",")
+  ("%" "?")
+  ("&" "_")
+  ("'" "ข")
+  ("(" "(")
+  (")" ")")
+  ("*" ".")
+  ("+" "%")
+  ("," "ะ")
+  ("-" "๑")
+  ("." "จ")
+  ("/" "พ")
+  ("0" "๐")
+  ("1" "=")
+  ("2" "๒")
+  ("3" "๓")
+  ("4" "๔")
+  ("5" "๕")
+  ("6" "ู")
+  ("7" "๗")
+  ("8" "๘")
+  ("9" "๙")
+  (":" "ฆ")
+  (";" "ไ")
+  ("<" "ฟ")
+  ("=" "๖")
+  (">" "ฉ")
+  ("?" "ฬ")
+  ("@" "\"")
+  ("A" "๋")
+  ("B" "ฺ")
+  ("C" "ฐ")
+  ("D" "ำ")
+  ("E" "ๆ")
+  ("F" "ณ")
+  ("G" "์")
+  ("H" "ื")
+  ("I" "ซ")
+  ("J" "ผ")
+  ("K" "ช")
+  ("L" "โ")
+  ("M" "ฮ")
+  ("N" "ศ")
+  ("O" "ถ")
+  ("P" "ฒ")
+  ("Q" "๊")
+  ("R" "ญ")
+  ("S" "ธ")
+  ("T" "ษ")
+  ("U" "ฝ")
+  ("V" "ภ")
+  ("W" "ฤ")
+  ("X" "ฏ")
+  ("Y" "ึ")
+  ("Z" "ฎ")
+  ("[" "ใ")
+  ("\\" "ๅ")
+  ("]" "ฌ")
+  ("^" "ุ")
+  ("_" "-")
+  ("`" "_")
+  ("a" "้")
+  ("b" "ิ")
+  ("c" "ล")
+  ("d" "ง")
+  ("e" "ย")
+  ("f" "ก")
+  ("g" "ั")
+  ("h" "ี")
+  ("i" "ม")
+  ("j" "า")
+  ("k" "น")
+  ("l" "เ")
+  ("m" "ส")
+  ("n" "ค")
+  ("o" "ว")
+  ("p" "แ")
+  ("q" "็")
+  ("r" "อ")
+  ("s" "ท")
+  ("t" "ร")
+  ("u" "ด")
+  ("v" "ห")
+  ("w" "ต")
+  ("x" "ป")
+  ("y" "่")
+  ("z" "บ")
+  ("{" "ฯ")
+  ("|" "ํ")
+  ("}" "ฦ")
+  ("~" "฿")))
+
+(include (th kesmanee) macro)
+
+(include (th kesmanee) state)
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: emacs-lisp
+;; End:

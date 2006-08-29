@@ -1,0 +1,145 @@
+;; th-kesmanee-2.mim -- Thai input method with Kesmanee keyboard layout
+;; Copyright (C) 2003, 2004, 2005, 2006
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+(input-method th kesmanee-2)
+
+(description "Thai input method simulating the Kesmanee keyboard
+with WTT 2.0 level 2 input sequence correction.
+The correction algorithm follows the one shown in the following 
+  <http://linux.thai.net/~thep/th-xim/>
+")
+
+(title "กก")
+
+(include (th kesmanee) map)
+
+(macro
+
+ ;; input global variable : arg1, arg2
+ ;; output global variable : ret
+ (cp
+  (set ret 0)
+  (cond
+
+   ;; next = BV1|BV2|BD|AD3|AV1|AV2|AV3, previous = CONS
+   ((| (= arg2 0x0E31)
+       (& (>= arg2 0x0E34) (<= arg2 0x0E3A))
+       (= arg2 0x0E4E))
+    (cond
+     ((| (& (>= arg1 0x0E01) (<= arg1 0x0E23))
+	 (= arg1 0x0E25)
+	 (& (>= arg1 0x0E27) (<= arg1 0x0E2E)))
+      (set ret 1))))
+
+   ;; next = TONE, previous = CONS|BV1|BV2|AV1|AV2|AV3
+   ((& (>= arg2 0x0E48) (<= arg2 0x0E4B))
+    (cond
+     ((| (& (>= arg1 0x0E01) (<= arg1 0x0E23))
+	 (= arg1 0x0E25)
+	 (& (>= arg1 0x0E27) (<= arg1 0x0E2E))
+	 (= arg1 0x0E31)
+	 (& (>= arg1 0x0E34) (<= arg1 0x0E39)))
+      (set ret 1))))
+
+   ;; next = AD1, previous = CONS|BV1|AV1
+   ((& (>= arg2 0x0E4C) (<= arg2 0x0E4D))
+    (cond
+     ((| (& (>= arg1 0x0E01) (<= arg1 0x0E23))
+	 (= arg1 0x0E25)
+	 (& (>= arg1 0x0E27) (<= arg1 0x0E2E))
+	 (= arg1 0x0E38)
+	 (= arg1 0x0E34))
+      (set ret 1))))
+
+   ;; next = AD2, previous = TONE| AV3
+   ((= arg2 0x0E47)
+    (cond
+     ((| (& (>= arg1 0x0E01) (<= arg1 0x0E23))
+	 (= arg1 0x0E25)
+	 (& (>= arg1 0x0E27) (<= arg1 0x0E2E))
+	 (= arg1 0x0E35)
+	 (= arg1 0x0E37))
+      (set ret 1))))))
+
+ ;; input global variable : arg1, arg2
+ ;; output global variable : ret
+ ;; This is Level 2 acceptance.
+ (ac
+  (set ret 0)
+  (cond
+
+   ;; next = CTRL|CONS, previous = *
+   ((| (<= arg2 0x001F)
+       (& (>= arg2 0x0080) (<= arg2 0x009F))
+       (& (>= arg2 0x0E01) (<= arg2 0x0E23))
+       (= arg2 0x0E25)
+       (& (>= arg2 0x0E27) (<= arg2 0x0E2E)))
+    (set ret 1))
+
+   ;; next = NON|LV, previous = ~LV, 
+   ((| (& (>= arg2 0x0020) (<= arg2 0x007E))
+       (& (>= arg2 0x00A0) (<= arg2 0x0E00))
+       (= arg2 0x0E2F)
+       (& (>= arg2 0x0E3F) (<= arg2 0x0E44))
+       (= arg2 0x0E46)
+       (> arg2 0x0E4E))
+    (cond
+     ((| (< arg1 0x0E40) (> arg1 0x0E44))
+      (set ret 1))))
+
+   ;; next = FV1, previous = CONS|FV1|FV2|BV1|TONE
+   ((| (= arg2 0x0E30) (= arg2 0x0E32) (= arg2 0x0E33))
+    (cond
+     ((| (& (>= arg1 0x0E01) (<= arg1 0x0E23))
+	 (= arg1 0x0E25)
+	 (& (>= arg1 0x0E27) (<= arg1 0x0E2E))
+	 (= arg1 0x0E30)
+	 (= arg1 0x0E32)
+	 (= arg1 0x0E33)
+	 (= arg1 0x0E45)
+	 (= arg1 0x0E38)
+	 (& (>= arg1 0x0E48) (<= arg1 0x0E4B)))
+      (set ret 1))))
+   
+   ;; next = FV2, previous = FV3|TONE
+   ((= arg2 0x0E45)
+    (cond
+     ((| (= arg1 0x0E24)
+	 (= arg1 0x0E26)
+	 (& (>= arg1 0x0E48) (<= arg1 0x0E4B)))
+      (set ret 1))))
+
+   ;; next = FV3, previous = ~LV~FV3
+   ((| (= arg2 0x0E24) (= arg2 0x0E26))
+    (cond
+     ((& (| (< arg1 0x0E40) (> arg1 0x0E44))
+	 (! (= arg1 0x0E24))
+	 (! (= arg1 0x0E26)))
+      (set ret 1)))))))
+
+(include (th kesmanee) state)
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: emacs-lisp
+;; End:
