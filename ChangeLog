@@ -1,13 +1,17 @@
+2006-09-02  Kenichi Handa  <handa@m17n.org>
+
+	* vi-telex.mim: Big change for supporting backspace well.
+
 2006-08-29  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* Makefile.am:
-	Add th-kesmanee-2.mim, th-pattachote.mim, th-pattachote-2.mim,
-	th-tis820.mim, and th-tis820-2.mim.
+	* Makefile.am: Add th-kesmanee-2.mim, th-pattachote.mim,
+	th-pattachote-2.mim, th-tis820.mim, and th-tis820-2.mim.
 
-	* th-tis820-2.mim, th-tis820.mim, th-pattachote-2.mim, th-pattachote.mim, th-kesmanee-2.mim:
-	New input methods.
+	* th-tis820-2.mim, th-tis820.mim, th-pattachote-2.mim,
+	th-pattachote.mim, th-kesmanee-2.mim: New input methods.
 
-	* th-kesmanee.mim: Introduce WTT 2.0 level 1 input sequence correction.
+	* th-kesmanee.mim: Introduce WTT 2.0 level 1 input sequence
+	correction.
 
 2006-08-16  Mikiko Nisikimi  <nisikimi@duron>
 
