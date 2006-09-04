@@ -1,4 +1,20 @@
-2006-09-02  Kenichi Handa  <handa@m17n.org>
+2006-09-04  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* th-tis820-2.mim: Change title-text to KHO THAHAN.
+	Include tis820 state instead of tis820 map and kesmanee state.
+
+	* th-tis820.mim: Change title-text to KHO THAHAN.
+	Copy state-list rather than including.
+
+	* th-pattachote-2.mim: Change title-text to KHO THAHAN.
+	Include pattachote state instead of pattachote map and kesmanee state.
+
+	* th-pattachote.mim: Change title-text to KHO THAHAN.
+	Copy state-list rather than including.
+
+	* th-kesmanee-2.mim, th-kesmanee.mim: Change title-text to THO THAHAN.
+
+2006-09-02  Kenichi Handa  <handa@duron>
 
 	* vi-telex.mim: Big change for supporting backspace well.
 
