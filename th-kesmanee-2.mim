@@ -29,7 +29,7 @@ The correction algorithm follows the one shown in the following
   <http://linux.thai.net/~thep/th-xim/>
 ")
 
-(title "กก")
+(title "ท")
 
 (include (th kesmanee) map)
 
