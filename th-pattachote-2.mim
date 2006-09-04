@@ -29,13 +29,11 @@ The correction algorithm follows the one shown in the following
   <http://linux.thai.net/~thep/th-xim/>
 ")
 
-(title "กก")
-
-(include (th pattachote) map)
+(title "ท")
 
 (include (th kesmanee-2) macro)
 
-(include (th kesmanee) state)
+(include (th pattachote) state)
 
 ;; Local Variables:
 ;; coding: utf-8
