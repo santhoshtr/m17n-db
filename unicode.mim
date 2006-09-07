@@ -28,11 +28,20 @@ Type C-u followed by four hexadecimal numbers [0-9A-Fa-f]
 of a Unicode character code.
 ")
 
+(variable
+ (prompt "Preedit prompt
+Prompt string shown in the preedit area while typing hexadecimal numbers."
+	 "U+"))
+(command
+ (start "Start Unicode
+Start typing hexadecimal numbers of Unicode character."
+	(C-U)))
+
 (title "UNICODE")
 
 (map
  (starter
-  ((C-U) "U+"))
+  (start prompt))
 
  (hex
   ("0" "0") ("1" "1") ("2" "2") ("3" "3") ("4" "4")
