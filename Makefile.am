@@ -154,7 +154,7 @@ INPUT_METHOD = \
 	bopo-kbd.mim \
 	unicode.mim rfc1345.mim \
 	ispell.mim \
-	command.mim variable.mim cjk-util.mim zh-util.mim
+	global.mim cjk-util.mim zh-util.mim
 
 MISC_TABLE = \
 	LOCALE.cs LOCALE.ali \
