@@ -534,7 +534,7 @@ quite straight forward to extend it to cover all Latin characters.
 @section im-example2 EXAMPLE 2
 
 This example is for inputting Unicode characters by typing C-u
-(Control-u) followed by four hexadecimal numbers.  For instance, when
+(Control-u) followed by four hexadecimal digits.  For instance, when
 you type ("^u" means Control-u):
 @verbatim
     ^u2190^u2191^u2192^u2193
