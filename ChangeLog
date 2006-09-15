@@ -1,3 +1,7 @@
+2006-09-15  Kenichi Handa  <handa@m17n.org>
+
+	* UNIDATA/UnicodeData.txt: Updated.
+
 2006-09-07  Kenichi Handa  <handa@m17n.org>
 
 	* unicode.mim (prompt): New variable.
