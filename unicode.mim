@@ -23,18 +23,18 @@
 
 (input-method t unicode)
 
-(description "Input method for Unicode BMP characters using hexadigits.
+(description (_"Input method for Unicode BMP characters using hexadigits.
 Type C-u followed by four hexadecimal numbers [0-9A-Fa-f]
 of a Unicode character code.
-")
+"))
 
 (variable
- (prompt "Preedit prompt
-Prompt string shown in the preedit area while typing hexadecimal numbers."
+ (prompt (_"Preedit prompt
+Prompt string shown in the preedit area while typing hexadecimal numbers.")
 	 "U+"))
 (command
- (start "Start Unicode
-Start typing hexadecimal numbers of Unicode character."
+ (start (_"Start Unicode
+Start typing hexadecimal numbers of Unicode character.")
 	(C-U)))
 
 (title "UNICODE")
