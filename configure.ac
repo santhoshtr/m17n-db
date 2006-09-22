@@ -21,8 +21,9 @@
 # 02111-1307, USA.
 
 # Process this file with autoconf to produce a configure script.
-AC_INIT(m17n-db, 1.3.3, bugs-m17n-db@m17n.org)
-AM_INIT_AUTOMAKE(m17n-db, 1.3.3)
+AC_INIT(m17n-db, 1.3.4, bugs-m17n-lib@m17n.org)
+AM_INIT_AUTOMAKE(m17n-db, 1.3.4)
+AM_GNU_GETTEXT
 
 # Checks for programs.
 AC_PROG_INSTALL
@@ -65,7 +66,7 @@ fi
 ICONS=`cd icons; echo *.png`
 AC_SUBST(ICONS)
 
-AC_CONFIG_FILES([Makefile mapconv m17n-db m17n-db.pc icons/Makefile])
+AC_CONFIG_FILES([Makefile mapconv m17n-db m17n-db.pc icons/Makefile po/Makefile.in])
 AC_OUTPUT
 
 # Print configuration message.
