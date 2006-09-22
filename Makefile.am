@@ -21,7 +21,7 @@
 # Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 # 02111-1307, USA.
 
-SUBDIRS = icons
+SUBDIRS = po icons
 
 pkgdata_DATA = \
 	${CHARSETS} \
@@ -31,7 +31,7 @@ pkgdata_DATA = \
 	${MISC_TABLE} \
 	mdb.dir
 
-EXTRA_DIST = \
+EXTRA_DIST = config.rpath mkinstalldirs m4/ChangeLog  \
 	mdb.dir \
 	${FONT_LAYOUT_TABLE} \
 	${INPUT_METHOD} \
@@ -175,8 +175,6 @@ FORMATS = \
 	FORMATS/0General.txt FORMATS/CharsetList.txt FORMATS/CodingList.txt \
 	FORMATS/Dir.txt FORMATS/FontEncoding.txt FORMATS/Fontset.txt \
 	FORMATS/FLT.txt	FORMATS/FontSize.txt FORMATS/IM.txt
-
-all: ${CHARSETS} ${CHAR_TABLE}
 
 # Rules for charsets
 
@@ -371,3 +369,5 @@ pkgconfig_DATA = m17n-db.pc
 # Clear files that are automatically generated.
 clean:
 	rm -f ${CHARSETS} ${CHAR_TABLE}
+
+ACLOCAL_AMFLAGS = -I m4
