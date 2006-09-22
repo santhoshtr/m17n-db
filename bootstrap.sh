@@ -22,11 +22,13 @@
 # 02111-1307, USA.
 
 echo "Running aclocal..."
-aclocal
+aclocal -I m4
 echo "Running automake..."
 automake -a
 echo "Running autoconf..."
 autoconf
+echo "Producing po/POTFILES.in"
+ls *.mim > po/POTFILES.in
 echo "The remaining steps to install this packge are:"
 echo "  % ./configure"
 echo "  % make"
