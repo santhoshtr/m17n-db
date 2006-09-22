@@ -7,7 +7,7 @@
 
 	* unicode.mim: Gettextize decriptions.
 
-	* po: New directory.
+	* po, m4: New directories.
 
 2006-09-21  gettextize  <bug-gnu-gettext@gnu.org>
 
