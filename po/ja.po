@@ -1,0 +1,36 @@
+# po file for m17n-db
+# Copyright (C) 2006 AIST
+# This file is distributed under the same license as the PACKAGE package.
+# Kenichi Handa  <handa@m17n.org>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ja\n"
+"Report-Msgid-Bugs-To: bugs-m17n-lib@m17n.org\n"
+"POT-Creation-Date: 2006-09-21 23:16+0900\n"
+"PO-Revision-Date: 2006-09-21 23:16+0900\n"
+"Last-Translator: Kenichi Handa <handa@m17n.org>\n"
+"Language-Team: ja <ja@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: unicode.mim:26
+msgid ""
+"Input method for Unicode BMP characters using hexadigits.\n"
+"Type C-u followed by four hexadecimal numbers [0-9A-Fa-f]\n"
+"of a Unicode character code.\n"
+msgstr "Unicode の BMP 領域の文字を１６進で入力\n"
+
+#: unicode.mim:32
+msgid ""
+"Preedit prompt\n"
+"Prompt string shown in the preedit area while typing hexadecimal numbers."
+msgstr "Preedit プロンプト\n"
+"Unicode を１６進数で入力中、preedit 領域に表示されるプロンプト文字列。"
+
+#: unicode.mim:36
+msgid ""
+"Start Unicode\n"
+"Start typing hexadecimal numbers of Unicode character."
+msgstr ""
