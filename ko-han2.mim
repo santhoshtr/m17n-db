@@ -21,7 +21,16 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; Input method for Korean Hangul using Hangul keyboard layout.
+;;; Hangul input method with 2벌식.
+;;; @htmlonly
+;;; This input method uses this keyboard layout:
+;;; <table border="1" cellspacing="0" cellpadding=="0">
+;;; ||KEY: |r |R |s |e |E |f |a |q |Q |t |T |d |w |W |c |z |x |v |g
+;;;        |k |i |j |p |P |u |h |y |n |b |m |l |o |O ||
+;;; ||한글:|ㄱ|ㄲ|ㄴ|ㄷ|ㄸ|ㄹ|ㅁ|ㅂ|ㅃ|ㅅ|ㅆ|ㅇ|ㅈ|ㅉ|ㅊ|ㅋ|ㅌ|ㅍ|ㅎ
+;;;        |ㅏ|ㅑ|ㅓ|ㅔ|ㅖ|ㅕ|ㅗ|ㅛ|ㅜ|ㅠ|ㅡ|ㅣ|ㅐ|ㅒ||
+;;; </table>
+;;; @endhtmlonly
 
 (input-method ko han2)
 
