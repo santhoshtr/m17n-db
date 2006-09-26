@@ -20,7 +20,10 @@ msgid ""
 "Input method for Unicode BMP characters using hexadigits.\n"
 "Type C-u followed by four hexadecimal numbers [0-9A-Fa-f]\n"
 "of a Unicode character code.\n"
-msgstr "Unicode の BMP 領域の文字を１６進で入力\n"
+msgstr ""
+"Unicode の BMP 領域の文字を１６進で入力\n"
+"C-u に続けてUnicode の文字コードを４桁の１６進数をタイプして\n"
+"Unicode 文字を入力する。\n"
 
 #: unicode.mim:32
 msgid ""

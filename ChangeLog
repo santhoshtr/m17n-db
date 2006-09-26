@@ -1,3 +1,13 @@
+2006-09-26  Kenichi Handa  <handa@m17n.org>
+
+	* kk-arabic.mim: Augment description.
+
+	* ko-han2.mim: Comment improved.
+
+	* FORMATS/IM.ja.txt: Add description about gettext.
+
+	* FORMATS/IM.txt: Add description about gettext.
+
 2006-09-22  Kenichi Handa  <handa@m17n.org>
 
 	* configure.ac: Change versions to 1.3.4.  Call AM_GNU_GETTEXT.
