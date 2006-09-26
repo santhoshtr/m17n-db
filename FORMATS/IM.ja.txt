@@ -28,20 +28,22 @@ INPUT-METHOD ::=
     TITLE MAP-LIST MACRO-LIST ? MODULE-LIST ? STATE-LIST
 
 IM-DECLARATION ::= '(' 'input-method' LANGUAGE NAME ')'
-DESCRIPTION ::= '(' 'description' MTEXT ')'
+DESCRIPTION ::= '(' 'description' [ MTEXT-OR-GETTEXT | nil] ')'
 VARIABLE-LIST ::= '(' 'variable' VARIABLE-DECLARATION * ')'
 COMMAND-LIST ::= '(' 'command' COMMAND-DECLARATION * ')'
 TITLE ::= '(' 'title' TITLE-TEXT ')'
 
 VARIABLE-DECLARATION ::=
-    '(' VAR-NAME [ VAR-DESCRIPTION | nil ] VALUE VALUE-CANDIDATE * ')'
+    '(' VAR-NAME [ MTEXT-OR-GETTEXT | nil ] VALUE VALUE-CANDIDATE * ')'
 
 COMMAND-DECLARATION ::=
-    '(' CMD-NAME [ CMD-DESCRIPTION | nil ] KEYSEQ * ')'
+    '(' CMD-NAME [ MTEXT-OR-GETTEXT | nil ] KEYSEQ * ')'
+
+MTEXT-OR-GETTEXT ::=
+    [ MTEXT | '(' '_' MTEXT ')']
 
 LANGUAGE ::= SYMBOL
 NAME ::= SYMBOL
-IM-DESCRIPTION ::= MTEXT
 VAR-NAME ::= SYMBOL
 VAR-DESCRIPTION ::= MTEXT
 VALUE ::= MTEXT | SYMBOL | INTEGER
@@ -55,7 +57,9 @@ TITLE-TEXT ::= MTEXT
 
 @c IM-DECLARATION はこの入力メソッドの言語と名前を指定する。
 
-@c DESCRIPTION はこの入力メソッドの説明である @c MTEXT を指定する。
+@c DESCRIPTION はこの入力メソッドの説明を @c MTEXT-OR-GETTEXT で指定す
+る。もしこれが２番目の形式を取っていれば、 @c MTEXT は現在のロケールに
+従って "gettext" によって翻訳される（翻訳文が提供されている場合）。
 
 @c VARIABLE-DECLARATION はこの入力メソッドで使用される変数を宣言する。
 変数をデフォルト値に初期化したり、ユーザがカスタマイズしたりする場合に

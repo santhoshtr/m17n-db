@@ -28,16 +28,19 @@ INPUT-METHOD ::=
     TITLE MAP-LIST MACRO-LIST ? MODULE-LIST ? STATE-LIST
 
 IM-DECLARATION ::= '(' 'input-method' LANGUAGE NAME ')'
-DESCRIPTION ::= '(' 'description' MTEXT ')'
+DESCRIPTION ::= '(' 'description' [ MTEXT-OR-GETTEXT | nil] ')'
 VARIABLE-LIST ::= '(' 'variable' VARIABLE-DECLARATION * ')'
 COMMAND-LIST ::= '(' 'command' COMMAND-DECLARATION * ')'
 TITLE ::= '(' 'title' TITLE-TEXT ')'
 
 VARIABLE-DECLARATION ::=
-    '(' VAR-NAME [ VAR-DESCRIPTION | nil ] VALUE VALUE-CANDIDATE * ')'
+    '(' VAR-NAME [ MTEXT-OR-GETTEXT | nil ] VALUE VALUE-CANDIDATE * ')'
 
 COMMAND-DECLARATION ::=
-    '(' CMD-NAME [ CMD-DESCRIPTION | nil ] KEYSEQ * ')'
+    '(' CMD-NAME [ MTEXT-OR-GETTEXT | nil ] KEYSEQ * ')'
+
+MTEXT-OR-GETTEXT ::=
+    [ MTEXT | '(' '_' MTEXT ')']
 
 LANGUAGE ::= SYMBOL
 NAME ::= SYMBOL
@@ -56,8 +59,10 @@ TITLE-TEXT ::= MTEXT
 @c IM-DECLARATION specifies the language and name of this input
 method.
 
-@c DESCRIPTION specifies @c MTEXT as the description text of this
-input method.
+@c DESCRIPTION specifies the description text of this input method by
+MTEXT-OR-GETTEXT.  It it takes the second form, the text is translated
+according to the current locale by "gettext" (if the translation is
+provided).
 
 @c VARIABLE-DECLARATION declares a variable used in this input method.
 If a variable must be initialized to the default value, or is to be
