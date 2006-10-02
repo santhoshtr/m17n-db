@@ -86,6 +86,9 @@
    ("(VA?)"
     < | (1 = *) | >)
 
+   ;; Other dedependent character.
+   ("[Apmt]" [ = ])
+
    ;; Other independent character.
    ("." =))
   *)
