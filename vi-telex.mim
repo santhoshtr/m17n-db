@@ -98,14 +98,17 @@
   (consonant (shift after-vc))
   (d-bar (shift after-vc))
   (double (shift after-vc))
-  (vowel (shift init))
+  (vowel)
   (diacritical (shift init))
   (backspace))
 
  ;; The state shifted to when a vowel and consonant are typed.  The
  ;; vowel is the first character of the preedit buffer.
  (after-vc
-  (diacritical (shift init)))
+  (diacritical (shift init))
+  (consonant)
+  (d-var)
+  (double))
 
  (escape
   "a"
