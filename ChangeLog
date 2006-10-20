@@ -1,3 +1,12 @@
+2006-10-20  Kenichi Handa  <handa@m17n.org>
+
+	* vi-telex.mim: Fix for double vowels and double consonants.
+
+2006-10-02  Kenichi Handa  <handa@m17n.org>
+
+	* MLYM-RACHANA.flt: Add pad for a combining character appearing by
+	itself.
+
 2006-10-19  Kenichi Handa  <handa@m17n.org>
 
 	* vi-telex.mim: Full rewrite to allow typing diacritical marks
