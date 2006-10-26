@@ -1,3 +1,7 @@
+2006-10-26  Kenichi Handa  <handa@m17n.org>
+
+	* vi-telex.mim (after-vc): Fix typo: d-var -> d-bar.
+
 2006-10-20  Kenichi Handa  <handa@m17n.org>
 
 	* vi-telex.mim: Fix for double vowels and double consonants.
