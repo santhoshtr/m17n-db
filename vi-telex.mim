@@ -107,7 +107,7 @@
  (after-vc
   (diacritical (shift init))
   (consonant)
-  (d-var)
+  (d-bar)
   (double))
 
  (escape
