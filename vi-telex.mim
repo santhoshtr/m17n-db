@@ -27,20 +27,37 @@
 ")
 
 (title "ắ")
+(macro
+ (handle-mark
+  (cond (V-PREV
+	 (delete @-)
+	 (move M)
+	 (cond ((| LAST-SPECIAL
+		   (& (= V-PREV ?i) (= C ?g))
+		   (& (= V-PREV ?u) (= C ?q)))
+		(select SELECT))
+	       (1 (move @-) (select SELECT)))
+	 (move @>))
+	(V-LAST
+	 (delete @-)
+	 (move M)
+	 (select SELECT)
+	 (move @>)))))
+
 (map
  (vowel
   ;;       sfrxj
   ("a"  ("aáàảãạ"))
-  ("aa" ("âấầẩẫậ"))
-  ("aw" ("ăắằẳẵặ"))
+  ("aa" ("âấầẩẫậ") (set SPECIAL 1))
+  ("aw" ("ăắằẳẵặ") (set SPECIAL 1))
   ("e"  ("eéèẻẽẹ"))
-  ("ee" ("êếềểễệ"))
+  ("ee" ("êếềểễệ") (set SPECIAL 1))
   ("i"  ("iíìỉĩị"))
   ("o"  ("oóòỏõọ"))
-  ("oo" ("ôốồổỗộ"))
-  ("ow" ("ơớờởỡợ"))
+  ("oo" ("ôốồổỗộ") (set SPECIAL 1))
+  ("ow" ("ơớờởỡợ") (set SPECIAL 1))
   ("u"  ("uúùủũụ"))
-  ("uw" ("ưứừửữự"))
+  ("uw" ("ưứừửữự") (set SPECIAL 1))
   ("y"  ("yýỳỷỹỵ"))
   ("A"  ("AÁÀẢÃẠ"))
   ("AA" ("ÂẤẦẨẪẬ")) ("Aa" ("ÂẤẦẨẪẬ"))
@@ -56,24 +73,22 @@
   ("Y"  ("YÝỲỶỸỴ")))
 
  (diacritical
-  ("s" (cond (MARKED (move 1) (select 1) (move @>)) (1 ?s)))
-  ("f" (cond (MARKED (move 1) (select 2) (move @>)) (1 ?f)))
-  ("r" (cond (MARKED (move 1) (select 3) (move @>)) (1 ?r)))
-  ("x" (cond (MARKED (move 1) (select 4) (move @>)) (1 ?x)))
-  ("j" (cond (MARKED (move 1) (select 5) (move @>)) (1 ?j))))
+  ("s" (set SELECT 1) ?s (handle-mark))
+  ("f" (set SELECT 2) ?f (handle-mark))
+  ("r" (set SELECT 3) ?r (handle-mark))
+  ("x" (set SELECT 4) ?x (handle-mark))
+  ("j" (set SELECT 5) ?j (handle-mark)))
 
  (double
-  ("ss" (cond (MARKED (move 1) (select 0) (move @>))) ?s)
-  ("ff" (cond (MARKED (move 1) (select 0) (move @>))) ?f)
-  ("rr" (cond (MARKED (move 1) (select 0) (move @>))) ?r)
-  ("xx" (cond (MARKED (move 1) (select 0) (move @>))) ?x)
-  ("jj" (cond (MARKED (move 1) (select 0) (move @>))) ?j))
+  ("ss" (move M) (select 0) (move @>) ?s)
+  ("ff" (move M) (select 0) (move @>) ?f)
+  ("rr" (move M) (select 0) (move @>) ?r)
+  ("xx" (move M) (select 0) (move @>) ?x)
+  ("jj" (move M) (select 0) (move @>) ?j))
 
  (consonant
   ("b" ?b) ("c" ?c) ("d" ?d) ("g" ?g) ("h" ?h) ("k" ?k) ("l" ?l) ("m" ?m)
-  ("n" ?n) ("p" ?p) ("q" ?q) ("t" ?t) ("v" ?v) ("z" ?z))
-
- (d-bar
+  ("n" ?n) ("p" ?p) ("q" ?q) ("t" ?t) ("v" ?v) ("z" ?z)
   ("dd" ?đ)
   ("DD" ?Đ) ("Dd" ?Đ))
 
@@ -85,30 +100,32 @@
 
 (state
  (init
-  ;; The variable MARKED indicates whether a vowel is typed or not.
-  (t (set MARKED 0))
-  (vowel (set MARKED 1) (shift after-vowel))
-  (d-bar)
+  ;; The variable V1 and V2 indicate whether a vowel is typed or not.
+  (t (set C 0) (set V-LAST 0) (set V-PREV 0) (set SPECIAL 0))
+  (consonant (set C @-))
+  (vowel (mark M) (set V-LAST @-) (set SPECIAL-LAST SPECIAL)
+	 (shift after-vowel))
   (escape (shift escape))
   (backspace))
 
  ;; The state shifted to when a vowel is typed.  The vowel is the
  ;; first character of the preedit buffer.
  (after-vowel
+  (t (set SPECIAL 0))
   (consonant (shift after-vc))
-  (d-bar (shift after-vc))
   (double (shift after-vc))
-  (vowel)
+  (vowel (mark M) (set V-PREV V-LAST) (set V-LAST @-)
+	 (set SPECIAL-LAST SPECIAL))
   (diacritical (shift init))
   (backspace))
 
  ;; The state shifted to when a vowel and consonant are typed.  The
  ;; vowel is the first character of the preedit buffer.
  (after-vc
-  (diacritical (shift init))
+  (t (set V-PREV 0))
+  (double)
   (consonant)
-  (d-bar)
-  (double))
+  (diacritical (shift init)))
 
  (escape
   "a"
