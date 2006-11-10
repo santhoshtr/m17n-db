@@ -382,7 +382,7 @@ If there's no argument, this action cancels the last two key events
 (i.e. the one that invoked this command, and the previous one).
 
 If there's an integer argument NUM, it must be positive or negative
-(not zero).  If positive, the NUMth event to the last one are
+(not zero).  If positive, from the NUMth to the last events are
 canceled.  If negative the last (- NUM) events are canceled.
 
 If there's a symbol argument, it must be resolved to an integer number
