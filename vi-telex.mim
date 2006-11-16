@@ -27,6 +27,7 @@
 ")
 
 (title "ắ")
+
 (macro
  (handle-mark
   (cond (V-PREV
@@ -73,6 +74,7 @@
   ("Y"  ("YÝỲỶỸỴ")))
 
  (diacritical
+  ("z" (set SELECT 0) ?z (handle-mark))
   ("s" (set SELECT 1) ?s (handle-mark))
   ("f" (set SELECT 2) ?f (handle-mark))
   ("r" (set SELECT 3) ?r (handle-mark))
@@ -80,15 +82,16 @@
   ("j" (set SELECT 5) ?j (handle-mark)))
 
  (double
-  ("ss" (move M) (select 0) (move @>) ?s)
-  ("ff" (move M) (select 0) (move @>) ?f)
-  ("rr" (move M) (select 0) (move @>) ?r)
-  ("xx" (move M) (select 0) (move @>) ?x)
-  ("jj" (move M) (select 0) (move @>) ?j))
+  ("zz" (cond ((> V-LAST 0) (move M) (select 0) (move @>))) ?z)
+  ("ss" (cond ((> V-LAST 0) (move M) (select 0) (move @>))) ?s)
+  ("ff" (cond ((> V-LAST 0) (move M) (select 0) (move @>))) ?f)
+  ("rr" (cond ((> V-LAST 0) (move M) (select 0) (move @>))) ?r)
+  ("xx" (cond ((> V-LAST 0) (move M) (select 0) (move @>))) ?x)
+  ("jj" (cond ((> V-LAST 0) (move M) (select 0) (move @>))) ?j))
 
  (consonant
   ("b" ?b) ("c" ?c) ("d" ?d) ("g" ?g) ("h" ?h) ("k" ?k) ("l" ?l) ("m" ?m)
-  ("n" ?n) ("p" ?p) ("q" ?q) ("t" ?t) ("v" ?v) ("z" ?z)
+  ("n" ?n) ("p" ?p) ("q" ?q) ("t" ?t) ("v" ?v)
   ("dd" ?đ)
   ("DD" ?Đ) ("Dd" ?Đ))
 
@@ -96,42 +99,62 @@
   ("\\"))
 
  (backspace
-  ((BackSpace) (undo))))
+  ((BackSpace))))
 
 (state
  (init
-  ;; The variable V1 and V2 indicate whether a vowel is typed or not.
+  ;; Initialize variables.  V-LAST is a vowel typed lastly.  In the
+  ;; case of double vowel, V-PREV is the first one.  V-LAST being 0
+  ;; means that a vowel is not yet typed.
   (t (set C 0) (set V-LAST 0) (set V-PREV 0) (set SPECIAL 0))
-  (consonant (set C @-))
-  (vowel (mark M) (set V-LAST @-) (set SPECIAL-LAST SPECIAL)
-	 (shift after-vowel))
-  (escape (shift escape))
-  (backspace))
 
- ;; The state shifted to when a vowel is typed.  The vowel is the
- ;; first character of the preedit buffer.
- (after-vowel
+  ;; Remeber the initial consonant in C.
+  (consonant (set C @-))
+
+  ;; Remember the preedit position after vowel in M.
+  (vowel (mark M) (set V-LAST @-) (set SPECIAL-LAST SPECIAL) (shift after-v))
+
+  (escape (shift escape))
+
+  (backspace (undo)))
+
+ ;; The state shifted to when the first vowel is typed.
+ (after-v
   (t (set SPECIAL 0))
   (consonant (shift after-vc))
   (double (shift after-vc))
   (vowel (mark M) (set V-PREV V-LAST) (set V-LAST @-)
-	 (set SPECIAL-LAST SPECIAL))
-  (diacritical (shift init))
-  (backspace))
+	 (set SPECIAL-LAST SPECIAL) (shift after-vv))
+  (diacritical)
+  (backspace (undo 0)))
 
- ;; The state shifted to when a vowel and consonant are typed.  The
- ;; vowel is the first character of the preedit buffer.
+ ;; The state shifted to when the second vowel is typed.
+ (after-vv
+  (t (set SPECIAL 0))
+  (consonant (shift after-vc))
+  (double (shift after-vc))
+  (diacritical)
+  (backspace (delete @-) (set V-LAST V-PREV) (set V-PREV 0) (shift after-v)))
+
+ ;; The state shifted to when one or two vowels and consonant are
+ ;; typed.
  (after-vc
-  (t (set V-PREV 0))
+  (t (set V-PREV-SAVE V-PREV) (set V-PREV 0) (set C-COUNT 1))
   (double)
-  (consonant)
-  (diacritical (shift init)))
+  (consonant (add C-COUNT 1))
+  (diacritical)
+  (backspace (delete @-)
+	     (cond ((= C-COUNT 1)
+		    (set V-PREV V-PREV-SAVE)
+		    (cond ((> V-PREV 0) (shift after-vv))
+			  (1 (shift after-v)))))))
 
  (escape
-  "a"
+  "ESC"
+  ;; Unhandle any characters.
   (nil (shift init) (unhandle))))
 
 ;; Local Variables:
 ;; coding: utf-8
-;; mode: lisp
+;; mode: emacs-lisp
 ;; End:
