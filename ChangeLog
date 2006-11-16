@@ -1,6 +1,6 @@
 2006-11-16  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* zh-bopomofo.mim: Renamed from bopo-kbd.mim to zh-bopomofo.kbd.
+	* zh-bopomofo.mim: Renamed from bopo-kbd.mim to zh-bopomofo.mim.
 
 2006-10-30  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
