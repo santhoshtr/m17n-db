@@ -1,0 +1,127 @@
+;; ne-trad.mim -- Nepali input method for traditional layout
+;; This files implements the traditional keyboard layout published by MPP.
+;; Copyright (c) 2005 Suyash Shrestha <suyash.shr@gmail.com>
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+(input-method ne trad)
+
+(description "Nepali input method for traditional layout.
+Author: Suyash Shrestha <suyash.shr@gmail.com>
+")
+
+(title "Ne")
+
+(map
+ (trans
+  ("\"" ?ू)
+  ("#" ?घ)
+  ("'" ?ु)
+  ("(" ?ढ)
+  (")" ?ण)
+  ("+" ?ं)
+  ("," ?ऽ)
+  ("-" ?औ)
+  ("." ?।)
+  ("/" ?र)
+  ("0" ?०)
+  ("1" ?१)
+  ("2" ?२)
+  ("3" ?३)
+  ("4" ?४)
+  ("5" ?५)
+  ("6" ?६)
+  ("7" ?७)
+  ("8" ?८)
+  ("9" ?९)
+  (";" ?स)
+  ("<" ?ङ)
+  ("=" ?=)
+  ("?" "रु")
+  ("@" ?ई)
+  ("A" ?आ)
+  ("B" ?ौ)
+  ("C" ?ऋ)
+  ("E" ?ऐ)
+  ("F" ?ँ)
+  ("H" ?झ)
+  ("J" ?ो)
+  ("K" ?फ)
+  ("L" ?ी)
+  ("O" ?इ)
+  ("P" ?ए)
+  ("U" ?ऊ)
+  ("V" ?ॐ)
+  ("\\" ?्)
+  ("]" ?े)
+  ("_" ?ओ)
+  ("`" ?ञ)
+  ("a" ?ब)
+  ("b" ?द)
+  ("c" ?अ)
+  ("d" ?म)
+  ("e" ?भ)
+  ("f" ?ा)
+  ("g" ?न)
+  ("h" ?ज)
+  ("i" ?ष)
+  ("j" ?व)
+  ("k" ?प)
+  ("l" ?ि)
+  ("m" ?ः)
+  ("n" ?ल)
+  ("o" ?य)
+  ("p" ?उ)
+  ("r" ?च)
+  ("s" ?क)
+  ("t" ?त)
+  ("u" ?ग)
+  ("v" ?ख)
+  ("w" ?ध)
+  ("x" ?ह)
+  ("y" ?थ)
+  ("z" ?श)
+  ("{" ?ृ)
+  ("|" ?|)
+  ("}" ?ै)
+  ("~" ?॥)
+  ("!" "ज्ञ")
+  ("$" "द्ध")
+  (":" "ट्ठ")
+  (">" "श्र")
+  ("D" "ङ्ग")
+  ("G" "द्द")
+  ("I" "क्ष")
+  ("M" "ड्ड")
+  ("N" "द्य")
+  ("Q" "त्त")
+  ("R" "द्ब")
+  ("S" "ङ्क")
+  ("T" "ट्ट")
+  ("W" "ड्ढ")
+  ("X" "ह्य")
+  ("Y" "ठ्ठ")
+  ("Z" "क्क")
+  ("[" "र्")
+  ("q" "त्र")
+  ))
+
+(state
+  (init
+    (trans)))

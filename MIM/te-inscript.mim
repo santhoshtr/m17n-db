@@ -1,0 +1,131 @@
+;; te-inscript.mim -- Telugu input method for inscript layout
+;; This file is derived from the Telugu inscript table of scim-tables,
+;; which was derived from iiimf unitLE's Telugu inscript layout.
+;; Copyright (c) 2003 Sun Microsystems, Inc. All Rights Reserved.
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+(input-method te inscript)
+
+(description "Telugu input method for inscript layout.
+")
+
+(title "క")
+
+(map
+ (trans
+  ("!" ?!)
+  ("1" ?౧)
+  ("@" ?@)
+  ("2" ?౨)
+  ("#" ?#)
+  ("3" ?౩)
+  ("$" ?$)
+  ("4" ?౪)
+  ("5" ?౫)
+  ("6" ?౬)
+  ("7" ?౭)
+  ("8" ?౮)
+  ("(" ?()
+  ("9" ?౯)
+  (")" ?))
+  ("0" ?౦)
+  ("_" ?_)
+  ("-" ?-)
+  ("+" ?ఋ)
+  ("=" ?ృ)
+  ("Q" ?ఔ)
+  ("q" ?ౌ)
+  ("W" ?ఐ)
+  ("w" ?ై)
+  ("E" ?ఆ)
+  ("e" ?ా)
+  ("R" ?ఈ)
+  ("r" ?ీ)
+  ("T" ?ఊ)
+  ("t" ?ూ)
+  ("Y" ?భ)
+  ("y" ?బ)
+  ("U" ?ఙ)
+  ("u" ?హ)
+  ("I" ?ఘ)
+  ("i" ?గ)
+  ("O" ?ధ)
+  ("o" ?ద)
+  ("P" ?ఝ)
+  ("p" ?జ)
+  ("{" ?ఢ)
+  ("[" ?డ)
+  ("}" ?ఞ)
+  ("]" ?])
+  ("A" ?ఓ)
+  ("a" ?ో)
+  ("S" ?ఏ)
+  ("s" ?ే)
+  ("D" ?అ)
+  ("d" ?్)
+  ("F" ?ఇ)
+  ("f" ?ి)
+  ("G" ?ఉ)
+  ("g" ?ు)
+  ("H" ?ఫ)
+  ("h" ?ప)
+  ("J" ?ఱ)
+  ("j" ?ర)
+  ("K" ?ఖ)
+  ("k" ?క)
+  ("L" ?థ)
+  ("l" ?త)
+  (":" ?ఛ)
+  (";" ?చ)
+  ("\"" ?ఠ)
+  ("'" ?ట)
+  ("|" ?|)
+  ("\\" ?\\)
+  ("~" ?ఒ)
+  ("`" ?ొ)
+  ("Z" ?ఎ)
+  ("z" ?ె)
+  ("X" ?X)
+  ("x" ?ం)
+  ("C" ?ణ)
+  ("c" ?మ)
+  ("V" ?V)
+  ("v" ?న)
+  ("B" ?B)
+  ("b" ?వ)
+  ("N" ?ళ)
+  ("n" ?ల)
+  ("M" ?శ)
+  ("m" ?స)
+  ("<" ?ష)
+  ("," ?,)
+  (">" ?>)
+  ("." ?.)
+  ("?" ??)
+  ("/" ?య)
+  ("%" "జ్ఞ")
+  ("^" "త్ర")
+  ("&" "క్ష")
+  ("*" "శ్ర")
+  ))
+
+(state
+  (init
+    (trans)))

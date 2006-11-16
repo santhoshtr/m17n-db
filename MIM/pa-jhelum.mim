@@ -1,0 +1,129 @@
+;; pa-jhelum.mim -- Punjabi input method for jhelum layout
+;; Copyright (c) 2004-2006 Red Hat, Inc. All rights reserved.
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+(input-method pa jhelum)
+
+(description "Punjabi input method for jhelum layout.
+Author: Amanpreet Singh Brar <apbrar@gmail.com>
+")
+
+(title "ਕ")
+
+(map
+ (trans
+  ("~" ?~)
+  ("`" ?`)
+  ("!" ?!)
+  ("1" ?1)
+  ("@" ?@)
+  ("2" ?2)
+  ("#" ?#)
+  ("3" ?3)
+  ("$" ?$)
+  ("4" ?4)
+  ("%" ?%)
+  ("5" ?5)
+  ("6" ?6)
+  ("7" ?7)
+  ("8" ?8)
+  ("(" ?()
+  ("9" ?9)
+  (")" ?))
+  ("0" ?0)
+  ("_" ?_)
+  ("-" ?-)
+  ("+" ?+)
+  ("=" ?=)
+  ("Q" ?ਔ)
+  ("q" ?ੌ)
+  ("W" ?ਐ)
+  ("w" ?ੈ)
+  ("E" ?ਆ)
+  ("e" ?ਾ)
+  ("R" ?ਈ)
+  ("r" ?ੀ)
+  ("T" ?ਊ)
+  ("t" ?ੂ)
+  ("Y" ?ੜ)
+  ("y" ?ਰ)
+  ("U" ?ਧ)
+  ("u" ?ਦ)
+  ("I" ?ਘ)
+  ("i" ?ਗ)
+  ("O" ?ਟ)
+  ("o" ?ਤ)
+  ("P" ?ਫ)
+  ("p" ?ਪ)
+  ("{" ?ਢ)
+  ("[" ?ਡ)
+  ("}" ?ਞ)
+  ("]" ?ਙ)
+  ("A" ?ਓ)
+  ("a" ?ੋ)
+  ("S" ?ਏ)
+  ("s" ?ੇ)
+  ("D" ?ਅ)
+  ("d" ?੍)
+  ("F" ?ਇ)
+  ("f" ?ਿ)
+  ("G" ?ਉ)
+  ("g" ?ੁ)
+  ("H" ?ਠ)
+  ("h" ?ਹ)
+  ("J" ?ਝ)
+  ("j" ?ਜ)
+  ("K" ?ਖ)
+  ("k" ?ਕ)
+  ("L" ?ਥ)
+  ("l" ?ਲ)
+  (":" ?:)
+  (";" ?ਸ)
+  ("\"" ?\")
+  ("'" ?')
+  ("|" ?।)
+  ("\\" ?\\)
+  ("Z" ?਼)
+  ("z" ?ੱ)
+  ("X" ?ੰ)
+  ("x" ?ਂ)
+  ("C" ?ਛ)
+  ("c" ?ਚ)
+  ("V" ?ਯ)
+  ("v" ?ਵ)
+  ("B" ?ਭ)
+  ("b" ?ਬ)
+  ("N" ?ਣ)
+  ("n" ?ਨ)
+  ("M" ?ਠ)
+  ("m" ?ਮ)
+  ("<" ?<)
+  ("," ?,)
+  (">" ?>)
+  ("." ?.)
+  ("?" ??)
+  ("/" ?/)
+  ("^" "੍ਰ")
+  ("*" ?*)
+  ))
+
+(state
+  (init
+    (trans)))

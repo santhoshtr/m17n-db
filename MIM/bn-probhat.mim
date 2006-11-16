@@ -1,0 +1,142 @@
+;; bn-probhat.mim -- Bengali input method for probhat layout
+;; Copyright (c) 2004-2006 Red Hat, Inc. All rights reserved.
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+(input-method bn probhat)
+
+(description "Bengali input method for probhat layout.
+
+Phonetic Based Bengali Keymap Layout created by Taneem Ahmed and proposed by Ankur Group (www.bengalinux.org) in accordance to the image in the following link:
+
+http://www.bengalinux.org/images/probhat_layout.png
+
+Key summary:
+
+To write \"juktakhor\" i.e. conjunct characters of consonants please use the \"halant\" character on the key '/' between the two consonant akshar. 
+
+E.g. ক্ষ = k+/+S
+
+Author: Jatin Nansi <jnansi@redhat.com>
+Key summary: Runa Bhattacharjee <runab@redhat.com>
+")
+
+(title "ক")
+
+(map
+ (trans
+  ("!" ?!)
+  ("1" ?১)
+  ("@" ?@)
+  ("2" ?২)
+  ("#" ?#)
+  ("3" ?৩)
+  ("$" ?৳)
+  ("4" ?৪)
+  ("%" ?%)
+  ("5" ?৫)
+  ("^" ?^)
+  ("6" ?৬)
+  ("&" ?ঞ)
+  ("7" ?৭)
+  ("*" "ত্‌")
+  ("8" ?৮)
+  ("(" ?()
+  ("9" ?৯)
+  (")" ?))
+  ("0" ?০)
+  ("_" ?_)
+  ("-" ?‌)
+  ("+" ?‍)
+  ("=" ?=)
+  ("Q" ?ধ)
+  ("q" ?দ)
+  ("W" ?ঊ)
+  ("w" ?ূ)
+  ("E" ?ঈ)
+  ("e" ?ী)
+  ("R" ?ড়)
+  ("r" ?র)
+  ("T" ?ঠ)
+  ("t" ?ট)
+  ("Y" ?ঐ)
+  ("y" ?এ)
+  ("U" ?উ)
+  ("u" ?ু)
+  ("I" ?ই)
+  ("i" ?ি)
+  ("O" ?ঔ)
+  ("o" ?ও)
+  ("P" ?ফ)
+  ("p" ?প)
+  ("{" ?ৈ)
+  ("[" ?ে)
+  ("}" ?ৌ)
+  ("]" ?ো)
+  ("A" ?অ)
+  ("a" ?া)
+  ("S" ?ষ)
+  ("s" ?স)
+  ("D" ?ঢ)
+  ("d" ?ড)
+  ("F" ?থ)
+  ("f" ?ত)
+  ("G" ?ঘ)
+  ("g" ?গ)
+  ("H" ?ঃ)
+  ("h" ?হ)
+  ("J" ?ঝ)
+  ("j" ?জ)
+  ("K" ?খ)
+  ("k" ?ক)
+  ("L" ?ং)
+  ("l" ?ল)
+  (":" ?:)
+  (";" ?;)
+  ("\"" ?\")
+  ("'" ?')
+  ("|" ?॥)
+  ("\\" ?\\)
+  ("~" ?~)
+  ("`" ?`)
+  ("Z" ?য)
+  ("z" ?য়)
+  ("X" ?ঢ়)
+  ("x" ?শ)
+  ("C" ?ছ)
+  ("c" ?চ)
+  ("V" ?ঋ)
+  ("v" ?আ)
+  ("B" ?ভ)
+  ("b" ?ব)
+  ("N" ?ণ)
+  ("n" ?ন)
+  ("M" ?ঙ)
+  ("m" ?ম)
+  ("<" ?ৃ)
+  ("," ?,)
+  (">" ?ঁ)
+  ("." ?।)
+  ("?" ??)
+  ("/" ?্)
+  ))
+ 
+(state
+  (init
+    (trans)))

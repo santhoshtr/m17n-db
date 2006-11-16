@@ -1,0 +1,130 @@
+;; ta-inscript.mim -- Tamil input method for inscript layout
+;; This file is derived from the Tamil inscript table of scim-tables,
+;; which was derived from iiimf unitLE's Tamil inscript layout.
+;; Copyright (c) 2003 Sun Microsystems, Inc. All Rights Reserved.
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+(input-method ta inscript)
+
+(description "Tamil input method for inscript layout.
+")
+
+(title "க")
+
+(map
+ (trans
+  ("!" ?!)
+  ("1" ?1)
+  ("@" ?@)
+  ("2" ?2)
+  ("#" ?#)
+  ("3" ?3)
+  ("$" ?$)
+  ("4" ?4)
+  ("%" ?%)
+  ("5" ?5)
+  ("^" ?^)
+  ("6" ?6)
+  ("&" "க்ஷ")
+  ("7" ?7)
+  ("8" ?8)
+  ("(" ?()
+  ("9" ?9)
+  (")" ?))
+  ("0" ?0)
+  ("_" ?ஃ)
+  ("-" ?-)
+  ("+" ?+)
+  ("=" ?=)
+  ("Q" ?ஔ)
+  ("q" ?ௌ)
+  ("W" ?ஐ)
+  ("w" ?ை)
+  ("E" ?ஆ)
+  ("e" ?ா)
+  ("R" ?ஈ)
+  ("r" ?ீ)
+  ("T" ?ஊ)
+  ("t" ?ூ)
+  ("Y" ?Y)
+  ("y" ?y)
+  ("U" ?ங)
+  ("u" ?ஹ)
+  ("I" ?I)
+  ("i" ?i)
+  ("O" ?O)
+  ("o" ?o)
+  ("P" ?P)
+  ("p" ?ஜ)
+  ("{" ?{)
+  ("[" ?[)
+  ("}" ?ஞ)
+  ("]" ?])
+  ("A" ?ஓ)
+  ("a" ?ோ )
+  ("S" ?ஏ)
+  ("s" ?ே)
+  ("D" ?அ)
+  ("d" ?்)
+  ("F" ?இ)
+  ("f" ?ி)
+  ("G" ?உ)
+  ("g" ?ு)
+  ("H" ?H)
+  ("h" ?ப)
+  ("J" ?ற)
+  ("j" ?ர)
+  ("K" ?K)
+  ("k" ?க)
+  ("L" ?L)
+  ("l" ?த)
+  (":" ?:)
+  (";" ?ச)
+  ("\"" ?\")
+  ("'" ?ட)
+  ("|" ?|)
+  ("\\" ?\\)
+  ("~" ?ஒ)
+  ("`" ?ொ)
+  ("Z" ?எ)
+  ("z" ?ெ)
+  ("X" ?X)
+  ("x" ?x)
+  ("C" ?ண)
+  ("c" ?ம)
+  ("V" ?ன)
+  ("v" ?ந)
+  ("B" ?ழ)
+  ("b" ?வ)
+  ("N" ?ள)
+  ("n" ?ல)
+  ("M" ?M)
+  ("m" ?ஸ)
+  ("<" ?ஷ)
+  ("," ?,)
+  (">" ?>)
+  ("." ?.)
+  ("/" ?ய)
+  ("*" "ஷ்ர")
+  ))
+
+(state
+  (init
+    (trans)))

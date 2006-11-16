@@ -1,0 +1,132 @@
+;; ur-phonetic -- Urdu input method for phonetic layout
+;; Copyright (c) 2006 Tahir Abdul Rauf Butt <linux_kernel_worm@yahoo.com>
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+
+(input-method ur phonetic)
+
+(description "Urdu phonetic keyboard layout for m17n-db
+Author: Tahir Abdul Rauf Butt <linux_kernel_worm@yahoo.com>")
+
+
+(title "خ")
+
+(map
+ (trans
+  ("!" "!")
+  ("1" "۱")
+  ("@" "")
+  ("2" "۲")
+  ("#" "/")
+  ("3" "۳")
+  ("$" "ئ")
+  ("4" "۴")
+  ("5" "۵")
+  ("6" "۶")
+  ("7" "۷")
+  ("8" "۸")
+  ("(" ")")
+  ("9" "۹")
+  (")" "(")
+  ("0" "۰")
+  ("_" "ّ")
+  ("-" "أ")
+  ("+" "آ")
+  ("=" "ؤ")
+  ("Q" "ْ")
+  ("q" "ق")
+  ("W" "ﷺ")
+  ("w" "و")
+  ("E" "¥")
+  ("e" "ع")
+  ("R" "ڑ")
+  ("r" "ر")
+  ("T" "ٹ")
+  ("t" "ت")
+  ("Y" "؁") 
+  ("y" "ے")
+  ("U" "،")
+  ("u" "ء")
+  ("I" "ٰ")
+  ("i" "ی")
+  ("O" "ۃ")
+  ("o" "ہ")
+  ("P" "ُ")
+  ("p" "پ")
+  ("{" "ٰ")
+  ("[" "]")
+  ("}" "ٰٰ")
+  ("]" "[")
+  ("A" "ٓ")
+  ("a" "ا")
+  ("S" "ص")
+  ("s" "س")
+  ("D" "ڈ")
+  ("d" "د")
+  ("F" "")
+  ("f" "ف")
+  ("G" "غ")
+  ("g" "گ")
+  ("H" "ح")
+  ("h" "ھ")
+  ("J" "ض")
+  ("j" "ج")
+  ("K" "خ")
+  ("k" "ک")
+  ("L" "ؓ")
+  ("l" "ل")
+  (":" ":")
+  (";" "؛")
+  ("\"" "؎")
+  ("'" "ٰ")
+  ("|" "ؔ")
+  ("\\" "؎")
+  ("~" "ً")
+  ("`" "ٍ")
+  ("Z" "ذ")
+  ("z" "ز")
+  ("X" "ژ")
+  ("x" "ش")
+  ("C" "ث")
+  ("c" "چ")
+  ("V" "ظ")
+  ("v" "ط")
+  ("B" "ؒ")
+  ("b" "ب")
+  ("N" "ں")
+  ("n" "ن")
+  ("M" "")
+  ("m" "م")
+  ("<" "ِ")
+  ("," "،")
+  (">" "َ")
+  ("." "۔")
+  ("?" "؟")
+  ("/" "")
+  ("%" "")
+  ("^" "ۖ")
+  ("&" "ٔ")
+  ("*" "ٌ")
+  ))
+
+(state
+  (init
+    (trans)))
+

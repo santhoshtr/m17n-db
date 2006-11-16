@@ -1,0 +1,127 @@
+;; ne-rom.mim -- Nepali input method for romanized layout
+;; This files implements the romanized keyboard layout published by MPP.
+;; Copyright (c) 2005 Suyash Shrestha <suyash.shr@gmail.com>
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+(input-method ne rom)
+
+(description "Nepali input method for romanized layout.
+Author: Suyash Shrestha <suyash.shr@gmail.com>
+")
+
+(title "Ne")
+
+(map
+ (trans
+  ("!" ?!)
+  ("\"" ?\")
+  ("#" ?#)
+  ("$" "रु")
+  ("'" ?')
+  ("(" ?()
+  (")" ?))
+  ("+" ?+)
+  ("," ?,)
+  ("-" ?-)
+  ("." ?।)
+  ("/" ?्)
+  ("0" ?०)
+  ("1" ?१)
+  ("2" ?२)
+  ("3" ?३)
+  ("4" ?४)
+  ("5" ?५)
+  ("6" ?६)
+  ("7" ?७)
+  ("8" ?८)
+  ("9" ?९)
+  (":" ?:)
+  (";" ?;)
+  ("<" ?ङ)
+  ("=" ?=)
+  (">" ?॥)
+  ("?" ??)
+  ("@" ?@)
+  ("A" ?आ)
+  ("B" ?भ)
+  ("C" ?च)
+  ("D" ?ध)
+  ("E" ?ै)
+  ("F" ?ऊ)
+  ("G" ?घ)
+  ("H" ?अ)
+  ("I" ?ी)
+  ("J" ?झ)
+  ("K" ?ख)
+  ("L" ?ळ)
+  ("M" ?ं)
+  ("N" ?ण)
+  ("O" ?ओ)
+  ("P" ?फ)
+  ("Q" ?ठ)
+  ("R" ?ृ)
+  ("S" ?श)
+  ("T" ?थ)
+  ("U" ?ू)
+  ("V" ?ँ)
+  ("W" ?औ)
+  ("X" ?ढ)
+  ("Y" ?ञ)
+  ("Z" ?ऋ)
+  ("[" ?इ)
+  ("\\" ?ॐ)
+  ("]" ?ए)
+  ("_" ?॒)
+  ("`" ?़)
+  ("a" ?ा)
+  ("b" ?ब)
+  ("c" ?छ)
+  ("d" ?द)
+  ("e" ?े)
+  ("f" ?उ)
+  ("g" ?ग)
+  ("h" ?ह)
+  ("i" ?ि)
+  ("j" ?ज)
+  ("k" ?क)
+  ("l" ?ल)
+  ("m" ?म)
+  ("n" ?न)
+  ("o" ?ो)
+  ("p" ?प)
+  ("q" ?ट)
+  ("r" ?र)
+  ("s" ?स)
+  ("t" ?त)
+  ("u" ?ु)
+  ("v" ?व)
+  ("w" ?ौ)
+  ("x" ?ड)
+  ("y" ?य)
+  ("z" ?ष)
+  ("{" ?ई)
+  ("|" ?ः)
+  ("}" ?ऐ)
+  ("~" ?ऽ)
+  ))
+
+(state
+  (init
+    (trans)))

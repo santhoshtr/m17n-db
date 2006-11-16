@@ -1,0 +1,152 @@
+;; gu-inscript.mim -- Gujarati input method for inscript layout
+;; This file is derived from the Gujarati inscript table of scim-tables,
+;; which was derived from iiimf unitLE's Gujarati inscript layout.
+;; Copyright (c) 2003 Sun Microsystems, Inc. All Rights Reserved.
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+(input-method gu inscript)
+
+(description "Gujarati input method for inscript layout.
+
+Reference URL - http://indlinux.org/wiki/index.php/InscriptLayouts#Gujarati
+
+Key summary :-
+1. જ્ઞ : % 
+                This can also be typed as a sequence of following:
+                                જ + ્  + ઞ i.e. p + d + }
+2. ત્ર : ^
+                This can also be typed as a sequence of following:
+                                ત + ્  + ર i.e. l + d + j
+
+3. ક્ષ : &
+                This can also be typed as a sequence of following:
+                                ક + ્  + ષ i.e. k + d + <
+
+4. શ્ર : *
+                This can also be typed as a sequence of following:
+                                શ + ્  + ર i.e. M + d + j
+                                
+Key summary: Ankitkumar Rameshchandra Patel <ankit@redhat.com>
+
+")
+
+(title "ક")
+
+(map
+ (trans
+  ("!" ?ઍ)
+  ("1" ?૧)
+  ("@" ?ૅ)
+  ("2" ?૨)
+  ("#" ?ૠ)
+  ("3" ?૩)
+  ("$" ?ૄ)
+  ("4" ?૪)
+  ("5" ?૫)
+  ("6" ?૬)
+  ("7" ?૭)
+  ("8" ?૮)
+  ("(" ?()
+  ("9" ?૯)
+  (")" ?))
+  ("0" ?૦)
+  ("_" ?ઃ)
+  ("-" ?-)
+  ("+" ?ઋ)
+  ("=" ?ૃ)
+  ("Q" ?ઔ)
+  ("q" ?ૌ)
+  ("W" ?ઐ)
+  ("w" ?ૈ)
+  ("E" ?આ)
+  ("e" ?ા)
+  ("R" ?ઈ)
+  ("r" ?ી)
+  ("T" ?ઊ)
+  ("t" ?ૂ)
+  ("Y" ?ભ)
+  ("y" ?બ)
+  ("U" ?ઙ)
+  ("u" ?હ)
+  ("I" ?ઘ)
+  ("i" ?ગ)
+  ("O" ?ધ)
+  ("o" ?દ)
+  ("P" ?ઝ)
+  ("p" ?જ)
+  ("{" ?ઢ)
+  ("[" ?ડ)
+  ("}" ?ઞ)
+  ("]" ?઼)
+  ("A" ?ઓ)
+  ("a" ?ો)
+  ("S" ?એ)
+  ("s" ?ે)
+  ("D" ?અ)
+  ("d" ?્)
+  ("F" ?ઇ)
+  ("f" ?િ)
+  ("G" ?ઉ)
+  ("g" ?ુ)
+  ("H" ?ફ)
+  ("h" ?પ)
+  ("J" ?ઽ)
+  ("j" ?ર)
+  ("K" ?ખ)
+  ("k" ?ક)
+  ("L" ?થ)
+  ("l" ?ત)
+  (":" ?છ)
+  (";" ?ચ)
+  ("\"" ?ઠ)
+  ("'" ?ટ)
+  ("|" ?ઑ)
+  ("\\" ?ૉ)
+  ("~" ?~)
+  ("`" ?`)
+  ("Z" ?ૐ)
+  ("z" ?૱)
+  ("X" ?ઁ)
+  ("x" ?ં)
+  ("C" ?ણ)
+  ("c" ?મ)
+  ("V" ?\")
+  ("v" ?ન)
+  ("B" ?')
+  ("b" ?વ)
+  ("N" ?ળ)
+  ("n" ?લ)
+  ("M" ?શ)
+  ("m" ?સ)
+  ("<" ?ષ)
+  ("," ?,)
+  (">" "।")
+  ("." ?.)
+  ("?" ??)
+  ("/" ?ય)
+  ("%" "જ્ઞ")
+  ("^" "ત્ર")
+  ("&" "ક્ષ")
+  ("*" "શ્ર")
+  ))
+
+(state
+  (init
+    (trans)))

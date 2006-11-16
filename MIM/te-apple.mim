@@ -1,0 +1,248 @@
+;;
+;;        Input Method for Telugu Apple Keyboard Layout
+;;
+;;    Copyright (c) 2006, Chaitanya Kamisetty <chaitanya@atc.tcs.co.in>
+;;
+;;    This file is part of the m17n contrib; a sub-part of the m17n
+;;    library.
+;;
+;;    This library is free software; you can redistribute it and/or
+;;    modify it under the terms of the GNU Lesser General Public
+;;    License as published by the Free Software Foundation; either
+;;    version 2.1 of the License, or (at your option) any later version.
+;;
+;;    This library is distributed in the hope that it will be useful,
+;;    but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;;    Lesser General Public License for more details.
+;;
+;;    You should have received a copy of the GNU Lesser General Public
+;;    License along with this library; if not, write to the Free Software
+;;    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+;;
+
+(input-method te apple)
+
+(description "Apple keyboard layout for Telugu")
+
+(title "తెలుగు")
+
+(map
+   (independent
+	("0" "0")
+	("1" "1")
+	("2" "2")
+	("3" "3")
+	("4" "4")
+	("5" "5")
+	("6" "6")
+	("7" "7")
+	("8" "8")
+	("9" "9")
+	("@" "'")
+	("#" "%")
+	("\$"	"్పు")
+	("%"	"్ర")
+	("^" "-")
+	("&" "|")
+	("*" "`")
+	("(" "(")
+	(")" ")")
+	("-" "×")
+	("_" "÷")
+	("=" "=")
+	("+" "+")
+	("\\" "ః")
+	("|" "ఁ")
+	("}" "!")
+	("I" "/")
+	("<" ";")
+	("." ".")
+	(">" "?")
+	("g" "ం")
+	("G" ":")
+	("Q" "క్ష్మి")
+	("O" "స్త్ర")
+	("P" "ష్ట్ర")
+	("{" "క్ష్మ")
+	("N" "క్ష్మీ")
+	("`" "_")
+	("h" "్")
+	("H" "్")
+	("q" "అ")
+	("e" "ఆ")
+	("r" "ఇ")
+	("w" "ఈ")
+	("i" "ఉ")
+	("p" "ఊ")
+	("W" "ఋ")
+	("E" "ౠ")
+	("u" "ఎ")
+	("o" "ఏ")
+	("[" "ఐ")
+	("t" "ఒ")
+	("y" "ఓ")
+	("]" "ఔ")
+	)
+   (dependent_vowels
+	("e" 	"ా")
+	("r"	"ి")
+	("w"	"ీ")
+	("i"	"ు")
+	("p"	"ూ")
+	("W"	"ృ")
+	("E"	"ౄ")
+	("u"	"ె")
+	("o"	"ే")
+	("["	"ై")
+	("t"	"ొ ")
+	("y"	"ో")
+	("]"	"ౌ")
+	("H"    "్")
+	)
+
+   (a_matra
+	("q" "")
+   )
+
+   (consonants
+	("j" "క")
+	("J" "ఖ")
+	("x" "గ")
+	("X" "ఘ")
+	("R" "ఙ")
+	("m" "చ")
+	("M" "ఛ")
+	("/" "జ")
+	("?" "ఝ")
+	("T" "ఞ")
+	("z" "ట")
+	("Z" "ఠ")
+	("c" "డ")
+	("C" "ఢ")
+	("L" "ణ")
+	("s" "త")
+	("S" "థ")
+	("d" "ద")
+	("D" "ధ")
+	("l" "న")
+	(";" "ప")
+	(":" "ఫ")
+	("v" "బ")
+	("V" "భ")
+	("b" "మ")
+	("n" "య")
+	("k" "ర")
+	("a" "ల")
+	("f" "వ")
+	("F" "శ")
+	("\"" "ష")
+	("'" "స")
+	("B" "హ")
+	("A" "ళ")
+	("K" "ఱ")
+	("Y" "క్ష")
+	("U" "శ్రీ")
+	)
+
+	;;consonants occuring after a halant 
+   (halant_consonants
+	("j" (delete @-) "క")
+	("J" (delete @-) "ఖ")
+	("x" (delete @-) "గ")
+	("X" (delete @-) "ఘ")
+	("R" (delete @-) "ఙ")
+	("m" (delete @-) "చ")
+	("M" (delete @-) "ఛ")
+	("/" (delete @-) "జ")
+	("?" (delete @-) "ఝ")
+	("T" (delete @-) "ఞ")
+	("z" (delete @-) "ట")
+	("Z" (delete @-) "ఠ")
+	("c" (delete @-) "డ")
+	("C" (delete @-) "ఢ")
+	("L" (delete @-) "ణ")
+	("s" (delete @-) "త")
+	("S" (delete @-) "థ")
+	("d" (delete @-) "ద")
+	("D" (delete @-) "ధ")
+	("l" (delete @-) "న")
+	(":" (delete @-) "ఫ")
+	("v" (delete @-) "బ")
+	("V" (delete @-) "భ")
+	("b" (delete @-) "మ")
+	("n" (delete @-) "య")
+	("k" (delete @-) "ర")
+	("a" (delete @-) "ల")
+	("f" (delete @-) "వ")
+	("F" (delete @-) "శ")
+	("\"" (delete @-)  "ష")
+	("'" (delete @-) "స")
+	("B" (delete @-) "హ")
+	("A" (delete @-) "ళ")
+	("K" (delete @-) "ఱ")
+	("Y" (delete @-) "క్ష")
+	("U" (delete @-) "శ్రీ")
+   )
+
+   ;; halant occuring after a dependent vowel
+   (halant_after_vowel
+	("h" (delete @-) "్" )
+	("H" (delete @-) "్" )
+   )
+
+   (halant
+	("h" "్" )
+	("H" "్" )
+   )
+
+ ; m17n stuff
+ (return
+  ((Return)))
+
+  (backspace
+  ((BackSpace) (undo)))
+)
+
+(state
+    (init (consonants (shift first))
+	  (independent)
+    )
+    (first 
+	(a_matra (shift second_a))
+	(dependent_vowels (set current_vowel @-) (shift second_b))
+	(halant (shift third_a))
+	(backspace)
+    )
+    ;;consonat+a matra	
+    (second_a
+	(halant (shift third_a))
+	(backspace)
+    )
+    ;;state when consonant+dependent vowel occurs
+    (second_b
+	;;move the dependent vowel to the end and add halant to the base consonant
+	(halant_after_vowel (insert current_vowel) (shift fourth))
+	(consonants (set current_vowel 0) (shift first))
+	(backspace)
+    )
+    ;;consonant when followed by halant
+    (third_a
+	(consonants (shift third_b))
+	(backspace)
+    )	
+    ;;state when cosonant+halant+consonant occurs
+    ;;further composition of halant+consonant is achieved with third_a and third_b states
+    ;;this is required as dependent and independent vowels have same keys and have to be
+    ;;identified  by the context 
+    (third_b
+	(halant (shift third_a))
+	(consonants (shift first))
+	(backspace)
+    )	
+    (fourth 
+	;;delete the dependent vowel and add at the end after the consonant
+	(halant_consonants (insert current_vowel) (shift second_b))
+	(backspace)
+    )
+)

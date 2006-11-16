@@ -1,0 +1,129 @@
+;; kn-inscript.mim -- Kannada input method for inscript layout
+;; This file is derived from the Kannada inscript table of scim-tables,
+;; which was derived from iiimf unitLE's Kannada inscript layout.
+;; Copyright (c) 2003 Sun Microsystems, Inc. All Rights Reserved.
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+(input-method kn inscript)
+
+(description "Kannada input method for inscript layout.
+")
+
+(title "ಕ")
+
+(map
+ (trans
+  ("!" ?!)
+  ("1" ?೧)
+  ("@" ?@)
+  ("2" ?೨)
+  ("#" ?#)
+  ("3" ?೩)
+  ("$" ?$)
+  ("4" ?೪)
+  ("5" ?೫)
+  ("6" ?೬)
+  ("7" ?೭)
+  ("8" ?೮)
+  ("(" ?()
+  ("9" ?೯)
+  (")" ?))
+  ("0" ?೦)
+  ("_" ?ಃ)
+  ("-" ?-)
+  ("+" ?ಋ)
+  ("=" ?ೃ)
+  ("Q" ?ಔ)
+  ("q" ?ೌ)
+  ("W" ?ಐ)
+  ("w" ?ೈ)
+  ("E" ?ಆ)
+  ("e" ?ಾ)
+  ("R" ?ಈ)
+  ("r" ?ೀ)
+  ("T" ?ಊ)
+  ("t" ?ೂ)
+  ("Y" ?ಭ)
+  ("y" ?ಬ)
+  ("U" ?ಙ)
+  ("u" ?ಹ)
+  ("I" ?ಘ)
+  ("i" ?ಗ)
+  ("O" ?ಧ)
+  ("o" ?ದ)
+  ("P" ?ಝ)
+  ("p" ?ಜ)
+  ("{" ?ಢ)
+  ("[" ?ಡ)
+  ("}" ?ಞ)
+  ("]" ?])
+  ("A" ?ಓ)
+  ("a" ?ೋ)
+  ("S" ?ಏ)
+  ("s" ?ೇ)
+  ("D" ?ಅ)
+  ("d" ?್)
+  ("F" ?ಇ)
+  ("f" ?ಿ)
+  ("G" ?ಉ)
+  ("g" ?ು)
+  ("H" ?ಫ)
+  ("h" ?ಪ)
+  ("J" ?ಱ)
+  ("j" ?ರ)
+  ("K" ?ಖ)
+  ("k" ?ಕ)
+  ("L" ?ಥ)
+  ("l" ?ತ)
+  (":" ?ಛ)
+  (";" ?ಚ)
+  ("\"" ?ಠ)
+  ("'" ?ಟ)
+  ("|" ?|)
+  ("\\" ?\\)
+  ("~" ?ಒ)
+  ("Z" ?ಎ)
+  ("z" ?ೆ)
+;; X
+  ("x" ?ಂ)
+  ("C" ?ಣ)
+  ("c" ?ಮ)
+;; V
+  ("v" ?ನ)
+;; B
+  ("b" ?ವ)
+  ("N" ?ಳ)
+  ("n" ?ಲ)
+  ("M" ?ಶ)
+  ("m" ?ಸ)
+  ("<" ?ಷ)
+  ("," ?,)
+  (">" ?ಾ)
+  ("." ?.)
+  ("/" ?ಯ)
+  ("%" "ಜ್ಞ")
+  ("^" "ತ್ರ")
+  ("&" "ಕ್ಷ")
+  ("*" "ಶ್ರ")
+  ))
+
+(state
+  (init
+    (trans)))

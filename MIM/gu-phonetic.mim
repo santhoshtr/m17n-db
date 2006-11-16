@@ -1,0 +1,145 @@
+;; gu-phonetic.mim -- Gujarati input method for phonetic layout
+;; Copyright (c) 2004-2006 Red Hat, Inc. All rights reserved.
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+(input-method gu phonetic)
+
+(description "Gujarati input method for phonetic layout.
+
+Key Summary:
+1. ત્ર : ^
+                This can also be typed as a sequence of following:
+                                ત + ્  + ર i.e. t + f + r
+
+2. ક્ષ : X
+                This can also be typed as a sequence of following:
+                                ક + ્  + ષ i.e. k + f + x 
+
+3. શ્ર : *
+                This can also be typed as a sequence of following:
+                                શ + ્  + ર i.e. S + f + r
+
+Author: Jatin Nansi <jnansi@redhat.com>
+Key Summary: Ankitkumar Rameshchandra Patel <ankit@redhat.com>
+")
+
+(title "ક")
+
+(map
+ (trans
+  ("~" ?ઍ)
+  ("`" ?ૅ)
+  ("!" ?!)
+  ("1" ?૧)
+  ("@" ?@)
+  ("2" ?૨)
+  ("#" ?#)
+  ("3" ?૩)
+  ("$" ?$)
+  ("4" ?૪)
+  ("&" ?૱)
+  ("5" ?૫)
+  ("6" ?૬)
+  ("7" ?૭)
+  ("8" ?૮)
+  ("(" ?()
+  ("9" ?૯)
+  (")" ?))
+  ("0" ?૦)
+  ("_" ?_)
+  ("-" ?-)
+  ("+" ?+)
+  ("=" ?=)
+  ("Q" ?ઔ)
+  ("q" ?ઓ)
+  ("W" ?ઠ)
+  ("w" ?ટ)
+  ("E" ?ૈ)
+  ("e" ?ે)
+  ("R" ?ૃ)
+  ("r" ?ર)
+  ("T" ?થ)
+  ("t" ?ત)
+  ("Y" "ય઼")
+  ("y" ?ય)
+  ("U" ?ૂ)
+  ("u" ?ુ)
+  ("I" ?ી)
+  ("i" ?િ)
+  ("O" ?ૌ)
+  ("o" ?ો)
+  ("P" ?ફ)
+  ("p" ?પ)
+  ("{" ?ઢ)
+  ("[" ?ડ)
+  ("}" "ર઼")
+  ("]" ?ઋ)
+  ("A" ?આ)
+  ("a" ?ા)
+  ("S" ?શ)
+  ("s" ?સ)
+  ("D" ?ધ)
+  ("d" ?દ)
+  ("F" ?અ)
+  ("f" ?્)
+  ("G" ?ઘ)
+  ("g" ?ગ)
+  ("H" ?ઃ)
+  ("h" ?હ)
+  ("J" ?ઝ)
+  ("j" ?જ)
+  ("K" ?ખ)
+  ("k" ?ક)
+  ("L" ?ળ)
+  ("l" ?લ)
+  (":" ?ઈ)
+  (";" ?ઇ)
+  ("\"" ?ઊ)
+  ("'" ?ઉ)
+  ("|" ?ઑ)
+  ("\\" ?ૉ)
+  ("Z" ?ઁ)
+  ("z" ?ઙ)
+  ("x" ?ષ)
+  ("C" ?છ)
+  ("c" ?ચ)
+  ("V" ?ઽ)
+  ("v" ?વ)
+  ("B" ?ભ)
+  ("b" ?બ)
+  ("N" ?ણ)
+  ("n" ?ન)
+  ("M" ?ં)
+  ("m" ?મ)
+  ("<" ?ૐ)
+  ("," ?,)
+  (">" ?઼)
+  ("." ?.)
+  ("?" ?ઐ)
+  ("/" ?એ)
+  ("X" "ક્ષ")
+  ("%" "જ્ઞ")
+  ("^" "ત્ર")
+  ("*" "શ્ર")
+  ))
+ 
+(state
+  (init
+    (trans)))

@@ -1,0 +1,132 @@
+;; as-inscript.mim -- Assamese input method for inscript layout
+;; This file is derived from the Assamese inscript table of scim-tables,
+;; which was derived from iiimf unitLE's Assamese inscript layout.
+;; Copyright (c) 2003 Sun Microsystems, Inc. All Rights Reserved.
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+(input-method as inscript)
+
+(description "Assamese input method for inscript layout.
+Author: Runa Bhattacharjee <runab@redhat.com>
+")
+
+(title "ক")
+
+(map
+ (trans
+  ("!" ?!)
+  ("\"" ?ঠ)
+  ("'" ?ট)
+  ("(" ?()
+  (")" ?))
+  ("+" ?ঋ)
+  ("," ?,)
+  ("-" ?-)
+  ("." ?।)
+  ("/" ?য়)
+  ("0" ?০)
+  ("1" ?১)
+  ("2" ?২)
+  ("3" ?৩)
+  ("4" ?৪)
+  ("5" ?৫)
+  ("6" ?৬)
+  ("7" ?৭)
+  ("8" ?৮)
+  ("9" ?৯)
+  (":" ?ছ)
+  (";" ?চ)
+  ("<" ?ষ)
+  ("=" ?ৃ)
+  (">" ?>)
+  ("?" ?য)
+  ("@" ?@)
+  ("#" ?#)
+  ("$" ?$)
+  ("%" ?%)
+  ("&" ?&)
+  ("*" ?*)
+  ("^" ?^)
+  ("A" ?ও)
+  ("B" ?B)
+  ("C" ?ণ)
+  ("D" ?অ)
+  ("E" ?আ)
+  ("F" ?ই)
+  ("G" ?উ)
+  ("H" ?ফ)
+  ("I" ?ঘ)
+  ("J" ?J)
+  ("K" ?খ)
+  ("L" ?থ)
+  ("M" ?শ)
+  ("N" ?N)
+  ("O" ?ধ)
+  ("P" ?ঝ)
+  ("Q" ?ঔ)
+  ("R" ?ঈ)
+  ("S" ?এ)
+  ("T" ?ঊ)
+  ("U" ?ঙ)
+  ("V" ?V)
+  ("W" ?ঐ)
+  ("X" ?ঁ)
+  ("Y" ?ভ)
+  ("Z" ?Z)
+  ("[" ?ড)
+  ("\\" ?\\)
+  ("]" ?়)
+  ("_" ?ঃ)
+  ("`" ?`)
+  ("a" ?ো)
+  ("b" ?ৱ)
+  ("c" ?ম)
+  ("d" ?্)
+  ("e" ?া)
+  ("f" ?ি)
+  ("g" ?ু)
+  ("h" ?প)
+  ("i" ?গ)
+  ("j" ?ৰ)
+  ("k" ?ক)
+  ("l" ?ত)
+  ("m" ?স)
+  ("n" ?ল)
+  ("o" ?দ)
+  ("p" ?জ)
+  ("q" ?ৌ)
+  ("r" ?ী)
+  ("s" ?ে)
+  ("t" ?ূ)
+  ("u" ?হ)
+  ("v" ?ন)
+  ("w" ?ৈ)
+  ("x" ?ং)
+  ("y" ?ব)
+  ("z" ?z)
+  ("{" ?ঢ)
+  ("|" ?|)
+  ("}" ?ঞ)
+  ("~" ?~)
+  ))
+ 
+(state
+  (init
+    (trans)))

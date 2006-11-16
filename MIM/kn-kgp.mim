@@ -1,0 +1,128 @@
+;; kn-kgp.mim -- Kannada input method for KGP layout
+;; This file is derived from the Kannada KGP table of scim-tables,
+;; which was derived from iiimf unitLE's Kannada KGP layout.
+;; Copyright (c) 2003 Sun Microsystems, Inc. All Rights Reserved.
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+(input-method kn kgp)
+
+(description "Kannada input method for KGP layout.
+")
+
+(title "ಕ")
+
+(map
+ (trans
+  ("!" ?!)
+  ("1" ?೧)
+  ("@" ?@)
+  ("2" ?೨)
+  ("#" ?#)
+  ("3" ?೩)
+  ("$" ?$)
+  ("4" ?೪)
+  ("%" ?%)
+  ("5" ?೫)
+  ("^" ?^)
+  ("6" ?೬)
+  ("&" ?&)
+  ("7" ?೭)
+  ("*" ?*)
+  ("8" ?೮)
+  ("(" ?()
+  ("9" ?೯)
+  (")" ?))
+  ("0" ?೦)
+  ("_" ?_)
+  ("-" ?-)
+  ("+" ?+)
+  ("=" ?=)
+  ("Q" ?ಠ)
+  ("q" ?ಟ)
+  ("W" ?ಢ)
+  ("w" ?ಡ)
+  ("E" ?ಏ)
+  ("e" ?ಎ)
+  ("R" ?ಋ)
+  ("r" ?ರ)
+  ("T" ?ಥ)
+  ("t" ?ತ)
+  ("Y" ?ಐ)
+  ("y" ?ಯ)
+  ("U" ?ಊ)
+  ("u" ?ಉ)
+  ("I" ?ಈ)
+  ("i" ?ಇ)
+  ("O" ?ಓ)
+  ("o" ?ಒ)
+  ("P" ?ಫ)
+  ("p" ?ಪ)
+  ("{" ?{)
+  ("[" ?[)
+  ("}" ?})
+  ("]" ?])
+  ("A" ?ಆ )
+  ("a" ?ಅ)
+  ("S" ?ಶ)
+  ("s" ?ಷ)
+  ("D" ?ಧ)
+  ("d" ?ದ)
+  ("F" ?೯)
+  ("f" ?್)
+  ("G" ?ಘ)
+  ("g" ?ಗ)
+  ("h" ?ಹ)
+  ("J" ?ಝ)
+  ("j" ?ಜ)
+  ("K" ?ಖ)
+  ("k" ?ಕ)
+  ("L" ?ಳ)
+  ("l" ?ಲ)
+  (":" ?:)
+  (";" ?;)
+  ("\"" ?\")
+  ("'" ?')
+  ("|" ?|)
+  (" " ?\ )
+  ("\\" ?\\)
+  ("~" ?~)
+  ("`" ?`)
+  ("z" ?ಞ)
+  ("x" ?ం)
+  ("C" ?ಛ)
+  ("c" ?ಚ)
+  ("V" ?ಔ)
+  ("v" ?ವ)
+  ("B" ?ಭ)
+  ("b" ?ಬ)
+  ("N" ?ಣ)
+  ("n" ?ನ)
+  ("M" ?ಂ)
+  ("m" ?ಮ)
+  ("<" ?<)
+  ("," ?,)
+  (">" ?>)
+  ("." ?.)
+  ("/" ?/)
+  ))
+
+(state
+  (init
+    (trans)))
