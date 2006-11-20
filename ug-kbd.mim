@@ -25,7 +25,7 @@
 
 (title "ئۇ")
 
-(description "Uyghur input method simulating the Uyghur keyboard layout.
+(description "Uyghur input method simulating an Uyghur keyboard layout.
 Based on <http://tarim.yulghun.com/docs/src/uyghur.xkb>
 ")
 
@@ -51,6 +51,7 @@ Based on <http://tarim.yulghun.com/docs/src/uyghur.xkb>
   ("j" 0x0642)
   ("k" 0x0643)
   ("l" 0x0644)
+  (";" 0x061B)
 
   ("z" 0x0632)
   ("x" 0x0634)
