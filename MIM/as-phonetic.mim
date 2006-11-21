@@ -22,7 +22,50 @@
 (input-method as phonetic)
 
 (description "Assamese input method for phonetic layout.
-Author: Jatin Nansi <jnansi@redhat.com>, Modified : Runa <runab@redhat.com> for RH bz #193849")
+
+Reference URL - http://www.bengalinux.org/images/probhat_layout.png
+
+Key Summary:
+
+The differences between Assamese and Bengali alphabets are:
+
+The 'ra' of Assamese is different from Bengali 'ra'. The Assamese phonetic keyboard layout has made the change in the Bengali keyboard layout but in the same corresponding key of the English keyboard.
+There is an additional alphabet 'wa' which is not there in Bengali.
+
+
+The following are the important key combinations for the Assamese keyboard layout (Bengali 'Probhat' Keyboard layout):
+
+1. The alphabet 'ৰ' can be obtained by pressing the key 'R' in the English keyboard.
+2. The alphabet 'ৱ' can be obtained by pressing the key '^('Shift' key + '6')' in the English keyboard.
+3. There are two ways of typing the Assamese 'আ' . One is typing 'A' followed by 'a'. The other is by typing 'v' only.
+4. The alphabet 'ঞ' can be obtained by pressing '&' i.e 'Shift' and '7' together in the Eglish keyboard.
+5. The '।' is located in '.' in the English keyboard.
+
+Some important combinations are as follows:
+
+1. 'tra' : 'ta' + 'halant' + 'ra'
+   (ত্ৰ) (ত)    (্)    (ৰ)
+              'f'         '/'        'r'
+
+2. 'khya': 'ka' + 'halant' + 'Sha'
+   (ক্ষ)     (ক)      (্)      (ষ)
+	        'k'          '/'         'S' (note the capital S for ষ)
+
+3. 'kra':  'ka' + 'halant' + 'ra'
+   (ক্ৰ)    (ক)      (্)    (ৰ)
+	         'k'          '/'        'r'
+
+4. 'akta': 'ka' + 'halant' + 'ta'
+   (ক্ত)    (ক)      (্)      (ত)
+                'k'          '/'          'f' (note that f is for ত)
+
+5. 'kla'  : 'ka' + 'halant' + 'la'
+   (ক্ল)     (ক)      (্)     (ল)
+               'k'          '/'          'l'
+
+
+Author: Jatin Nansi <jnansi@redhat.com>, Modified : Runa <runab@redhat.com> for RH bz #193849
+Key Summary: Amitakhya Phukan <aphukan@redhat.com>")
 
 (title "ক")
 
@@ -42,7 +85,7 @@ Author: Jatin Nansi <jnansi@redhat.com>, Modified : Runa <runab@redhat.com> for 
   ("6" ?৬)
   ("&" ?ঞ)
   ("7" ?৭)
-  ("*" "ত্‌")
+  ("*" "ৎ")
   ("8" ?৮)
   ("(" ?()
   ("9" ?৯)

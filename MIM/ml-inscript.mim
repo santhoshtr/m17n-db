@@ -27,6 +27,8 @@
 
 Key summary:
 
+ZWNJ is mapped to '\\' key.
+
 Case 1:
 The  conjuncts called CHILLU letters can be resolved using the following keys:
 
@@ -173,7 +175,7 @@ Author: Ani Peter <apeter@redhat.com>
   ("{" "ഢ")
   ("[" "ഡ")
   ("}" "ഞ")
-  ("]" "]")
+  ("]" "‍")
   ("A" "ഓ")
   ("a" "ോ")
   ("S" "ഏ")
@@ -197,7 +199,7 @@ Author: Ani Peter <apeter@redhat.com>
   ("\"" "ഠ")
   ("'" "ട")
   ("|" "|")
-  ("\\" "\\")
+  ("\\" "‌")
   ("~" "ഒ")
   ("`" "ൊ")
   ("Z" "എ")

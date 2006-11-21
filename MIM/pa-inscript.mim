@@ -24,6 +24,31 @@
 (input-method pa inscript)
 
 (description "Punjabi input method for inscript layout.
+
+Key summary:
+
+Some complex Characters
+z=ੰ
+Z=ੱ
+|=।
+/=ਯ
+D=੍  (halant to type Parian character like Ra/Ha)
+
+The  conjuncts called HALANT letters can be used using the following keys:
+(i) Consonant + RA 
+ie, key 'K' + key 'D' + key 'J'
+
+(ii) Consonant + HA
+ie, key 'K' + key 'D' + key 'U'
+
+(iii) Consonant + VA
+ie, key 'K' + key 'D' + key 'B'
+
+(iv) Consonant + YA
+ie, key 'K' + key 'D' + key '/'
+
+Key summary: AP Singh Brar <apbrar@gmail.com>, Jaswinder Singh <jsingh@redhat.com>
+
 ")
 
 (title "ਕ")

@@ -145,6 +145,7 @@ Key summary: Rajesh Ranjan <rranjan@redhat.com>
   ("^" "त्र")
   ("&" "क्ष")
   ("*" "श्र")
+  ("dd" "्‌") 
   ))
 
 (state

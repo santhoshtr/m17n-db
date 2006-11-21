@@ -24,7 +24,26 @@
 (input-method te inscript)
 
 (description "Telugu input method for inscript layout.
-")
+
+Key description
+
+శ => స్ + హ్  + అ
+ష => S + హ్ + అ
+జ్ఞ => జ్ + ఞ్ + అ
+ర్త్స => ర్ + త్ + స్ + అ
+కృ => క్ + ఱ్ + ఱ్ + ఇ
+కై => క్ + అ + ఇ
+కౌ => క్ + అ + ఉ
+క్ష => క్ + ష్ + అ
+స్త్రీ => స్ + త్ + ర్ + ఈ
+శ్రీ => శ్ + ర్  + ఈ
+
+These are the characterstics of the Telugu words
+1. Telugu word must be end with vowel (Telugu is a vowel ending language)
+2. Telugu words don't have the letter య  at the initial position.
+3. In telugu we dont use the combination of Sanskrit loan words + native Telugu words. 
+
+Key summary : Sree Thottempudi <sthottem@redhat.com>")
 
 (title "క")
 

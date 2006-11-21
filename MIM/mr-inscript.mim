@@ -6,7 +6,7 @@
 ;; accomodate any further language specific changes to unicode. 
 ;; Copyright (c) 2003 Sun Microsystems, Inc. All Rights Reserved.
 
-;; This file is not part of the m17n database; a sub-part of the m17n
+;; This file is part of the m17n contrib; a sub-part of the m17n
 ;; library.
 
 ;; The library is free software; you can redistribute it and/or

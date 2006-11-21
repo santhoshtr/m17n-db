@@ -22,7 +22,33 @@
 (input-method pa jhelum)
 
 (description "Punjabi input method for jhelum layout.
-Author: Amanpreet Singh Brar <apbrar@gmail.com>
+
+Key Summary:
+
+Some complex Characters
+z=ੱ
+Z=਼
+x=ਂ
+X=ੰ
+|=।
+D=੍  (halant to type Parian character like Ra/Ha)
+
+
+The conjuncts called HALANT letters can be used using the following keys:
+
+(i) Consonant + RA 
+ie, key 'K' + key 'D' + key 'J'
+
+(ii) Consonant + HA
+ie, key 'K' + key 'D' + key 'U'
+
+(iii) Consonant + VA
+ie, key 'K' + key 'D' + key 'B'
+
+(iv)Consonant + YA
+ie, key 'K' + key 'D' + key '/'
+
+Key summary: AP Singh Brar <apbrar@gmail.com>, Jaswinder Singh <jsingh@redhat.com>
 ")
 
 (title "ਕ")

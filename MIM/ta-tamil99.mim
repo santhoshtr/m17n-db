@@ -33,7 +33,7 @@ Key Summary:
             Eighteen consonants with inherant vowel \"a\" -
             க ங ச ஞ ட ண த ந ப ம ய ர ல வ ழ ள ற ன
             Five grantham consonants with inherant vowel \"a\" and SRii-
-            ஸ ஷ ஜ ஹ க்ஷ ஼ 
+            ஸ ஷ ஜ ஹ க்ஷ ஸ்ரீ 
             
 2. A consonant symbol followed by the pulli produces a pure consonant. (A consonant symbol is also known as consonant with inherant a)
             e.g. க + ் -> க் 
@@ -49,7 +49,7 @@ Key Summary:
 5. After placing a pulli automatically, this feature of automatic placing of pulli will be 
 disabled temporarily for one stroke. That is, when the same consonant symbol is typed three times continuously one after another, then the first consonants symbol alone gets the pulli automatically, and the second consonant symbol does not get a pulli, since when the third consonant symbol is typed the automatic pulli feature is temporarily disabled. This feature will be restored immediately after that.
             e.g. க + க + க -> க்கக
-            க + க + க + க -> க்க்க்க 
+            க + க + க + க -> க்கக்க
             
 6. When the first vowel அ is typed after a consonant symbol, it simply confirms that the previous stroke is an akarameria uyrmei. This disables temporarily the combining of any other stroke with the previous stroke. Hence typing any vowel will not join with the previous consonant symbol. Similarly the automatic pulli feature will also be disabled just for the next stroke. This automatic pulli feature gets restored immediately after the next stroke. The Vowel அ works as the delinking symbol.
             e.g. க + அ + இ -> கஇ

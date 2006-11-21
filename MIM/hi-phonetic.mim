@@ -140,6 +140,7 @@ Key summary: Rajesh Ranjan <rranjan@redhat.com>
   ("^" "ज्ञ")
   ("X" "क्ष")
   ("*" "श्र")
+  ("ff" "्‌")
   ))
 
 (state
