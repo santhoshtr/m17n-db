@@ -151,7 +151,7 @@ INPUT_METHOD = \
 	zh-pinyin.mim \
 	latn-post.mim latn-pre.mim \
 	syrc-phonetic.mim \
-	bopo-kbd.mim \
+	zh-bopomofo.mim \
 	unicode.mim rfc1345.mim \
 	ispell.mim \
 	global.mim cjk-util.mim zh-util.mim
