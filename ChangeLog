@@ -1,3 +1,8 @@
+2006-11-24  Kenichi Handa  <handa@m17n.org>
+
+	* Makefile.am (INPUT_METHOD): Change bopo-kbd.mim to
+	zh-bopomofo.mim.
+
 2006-11-21  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* si-wijesekera-preedit.mim, grc-mizuochi.mim: New file
