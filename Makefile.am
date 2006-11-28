@@ -31,7 +31,7 @@ pkgdata_DATA = \
 	${MISC_TABLE} \
 	mdb.dir
 
-EXTRA_DIST = config.rpath mkinstalldirs m4/ChangeLog  \
+EXTRA_DIST = config.rpath mkinstalldirs m4/ChangeLog \
 	mdb.dir \
 	${FONT_LAYOUT_TABLE} \
 	${INPUT_METHOD} \
@@ -353,6 +353,8 @@ CASE-MAPPING.tab: UNIDATA/SpecialCasing.txt UNIDATA/UnicodeData.txt CASE-MAPPING
 LINEBREAK.tab: UNIDATA/LineBreak.txt LINEBREAK.awk
 	echo "# Generated from $<." > $@
 	@$(AWK) -f LINEBREAK.awk $< >> $@
+
+BLOCK.tab:
 
 %.tab: UNIDATA/UnicodeData.txt CHARTAB.awk
 	echo "# Generated from $<." > $@
