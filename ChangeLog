@@ -1,10 +1,12 @@
 2006-11-28  Kenichi Handa  <handa@m17n.org>
 
+	* global.mim: Gettextize decriptions.
+
 	* .cvsignore: Add more files.
 
 	* configure.ac: Call AM_GNU_GETTEXT with the arg "[external]".
 
-	* Makefile.am (BLOCK.tab): New empty target.
+	* Makefile.am (BLOCK.tab): New target.
 
 	* ABOUT-NLS: Updated by gettextize.
 
