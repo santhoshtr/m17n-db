@@ -7,13 +7,239 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ja\n"
 "Report-Msgid-Bugs-To: bugs-m17n-lib@m17n.org\n"
-"POT-Creation-Date: 2006-09-21 23:16+0900\n"
+"POT-Creation-Date: 2006-11-28 18:03+0900\n"
 "PO-Revision-Date: 2006-09-21 23:16+0900\n"
 "Last-Translator: Kenichi Handa <handa@m17n.org>\n"
 "Language-Team: ja <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: global.mim:25
+msgid ""
+"Global variable and command definitions.\n"
+"This is actually not an input method, but provides documents,\n"
+"default values of global variables, and default key-bindings of\n"
+"global commands."
+msgstr ""
+"グローバル変数及びグローバルコマンドの定義\n"
+"これ自体は入力メソッドではなく、グローバル変数の説明と値、\n"
+"グローバルコマンドの説明とキーバインドを提供するもの。"
+
+#: global.mim:32
+msgid ""
+"Maxmum number of candidates in a candidate group.\n"
+"Value must be an integer.\n"
+"If the value is not positive, number of candidates in a group is decided\n"
+"by how candiates are grouped in an input method source file."
+msgstr ""
+"候補グループ内の候補の最大数。\n"
+"値は整数でなければならない。\n"
+"もし値が正でなければ、グループ内の候補の数は、入力メソッドの\n"
+"ソースファイル中でのグループ分けにしたがう。"
+
+#: global.mim:39
+msgid ""
+"Character set to limit candidates.\n"
+"Value must be a symbol representing a charater set, or nil.\n"
+"If the value is not nil, a candidate containing a character not belonging\n"
+"to the specified character set is ignored."
+msgstr ""
+
+#: global.mim:48
+msgid ""
+"Commit\n"
+"Commit the preedit text"
+msgstr ""
+
+#: global.mim:52
+msgid ""
+"Convert\n"
+"Convert the preedit text"
+msgstr ""
+
+#: global.mim:56
+msgid ""
+"Revert\n"
+"Revert the conversion"
+msgstr ""
+
+#: global.mim:60
+msgid ""
+"Previous candidate\n"
+"Spot the previous candidate"
+msgstr ""
+
+#: global.mim:64
+msgid ""
+"Next candidate\n"
+"Spot the next candidate"
+msgstr ""
+
+#: global.mim:68
+msgid ""
+"First candidate\n"
+"Spot the first candidate in the current group"
+msgstr ""
+
+#: global.mim:72
+msgid ""
+"Last candidate\n"
+"Spot the last candidate in the current group"
+msgstr ""
+
+#: global.mim:76
+msgid ""
+"Previous candidate group\n"
+"Move to the previous candidate group"
+msgstr ""
+
+#: global.mim:80
+msgid ""
+"Next candidate group\n"
+"Move to the next candidate group"
+msgstr ""
+
+#: global.mim:84
+msgid ""
+"Select the 1st candidate\n"
+"Select the first candidate in the current group"
+msgstr ""
+
+#: global.mim:88
+msgid ""
+"Select the 2nd candidate\n"
+"Select the second candidate in the current group"
+msgstr ""
+
+#: global.mim:92
+msgid ""
+"Select the 3rd candidate\n"
+"Select the third candidate in the current group"
+msgstr ""
+
+#: global.mim:96
+msgid ""
+"Select the 4th candidate\n"
+"Select the fourth candidate in the current group"
+msgstr ""
+
+#: global.mim:100
+msgid ""
+"Select the 5th candidate\n"
+"Select the fifth candidate in the current group"
+msgstr ""
+
+#: global.mim:104
+msgid ""
+"Select the 6th candidate\n"
+"Select the sixth candidate in the current group"
+msgstr ""
+
+#: global.mim:108
+msgid ""
+"Select the 7th candidate\n"
+"Select the seventh candidate in the current group"
+msgstr ""
+
+#: global.mim:112
+msgid ""
+"select the 8th candidate\n"
+"Select the eighth candidate in the current group"
+msgstr ""
+
+#: global.mim:116
+msgid ""
+"Select the 9th candidate\n"
+"Select the ninth candidate in the current group"
+msgstr ""
+
+#: global.mim:120
+msgid ""
+"Select the 10th candidate\n"
+"Select the tenth candidate in the current group"
+msgstr ""
+
+#: global.mim:124
+msgid ""
+"Previous character\n"
+"Move to the previous character in the preedit text"
+msgstr ""
+
+#: global.mim:128
+msgid ""
+"Next character\n"
+"Move to the next character in the preedit text"
+msgstr ""
+
+#: global.mim:132
+msgid ""
+"Fist character\n"
+"Move to the first character in the preedit text"
+msgstr ""
+
+#: global.mim:136
+msgid ""
+"Last character\n"
+"Move to the last character in the preedit text"
+msgstr ""
+
+#: global.mim:140
+msgid ""
+"Delete char backward\n"
+"Delete the previous character in the preedit text"
+msgstr ""
+
+#: global.mim:144
+msgid ""
+"Delete char\n"
+"Delete the following character in the preedit text"
+msgstr ""
+
+#: global.mim:148
+msgid ""
+"Previous segment\n"
+"Move to the previous segment in the preedit text"
+msgstr ""
+
+#: global.mim:152
+msgid ""
+"Next segment\n"
+"Move to the next segment in the preedit text"
+msgstr ""
+
+#: global.mim:156
+msgid ""
+"First segment\n"
+"Move to the first segment in the preedit text"
+msgstr ""
+
+#: global.mim:160
+msgid ""
+"Last segment\n"
+"Move to the last segment in the preedit text"
+msgstr ""
+
+#: global.mim:164
+msgid ""
+"Extend segment\n"
+"Extend the current segment length to the tail"
+msgstr ""
+
+#: global.mim:168
+msgid ""
+"Shrink segment\n"
+"Shrink the current segment length from the tail"
+msgstr ""
+
+#: global.mim:172
+msgid ""
+"Reload input method\n"
+"Reload the input method (and configulation if any) and freshly start it.\n"
+"Note that the length of key-sequence bound for this command must be 1.\n"
+"This is one of special commands reserved by the m17n library, and\n"
+"should not be used in a map of an input method."
+msgstr ""
 
 #: unicode.mim:26
 msgid ""
