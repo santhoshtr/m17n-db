@@ -355,6 +355,7 @@ LINEBREAK.tab: UNIDATA/LineBreak.txt LINEBREAK.awk
 	@$(AWK) -f LINEBREAK.awk $< >> $@
 
 BLOCK.tab:
+	echo "No need to re-generate BLOCK.tab."
 
 %.tab: UNIDATA/UnicodeData.txt CHARTAB.awk
 	echo "# Generated from $<." > $@
