@@ -9,3 +9,15 @@ glibc*
 *.map
 mapconv
 m17n-db
+BIDI.tab
+CASE-C.tab
+CASE-MAPPING.tab
+CASE-S.tab
+CASED.tab
+CATEGORY.tab
+COMBINE.tab
+LINEBREAK.tab
+NAME.tab
+SCRIPT.tab
+SOFT-DOTTED.tab
+m17n-db.pc
