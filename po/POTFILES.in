@@ -4,12 +4,12 @@ as-itrans.mim
 bn-itrans.mim
 bn-unijoy.mim
 bo-wylie.mim
-bopo-kbd.mim
 cjk-util.mim
 dv-phonetic.mim
 el-kbd.mim
 fa-isiri.mim
 global.mim
+grc-mizuochi.mim
 gu-itrans.mim
 he-kbd.mim
 hi-itrans.mim
@@ -40,6 +40,7 @@ ru-phonetic.mim
 ru-yawerty.mim
 si-samanala.mim
 si-wijesekera.mim
+si-wijesekera-preedit.mim
 sk-kbd.mim
 sr-kbd.mim
 sv-post.mim
@@ -52,10 +53,12 @@ th-pattachote-2.mim
 th-pattachote.mim
 th-tis820-2.mim
 th-tis820.mim
+ug-kbd.mim
 unicode.mim
 vi-telex.mim
 vi-viqr.mim
 vi-vni.mim
+zh-bopomofo.mim
 zh-cangjie.mim
 zh-pinyin.mim
 zh-py-b5.mim
