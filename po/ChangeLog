@@ -1,7 +1,5 @@
 2006-11-28  Kenichi Handa  <handa@m17n.org>
 
-	* .cvsignore: New file.
-
 	* m17n-db.pot, ja.po: Updated.
 
 2006-11-28  gettextize  <bug-gnu-gettext@gnu.org>

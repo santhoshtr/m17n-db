@@ -4,7 +4,7 @@
 
 	* configure.ac: Call AM_GNU_GETTEXT with the arg "[external]".
 
-	* Makefile.am (BLOCK.tab): New target.
+	* Makefile.am (BLOCK.tab): New empty target.
 
 	* ABOUT-NLS: Updated by gettextize.
 
