@@ -22,158 +22,158 @@
 
 (input-method t nil global)
 
-(description "Global variable and command definitions.
+(description (_"Global variable and command definitions.
 This is actually not an input method, but provides documents,
 default values of global variables, and default key-bindings of
-global commands.")
+global commands."))
 
 (variable
  (candidates-group-size
-  "Maxmum number of candidates in a candidate group.
+  (_"Maxmum number of candidates in a candidate group.
 Value must be an integer.
 If the value is not positive, number of candidates in a group is decided
-by how candiates are grouped in an input method source file."
+by how candiates are grouped in an input method source file.")
   10)
 
  (candidates-charset
-  "Character set to limit candidates.
+  (_"Character set to limit candidates.
 Value must be a symbol representing a charater set, or nil.
 If the value is not nil, a candidate containing a character not belonging
-to the specified character set is ignored."
+to the specified character set is ignored.")
   nil)
  )
 
 (command
  (commit
-  "Commit
-Commit the preedit text"
+  (_"Commit
+Commit the preedit text")
   (Return) (Linefeed))
  (convert
-  "Convert
-Convert the preedit text"
+  (_"Convert
+Convert the preedit text")
   (\ ) (Henkan))
  (revert
-  "Revert
-Revert the conversion"
+  (_"Revert
+Revert the conversion")
   (Escape))
  (prev-candidate
-  "Previous candidate
-Spot the previous candidate"
+  (_"Previous candidate
+Spot the previous candidate")
   (Left) (C-B))
  (next-candidate
-  "Next candidate
-Spot the next candidate"
+  (_"Next candidate
+Spot the next candidate")
   (Right) (C-F) (\ ))
  (first-candidate
-  "First candidate
-Spot the first candidate in the current group"
+  (_"First candidate
+Spot the first candidate in the current group")
   (C-A))
  (last-candidate
-  "Last candidate
-Spot the last candidate in the current group"
+  (_"Last candidate
+Spot the last candidate in the current group")
   (C-E))
  (prev-candidate-group
-  "Previous candidate group
-Move to the previous candidate group"
+  (_"Previous candidate group
+Move to the previous candidate group")
   (Up) (C-P))
  (next-candidate-group
-  "Next candidate group
-Move to the next candidate group"
+  (_"Next candidate group
+Move to the next candidate group")
   (Down) (C-N))
  (candidate-1
-  "Select the 1st candidate
-Select the first candidate in the current group"
+  (_"Select the 1st candidate
+Select the first candidate in the current group")
   (\1))
  (candidate-2
-  "Select the 2nd candidate
-Select the second candidate in the current group"
+  (_"Select the 2nd candidate
+Select the second candidate in the current group")
   (\2))
  (candidate-3
-  "Select the 3rd candidate
-Select the third candidate in the current group"
+  (_"Select the 3rd candidate
+Select the third candidate in the current group")
   (\3))
  (candidate-4
-  "Select the 4th candidate
-Select the fourth candidate in the current group"
+  (_"Select the 4th candidate
+Select the fourth candidate in the current group")
   (\4))
  (candidate-5
-  "Select the 5th candidate
-Select the fifth candidate in the current group"
+  (_"Select the 5th candidate
+Select the fifth candidate in the current group")
   (\5))
  (candidate-6
-  "Select the 6th candidate
-Select the sixth candidate in the current group"
+  (_"Select the 6th candidate
+Select the sixth candidate in the current group")
   (\6))
  (candidate-7
-  "Select the 7th candidate
-Select the seventh candidate in the current group"
+  (_"Select the 7th candidate
+Select the seventh candidate in the current group")
   (\7))
  (candidate-8
-  "select the 8th candidate
-Select the eighth candidate in the current group"
+  (_"select the 8th candidate
+Select the eighth candidate in the current group")
   (\8))
  (candidate-9
-  "Select the 9th candidate
-Select the ninth candidate in the current group"
+  (_"Select the 9th candidate
+Select the ninth candidate in the current group")
   (\9))
  (candidate-10
-  "Select the 10th candidate
-Select the tenth candidate in the current group"
+  (_"Select the 10th candidate
+Select the tenth candidate in the current group")
   (\0))
  (prev-char
-  "Previous character
-Move to the previous character in the preedit text"
+  (_"Previous character
+Move to the previous character in the preedit text")
   (Left) (C-B))
  (next-char
-  "Next character
-Move to the next character in the preedit text"
+  (_"Next character
+Move to the next character in the preedit text")
   (Right) (C-F))
  (first-char
-  "Fist character
-Move to the first character in the preedit text"
+  (_"Fist character
+Move to the first character in the preedit text")
   (C-A))
  (last-char
-  "Last character
-Move to the last character in the preedit text"
+  (_"Last character
+Move to the last character in the preedit text")
   (C-E))
  (backward-delete-char
-  "Delete char backward
-Delete the previous character in the preedit text"
+  (_"Delete char backward
+Delete the previous character in the preedit text")
   (Backspace))
  (delete-char
-  "Delete char
-Delete the following character in the preedit text"
+  (_"Delete char
+Delete the following character in the preedit text")
   (Delete))
  (prev-segment
-  "Previous segment
-Move to the previous segment in the preedit text"
+  (_"Previous segment
+Move to the previous segment in the preedit text")
   (Left) (C-B))
  (next-segment
-  "Next segment
-Move to the next segment in the preedit text"
+  (_"Next segment
+Move to the next segment in the preedit text")
   (Right) (C-F))
  (first-segment
-  "First segment
-Move to the first segment in the preedit text"
+  (_"First segment
+Move to the first segment in the preedit text")
   (C-A))
  (last-segment
-  "Last segment
-Move to the last segment in the preedit text"
+  (_"Last segment
+Move to the last segment in the preedit text")
   (C-E))
  (extend-segment
-  "Extend segment
-Extend the current segment length to the tail"
+  (_"Extend segment
+Extend the current segment length to the tail")
   (S-Right) (C-O))
  (shrink-segment
-  "Shrink segment
-Shrink the current segment length from the tail"
+  (_"Shrink segment
+Shrink the current segment length from the tail")
   (S-Left) (C-I))
  (@reload
-  "Reload input method
+  (_"Reload input method
 Reload the input method (and configulation if any) and freshly start it.
 Note that the length of key-sequence bound for this command must be 1.
 This is one of special commands reserved by the m17n library, and
-should not be used in a map of an input method."
+should not be used in a map of an input method.")
   (M-Return)))
 
 ;; Local Variables:
