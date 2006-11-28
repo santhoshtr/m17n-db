@@ -23,7 +23,7 @@
 # Process this file with autoconf to produce a configure script.
 AC_INIT(m17n-db, 1.3.4, bugs-m17n-lib@m17n.org)
 AM_INIT_AUTOMAKE(m17n-db, 1.3.4)
-AM_GNU_GETTEXT
+AM_GNU_GETTEXT([external])
 
 # Checks for programs.
 AC_PROG_INSTALL
