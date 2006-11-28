@@ -1,5 +1,7 @@
 Makefile
 Makefile.in
 POTFILES
+POTFILES.in
 *.gmo
 remove-potcdate.sed
+stamp-po
