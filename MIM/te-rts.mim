@@ -58,7 +58,7 @@ following ways:
             yet exist in Telugu's Unicode chart.
 
        (2) If it appears at the end of a word, the combination
-            \"m\" yields \"ం\". The user can type \"m&\" to
+            \"m\" yields \"ం\". The user can type \"m&\" to
             bypass this behavior and force \"m\" to yield \"మ్\".
 ")
 
