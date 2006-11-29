@@ -1,3 +1,21 @@
+2006-11-29  Kenichi Handa  <handa@m17n.org>
+
+	* bootstrap.sh: Generate po/POTFILES.in.
+
+	* configure.ac: Call AM_GNU_GETTEXT.
+	(INPUT_METHOD): Adjusted for the directory change (im-indic->im).
+	(ICONS): Likewise.
+
+2006-11-28  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Makefile.am (SUBDIRS): New variable.
+	(ACLOCAL_AMFLAGS): New variable.
+	(EXTRA_DIST): Add config.rpath, m4/ChangeLog.
+
+	* configure.ac (AC_CONFIG_FILES): Add po/Makefile.in.
+
+	* po, m4: New directories.
+
 2006-11-21  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* im/*.mim: Update contributions from Red Hat.
