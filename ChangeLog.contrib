@@ -1,5 +1,9 @@
 2006-11-29  Kenichi Handa  <handa@m17n.org>
 
+	* config.rpath: New file.
+
+	* ABOUT-NLS: New file. 
+
 	* bootstrap.sh: Generate po/POTFILES.in.
 
 	* configure.ac: Call AM_GNU_GETTEXT.
