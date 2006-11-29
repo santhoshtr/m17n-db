@@ -1,3 +1,7 @@
+2006-11-29  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* im/te-rts.mim: Fix typo.
+
 2006-11-29  Kenichi Handa  <handa@m17n.org>
 
 	* config.rpath: New file.
