@@ -1,7 +1,5 @@
 ;; as-inscript.mim -- Assamese input method for inscript layout
-;; This file is derived from the Assamese inscript table of scim-tables,
-;; which was derived from iiimf unitLE's Assamese inscript layout.
-;; Copyright (c) 2003 Sun Microsystems, Inc. All Rights Reserved.
+;; Copyright (c) Red Hat, Inc. All Rights Reserved.
 
 ;; This file is part of the m17n contrib; a sub-part of the m17n
 ;; library.

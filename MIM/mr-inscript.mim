@@ -1,10 +1,9 @@
 ;; mr-inscript.mim -- Marathi input method for inscript layout
-;; This keymap is derived from the Hindi inscript table of scim-tables.
 ;; Since Marathi and Hindi use the same script Devanagari, the keymap
 ;; for both of them is same. Still, since there are few language specific 
 ;; variations in script a separate file is created and maintained to 
 ;; accomodate any further language specific changes to unicode. 
-;; Copyright (c) 2003 Sun Microsystems, Inc. All Rights Reserved.
+;; Copyright (c) Red Hat, Inc. All Rights Reserved.
 
 ;; This file is part of the m17n contrib; a sub-part of the m17n
 ;; library.

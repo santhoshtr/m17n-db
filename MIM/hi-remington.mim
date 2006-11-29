@@ -1,0 +1,133 @@
+;; hi-remington.mim -- Hindi input method for Remington typewriter layout
+;; Copyright (c) Red Hat, Inc. All Rights Reserved.
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+(input-method hi remington)
+
+(description "Hindi input method for Remington typewriter layout.
+Author: Rajesh Ranjan <rranjan@redhat.com>
+")
+
+(title "क")
+
+(map
+ (trans
+  ("~" " ृ")
+ ("`" "`") 
+ ("!" "!")
+  ("1" "१")
+ ("@" "/")
+  ("2" "२")
+  ("#" "रु")
+  ("3" "३")
+ ("$" "+")
+  ("4" "४")
+  ("%" " ः")
+  ("5" "५")
+ ("^" "'")
+  ("6" "६")
+ ("&" "-")
+  ("7" "७")
+ ("*" "'")
+  ("8" "८")
+ ("(" ";")
+  ("9" "९")
+  (")" "द्घ")
+  ("0" "०")
+  ("_" "ऋ")
+ ("-" ".")
+  ("+" " ़")
+  ("=" "त्र")
+ ("Q" "फ")
+ ("q" " ु")
+ ("W" " ॅ")
+ ("w" " ू")
+ ("E" "म्")
+ ("e" "म")
+ ("R" "त्")
+ ("r" "त")
+ ("T" "ज्")
+ ("t" "ज")
+ ("Y" "ल्")
+ ("y" "ल")
+ ("U" "न्")
+ ("u" "न")
+ ("I" "प्")
+ ("i" "प")
+ ("O" "व्")
+ ("o" "व")
+ ("P" "च्")
+ ("p" "च")
+  ("{" "क्ष्")
+  ("[" "ख्")
+  ("}" "द्व")
+ ("]" ",")
+  ("|" "द्य")
+ ("\" "?")
+ ("A" "।")
+ ("a" ".")
+ ("S" " ै")
+ ("s" " े")
+ ("D" "क्")
+ ("d" "क")
+ ("F" "थ्")
+ ("f" " ि")
+ ("G" "ळ")
+ ("g" "ह")
+ ("H" "भ्")
+ ("h" " ी")
+ ("J" "श्र")
+ ("j" "र")
+ ("K" "ज्ञ")
+ ("k" " ा")
+ ("L" "स्")
+ ("l" "स")
+  (":" "रू")
+  (";" "य")
+  ("\"" "ष्")
+  ("'" "श्")
+ ("Z" "र्") 
+ ("z" "z")
+ ("X" "ग्")
+ ("x" "ग")
+ ("C" "ब्")
+ ("c" "ब")
+ ("V" "ट")
+ ("v" "अ")
+ ("B" "ठ")
+ ("b" "इ")
+ ("N" "छ")
+ ("n" "द")
+ ("M" "ड")
+ ("m" "उ")
+  ("<" "ढ")
+  ("," "ए")
+  (">" "झ")
+  ("." "ण्")
+  ("?" "घ्")
+  ("/" "ध्")
+  ))
+
+(state
+  (init
+    (trans)))
+
+
+

@@ -1,5 +1,14 @@
 2006-11-29  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
+	* im/*.mim: Update contributions from Red Hat.
+
+	* im/bn-itrans.mim, im/hi-remington.mim, im/hi-remington.png,
+	im/hi-typewriter.mim, im/hi-typewriter.png, im/or-inscript.mim,
+	im/or-inscript.png, im/ta-typewriter.mim, im/ta-typewriter.png,
+	im/as-inscript.mim, im/mr-inscript.mim: New file.	
+
+2006-11-29  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
 	* im/te-rts.mim: Fix typo.
 
 2006-11-29  Kenichi Handa  <handa@m17n.org>

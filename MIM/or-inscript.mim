@@ -1,0 +1,150 @@
+;; or-inscript.mim -- Oriya input method for inscript layout
+;; Copyright (c) Red Hat, Inc. All Rights Reserved.
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+(input-method or inscript)
+
+(description "Oriya input method for inscript layout.
+
+Reference URL - http://indlinux.org/wiki/index.php/InscriptLayouts#Oriya
+Key Summary:
+1. ଜ୍ଞ : %
+This can also be typed as a sequence of following:
+ଜ + ୍ + ଞ i.e. p + d + }
+2. ତ୍ର : ^
+This can also be typed as a sequence of following:
+ତ + ୍ + ର i.e. l + d + j
+
+3. କ୍ଷ : &
+This can also be typed as a sequence of following:
+କ + ୍ + ଷ i.e. k + d + <
+
+4. ଶ୍ର : *
+This can also be typed as a sequence of following:
+ଶ + ୍ + ର i.e. M + d + j
+
+Author: Subhransu Behera <sbehera@redhat.com>
+Key summary: Subhransu Behera <sbehera@redhat.com>
+")
+
+
+(title "କ")
+
+(map
+ (trans
+  ("!" "!")
+  ("1" "୧")
+  ("@" "@") 
+  ("2" "୨")
+  ("#" "୍ର")
+  ("3" "୩")
+  ("$" "ର୍")
+  ("4" "୪")
+  ("5" "୫")
+  ("6" "୬")
+  ("7" "୭")
+  ("8" "୮")
+  ("(" "(")
+  ("9" "୯")
+  (")" ")")
+  ("0" "୦")
+  ("_" "ଃ")   
+  ("-" "-") 
+  ("+" "ଋ")
+  ("=" "ୃ")
+  ("Q" "ଔ")
+  ("q" "ୌ")
+  ("W" "ଐ")
+  ("w" "ୈ")
+  ("E" "ଆ")
+  ("e" "ା")
+  ("R" "ଈ")
+  ("r" "ୀ")
+  ("T" "ଊ")
+  ("t" "ୂ")
+  ("Y" "ଭ")
+  ("y" "ବ")
+  ("U" "ଙ")
+  ("u" "ହ")
+  ("I" "ଘ")
+  ("i" "ଗ")
+  ("O" "ଧ")
+  ("o" "ଦ")
+  ("P" "ଝ")
+  ("p" "ଜ")
+  ("{" "ଢ")
+  ("[" "ଡ") 
+  ("}" "ଞ")
+  ("]" "଼")
+  ("A" "ଓ")
+  ("a" "ୋ")
+  ("S" "ଏ")
+  ("s" "େ")
+  ("D" "ଅ")
+  ("d" "୍")
+  ("F" "ଇ")
+  ("f" "ି")
+  ("G" "ଉ")
+  ("g" "ୁ")
+  ("H" "ଫ")
+  ("h" "ପ")
+  ("J" "J")
+  ("j" "ର")
+  ("K" "ଖ")
+  ("k" "କ")
+  ("L" "ଥ")
+  ("l" "ତ")
+  (":" "ଛ")
+  (";" "ଚ")
+  ("\"" "ଠ")
+  ("'" "ଟ")
+  ("|" "|")
+  ("\\" "\\")
+  ("~" "୰")
+  ("`" "`")
+  ("Z" "Z")
+  ("z" "z")
+  ("X" "ଁ")
+  ("x" "ଂ")
+  ("C" "ଣ")
+  ("c" "ମ")
+  ("V" "V")
+  ("v" "ନ")
+  ("B" "ଵ")
+  ("b" "ୱ")
+  ("N" "ଳ")
+  ("n" "ଲ")
+  ("M" "ଶ")
+  ("m" "ସ")
+  ("<" "ଷ")
+  ("," ",")
+  (">" "।")
+  ("." ".")
+  ("?" "ଯ")
+  ("/" "ୟ")
+  ("%" "ଜ୍ଞ")
+  ("^" "ତ୍ର")
+  ("&" "କ୍ଷ")
+  ("*" "ଶ୍ର")
+  ))
+
+(state
+  (init
+    (trans)))
