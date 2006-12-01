@@ -1,3 +1,7 @@
+2006-12-01  Kenichi Handa  <handa@m17n.org>
+
+	* Makefile.am (INPUT_METHOD): Add grc-mizuochi.mim and ug-kbd.mim.
+
 2006-11-30  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* si-wijesekera-preedit2.mim: New file.
