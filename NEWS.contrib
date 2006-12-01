@@ -11,6 +11,7 @@ See the end for copying conditions.
 source data files *.txt to an m17n-lib input method file *.mim.
 
 ** Many new input methods are contributed.
+The directory im-indic is renamed to im.
 
 
 * Changes in the m17n-contrib 1.0.0
