@@ -5,7 +5,7 @@ Copyright (C) 2006
 See the end for copying conditions.
 
 
-* Changes in the m17n-contrib 1.0.1
+* Changes in the m17n-contrib 1.1.0
 
 ** New file tbl2mim.awk is an awk script that converts scim-table's
 source data files *.txt to an m17n-lib input method file *.mim.
