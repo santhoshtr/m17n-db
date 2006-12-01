@@ -118,6 +118,7 @@ INPUT_METHOD = \
 	dv-phonetic.mim \
 	el-kbd.mim \
 	fa-isiri.mim \
+	grc-mizuochi.mim \
 	gu-itrans.mim \
 	he-kbd.mim \
 	hi-itrans.mim \
@@ -144,6 +145,7 @@ INPUT_METHOD = \
 	th-kesmanee.mim th-kesmanee-2.mim\
 	th-pattachote.mim th-pattachote-2.mim\
 	th-tis820.mim th-tis820-2.mim\
+	ug-kbd.mim \
 	vi-viqr.mim vi-telex.mim vi-vni.mim \
 	zh-py.mim zh-py-gb.mim zh-py-b5.mim \
 	zh-tonepy.mim zh-tonepy-gb.mim zh-tonepy-b5.mim \
