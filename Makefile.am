@@ -124,7 +124,7 @@ INPUT_METHOD = \
 	hi-itrans.mim \
 	hr-kbd.mim \
 	hy-kbd.mim \
-	ja-anthy.mim ja-tcode.mim \
+	ja-anthy.mim ja-tcode.mim ja-trycode.mim \
 	ka-kbd.mim \
 	kk-kbd.mim kk-arabic.mim \
 	km-yannis.mim \
