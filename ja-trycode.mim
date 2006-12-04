@@ -23,7 +23,9 @@
 
 (input-method ja trycode)
 
-(description "Input method for Japanese with TRY-CODE
+(description "Input method for Japanese with TRY-CODE.  See
+<http://www.m17n.org/ntakahas/npx/aggressive/aggressive4.en.html>
+for the details.
 ")
 
 (title "TRY")
