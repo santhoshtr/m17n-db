@@ -1,3 +1,4 @@
+;; si-wijesekera-preedit.mim -- Sinhala input method with wijesekera method
 ;; Copyright (C) 2006
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
@@ -30,103 +31,62 @@ This input method uses preedit rather than surrounding text.
 (title "සි")
 
 (map
- (consonant
-   ("l" "ක")				; 0D9A
-   ("L" "ඛ")				; 0D9B
-   ("." "ග")				; 0D9C
-   (">" "ඝ")				; 0D9D
-   ("X" "ඞ")				; 0D9E
-   ((A-.) "ඟ") ((0x2E A-z) "ඟ")		; 0D9F
-   ("p" "ච")				; 0DA0
-   ("P" "ඡ")				; 0DA1
-   ("c" "ජ")				; 0DA2
-   ("C" "ඣ")				; 0DA3
-   ("\[" "ඤ")				; 0DA4
-   ("{" "ඥ")				; 0DA5
-   ((A-c) "ඦ") ((0x63 A-z) "ඦ")		; 0DA6
-   ("g" "ට")				; 0DA7
-   ("G" "ඨ")				; 0DA8
-   ("v" "ඩ")				; 0DA9
-   ("V" "ඪ")				; 0DAA
-   ("K" "ණ")				; 0DAB
-   ((A-v) "ඬ") ((0x76 A-z) "ඬ")		; 0DAC
-   (";" "ත")				; 0DAD
-   (":" "ථ")				; 0DAE
-   ("o" "ද")				; 0DAF
-   ("O" "ධ")				; 0DB0
-   ("k" "න")				; 0DB1
-   ((A-o) "ඳ") ((0x6F A-z) "ඳ")		; 0DB3
-   ("m" "ප")				; 0DB4
-   ("M" "ඵ")				; 0DB5
-   ("n" "බ")				; 0DB6
-   ("N" "භ")				; 0DB7
-   ("u" "ම")				; 0DB8
-   ("U" "ඹ")				; 0DB9
-   ("h" "ය")				; 0DBA
-   ("r" "ර")				; 0DBB
-   ("," "ල")				; 0DBD
-   ("j" "ව")				; 0DC0
-   ("Y" "ශ")				; 0DC1
-   ("I" "ෂ")				; 0DC2
-   ("i" "ස")				; 0DC3
-   ("y" "හ")				; 0DC4
-   ("<" "ළ")				; 0DC5
-   ("F" "ෆ")				; 0DC6
-
-   ("<q" "ළු")				; muurdhaja lu (0DC5 0DD4)
-   ("<qE" "ළූ")				; 0DC5 0DD6
-   )
-
- (others
-  ("x" "ං")				; 0D82
-  ((A-x) "ඃ")				; 0D83
-
+ (independent
   ("w" "අ")				; 0D85
-  ("wd" "ආ")				; 0D86
-  ("we" "ඇ")				; 0D87
-  ("wE" "ඈ")				; 0D88
   ("b" "ඉ")				; 0D89
   ("B" "ඊ")				; 0D8A
   ("W" "උ")				; 0D8B
-  ("WA" "ඌ")				; 0D8C
   ("R" "ඍ")				; 0D8D
-  ("RD" "ඎ")				; 0D8E
   ((A-,) "ඏ")				; 0D8F
-  ((A-, 0x41) "ඐ")			; 0D90
   ("t" "එ")				; 0D91
-  ("ta" "ඒ")				; 0D92
-
   ("T" "ඔ")				; 0D94
-  ("Ta" "ඕ")				; 0D95
-  ("TA" "ඖ")				; 0D96
-
-  ("a" "්")				; 0DCA
-
-  ("d" "ා")				; 0DCF
-  ("e" "ැ")				; 0DD0
-  ("E" "ෑ")				; 0DD1
-
-  ("q" "ු")				; 0DD4
-
-  ("Q" "ූ")				; 0DD6
-
-  ("D" "ෘ")				; 0DD8
-
-  ("A" "ෟ")				; 0DDF
-
-  ("DD" "ෲ")				; 0DF2
-  ((A-a) "ෳ")				; 0DF3
+  ("l" "ක")				; 0D9A
+  ("L" "ඛ")				; 0D9B
+  ("." "ග")				; 0D9C
+  (">" "ඝ")				; 0D9D
+  ("X" "ඞ")				; 0D9E
+  ((A-.) "ඟ") ((0x2E A-z) "ඟ")		; 0D9F
+  ("p" "ච")				; 0DA0
+  ("P" "ඡ")				; 0DA1
+  ("c" "ජ")				; 0DA2
+  ("C" "ඣ")				; 0DA3
+  ("\[" "ඤ")				; 0DA4
+  ("{" "ඥ")				; 0DA5
+  ((A-c) "ඦ") ((0x63 A-z) "ඦ")		; 0DA6
+  ("g" "ට")				; 0DA7
+  ("G" "ඨ")				; 0DA8
+  ("v" "ඩ")				; 0DA9
+  ("V" "ඪ")				; 0DAA
+  ("K" "ණ")				; 0DAB
+  ((A-v) "ඬ") ((0x76 A-z) "ඬ")		; 0DAC
+  (";" "ත")				; 0DAD
+  (":" "ථ")				; 0DAE
+  ("o" "ද")				; 0DAF
+  ("O" "ධ")				; 0DB0
+  ("k" "න")				; 0DB1
+  ((A-o) "ඳ") ((0x6F A-z) "ඳ")		; 0DB3
+  ("m" "ප")				; 0DB4
+  ("M" "ඵ")				; 0DB5
+  ("n" "බ")				; 0DB6
+  ("N" "භ")				; 0DB7
+  ("u" "ම")				; 0DB8
+  ("U" "ඹ")				; 0DB9
+  ("h" "ය")				; 0DBA
+  ("r" "ර")				; 0DBB
+  ("," "ල")				; 0DBD
+  ("j" "ව")				; 0DC0
+  ("Y" "ශ")				; 0DC1
+  ("I" "ෂ")				; 0DC2
+  ("i" "ස")				; 0DC3
+  ("y" "හ")				; 0DC4
+  ("<" "ළ")				; 0DC5
+  ("F" "ෆ")				; 0DC6
   ((A-') "෴")				; 0DF4
 
   ("J" "ළු")				; muurdhaja lu (0DC5 0DD4)
-  ("JE" "ළූ")				; 0DC5 0DD6
 
   ((S-\ ) " ")				; NBSP (00A0)
   ((A-\ ) "‌")				; ZWNJ (200C)
-
-  ("H" "්‍ය")				; yansaya (0DCA 200D 0DBA)
-  ("`" "්‍ර")				; rakaransaya (0DCA 200D 0DBB)
-  ("~" "ර්‍")				; repaya (0DBB 0DCA 200D)
 
   ("\]" ";")
   ("}" ":")
@@ -136,99 +96,162 @@ This input method uses preedit rather than surrounding text.
   ("Z" "\"")
   )
 
- (is-pilla
+ (dependent
+  ("x" "ං")				; 0D82
+  ((A-x) "ඃ")				; 0D83
+  ("a"
+   (cond
+    ((= @- 0x0D91) (delete @-) "ඒ")	; 0D92
+    ((= @- 0x0D94) (delete @-) "ඕ")	; 0D95
+    ((= @- 0x0DD9) (delete @-) "ේ")	; 0DDA
+    ((= @- 0x0DDC) (delete @-) "ෝ")	; 0DDD
+    (1 "්")))				; 0DCA
+  ("d"
+   (cond
+    ((= @- 0x0D85) (delete @-) "ආ")	; 0D86
+    ((= @- 0x0DD9) (delete @-) "ො")	; 0DDC
+    (1 "ා")))				; 0DCF
+  ("e"
+   (cond
+    ((= @- 0x0D85) (delete @-) "ඇ")	; 0D87
+    (1 "ැ")))				; 0DD0
+  ("E"
+   (cond
+    ((= @- 0x0D85) (delete @-) "ඈ")	; 0D88
+    ((& (= @-2 0x0DC5) (= @- 0x0DD4))
+     (delete @-) "ූ")			; 0DD6
+    (1 "ෑ")))				; 0DD1
   ("s" "ි")				; 0DD2
-  ("S" "ී"))				; 0DD3
+  ("S" "ී")				; 0DD3
+  ("q" "ු")				; 0DD4
+  ("Q" "ූ")				; 0DD6
+
+  ("D"
+   (cond
+    ((= @- 0x0D8D) (delete @-) "ඎ")	; 0D8E
+;; The following line does not work when no consonant proceeds.
+;;    ((= @- 0x0DD8) (delete @-) "ෲ")	; 0DF2
+    (1 "ෘ")))				; 0DD8
+;; This one works with or without a preceeding consonant.
+  ("DD" "ෲ") 				; 0DF2
+
+  ("A"
+   (cond
+    ((= @- 0x0D8B) (delete @-) "ඌ")	; 0D8C
+    ((= @- 0x0D8F) (delete @-) "ඐ")	; 0D90
+    ((= @- 0x0D94) (delete @-) "ඖ")	; 0D96
+    ((= @- 0x0DD9) (delete @-) "ෞ")	; 0DDE
+    (1 "ෟ")))				; 0DDF
+  ((A-a) "ෳ")				; 0DF3
+
+  ("H"					; yansaya (0DCA 200D 0DBA)
+   (cond
+    ((| (= @- 0x0DD9) (= @- 0x0DDB))
+     (move @-) "්‍ය" (move @>))
+    (1
+     "්‍ය")))
+
+  ("`"					; rakaransaya (0DCA 200D 0DBB)
+   (cond
+    ((| (= @- 0x0DD2) (= @- 0x0DD3) (= @- 0x0DD9) (= @- 0x0DDB))
+     (move @-) "්‍ර" (move @>))
+    (1 "්‍ර")))
+
+  ("~"					; repaya (0DBB 0DCA 200D)
+   (move @<)
+   "ර්‍"
+   (move @>))
+  )
 
  (kombuva
   ("f" "ෙ"))				; 0DD9
 
- (yansaka
-  ("H"))
-
- (rakaransaya
-  ("`"))
-
- (repaya
-  ("~"))
-
- (eyanna
-  ("w"))
-
- (al-lakuna
-  ("a"))
-
- (aela-pilla
-  ("d"))
-
- (gayanukitta
-  ("A"))
-
  (join
-  ("\\")
-  ("|"))
+  ("\\"))
 
  (backspace
   ((BackSpace)))
  )
 
 (state
- (init
-  (consonant (shift consonant))
-  (others)
-  (is-pilla (shift is-pilla))
-  (kombuva (shift kombuva)))
+ (init-state
+  (independent
+   (shift independent-state))
+  (kombuva
+   (shift kombuva-state))
+  (dependent))
 
- (consonant
-  (rakaransaya 0x0DCA 0x200D 0x0DBB)
-  (yansaya 0x0DCA 0x200D 0x0DBA)
-  (repaya (move @-) 0x0DBB 0x0DCA 0x200D (move @+))
-  (is-pilla (shift is-pilla))
-  (join 0x0DCA 0x200D (shift consonant+join)))
+ (independent-state
+  (dependent)
+  (join
+   (cond
+    ((| (= @- 0x0DD9) (= @- 0x0DDB))
+     (shift join-state))
+    ((| (< @- 0x0D9A) (> @- 0x0DC6))
+     (undo -1))
+    (1
+     (shift join-state))))
+  (backspace
+   (undo)))
 
- (consonant+join
-  (consonant (shift consonant))
-  (backspace (undo)))
+ (join-state
+  (t
+   (mark p))
+  (independent
+   (move p)
+   (set c @-)
+   (cond
+    ((| (= c 0x0DD9) (= c 0x0DDB))
+     (delete @-)
+     "්‍"				; 0DCA 200D
+     (move @>)
+     (insert c))
+    (1
+     "්‍"				; 0DCA 200D
+     (move @>)))
+   (shift independent-state))
+  (backspace
+   (undo)))
 
- (is-pilla
-  (rakaransaya (move @-) 0x0DCA 0x200D 0x0DBB (shift init)))
-
- (kombuva
-  (eyanna (delete @<) 0x0D93 (shift init))
-  (al-lakuna (delete @<) 0x0DDA (shift init))
-  (kombuva (delete @<) 0x0DDB (shift combu_deka))
-  (aela-pilla (delete @<) 0x0DDC (shift kombuva_haa_aela-pilla))
-  (gayanukitta (delete @<) 0x0DDE (shift init))
-  (consonant (move @1) (delete @0) (move @>) 0x0DD9 (shift consonant+kombuva))
-  (backspace (undo)))
-
- (combu_deka
-  (consonant (move @1) (delete @0) (move @>) 0x0DDB (shift init))
-  (backspace (undo)))
-
- (kombuva_haa_aela-pilla
-  (al-lakuna (delete @<) 0x0DDD (shift init))
-  (backspace (undo)))
-
- (consonant+kombuva
-  (al-lakuna (delete @-) 0x0DDA (shift init))
-  (aela-pilla (delete @-) 0x0DDC (shift consonant+kombuva_haa_aela-pilla))
-  (gayanukitta (delete @-) 0x0DDE (shift init))
-  (yansaka (move @-) 0x0DCA 0x200D 0x0DBA (move @>))
-  (rakaransaya (move @-) 0x0DCA 0x200D 0x0DBB (move @>))
-  (join (shift consonant+join+kombuva))
-  (touch (move @-) 0x200D 0x0DCA (move @>))
-  (backspace (undo)))
-
- (consonant+kombuva_haa_aela-pilla
-  (al-lakuna (delete @-) 0x0DDD (shift init))
-  (backspace (undo)))
-
- (consonant+join+kombuva
-  (consonant (move @-) (delete @-) 0x0DCA 0x200D (move @+) 0x0DD9
-	     (shift consonant+kombuva))
-  (backspace (undo)))
- )
+ (kombuva-state
+  (t
+   (mark p))
+  (independent
+   (cond
+    ((& (= @0 0x0DD9) (= @1 0x0D91))
+     (delete @<)
+     "ඓ"				; 0D93
+     (shift independent-state))
+    ((& (= @0 0x0DD9) (< @2 0))
+     (move @0)
+     (delete @+)
+     (move @>)
+     "ෙ"				; 0DD9
+     (shift independent-state))
+    ((& (= @0 0x0DDB) (< @2 0))
+     (move @0)
+     (delete @+)
+     (move @>)
+     "ෛ"				; 0DDB
+     (shift independent-state))
+    (1
+     (delete p)
+     (pushback 1)
+     (shift init-state))))
+  (kombuva
+   (mark p)
+   (cond
+    ((& (= @0 0x0DD9) (< @2 0))
+     (delete @<)
+     "ෛ")				; 0DDB
+    (1
+     (delete @-)
+     (pushback 1)
+     (shift init-state))))
+  (dependent
+   (mark p))
+  (backspace
+   (undo))))
 
 ;; Local Variables:
 ;; coding: utf-8
