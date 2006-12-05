@@ -1,16 +1,28 @@
 * NEWS -- What's new in the m17n database.			-*- outline -*-
-Copyright (C) 2004, 2005
+Copyright (C) 2004, 2005, 2006
   National Institute of Advanced Industrial Science and Technology (AIST)
   Registration Number H15PRO112
 See the end for copying conditions.
 
 
-* Changes in the m17n database 1.4.0
+* Changes in the m17n database 1.3.4
 
 ** Several new input methods are added.
 
+grc-mizuochi.mim (Greek)
+ja-trycode.mim (Japanese)
 ru-phonetic.mim (Russian)
+th-kesmanee-2.mim, th-pattachote.mim th-pattachote-2.mim (Thai)
+th-tis820.mim th-tis820-2.mim (Thai)
+ug-kbd.mim (Uyghur)
+zh-bopomofo.mim (Chinese bopomofo, renamed from bopo-kbd.mim)
 
+** Several new FLTs are added.
+
+LAOO-OTF.flt (Lao)
+THAI-OTF.flt (Thai)
+
+** Gettextized.
 
 
 * Changes in the m17n database 1.3.0
@@ -112,7 +124,7 @@ kk-kdb.mim (Kazakh in Cyrillic script)
 
 * Copyright information
 
-Copyright (C) 2004
+Copyright (C) 2004, 2005, 2006
   National Institute of Advanced Industrial Science and Technology (AIST)
   Registration Number H15PRO112
 
