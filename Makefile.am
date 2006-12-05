@@ -136,7 +136,7 @@ INPUT_METHOD = \
 	or-itrans.mim \
 	pa-itrans.mim \
 	ru-kbd.mim ru-yawerty.mim ru-phonetic.mim \
-	si-samanala.mim si-wijesekera.mim \
+	si-samanala.mim si-wijesekera.mim si-wijesekera-preedit.mim \
 	sk-kbd.mim \
 	sr-kbd.mim \
 	sv-post.mim \
