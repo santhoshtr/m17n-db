@@ -1,3 +1,4 @@
+;; si-wijesekera.mim -- Sinhala input method with wijesekera method
 ;; Copyright (C) 2005, 2006
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
@@ -24,6 +25,7 @@
 
 (description "Sinhala input method based on SLS 1134 Rev. 2:2004.
   <http://www.fonts.lk/doc/sin-kbd-layout4.pdf>
+This input method requires surrounding text support.
 ")
 
 (title "සි")
