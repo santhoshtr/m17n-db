@@ -1,8 +1,25 @@
+2006-12-05  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* si-wijesekera-preedit.mim:
+	Renamed file.  Formerly known as si-wijesekera-preedit2.mim.
+
+	* si-wijesekera-preedit-alt.mim:
+	Renamed file.  Formerly known as si-wijesekera-preedit.mim.
+
+	* si-wijesekera.mim: Add a few description.
+
 2006-12-05  Kenichi Handa  <handa@m17n.org>
+
+	* icons/th-pattacgite-2.png, icons/th-pattachote-2.png: New icon file.
 
 	* ru-kbd.mim: Add comment.  Fix description.
 
+	* icons/th-kesmanee-2.png, icons/th-pattacgite-2.png, icons/th-pattachote.png, icons/th-tis820-2.png, icons/th-tis820.png:
+	New icon files.
+
 2006-12-04  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* ja-trycode.mim: Add URL for the usage.
 
 	* Makefile.am (INPUT_METHOD): Add ja-trycode.mim
 
@@ -147,7 +164,7 @@
 
 	* th-kesmanee-2.mim, th-kesmanee.mim: Change title-text to THO THAHAN.
 
-2006-09-02  Kenichi Handa  <handa@duron>
+2006-09-02  Kenichi Handa  <handa@m17n.org>
 
 	* vi-telex.mim: Big change for supporting backspace well.
 
@@ -162,7 +179,7 @@
 	* th-kesmanee.mim: Introduce WTT 2.0 level 1 input sequence
 	correction.
 
-2006-08-16  Mikiko Nisikimi  <nisikimi@duron>
+2006-08-16  Mikiko Nisikimi  <nisikimi@m17n.org>
 
 	* FORMATS/CharsetList.ja.txt: japanese version added
 
@@ -544,7 +561,7 @@
 	hr-kbd.mim:
 	Fix typo.
 
-2005-10-03  Kenichi Handa  <handa@duron>
+2005-10-03  Kenichi Handa  <handa@m17n.org>
 
 	* vi-vni.mim: New input method.
 
@@ -599,7 +616,7 @@
 
 	* KHMR-OTF.flt: Add (r)? after HR in Step 0.
 
-2005-09-05  Kenichi Handa  <handa@duron>
+2005-09-05  Kenichi Handa  <handa@m17n.org>
 
 	* generic.fst: New file.
 
@@ -697,7 +714,7 @@
 
 	* FORMATS/FLT.ja.txt: Fix the document.
 
-2005-07-26  Kenichi Handa  <handa@duron>
+2005-07-26  Kenichi Handa  <handa@m17n.org>
 
 	* ko-romaja.mim: Add more romanization keys.  Use "I" for toggling
 	isolated Jamo input mode.
