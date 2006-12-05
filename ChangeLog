@@ -1,3 +1,7 @@
+2006-12-05  Kenichi Handa  <handa@m17n.org>
+
+	* ru-kbd.mim: Add comment.  Fix description.
+
 2006-12-04  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* Makefile.am (INPUT_METHOD): Add ja-trycode.mim
