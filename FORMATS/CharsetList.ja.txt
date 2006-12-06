@@ -3,7 +3,7 @@
      Registration Number H15PRO112
    See the end for copying conditions.  */
 
-/***en
+/***ja
 
 @page mdbCharsetList 文字セット定義のリスト
 
