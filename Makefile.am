@@ -320,7 +320,7 @@ CASE-C.tab: UNIDATA/CaseFolding.txt Makefile
 	@$(AWK) '/^[0-9A-Z]*; F/ { \
 	  print "0x"$$1" "; \
 	  for (i = 3; $$i != "#"; i++) \
-	    print "\\x"$$i; \
+	    printf "\\x%s",$$i; \
 	  print "\n"; }'  FS="[; ][; ]*" ORS="" $< >> $@
 
 NAME.tab: UNIDATA/UnicodeData.txt NAME.awk
