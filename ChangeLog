@@ -1,3 +1,8 @@
+2006-12-15  Kenichi Handa  <handa@m17n.org>
+
+	* Makefile.am (CASE-C.tab): Use printf instead of print for
+	printing `\'.
+
 2006-12-07  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* Update FSF postal address.
