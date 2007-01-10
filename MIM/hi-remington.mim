@@ -1,5 +1,5 @@
 ;; hi-remington.mim -- Hindi input method for Remington typewriter layout
-;; Copyright (c) Red Hat, Inc. All Rights Reserved.
+;; Copyright (c) 2006, 2007 Red Hat, Inc. All Rights Reserved.
 
 ;; This file is part of the m17n contrib; a sub-part of the m17n
 ;; library.
@@ -29,7 +29,7 @@ Author: Rajesh Ranjan <rranjan@redhat.com>
 
 (map
  (trans
-  ("~" " ृ")
+  ("~" "ृ")
  ("`" "`") 
  ("!" "!")
   ("1" "१")
@@ -39,7 +39,7 @@ Author: Rajesh Ranjan <rranjan@redhat.com>
   ("3" "३")
  ("$" "+")
   ("4" "४")
-  ("%" " ः")
+  ("%" "ः")
   ("5" "५")
  ("^" "'")
   ("6" "६")
@@ -53,12 +53,12 @@ Author: Rajesh Ranjan <rranjan@redhat.com>
   ("0" "०")
   ("_" "ऋ")
  ("-" ".")
-  ("+" " ़")
+  ("+" "़")
   ("=" "त्र")
  ("Q" "फ")
- ("q" " ु")
- ("W" " ॅ")
- ("w" " ू")
+ ("q" "ु")
+ ("W" "ॅ")
+ ("w" "ू")
  ("E" "म्")
  ("e" "म")
  ("R" "त्")
@@ -83,20 +83,20 @@ Author: Rajesh Ranjan <rranjan@redhat.com>
  ("\" "?")
  ("A" "।")
  ("a" ".")
- ("S" " ै")
- ("s" " े")
+ ("S" "ै")
+ ("s" "े")
  ("D" "क्")
  ("d" "क")
  ("F" "थ्")
- ("f" " ि")
+ ("f" "ि")
  ("G" "ळ")
  ("g" "ह")
  ("H" "भ्")
- ("h" " ी")
+ ("h" "ी")
  ("J" "श्र")
  ("j" "र")
  ("K" "ज्ञ")
- ("k" " ा")
+ ("k" "ा")
  ("L" "स्")
  ("l" "स")
   (":" "रू")
