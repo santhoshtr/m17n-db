@@ -1,5 +1,5 @@
 ;; sk-kbd.mim -- Slovak input method with Slovak keyboard layout
-;; Copyright (C) 2003, 2004
+;; Copyright (C) 2003, 2004, 2007
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -63,7 +63,6 @@ key char key char key char key char key char key char
 
 (map
  (map
-  ("a" "ttt")
   ("1" ?+)
   ("2" ?ľ)
   ("3" ?š)
