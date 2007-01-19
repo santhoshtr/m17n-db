@@ -97,7 +97,16 @@ used, for instance, with a West European keyboard, @c MTEXT may
 contain Latin-1 characters.
 
 @c SYMBOL in the definition of @c KEYSEQ must be the return value of
-the minput_event_to_key () function.
+the minput_event_to_key () function.  Under the X window system, you
+can quickly check the value using the @c xev command.  For example,
+the return key, the backspace key, and the 0 key on the keypad are
+represented as @c (Return) , @c (BackSpace) , and @c (KP_0)
+respectively.  If the shift, control, meta, alt, super, and hyper
+modifiers are used, they are represented by the S- , C- , M- , A- , s-
+, and H- prefixes respectively in this oreder.  Thus, "return with
+shift with meta with hyper" is @c (S-M-H-Return) .  Note that "a with
+shift" .. "z with shift" are represented simply as A .. Z . Thus "a
+with shift with meta with hyper" is @c (M-H-A) .
 
 @c INTEGER in the definition of @c KEYSEQ must be a valid character
 code.
