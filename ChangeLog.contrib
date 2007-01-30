@@ -1,3 +1,7 @@
+2007-01-30  Kenichi Handa  <handa@m17n.org>
+
+	* configure.ac: Pay attention to --prefix.
+
 2007-01-18  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* configure.ac, bootstrap.sh, README, NEWS, Makefile.am:
