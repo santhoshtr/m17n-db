@@ -1,6 +1,6 @@
 2007-01-30  Kenichi Handa  <handa@m17n.org>
 
-	* configure.ac: Pay attention to --prefix.
+	* configure.ac: Version changed to 1.1.2.
 
 2007-01-18  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
