@@ -63,31 +63,34 @@ clears it.
 
 As a result, "A" is given to an application program.
 
-A German user may want to extend the above example for "ß".  As "ß" is
-an uppercase of "ss", he surely want to type "ss" to input "ß".  So, he
-will add this rule in "toupper".
+When a key event doesn't match with any rule in the current state,
+that event is give back to an application program as an unhandle
 
-    ("ss" "ß")
+An Turkish user may want to extend the above example for "İ" (U+0130:
+DOTTED-I).  It seems that assigning the key sequence <i> <i> for that
+character is convenient.  So, he will add this rule in "toupper".
+
+    ("ii" "İ")
 
 But we already have this rule too:
 
-    ("s" "S")
+    ("i" "I")
 
-What happens when a key event <s> is sent to the input method?
+What happens when a key event <i> is sent to the input method?
 
-No problem.  When the input method receives <s>, it inserts "S" in the
+No problem.  When the input method receives <i>, it inserts "I" in the
 preedit buffer.  But, as it detects that there is another rule that may
-match with the additional key event <s>.  So, after inserting "S", it
+match with the additional key event <i>.  So, after inserting "I", it
 suspends the normal behavior of shifting to the initial condition, and
-waits for another key.  Thus, a user may see "S" with underline that
+waits for another key.  Thus, a user may see "I" with underline that
 indicates it is not yet committed.
 
-When the input method receives the next <s>, it cancels the effects
-done by the rule for "s" (in this case, the preedit buffer is
-cleared), and executes MAP-ACTIONs of the rule for "ss".  So, "ß" is
+When the input method receives the next <i>, it cancels the effects
+done by the rule for "i" (in this case, the preedit buffer is
+cleared), and executes MAP-ACTIONs of the rule for "ii".  So, "İ" is
 inserted in the preedit buffer.  This time, as there is no other rules
 that matches with an addition key, it shifts to the initial condition
-of the current state, and commit "ß".
+of the current state, and commit "İ".
 
 Then, what happens when the next key event is <a> instead of <s>?
 
@@ -137,7 +140,7 @@ method before explaining how it works.
 (description (_ "Titlecase letters"))
 (title "abc->Abc")
 (map
-  (toupper ("a" "A") ("b" "B") ... ("z" "Z") ("ss" "ß"))
+  (toupper ("a" "A") ("b" "B") ... ("z" "Z") ("ii" "İ"))
   (lower ("a" "a") ("b" "b") ... ("z" "z")))
 (state
   (init
@@ -260,7 +263,7 @@ Now you are ready to write a new version of input method.
            ("k" "K") ("l" "L") ("m" "M") ("n" "N") ("o" "O")
            ("p" "P") ("q" "Q") ("r" "R") ("s" "S") ("t" "T")
            ("u" "U") ("v" "V") ("w" "W") ("x" "X") ("y" "Y")
-           ("z" "Z") ("ss" "ß")))
+           ("z" "Z") ("ii" "İ")))
 (state
   (init
     (toupper
@@ -268,16 +271,18 @@ Now you are ready to write a new version of input method.
      ;; Now we have one character in the preedit buffer.  So, "@-2" is
      ;; the character just before the inputting spot.
 
-     (cond ((| (& (>= @-2 ?A) (<= @-2 ?Z)) (& (>= @-2 ?a) (<= @-2 ?z)))
+     (cond ((| (& (>= @-2 ?A) (<= @-2 ?Z))
+               (& (>= @-2 ?a) (<= @-2 ?z))
+               (= @-2 ?İ))
 
-	    ;; If that character is A..Z or a..z, remember the
+	    ;; If that character is A..Z, a..z, or İ, remember the
 	    ;; character in the preedit in X and delete it.
 
 	    (set X @-1) (delete @-)
 
 	    ;; Then insert a proper lower case version of X.
 
-	    (cond ((= X ?ß) "ss") 
+	    (cond ((= X ?İ) "i") 
                   (1 (set X (+ X 32)) (insert X))))))))
 ----------------------------------------------------------------------
 
@@ -320,19 +325,21 @@ You can change the current position by "move" action as below:
 
 
 Let us see how our new example works.  Whatever a key event is, the
-input method is in its only state, "init".  An event is first handled
-by MAP-ACTIONs, so that every key is shifted to upcase and put into
-the preedit area.  The character now put into the preedit buffer and
-can be retrieved by @-1.
+input method is in its only state, "init".  A event of lower letter
+key is first handled by MAP-ACTIONs, so that every key is shifted to
+upcase and put into the preedit area.  The character now put into the
+preedit buffer and can be retrieved by @-1.
 
-How can we determine if the new character should be in its lower case?
-We have to check the character before it, that is, @-2.
+How can we determine if the new character should actually be in its
+lower case?  We have to check the character before it, that is, @-2.
 BRANCH-ACTIONs in the "init" state do the job.
 
 It first checks if the character @-2 is between A to Z, or between a
 to z, by the conditional below.
 
-    (cond ((| (& (>= @-2 ?A) (<= @-2 ?Z)) (& (>= @-2 ?a) (<= @-2 ?z)))
+     (cond ((| (& (>= @-2 ?A) (<= @-2 ?Z))
+               (& (>= @-2 ?a) (<= @-2 ?z))
+               (= @-2 ?İ))
 
 If not, the work with this key event is done.  If so, our new key
 should be changed back to lowercase.  The upcase character is already
@@ -346,9 +353,9 @@ and then delete the character by
     (delete @-)
 
 Lastly we insert back the character in its lowercase form.  The
-problem here is that ß must be changed to "ss", so we need another
+problem here is that "İ" must be changed to "i", so we need another
 conditional.  The first branch means that "if the character remembered
-in X is ß, "ss" is inserted".
+in X is İ, "i" is inserted".
 
 The second branch 
 
