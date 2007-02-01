@@ -67,8 +67,9 @@ When a key event doesn't match with any rule in the current state,
 that event is give back to an application program as an unhandle
 
 An Turkish user may want to extend the above example for "İ" (U+0130:
-DOTTED-I).  It seems that assigning the key sequence <i> <i> for that
-character is convenient.  So, he will add this rule in "toupper".
+LATIN CAPITAL LETTER I WITH DOT ABOVE).  It seems that assigning the
+key sequence <i> <i> for that character is convenient.  So, he will
+add this rule in "toupper".
 
     ("ii" "İ")
 
