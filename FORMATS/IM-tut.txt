@@ -8,33 +8,66 @@ An input method is defined in a *.mim file with this format.
 
 (map
   (MAP-NAME
-    (KEYSEQ MAP-ACTION ...)        <- rule
+    (KEYSEQ MAP-ACTION MAP-ACTION ...)        <- rule
+    (KEYSEQ MAP-ACTION MAP-ACTION ...)        <- rule
+    ...)
+  (MAP-NAME
+    (KEYSEQ MAP-ACTION MAP-ACTION ...)        <- rule
+    (KEYSEQ MAP-ACTION MAP-ACTION ...)        <- rule
     ...)
   ...)
 
 (state
   (STATE-NAME
-    (MAP-NAME BRANCH-ACTION ...)   <- branch
-    ...))
+    (MAP-NAME BRANCH-ACTION BRANCH-ACTION ...)   <- branch
+    ...)
+  (STATE-NAME
+    (MAP-NAME BRANCH-ACTION BRANCH-ACTION ...)   <- branch
+    ...)
+  ...)
+
+Lowercase letters and parentheses are literals, so they must be
+written as they are.  Uppercase letters represent arbitrary strings.
 
 KEYSEQ specifies a sequence of keys in this format:
-  (SYMBOLIC-KEY ...)
 
-For instance "(n i)" represents a key sequence of <n> and <i>.  If all
-SYMBOLIC-KEYs are ASCII characters, you can use the short form "ni".
+  (SYMBOLIC-KEY BYMBOLIC-KEY ...)
+
+where SYMBOLIC-KEY is the keysym 
+For instance
+
+  (n i)
+
+represents a key sequence of <n> and <i>.  If all SYMBOLIC-KEYs are
+ASCII characters, you can use the short form
+
+  "ni"
+
+instead.  Consult the file IM.txt for Non-ASCII characters.
 
 MAP-ACTION and BRANCH-ACTION are a sequence of actions of this format:
 
-  (ACTION ARG ...)
+  (ACTION ARG ARG ...)
 
 The most common action is "insert" which can be written as this:
 
   (insert "TEXT")
 
-But as it is very frequently used, you can use the short form "TEXT".
-And if "TEXT" actually contains just one character "C", you can write
-as "(insert ?C)" or just "?C".  So the shortest notation for an action
-of inserting "a" is "?a".
+But as it is very frequently used, you can use the short form
+
+  "TEXT"
+
+When TEXT contains only one character <C>, you can write it as
+
+  (insert ?C)
+
+or just
+
+  ?C
+
+Therefore the shortest notation for an action of inserting <a> is
+
+  ?a
 
 Here is a simple example:
 
@@ -49,24 +82,24 @@ Here is a simple example:
 ----------------------------------------------------------------------
 
 When this input method is activated, it is in the initial condition of
-the first state (in this case, it is "init").  In initial conditions,
+the first state (in this case, it is "init").  In the initial condition,
 no key is being processed and no action is suspended.  When it
-receives a key event <a>, it searches branches of the current state
+receives a key event <a>, it searches branches in the current state
 for a rule that matches with <a> and finds one in the map "toupper".
 Then it executes MAP-ACTIONs (in this case, just inserting "A" in the
-preedit buffer).  After all MAP-ACTIONSs are executed, the input
-method shift to the initial condition of the current state.
+preedit buffer).  After all MAP-ACTIONs are executed, the input
+method shifts to the initial condition of the current state.
 
-The shifting to "the initial condition of the first state" has a
-special meaning.  It commits all characters in the preedit buffer and
-clears it.
+The shift to "the initial condition of the first state" has a special
+meaning; it commits all characters in the preedit buffer then clears
+the preedit buffer.
 
 As a result, "A" is given to an application program.
 
-When a key event doesn't match with any rule in the current state,
-that event is give back to an application program as an unhandle
+When a key event does not match with any rule in the current state,
+that event is unhandled and given back to an application program.
 
-An Turkish user may want to extend the above example for "İ" (U+0130:
+A Turkish user may want to extend the above example for "İ" (U+0130:
 LATIN CAPITAL LETTER I WITH DOT ABOVE).  It seems that assigning the
 key sequence <i> <i> for that character is convenient.  So, he will
 add this rule in "toupper".
@@ -77,63 +110,63 @@ But we already have this rule too:
 
     ("i" "I")
 
-What happens when a key event <i> is sent to the input method?
+What will happen when a key event <i> is sent to the input method?
 
 No problem.  When the input method receives <i>, it inserts "I" in the
-preedit buffer.  But, as it detects that there is another rule that may
+preedit buffer.  But, it knows that there is another rule that may
 match with the additional key event <i>.  So, after inserting "I", it
 suspends the normal behavior of shifting to the initial condition, and
-waits for another key.  Thus, a user may see "I" with underline that
+waits for another key.  Thus, the user sees "I" with underline, which
 indicates it is not yet committed.
 
 When the input method receives the next <i>, it cancels the effects
-done by the rule for "i" (in this case, the preedit buffer is
+done by the rule for the previous "i" (in this case, the preedit buffer is
 cleared), and executes MAP-ACTIONs of the rule for "ii".  So, "İ" is
-inserted in the preedit buffer.  This time, as there is no other rules
-that matches with an addition key, it shifts to the initial condition
-of the current state, and commit "İ".
+inserted in the preedit buffer.  This time, as there are no other rules
+that match with an additional key, it shifts to the initial condition
+of the current state, and commits "İ".
 
-Then, what happens when the next key event is <a> instead of <s>?
+Then, what will happen when the next key event is <a> instead of <i>?
 
-No problem too.
+No problem, either.
 
-The input method knows that there is no rule matching <s> <a> key
+The input method knows that there are no rules that match the <i> <a> key
 sequence.  So, when it receives the next <a>, it executes the
-suspended behavior (i.e. shifting to the initial condition) which
-leads to committing of "S", then try to handle <a> in the current
-state which leads to committing of "A".
+suspended behavior (i.e. shifting to the initial condition), which
+leads to commit "S".  Then the input method tries to handle <a> in the current
+state, which leads to commit "A".
 
-So far, we have explained about MAP-ACTION but not about
-BRANCH-ACTION.  The format of BRANCH-ACTION is the same as MAP-ACTION.
-It is executed only after a matching rule is determined and the
-corresponding MAP-ACTIONs are executed.  A typical use of
+So far, we have explained MAP-ACTION, but not
+BRANCH-ACTION.  The format of BRANCH-ACTION is the same as that of MAP-ACTION.
+It is executed only after a matching rule was determined and the
+corresponding MAP-ACTIONs were executed.  A typical use of
 BRANCH-ACTION is to shift to a different state.
 
 To see this effect, let us modify the current input method to upcase a
-letter only at a beginning of a word (i.e. "capitalizing").  For that purpose,
-we modify the  "init" state as this:
+letter only at a beginning of a word (i.e. capitalizing).  For that purpose,
+we modify the "init" state as this:
 
   (init
     (toupper (shift non-upcase)))
 
-Here "(shift non-upcase)" is an action to shift to the state
-"non-upcase" which has two branches as below:
+Here "(shift non-upcase)" is an action to shift to the new state
+"non-upcase", which has two branches as below:
 
   (non-upcase
     (lower)
     (nil (shift init)))
 
-The first branch is simple.  We can define the map "lower" as this to
-insert lower letters as is.
+The first branch is simple.  We can define the new map "lower" as the
+following to insert lowercase letters as they are.
 
 (map
   ...
   (lower ("a" "a") ("b" "b") ... ("z" "z")))
 
 The second branch has a special meaning.  The map name "nil" means
-that it matches with any key event that does not match any rules of the
-other maps in the same state.  In addition, it does not eat (or
-consume) the key event.  We will show the full code of the new input
+that it matches with any key event that does not match any rules in the
+other maps in the same state.  In addition, it does not
+consume any key event.  We will show the full code of the new input
 method before explaining how it works.
 
 ---titlecase.mim------------------------------------------------------
@@ -151,54 +184,55 @@ method before explaining how it works.
     (nil (shift init))))
 ----------------------------------------------------------------------
 
-Let us see what happens when a user types keys <a> <b> < >.
+Let's see what happens when the user types the keys <a> <b> < >.
 
-Upon <a>, "A" is committed and the state is changed to "non-upcase".
-So, the next <b> is handled in "non-upcase" state.  As it matches with a
+Upon <a>, "A" is committed and the state shifts to "non-upcase".
+So, the next <b> is handled in the "non-upcase" state.  As it matches with a
 rule in the map "lower", "b" is inserted in the preedit buffer and it
-is committed by the explicit "commit" command of BRANCH-ACTION.  After
-that the input method is still in "non-upcase" state.  So the next < >
+is committed explicitly by the "commit" command in BRANCH-ACTION.  After
+that, the input method is still in "non-upcase" state.  So the next < >
 is also handled in "non-upcase".  This time, as no rule in this state
 matches with it, the branch "(nil (shift init))" is selected, and the
 state is changed to init.  Please note that < > is not yet handled.
-So, the input method tries to handle it in "init" state.  Again no
-rule matches with it.  So that event is given back to an application
-program which usually inserts a space for that.
+So, the input method tries to handle it in the "init" state.  Again no
+rule matches with it.  Therefore, that event is given back to an application
+program, which usually inserts a space for that.
 
-So, when you type "a quick blown fox" with this input method, you get
-"A Quick Blown Fox".  OK, you find a typo in "blown", it should be
-"brown".  To correct it, perhaps you move a cursor after "l" and type
-Backspace and <r>.  But, if you forget to turn off the current input
-method, "R" is inserted.  It is not a sophisticated behavior.
+When you type "a quick blown fox" with this input method, you get "A
+Quick Blown Fox".  OK, you find a typo in "blown", it should be
+"brown".  To correct it, you move the cursor after "l" and type
+Backspace and <r>.  However, if the current input method is still
+active, a capital "R" is inserted.  It is not a sophisticated
+behavior.
 
-To make the input method work well also in such a case, we must use a
+To make the input method work well also in such a case, we must use
 "surrounding text support".  It is a way to check characters around
 the inputting spot and delete them if necessary.  Please note that
-this facility is provided only with Gtk+ applications and Qt
-applications.  You cannot use it with such an application that uses XIM
+this facility is available only with Gtk+ applications and Qt
+applications.  You cannot use it with applications that use XIM
 to communicate with an input method.
 
 Before explaining how to utilize "surrounding text support", you must
 understand how to use variables, arithmetic comparison, and
-a conditional action.
+conditional actions.
 
 At first, any symbol (except for several preserved ones) used as ARG
-of an action is treated as a variable.  For instance,
+of an action is treated as a variable.  For instance, the commands
 
   (set X 32) (insert X)
 
-sets the variable "X" to integer value 32, and insert a character
+set the variable "X" to integer value 32, then insert a character
 whose Unicode character code is 32 (i.e. SPACE).
 
-The second argument of "set" action can be an expression of this form:
+The second argument of the "set" action can be an expression of this form:
 
   (OPERAND ARG1 [ARG2])
 
-And both ARG1 and ARG2 can be an expression.  So,
+Both ARG1 and ARG2 can be an expression.  So,
 
   (set X (+ (* Y 32) Z)) --- set "X" to the value of "Y*32+Z"
 
-We have these arithmetic/bitwise OPERANDs (require two arguments):
+We have the following arithmetic/bitwise OPERANDs (require two arguments):
 
   + - * / & |
 
@@ -217,21 +251,20 @@ For surrounding text support, we have these preserved variables:
 The values of them are predefined as below and can not be altered.
 
   @-0  -- -1 if surrounding text is supported, -2 if not.
-  @-N  -- N previous character of the preedit buffer.  If there is only
-          M previous characters in it, the value is (N-M) previous
-	  character of the inputting spot.
-  @+N  -- N following character of the preedit buffer.  If there is only
-          M following characters in it, the value is (N-M) following
-	  character of the inputting spot.
+  @-N  -- The Nth previous character in the preedit buffer.  If there is only
+          M (M<N) previous characters in it, the value is the (N-M)th previous
+	  character from the inputting spot.
+  @+N  -- The Nth following character in the preedit buffer.  If there is only
+          M (M<N) following characters in it, the value is the (N-M)th following
+	  character from the inputting spot.
 
-So, provided that you have this context ("def" is in the preedit
-buffer, 2 "|"s just indicate borders between the preedit buffer and
-the surrounding text):
+So, provided that you have this context:
 
   ABC|def|GHI
 
-and your current position in the preedit buffer is just after "d", we
-have these values:
+("def" is in the preedit buffer, two "|"s indicate borders between the
+preedit buffer and the surrounding text) and your current position in
+the preedit buffer is between "d" and "e", we have these values:
 
   @-3 -- ?B
   @-2 -- ?C
@@ -243,16 +276,16 @@ have these values:
 Next, you have to understand a conditional action of this form:
 
   (cond
-    (EXPR1 ACTION ...)
-    (EXPR2 ACTION ...)
+    (EXPR1 ACTION ACTION ...)
+    (EXPR2 ACTION ACTION ...)
     ...)
 
-where EXPRn are expression.  When an input method executes this
-action, it resolves values of EXPRn one by one from the first branch.
-If the value of EXPRm is resolved into nonzero, the corresponding
+where EXPRn are expressions.  When an input method executes this
+action, it resolves the values of EXPRn one by one from the first branch.
+If the value of EXPRn is resolved into nonzero, the corresponding
 actions are executed.
 
-Now you are ready to write a new version of input method.
+Now you are ready to write a new version of the input method "Titlecase".
 
 ---titlecase2.mim------------------------------------------------------
 (input-method en titlecase)
@@ -287,12 +320,12 @@ Now you are ready to write a new version of input method.
                   (1 (set X (+ X 32)) (insert X))))))))
 ----------------------------------------------------------------------
 
-Above example contains a new action "delete".  So, it is time to
+The above example contains a new action "delete".  So, it is time to
 explain more about the preedit buffer.  The preedit buffer is a
-temporary place to store a sequence of character.  In the buffer, an
-input method keep one position called "current position".  The current
-position exist between characters, at the head of the buffer, or at
-the tail of the buffer.  The "insert" action inserts characters before
+temporary place to store a sequence of characters.  In this buffer, the
+input method keeps one position called the "current position".  The current
+position exists between two characters, at the beginning of the buffer, or at
+the end of the buffer.  The "insert" action inserts characters before
 the current position.  For instance, when your preedit
 buffer contains "ab.c" ("." indicates the current position),
 
@@ -300,76 +333,78 @@ buffer contains "ab.c" ("." indicates the current position),
 
 changes the buffer to "abxyz.c".
 
-There are several predefined variables that hold a position in the
+There are several predefined variables that represent a specific position in the
 preedit buffer.  They are:
 
   @<, @=, @> -- the first, current, and last positions
   @-, @+     -- the previous and the next positions
 
-The format of "delete" action is this:
+The format of the "delete" action is:
 
   (delete POS)
 
-and the meaning is to delete characters between the position POS and
+where POS is a positional variable beginning with @.
+The above action deletes the characters between POS and
 the current position.  So, "(delete @-)" deletes one character before
 the current position.  The other examples of "delete" actions are:
 
   (delete @+)  -- delete the next character
-  (delete 0<)  -- delete all preceding characters in the buffer
-  (delete @>)  -- delete all following characters in the buffer
+  (delete @<)  -- delete all the preceding characters in the buffer
+  (delete @>)  -- delete all the following characters in the buffer
 
-You can change the current position by "move" action as below:
+You can change the current position by the "move" action as below:
 
   (move @-)  -- move the current position to the position before the
                 previous character
   (move @<)  -- move to the first position
 
+Other positional variables work similarly.
+Let's see how our new example works.  Whatever a key event is, the
+input method is in its only state, "init".  Since an event of a lower letter
+key is first handled by MAP-ACTIONs, every key is changed into the
+corresponding uppercase and put into the preedit buffer.  Now this character
+can be retrieved with @-1.
 
-Let us see how our new example works.  Whatever a key event is, the
-input method is in its only state, "init".  A event of lower letter
-key is first handled by MAP-ACTIONs, so that every key is shifted to
-upcase and put into the preedit area.  The character now put into the
-preedit buffer and can be retrieved by @-1.
-
-How can we determine if the new character should actually be in its
-lower case?  We have to check the character before it, that is, @-2.
+How can we determine whether the new character should be
+lowercase or not?  We have to check the character before it, that is, @-2.
 BRANCH-ACTIONs in the "init" state do the job.
 
-It first checks if the character @-2 is between A to Z, or between a
-to z, by the conditional below.
+It first checks if the character @-2 is between A and Z, or between a
+and z, by the conditional below.
 
      (cond ((| (& (>= @-2 ?A) (<= @-2 ?Z))
                (& (>= @-2 ?a) (<= @-2 ?z))
                (= @-2 ?İ))
 
-If not, the work with this key event is done.  If so, our new key
-should be changed back to lowercase.  The upcase character is already
+If not, there is nothing to do specially.  If so, our new key
+should be changed back into lowercase.  The uppercase character is already
 in the preedit buffer and we have to retrieve and remember it in the
 variable X by
 
     (set X @-1)
 
-and then delete the character by
+and then delete that character by
 
     (delete @-)
 
-Lastly we insert back the character in its lowercase form.  The
-problem here is that "İ" must be changed to "i", so we need another
-conditional.  The first branch means that "if the character remembered
-in X is İ, "i" is inserted".
+Lastly we insert the character back in its lowercase form.  The
+problem here is that "İ" must be changed into "i", so we need another
+conditional.  The first branch
+
+    ((= X ?İ) "i")
+
+means that "if the character remembered in X is İ, "i" is inserted".
 
 The second branch 
 
-     (1 (set X (+ X 32)) (insert X))
+    (1 (set X (+ X 32)) (insert X))
 
-starts with "1" that is always resolved into nonzero, so this branch
-is catchall.  Actions in this branch shifts up X by 32 and then insert
-it, that is, they make A...Z into a...z respectively and inserts the
-lower case character to the preedit buffer.  As the input method
+starts with "1", which is always resolved into nonzero, so this branch
+is catchall.  Actions in this branch add 32 to X itself and then insert
+X.  In other words, they make A...Z into a...z respectively and insert the
+lowercase character into the preedit buffer.  As the input method
 reached the end of the BRANCH-ACTIONs, the character is commited.
 
 This new input method always checks the character before the current
 position, so "A Quick Blown Fox" will be successfully fixed to "A
 Quick Brown Fox" by a backspace and <r>.
-
-
