@@ -55,16 +55,16 @@ KEYSEQ specifies a sequence of keys in this format:
 where SYMBOLIC-KEY is the keysym value returned by the xev command.
 For instance
 @verbatim
-  [[(n i)]]
+  (n i)
 @endverbatim
 represents a key sequence of <<n>> and <<i>>.
 If all SYMBOLIC-KEYs are ASCII characters, you can use the short form
 @verbatim
-  [["ni"]]
+  "ni"
 @endverbatim
 instead.  Consult #mdbIM for Non-ASCII characters.
 
-MAP-ACTION and BRANCH-ACTION are a sequence of actions of this format:
+Both MAP-ACTION and BRANCH-ACTION are a sequence of actions of this format:
 @verbatim
   (ACTION ARG ARG ...)
 @endverbatim
@@ -80,7 +80,7 @@ If [["TEXT"]] contains only one character "C", you can write it as
 @verbatim
   (insert ?C)
 @endverbatim
-or just
+or even shorter as
 @verbatim
   ?C
 @endverbatim
@@ -98,28 +98,34 @@ Here is a simple example of an input method that works as CapsLock.
 (description (_ "Upcase all lowercase letters"))
 (title "a->A")
 (map
-  (toupper ("a" "A") ("b" "B") ... ("z" "Z")))
+  (toupper ("a" "A") ("b" "B") ("c" "C") ("d" "D") ("e" "E")
+           ("f" "F") ("g" "G") ("h" "H") ("i" "I") ("j" "J")
+           ("k" "K") ("l" "L") ("m" "M") ("n" "N") ("o" "O")
+           ("p" "P") ("q" "Q") ("r" "R") ("s" "S") ("t" "T")
+           ("u" "U") ("v" "V") ("w" "W") ("x" "X") ("y" "Y")
+           ("z" "Z")))
 (state
   (init (toupper)))
 @endverbatim
 
 When this input method is activated, it is in the initial condition of
-the first state (in this case, it is [[init]]).  In the initial condition,
-no key is being processed and no action is suspended.  When it
-receives a key event <<a>>, it searches branches in the current state
-for a rule that matches <<a>> and finds one in the map [[toupper]].
-Then it executes MAP-ACTIONs (in this case, just inserting "A" in the
-preedit buffer).  After all MAP-ACTIONs have been executed, the input
-method shifts to the initial condition of the current state.
+the first state (in this case, the only state [[init]]).  In the
+initial condition, no key is being processed and no action is
+suspended.  When the input method receives a key event <<a>>, it
+searches branches in the current state for a rule that matches <<a>>
+and finds one in the map [[toupper]].  Then it executes MAP-ACTIONs
+(in this case, just inserting "A" in the preedit buffer).  After all
+MAP-ACTIONs have been executed, the input method shifts to the initial
+condition of the current state.
 
 The shift to <em>the initial condition of the first state</em> has a special
 meaning; it commits all characters in the preedit buffer then clears
 the preedit buffer.
 
-As a result, "A" is given to an application program.
+As a result, "A" is given to the application program.
 
 When a key event does not match with any rule in the current state,
-that event is unhandled and given back to an application program.
+that event is unhandled and given back to the application program.
 
 Turkish users may want to extend the above example for "İ" (U+0130:
 LATIN CAPITAL LETTER I WITH DOT ABOVE).  It seems that assigning the
@@ -130,16 +136,16 @@ will add this rule in [[toupper]].
     ("ii" "İ")
 @endverbatim
 
-But we already have this rule too:
+However, we already have the following rule:
 
 @verbatim
     ("i" "I")
 @endverbatim
 
-What will happen when a key event <i> is sent to the input method?
+What will happen when a key event <<i>> is sent to the input method?
 
 No problem.  When the input method receives <<i>>, it inserts "I" in the
-preedit buffer.  But, it knows that there is another rule that may
+preedit buffer.  It knows that there is another rule that may
 match the additional key event <<i>>.  So, after inserting "I", it
 suspends the normal behavior of shifting to the initial condition, and
 waits for another key.  Thus, the user sees "I" with underline, which
@@ -150,7 +156,7 @@ done by the rule for the previous "i" (in this case, the preedit buffer is
 cleared), and executes MAP-ACTIONs of the rule for "ii".  So, "İ" is
 inserted in the preedit buffer.  This time, as there are no other rules
 that match with an additional key, it shifts to the initial condition
-of the current state, and commits "İ".
+of the current state, which leads to commit "İ".
 
 Then, what will happen when the next key event is <<a>> instead of <<i>>?
 
@@ -164,12 +170,12 @@ the current state, which leads to commit "A".
 
 So far, we have explained MAP-ACTION, but not
 BRANCH-ACTION.  The format of BRANCH-ACTION is the same as that of MAP-ACTION.
-It is executed only after a matching rule was determined and the
-corresponding MAP-ACTIONs were executed.  A typical use of
+It is executed only after a matching rule has been determined and the
+corresponding MAP-ACTIONs have been executed.  A typical use of
 BRANCH-ACTION is to shift to a different state.
 
-To see this effect, let us modify the current input method to upcase a
-letter only at a beginning of a word (i.e. capitalizing).  For that purpose,
+To see this effect, let us modify the current input method to upcase only
+word-initial letters (i.e. to capitalize).  For that purpose,
 we modify the "init" state as this:
 
 @verbatim
@@ -186,18 +192,23 @@ Here [[(shift non-upcase)]] is an action to shift to the new state
     (nil (shift init)))
 @endverbatim
 
-The first branch is simple.  We can define a new map [[lower]] as the
+The first branch is simple.  We can define the new map [[lower]] as the
 following to insert lowercase letters as they are.
 
 @verbatim
 (map
   ...
-  (lower ("a" "a") ("b" "b") ... ("z" "z")))
+  (lower ("a" "a") ("b" "b") ("c" "c") ("d" "d") ("e" "e")
+         ("f" "f") ("g" "g") ("h" "h") ("i" "i") ("j" "j")
+         ("k" "k") ("l" "l") ("m" "m") ("n" "n") ("o" "o")
+         ("p" "p") ("q" "q") ("r" "r") ("s" "s") ("t" "t")
+         ("u" "u") ("v" "v") ("w" "w") ("x" "x") ("y" "y")
+         ("z" "z")))
 @endverbatim
 
 The second branch has a special meaning.  The map name [[nil]] means
 that it matches with any key event that does not match any rules in the
-other maps in the same state.  In addition, it does not
+other maps in the current state.  In addition, it does not
 consume any key event.  We will show the full code of the new input
 method before explaining how it works.
 
@@ -206,8 +217,18 @@ method before explaining how it works.
 (description (_ "Titlecase letters"))
 (title "abc->Abc")
 (map
-  (toupper ("a" "A") ("b" "B") ... ("z" "Z") ("ii" "Ä°"))
-  (lower ("a" "a") ("b" "b") ... ("z" "z")))
+  (toupper ("a" "A") ("b" "B") ("c" "C") ("d" "D") ("e" "E")
+           ("f" "F") ("g" "G") ("h" "H") ("i" "I") ("j" "J")
+           ("k" "K") ("l" "L") ("m" "M") ("n" "N") ("o" "O")
+           ("p" "P") ("q" "Q") ("r" "R") ("s" "S") ("t" "T")
+           ("u" "U") ("v" "V") ("w" "W") ("x" "X") ("y" "Y")
+           ("z" "Z") ("ii" "İ"))
+  (lower ("a" "a") ("b" "b") ("c" "c") ("d" "d") ("e" "e")
+         ("f" "f") ("g" "g") ("h" "h") ("i" "i") ("j" "j")
+         ("k" "k") ("l" "l") ("m" "m") ("n" "n") ("o" "o")
+         ("p" "p") ("q" "q") ("r" "r") ("s" "s") ("t" "t")
+         ("u" "u") ("v" "v") ("w" "w") ("x" "x") ("y" "y")
+         ("z" "z")))
 (state
   (init
     (toupper (shift non-upcase)))
@@ -216,23 +237,24 @@ method before explaining how it works.
     (nil (shift init))))
 @endverbatim
 
-Let's see what happens when a user types keys <<a>> <<b>> << >>.
+Let's see what happens when the user types the key sequence <<a>> <<b>> << >>.
 Upon <<a>>, "A" is committed and the state shifts to [[non-upcase]].
 So, the next <<b>> is handled in the [[non-upcase]] state.
-As it matches with a
-rule in the map "lower", "b" is inserted in the preedit buffer and it
+As it matches a
+rule in the map [[lower]], "b" is inserted in the preedit buffer and it
 is committed explicitly by the "commit" command in BRANCH-ACTION.  After
 that, the input method is still in the [[non-upcase]] state.  So the next << >>
-is also handled in [[non-upcase]].  This time, as no rule in this state
-matches it, the branch [[(nil (shift init))]] is selected, and the
-state is changed to [[init]].  Please note that << >> is not yet handled.
+is also handled in [[non-upcase]].  For this time, no rule in this state
+matches it.  Thus the branch [[(nil (shift init))]] is selected and the
+state is shifted to [[init]].  Please note that << >> is not yet
+handled because the map [[nil]] does not consume any key event.
 So, the input method tries to handle it in the [[init]] state.  Again no
 rule matches it.  Therefore, that event is given back to the application
 program, which usually inserts a space for that.
 
 When you type "a quick blown fox" with this input method, you get "A
-Quick Blown Fox".  OK, you find a typo in "blown", it should be
-"brown".  To correct it, you move the cursor after "l" and type
+Quick Blown Fox".  OK, you find a typo in "blown", which should be
+"brown".  To correct it, you probably move the cursor after "l" and type
 <<Backspace>> and <<r>>.  However, if the current input method is still
 active, a capital "R" is inserted.  It is not a sophisticated
 behavior.
@@ -241,13 +263,13 @@ behavior.
 
 To make the input method work well also in such a case, we must use
 "surrounding text support".  It is a way to check characters around
-the inputting spot and delete them if necessary.  Please note that
+the inputting spot and delete them if necessary.  Note that
 this facility is available only with Gtk+ applications and Qt
 applications.  You cannot use it with applications that use XIM
 to communicate with an input method.
 
 Before explaining how to utilize "surrounding text support", you must
-understand how to use variables, arithmetic comparison, and
+understand how to use variables, arithmetic comparisons, and
 conditional actions.
 
 At first, any symbol (except for several preserved ones) used as ARG
@@ -286,7 +308,7 @@ these relational OPERANDs (require two arguments):
   == <= >= < >
 @endverbatim
 
-and this logical OPERAND (require one argument):
+and this logical OPERAND (requires one argument):
 
 @verbatim
   !
@@ -295,7 +317,7 @@ and this logical OPERAND (require one argument):
 For surrounding text support, we have these preserved variables:
 
 @verbatim
-  @-0, @-N, @+N (N is a natural number)
+  @-0, @-N, @+N (N is a positive integer)
 @endverbatim
 
 The values of them are predefined as below and can not be altered.
@@ -307,13 +329,13 @@ The values of them are predefined as below and can not be altered.
 
 <li> [[@-N]]
 
-The Nth previous character in the preedit buffer.  If there is only M
+The Nth previous character in the preedit buffer.  If there are only M
 (M<N) previous characters in it, the value is the (N-M)th previous
 character from the inputting spot.
 
 <li> [[@+N]]
 
-The Nth following character in the preedit buffer.  If there is only M
+The Nth following character in the preedit buffer.  If there are only M
 (M<N) following characters in it, the value is the (N-M)th following
 character from the inputting spot.
 
@@ -327,7 +349,7 @@ So, provided that you have this context:
 
 ("def" is in the preedit buffer, two "|"s indicate borders between the
 preedit buffer and the surrounding text) and your current position in
-the preedit buffer is between "d" and "e", we have these values:
+the preedit buffer is between "d" and "e", you get these values:
 
 @verbatim
   @-3 -- ?B
@@ -338,7 +360,7 @@ the preedit buffer is between "d" and "e", we have these values:
   @+3 -- ?G
 @endverbatim
 
-Next, you have to understand a conditional action of this form:
+Next, you have to understand the conditional action of this form:
 
 @verbatim
   (cond
@@ -364,37 +386,39 @@ Now you are ready to write a new version of the input method "Titlecase".
            ("k" "K") ("l" "L") ("m" "M") ("n" "N") ("o" "O")
            ("p" "P") ("q" "Q") ("r" "R") ("s" "S") ("t" "T")
            ("u" "U") ("v" "V") ("w" "W") ("x" "X") ("y" "Y")
-           ("z" "Z") ("ii" "Ä°")))
+           ("z" "Z") ("ii" "İ")))
 (state
   (init
     (toupper
 
-     ;; Now we have one character in the preedit buffer.  So, "@-2" is
-     ;; the character just before the inputting spot.
+     ;; Now we have exactly one uppercase character in the preedit
+     ;; buffer.  So, "@-2" is the character just before the inputting
+     ;; spot.
 
      (cond ((| (& (>= @-2 ?A) (<= @-2 ?Z))
                (& (>= @-2 ?a) (<= @-2 ?z))
                (= @-2 ?İ))
 
-	    ;; If that character is A..Z, a..z, or İ, remember the
-	    ;; character in the preedit in X and delete it.
+	    ;; If the character before the inputting spot is A..Z,
+	    ;; a..z, or İ, remember the only character in the preedit
+	    ;; buffer in the variable X and delete it.
 
 	    (set X @-1) (delete @-)
 
-	    ;; Then insert a proper lower case version of X.
+	    ;; Then insert the lowercase version of X.
 
 	    (cond ((= X ?İ) "i") 
                   (1 (set X (+ X 32)) (insert X))))))))
 @endverbatim
 
-The above example contains a new action [[delete]].  So, it is time to
-explain more about the preedit buffer.  The preedit buffer is a
-temporary place to store a sequence of characters.  In this buffer, the
-input method keeps a position called the "current position".  The current
-position exists between two characters, at the beginning of the buffer, or at
-the end of the buffer.  The "insert" action inserts characters before
-the current position.  For instance, when your preedit
-buffer contains "ab.c" ("." indicates the current position),
+The above example contains the new action [[delete]].  So, it is time
+to explain more about the preedit buffer.  The preedit buffer is a
+temporary place to store a sequence of characters.  In this buffer,
+the input method keeps a position called the "current position".  The
+current position exists between two characters, at the beginning of
+the buffer, or at the end of the buffer.  The [[insert]] action inserts
+characters before the current position.  For instance, when your
+preedit buffer contains "ab.c" ("." indicates the current position),
 
 @verbatim
   (insert "xyz")
@@ -421,23 +445,23 @@ The format of the [[delete]] action is this:
   (delete POS)
 @endverbatim
 
-where POS is a positional variable beginning with [[@]].
+where POS is a predefined positional variable.
 The above action deletes the characters between POS and
 the current position.  So, [[(delete @-)]] deletes one character before
 the current position.  The other examples of [[delete]] include the followings:
 
 @verbatim
-  (delete @+)  -- delete the next character
-  (delete @<)  -- delete all the preceding characters in the buffer
-  (delete @>)  -- delete all the following characters in the buffer
+  (delete @+)  ; delete the next character
+  (delete @<)  ; delete all the preceding characters in the buffer
+  (delete @>)  ; delete all the following characters in the buffer
 @endverbatim
 
 You can change the current position using the [[move]] action as below:
 
 @verbatim
-  (move @-)  -- move the current position to the position before the
-                previous character
-  (move @<)  -- move to the first position
+  (move @-)  ; move the current position to the position before the
+               previous character
+  (move @<)  ; move to the first position
 @endverbatim
 
 Other positional variables work similarly.
@@ -448,12 +472,12 @@ key is firstly handled by MAP-ACTIONs, every key is changed into the
 corresponding uppercase and put into the preedit buffer.  Now this character
 can be accessed with [[@-1]].
 
-How can we tell whether the new character is
-lowercase or not?  We have to check the character before it, that is, [[@-2]].
-BRANCH-ACTIONs in the [[init]] state do the job.
+How can we tell whether the new character should be a lowercase or an
+uppercase?  We can do so by checking the character before it, i.e.
+[[@-2]].  BRANCH-ACTIONs in the [[init]] state do the job.
 
-It first checks if the character [[@-2]] is between A to Z, or between
-a to z, by the conditional below.
+It first checks if the character [[@-2]] is between A to Z, between
+a to z, or İ by the conditional below.
 
 @verbatim
      (cond ((| (& (>= @-2 ?A) (<= @-2 ?Z))
@@ -461,9 +485,9 @@ a to z, by the conditional below.
                (= @-2 ?İ))
 @endverbatim
 
-If not, there is nothing to do specially.  If so, our new key
-should be changed back into lowercase.  The uppercase character is already
-in the preedit buffer and we have to retrieve and remember it in the
+If not, there is nothing to do specially.  If so, our new key should
+be changed back into lowercase.  Since the uppercase character is
+already in the preedit buffer, we retrieve and remember it in the
 variable [[X]] by
 
 @verbatim
@@ -493,15 +517,15 @@ The second branch
 @endverbatim
 
 starts with "1", which is always resolved into nonzero, so this branch
-is catchall.  Actions in this branch add 32 to [[X]] itself and then
+is a catchall.  Actions in this branch increase [[X]] by 32, then
 insert [[X]].  In other words, they change A...Z into a...z
-respectively and insert the lowercase character into the preedit
-buffer.  As the input method reached the end of the BRANCH-ACTIONs,
-the character is commited.
+respectively and insert the resulting lowercase character into the
+preedit buffer.  As the input method reaches the end of the
+BRANCH-ACTIONs, the character is commited.
 
 This new input method always checks the character before the current
 position, so "A Quick Blown Fox" will be successfully fixed to "A
-Quick Brown Fox" by a <<BackSpace>> and <<r>>.
+Quick Brown Fox" by the key sequence <<BackSpace>> <<r>>.
 
 
 */
