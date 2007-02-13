@@ -5,13 +5,6 @@
 
 /***
 
-@htmlonly
-<style type="text/css">
-<!--
-.red { color:red }
--->
-@endhtmlonly
-
 @page mdbTutorialIM Tutorial of input method
 
 @section im-struct Structure of an input method file
