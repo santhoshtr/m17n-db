@@ -109,7 +109,7 @@ MTEXT は Latin-1 文字を含んでもよい。
 MAP-ACTION ::= ACTION
 
 ACTION ::= INSERT | DELETE | SELECT | MOVE | MARK
-           | SHOW | HIDE | PUSHBACK | UNDO | UNHANDLE | SHIFT | CALL
+           | SHOW | HIDE | PUSHBACK | POP | UNDO | UNHANDLE | SHIFT | CALL
 	   | SET | IF | COND | '(' MACRO-NAME ')'
 PREDEFINED-SYMBOL ::=
     '@0' | '@1' | '@2' | '@3' | '@4'
@@ -364,6 +364,13 @@ PUSHBACK :: = '(' 'pushback' INTEGER ')'
 トをイベントキューに差し戻す。0 ならばすべてのキーイベントを差し戻す。
 
 第二の形式は、@c KEYSEQ 中のキーをイベントキューに差し戻す。
+
+@verbatim
+POP ::= '(' 'pop' ')'
+@endverbatim
+
+このアクションはまだ処理されていない最初のイベントをイベントキューから
+取り出し破棄する。
 
 @verbatim
 UNDO :: = '(' 'undo' [ INTEGER | SYMBOL ] ')'

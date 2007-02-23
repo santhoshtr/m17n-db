@@ -115,7 +115,7 @@ code.
 MAP-ACTION ::= ACTION
 
 ACTION ::= INSERT | DELETE | SELECT | MOVE | MARK
-           | SHOW | HIDE | PUSHBACK | UNDO | UNHANDLE | SHIFT | CALL
+           | SHOW | HIDE | PUSHBACK | POP | UNDO | UNHANDLE | SHIFT | CALL
 	   | SET | IF | COND | '(' MACRO-NAME ')'
 
 PREDEFINED-SYMBOL ::=
@@ -382,6 +382,13 @@ to the event queue if @c INTEGER is positive, and pushes back all key
 events if @c INTEGER is zero.
 
 The second form pushes back keys in @c KEYSEQ to the event queue.
+
+@verbatim
+POP ::= '(' 'pop' ')'
+@endverbatim
+
+This action pops the first key event that is not yet handled from the
+event queue.
 
 @verbatim
 UNDO :: = '(' 'undo' [ INTEGER | SYMBOL ] ')'
