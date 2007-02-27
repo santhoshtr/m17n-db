@@ -41,14 +41,14 @@
  (0x200C		?x)
  (0x200D		?x)
  (0x25CC		?x)
- (0xFB50 0xFDFF		?X)		; Arabic Presentation Froms-A
- (0xFE70 0xFEFC		?X)		; Arabic Presentation Froms-B
+ (0xFB50 0xFDFF		?X)		; Arabic Presentation Forms-A
+ (0xFE70 0xFEFC		?X)		; Arabic Presentation Forms-B
  )
 
 (generator
  (0
   (cond
-   ;; If a presentation from is found, draw the whole sequence as is.
+   ;; If a presentation form is found, draw the whole sequence as is.
    (".*X.*" = *)
 
    (".*p.*"				; If a high hamza is found,
@@ -125,8 +125,8 @@
  (0x200C		?U)
  (0x200D		?D)
  (0x25CC		?U)
- (0xFB50 0xFDFF		?X)		; Arabic Presentation Froms-A
- (0xFE70 0xFEFC		?X)		; Arabic Presentation Froms-B
+ (0xFB50 0xFDFF		?X)		; Arabic Presentation Forms-A
+ (0xFE70 0xFEFC		?X)		; Arabic Presentation Forms-B
  )
 
 ;; (generator

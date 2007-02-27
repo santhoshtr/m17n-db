@@ -34,8 +34,8 @@
  (0x06D5		?n)
  (0x200C		?x)
  (0x200D		?x)
- (0xFB50 0xFDFF		?x)		; Arabic Presentation Froms-A
- (0xFE70 0xFEFC		?x)		; Arabic Presentation Froms-B
+ (0xFB50 0xFDFF		?x)		; Arabic Presentation Forms-A
+ (0xFE70 0xFEFC		?x)		; Arabic Presentation Forms-B
  )
 
 (generator
