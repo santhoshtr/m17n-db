@@ -16,11 +16,13 @@ initialization time.  The plist format of this file is as follows:
 @verbatim
 MDB-DIR ::= DEFINITION *
 
-DEFINITION ::= '(' TAG0 [ TAG1 [ TAG2 [ TAG3 ] ] ] FILE ')'
+DEFINITION ::= '(' TAG0 [ TAG1 [ TAG2 [ TAG3 ] ] ] FILE [ VERSION ]')'
 
 TAGn ::= SYMBOL
 
 FILE ::= MTEXT
+
+VERSION ::= MTEXT
 @endverbatim
 
 If TAG0 is neither `charset' nor `char-table', and TAGn (n > 0) is a
@@ -30,7 +32,7 @@ of database files.  In that case, each file must contain a plist
 element providing the actual TAGn values by the form:
 
 @verbatim
-'(' TAG0 TAG1 TAG2 TAG3 ')'
+'(' TAG0 TAG1 TAG2 TAG3 [ VERSION ] ')'
 @endverbatim
 
 For instance, if a database directory contains these files:
@@ -57,6 +59,10 @@ can be shortened to this single line:
 @verbatim
 (input-method * "*.mim")
 @endverbatim
+
+VERSION is a required version number of the m17n library.  The format
+is "XX.YY.ZZ" where XX is a major version number, YY is a minor
+version number, and ZZ is a patch level.
 
 */
 

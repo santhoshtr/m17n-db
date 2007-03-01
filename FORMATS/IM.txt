@@ -27,7 +27,7 @@ INPUT-METHOD ::=
     IM-DECLARATION ? DESCRIPTION ? VARIABLE-LIST ? COMMAND-LIST ?
     TITLE MAP-LIST MACRO-LIST ? MODULE-LIST ? STATE-LIST
 
-IM-DECLARATION ::= '(' 'input-method' LANGUAGE NAME ')'
+IM-DECLARATION ::= '(' 'input-method' LANGUAGE NAME [ VERSION ] ')'
 DESCRIPTION ::= '(' 'description' [ MTEXT-OR-GETTEXT | nil] ')'
 VARIABLE-LIST ::= '(' 'variable' VARIABLE-DECLARATION * ')'
 COMMAND-LIST ::= '(' 'command' COMMAND-DECLARATION * ')'
@@ -44,6 +44,7 @@ MTEXT-OR-GETTEXT ::=
 
 LANGUAGE ::= SYMBOL
 NAME ::= SYMBOL
+VERSION ::= MTEXT
 IM-DESCRIPTION ::= MTEXT
 VAR-NAME ::= SYMBOL
 VAR-DESCRIPTION ::= MTEXT
@@ -55,6 +56,10 @@ CMD-NAME ::= SYMBOL
 CMD-DESCRIPTION ::= MTEXT
 TITLE-TEXT ::= MTEXT
 @endverbatim
+
+@c VERSION specifies the required minimum version number of the m17n
+library.  The format is is "XX.YY.ZZ" where XX is a major version
+number, YY is a minor version number, and ZZ is a patch level.
 
 @c IM-DECLARATION specifies the language and name of this input
 method.
