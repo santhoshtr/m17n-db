@@ -16,12 +16,53 @@ m17n ライブラリは初期化の際、m17n データベース中のデータ定義のリストを
 @verbatim
 MDB-DIR ::= DEFINITION *
 
-DEFINITION ::= '(' TAG [ TAG [ TAG [ TAG ] ] ] FILE ')'
+DEFINITION ::= '(' TAG0 [ TAG1 [ TAG2 [ TAG3 ] ] ] FILE [ VERSION ]')'
 
-TAG ::= SYMBOL
+TAGn ::= SYMBOL
 
 FILE ::= MTEXT
+
+VERSION ::= MTEXT
 @endverbatim
+
+TAG0 が `charset' でも `char-table' でもなく、,TAGn (n > 0) がシンボル
+`*' ならば、FILE にワイルドカードが含まれて良い。そしてシェルが用いる規
+則によって FILE とマッチするすべてのファイルがデータベースファイルのター
+ゲットとなる。この際、各ファイルは実際の TAGn の値を以下の形式で与える
+plist の要素を持たなくてはならない。
+
+@verbatim
+'(' TAG0 TAG1 TAG2 TAG3 [ VERSION ] ')'
+@endverbatim
+
+たとえば、データベースディレクトリが下のファイルを含むとしよう。
+
+@verbatim
+zh-py.mim:
+(input-method zh py)
+...
+
+ko-han2.mim:
+(input-method ko han2)
+...
+@endverbatim
+
+この時 "mdb.dir" 中の以下の行
+
+@verbatim
+(input-method zh py "zh-py.mim")
+(input-method ko han2 "ko-han2.mim")
+@endverbatim
+
+はこの一行に短縮できる。
+
+@verbatim
+(input-method * "*.mim")
+@endverbatim
+
+@c VERSION は 最低必要な m17n ライブラリのバージョン番号を示す。フォー
+マットは "XX.YY.ZZ" であり、XX はメジャーバージョン番号、YY はマイナー
+バージョン番号、ZZ はパッチレベルである。
 */
 
 /* 
