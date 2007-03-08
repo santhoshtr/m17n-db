@@ -25,11 +25,11 @@ FILE ::= MTEXT
 VERSION ::= MTEXT
 @endverbatim
 
-TAG0 が `charset' でも `char-table' でもなく、,TAGn (n > 0) がシンボル
+TAG0 が `charset' でも `char-table' でもなく、TAGn (n > 0) がシンボル
 `*' ならば、FILE にワイルドカードが含まれて良い。そしてシェルが用いる規
 則によって FILE とマッチするすべてのファイルがデータベースファイルのター
 ゲットとなる。この際、各ファイルは実際の TAGn の値を以下の形式で与える
-plist の要素を持たなくてはならない。
+プロパティリストの要素を持たなくてはならない。
 
 @verbatim
 '(' TAG0 TAG1 TAG2 TAG3 [ VERSION ] ')'
