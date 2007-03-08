@@ -57,12 +57,12 @@ CMD-DESCRIPTION ::= MTEXT
 TITLE-TEXT ::= MTEXT
 @endverbatim
 
+@c IM-DECLARATION specifies the language and name of this input
+method.
+
 @c VERSION specifies the required minimum version number of the m17n
 library.  The format is is "XX.YY.ZZ" where XX is a major version
 number, YY is a minor version number, and ZZ is a patch level.
-
-@c IM-DECLARATION specifies the language and name of this input
-method.
 
 @c DESCRIPTION specifies the description text of this input method by
 MTEXT-OR-GETTEXT.  It it takes the second form, the text is translated
