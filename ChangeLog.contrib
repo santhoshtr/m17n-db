@@ -1,3 +1,7 @@
+2007-03-19  Kenichi Handa  <handa@m17n.org>
+
+	* im/kn-inscript.mim: Add "`"->U+0CCA mapping.
+
 2007-01-30  Kenichi Handa  <handa@m17n.org>
 
 	* configure.ac: Version changed to 1.1.2.
