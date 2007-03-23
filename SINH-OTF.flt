@@ -1,5 +1,5 @@
 ;; SINH-OTF.flt -- Font Layout Table for Sinhala OpenType fonts
-;; Copyright (C) 2004, 2005
+;; Copyright (C) 2004, 2005, 2007
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -29,9 +29,9 @@
 (category
  ;; V : independent vowels
  ;; C : consonants
- ;; R : RA
  ;; H : AL-LAKUNA (virama)
- ;; m : pre-consonant vowel signs
+ ;; m : KOMBUVA
+ ;; M : DIGA KOMBUVA
  ;; b : below-consonant vowel signs
  ;; u : above-consonant vowel signs
  ;; p : post-consonant vowel signs
@@ -46,7 +46,6 @@
  (0x0D82 0x0D83 ?a)
  (0x0D85 0x0D96 ?V)
  (0x0D96 0x0DC6 ?C)
- (0x0DBB	?R)
  (0x0DCA	?H)
  (0x0DCF	?q)
  (0x0DD0 0x0DD1 ?p)
@@ -87,18 +86,6 @@
    ;; No signs.
    ("C(HJ[CR])*H?"
     < | otf:sinh=akhn,vatu,pres | >)
-
-   ;; Suppress repaya explicitly.
-   ("Rm(H|qH?|r)a?"
-    < | = * | >)
-   ("(R)(s)(H)?(a)?"
-    < | (1 =) (2 two-part) (3 =) (4 =) | >)
-   ("(R)(t)(a)?"
-    < | (1 =) (2 two-part) (3 =) | >)
-   ("R([mMbupqr]a?|a)"
-    < | = * | >)
-   ("RHJ?"
-    < | = = | >)
 
    ;; Independent vowels.
    ("Va?"
