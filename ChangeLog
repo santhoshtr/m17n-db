@@ -1,9 +1,11 @@
 2007-03-23  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
+	* si-wijesekera.mim: Adjust to new semantics of @-1, @-2, etc.
+
+	* SINH-OTF.flt, si-wijesekera.mim: Enable repaya.
+
 	* FORMATS/IM.txt, FORMATS/IM.ja.txt:
 	Update description of @-0, @-N, and @+N.
-
-	* si-wijesekera.mim, SINH-OTF.flt: Enable Repaya.
 
 2007-02-27  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
