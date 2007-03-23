@@ -530,39 +530,43 @@ This input method requires surrounding text support.
 (state
  (init
   (consonant
+   (move @<)
    (cond
     ((= @-1 0x0DD9)
      (cond
       ((= @-2 0x200C)
        (delete @-2)
+       (move @>)
        0x0DD9)
       ((| (< @-2 0x0D9A) (> @-2 0x0DC6))
        (delete @-1)
+       (move @>)
        0x0DD9)))
     ((= @-1 0x0DDB)
      (cond
       ((= @-2 0x200C)
        (delete @-2)
+       (move @>)
        0x0DDB)
       ((| (< @-2 0x0D9A) (> @-2 0x0DC6))
        (delete @-1)
+       (move @>)
        0x0DDB)))))
   (misc))
 
  (join
   (consonant
+   (move @<)
    (set c @-1)
    (cond
     ((| (= c 0x0DD9) (= c 0x0DDB))
      (cond
       ((& (>= @-2 0x0D9A) (<= @-2 0x0DC6))
        (delete @-1)
-       (move @<)
        0x0DCA 0x200D
        (move @>)
        (insert c))))
     ((& (>= c 0x0D9A) (<= c 0x0DC6))
-     (move @<)
      0x0DCA 0x200D))
    (shift init))
 
