@@ -128,7 +128,7 @@ PREDEFINED-SYMBOL ::=
     | '@5' | '@6' | '@7' | '@8' | '@9'
     | '@<' | '@=' | '@>' | '@-' | '@+' | '@[' | '@]'
     | '@@'
-    | '@-N' | '@+N'
+    | '@-0' | '@-N' | '@+N'
 @endverbatim
 @verbatim
 MACRO-LIST ::= '(' 'macro' MACRO * ')'
@@ -268,19 +268,25 @@ Number of handled keys at that moment.
 These are for supporting surround text handling.
 
 <ul>
+<li> @c @@-0
+
+-1 if surrounding text is supported, -2 if not.
+
 <li> @c @@-N
 
-Here, @c N is a positive integer.  The value is a character at Nth
-previous position from the current caret of the surrounding text.
-When this is used as the argument of @c delete action, it specifies
-how many preceding characters in the surround text to delete.
+Here, @c N is a positive integer.  The value is the Nth previous
+character in the preedit buffer.  If there are only M (M<N) previous
+characters in it, the value is the (N-M)th previous character from the
+inputting spot.  When this is used as the argument of @c delete
+action, it specifies the number of characters to be deleted.
 
 <li> @c @@+N
 
-Here, @c N is a positive integer.  The value is a character at Nth
-next position from the current caret of the surrounding text.
-When this is used as the argument of @c delete action, it specifies
-how many following characters in the surround text to delete.
+Here, @c N is a positive integer.  The value is the Nth following
+character in the preedit buffer.  If there are only M (M<N) following
+characters in it, the value is the (N-M)th following character from
+the inputting spot.  When this is used as the argument of @c delete
+action, it specifies the number of characters to be deleted.
 </ul>
 
 The arguments and the behavior of each action are listed below.
