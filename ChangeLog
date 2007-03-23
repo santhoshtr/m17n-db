@@ -1,5 +1,7 @@
 2007-03-23  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
+	* IM.ja.txt, IM.txt: Update description of @-0, @-N, and @+N.
+
 	* si-wijesekera.mim (consonant): Enable Repaya.
 
 2007-02-27  TAKAHASHI Naoto  <ntakahas@m17n.org>
