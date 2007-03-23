@@ -299,26 +299,26 @@ This input method requires surrounding text support.
     ((> c 0)
      (insert c))))
 
-;; Repaya is disabled.
-;;   ("~"
-;;    (set c @-1)
-;;    (cond
-;;     ((| (= c 0x0DD9) (= c 0x0DDB))
-;;      (delete @-1))
-;;     (1
-;;      (set c 0)))
-;;    (backward)
-;;    (cond
-;;     ((& (>= @-1 0x0D9A) (<= @-1 0x0DC6))
-;;      (set c1 @-1)
-;;      (delete @-1)
-;;      (insert c1)
-;;      (move @<)
-;;      0x0DBB 0x0DCA 0x200D))
-;;    (cond
-;;     ((> c 0)
-;;      (move @>)
-;;      (insert c))))
+  ;; Repaya is disabled.
+  ("~"
+   (set c @-1)
+   (cond
+    ((| (= c 0x0DD9) (= c 0x0DDB))
+     (delete @-1))
+    (1
+     (set c 0)))
+   (backward)
+   (cond
+    ((& (>= @-1 0x0D9A) (<= @-1 0x0DC6))
+     (set c1 @-1)
+     (delete @-1)
+     (insert c1)
+     (move @<)
+     0x0DBB 0x0DCA 0x200D))
+   (cond
+    ((> c 0)
+     (move @>)
+     (insert c))))
 
   ((BackSpace)
    (delete-preceding-zw)
