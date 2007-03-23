@@ -299,7 +299,7 @@ This input method requires surrounding text support.
     ((> c 0)
      (insert c))))
 
-  ;; Repaya is disabled.
+  ;; repaya
   ("~"
    (set c @-1)
    (cond
