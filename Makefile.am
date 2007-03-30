@@ -118,6 +118,7 @@ INPUT_METHOD = \
 	dv-phonetic.mim \
 	el-kbd.mim \
 	fa-isiri.mim \
+	fr-azerty.mim \
 	grc-mizuochi.mim \
 	gu-itrans.mim \
 	he-kbd.mim \
@@ -327,13 +328,9 @@ NAME.tab: UNIDATA/UnicodeData.txt NAME.awk
 	echo "# Generated from $<." > $@
 	@$(AWK) -f NAME.awk $< >> $@
 
-SCRIPT.tab: UNIDATA/Scripts.txt Makefile
+SCRIPT.tab: UNIDATA/Scripts.txt UNIDATA/UnicodeData.txt SCRIPT.awk SCRIPT.ext
 	echo "# Generated from $<." > $@
-	@echo "0x0-0x3FFFFF common" >> $@
-	@sed '/; Common / d' $< | \
-	  $(AWK) '/^[0-9A-F]/ { print "0x"$$1, $$3; }' | \
-	  sed -e 's/\.\./-0x/' | \
-	  tr '[:upper:]' '[:lower:]' >> $@
+	@$(AWK) -f SCRIPT.awk UNIDATA/Scripts.txt >> $@
 
 CASED.tab: UNIDATA/UnicodeData.txt UNIDATA/PropList.txt UNIDATA/WordBreakProperty.txt CASED.awk
 	echo "# Generated from UNIDATA/UnicodeData.txt, UNIDATA/PropList.txt, and UNIDATA/WordBreakProperty.txt." > $@
