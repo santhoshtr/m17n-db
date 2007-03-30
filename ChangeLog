@@ -1,5 +1,11 @@
 2007-03-30  Kenichi Handa  <handa@m17n.org>
 
+	* UNIDATA/CaseFolding.txt, UNIDATA/LineBreak.txt,
+	UNIDATA/PropList.txt, UNIDATA/Scripts.txt, UNIDATA/SpecialCasing.txt,
+	UNIDATA/WordBreakProperty.txt: Files udpated.
+
+	* cjk-util.mim (fullwidth): Assign more currency signs to "$".
+
 	* SCRIPT.ext: New file.
 
 	* SCRIPT.awk: New file.
