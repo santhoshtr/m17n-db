@@ -1,5 +1,5 @@
 ;; BENG-OTF.flt -- Font Layout Table for Bengali OpenType font
-;; Copyright (C) 2004
+;; Copyright (C) 2004, 2007
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -84,6 +84,14 @@
 (generator
  (0
   (cond
+   ;; Special case.  The sequence "C1 H N C2 m" is reordered as
+   ;; "C1 H m C2", not "m C1 H C2".  Besides, "C1 H" is drawn in the
+   ;; halant-form.
+   ("([CRBY]n?H)N"
+    < |
+    (1 otf:beng=hln)
+    | >)
+
    ;; Case A-C are for those syllables that end with an explicit vowel
    ;; mark and/or a vowel modifier.  They are divided into three cases
    ;; for the readability of regular expression.  The leading
@@ -93,7 +101,7 @@
 
    ;; Case A : A syllable ending with a vowel modifier.
    ;;1    23                4          5       6   7
-   ("(RH)?(([CRBY]n?H[NJ]?)*([CRBY]n?))([mbp]*)(t)?([Aa])"
+   ("(RH)?(([CRBY]n?HJ?)*([CRBY]n?))([mbp]*)(t)?([Aa])"
     < |
     (1 = =)
     (2 set-marks)
@@ -104,7 +112,7 @@
 
    ;; Case B : A syllable ending with a two-part vowel.
    ;;1    23                4          5
-   ("(RH)?(([CRBY]n?H[NJ]?)*([CRBY]n?))(t)"
+   ("(RH)?(([CRBY]n?HJ?)*([CRBY]n?))(t)"
     < |
     (1 = =)
     (2 set-marks)
@@ -115,7 +123,7 @@
    ;; two-part vowel may be expressed with two vowel marks for
    ;; backward compatibility.
    ;;1    23                4          5
-   ("(RH)?(([CRBY]n?H[NJ]?)*([CRBY]n?))([mbp]+)"
+   ("(RH)?(([CRBY]n?HJ?)*([CRBY]n?))([mbp]+)"
     < |
     (1 = =)
     (2 set-marks)
@@ -138,7 +146,7 @@
    ;; with a consonant, analyse it for reordering in the next step.
    ;; Otherwise, just identify the syllable without changing anything.
    ;;1    23                         4
-   ("(RH)?(([CRBY]n?H[NJ]?)*[CRBY]n?)(HN|HJ|H)?"
+   ("(RH)?(([CRBY]n?HJ?)*[CRBY]n?)(HN|HJ|H)?"
     < |
     (1 = =)
     (2 set-marks)
@@ -162,7 +170,7 @@
   (cond
    ;; Ending with Y.
    ;;1        2            3  45        6
-   ("([CRBY]n?(H[NJ]?Cn?)*)(H)(([RB]H)*)(Y)"
+   ("([CRBY]n?(HJ?Cn?)*)(H)(([RB]H)*)(Y)"
     (1 = *)				; prebase & base
     0x09FE				; mark #1
     (4 = *)				; below consonants
@@ -171,7 +179,7 @@
     (3 =))				; moved HASANT
    ;; Ending with R or B.
    ;;1        2            3  45
-   ("([CRBY]n?(H[NJ]?Cn?)*)(H)(([RB]H)*[RB])"
+   ("([CRBY]n?(HJ?Cn?)*)(H)(([RB]H)*[RB])"
     (1 = *)				; prebase & base
     0x09FE				; mark #1
     (4 = *)				; below consonants 
@@ -195,7 +203,7 @@
  (0
   (cond
    ;; Special case: a single consonant and a Halant.
-   (" (.)xy(H[NJ]?) "
+   (" (.)xy(HJ?) "
     |
     0x09FE
     (1 =)
@@ -208,7 +216,7 @@
    ;; that requires pre-base substitution in the following steps.
 
    ;; 1    2         3        4    5   6   7   8   9   10
-   (" (RH)?([^ xy]+)x([^ y]*)y(YH)?(m)?(b)?(p)?(A)?(a)?(HN|HJ|H)? "
+   (" (RH)?([^ xy]+)x([^ y]*)y(YH)?(m)?(b)?(p)?(A)?(a)?(HJ|H)? "
     |
     (5 =)				; [Mpre]
     ;; Actually, the nukt feature is not necessary for Bengali because
@@ -320,7 +328,7 @@
 
    ;; One pre-base and base.
    ;; 1        23   4       5    6
-   (" ([^x ]*)x((.H)([^NJ]))(H)?x([^ ]*) "
+   (" ([^x ]*)x((.H)([^J]))(H)?x([^ ]*) "
     |
     (1 = *)
     0x09FE				; x
