@@ -1,3 +1,7 @@
+2007-04-09  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* BENG-OTF.flt: ZWNJ divides two syllables.
+
 2007-03-30  Kenichi Handa  <handa@m17n.org>
 
 	* UNIDATA/CaseFolding.txt, UNIDATA/LineBreak.txt,
