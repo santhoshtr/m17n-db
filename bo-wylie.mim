@@ -1,5 +1,5 @@
 ;; bo-wylie.mim -- Tibetan input method with Wylie method
-;; Copyright (C) 2003, 2004, 2005
+;; Copyright (C) 2003, 2004, 2005, 2007
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -23,10 +23,10 @@
 
 (input-method bo wylie)
 
-(description "Tibetan input method using the Extended Wylie transliteration.
-For more information, see the page:
-  http://iris.lib.virginia.edu/tibet/tools/ewts.pdf
-")
+(description "Tibetan input method based on the Wylie transliteration.
+It is actually the re-implementation of Emacs' tibetan-wylie input method,
+and is slightly different from Extended Wylie Transliteration Scheme (EWTS).
+The exact EWTS-based input method is in bo-ewts.mim.")
 
 (title "ཀ")
 (map
@@ -247,7 +247,7 @@ For more information, see the page:
   ("au" "ཽ")
   ("ee" "ཻ")
   ("oo" "ཽ")
-  ("a" "཰")
+  ("a")
   ("i" "ི")
   ("u" "ུ")
   ("e" "ེ")
