@@ -1,3 +1,11 @@
+2007-04-11  Kenichi Handa  <handa@m17n.org>
+
+	* generic.fst (tibetan): Add a spec for OTF.
+
+2007-04-10  Kenichi Handa  <handa@m17n.org>
+
+	* bo-wylie.mim (vowel): Don't yield U+0F70 by "a".
+
 2007-04-09  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* BENG-OTF.flt: ZWNJ divides two syllables.
