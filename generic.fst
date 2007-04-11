@@ -1,5 +1,5 @@
-;; generic.fst -- Fontset using only TrueType fonts  -*- lisp -*-
-;; Copyright (C) 2003, 2004
+;; generic.fst -- Fontset mainly using generic font specs.  -*- lisp -*-
+;; Copyright (C) 2005, 2006, 2007
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -21,9 +21,9 @@
 ;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;; <li> truetype.fst
+;;; <li> generic.fst
 ;;;
-;;; Fontset using only freely available TrueType fonts.  See the
+;;; Fontset mainly using generic font specifications.  See the
 ;;; documentation of the fontset "default" for the information about
 ;;; each font.
 
@@ -90,6 +90,7 @@
   ((nil nil unicode-bmp :lang=lo) laoo-generic)))
 (tibetan
  (nil
+  ((nil nil unicode-bmp :otf=tibt=ccmp,blws,abvs) tibt-otf)))
   ((nil mtib unicode-bmp) tibt-mtib)))
 (myanmar
  (nil
