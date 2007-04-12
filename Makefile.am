@@ -114,7 +114,7 @@ INPUT_METHOD = \
 	as-itrans.mim \
 	bn-itrans.mim \
 	bn-unijoy.mim \
-	bo-wylie.mim \
+	bo-ewts.mim bo-wylie.mim\
 	dv-phonetic.mim \
 	el-kbd.mim \
 	fa-isiri.mim \
