@@ -1,3 +1,9 @@
+2007-04-12  Kenichi Handa  <handa@m17n.org>
+
+	* bo-ewts.mim: New file.
+
+	* Makefile.am (INPUT_METHOD): Add bo-ewts.mim.
+
 2007-04-11  Kenichi Handa  <handa@m17n.org>
 
 	* generic.fst (tibetan): Add a spec for OTF.
