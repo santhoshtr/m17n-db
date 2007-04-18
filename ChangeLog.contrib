@@ -1,3 +1,9 @@
+2007-04-18  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* AUTHORS: New contributer.
+
+	* im/ru-translit.mim: New file.
+
 2007-03-19  Kenichi Handa  <handa@m17n.org>
 
 	* im/kn-inscript.mim: Add "`"->U+0CCA mapping.
@@ -5,6 +11,8 @@
 2007-01-30  Kenichi Handa  <handa@m17n.org>
 
 	* configure.ac: Version changed to 1.1.2.
+
+	* configure.ac: Pay attention to --prefix.
 
 2007-01-18  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
@@ -121,7 +129,7 @@
 
 	* AUTHORS: Fix typo.
 
-2006-07-10  Kenichi Handa  <handa@duron>
+2006-07-10  Kenichi Handa  <handa@m17n.org>
 
 	* im-indic/te-apple.mim: New input method.
 
@@ -148,7 +156,7 @@
 	* Version 0.9.0 released.
 
 
-Copyright (C) 2006
+Copyright (C) 2006, 2007
   National Institute of Advanced Industrial Science and Technology (AIST)
   Registration Number H15PRO112
 
