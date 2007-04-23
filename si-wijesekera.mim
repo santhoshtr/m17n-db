@@ -351,7 +351,12 @@ This input method requires surrounding text support.
      0x0D94)
 
     ((& (>= c 0x0D9A) (<= c 0x0DC6) (= @-2 0x0DCA) (= @-1 0x200D))
-     (delete @-2))
+     (cond
+      ((= @-3 0x0DBB)
+       (delete @-3)
+       (insert c))
+      (1
+       (delete @-2))))
 
     ((= c 0x0DD9)
      (cond
@@ -384,6 +389,11 @@ This input method requires surrounding text support.
        (delete @-1)
        0x200C
        0x0DD9)
+      ((& (= @-4 0x0DBB) (= @-3 0x0DCA) (= @-2 0x200D))
+       (set c1 @-1)
+       (delete @-4)
+       (insert c1)
+       0x0DD9)
       ((& (>= @-4 0x0D9A) (<= @-4 0x0DC6) (= @-3 0x0DCA) (= @-2 0x200D))
        (delete @-3)
        0x0DD9)
@@ -401,6 +411,11 @@ This input method requires surrounding text support.
       ((& (>= @-2 0x0D9A) (<= @-2 0x0DC6))
        (delete @-1)
        0x200C
+       0x0DDB)
+      ((& (= @-4 0x0DBB) (= @-3 0x0DCA) (= @-2 0x200D))
+       (set c1 @-1)
+       (delete @-4)
+       (insert c1)
        0x0DDB)
       ((& (>= @-4 0x0D9A) (<= @-4 0x0DC6) (= @-3 0x0DCA) (= @-2 0x200D))
        (delete @-3)
