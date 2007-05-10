@@ -78,10 +78,10 @@ BEGIN {
 	name = "Greek";
     else {
 	gsub("; .*", "", name);
-	gsub(" \(Other\)$", "", name);
+	gsub(" \\(Other\\)$", "", name);
 	gsub(" languages$", "", name);
-	if (name ~ /\(.*[0-9].*\)$/)
-	    gsub(" \([^)]*\)$", "", name);
+	if (name ~ /\\(.*[0-9].*\\)$/)
+	    gsub(" \\([^)]*\\)$", "", name);
 	if (name ~ ", ") {
 	    split(name,array,", ");
 	    name = array[2] " " array[1];
