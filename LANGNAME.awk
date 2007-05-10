@@ -88,8 +88,9 @@ BEGIN {
 	    else {
 		gsub(" \\(Other\\)$", "", name);
 		gsub(" languages$", "", name);
-		if (name ~ /\\(.*[0-9].*\\)$/)
+		if (name ~ /\(.*[0-9].*\)$/) {
 		    gsub(" \\([^)]*\\)$", "", name);
+		}
 		if (name ~ ", ") {
 		    split(name,array2,", ");
 		    name = array2[2] " " array2[1];
@@ -108,7 +109,7 @@ BEGIN {
 		gsub(", autres$", "", name);
 		gsub(", langues$", "", name);
 		gsub(", langues (famille)$", "", name);
-		if (name ~ /\\(.*[0-9].*\\)$/)
+		if (name ~ /\(.*[0-9].*\)$/)
 		    gsub(" \\([^)]*\\)$", "", name);
 		if (name ~ ", ") {
 		    split(name,array2,", ");
