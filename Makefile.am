@@ -29,6 +29,7 @@ pkgdata_DATA = \
 	${FONT_LAYOUT_TABLE} \
 	${INPUT_METHOD} \
 	${MISC_TABLE} \
+	${LANGNAME} \
 	mdb.dir
 
 EXTRA_DIST = config.rpath mkinstalldirs m4/ChangeLog \
@@ -178,6 +179,10 @@ FORMATS = \
 	FORMATS/0General.txt FORMATS/CharsetList.txt FORMATS/CodingList.txt \
 	FORMATS/Dir.txt FORMATS/FontEncoding.txt FORMATS/Fontset.txt \
 	FORMATS/FLT.txt	FORMATS/FontSize.txt FORMATS/IM.txt
+
+LANGNAME = \
+	LANGNAME.en \
+	LANGNAME.fr
 
 # Rules for charsets
 
@@ -359,6 +364,15 @@ BLOCK.tab:
 %.tab: UNIDATA/UnicodeData.txt CHARTAB.awk
 	echo "# Generated from $<." > $@
 	@$(AWK) -f CHARTAB.awk FIELD=$@ $< >>$@
+
+LANGUAGE.tbl: LANGUAGE.awk LANGDATA/ISO-639-2.txt LANGDATA/native.txt
+	@$(AWK) -f LANGUAGE.awk '-F|' < LANGDATA/ISO-639-2.txt > $@
+
+LANGNAME.en: LANGNAME.awk LANGDATA/ISO-639-2.txt
+	@$(AWK) -f LANGNAME.awk -v LANG=en '-F|' < LANGDATA/ISO-639-2.txt > $@
+
+LANGNAME.fr: LANGNAME.awk LANGDATA/ISO-639-2.txt
+	@$(AWK) -f LANGNAME.awk -v LANG=fr '-F|' < LANGDATA/ISO-639-2.txt > $@
 
 pkgdatadir=$(datadir)/m17n
 
