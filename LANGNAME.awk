@@ -74,6 +74,8 @@ BEGIN {
     }
     print ";;	Delete duplicated names after the above modifications.";
     print "";
+    printf "(language name %s)\n", LANG;
+    print "";
 }
 
 {

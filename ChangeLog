@@ -1,5 +1,9 @@
 2007-05-10  Kenichi Handa  <handa@m17n.org>
 
+	* mdb.dir: Add an entry for "LANGNAME.*".
+
+	* .cvsignore: Add LANGUAGE.tbl, LANGNAME.en, and LANGNAME.fr.
+
 	* Makefile.am (pkgdata_DATA): Add ${LANGNAME}.
 	(LANGNAME): New variable.
 	(LANGUAGE.tbl, LANGNAME.en, LANGNAME.fr): New targets.

@@ -369,9 +369,11 @@ LANGUAGE.tbl: LANGUAGE.awk LANGDATA/ISO-639-2.txt LANGDATA/native.txt
 	@$(AWK) -f LANGUAGE.awk '-F|' < LANGDATA/ISO-639-2.txt > $@
 
 LANGNAME.en: LANGNAME.awk LANGDATA/ISO-639-2.txt
+	@echo "Generating $@..."
 	@$(AWK) -f LANGNAME.awk -v LANG=en '-F|' < LANGDATA/ISO-639-2.txt > $@
 
 LANGNAME.fr: LANGNAME.awk LANGDATA/ISO-639-2.txt
+	@echo "Generating $@..."
 	@$(AWK) -f LANGNAME.awk -v LANG=fr '-F|' < LANGDATA/ISO-639-2.txt > $@
 
 pkgdatadir=$(datadir)/m17n
