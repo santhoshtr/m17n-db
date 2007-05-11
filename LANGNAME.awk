@@ -87,6 +87,8 @@ BEGIN {
 	    name = array[idx]
 	    if (name == "Greek, Modern (1453-)")
 		name = "Greek";
+	    else if (name == "Multiple languages")
+		;
 	    else {
 		gsub(" \\(Other\\)$", "", name);
 		gsub(" languages$", "", name);
