@@ -1,3 +1,7 @@
+2007-05-11  Kenichi Handa  <handa@m17n.org>
+
+	* LANGNAME.awk: Escape '(' and ')' in regexp.
+
 2007-05-10  Kenichi Handa  <handa@m17n.org>
 
 	* mdb.dir: Add an entry for "LANGNAME.*".
