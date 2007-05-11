@@ -110,7 +110,7 @@ BEGIN {
 		gsub(", autres langues$", "", name);
 		gsub(", autres$", "", name);
 		gsub(", langues$", "", name);
-		gsub(", langues (famille)$", "", name);
+		gsub(", langues \\(famille\\)$", "", name);
 		if (name ~ /\(.*[0-9].*\)$/)
 		    gsub(" \\([^)]*\\)$", "", name);
 		if (name ~ ", ") {
