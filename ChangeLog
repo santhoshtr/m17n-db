@@ -1,6 +1,7 @@
 2007-05-11  Kenichi Handa  <handa@m17n.org>
 
-	* LANGNAME.awk: Escape '(' and ')' in regexp.
+	* LANGNAME.awk: Escape '(' and ')' in regexp.  Don't delete
+	"languages" from "Multiple languages".
 
 2007-05-10  Kenichi Handa  <handa@m17n.org>
 
