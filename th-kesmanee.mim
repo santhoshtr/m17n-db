@@ -1,5 +1,5 @@
 ;; th-kesmanee.mim -- Thai input method with Kesmanee keyboard layout
-;; Copyright (C) 2003, 2004, 2005, 2006
+;; Copyright (C) 2003, 2004, 2005, 2006, 2007
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -24,10 +24,17 @@
 (input-method th kesmanee)
 
 (description "Thai input method simulating the Kesmanee keyboard
-with WTT 2.0 level 1 input sequence correction.
+with WTT 2.0 input sequence correction.
 The correction algorithm follows the one shown in the following 
   <http://linux.thai.net/~thep/th-xim/>
 ")
+
+(variable
+ (level (_"Acceptance level
+The level of character sequence acceptance defined in WTT 2.0.
+0 accepts any key sequence.  2 accepts only orthographic ones.
+1 is somewhere between.")
+	1 (0 2)))
 
 (title "ท")
 
@@ -128,11 +135,48 @@ The correction algorithm follows the one shown in the following
   ("}" ",")
   ("~" "%")))
 
+;; CTRL : 0000..0020, 007F..009F
+;; NON  : 0021..007E, 00A0..0E00
+;; CONS : 0E01..0E23, 0E25, 0E27..0E2E
+;; LV   : 0E40..0E44
+;; FV1  : 0E30, 0E32, 0E33
+;; FV2  : 0E45
+;; FV3  : 0E24, 0E26
+;; BV1  : 0E38
+;; BV2  : 0E39
+;; BD   : 0E3A
+;; TONE : 0E48..0E4B
+;; AD1  : 0E4C, 0E4D
+;; AD2  : 0E47
+;; AD3  :
+;; AV1  : 0E34
+;; AV2  : 0E31, 0E36
+;; AV3  : 0E35, 0E37
+
 (macro
 
- ;; input global variable : arg1, arg2
+ ;; input global variables : arg1, arg2
  ;; output global variable : ret
  (cp
+  (cond
+   ((= level 0)
+    (set ret 1))
+   (1
+    (cp12))))
+
+ ;; input global variables : arg1, arg2
+ ;; output global variable : ret
+ (ac
+  (cond
+   ((= level 0)
+    (set ret 1))
+   ((= level 1)
+    (ac1))
+   (1
+    (ac2))))
+
+ ;; Level 1 & 2 composability
+ (cp12
   (set ret 0)
   (cond
 
@@ -176,16 +220,68 @@ The correction algorithm follows the one shown in the following
 	 (= arg1 0x0E37))
       (set ret 1))))))
 
- ;; input global variable : arg1, arg2
- ;; output global variable : ret
- ;; This is Level 1 acceptance.
- (ac
+ ;; Level 1 acceptance
+ (ac1
   (set ret 1)
   (cond
    ((| (= arg2 0x0E31)
        (& (>= arg2 0x0E34) (<= arg2 0x0E3A))
        (& (>= arg2 0x0E47) (<= arg2 0x0E4E)))
-    (set ret 0)))))   
+    (set ret 0))))
+
+ ;; Level 2 acceptance
+ (ac2
+  (set ret 0)
+  (cond
+
+   ;; next = CTRL|CONS, previous = *
+   ((| (<= arg2 0x001F)
+       (& (>= arg2 0x0080) (<= arg2 0x009F))
+       (& (>= arg2 0x0E01) (<= arg2 0x0E23))
+       (= arg2 0x0E25)
+       (& (>= arg2 0x0E27) (<= arg2 0x0E2E)))
+    (set ret 1))
+
+   ;; next = NON|LV, previous = ~LV, 
+   ((| (& (>= arg2 0x0020) (<= arg2 0x007E))
+       (& (>= arg2 0x00A0) (<= arg2 0x0E00))
+       (= arg2 0x0E2F)
+       (& (>= arg2 0x0E3F) (<= arg2 0x0E44))
+       (= arg2 0x0E46)
+       (> arg2 0x0E4E))
+    (cond
+     ((| (< arg1 0x0E40) (> arg1 0x0E44))
+      (set ret 1))))
+
+   ;; next = FV1, previous = CONS|FV1|FV2|BV1|TONE
+   ((| (= arg2 0x0E30) (= arg2 0x0E32) (= arg2 0x0E33))
+    (cond
+     ((| (& (>= arg1 0x0E01) (<= arg1 0x0E23))
+	 (= arg1 0x0E25)
+	 (& (>= arg1 0x0E27) (<= arg1 0x0E2E))
+	 (= arg1 0x0E30)
+	 (= arg1 0x0E32)
+	 (= arg1 0x0E33)
+	 (= arg1 0x0E45)
+	 (= arg1 0x0E38)
+	 (& (>= arg1 0x0E48) (<= arg1 0x0E4B)))
+      (set ret 1))))
+   
+   ;; next = FV2, previous = FV3|TONE
+   ((= arg2 0x0E45)
+    (cond
+     ((| (= arg1 0x0E24)
+	 (= arg1 0x0E26)
+	 (& (>= arg1 0x0E48) (<= arg1 0x0E4B)))
+      (set ret 1))))
+
+   ;; next = FV3, previous = ~LV~FV3
+   ((| (= arg2 0x0E24) (= arg2 0x0E26))
+    (cond
+     ((& (| (< arg1 0x0E40) (> arg1 0x0E44))
+	 (! (= arg1 0x0E24))
+	 (! (= arg1 0x0E26)))
+      (set ret 1)))))))   
 
 (state
 
@@ -289,7 +385,7 @@ The correction algorithm follows the one shown in the following
 
        ))))
 
-   ;; Commit the preedit chars that are fixed.
+   ;; Now we commit the preedit chars that are fixed.
    (set w @-1)
    (cond
     ;; If surrounding text is supported, commit the only char in preedit.
@@ -304,10 +400,25 @@ The correction algorithm follows the one shown in the following
 	(>= w 0x0E4F))
      (commit))
 
-    ;; If the last char is CONS, LV, FV2 or FV3, we can commit
+    ;; If the last char is CONS, we can commit everything but the last
+    ;; unless the second last is FV3.
+    ((| (& (>= w 0x0E01) (<= w 0x0E23))
+	(= w 0x0E25)
+	(& (>= w 0x0E27) (<= w 0x0E2E)))
+     (cond
+      ((| (= @-2 0x0E24) (= @-2 0x0E26))
+       ; not commit yet
+       )
+      (1
+       (delete @-1)
+       (commit)
+       (insert w))))
+
+    ;; If the last char is LV, FV2 or FV3, we can commit
     ;; everything but the last.
-    ((| (& (>= w 0x0E01) (<= w 0x0E2E))
-	(& (>= w 0x0E40) (<= w 0x0E45)))
+    ((| (& (>= w 0x0E40) (<= w 0x0E45))
+	(= w 0x0E24)
+	(= w 0x0E26))
      (delete @-1)
      (commit)
      (insert w))
