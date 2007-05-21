@@ -90,7 +90,7 @@
   ((nil nil unicode-bmp :lang=lo) laoo-generic)))
 (tibetan
  (nil
-  ((nil nil unicode-bmp :otf=tibt=ccmp,blws,abvs) tibt-otf)))
+  ((nil nil unicode-bmp :otf=tibt=ccmp,blws,abvs) tibt-otf)
   ((nil mtib unicode-bmp) tibt-mtib)))
 (myanmar
  (nil
