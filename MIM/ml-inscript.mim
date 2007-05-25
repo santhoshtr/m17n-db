@@ -130,6 +130,23 @@ Author: Ani Peter <apeter@redhat.com>
 
 (map
  (trans
+ 
+  ((KP_1) "൧")
+  ((KP_2) "൨")
+  ((KP_3) "൩")
+  ((KP_4) "൪")
+  ((KP_5) "൫")
+  ((KP_6) "൬")
+  ((KP_7) "൭")
+  ((KP_8) "൮")
+  ((KP_9) "൯")
+  ((KP_0) "൦")
+  ((KP_Decimal) ".")
+  ((KP_Divide) "/")
+  ((KP_Multiply) "*")
+  ((KP_Add) "+")
+  ((KP_Subtract) "-") 
+ 
   ("!" "!")
   ("1" "൧")
   ("@" "@")

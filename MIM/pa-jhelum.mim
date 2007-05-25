@@ -55,6 +55,23 @@ Key summary: AP Singh Brar <apbrar@gmail.com>, Jaswinder Singh <jsingh@redhat.co
 
 (map
  (trans
+ 
+  ((KP_1) "੧")
+  ((KP_2) "੨")
+  ((KP_3) "੩")
+  ((KP_4) "੪")
+  ((KP_5) "੫")
+  ((KP_6) "੬")
+  ((KP_7) "੭")
+  ((KP_8) "੮")
+  ((KP_9) "੯")
+  ((KP_0) "੦")
+  ((KP_Decimal) ".")
+  ((KP_Divide) "/")
+  ((KP_Multiply) "*")
+  ((KP_Add) "+")
+  ((KP_Subtract) "-") 
+ 
   ("~" ?~)
   ("`" ?`)
   ("!" ?!)

@@ -51,6 +51,22 @@ Key summary: Rajesh Ranjan <rranjan@redhat.com>
 
 (map
  (trans
+  ((KP_1) "१")
+  ((KP_2) "२")
+  ((KP_3) "३")
+  ((KP_4) "४")
+  ((KP_5) "५")
+  ((KP_6) "६")
+  ((KP_7) "७")
+  ((KP_8) "८")
+  ((KP_9) "९")
+  ((KP_0) "०")
+  ((KP_Decimal) ".")
+  ((KP_Divide) "/")
+  ((KP_Multiply) "*")
+  ((KP_Add) "+")
+  ((KP_Subtract) "-") 
+ 
   ("!" ?ऍ)
   ("1" ?१)
   ("@" ?ॅ)

@@ -1,5 +1,5 @@
 ;; or-inscript.mim -- Oriya input method for inscript layout
-;; Copyright (c) Red Hat, Inc. All Rights Reserved.
+;; Copyright (c) 2006-2007 Red Hat, Inc. All Rights Reserved.
 
 ;; This file is part of the m17n contrib; a sub-part of the m17n
 ;; library.
@@ -49,6 +49,23 @@ Key summary: Subhransu Behera <sbehera@redhat.com>
 
 (map
  (trans
+ 
+  ((KP_1) "୧")
+  ((KP_2) "୨")
+  ((KP_3) "୩")
+  ((KP_4) "୪")
+  ((KP_5) "୫")
+  ((KP_6) "୬")
+  ((KP_7) "୭")
+  ((KP_8) "୮")
+  ((KP_9) "୯")
+  ((KP_0) "୦")
+  ((KP_Decimal) ".")
+  ((KP_Divide) "/")
+  ((KP_Multiply) "*")
+  ((KP_Add) "+")
+  ((KP_Subtract) "-") 
+ 
   ("!" "!")
   ("1" "୧")
   ("@" "@") 

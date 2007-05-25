@@ -3,7 +3,7 @@
 ;; for both of them is same. Still, since there are few language specific 
 ;; variations in script a separate file is created and maintained to 
 ;; accomodate any further language specific changes to unicode. 
-;; Copyright (c) Red Hat, Inc. All Rights Reserved.
+;; Copyright (c) 2006-2007 Red Hat, Inc. All Rights Reserved.
 
 ;; This file is part of the m17n contrib; a sub-part of the m17n
 ;; library.
@@ -54,6 +54,23 @@ Author : Rahul Bhalerao <rbhalera@redhat.com>
 
 (map
  (trans
+ 
+  ((KP_1) "१")
+  ((KP_2) "२")
+  ((KP_3) "३")
+  ((KP_4) "४")
+  ((KP_5) "५")
+  ((KP_6) "६")
+  ((KP_7) "७")
+  ((KP_8) "८")
+  ((KP_9) "९")
+  ((KP_0) "൦")
+  ((KP_Decimal) ".")
+  ((KP_Divide) "/")
+  ((KP_Multiply) "*")
+  ((KP_Add) "+")
+  ((KP_Subtract) "-") 
+ 
   ("!" ?ऍ)
   ("1" ?१)
   ("@" ?ॅ)

@@ -49,6 +49,23 @@ Key summary : Sree Thottempudi <sthottem@redhat.com>")
 
 (map
  (trans
+ 
+  ((KP_1) "౧")
+  ((KP_2) "౨")
+  ((KP_3) "౩")
+  ((KP_4) "౪")
+  ((KP_5) "౫")
+  ((KP_6) "౬")
+  ((KP_7) "౭")
+  ((KP_8) "౮")
+  ((KP_9) "౯")
+  ((KP_0) "౦")
+  ((KP_Decimal) ".")
+  ((KP_Divide) "/")
+  ((KP_Multiply) "*")
+  ((KP_Add) "+")
+  ((KP_Subtract) "-") 
+ 
   ("!" ?!)
   ("1" ?౧)
   ("@" ?@)

@@ -43,6 +43,23 @@ Key summary: Runa Bhattacharjee <runab@redhat.com>
 
 (map
  (trans
+ 
+  ((KP_1) "১")
+  ((KP_2) "২")
+  ((KP_3) "৩")
+  ((KP_4) "৪")
+  ((KP_5) "৫")
+  ((KP_6) "৬")
+  ((KP_7) "৭")
+  ((KP_8) "৮")
+  ((KP_9) "৯")
+  ((KP_0) "০")
+  ((KP_Decimal) ".")
+  ((KP_Divide) "/")
+  ((KP_Multiply) "*")
+  ((KP_Add) "+")
+  ((KP_Subtract) "-")
+ 
   ("!" ?!)
   ("\"" ?ঠ)
   ("'" ?ট)

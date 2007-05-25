@@ -1,0 +1,164 @@
+;; or-phonetic.mim -- Oriya input method for phonetic layout
+;; Copyright (c) 2004-2007 Red Hat, Inc. All rights reserved.
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+(input-method or phonetic)
+
+(description "Oriya input method for phonetic layout.
+
+1. ଜ୍ଞ : ^ 
+         This can also be typed as a sequence of following:                 
+                ଜ + ୍ + ଞ i.e. j +f + %
+
+2. ତ୍ର :#
+          This can also be typed as a sequence of following:
+                 ତ + ୍  + ର i.e. t + f + r 
+ 
+3. କ୍ଷ : X
+          This can also be typed as a sequence of following:
+                 କ + ୍  + ଷ i.e. k + f + x 
+ 
+4. ଶ୍ର : *
+         This can also be typed as a sequence of following:
+                 ଶ + ୍  + ର i.e. S + f + r
+
+
+Author: Subhranshu Behera <sbehera@redhat.com> 
+")
+
+(title "କ")
+
+(map
+ (trans
+ 
+  ((KP_1) "୧")
+  ((KP_2) "୨")
+  ((KP_3) "୩")
+  ((KP_4) "୪")
+  ((KP_5) "୫")
+  ((KP_6) "୬")
+  ((KP_7) "୭")
+  ((KP_8) "୮")
+  ((KP_9) "୯")
+  ((KP_0) "୦")
+  ((KP_Decimal) ".")
+  ((KP_Divide) "/")
+  ((KP_Multiply) "*")
+  ((KP_Add) "+")
+  ((KP_Subtract) "-") 
+ 
+   ("~" "ଐ")
+   ("`" " ୈ")
+   ("!" "ଏ")
+   ("1" "୧")
+ ("@" "@")
+   ("2" "୨")
+ ("#" "ତ୍ର")
+  ("3" "୩")
+ ("$" "$")
+  ("4" "୪")
+  ("%" "ଞ")
+  ("5" "୫")
+  ("6" "୬")
+  ("7" "୭")
+  ("8" "୮")
+  ("(" "(")
+  ("9" "୯")
+  (")" ")")
+  ("0" "୦")
+  ("_" "_")
+  ("-" "-")
+  ("+" "+")
+  ("=" "=")
+  ("Q" "ଔ")
+  ("q" "ଓ")
+  ("W" "ଠ")
+  ("w" "ଟ")
+  ("E" "ୈ")
+  ("e" "େ")
+  ("R" "ୃ ")
+  ("r" "ର")
+  ("T" "ଥ")
+  ("t" "ତ")
+  ("Y" "ୟ")
+  ("y" "ଯ")
+  ("U" "ୂ")
+  ("u" "ୁ")
+  ("I" "ୀ")
+  ("i" "ି")
+  ("O" "ୌ")
+  ("o" "ୋ")
+  ("P" "ଫ")
+  ("p" "ପ")
+  ("{" "ଢ")
+  ("[" "ଡ")
+  ("}" "ର୍") 
+  ("]" "ଋ")
+  ("A" "ଆ")
+  ("a" "ା")
+  ("S" "ଶ")
+  ("s" "ସ")
+  ("D" "ଧ")
+  ("d" "ଦ")
+  ("F" "ଅ")
+  ("f" "୍")
+  ("G" "ଘ")
+  ("g" "ଗ")
+  ("H" "ଃ")
+  ("h" "ହ")
+  ("J" "ଝ")
+  ("j" "ଜ")
+  ("K" "ଖ")
+  ("k" "କ")
+  ("L" "ଳ")
+  ("l" "ଲ")
+  (":" "ଈ")
+  (";" "ଇ")
+  ("\" " "ଊ")
+  ("'" "ଉ")
+  ("|" "|")
+  ("\\" "\\")
+  ("Z" "ଁ")
+  ("z" "ଙ")
+  ("x" "ଷ")
+  ("C" "ଛ")
+  ("c" "ଚ")
+  ("V" "ଵ")
+  ("v" "ୱ")
+  ("B" "ଭ")
+  ("b" "ବ")
+  ("N" "ଣ")
+  ("n" "ନ")
+  ("M" "ଂ")
+  ("m" "ମ")
+  ("<" "<") 
+  ("," ",")
+  (">" ">")
+  ("." "।")
+  ("?" "ଐ")
+  ("/" "ଏ")
+  ("^" "ଜ୍ଞ")
+  ("X" "କ୍ଷ")
+  ("*" "ଶ୍ର")
+  ))
+
+(state
+  (init
+    (trans)))

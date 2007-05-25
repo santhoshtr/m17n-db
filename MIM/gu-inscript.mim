@@ -51,6 +51,23 @@ Key summary: Ankitkumar Rameshchandra Patel <ankit@redhat.com>
 
 (map
  (trans
+ 
+  ((KP_1) "૧")
+  ((KP_2) "૨")
+  ((KP_3) "૩")
+  ((KP_4) "૪")
+  ((KP_5) "૫")
+  ((KP_6) "૬")
+  ((KP_7) "૭")
+  ((KP_8) "૮")
+  ((KP_9) "૯")
+  ((KP_0) "૦")
+  ((KP_Decimal) ".")
+  ((KP_Divide) "/")
+  ((KP_Multiply) "*")
+  ((KP_Add) "+")
+  ((KP_Subtract) "-") 
+ 
   ("!" ?ઍ)
   ("1" ?૧)
   ("@" ?ૅ)
