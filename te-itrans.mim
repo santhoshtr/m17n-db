@@ -1,5 +1,5 @@
 ;; te-itrans.mim -- Telugu input method with ITRANS method
-;; Copyright (C) 2003, 2004, 2005, 2006
+;; Copyright (C) 2003, 2004, 2005, 2006, 2007
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -39,7 +39,9 @@ For the detail of ITRANS, see the page:
   ("M") ("N") ("O") ("R") ("S") ("T") ("U") ("Y")
   ("a") ("b") ("c") ("d") ("e") ("f") ("g") ("h") ("i")
   ("j") ("k") ("l") ("m") ("n") ("o") ("p") ("q") ("r")
-  ("s") ("t") ("u") ("v") ("w") ("x") ("y") ("z"))
+  ("s") ("t") ("u") ("v") ("w") ("x") ("y") ("z")
+  ((KP_1)) ((KP_2)) ((KP_3)) ((KP_4)) ((KP_5))
+  ((KP_6)) ((KP_7)) ((KP_8)) ((KP_9)) ((KP_0)))
 
  (consonant
   ("k" "క్")
@@ -134,6 +136,16 @@ For the detail of ITRANS, see the page:
   ("$" "ర్")				; not in ITRANS Telugu table
   ("^" "త్ర")				; not in ITRANS Telugu table
   ("*" "శ్ర")				; not in ITRANS Telugu table
+  ((KP_1) "౧")
+  ((KP_2) "౨")
+  ((KP_3) "౩")
+  ((KP_4) "౪")
+  ((KP_5) "౫")
+  ((KP_6) "౬")
+  ((KP_7) "౭")
+  ((KP_8) "౮")
+  ((KP_9) "౯")
+  ((KP_0) "౦")
   ((S-\ ) "‌")				; not in ITRANS Telugu table
   ((C-@) "‍"))				; not in ITRANS Telugu table
 

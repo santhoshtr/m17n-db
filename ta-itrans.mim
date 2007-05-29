@@ -1,5 +1,5 @@
 ;; ta-itrans.mim -- Tamil input method with ITRANS method
-;; Copyright (C) 2003, 2004, 2005, 2006
+;; Copyright (C) 2003, 2004, 2005, 2006, 2007
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -39,7 +39,9 @@ For the detail of ITRANS, see the page:
   ("M") ("N") ("O") ("R") ("S") ("T") ("U") ("Y")
   ("a") ("b") ("c") ("d") ("e") ("f") ("g") ("h") ("i")
   ("j") ("k") ("l") ("m") ("n") ("o") ("p") ("q") ("r")
-  ("s") ("t") ("u") ("v") ("w") ("x") ("y") ("z"))
+  ("s") ("t") ("u") ("v") ("w") ("x") ("y") ("z")
+  ((KP_1)) ((KP_2)) ((KP_3)) ((KP_4)) ((KP_5))
+  ((KP_6)) ((KP_7)) ((KP_8)) ((KP_9)) ((KP_0)))
 
  (consonant
   ("k" "க்")
@@ -105,6 +107,7 @@ For the detail of ITRANS, see the page:
   ("q" "ஃ")
   ("H" "ஃ")				; not in ITRANS Tamil table
   (".h" "்")				; not in ITRANS Tamil table
+  ("0" "௦")
   ("1" "௧")
   ("2" "௨")
   ("3" "௩")
@@ -117,6 +120,16 @@ For the detail of ITRANS, see the page:
   ("#" "்ர")				; not in ITRANS Tamil table
   ("$" "ர்")				; not in ITRANS Tamil table
   ("^" "த்ர")				; not in ITRANS Tamil table
+  ((KP_1) "௧")
+  ((KP_2) "௨")
+  ((KP_3) "௩")
+  ((KP_4) "௪")
+  ((KP_5) "௫")
+  ((KP_6) "௬")
+  ((KP_7) "௭")
+  ((KP_8) "௮")
+  ((KP_9) "௯")
+  ((KP_0) "௦")
   ((S-\ ) "‌")				; not in ITRANS Tamil table
   ((C-@) "‍"))				; not in ITRANS Tamil table
 

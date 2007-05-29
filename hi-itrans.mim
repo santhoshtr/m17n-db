@@ -1,5 +1,5 @@
 ;; hi-itrans.mim -- Hindi input method with ITRANS method
-;; Copyright (C) 2003, 2004, 2005, 2006
+;; Copyright (C) 2003, 2004, 2005, 2006, 2007
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -39,7 +39,9 @@ For the detail of ITRANS, see the page:
   ("M") ("N") ("O") ("R") ("S") ("T") ("U") ("Y")
   ("a") ("b") ("c") ("d") ("e") ("f") ("g") ("h") ("i")
   ("j") ("k") ("l") ("m") ("n") ("o") ("p") ("q") ("r")
-  ("s") ("t") ("u") ("v") ("w") ("x") ("y") ("z"))
+  ("s") ("t") ("u") ("v") ("w") ("x") ("y") ("z")
+  ((KP_1)) ((KP_2)) ((KP_3)) ((KP_4)) ((KP_5))
+  ((KP_6)) ((KP_7)) ((KP_8)) ((KP_9)) ((KP_0)))
 
  (consonant
   ("k" "क्")
@@ -152,6 +154,16 @@ For the detail of ITRANS, see the page:
   ("^" "त्र")			      ; not in ITRANS Devanagari table
   ("*" "श्र")			      ; not in ITRANS Devanagari table
   ("]" "़")			      ; not in ITRANS Devanagari table
+  ((KP_1) "१")
+  ((KP_2) "२")
+  ((KP_3) "३")
+  ((KP_4) "४")
+  ((KP_5) "५")
+  ((KP_6) "६")
+  ((KP_7) "७")
+  ((KP_8) "८")
+  ((KP_9) "९")
+  ((KP_0) "०")
   ((S-\ ) "‌")			      ; not in ITRANS Devanagari table
   ((C-@) "‍"))			      ; not in ITRANS Devanagari table
 

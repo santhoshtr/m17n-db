@@ -1,5 +1,5 @@
 ;; pa-itrans.mim -- Punjabi input method with ITRANS method
-;; Copyright (C) 2003, 2004, 2005, 2006
+;; Copyright (C) 2003, 2004, 2005, 2006, 2007
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -39,7 +39,9 @@ For the detail of ITRANS, see the page:
   ("M") ("N") ("O") ("R") ("S") ("T") ("U") ("Y")
   ("a") ("b") ("c") ("d") ("e") ("f") ("g") ("h") ("i")
   ("j") ("k") ("l") ("m") ("n") ("o") ("p") ("q") ("r")
-  ("s") ("t") ("u") ("v") ("w") ("x") ("y") ("z"))
+  ("s") ("t") ("u") ("v") ("w") ("x") ("y") ("z")
+  ((KP_1)) ((KP_2)) ((KP_3)) ((KP_4)) ((KP_5))
+  ((KP_6)) ((KP_7)) ((KP_8)) ((KP_9)) ((KP_0)))
 
  (consonant
   ("k" "ਕ੍")
@@ -124,6 +126,16 @@ For the detail of ITRANS, see the page:
   ("^" "ਤ੍ਰ")				; not in ITRANS Gurmukhi table
   ("*" "ਸ਼੍ਰ")				; not in ITRANS Gurmukhi table
   ("]" "਼")				; not in ITRANS Gurmukhi table
+  ((KP_1) "੧")
+  ((KP_2) "੨")
+  ((KP_3) "੩")
+  ((KP_4) "੪")
+  ((KP_5) "੫")
+  ((KP_6) "੬")
+  ((KP_7) "੭")
+  ((KP_8) "੮")
+  ((KP_9) "੯")
+  ((KP_0) "੦")
   ((S-\ ) "‌")				; not in ITRANS Gurmukhi table
   ((C-@) "‍"))				; not in ITRANS Gurmukhi table
 
