@@ -271,7 +271,7 @@
   ((nil east\ syriac\ adiabene unicode-bmp) syrc-otf)))
 (thaana
  (nil
-  ((nil nil otf:thaa unicode-bmp) thaa-otf)
+  ((nil nil unicode-bmp otf:thaa) thaa-otf)
   ((nil thaana\ unicode\ akeh unicode-bmp) thaa-otf)))
 (devanagari
  (nil
