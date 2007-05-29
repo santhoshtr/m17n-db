@@ -1,3 +1,25 @@
+2007-05-29  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* as-itrans.mim, bn-itrans.mim, gu-itrans.mim, hi-itrans.mim, kn-itrans.mim, ml-itrans.mim, or-itrans.mim, pa-itrans.mim, ta-itrans.mim, te-itrans.mim:
+	Add keypad support.
+
+2007-05-21  Kenichi Handa  <handa@m17n.org>
+
+	* generic.fst (tibetan): Fix previous typo.
+
+2007-05-16  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* th-kesmanee-2.mim, th-pattachote-2.mim, th-tis820-2.mim:
+	Integrated into corresponding files and removed.
+
+	* th-tis820.mim, th-pattachote.mim: Add new variable LEVEL.
+	Use state-list identical to kesmenee's.
+
+	* th-kesmanee.mim: Add new variable LEVEL.
+	Sequence "FV3 + CONS" waits one more char before commit.
+
+	* si-wijesekera-preedit.mim: Update copyright year.
+
 2007-05-11  Kenichi Handa  <handa@m17n.org>
 
 	* LANGNAME.awk: Escape '(' and ')' in regexp.  Don't delete
