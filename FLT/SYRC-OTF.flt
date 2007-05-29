@@ -1,0 +1,183 @@
+;; SYRC-OTF.flt -- Font Layout Table for Syriac OpenType font
+;; Copyright (C) 2004, 2007
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+;;; <li> SYRC-OTF.flt
+;;;
+;;; For Syriac OpenType fonts to draw the Syriac script.
+
+(font layouter syrc-otf nil
+      (font (nil nil unicode-bmp :otf=syrc)))
+
+;; Step 1: Initial, medial, or final.
+
+(category
+ ;; D: Dual-joining
+ ;; R: Right-joining
+ ;; U: Non-joining
+ ;; T: Transparent
+ ;; A: ALAPH
+ ;; r: DALATH, RISH, DOTLESS DALATH RISH
+
+ (0x0700 0x071F	?U)
+ (0x0710	?A)
+ (0x0711	?T)
+ (0x0712 0x072E ?D)
+ (0x0715 0x0716	?r)
+ (0x0717 0x0719	?R)
+ (0x071E	?R)
+ (0x0728	?R)
+ (0x072A	?r)
+ (0x072C	?R)
+ (0x072F	?R)
+ (0x0730 0x074A ?T)
+ (0x074D	?R)
+ (0x074E 0x074F	?D)
+
+ (0x0303	?T)
+ (0x0330	?T)
+ (0x0304	?T)
+ (0x0331	?T)
+ (0x0307	?T)
+ (0x0323	?T)
+ (0x0308	?T)
+ (0x030A	?T)
+ (0x0325	?T)
+ (0x0324	?T)
+ (0x032D	?T)
+ (0x032E	?T)
+
+ (0x064B 0x0655	?T)
+ (0x0670	?T)
+
+ (0x200C	?U)
+ (0x200D	?D)
+ )
+
+(generator
+ (0
+  (cond
+   ("(r)(T*)(.*)"
+    (1 otf:syrc=isol)
+    (2 = *)
+    (3 dalath-rish))
+
+   ("(D)(T*)([DRAr].*)"
+    (1 otf:syrc=init)
+    (2 = *)
+    (3 join))
+
+   ("(T+)(.*)"
+    (1 = *)
+    (2 disjoin))
+
+   ("(.)(T*)(.*)"
+    (1 otf:syrc=isol)
+    (2 = *)
+    (3 disjoin))))
+
+ (join
+  (cond
+   ("(r)(T*)(.*)"
+    (1 otf:syrc=fina)
+    (2 = *)
+    (3 dalath-rish))
+
+   ("(D)(T*)([DRrA].*)"
+    (1 otf:syrc=medi)
+    (2 = *)
+    (3 join))
+
+   ("(.)(T*)(.*)"
+    (1 otf:syrc=fina)
+    (2 = *)
+    (3 disjoin))))
+
+ (disjoin
+  (cond
+   ("(D)(T*)([DRAr].*)"
+    (1 otf:syrc=init)
+    (2 = *)
+    (3 join))
+
+   ("(r)(T*)(.*)"
+    (1 otf:syrc=isol)
+    (2 = *)
+    (3 dalath-rish))
+
+   ("(A)(T*)([DRAr].*)"
+    (1 otf:syrc=med2)
+    (2 = *)
+    (3 disjoin))
+
+   ("(A)(T*)(.*)"
+    (1 otf:syrc=fin2)
+    (2 = *)
+    (3 disjoin))
+
+   ("(.)(T*)(.*)"
+    (1 otf:syrc=isol)
+    (2 = *)
+    (3 disjoin))))
+
+ (dalath-rish
+  (cond
+   ("(D)(T*)([DRAr].*)"
+    (1 otf:syrc=init)
+    (2 = *)
+    (3 join))
+
+   ("(r)(T*)(.*)"
+    (1 otf:syrc=isol)
+    (2 = *)
+    (3 dalath-rish))
+
+   ("(A)(T*)([DRAr].*)"
+    (1 otf:syrc=med2)
+    (2 = *)
+    (3 disjoin))
+
+   ("(A)(T*)(.*)"
+    (1 otf:syrc=fin3)
+    (2 = *)
+    (3 disjoin))
+
+   ("(.)(T*)(.*)"
+    (1 otf:syrc=isol)
+    (2 = *)
+    (3 disjoin)))))
+
+;; Step 2: Other GSUB features (ligatures, etc.)
+
+(generator
+ (0
+  otf:syrc=rlig,calt,liga,dlig))
+
+;; Step 3: GPOS features.
+
+(generator
+ (0
+  otf:syrc=))
+
+;; Local Variables:
+;; mode: lisp
+;; End:

@@ -1,0 +1,78 @@
+;; THAI-GENERIC.flt -- Font Layout Table for Thai (proportional font)
+;; Copyright (C) 2005, 2007
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+;;; <li> THAI-GENERIC.flt
+;;;
+;;; For the Thai proportional fonts to draw Thai script.
+
+(font layouter thai-generic nil
+      (font (nil nil unicode-bmp :lang=th)))
+
+(category
+ ;; C: CONSONANT normal
+ ;; c: CONSONANT tall
+ ;; d: CONSONANT deep
+ ;; A: SARA-AM
+ ;; V: VOWEL upper, NIKHAHIT, and YAMAKKAN
+ ;; v: VOWEL lower
+ ;; T: TONE
+ ;; I: OTHER INDEPENDENT
+ (0x0E01 0x0E2E	?C)
+ (0x0E0D 0x0E10	?d)
+ (0x0E1B	?c)
+ (0x0E1D	?c)
+ (0x0E1F	?c)
+ (0x0E2C	?c)
+ (0x0E2F 0x0E32	?I)
+ (0x0E31	?V)
+ (0x0E33	?A)
+ (0x0E34 0x0E37	?V)
+ (0x0E38 0x0E3A	?v)
+ (0x0E3F 0x0E46 ?I)
+ (0x0E47	?V)
+ (0x0E48 0x0E4C	?T)
+ (0x0E4D 0x0E4E	?V)
+ (0x0E4F 0x0E5B ?I))
+
+(generator
+ (0
+  (cond
+   ("([Cd])(T)?(A)"
+    < (1 = 0x0E4D) (2 tr+bl =) (3 0x0E32) > )
+   ("(c)(T)?(A)"
+    < (1 = Br<13Bl 0x0E4D) (2 tr+<13bl =) (3 0x0E32) > )
+   ("(C[vV]?)(T)?"
+    < (1 = =) (2 tr+bl =) > )
+   ("(c)([vV])?(T)?"
+    < (1 = *) (2 (cond ("v" =) ("." Br<8Bl =))) (3 tr+<8bl =) > )
+   ("(d)([vV])?(T)?"
+    < (1 = *) (2 (cond ("v" br-tl =) ("." =))) (3 tr+bl =) > )
+   ("[VvTA]"
+    [ = ])
+   ("."
+    =))
+  *))
+
+;; Local Variables:
+;; mode: lisp
+;; End:

@@ -1,0 +1,376 @@
+;; MYMR-MYAZEDI.flt -- Font Layout Table for Myanmar (Zedi font)
+;; Copyright (C) 2004, 2005, 2006, 2007
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+;;; <li> MYMR-MYAZEDI.flt
+;;;
+;;; For the Myanmar Zedi family fonts to draw Myanmar script.
+;;; <ul>
+;;; <li> download: http://www.myazedi.com/downloads/MyaZedi_M17N.ttf
+;;; </ul>
+
+(font layouter mymr-myazedi nil
+      (font (nil myazedi_m17n unicode-bmp)))
+
+;; 1st stage
+;; Extract syllable while detecting Kinzi, substituting subscripts,
+;; and removing Halants.
+
+(category
+ (0x1000 0x107F ?O)			; other
+ (0x1000 0x1021 ?C)			; consonant except for c, K, n, M
+ (0x1000 0x1003 ?c)			; consonant that has subscript form
+ (0x1004	?K)			; consonant NGA
+ (0x1005 0x1008 ?c)
+ (0x100B 0x100C ?c)
+ (0x100F 0x1019 ?c)
+ (0xE014 	?c)
+ (0xE01B 	?c)
+ (0x1014	?n)			; consonant NA
+ (0x101C	?c)
+ ;; cosonants that can be a Medial
+ (0x101A	?M)			; medial Ya
+ (0x101B	?M)			; medial Ra 
+ (0x101D	?M)			; medial Wa
+ (0x101F	?M)			; medial Ha
+ (0x1021 0x102A ?I)			; independent vowel
+ (0x102C 0x1032	?V)			; dependent Vowel
+ (0x1036	?A)			; sign ANUSVARA
+ (0x1037 0x1038	?S)			; other sign
+ (0x1039	?H)			; HALANT (VIRAMA)
+ (0x200C	?N)			; ZWNJ (Zero Width Non Joiner)
+ (0x200D	?J)			; ZWJ (Zero Width Joiner)
+ )
+
+(generator
+ (0
+  (cond
+   ;; The following regular expression matches a graphme cluster pattern
+   ;; described in Table 10-3 of the Unicode Standard 4.0 except for
+   ;; Kinzi which is encoded by the sequence "U+1004 U+1039 U+200D".
+   ;; 
+   ;;<-1-><---------2--------><--4--><--6--->  <7->
+   ;;              <---3--->   <5->
+   ("(KHJ)([CcnKMr](H[CcnK])?)((HM)*)(V*A?H?)N?(S*)"
+    | < (1 0xE390) (2 consonant) (4 remove-halant *) (6 = *) (7 = *) > |)
+
+   ;; Irregular independent Kinzi
+   ("KHJ"
+    [ 0xE390 ])
+
+   ;; Cluster without Kinzi
+   ("([CcnKMr](H[CcnK])?)((HM)*)(V*A?H?)N?(S*)"
+    | < (1 consonant) (3 remove-halant *) (5 = *) (6 = *) > |)
+
+   ;; Fixme: I'm not sure about the syllable pattern for an
+   ;; independent vowel.
+   ("IV*[AS]*"
+    | < = * > |)
+
+   ;; Treat anything else as a single character.
+   ("."
+    [ = ]))
+  *)
+
+ (consonant
+  (cond
+   ((0x100B 0x1039 0x100C) 0xE10C)
+   ((0x100D 0x1039 0x100D) 0xE00D)
+   ((0x100E 0x1039 0x100D) 0xE10D)
+   ((0x100F 0x1039 0x100D) 0xE20D)
+   ((0x101E 0x1039 0x101E) 0xE01E)
+   ("(n)H([cn])" 0xE140 (2 subscript))
+   ("(.)H([cn])" (1 =) (2 subscript))
+   ("(.)H(.)" (1 =) (2 =))
+   ("." =)))
+
+ (subscript
+  (cond ((range 0x1000 0x101C) 0xE000)))
+
+ (remove-halant
+  (cond
+   ((0x1039))
+   ("." =))))
+
+;; 2nd stage
+;; Handle medials.
+
+(category
+ (0x1000 0x107F ?O)			; other
+ (0x1000 0x1021 ?W)			; wide consonant
+ (0x1001 0x1002 ?S)			; single-width consonant
+ (0x1004 0x1005 ?S)
+ (0x1007 0x1008	?S)
+ (0x100B 0x100E	?S)
+ (0x1012 0x1017 ?S)
+ (0x1019	?S)
+ (0x101A	?a)			; medial Ya
+ (0x101B	?b)			; medial Ra
+ (0x101D	?d)			; medial Wa
+ (0x101F	?f)			; medial Ha
+ (0x1020	?S)
+ (0x102D 0x102E ?V)			; dependent vowel (upper)
+ (0x1032	?V)
+ (0x200C	?N)			; ZWNJ
+ (0xE000 0xE3FF ?O)
+ (0xE000 0xE01E ?w)			; wide subscript
+ (0xE001 0xE002 ?s)			; single-width subscript
+ (0xE005	?s)
+ (0xE007	?s)
+ (0xE00B	?s)
+ (0xE012 0xE017 ?s)
+ (0xE019	?s)
+ (0xE10C 0xE10D ?s)
+ (0xE140	?s)
+ (0xE20D	?w)
+ (0xE390	?K)			; Kinzi
+ )
+
+(generator
+ (0
+  (cond
+   (" (K)?([WSabdfws][WSKws]?[abdf][abdf]*[^ ]*) "
+    | (1 =) (2 medial = *) |)
+   (" ([^ ]*) "
+    = *)
+   ("."
+    =))
+  *)
+
+ (medial
+  (cond
+   ;; Medial Ya (U+101A)
+   ("(..?)adf"	(1 = *) 0xE1A2)
+   ("(..?)ad"	(1 = *) 0xE1A4)
+   ("(..?)af"	(1 = *) 0xE1A3)
+   ("(..?)a"	(1 = *) 0xE1A1)
+
+   ;; Medial Ra (U+101B)
+   ("([Waf]|.[Ww])bdf"	0xE1BA (1 = *))
+   ("(..?)bdf"		0xE1B9 (1 = *))
+   ("([Waf]|.[Ww])bd"	0xE1B8 (1 = *))
+   ("(..?)bd"		0xE1B7 (1 = *))
+   ("([Waf]|.[Ww])b(f)?(V)"	0xE1B6 (1 = *) (2 0xE1F3) (3 =))
+   ("(..?)b(f)?(V)"		0xE1B5 (1 = *) (2 0xE1F3) (3 =))
+   ;; Single-width consonant + a wide subscript + Medial Ra.
+   ;; To use glyph E1B4, we must shift the single-width consonant to
+   ;; the right.
+   ("([Sd][Ww])b"	0xE1B4 Br>32Bl (1 = *))
+   ("([Waf].|.[Ww])b"	0xE1B4 (1 = *))
+   ("(s|..)b"		0xE1B3 (1 = *))
+   ("([Waf])b(f)?"	0xE1B2 (1 = *) (2 0xE1F3))
+   ("(.)b(f)?"		0xE1B1 (1 = *) (2 0xE1F3))
+   
+   ;; Medial Wa (U+101D)
+   ("(..?)df"		(1 = *) 0xE1D1)
+   ("(..?)d"		(1 = *) 0xE01D)
+
+   ;; Medial Ha (U+101F)
+   ((0x100A 0x101F)	0x100A 0xE1F3)
+   ("(..?)f"		(1 = *) 0xE1F1))))
+
+;; 3rd stage
+;; Reorder Kinzi and Vowel E.  Handle Kinzi-vowel combination.
+
+(category
+ (0x1000 0x107F ?O)
+ (0x1000 0x1021 ?C)			; Consonants except for c
+ (0x1001 0x1002 ?c)			; Consonants affecting the shape of 
+ (0x1004	?c)			;   the following vowel U+102C
+ (0x1012	?c)
+ (0x1015	?c)
+ (0x101D	?c)
+ (0x1008	?b)
+ (0x100A 0x100D	?b)
+ (0x1020	?b)
+ (0x1025	?b)
+ (0x102C	?A)			; Vowel AA
+ (0x102D	?i)			; Vowel I
+ (0x102E	?I)			; Vowel II
+ (0x102F	?u)			; Vowel U
+ (0x1030	?U)			; Vowel UU
+ (0x1031	?e)			; Vowel E
+ (0x1032	?V)			; Vowel AI
+ (0x1036 0x1038	?D)
+ (0x1039	?H)
+ (0x200C	?N)
+ (0x200D	?J)
+ (0xE000 0xE3FF ?O)
+ (0xE000 0xE01D ?b)
+ (0xE140	?B)
+ (0xE1A1 0xE1B0 ?b)
+ (0xE1B1 0xE1BA ?B)
+ (0xE1D1 0xE1F1 ?B)
+ (0xE20D	?b)
+ (0xE390	?K)			; Kinzi
+ )
+
+(generator
+ (0
+  (cond
+   (" K([CcbB]*)(e)([^ ]*) "
+    | (2 =) (1 = *) (3 kinzi-vowel = *) |)
+   (" K([CcbB]*)([^ ]*) "
+    | (1 = *) (2 kinzi-vowel = *) |)
+   (" ([CcbB]*)(e)([^ ]*) "
+    | (2 =) (1 = *) (3 = *) |)
+   (" ([^ ]*) "
+    = *)
+   ("."
+    =))
+  *)
+
+ (kinzi-vowel
+  (cond
+   ((0x102D) 0xE391)
+   ((0x102E) 0xE391)
+   ((0x1036) 0xE393)
+   0xE390)))
+
+;; 4th stage
+;; Various glyph substitions.
+
+(generator
+ (0
+  (cond
+   (" ([^ ]*) "
+    |
+    (1
+     (cond
+      ;; Consonant substituion.
+      ((0x1009 0x1039) 0x1025 0x1039)
+      ((0x1009 0xE005) 0xE109 Br>5Bl 0xE005)
+;;       ((0x101B 0x102F) 0xE01B 0x102F)
+;;       ((0x101B 0x1030) 0xE01B 0x1030)
+;;       ((0x1014 0x102F) 0xE140 0x102F)
+;;       ((0x1014 0x1030) 0xE140 0x1030)
+
+;;       ;; Sign substituion.
+;;       ((0x102F 0x1037) 0x102F 0xE137)
+;;       ((0x1030 0x1037) 0x1030 0xE137)
+;;       ((0xE01D 0x1037) 0xE01D 0xE137)
+;;       ((0xE1A1 0x1036 0x1037) 0xE1A1 0x1036 0xE137)
+;;       ((0xE1A1 0x1032 0x1037) 0xE1A1 0x1032 0xE137)
+;;       ((0xE01D 0x1032 0x1037) 0xE01D 0x1032 0xE137)
+;;       ((0xE01D 0x1036 0x1037) 0xE01D 0x1036 0xE137)
+
+      ;; Vowel substituion.
+      ((0xE1F1 0x102F)	0xE1F2)
+      ((0xE1F1 0x102D 0x102F)	0xE1F2 0x102D)
+      ((0xE1F1 0x102E 0x102F)	0xE1F2 0x102E)
+      ((0xE1F1 0x1032 0x102F)	0xE1F2 0x1032)
+      ("BcK?A"		= = = =)
+      ("cAH"		= 0xE02D)
+      ("cA"		= 0xE02C)
+      ("cKA"		= = Br>Bl 0xE02C)
+      ((0x1012 0xE012 0x102C 0x1039) = = 0xE02D)
+      ((0x1012 0xE01D 0x102C 0x1039) = = 0xE02D)
+      ((0x1012 0xE012 0x102C) = = 0xE02C)
+      ((0x1012 0xE01D 0x102C) = = 0xE02C)
+      ((0x102D 0x1036)	0xE2D1)
+      ("([bB][^u]*)u"	(1 = *) 0xE2F1)
+      ("([bB][^u]*)U"	(1 = *) 0xE2F2)
+      ("." =))
+     *)
+    |)
+   ("."
+    =))
+  *))
+
+;; 5th stage
+;; Adjust below characters (U+102F, U+1037, etc)
+
+(category
+ (0x1000 0x107F ?O)
+ (0x200C 0x200D	?O)
+ (0xE000 0xE3FF ?O)
+ (0x1014	?T)			; tall consonant (substituted)
+ (0x101B	?T)
+ (0x102F 0x1030	?B)			; below position (substitute tall one)
+ (0x1037	?b)			; shift to right
+ (0xE01D	?B)
+ (0xE1A1	?B)
+ (0xE1D1	?B)
+ (0xE1B1 0xE1BA ?L)
+ (0xE1F1 0xE1F2	?B)
+ (0xE2F1 0xE2F2 ?L)			; has lower part
+ )
+
+(generator
+ (0
+  (cond
+   (" ([^ ]*) "
+    |
+    (1
+     (cond
+      ("(T)(B)([OL])?(b)?"
+       (1 (cond ((0x1014) 0xE140) ((0x101B) 0xE01B)))
+       (2 =)
+       (3 = *)
+       (4 0xE137))
+      ("([TBL])(O*)?(b)"
+       (1 =) (2 = *) (3 0xE137))
+      ("." =))
+     *)
+    |)
+   ("OO*" = *)
+   ("." =))
+  *))
+
+;; 6th stage
+;; Adjust conbination of normal consonant and wide subconsonant.
+
+(category
+ (0x1000 0x107F ?O)
+ (0x200C 0x200D	?O)
+ (0xE000 0xE3FF ?O)
+ (0x1001 0x1002 ?n)
+ (0x1004 0x1005 ?n)
+ (0x1007	?n)
+ (0x100E	?n)
+ (0x1012 0x1013 ?n)
+ (0x1015 0x1017 ?n)
+ (0x1019	?n)
+ (0x101D	?n)
+ (0xE000	?w)
+ (0xE003	?w)
+ (0xE006	?w)
+ (0xE00C	?w)
+ (0xE00F	?w)
+ (0xE010 0xE011 ?w)
+ (0xE018	?w))
+
+(generator
+ (0
+  (cond
+   (" (n)(w)([^ ]*) "
+    \[ (1 =) (2 Br>17Bl =) (3 = *))
+   (" ([^ ]*) "
+    (1 = *))
+   ("."
+    =))
+  *))
+
+;; Local Variables:
+;; mode: emacs-lisp
+;; coding: utf-8
+;; End:

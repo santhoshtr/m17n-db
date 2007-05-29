@@ -1,0 +1,275 @@
+;; KHMR-ANLONG.flt -- Font Layout Table for Khmer (Anlong font)
+;; Copyright (C) 2003, 2004, 2007
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+;;; <li> KHMR-ANLONG.flt
+;;;
+;;; For the font ANLONG.TTF to draw Khmer script.  The font is
+;;; available at:
+;;; <ul>
+;;; <li> infopage: http://www.cambodia.org/fonts/index.html#dl
+;;; <li> download: http://www.cambodia.org/fonts/khmerfnt.zip
+;;; </ul>
+
+(font layouter khmr-anlong nil
+      (font (nil anlongvill\ khek apple-roman)))
+
+(category
+ ;; C: CONSONANT (except R and KHMER LETTER LA)
+ ;; R: KHMER LETTER RO
+ ;; c: KHMER SIGN COENG (function as virama)
+ ;; V: INDEPENDENT VOWEL (except Q)
+ ;; Q: CONJUNCT VOWEL QU, RY, QE
+ ;; v: DEPENDENT VOWEL
+ ;; s: SHIFT
+ ;; S: COMBINING SIGN
+ ;; E: ELSE
+ (0x1780 0x17A0	?C)
+ (0x1789	?N)			; exception of C (NYO)
+ (0x179A	?R)			; exception of C (RO)
+ (0x17A1	?E)			; ELSE
+ (0x17A2	?C)
+ (0x17A3 0x17A4	?E)			; ELSE
+ (0x17A5 0x17B3	?V)
+ (0x17A7	?Q)
+ (0x17AB	?Q)
+ (0x17AF	?Q)
+ (0x17B2	?C)
+ (0x17B4 0x17FF	?E)
+ (0x17B6 0x17C5	?v)
+ (0x17C6	?S)
+ (0x17C9 0x17CA	?s)
+ (0x17CB 0x17D3	?S)
+ (0x17D2	?c))
+
+(generator
+ (0
+  (cond
+   ("([CNR]c[CNRQ])c(R)(s?v?S?)"
+    | (1 with-conjunct) (2 Bl.Br 0xEE) 0x00 (3 vowel-and-sign *) |)
+   ("([CNR]c[CNRQ])(s?v?S?)"
+    | (1 with-conjunct) 0x00 (2 vowel-and-sign *) |)
+   ("([CNR])(s?v?S?)"
+    | (1 independent) (2 vowel-and-sign *) |)
+   ("."
+    independent))
+  *)
+
+ (with-conjunct
+  (cond
+   ("(N)c(CRQ)"
+    (1 0x8B)
+    (2 conjunct))
+   ("(N)c(N)"
+    (1 0x8B)
+    (2 Br.Bl 0xDD))
+   ((0x17B3 0x17D2 0x1799)
+    0xB8)
+   ("(.)c(.)"
+    (1 independent)
+    (2 conjunct))))
+
+ (independent
+  (cond
+   ((range 0x1780 0x1788) 	0x82)
+   ((0x1789)			0x8C)
+   ((range 0x178A 0x1794) 	0x91)
+   ((0x1795)			0x9F)
+   ((range 0x1796 0x179C)	0xA1)
+   ((0x179D)			< 0x84 cr-<cc 0xFA >)
+   ((0x179E)			< 0x9B cr-<cc 0xFA >)
+   ((range 0x179F 0x17A2)	0xA8)
+   ((0x17A3)			0xAB)
+   ((0x17A4)			< 0xAB Br>Bl 0xBA >)
+   ((range 0x17A5 0x17A7)	0xAC)
+   ((0x17A8)			< 0xAE Br.Bl 0xF4 >)
+   ((0x17A9)			0xB9)
+   ((range 0x17AA 0x17B1)	0xAF)
+   ((0x17B2)			0xB7)	; same as 0xB6
+   ((0x17B3)			< 0xAE tr<20bl 0xF8 >)
+   ((0x17B4)			< 0xBA tr+bl 0xF5 >)
+   ((0x17B5)			0xBA)
+   ((0x17B6)			0xBA)
+   ((0x17B7)			0xBB)
+   ((0x17B8)			0xBD)
+   ((0x17B9)			0xBF)
+   ((0x17BA)			0xC1)
+   ((0x17BB)			0xC3)
+   ((0x17BC)			0xC5)
+   ((0x17BD)			0xC7)
+   ((0x17BE)			< 0xCD 0x20 0xBD >)
+   ((0x17BF)			< 0xCD 0x20 Br<Bl 0xC9 >)
+   ((0x17C0)			< 0xCD 0x20 Br<Bl 0xCB >)
+   ((range 0x17C1 0x17C3)	0xCD)
+   ((0x17C4)			< 0xCD 0x20 Br<Bl 0xBA >)
+   ((0x17C5)			< 0xCD 0x20 Br<Bl 0xD0 >)
+   ((0x17C6)			0xD1)
+   ((0x17C7)			0xD3)
+   ((0x17C8)			0x3A)
+   ((0x17C9)			0xF6)
+   ((range 0x17CA 0x17CB)	0xF4)
+   ((0x17CC)			0xF8)
+   ((0x17CD)			0xF7)
+   ((0x17CE)			< 0x20 tc+80bc 0x2B >)
+   ((range 0x17CF 0x17D0)	0xF9)
+   ((0x17D1)			< 0x20 tc+80bc 0x5F >)
+   ((0x17D2)			< 0x20 bc-tc 0x5E >)
+   ((0x17D3)			0xD1)
+   ((range 0x17D4 0x17D5)	0xFC)
+   ((0x17D6)			0xFB)
+   ((0x17D7)			0xFE)
+   ((0x17D8)			< 0xFC 0xA6 0xFC >)
+   ((0x17D9)			< 0x30 cr<10cl 0xD2 >)
+   ((0x17DA)			0x8D)
+   ((0x17DB)			< 0xFF br->10tl 0xC3 >)
+   ((0x17DC)			0x53)
+   ((range 0x17E0 0x17E9)	0x30)))
+
+ (conjunct
+  (cond
+   ((0x1780)	br-tl 0xD4)
+   ((0x1781)	br-tl 0xD5)
+   ((0x1782)	br-tl 0xD6)
+   ((0x1783)	Br.Bl 0xD7)
+   ((0x1784)	br-tl 0xD8)
+   ((0x1785)	br-tl 0xD9)
+   ((0x1786)	br-tl 0xDA)
+   ((0x1787)	br-tl 0xDB)
+   ((0x1788)	Br.Bl 0xDC)
+   ((0x1789)	br-tl 0xDE)
+   ((0x178A)	br-tl 0xE3)
+   ((0x178B)	br-tl 0xDF)
+   ((0x178C)	br-tl 0xE0)
+   ((0x178D)	Br.Bl 0xE1)
+   ((0x178E)	br-tl 0xE2)
+   ((0x178F)	br-tl 0xE3)
+   ((0x1790)	br-tl 0xE4)
+   ((0x1791)	br-tl 0xE5)
+   ((0x1792)	br-tl 0xE6)
+   ((0x1793)	br-tl 0xE7)
+   ((0x1794)	Br.Bl 0xE8)
+   ((0x1795)	br-tl 0xE9)
+   ((0x1796)	br-tl 0xEA)
+   ((0x1797)	br-tl 0xEB)
+   ((0x1798)	br-tl 0xEC)
+   ((0x1799)	Br.Bl 0xED)
+   ((0x179A)	Bl+Bc 0xEE)
+   ((0x179B)	br-tl 0xEF)
+   ((0x179C)	br-tl 0xF0)
+   ((0x179D)	br-tl 0xD6 br.bl 0xFA)
+   ((0x179E)	Br.Bl 0xE8 br.bl 0xFA)
+   ((0x179F)	Br.Bl 0xF1)
+   ((0x17A0)	br-tl 0xF2)
+   ((0x17A2)	br-tl 0xF3)
+   ((0x17A7)	br-tl 0xD5 br.bl 0xC4)	; ugly compromise
+   ((0x17AB)	br-tl 0xA1)		; ugly compromise
+   ((0x17AF)	br-tl 0xB4)))		; ugly compromise
+
+ (vowel-and-sign
+  (cond
+   ((0x17B6)	Br-Bl 0xBA)
+   ((0x17B7)	tr+bl 0xBB)
+   ((0x17B8)	tr+bl 0xBD)
+   ((0x17B9)	tr+bl 0xBF)
+   ((0x17BA)	tr+bl 0xC1)
+   ((0x17BB)	br+tr 0xC3)
+   ((0x17BC)	br-tl 0xC5)
+   ((0x17BD)	br-tl 0xC7)
+   ((0x17BE)	tr+bl 0xBD Bl.Br 0xCD)
+   ((0x17BF)	Br.Bl 0xC9 Bl.Br 0xCD)
+   ((0x17C0)	Br.Bl 0xCB Bl.Br 0xCD)
+   ((0x17C1)	Bl.Br 0xCD)
+   ((0x17C2)	Bl.Br 0xCE)
+   ((0x17C3)	Bl.Br 0xCF)
+   ((0x17C4)	Bl.Br 0xCD Br.Bl 0xBA)
+   ((0x17C5)	Bl.Br 0xCD Br.Bl 0xD0)
+   ((0x17C6)	tr+bl 0xD1)
+   ((0x17C7)	Br.Bl 0xD3)
+   ((0x17C8)	Br.Bl 0x3A)
+   ((0x17C9)	tr+bl 0xF6)
+   ((0x17CA)	tr+bl 0xF4)
+   ((0x17CB)	tr+bl 0xF5)
+   ((0x17CC)	tr+bl 0xF8)
+   ((0x17CD)	tr+bl 0xF7)
+   ((0x17CE)	tr+>br 0x2B)
+   ((0x17CF)	tr+bl 0xF9)
+   ((0x17D0)	tr+bl 0xFA))))
+
+(category
+ ;;    WIDTH	HEIGHT	DEPTH
+ ;; N: normal	normal	normal
+ ;; T: normal	high	normal
+ ;; W: wide	normal	normal
+ ;; n: normal	normal	deep
+ ;; w: wide	normal	deep
+ ;; V: right part of KHMER VOWEL SIGN YA and IE
+ ;; x: separator
+ (0x00 0xFF	?N)
+ (0x00		?x)
+ (0x85		?W)
+ (0x89		?T)
+ (0x8A 0x8B	?W)
+ (0x8C		?w)
+ (0x91 0x92	?T)
+ (0x93 0x94	?W)
+ (0x97		?T)
+ (0x9F		?T)
+ (0xA4		?W)
+ (0xA6		?W)
+ (0xA8 0xA9	?W)
+ (0xAA		?w)
+ (0xAC		?T)
+ (0xAD		?w)
+ (0xAF		?T)
+ (0xB0 0xB3	?n)
+ (0xB5		?n)
+ (0xB6 0xB7	?T)
+ (0xB8		?w)
+ (0xC9		?V)
+ (0xCB		?V)
+ (0xD7		?w)
+ (0xDC 0xDE	?w)
+ (0xE1 0xE2	?w)
+ (0xE8		?w)
+ (0xED		?w)
+ (0xF1		?w))
+
+(generator
+ (0
+  (cond
+   (" ([^ x]*)x(V)([^ ]*) "
+    < (1 = *) (2 (cond ((0xC9) 0xCA) ((0xCB) 0xCC))) (3 = *) >)
+   (" ([^ x]*)x([^ ]*) "
+    < (1 = *) (2 = *) >)
+   (" (T[^V]*)(V)([^ ]*) "
+    < (1 = *) (2 (cond ((0xC9) Br.Bl 0xCA) ((0xCB) Br.Bl 0xCC))) (3 = *) >)
+   (" ([wn])(V)([^ ]*) "
+    < (1 = *) (2 (cond ((0xC9) 0xCA) ((0xCB) 0xCC))) (3 = *) >)
+   (" ([^ ]*) "
+    < (1 = *) >)
+   ("."
+    =))
+  *))
+
+;; Local Variables:
+;; mode: lisp
+;; End:

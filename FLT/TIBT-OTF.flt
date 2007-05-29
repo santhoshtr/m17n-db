@@ -1,0 +1,115 @@
+;; TIBT-OTF.flt -- Font Layout Table for Tibetan (OpenType font)
+;; Copyright (C) 2005, 2007
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+;;; <li> TIBT-OTF.flt
+;;;
+;;; For TibetanMachineUniAlpha.ttf to draw Tibetan script.
+;;; The font is available at:
+;;; <ul>
+;;; <li> infopage: http://www.thdl.org/
+;;; <li> download: http://ftp.debian.org/debian/pool/main/t/ttf-tmuni/ttf-tmuni_0.0.20040806.orig.tar.gz
+;;; </ul>
+
+(font layouter tibt-otf nil
+      (font (nil nil unicode-bmp :otf=tibt=ccmp,blws,abvs)))
+
+;; Step 0: Reordering Characters
+;;
+;; According to the Unicode canonical combining class value (CCCV),
+;; Tibetan combining characters must be orderd in the following way:
+;;
+;; MARK HALANTA (CCCV=9)
+;; VOWEL SIGN AA (129)
+;; Above base vowel signs (130)
+;; VOWEL SIGN U (132)
+;; MARK TSA -PHRU (216)
+;;
+;; However, the current font expects the following order:
+;;
+;; MARK TSA -PHRU
+;; VOWEL SIGN AA
+;; VOWEL SIGN U
+;; MARK HALANTA
+;; Above base vowel signs
+
+(category
+ (0x0F00 0x0FCF		?x)		; default
+ (0x0F39		?T)		; MARK TSA -PHRU
+ (0x0F71		?A)		; VOWEL SIGN AA
+ (0x0F72		?V)		; VOWEL SIGN I
+ (0x0F74		?U)		; VOWEL SIGN U
+ (0x0F7A 0x0F7D		?V)		; VOWEL SIGN E .. VOWEL SIGN OO
+ (0x0F80		?V)		; VOWEL SIGN REVERSED I
+ (0x0F84		?H))		; MARK HALANTA
+
+(generator
+ (0
+  (cond
+   ("x+"
+    = *)
+   ("(H?)(A*)(V?)(U*)(T?)"
+    (5 =) (2 = *) (4 = *) (1 =) (3 =)))
+  *))
+
+;; Step 1: Syllable identification
+
+;; C: Consonants
+;; T: MARK TSA -PHRU
+;; c: Subjoind consonants
+;; A: VOWEL SIGN AA
+;; U: VOWEL SIGN U
+;; H: MARK HALANTA
+;; V: Above or two-part vowel signs
+;; S: Above base signs
+;; s: Other above base signs
+;; x: Others
+
+(category
+ (0x0F00 0x0FCF		?x)		; default
+ (0x0F39		?T)		; MARK TSA -PHRU
+ (0x0F40 0x0F6A		?C)		; LETTER KA .. LETTER FIXED-FORM RA
+ (0x0F71		?A)		; VOWEL SIGN AA
+ (0x0F72 0x0F7E		?V)		; VOWEL SIGN I .. SIGN RJES SU NGA RO
+ (0x0F74		?U)		; VOWEL SIGN U
+ (0x0F80 0x0F81		?V)		; VOWEL SIGN REVERSED I, REVERSED II
+ (0x0F82 0x0F83		?S)		; SIGN NYI ZLA NAADA, SIGN SNA LDAN
+ (0x0F84		?H)		; MARK HALANTA
+ (0x0F86 0x0F87		?s)		; SIGN LCI RTAGS, SIGN YANG RTAGS
+ (0x0F88 0x0F89		?C)		; SIGN LCE TSA CAN, SIGN MCHU CAN
+ (0x0F90 0x0FBC		?c))		; SUBJOIND LETTER KA .. FIXED-FORM RA
+
+(generator
+ (0
+  (cond
+   ;; For some reason, it is better not to apply the abvs feature when
+   ;; both A and U exist.
+   ("(C)(T?)(c*)(A*)(U*)(H?)(V*)(S*)(s*)"
+    otf:tibt=ccmp,blws,abvs)
+   ("."
+    =))
+  *))
+
+;; Local Variables:
+;; mode: lisp
+;; coding: utf-8
+;; End:

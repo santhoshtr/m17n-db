@@ -1,0 +1,233 @@
+;; ARAB-OTF.flt -- Font Layout Table for Arabic OpenType font
+;; Copyright (C) 2004, 2006, 2007
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; <li> ARAB-OTF.flt
+;;;
+;;; For Arabic OpenType fonts to draw the Arabic script.
+
+(font layouter arab-otf nil
+      (font (nil nil unicode-bmp :otf=arab=init,medi,fina,liga+mark)))
+
+;; Step 0: Move Kazakh high hamza.
+
+(category
+ ;; p: high hamza carrier (p for positive)
+ ;; n: high hamza suppressor (n for negative)
+ ;; x: don't care
+ (0x0600 0x06FF		?x)
+ (0x0750 0x077F		?x)		; Arabic Supplement
+ (0x0674 0x0678		?p)
+ (0x0643		?n)
+ (0x06AF		?n)
+ (0x06D5		?n)
+ (0x200C		?x)
+ (0x200D		?x)
+ (0x25CC		?x)
+ (0xFB50 0xFDFF		?X)		; Arabic Presentation Forms-A
+ (0xFE70 0xFEFC		?X)		; Arabic Presentation Forms-B
+ )
+
+(generator
+ (0
+  (cond
+   ;; If a presentation form is found, draw the whole sequence as is.
+   (".*X.*" = *)
+
+   (".*p.*"				; If a high hamza is found,
+    (cond
+     (".*n.*"				;   and a suppressor exists,
+      rmhamza *)			;   then remove the high hamza.
+     (0					;   Otherwise, move the high
+      0x674 rmhamza *)))		;   hamza to the beginning.
+   (0 = *)))				; If no high hamza, do nothing.
+
+ (rmhamza
+  (cond
+   ((0x0674)		)
+   ((0x0675)		0x0627)
+   ((0x0676)		0x0648)
+   ((0x0677)		0x06C7)
+   ((0x0678)		0x0649)
+   ("."			=))))
+
+;; Step 1: ccmp
+
+(category
+ ;; D: Dual-joining (beh, teh, etc. & zwj)
+ ;; R: Right-joining (alef, dal, thal, reh, zain)
+ ;; U: Non-joining (Hamza, etc. & zwnj)
+ ;; T: Transparent (combining marks)
+ (0x060B 0x060F		?U)
+ (0x0610 0x0615		?T)
+ (0x061B		?U)
+ (0x061E 0x061F		?U)
+ (0x0621		?U)
+ (0x0622 0x0623		?R)
+ (0x0624		?R)
+ (0x0625		?R)
+ (0x0626		?D)
+ (0x0627		?R)
+ (0x0628		?D)
+ (0x0629		?R)
+ (0x062A 0x062E		?D)
+ (0x062F 0x0632		?R)
+ (0x0633 0x0647		?D)
+ (0x0648		?R)
+ (0x0649 0x064A		?D)
+ (0x064B 0x065E		?T)
+ (0x0660 0x066D		?U)
+ (0x066E 0x066F		?D)
+ (0x0670		?T)
+ (0x0671 0x0673		?R)
+ (0x0674 0x0678		?U)
+ (0x0679 0x0687		?D)
+ (0x0688 0x0699		?R)
+ (0x069A 0x06C3		?D)
+ (0x06C4 0x06CB		?R)
+ (0x06CC 0x06CE		?D)
+ (0x06CF		?R)
+ (0x06D0 0x06D3		?D)
+ (0x06D4		?U)
+ (0x06D5		?R)
+ (0x06D6 0x06E4		?T)
+ (0x06E5 0x06E6		?U)
+ (0x06E7 0x06E8		?T)
+ (0x06E9		?U)
+ (0x06EA 0x06ED		?T)
+ (0x06EE 0x06EF		?R)
+ (0x06F0 0x06F9		?U)
+ (0x06FA 0x06FC		?D)
+ (0x06FD 0x06FE		?U)
+ (0x06FF		?D)
+ (0x0750 0x0758		?D)
+ (0x0759 0x075B		?R)
+ (0x075C 0x076A		?D)
+ (0x076B 0x076C		?R)
+ (0x076D		?D)
+ (0x200C		?U)
+ (0x200D		?D)
+ (0x25CC		?U)
+ (0xFB50 0xFDFF		?X)		; Arabic Presentation Forms-A
+ (0xFE70 0xFEFC		?X)		; Arabic Presentation Forms-B
+ )
+
+;; (generator
+;;  (0
+;;   otf:arab=ccmp))
+
+;; Step 2: Initial, medial, or final.
+
+(generator
+ (0
+  (cond
+   (".*X.*" (cond ("[DRUX]T*" < = * >) ("." =)) *)
+
+   ("D.*"
+    (cond
+     ("(.)(T*)([DR].*)"
+      <
+      (1 otf:arab=init)
+      (2 = *)
+      >
+      (3 join))
+     ("(.)(T*)(.*)"			; == (D)(T*)(U.*)
+      <
+      (1 otf:arab=isol)
+      (2 = *)
+      >
+      (3 disjoin))))
+
+   ("([RU])(T*)(.*)"
+    <
+    (1 otf:arab=isol)
+    (2 = *)
+    >
+    (3 disjoin))
+
+   ("(T+)(.*)"
+    (1 = *)
+    (2 disjoin))))
+
+ (join
+  (cond
+   ("D.*"
+    (cond
+     ("(.)(T*)([DR].*)"
+      <
+      (1 otf:arab=medi)
+      (2 = *)
+      >
+      (3 join))
+     ("(.)(T*)(.*)"			; == (D)(T*)(U.*)
+      <
+      (1 otf:arab=fina)
+      (2 = *)
+      >
+      (3 disjoin))))
+
+   ("(.)(T*)(.*)"
+    <
+    (1 otf:arab=fina)
+    (2 = *)
+    >
+    (3 disjoin))))
+
+ (disjoin
+  (cond
+   ("D.*"
+    (cond
+     ("(.)(T*)([DR].*)"
+      <
+      (1 otf:arab=init)
+      (2 = *)
+      >
+      (3 join))
+     ("(.)(T*)(.*)"			; == (D)(T*)(U.*)
+      <
+      (1 otf:arab=isol)
+      (2 = *)
+      >
+      (3 disjoin))))
+
+   ("(.)(T*)(.*)"			; == ([RU])(T*)(.*)
+    <
+    (1 otf:arab=isol)
+    (2 = *)
+    >
+    (3 disjoin)))))
+
+;; Step 3: Other GSUB features (ligatures, etc.)
+
+(generator
+ (0
+  otf:arab=rlig,calt,liga,dlig,cswh,mset))
+
+;; Step 4: GPOS features.
+
+(generator
+ (0
+  otf:arab=))
+
+;; Local Variables:
+;; mode: lisp
+;; End:
