@@ -21,21 +21,17 @@
 # Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301, USA.
 
-SUBDIRS = po icons
+SUBDIRS = po icons FLT MIM
 
 pkgdata_DATA = \
 	${CHARSETS} \
 	${CHAR_TABLE} \
-	${FONT_LAYOUT_TABLE} \
-	${INPUT_METHOD} \
 	${MISC_TABLE} \
 	${LANGNAME} \
 	mdb.dir
 
 EXTRA_DIST = config.rpath mkinstalldirs m4/ChangeLog \
 	mdb.dir \
-	${FONT_LAYOUT_TABLE} \
-	${INPUT_METHOD} \
 	${MISC_TABLE} \
 	BLOCK.tab \
 	${UNIDATA} \
@@ -86,79 +82,6 @@ CHAR_TABLE = \
 	CATEGORY.tab COMBINE.tab BIDI.tab LINEBREAK.tab \
 	CASED.tab SOFT-DOTTED.tab CASE-MAPPING.tab \
 	BLOCK.tab
-
-FONT_LAYOUT_TABLE = \
-	ARAB.flt ARAB-OTF.flt ARAB-OTF-NO-GPOS.flt \
-	BENG-OTF.flt \
-	DEVA-CDAC.flt DEVA-OTF.flt \
-	GUJR-OTF.flt \
-	GURU-OTF.flt \
-	HEBR.flt HEBR-FF.flt \
-	KHMR-MULE.flt KHMR-ANLONG.flt KHMR-OTF.flt \
-	KNDA-OTF.flt \
-	LAOO-MULE.flt LAOO-ALICE.flt LAOO-GENERIC.flt LAOO-OTF.flt \
-	MLYM-CDAC.flt MLYM-OTF.flt MLYM-RACHANA.flt \
-	MYMR-MYAZEDI.flt \
-	ORYA-OTF.flt \
-	SINH-OTF.flt \
-	SYRC-OTF.flt \
-	TAML-CDAC.flt TAML-OTF.flt \
-	TELU-OTF.flt \
-	THAA-OTF.flt \
-	THAI-TIS620.flt THAI-NORASI.flt THAI-GENERIC.flt THAI-OTF.flt \
-	TIBT-MULE.flt TIBT-MTIB.flt TIBT-OTF.flt \
-	NO-CTL.flt
-
-INPUT_METHOD = \
-	am-sera.mim \
-	ar-kbd.mim \
-	as-itrans.mim \
-	bn-itrans.mim \
-	bn-unijoy.mim \
-	bo-ewts.mim bo-wylie.mim\
-	dv-phonetic.mim \
-	el-kbd.mim \
-	fa-isiri.mim \
-	fr-azerty.mim \
-	grc-mizuochi.mim \
-	gu-itrans.mim \
-	he-kbd.mim \
-	hi-itrans.mim \
-	hr-kbd.mim \
-	hy-kbd.mim \
-	ja-anthy.mim ja-tcode.mim ja-trycode.mim \
-	ka-kbd.mim \
-	kk-kbd.mim kk-arabic.mim \
-	km-yannis.mim \
-	kn-itrans.mim \
-	ko-han2.mim ko-romaja.mim \
-	lo-kbd.mim lo-lrt.mim \
-	ml-itrans.mim \
-	my-kbd.mim \
-	or-itrans.mim \
-	pa-itrans.mim \
-	ru-kbd.mim ru-yawerty.mim ru-phonetic.mim \
-	si-samanala.mim si-wijesekera.mim si-wijesekera-preedit.mim \
-	sk-kbd.mim \
-	sr-kbd.mim \
-	sv-post.mim \
-	ta-itrans.mim \
-	te-itrans.mim \
-	th-kesmanee.mim th-kesmanee-2.mim\
-	th-pattachote.mim th-pattachote-2.mim\
-	th-tis820.mim th-tis820-2.mim\
-	ug-kbd.mim \
-	vi-viqr.mim vi-telex.mim vi-vni.mim \
-	zh-py.mim zh-py-gb.mim zh-py-b5.mim \
-	zh-tonepy.mim zh-tonepy-gb.mim zh-tonepy-b5.mim \
-	zh-cangjie.mim zh-quick.mim \
-	zh-pinyin.mim \
-	latn-post.mim latn-pre.mim \
-	syrc-phonetic.mim \
-	zh-bopomofo.mim \
-	unicode.mim rfc1345.mim \
-	ispell.mim \
-	global.mim cjk-util.mim zh-util.mim
 
 MISC_TABLE = \
 	LOCALE.cs LOCALE.ali \
