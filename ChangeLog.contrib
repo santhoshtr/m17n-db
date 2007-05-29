@@ -1,3 +1,30 @@
+2007-05-29  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* im/as-inscript.mim, im/as-phonetic.mim, im/bn-inscript.mim,
+	im/bn-probhat.mim, im/gu-inscript.mim, im/gu-phonetic.mim,
+	im/hi-inscript.mim, im/hi-phonetic.mim, im/hi-remington.mim,
+	im/kn-inscript.mim, im/kn-kgp.mim, im/ml-inscript.mim,
+	im/mr-inscript.mim, im/mr-phonetic.mim, im/ne-rom.mim,
+	im/ne-trad.mim, im/or-inscript.mim, im/or-phonetic.mim,
+	im/pa-inscript.mim, im/pa-jhelum.mim, im/pa-phonetic.mim,
+	im/ta-inscript.mim, im/ta-phonetic.mim, im/ta-tamil99.mim,
+	im/ta-typewriter.mim, im/te-inscript.mim, im/ur-phonetic.mim:
+	Change "the library" -> the m17n library
+
+2007-05-25  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* AUTHORS: New contributer
+
+	* im/as-inscript.mim, im/as-phonetic.mim, im/bn-inscript.mim,
+	im/bn-itrans.mim, im/bn-probhat.mim, im/gu-inscript.mim,
+	im/gu-phonetic.mim, im/hi-inscript.mim, im/hi-phonetic.mim,
+	im/hi-remington.mim, im/kn-inscript.mim, im/kn-kgp.mim,
+	im/ml-inscript.mim, im/mr-inscript.mim, im/mr-itrans.mim,
+	im/mr-phonetic.mim, im/or-inscript.mim, im/or-phonetic.mim,
+	im/pa-inscript.mim, im/pa-jhelum.mim, im/pa-phonetic.mim,
+	im/ta-typewriter.mim, im/te-inscript.mim:
+	Patch from contributers.
+
 2007-05-17  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* im/hi-typewriter.mim: Deleted because of redundancy
