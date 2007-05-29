@@ -1,0 +1,212 @@
+;; vi-vni.mim -- Input method for Vietnames with VNI key sequence
+;; Copyright (C) 2005
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+(input-method vi vni)
+
+(description "Vietnames input method using the VNI key sequence.
+It is based on the information at:
+  http://vietunicode.sourceforge.net/inputmethod.html
+")
+
+(title "ắ(VNI)")
+(map
+ (starter 
+  ("a" (set V ?a)) ("A" (set V ?A)) ("e" (set V ?e)) ("E" (set V ?E))
+  ("i" (set V ?i)) ("I" (set V ?I)) ("o" (set V ?o)) ("O" (set V ?O)) 
+  ("u" (set V ?u)) ("U" (set V ?U)) ("d" (set V ?d)) ("D" (set V ?D)))
+
+ (vni-map
+  ("a" ?a)
+  ("A" ?A)
+  ("e" ?e)
+  ("E" ?E)
+  ("i" ?i)
+  ("I" ?I)
+  ("o" ?o)
+  ("O" ?O)
+  ("u" ?u)
+  ("U" ?U)
+  ("d" ?d)
+  ("D" ?D)
+  ("a1" ?á)
+  ("A1" ?Á)
+  ("a2" ?à)
+  ("A2" ?À)
+  ("a3" ?ả)
+  ("A3" ?Ả)
+  ("a4" ?ã)
+  ("A4" ?Ã)
+  ("a5" ?ạ)
+  ("A5" ?Ạ)
+  ("a6" ?â)
+  ("A6" ?Â)
+  ("a8" ?ă)
+  ("A8" ?Ă)
+  ("d9" ?đ)
+  ("D9" ?Đ)
+  ("e1" ?é)
+  ("E1" ?É)
+  ("e2" ?è)
+  ("E2" ?È)
+  ("e3" ?ẻ)
+  ("E3" ?Ẻ)
+  ("e4" ?ẽ)
+  ("E4" ?Ẽ)
+  ("e5" ?ẹ)
+  ("E5" ?Ẹ)
+  ("e6" ?ê)
+  ("E6" ?Ê)
+  ("i1" ?í)
+  ("I1" ?Í)
+  ("i2" ?ì)
+  ("I2" ?Ì)
+  ("i3" ?ỉ)
+  ("I3" ?Ỉ)
+  ("i4" ?ĩ)
+  ("I4" ?Ĩ)
+  ("i5" ?ị)
+  ("I5" ?Ị)
+  ("o1" ?ó)
+  ("O1" ?Ó)
+  ("o2" ?ò)
+  ("O2" ?Ò)
+  ("o3" ?ỏ)
+  ("O3" ?Ỏ)
+  ("o4" ?õ)
+  ("O4" ?Õ)
+  ("o5" ?ọ)
+  ("O5" ?Ọ)
+  ("o6" ?ô)
+  ("O6" ?Ô)
+  ("o7" ?ơ)
+  ("O7" ?Ơ)
+  ("u1" ?ú)
+  ("U1" ?Ú)
+  ("u2" ?ù)
+  ("U2" ?Ù)
+  ("u3" ?ủ)
+  ("U3" ?Ủ)
+  ("u4" ?ũ)
+  ("U4" ?Ũ)
+  ("u5" ?ụ)
+  ("U5" ?Ụ)
+  ("u7" ?ư)
+  ("U7" ?Ư)
+  ("y1" ?ý)
+  ("Y1" ?Ý)
+  ("y2" ?ỳ)
+  ("Y2" ?Ỳ)
+  ("y3" ?ỷ)
+  ("Y3" ?Ỷ)
+  ("y4" ?ỹ)
+  ("Y4" ?Ỹ)
+  ("y5" ?ỵ)
+  ("Y5" ?Ỵ)
+
+  ("a61" ?ấ)
+  ("A61" ?Ấ)
+  ("a62" ?ầ)
+  ("A62" ?Ầ)
+  ("a63" ?ẩ)
+  ("A63" ?Ẩ)
+  ("a64" ?ẫ)
+  ("A64" ?Ẫ)
+  ("a65" ?ậ)
+  ("A65" ?Ậ)
+  ("a81" ?ắ)
+  ("A81" ?Ắ)
+  ("a82" ?ằ)
+  ("A82" ?Ằ)
+  ("a83" ?ẳ)
+  ("A83" ?Ẳ)
+  ("a84" ?ẵ)
+  ("A84" ?Ẵ)
+  ("a85" ?ặ)
+  ("A85" ?Ặ)
+  ("e61" ?ế)
+  ("E61" ?Ế)
+  ("e62" ?ề)
+  ("E62" ?Ề)
+  ("e63" ?ể)
+  ("E63" ?Ể)
+  ("e64" ?ễ)
+  ("E64" ?Ễ)
+  ("e65" ?ệ)
+  ("E65" ?Ệ)
+  ("o61" ?ố)
+  ("O61" ?Ố)
+  ("o62" ?ồ)
+  ("O62" ?Ồ)
+  ("o63" ?ổ)
+  ("O63" ?Ổ)
+  ("o64" ?ỗ)
+  ("O64" ?Ỗ)
+  ("o65" ?ộ)
+  ("O65" ?Ộ)
+  ("o71" ?ớ)
+  ("O71" ?Ớ)
+  ("o72" ?ờ)
+  ("O72" ?Ờ)
+  ("o73" ?ở)
+  ("O73" ?Ở)
+  ("o74" ?ỡ)
+  ("O74" ?Ỡ)
+  ("o75" ?ợ)
+  ("O75" ?Ợ)
+  ("u71" ?ứ)
+  ("U71" ?Ứ)
+  ("u72" ?ừ)
+  ("U72" ?Ừ)
+  ("u73" ?ử)
+  ("U73" ?Ử)
+  ("u74" ?ữ)
+  ("U74" ?Ữ)
+  ("u75" ?ự)
+  ("U75" ?Ự))
+
+ (escape
+  ("\\"))
+
+ (cancel
+  ("0"))
+
+ (backspace
+  ((BackSpace))))
+
+(state
+ (init
+  (starter (pushback 1) (shift main)))
+
+ (main
+  (vni-map (shift fini))
+  (nil (shift init)))
+
+ (fini
+  (backspace (undo))
+  (escape (shift init))
+  (cancel (delete 0) (insert V) (shift init))))
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: lisp
+;; End:
