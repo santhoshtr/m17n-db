@@ -1,4 +1,10 @@
+2007-05-30  Kenichi Handa  <handa@m17n.org>
+
+	* Makevars (XGETTEXT_OPTIONS): Add "--from-code utf-8".
+
 2006-11-28  Kenichi Handa  <handa@m17n.org>
+
+	* .cvsignore: New file.
 
 	* m17n-db.pot, ja.po: Updated.
 
