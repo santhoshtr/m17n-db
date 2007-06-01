@@ -23,10 +23,10 @@
 ## Each line of this file has this format:
 ##	ISO639-2 | NATIVE-NAME [ | EXTRA-CHARS ]
 ## ISO639-2: 3-letter language code of ISO639-2.
-;; NATIVE-NAME: Native name of the language extracted from:
-;; EXTRA-CHARS: Extra characters that uniquifies the language.
-;;
-;; NATIVE-NAME is mainly got from these sites:
+## NATIVE-NAME: Native name of the language.
+## EXTRA-CHARS: Extra characters that uniquifies the language.
+##
+## NATIVE-NAME is mainly got from these sites:
 ;;    http://www.unicode.org/Public/cldr/cldr1.2.zip
 ;;    http://www.geonames.de/
 ;;    http://www.omniglot.com/language/names.htm

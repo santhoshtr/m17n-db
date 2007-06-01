@@ -71,7 +71,7 @@ BEGIN {
 	    NATIVE[$1] = $2;
 	}
     }
-    while (getline < "en.tbl") {
+    while (getline < "en.lnm") {
 	split($0, array, "\(| \"|\" \"|\"\)")
 	ENGLISH[array[2]] = array[3];
     }
