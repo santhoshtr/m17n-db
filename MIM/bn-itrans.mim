@@ -24,8 +24,32 @@
 (input-method bn itrans)
 
 (description "Bengali input method by ITRANS transliteration.
-For the detail of ITRANS, see the page:
-  <http://www.aczoom.com/itrans/>
+
+Itrans Bengali Keymap Layout created by Avinash Chopde in
+accordance with the details in the following link:
+
+http://www.aczoom.com/itrans/beng/node4.html
+
+Key Summary:
+
+The consonant alphabets are represented as half-characters by
+default i.e. k = ক্ . To complete the character please use 'a'
+representing 'অ' i.e. ka=ক. Consonant conjuncts can be created by
+writing the consonant characters in sequential order. To complete
+the conjunct either 'অ' or any other dependent vowel [অ (a),
+া(aa), ি(i), ী(ii), ু(u), ূ(uu), ে(e), ৈ(ai), ো (o), ৌ (au)] needs
+to be added at the end.
+
+E.g. ক্রিয়া = k+r+i+Y+A
+
+To write 'Khaanda-ta' (ৎ) use the key combination : t.h
+
+Detailed instructions for typing are available at the above mentioned link
+
+The following keysequences are not defined in the mentioned page,
+but added for users' sake:
+
+Ch JN shh yh dny LLi L^i RRI R^I LLI L^I # $ ^ * ] S-\ C-@
 ")
 
 (title "ক")
