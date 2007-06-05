@@ -1,3 +1,53 @@
+2007-06-05  Kenichi Handa  <handa@m17n.org>
+
+	* LANGDATA/.cvsignore: Add LANGUAGE.tbl, lnconv.el.
+
+	* configure.ac (LANGNAME_TABLES): New variable.  AC_SUBST it.
+	(AC_CONFIG_FILES): Add FLT/Makefile, MIM/Makefile, LANGDATA/Makefile.
+
+	* Makefile.am (SUBDIRS): Add LANGDATA.
+	(pkgdata_DATA): Remove ${LANGNAME}
+	(MISC_TABLE): Remove LANGUAGE.tbl.
+	(LANGNAME): Delete this variable.
+	(LANGUAGE.tbl, LANGNAME.en, LANGNAME.fr): Delete these targets.
+
+	* LANGDATA/Makefile.am (pkgdata_DATA): Delete ${TABLES}.
+	(EXTRA_DIST): Remove this variable.
+	(dist_pkgdata_DATA): New variable.
+	(dist_noinst_SCRIPTS): New variable.
+	(native.ext): Don't use native.sh.
+	(CLEANFILES): New variable.
+
+	* mdb.dir (language name): Change filename.
+
+	* MIM/ja-anthy.mim (zen-nan): Fix valid value list.
+
+	* MIM/vi-telex.mim: Big changes; tripple-vowel handling, escape
+	mode, control equivocal case by a customizable variable).
+
+	* FLT/KHMR-OTF.flt: Just a cosmetic change.
+
+2007-05-31  Kenichi Handa  <handa@m17n.org>
+
+	* LANGDATA/Makefile.am: New file.
+
+	* LANGDATA/LANGUAGE.awk: Moved from ../LANGUAGE.awk.  Modified to
+	use native.ext.
+
+	* LANGDATA/.cvsignore: New file.
+
+	* LANGDATA/*.lnm: New files.
+
+	* FLT/.cvsignore: New file.
+
+2007-05-29  Kenichi Handa  <handa@m17n.org>
+
+	* default.fst (thaana): Fix typo.
+
+2007-05-21  Kenichi Handa  <handa@m17n.org>
+
+	* generic.fst (tibetan): Fix previous typo.
+
 2007-06-05  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/KNDA-OTF.flt:
@@ -7,12 +57,18 @@
 
 2007-05-29  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
+	* as-itrans.mim, bn-itrans.mim, gu-itrans.mim, hi-itrans.mim,
+	kn-itrans.mim, ml-itrans.mim, or-itrans.mim, pa-itrans.mim,
+	ta-itrans.mim, te-itrans.mim: Add keypad support.
+
 	* *.flt: Moved to the FLT subdirectory.
 
 	* *.mim: Moved to the MIM subdirectory.
 
-	* as-itrans.mim, bn-itrans.mim, gu-itrans.mim, hi-itrans.mim, kn-itrans.mim, ml-itrans.mim, or-itrans.mim, pa-itrans.mim, ta-itrans.mim, te-itrans.mim:
-	Add keypad support.
+	* as-itrans.mim, bn-itrans.mim, gu-itrans.mim, hi-itrans.mim,
+	kn-itrans.mim, ml-itrans.mim, or-itrans.mim, pa-itrans.mim,
+	ta-itrans.mim, te-itrans.mim: Add keypad support.
+
 
 2007-05-21  Kenichi Handa  <handa@m17n.org>
 
