@@ -184,7 +184,7 @@
 
 (char-table integer linebreak "LINEBREAK.tab")
 
-(language name * "LANGNAME.*")
+(language name * "*.lnm")
 
 (standard language iso639 "LANGUAGE.tbl")
 (standard script otf "SCRIPT-OTF.tbl")		;obsolete
