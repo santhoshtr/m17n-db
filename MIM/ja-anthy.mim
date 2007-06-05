@@ -41,7 +41,7 @@ Select Hiragana or Katakana"
  (zen-han
   "Zenkaku or Hankaku (not yet implemented)"
   zenkaku
-  hankaku))
+  hankaku zenkaku))
 
 (command
  (convert) (commit))
