@@ -1,3 +1,5 @@
 Makefile.in
 Makefile
 native.ext
+LANGUAGE.tbl
+lnconv.el
