@@ -24,17 +24,17 @@
 ;;; <li> KNDA-OTF.flt
 ;;;
 ;;; For Kannada OpenType fonts to draw Kannada.
-;;; Designed for Sampige.ttf <http://kannada.sourceforge.net/>
+;;; Designed for Kedage-n.ttf <http://brahmi.sourceforge.net/downloads.html>
 
 (font layouter knda-otf nil
       (font (nil nil unicode-bmp :otf=knda=rphf)))
 
 (category
  ;; C: general consonant
- ;; R: no below-base consonat (RRA, NNNA, LLLA)
- ;; r: RA
+ ;; R: RA
  ;; H: HALANT
  ;; u: MATRA (above)
+ ;; b: MATRA (below)
  ;; p: MATRA (post)
  ;; t: MATRA (two-part)
  ;; T: MATRA (three-part)
@@ -49,13 +49,11 @@
  (0x0964	?E)			; DANDA
  (0x0965	?E)			; DOUBLE DANDA
  (0x0C80 0x0CFF	?E)			; ELSE
- (0x0C82	?a)			; SIGN ANUSVARA
- (0x0C83	?a)			; SIGN VISARGA
+ (0x0C82 0x0C83	?a)			; SIGN ANUSVARA, VISARGA
  (0x0C85 0x0C94	?V)			; LETTER A .. LETTER AU
- (0x0C95 0x0CB9 ?C)			; LETTER KA .. LETTER HA
- (0x0CB0	?r)			; LETTER RA
+ (0x0C95 0x0CB9	?C)			; LETTER KA .. LETTER HA
+ (0x0CB0	?R)			; LETTER RA
  (0x0CBC	?n)			; SIGN NUKTA
- (0x0CBD	?E)			; SIGN AVAGRAHA
  (0x0CBE 	?p)			; VOWEL SIGN AA (post)
  (0x0CBF	?u)			; VOWEL SIGN I (above)
  (0x0CC0	?t)			; VOWEL SIGN II (two-part)
@@ -65,10 +63,10 @@
  (0x0CCB	?T)			; VOWEL SIGN OO (three-part)
  (0x0CCC	?u)			; VOWEL SIGN AU (above)
  (0x0CCD	?H)			; SIGN VIRAMA (HALANT)
- (0x0CD5	?l)			; LENGTH MARK (length post)
- (0x0CD6	?l)			; AI LENGTH MARK (length post)
+ (0x0CD5 0x0CD6	?l)			; LENGTH MARK (length post)
  (0x0CDE	?C)			; LETTER FA (LLLA)
  (0x0CE0 0x0CE1	?V)			; LETTER VOCALIC RR, LL
+ (0x0CE2 0x0CE3	?b)			; VOWEL SIGN VOCALIC L, LL
  (0x0CFD	?Z)			; internal use
  (0x0CFE	?Y)			; internal use
  (0x0CFF	?X)			; internal use
@@ -79,29 +77,29 @@
  (0
   (cond
    ;; A syllable containing a three-part vowel sign.
-   ("([CRr](H[Cr])*)(T)(a)?"
+   ("([CR]J?n?(H[CR]n?)*)(T)(a)?"
     < | (1 move-base-Halant) (3 0x0CC6 0x0CC2 0x0CD5) (4 =) | >)
 
    ;; A syllable containing a two-part vowel sign.
-   ("([CRr](H[Cr])*)(t)(a)?"
+   ("([CR]J?n?(H[CR]n?)*)(t)(a)?"
     < | (1 move-base-Halant) (3 two-part) (4 =) | >)
 
    ;; A syllable ending with vowel signs and/or a vowel modifier.
-   ("([CRr](H[Cr])*)([upl]+a?|a)"
+   ("([CR]J?n?(H[CR]n?)*)([ubpl]+a?|a)"
     < | (1 move-base-Halant) (3 = *) | >)
 
    ;; Forced Halant form.
-   ("((RH)?([Cr]H)*)([Cr]H)N"
+   ("(([CR]n?H)*)([CR]n?H)N"
     < | (1 move-base-Halant) | >
-    < | (4 move-base-Halant) | >)
+    < | (3 move-base-Halant) | >)
 
    ;; Forced Half form.
-   ("((RH)?([Cr]H)*)([Cr]H)J"
+   ("(([CR]n?H)*)([CR]n?H)J"
     < | (1 move-base-Halant) >
-    < | (4 otf:knda=blwf) | >)
+    < | (3 otf:knda=blwf) | >)
 
    ;; A syllable without a vowel sign nor a vowel modifier.
-   ("[CRr](H[Cr])*H?"
+   ("[CR]J?n?(H[CR]n?)*H?"
     < | move-base-Halant | >)
 
    ;; A syllable starting with an independent vowel.
@@ -120,12 +118,14 @@
   (cond
    (".*H$"
     0x0CFE = *)
-   ("(rH)(.)$"
-    0x0CFD (2 =) (1 = =))
-   ("(rH)(.)(H)(.*)"
-    0x0CFD (2 =) (4 = *) (3 =) (1 = =))
-   ("(.)(H)(.*)"
+   ("(RH)([CR]n?)$"
+    0x0CFD (2 = *) (1 = =))
+   ("(RH)([CR]n?)(H)(.*)"
+    0x0CFD (2 = *) (4 = *) (3 =) (1 = =))
+   ("(R)J(H)(.*)"
     0x0CFF (1 =) (3 = *) (2 =))
+   ("(Cn?)(H)(.*)"
+    0x0CFF (1 = *) (3 = *) (2 =))
    (".*"
     = *)))
 
@@ -143,14 +143,14 @@
 (generator
  (0
   (cond
-   ;;  1  2       3   4   5   6   7
-   (" Z(.)([CrH]*)(rH)(u)?(p)?(l*)(a)? "
-    | (1 =) (4 =) (5 =) (2 = *) (6 = *) (3 otf:knda=rphf) (7 =) |)
-   ;;  1  2       3   4   5   6
-   (" X(.)([CrH]*)(u)?(p)?(l*)(a)? "
-    | (1 =) (3 =) (4 =) (2 = *) (5 = *) (6 =) |)
-   (" Y(..)([^ ]*) "
-    ;; Sampige.ttf lacks the haln feature, so "otf:knda=haln" does not work.
+   ;;  1       2        3   4   5   6   7   8
+   (" Z([CR]n?)([CRnH]*)(RH)(u)?(b)?(p)?(l*)(a)? "
+    | (1 = *) (4 =) (5 =) (6 =) (2 = *) (7 = *) (3 otf:knda=rphf) (8 =) |)
+   ;;  1       2        3   4   5   6   7
+   (" X([CR]n?)([CRnH]*)(u)?(b)?(p)?(l*)(a)? "
+    | (1 = *) (3 =) (4 =) (5 =) (2 = *) (6 = *) (7 =) |)
+   (" Y([CR]n?H)([^ ]*) "
+    ;; Kedage-n.ttf lacks the haln feature, so "otf:knda=haln" does not work.
     | (1 otf:knda=~rphf,~blwf,*) (2 = *) |)
    ("." =))
   *))
