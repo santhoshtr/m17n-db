@@ -25,12 +25,19 @@ pkgdatadir=$(datadir)/m17n
 
 TABLES=@LANGNAME_TABLES@
 
-pkgdata_DATA = LANGUAGE.tbl ${TABLES}
+pkgdata_DATA = LANGUAGE.tbl
 
-EXTRA_DIST = LANGUAGE.tbl ${TABLES}
+dist_pkgdata_DATA = ${TABLES} native.txt ISO-639-2.txt
 
-native.ext: native.sh ${TABLES}
-	./native.sh > $@
+dist_noinst_SCRIPTS = LANGUAGE.awk
+
+native.ext: ${TABLES}
+	(for f in [a-z][a-z].lnm [a-z][a-z][a-z].lnm; do \
+	  l=`basename $$f .tbl`; \
+	  sed -n -e "/($$l /s/(\([a-z]*\)[^\"]*\"\([^\"]*\)\")/\1|\2/p" < $$f; \
+	done) > $@
 
 LANGUAGE.tbl: LANGUAGE.awk ${TABLES} native.txt native.ext
-	@$(AWK) -f LANGUAGE.awk '-F|' < ISO-639-2.txt > $@
+	$(AWK) -f LANGUAGE.awk '-F|' < ISO-639-2.txt > $@
+
+CLEANFILES = native.ext LANGUAGE.tbl
