@@ -89,14 +89,8 @@
     < | (1 move-base-Halant) (3 = *) | >)
 
    ;; Forced Halant form.
-   ("(([CR]n?H)*)([CR]n?H)N"
-    < | (1 move-base-Halant) | >
-    < | (3 move-base-Halant) | >)
-
-   ;; Forced Half form.
-   ("(([CR]n?H)*)([CR]n?H)J"
-    < | (1 move-base-Halant) >
-    < | (3 otf:knda=blwf) | >)
+   ("([CR]n?H)N"
+    < | move-base-Halant | >)
 
    ;; A syllable without a vowel sign nor a vowel modifier.
    ("[CR]J?n?(H[CR]n?)*H?"

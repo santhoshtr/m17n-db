@@ -1,4 +1,15 @@
+2007-06-05  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/KNDA-OTF.flt:
+	Follow Unicode 5.0 specification of RA + ZWJ.
+	Support Nukta and vowel sign vocalic L & LL.
+	Change reference font to Kedage-n.ttf.
+
 2007-05-29  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* *.flt: Moved to the FLT subdirectory.
+
+	* *.mim: Moved to the MIM subdirectory.
 
 	* as-itrans.mim, bn-itrans.mim, gu-itrans.mim, hi-itrans.mim, kn-itrans.mim, ml-itrans.mim, or-itrans.mim, pa-itrans.mim, ta-itrans.mim, te-itrans.mim:
 	Add keypad support.
