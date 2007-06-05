@@ -21,13 +21,12 @@
 # Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301, USA.
 
-SUBDIRS = po icons FLT MIM
+SUBDIRS = po icons FLT MIM LANGDATA
 
 pkgdata_DATA = \
 	${CHARSETS} \
 	${CHAR_TABLE} \
 	${MISC_TABLE} \
-	${LANGNAME} \
 	mdb.dir
 
 EXTRA_DIST = config.rpath mkinstalldirs m4/ChangeLog \
@@ -88,7 +87,7 @@ MISC_TABLE = \
 	default.fst xfont.fst truetype.fst generic.fst \
 	FONTENC.tbl FONTSIZE.tbl \
 	CHARSET.tbl CODING.tbl \
-	LANGUAGE.tbl SCRIPT.tbl SCRIPT-OTF.tbl SCRIPT-LANGUAGE.tbl
+	SCRIPT.tbl SCRIPT-OTF.tbl SCRIPT-LANGUAGE.tbl
 
 UNIDATA = \
 	UNIDATA/README \
@@ -102,10 +101,6 @@ FORMATS = \
 	FORMATS/0General.txt FORMATS/CharsetList.txt FORMATS/CodingList.txt \
 	FORMATS/Dir.txt FORMATS/FontEncoding.txt FORMATS/Fontset.txt \
 	FORMATS/FLT.txt	FORMATS/FontSize.txt FORMATS/IM.txt
-
-LANGNAME = \
-	LANGNAME.en \
-	LANGNAME.fr
 
 # Rules for charsets
 
@@ -287,17 +282,6 @@ BLOCK.tab:
 %.tab: UNIDATA/UnicodeData.txt CHARTAB.awk
 	echo "# Generated from $<." > $@
 	@$(AWK) -f CHARTAB.awk FIELD=$@ $< >>$@
-
-LANGUAGE.tbl: LANGUAGE.awk LANGDATA/ISO-639-2.txt LANGDATA/native.txt
-	@$(AWK) -f LANGUAGE.awk '-F|' < LANGDATA/ISO-639-2.txt > $@
-
-LANGNAME.en: LANGNAME.awk LANGDATA/ISO-639-2.txt
-	@echo "Generating $@..."
-	@$(AWK) -f LANGNAME.awk -v LANG=en '-F|' < LANGDATA/ISO-639-2.txt > $@
-
-LANGNAME.fr: LANGNAME.awk LANGDATA/ISO-639-2.txt
-	@echo "Generating $@..."
-	@$(AWK) -f LANGNAME.awk -v LANG=fr '-F|' < LANGDATA/ISO-639-2.txt > $@
 
 pkgdatadir=$(datadir)/m17n
 
