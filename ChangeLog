@@ -1,7 +1,5 @@
 2007-06-05  Kenichi Handa  <handa@m17n.org>
 
-	* LANGDATA/.cvsignore: Add LANGUAGE.tbl, lnconv.el.
-
 	* configure.ac (LANGNAME_TABLES): New variable.  AC_SUBST it.
 	(AC_CONFIG_FILES): Add FLT/Makefile, MIM/Makefile, LANGDATA/Makefile.
 
