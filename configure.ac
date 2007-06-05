@@ -62,11 +62,16 @@ if test "x$CHARMAPS" != "x"; then
 else :
 fi
 
-
 ICONS=`cd icons; echo *.png`
 AC_SUBST(ICONS)
 
-AC_CONFIG_FILES([Makefile mapconv m17n-db m17n-db.pc icons/Makefile po/Makefile.in])
+LANGNAME_TABLES=`cd LANGDATA; echo *.lnm`
+AC_SUBST(LANGNAME_TABLES)
+
+AC_CONFIG_FILES([Makefile mapconv m17n-db m17n-db.pc
+		 icons/Makefile po/Makefile.in
+		 FLT/Makefile MIM/Makefile LANGDATA/Makefile
+		 ])
 AC_OUTPUT
 
 # Print configuration message.
