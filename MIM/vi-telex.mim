@@ -1,5 +1,5 @@
 ;; vi-telex.mim -- Input method for Vietnames with TELEX key sequence
-;; Copyright (C) 2003, 2004, 2005, 2006
+;; Copyright (C) 2003, 2004, 2005, 2006, 2007
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -26,133 +26,213 @@
 (description "Vietnames input method using the TELEX key sequence.
 ")
 
-(title "ắ")
+(title "Ắ")
+
+(variable
+ (tone-mark-on-last
+  "Flag to control tone mark position.
+If this variable is 0 (the default), put tone mark on the first vowel
+in such equivocal cases as \"oa\", \"oe\", \"uy\".
+Otherwise, put tone mark on the last vowel."
+  0 0 1))
 
 (macro
  (handle-mark
-  (cond (V-PREV
-	 (delete @-)
+  (delete @-)
+  (cond (T
+	 ;; We have already decided on which vowel to put a tone mark.
+	 (move T))
+	(V-3
+	 ;; Tripple-vowel
+	 ;; Put a tone mark on the last vowel if it is e, ê, or ơ.
+	 ;; Otherwise put a tone mark on the second vowel.
 	 (move M)
-	 (cond ((| LAST-SPECIAL
-		   (& (= V-PREV ?i) (= C ?g))
-		   (& (= V-PREV ?u) (= C ?q)))
-		(select SELECT))
-	       (1 (move @-) (select SELECT)))
-	 (move @>))
-	(V-LAST
-	 (delete @-)
+	 (cond ((| (= V-3 ?e) (= V-3 ?ê) (= V-3 ?ơ)
+		   (= V-3 ?E) (= V-3 ?Ê) (= V-3 ?Ơ)))
+	       (1 (move @-))))
+	(V-2
+	 ;; Double-vowel
+	 ;; Put a tone mark on the last vowel in the following cases:
+	 ;;  * The last vowel is  â, ă, ê, ô, ơ, ư, or ư.
+	 ;;  * The initial consonant and the first vowel is "gi" or "qu".
+	 ;;  * tone-mark-on-last is customized to 1 in a equivocal case.
+	 ;; Otherwise put a tone mark on the first vowel.
 	 (move M)
-	 (select SELECT)
-	 (move @>)))))
+	 (cond ((| SPECIAL
+		   (& (| (= C ?g) (= C ?G)) (| (= V-1 ?i) (= V-1 ?I)))
+		   (& (| (= C ?q) (= C ?Q)) (| (= V-1 ?u) (= V-1 ?U)))
+		   (& (| tone-mark-on-last C-AFTER-V)
+		      (| (& (| (= V-1 ?o) (= V-1 ?O))
+			    (| (= V-2 ?a) (= V-2 ?A) (= V-2 ?e) (= V-2 ?E)))
+			 (& (| (= V-1 ?u) (= V-1 ?U))
+			    (| (= V-2 ?y) (= V-2 ?Y)))))))
+	       (1 (move @-))))
+	(V-1
+	 (move M)))
+  (select SELECT)
+  (mark T)
+  (move @>)))
 
 (map
- (vowel
-  ;;       sfrxj
-  ("a"  ("aáàảãạ"))
-  ("aa" ("âấầẩẫậ") (set SPECIAL 1))
-  ("aw" ("ăắằẳẵặ") (set SPECIAL 1))
-  ("e"  ("eéèẻẽẹ"))
-  ("ee" ("êếềểễệ") (set SPECIAL 1))
-  ("i"  ("iíìỉĩị"))
-  ("o"  ("oóòỏõọ"))
-  ("oo" ("ôốồổỗộ") (set SPECIAL 1))
-  ("ow" ("ơớờởỡợ") (set SPECIAL 1))
-  ("u"  ("uúùủũụ"))
-  ("uw" ("ưứừửữự") (set SPECIAL 1))
-  ("y"  ("yýỳỷỹỵ"))
-  ("A"  ("AÁÀẢÃẠ"))
-  ("AA" ("ÂẤẦẨẪẬ")) ("Aa" ("ÂẤẦẨẪẬ"))
-  ("AW" ("ĂẮẰẲẴẶ")) ("Aw" ("ĂẮẰẲẴẶ"))
-  ("E"  ("EÉÈẺẼẸ"))
-  ("EE" ("ÊẾỀỂỄỆ")) ("Ee" ("ÊẾỀỂỄỆ"))
-  ("I"  ("IÍÌỈĨỊ"))
-  ("O"  ("OÓÒỎÕỌ"))
-  ("OO" ("ÔỐỒỔỖỘ")) ("Oo" ("ÔỐỒỔỖỘ"))
-  ("OW" ("ƠỚỜỞỠỢ")) ("Ow" ("ƠỚỜỞỠỢ"))
-  ("U"  ("UÚÙỦŨỤ"))
-  ("UW" ("ƯỨỪỬỮỰ")) ("Uw" ("ƯỨỪỬỮỰ"))
-  ("Y"  ("YÝỲỶỸỴ")))
+ (vowel1 ; sfrxj
+  ("a"  ("aáàảãạ")) ("A"  ("AÁÀẢÃẠ"))
+  ("e"  ("eéèẻẽẹ")) ("E"  ("EÉÈẺẼẸ"))
+  ("i"  ("iíìỉĩị")) ("I"  ("IÍÌỈĨỊ"))
+  ("o"  ("oóòỏõọ")) ("O"  ("OÓÒỎÕỌ"))
+  ("u"  ("uúùủũụ")) ("U"  ("UÚÙỦŨỤ"))
+  ("y"  ("yýỳỷỹỵ")) ("Y"  ("YÝỲỶỸỴ")))
 
- (diacritical
-  ("z" (set SELECT 0) ?z (handle-mark))
-  ("s" (set SELECT 1) ?s (handle-mark))
-  ("f" (set SELECT 2) ?f (handle-mark))
-  ("r" (set SELECT 3) ?r (handle-mark))
-  ("x" (set SELECT 4) ?x (handle-mark))
-  ("j" (set SELECT 5) ?j (handle-mark)))
+ (vowel2 ; sfrxj   -- put mark on them if they are the last vowel
+  ("aa" ("âấầẩẫậ")) ("AA" ("ÂẤẦẨẪẬ")) ("Aa" ("ÂẤẦẨẪẬ"))
+  ("aw" ("ăắằẳẵặ")) ("AW" ("ĂẮẰẲẴẶ")) ("Aw" ("ĂẮẰẲẴẶ"))
+  ("ee" ("êếềểễệ")) ("EE" ("ÊẾỀỂỄỆ")) ("Ee" ("ÊẾỀỂỄỆ"))
+  ("oo" ("ôốồổỗộ")) ("OO" ("ÔỐỒỔỖỘ")) ("Oo" ("ÔỐỒỔỖỘ"))
+  ("ow" ("ơớờởỡợ")) ("OW" ("ƠỚỜỞỠỢ")) ("Ow" ("ƠỚỜỞỠỢ"))
+  ("uw" ("ưứừửữự")) ("UW" ("ƯỨỪỬỮỰ")) ("Uw" ("ƯỨỪỬỮỰ"))
+  ("w"  ("ưứừửữự")) ("W"  ("ƯỨỪỬỮỰ")))
 
- (double
-  ("zz" (cond ((> V-LAST 0) (move M) (select 0) (move @>))) ?z)
-  ("ss" (cond ((> V-LAST 0) (move M) (select 0) (move @>))) ?s)
-  ("ff" (cond ((> V-LAST 0) (move M) (select 0) (move @>))) ?f)
-  ("rr" (cond ((> V-LAST 0) (move M) (select 0) (move @>))) ?r)
-  ("xx" (cond ((> V-LAST 0) (move M) (select 0) (move @>))) ?x)
-  ("jj" (cond ((> V-LAST 0) (move M) (select 0) (move @>))) ?j))
+ (vowel3
+  ("aaa" ("aáàảãạ") ("aáàảãạ"))
+  ("AAA" ("ÂẤẦẨẪẬ") ("ÂẤẦẨẪẬ")) ("Aaa" ("ÂẤẦẨẪẬ") ("âấầẩẫậ"))
+  ("eee" ("eéèẻẽẹ") ("eéèẻẽẹ"))
+  ("EEE" ("EÉÈẺẼẸ") ("EÉÈẺẼẸ")) ("Eee" ("EÉÈẺẼẸ") ("eéèẻẽẹ"))
+  ("ooo" ("oóòỏõọ") ("oóòỏõọ"))
+  ("OOO" ("OÓÒỎÕỌ") ("OÓÒỎÕỌ")) ("Ooo" ("OÓÒỎÕỌ") ("oóòỏõọ")))
+
+ (vowelw
+  ("aww" ("aáàảãạ") "w") ("AWW" ("AÁÀẢÃẠ") "W") ("Aww" ("AÁÀẢÃẠ") "w")
+  ("oww" ("oóòỏõọ") "w") ("OWW" ("OÓÒỎÕỌ") "W") ("Oww" ("OÓÒỎÕỌ") "w")
+  ("uww" ("uúùủũụ") "w") ("UWW" ("UÚÙỦŨỤ") "W") ("Uww" ("UÚÙỦŨỤ") "w"))
+
+ (tone-mark
+  ("z" (set SELECT 0) ?z (handle-mark)) ("Z" (set SELECT 0) ?Z (handle-mark))
+  ("s" (set SELECT 1) ?s (handle-mark)) ("S" (set SELECT 1) ?S (handle-mark))
+  ("f" (set SELECT 2) ?f (handle-mark)) ("F" (set SELECT 2) ?F (handle-mark))
+  ("r" (set SELECT 3) ?r (handle-mark)) ("R" (set SELECT 3) ?R (handle-mark))
+  ("x" (set SELECT 4) ?x (handle-mark)) ("X" (set SELECT 4) ?X (handle-mark))
+  ("j" (set SELECT 5) ?j (handle-mark)) ("J" (set SELECT 5) ?J (handle-mark)))
+
+ (consonant-or-tone-mark
+  ("z" ?z) ("s" ?s) ("f" ?f) ("r" ?r) ("x" ?x) ("j" ?j)
+  ("Z" ?Z) ("S" ?S) ("F" ?F) ("R" ?R) ("X" ?X) ("J" ?J))
+
+ (cancel-tone-mark
+  ("zz" (cond ((> V-1 0) (move M) (select 0) (move @>))) ?z)
+  ("ss" (cond ((> V-1 0) (move M) (select 0) (move @>))) ?s)
+  ("ff" (cond ((> V-1 0) (move M) (select 0) (move @>))) ?f)
+  ("rr" (cond ((> V-1 0) (move M) (select 0) (move @>))) ?r)
+  ("xx" (cond ((> V-1 0) (move M) (select 0) (move @>))) ?x)
+  ("jj" (cond ((> V-1 0) (move M) (select 0) (move @>))) ?j)
+  ("ZZ" (cond ((> V-1 0) (move M) (select 0) (move @>))) ?Z)
+  ("SS" (cond ((> V-1 0) (move M) (select 0) (move @>))) ?S)
+  ("FF" (cond ((> V-1 0) (move M) (select 0) (move @>))) ?F)
+  ("RR" (cond ((> V-1 0) (move M) (select 0) (move @>))) ?R)
+  ("XX" (cond ((> V-1 0) (move M) (select 0) (move @>))) ?X)
+  ("JJ" (cond ((> V-1 0) (move M) (select 0) (move @>))) ?J))
 
  (consonant
   ("b" ?b) ("c" ?c) ("d" ?d) ("g" ?g) ("h" ?h) ("k" ?k) ("l" ?l) ("m" ?m)
   ("n" ?n) ("p" ?p) ("q" ?q) ("t" ?t) ("v" ?v)
-  ("dd" ?đ)
-  ("DD" ?Đ) ("Dd" ?Đ))
+  ("dd" ?đ) ("ddd" "dd") ("ww" "w")
+  ("B" ?B) ("C" ?C) ("D" ?D) ("G" ?G) ("H" ?H) ("K" ?K) ("L" ?L) ("M" ?M)
+  ("N" ?N) ("P" ?P) ("Q" ?Q) ("T" ?T) ("V" ?V)
+  ("DD" ?Đ) ("Dd" ?Đ) ("DDD" "DD") ("Ddd" "Dd") ("WW" "W") ("Ww" "W"))
 
  (escape
   ("\\"))
 
  (backspace
-  ((BackSpace))))
+  ((BackSpace) (set KK (- K 1)) (undo KK))))
 
 (state
  (init
-  ;; Initialize variables.  V-LAST is a vowel typed lastly.  In the
-  ;; case of double vowel, V-PREV is the first one.  V-LAST being 0
-  ;; means that a vowel is not yet typed.
-  (t (set C 0) (set V-LAST 0) (set V-PREV 0) (set SPECIAL 0))
+  ;; Initialize variables.  C is the initial consonant.  V-N is the
+  ;; Nth vowel.  C-AFTER-V is a flag set when a consonant is typed
+  ;; after vowel.  T is a mark positioning after a tone-marked
+  ;; character.
+  (t (set C @-1) (set V-1 0) (set V-2 0) (set V-3 0) (set C-AFTER-V 0)
+     (set T 0) (cond (ESCAPE (shift escape))))
 
-  ;; Remeber the initial consonant in C.
-  (consonant (set C @-))
+  (consonant (set K @@) (set C @-1))
+  (consonant-or-tone-mark (set K @@) (set C @-1))
 
-  ;; Remember the preedit position after vowel in M.
-  (vowel (mark M) (set V-LAST @-) (set SPECIAL-LAST SPECIAL) (shift after-v))
+  ;; Mark M remembers the preedit position after the last vowel.
+  (vowel1 (set SPECIAL 0) (mark M) (set V-1 @-1) (set K @@) (shift after-v))
+  (vowel2 (set SPECIAL 1) (mark M) (set V-1 @-1) (set K @@) (shift after-v))
+  (vowel3 (set SPECIAL 0) (mark M) (set V-1 @-2) (set V-2 @-)
+	  (set K @@) (shift after-vv))
+  (vowelw (set SPECIAL 0) (move @-) (mark M) (move @>) (set V-1 @-2)
+	  (set K @@) (shift after-vc))
 
-  (escape (shift escape))
-
-  (backspace (undo)))
+  (escape (shift escape)))
 
  ;; The state shifted to when the first vowel is typed.
  (after-v
-  (t (set SPECIAL 0))
-  (consonant (shift after-vc))
-  (double (shift after-vc))
-  (vowel (mark M) (set V-PREV V-LAST) (set V-LAST @-)
-	 (set SPECIAL-LAST SPECIAL) (shift after-vv))
-  (diacritical)
-  (backspace (undo 0)))
+  (consonant (set K @@) (shift after-vc))
+  (vowel1 (set SPECIAL 0) (mark M) (set V-2 @-1) (set K @@) (shift after-vv))
+  (vowel2 (set SPECIAL 1) (mark M) (set V-2 @-1) (set K @@) (shift after-vv))
+  (vowel3 (set SPECIAL 0) (mark M) (set V-1 V-2) (set V-2 @-2) (set V-3 @-1)
+	  (set K @@) (shift after-vvv))
+  (vowelw (set SPECIAL 0) (move @-) (mark M) (move @>) (set V-2 @-2)
+	  (set K @@) (shift after-vc))
+
+  (consonant-or-tone-mark (delete @-) (pushback 1) (shift after-t))
+  (backspace))
 
  ;; The state shifted to when the second vowel is typed.
  (after-vv
-  (t (set SPECIAL 0))
-  (consonant (shift after-vc))
-  (double (shift after-vc))
-  (diacritical)
-  (backspace (delete @-) (set V-LAST V-PREV) (set V-PREV 0) (shift after-v)))
+  (consonant (set K @@) (shift after-vc))
+  (vowel1 (set SPECIAL 0) (mark M) (set V-3 @-1) (set K @@) (shift after-vvv))
+  (vowel2 (set SPECIAL 1) (mark M) (set V-3 @-1) (set K @@) (shift after-vvv))
+  (vowel3 (set SPECIAL 0) (mark M) (set V-1 V-3) (set V-2 @-2) (set V-3 @-1)
+	  (set K @@) (shift after-vvv))
+  (vowelw (set SPECIAL 0) (move @-) (mark M) (move @>) (set V-3 @-2)
+	  (set K @@) (shift after-vc))
 
- ;; The state shifted to when one or two vowels and consonant are
- ;; typed.
+  (consonant-or-tone-mark (delete @-) (pushback 1) (shift after-t))
+  (backspace))
+
+ ;; The state shifted to when the third vowel is typed.
+ (after-vvv
+  (consonant (set K @@) (shift after-vc))
+  (vowel1 (set SPECIAL 0) (mark M) (set V-1 V-2) (set V-2 V-3) (set V-3 @-1)
+	  (set K @@))
+  (vowel2 (set SPECIAL 0) (mark M) (set V-1 V-2) (set V-2 V-3) (set V-3 @-1)
+	  (set K @@))
+  (vowel3 (set SPECIAL 0) (mark M) (set V-1 V-3) (set V-2 @-2) (set V-3 @-1)
+	  (set K @@))
+  (vowelw (set SPECIAL 0) (move @-) (mark M) (move @>)
+	  (set V-1 V-2) (set V-2 V-3) (set V-3 @-2) (shift after-vc) (set K @@))
+  (consonant-or-tone-mark (delete @-) (pushback 1) (shift after-t))
+  (backspace))
+
+ ;; The state shifted to when vowels and consonants are typed.
  (after-vc
-  (t (set V-PREV-SAVE V-PREV) (set V-PREV 0) (set C-COUNT 1))
-  (double)
-  (consonant (add C-COUNT 1))
-  (diacritical)
-  (backspace (delete @-)
-	     (cond ((= C-COUNT 1)
-		    (set V-PREV V-PREV-SAVE)
-		    (cond ((> V-PREV 0) (shift after-vv))
-			  (1 (shift after-v)))))))
+  (t (set C-AFTER-V 1))
+  (consonant (set K @@))
+  (consonant-or-tone-mark (set K @@) (delete @-) (pushback 1) (shift after-t))
+  (backspace))
+
+ ;; The state shifted to when a tone-mark is typed.
+ (after-t
+  (tone-mark)
+  (cancel-tone-mark (cond (C-AFTER-V (shift after-vc))
+			  (V-3 (set C-AFTER-V 1) (shift after-vvv))
+			  (V-2 (set C-AFTER-V 1) (shift after-vv))
+			  (V-1 (set C-AFTER-V 1) (shift after-v))
+			  (1 (shift init))))
+  (backspace)
+  (nil (shift init)))
 
  (escape
-  "ESC"
+  "E"
+  (t (set ESCAPE 0))
+  (escape (cond ((= ESCAPE 0) (insert "\\") (shift init))
+		((= ESCAPE 1) (insert "\\") (commit) (set ESCAPE 2))
+		(1 (set ESCAPE 1))))
   ;; Unhandle any characters.
-  (nil (shift init) (unhandle))))
+  (nil (cond ((= ESCAPE 1) (set ESCAPE 0) (shift init))
+	     (1 (set ESCAPE 2) (unhandle))))
 
 ;; Local Variables:
 ;; coding: utf-8
