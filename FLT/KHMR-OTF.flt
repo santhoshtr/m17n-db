@@ -31,44 +31,27 @@
       (font (nil nil unicode-bmp :otf=khmr=pres)))
 
 (category
- ;; E : else
- ;; C : consonant & independent vowel
- ;; R : RO
- ;; r : ROBAT
- ;; m : vowel sign (pre)
- ;; b : vowel sign (below)
- ;; a : vowel sign (above)
- ;; A : vowel sign (two-part, above)
- ;; p : vowel sign (post)
- ;; P : vowel sign (two-part, post)
- ;; s : sign (above)
- ;; S : sign (post)
- ;; c : consonant shifter
- ;; H : COENG
- ;; N : ZERO WIDTH NON-JOINER
- ;; J : ZERO WIDTH JOINER
- (0x1780 0x17FF ?E)
+ (0x1780 0x17FF ?E)			; E: else
  (0x19E0 0x19FF ?E)
- (0x1780 0x17B3 ?C)
- (0x179A	?R)
-;; (0x17A3 0x17B3 ?V)
- (0x17B6	?p)
- (0x17B7 0x17BA ?a)
- (0x17BB 0x17BD ?b)
- (0x17BE	?A)
- (0x17BF 0x17C0 ?P)
- (0x17C1 0x17C3 ?m)
+ (0x1780 0x17B3 ?C)			; C: consonant & independent vowel
+ (0x179A	?R)			; R: RO
+ (0x17B6	?p)			; p: vowel sign (post)
+ (0x17B7 0x17BA ?a)			; a: vowel sign (above)
+ (0x17BB 0x17BD ?b)			; b: vowel sign (below)
+ (0x17BE	?A)			; A: vowel sign (two-part, above)
+ (0x17BF 0x17C0 ?P)			; P: vowel sign (two-part, post)
+ (0x17C1 0x17C3 ?m)			; m: vowel sign (pre)
  (0x17C4 0x17C5 ?P)
- (0x17C6	?s)
- (0x17C7 0x17C8 ?S)
- (0x17C9 0x17CA ?c)
+ (0x17C6	?s)			; s: sign (above)
+ (0x17C7 0x17C8 ?S)			; S: sign (post)
+ (0x17C9 0x17CA ?c)			; c: consonant shifter
  (0x17CB 0x17D1 ?s)
- (0x17CC	?r)
- (0x17D2	?H)
+ (0x17CC	?r)			; r: ROBAT
+ (0x17D2	?H)			; H: COENG
  (0x17D3	?s)
  (0x17DD	?s)
- (0x200C	?N)
- (0x200D	?J)
+ (0x200C	?N)			; N: ZERO WIDTH NON-JOINER
+ (0x200D	?J)			; J: ZERO WIDTH JOINER
  )
 
 ;; Generic syllable pattern is as follows.
@@ -87,62 +70,27 @@
    ;; pre vowel sign
    ;;1    2       3       4  5     67            8  9    10
    ("([CR](r|N?c)?(HCr?)*)(HR(r)?)?((HCr?)*[NJ]?)(m)(s*S?(H[CR])?)"
-    < |
-    (8 =)
-    (4 = =)
-    (1 = *)
-    (5 =)
-    (6 = *)
-    (9 = *)
-    | > )
+    < | (8 =) (4 = =) (1 = *) (5 =) (6 = *) (9 = *) | > )
 
    ;; two-part above vowel sign
    ;;1    2       3       4  5     67                8
    ("([CR](r|N?c)?(HCr?)*)(HR(r)?)?((HCr?)*[NJ]?As*S?(H[CR])?)"
-    < |
-    0x17C1
-    (4 = =)
-    (1 = *)
-    (5 =)
-    (6 = *)
-    | > )
+    < | 0x17C1 (4 = =) (1 = *) (5 =) (6 = *) | > )
 
    ;; post vowel sign
    ;;1    2       3       4  5     67            8  9   10 11
    ("([CR](r|N?c)?(HCr?)*)(HR(r)?)?((HCr?)*[NJ]?)(p)(s*)(S?(H[CR])?)"
-    < |
-    (4 = =)
-    (1 = *)
-    (5 =)
-    (6 = *)
-    (9 = *)
-    (8 =)
-    (10 = *)
-    | > )
+    < | (4 = =) (1 = *) (5 =) (6 = *) (9 = *) (8 =) (10 = *) | > )
 
    ;; two-part post vowel sign
    ;;1    2       3       4  5     67            8  9   10 11
    ("([CR](r|N?c)?(HCr?)*)(HR(r)?)?((HCr?)*[NJ]?)(P)(s*)(S?(H[CR])?)"
-    < |
-    0x17C1
-    (4 = =)
-    (1 = *)
-    (5 =)
-    (6 = *)
-    (9 = *)
-    (8 =)
-    (10 = *)
-    | > )
+    < | 0x17C1 (4 = =) (1 = *) (5 =) (6 = *) (9 = *) (8 =) (10 = *) | > )
 
    ;; other vowel signs or no vowel sign
    ;;1    2       3       4  5     67                     8
    ("([CR](r|N?c)?(HCr?)*)(HR(r)?)?((HCr?)*[NJ]?[b|a]?s*S?(H[CR])?)"
-    < |
-    (4 = =)
-    (1 = *)
-    (5 =)
-    (6 = *)
-    | > )
+    < | (4 = =) (1 = *) (5 =) (6 = *) | > )
 
    ("." =))
   *))
