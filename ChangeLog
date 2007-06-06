@@ -1,4 +1,21 @@
+2007-06-06  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* KNDA-OTF.flt: Exclude ZWNJ from output string.
+
 2007-06-05  Kenichi Handa  <handa@m17n.org>
+
+	* KHMR-OTF.flt: Just a cosmetic change.
+
+2007-06-05  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/KNDA-OTF.flt:
+	Follow Unicode 5.0 specification of RA + ZWJ.
+	Support Nukta and vowel sign vocalic L & LL.
+	Change reference font to Kedage-n.ttf.
+
+2007-06-05  Kenichi Handa  <handa@m17n.org>
+
+	* LANGDATA/.cvsignore: Add LANGUAGE.tbl, lnconv.el.
 
 	* configure.ac (LANGNAME_TABLES): New variable.  AC_SUBST it.
 	(AC_CONFIG_FILES): Add FLT/Makefile, MIM/Makefile, LANGDATA/Makefile.
@@ -38,21 +55,6 @@
 
 	* FLT/.cvsignore: New file.
 
-2007-05-29  Kenichi Handa  <handa@m17n.org>
-
-	* default.fst (thaana): Fix typo.
-
-2007-05-21  Kenichi Handa  <handa@m17n.org>
-
-	* generic.fst (tibetan): Fix previous typo.
-
-2007-06-05  TAKAHASHI Naoto  <ntakahas@m17n.org>
-
-	* FLT/KNDA-OTF.flt:
-	Follow Unicode 5.0 specification of RA + ZWJ.
-	Support Nukta and vowel sign vocalic L & LL.
-	Change reference font to Kedage-n.ttf.
-
 2007-05-29  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* as-itrans.mim, bn-itrans.mim, gu-itrans.mim, hi-itrans.mim,
@@ -63,10 +65,9 @@
 
 	* *.mim: Moved to the MIM subdirectory.
 
-	* as-itrans.mim, bn-itrans.mim, gu-itrans.mim, hi-itrans.mim,
-	kn-itrans.mim, ml-itrans.mim, or-itrans.mim, pa-itrans.mim,
-	ta-itrans.mim, te-itrans.mim: Add keypad support.
+2007-05-29  Kenichi Handa  <handa@m17n.org>
 
+	* default.fst (thaana): Fix typo.
 
 2007-05-21  Kenichi Handa  <handa@m17n.org>
 
