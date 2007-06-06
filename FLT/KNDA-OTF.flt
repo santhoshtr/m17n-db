@@ -90,7 +90,7 @@
 
    ;; Forced Halant form.
    ("([CR]n?H)N"
-    < | move-base-Halant | >)
+    < | (1 move-base-Halant) | >)
 
    ;; A syllable without a vowel sign nor a vowel modifier.
    ("[CR]J?n?(H[CR]n?)*H?"
