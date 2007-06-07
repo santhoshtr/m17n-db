@@ -31,7 +31,6 @@
 
 (category
  ;; C: general consonant
- ;; R: no below-base consonat (RRA, NNNA, LLLA)
  ;; H: HALANT
  ;; u: MATRA (above)
  ;; b: MATRA (below)
@@ -51,9 +50,6 @@
  (0x0C01 0x0C03	?a)			; post signs
  (0x0C05 0x0C14	?V)			; LETTER A .. LETTER AU
  (0x0C15 0x0C39 ?C)			; LETTER KA .. LETTER HA
- (0x0C29	?R)			; LETTER NNNA
- (0x0C31	?R)			; LETTER RRA
- (0x0C34	?R)			; LETTER LLLA
  (0x0C3E 0x0C40	?u)			; VOWEL SIGN AA, I, II (above)
  (0x0C41 0x0C44	?p)			; VOWEL SIGN U, UU, R, RR (post)
  (0x0C46 0x0C47	?u)			; VOWEL SIGN E, EE (above)
@@ -72,25 +68,19 @@
  (0
   (cond
    ;; A syllable containing a two-part vowel sign.
-   ("([CR](HC)*)(t)(a)?"
+   ("(C(HC)*)(t)(a)?"
     < | (1 move-base-Halant) (3 0x0C46 0x0C56) (4 =) | >)
 
    ;; A syllable ending with vowel signs and/or a vowel modifier.
-   ("([CR](HC)*)([ubp]+a?|a)"
+   ("(C(HC)*)([ubp]+a?|a)"
     < | (1 move-base-Halant) (3 = *) | >)
 
    ;; Forced Halant form
-   ("((RH)?(CH)*)(CH)N"
-    (1 < | move-base-Halant | >)
-    (4 < | move-base-Halant | >))
-
-   ;; Forced Below form
-   ("((RH)?(CH)*)(CH)J"
-    (1 < | move-base-Halant >)
-    (4 < | otf:telu=blwf | >))
+   ("(CH)N"
+    < | (1 move-base-Halant) | >)
 
    ;; A syllable without a vowel sign nor a vowel modifier.
-   ("[CR](HC)*H?"
+   ("C(HC)*H?"
     < | move-base-Halant | >)
 
    ;; A syllable starting with an independent vowel.
