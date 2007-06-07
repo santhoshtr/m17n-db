@@ -1,3 +1,9 @@
+2007-06-07  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/TELU-OTF.flt: Follow Unicode 5.0.
+	RRA U+0C31 has below-base form.
+	ZWJ does not force below-base form.
+
 2007-06-06  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* KNDA-OTF.flt: Exclude ZWNJ from output string.
