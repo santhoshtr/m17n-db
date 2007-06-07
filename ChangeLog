@@ -8,10 +8,6 @@
 
 	* FLT/KNDA-OTF.flt: Exclude ZWNJ from output string.
 
-2007-06-05  Kenichi Handa  <handa@m17n.org>
-
-	* FLT/KHMR-OTF.flt: Just a cosmetic change.
-
 2007-06-05  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/KNDA-OTF.flt:
