@@ -122,7 +122,7 @@ function maybe_emit(ch1, ch2, this_script) {
 }
 
 /^[0-9A-F]+\.\./ {
-    maybe_emit(decode_hex($0, 1), decode_hex($0, match($0, "\.\.") + 2), $2);
+    maybe_emit(decode_hex($0, 1), decode_hex($0, match($0, "\\.\\.") + 2), $2);
     next;
 }
 
