@@ -1,3 +1,7 @@
+2007-06-10  Kenichi Handa  <handa@m17n.org>
+
+	* SCRIPT.awk (/^[0-9A-F]+\.\./): Fix regex for matching.
+
 2007-06-08  Kenichi Handa  <handa@m17n.org>
 
 	* MIM/vi-telex.mim: Code simplified.   Handle temporary escaping
