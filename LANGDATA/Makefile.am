@@ -25,9 +25,9 @@ pkgdatadir=$(datadir)/m17n
 
 TABLES=@LANGNAME_TABLES@
 
-pkgdata_DATA = LANGUAGE.tbl
+pkgdata_DATA = LANGUAGE.tbl ${TABLES}
 
-dist_pkgdata_DATA = ${TABLES} native.txt ISO-639-2.txt
+EXTRA_DIST = ${TABLES} native.txt ISO-639-2.txt
 
 dist_noinst_SCRIPTS = LANGUAGE.awk
 

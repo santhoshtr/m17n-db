@@ -1,5 +1,8 @@
 2007-06-11  Kenichi Handa  <handa@m17n.org>
 
+	* LANGDATA/Makefile.am (pkgdata_DATA): Cancel previous change.
+	(EXTRA_DIST): Cancel previous change.
+
 	* MIM/vi-telex.mim (alphabet): Add uppercase letters.
 
 2007-06-10  Kenichi Handa  <handa@m17n.org>
