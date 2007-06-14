@@ -6,6 +6,8 @@
 
 	* im/vi-nom.mim: New input method for Vietnamese Chu Nom.
 
+	* im/vi-han.mim: New input method for Vietnamese Han.
+
 2007-05-29  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* im/as-inscript.mim, im/as-phonetic.mim, im/bn-inscript.mim,
