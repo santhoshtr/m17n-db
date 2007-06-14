@@ -1,0 +1,335 @@
+# Vietnamese translations for m17n-db package.
+# Copyright (C) 2007 AIST
+# This file is distributed under the same license as the m17n-db package.
+# Kenichi Handa <handa@m17n.org>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: m17n-db 1.3.4\n"
+"Report-Msgid-Bugs-To: bugs-m17n-lib@m17n.org\n"
+"POT-Creation-Date: 2007-06-14 16:56+0900\n"
+"PO-Revision-Date: 2007-06-14 22:54+0900\n"
+"Last-Translator: Phan Anh Dung <padung@huesoft.com.vn>\n"
+"Language-Team: Phan Anh Dung <padung@huesoft.com.vn>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: MIM/bo-ewts.mim:32
+msgid ""
+"Flag to tell whether or not to generate precomposed characters.\n"
+"If 1, generate precomposed characters if available (e.g. \"ྲྀ\"(U+0F76).\n"
+"If 0, generate only decomposed characters (e.g. \"ྲྀ\" (U+0FB2 U+0F80)."
+msgstr ""
+
+#: MIM/fr-azerty.mim:26
+#, lisp-format
+msgid ""
+"Simulating Azerty keyboard on English keyboard.\n"
+"\n"
+"     &1  é2  \"3  '4  (5  -6  è7  _8  ç9  à0  )°  =_  ²~\n"
+"      aA  zZ  eE  rR  tT  yY  uU  iI  oO  pP  ^¨  $£\n"
+"       qQ  sS  dD  fF  gG  hH  jJ  kK  lL  mM  ù%  *|\n"
+"        wW  xX  cC  vV  bB  nN  ,?  ;.  :/  !§\n"
+"\n"
+"'[' and '{' are used as a dead key to type a character with the\n"
+"circumflex and diaeresis respectively (e.g. '[' 'e' -> \"ê\").\n"
+"\n"
+"'Alt-2' and 'Alt-7' are used as a dead key to type a character\n"
+"with tilde and grave respectively (e.g. 'Alt-2' 'n' -> \"ñ\").\n"
+"\n"
+"'Ctrl-Alt-2' and 'Ctrl-Alt-7' can be used as 'Alt-2' and 'Alt-7'\n"
+"respectively.\n"
+"\n"
+"Azerty keyboard has one more key at the bottom left corner for\n"
+"inputting \"<\" and \">\".  As a normal English keyboard doesn't\n"
+"have such a key left, type '<' and '>' twice for \"<\" and \">\"\n"
+"respectively."
+msgstr ""
+
+#: MIM/global.mim:25
+msgid ""
+"Global variable and command definitions.\n"
+"This is actually not an input method, but provides documents,\n"
+"default values of global variables, and default key-bindings of\n"
+"global commands."
+msgstr ""
+
+#: MIM/global.mim:32
+msgid ""
+"Maxmum number of candidates in a candidate group.\n"
+"Value must be an integer.\n"
+"If the value is not positive, number of candidates in a group is decided\n"
+"by how candiates are grouped in an input method source file."
+msgstr ""
+
+#: MIM/global.mim:39
+msgid ""
+"Character set to limit candidates.\n"
+"Value must be a symbol representing a charater set, or nil.\n"
+"If the value is not nil, a candidate containing a character not belonging\n"
+"to the specified character set is ignored."
+msgstr ""
+
+#: MIM/global.mim:48
+msgid ""
+"Commit\n"
+"Commit the preedit text"
+msgstr ""
+
+#: MIM/global.mim:52
+msgid ""
+"Convert\n"
+"Convert the preedit text"
+msgstr ""
+
+#: MIM/global.mim:56
+msgid ""
+"Revert\n"
+"Revert the conversion"
+msgstr ""
+
+#: MIM/global.mim:60
+msgid ""
+"Previous candidate\n"
+"Spot the previous candidate"
+msgstr ""
+
+#: MIM/global.mim:64
+msgid ""
+"Next candidate\n"
+"Spot the next candidate"
+msgstr ""
+
+#: MIM/global.mim:68
+msgid ""
+"First candidate\n"
+"Spot the first candidate in the current group"
+msgstr ""
+
+#: MIM/global.mim:72
+msgid ""
+"Last candidate\n"
+"Spot the last candidate in the current group"
+msgstr ""
+
+#: MIM/global.mim:76
+msgid ""
+"Previous candidate group\n"
+"Move to the previous candidate group"
+msgstr ""
+
+#: MIM/global.mim:80
+msgid ""
+"Next candidate group\n"
+"Move to the next candidate group"
+msgstr ""
+
+#: MIM/global.mim:84
+msgid ""
+"Select the 1st candidate\n"
+"Select the first candidate in the current group"
+msgstr ""
+
+#: MIM/global.mim:88
+msgid ""
+"Select the 2nd candidate\n"
+"Select the second candidate in the current group"
+msgstr ""
+
+#: MIM/global.mim:92
+msgid ""
+"Select the 3rd candidate\n"
+"Select the third candidate in the current group"
+msgstr ""
+
+#: MIM/global.mim:96
+msgid ""
+"Select the 4th candidate\n"
+"Select the fourth candidate in the current group"
+msgstr ""
+
+#: MIM/global.mim:100
+msgid ""
+"Select the 5th candidate\n"
+"Select the fifth candidate in the current group"
+msgstr ""
+
+#: MIM/global.mim:104
+msgid ""
+"Select the 6th candidate\n"
+"Select the sixth candidate in the current group"
+msgstr ""
+
+#: MIM/global.mim:108
+msgid ""
+"Select the 7th candidate\n"
+"Select the seventh candidate in the current group"
+msgstr ""
+
+#: MIM/global.mim:112
+msgid ""
+"select the 8th candidate\n"
+"Select the eighth candidate in the current group"
+msgstr ""
+
+#: MIM/global.mim:116
+msgid ""
+"Select the 9th candidate\n"
+"Select the ninth candidate in the current group"
+msgstr ""
+
+#: MIM/global.mim:120
+msgid ""
+"Select the 10th candidate\n"
+"Select the tenth candidate in the current group"
+msgstr ""
+
+#: MIM/global.mim:124
+msgid ""
+"Previous character\n"
+"Move to the previous character in the preedit text"
+msgstr ""
+
+#: MIM/global.mim:128
+msgid ""
+"Next character\n"
+"Move to the next character in the preedit text"
+msgstr ""
+
+#: MIM/global.mim:132
+msgid ""
+"Fist character\n"
+"Move to the first character in the preedit text"
+msgstr ""
+
+#: MIM/global.mim:136
+msgid ""
+"Last character\n"
+"Move to the last character in the preedit text"
+msgstr ""
+
+#: MIM/global.mim:140
+msgid ""
+"Delete char backward\n"
+"Delete the previous character in the preedit text"
+msgstr ""
+
+#: MIM/global.mim:144
+msgid ""
+"Delete char\n"
+"Delete the following character in the preedit text"
+msgstr ""
+
+#: MIM/global.mim:148
+msgid ""
+"Previous segment\n"
+"Move to the previous segment in the preedit text"
+msgstr ""
+
+#: MIM/global.mim:152
+msgid ""
+"Next segment\n"
+"Move to the next segment in the preedit text"
+msgstr ""
+
+#: MIM/global.mim:156
+msgid ""
+"First segment\n"
+"Move to the first segment in the preedit text"
+msgstr ""
+
+#: MIM/global.mim:160
+msgid ""
+"Last segment\n"
+"Move to the last segment in the preedit text"
+msgstr ""
+
+#: MIM/global.mim:164
+msgid ""
+"Extend segment\n"
+"Extend the current segment length to the tail"
+msgstr ""
+
+#: MIM/global.mim:168
+msgid ""
+"Shrink segment\n"
+"Shrink the current segment length from the tail"
+msgstr ""
+
+#: MIM/global.mim:172
+msgid ""
+"Reload input method\n"
+"Reload the input method (and configulation if any) and freshly start it.\n"
+"Note that the length of key-sequence bound for this command must be 1.\n"
+"This is one of special commands reserved by the m17n library, and\n"
+"should not be used in a map of an input method."
+msgstr ""
+
+#: MIM/th-kesmanee.mim:33 MIM/th-pattachote.mim:33 MIM/th-tis820.mim:33
+msgid ""
+"Acceptance level\n"
+"The level of character sequence acceptance defined in WTT 2.0.\n"
+"0 accepts any key sequence.  2 accepts only orthographic ones.\n"
+"1 is somewhere between."
+msgstr ""
+
+#: MIM/unicode.mim:26
+msgid ""
+"Input method for Unicode BMP characters using hexadigits.\n"
+"Type C-u followed by four hexadecimal numbers [0-9A-Fa-f]\n"
+"of a Unicode character code.\n"
+msgstr ""
+
+#: MIM/unicode.mim:32
+msgid ""
+"Preedit prompt\n"
+"Prompt string shown in the preedit area while typing hexadecimal numbers."
+msgstr ""
+
+#: MIM/unicode.mim:36
+msgid ""
+"Start Unicode\n"
+"Start typing hexadecimal numbers of Unicode character."
+msgstr ""
+
+#: MIM/vi-telex.mim:26
+msgid ""
+"Vietnames input method using the TELEX key sequence.\n"
+"Typing Backslash ('\\') toggles the normal mode and English mode.\n"
+"The following variables are customizable:\n"
+"  tone-mark-on-last: control tone mark position in equivocal cases\n"
+"  backspace-is-undo: control the action of Backspace key (delete or undo)"
+msgstr ""
+"Thâu nhập pháp để gõ tiếng Việt kiểu TELEX.\n"
+"Đánh dấu gạch chéo \"\\\" để chuyển qua lại giữa chế độ gõ tiếng Việt và gõ tiếng Anh bình thường.\n"
+"Người dùng có thể tự chọn cấu hình nhờ các biến điều khiển sau:\n"
+"  tone-mark-on-last: Xác định vị trí bỏ dấu trong các trong các trường hợp bất định.\n"
+"  backspace-is-undo: Xác định tác động của phím Backspace (BS) là xóa hay phục hồi (delete or undo)."
+
+#: MIM/vi-telex.mim:36
+msgid ""
+"Flag to control tone mark position in equivocal cases.\n"
+"If this variable is 0 (the default), put tone mark on the first vowel\n"
+"in such equivocal cases as \"oa\", \"oe\", \"uy\".\n"
+"Otherwise, put tone mark on the last vowel."
+msgstr ""
+"Xác định vị trí bỏ dấu trong các trong các trường hợp bất định.\n"
+"Khi biến này bằng 0 (mặc định) thì dấu thanh sẽ được đặt trên nguyên\n"
+"âm trước trong các vần  như 'oa', 'oe', 'uy'.\n"
+"Ngược lại thì dấu thanh sẽ được đặt trên nguyên âm sau."
+
+#: MIM/vi-telex.mim:43
+msgid ""
+"Flag to control the action of Backspace key (delete or undo).\n"
+"If this variable is 0 (the default), Backspace key deletes the previous\n"
+"character (e.g. \"q u a i s BS\" => \"quá\").\n"
+"If the value is 1, Backspace key undoes the previous key\n"
+"(e.g. \"q u a i s BS\" => \"quai\")."
+msgstr ""
+"Xác định tác động của phím Backspace (BS)  là xóa hay phục hồi (delete or undo).\n"
+"Khi biến này bằng 0 (mặc định) thì Backspace sẽ xóa ký tự đứng trước con nháy,\n"
+"ví dụ 'q u a i s BS' => 'quá'.\n"
+"Khi biến này bằng 1 và phím gõ trước là phím dấu thì Backspace sẽ hủy bỏ tác động của phím dấu vừa gõ, tương tự như nhấn phím 'z'.\n"
+"ví dụ 'q u a i s BS' => 'quai'." 
