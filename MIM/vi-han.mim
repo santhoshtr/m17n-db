@@ -34,7 +34,7 @@ symbols are available in fullwidth mode (turns on and off by
 temporarily by typing \"Z\".
 ")
 
-(title "vhan")
+(title "越漢")
 
 (variable
   (candidates-group-size))
