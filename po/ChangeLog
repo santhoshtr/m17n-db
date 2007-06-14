@@ -1,5 +1,7 @@
 2007-06-14  Kenichi Handa  <handa@m17n.org>
 
+	* vi.po: New file.
+
 	* m17n-db.pot: Updated.
 
 	* LINGUAS: Add vi.
