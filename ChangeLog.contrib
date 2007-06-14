@@ -1,3 +1,7 @@
+2007-06-14  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* im/si-phonetic-static.mim: Patch from contributer.
+
 2007-06-13  Phan Anh Dung  <fanzung@gmail.com>
 
 	* im/vi-nom.mim: New input method for Vietnamese Chu Nom.
