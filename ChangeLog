@@ -1,5 +1,7 @@
 2007-06-14  Kenichi Handa  <handa@m17n.org>
 
+	* bootstrap.sh: Adjusted for the directory structure change.
+
 	* MIM/vi-telex.mim: Make documentations gettextize.
 
 2007-06-12  Kenichi Handa  <handa@m17n.org>

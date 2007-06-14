@@ -1,3 +1,11 @@
+2007-06-14  Kenichi Handa  <handa@m17n.org>
+
+	* m17n-db.pot: Updated.
+
+	* LINGUAS: Add vi.
+
+	* ja.po: Updated.
+
 2007-06-05  Kenichi Handa  <handa@m17n.org>
 
 	* m17n-db.pot, ja.po: Updated.
