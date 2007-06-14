@@ -1,3 +1,11 @@
+2007-06-14  Kenichi Handa  <handa@m17n.org>
+
+	* MIM/vi-telex.mim: Make documentations gettextize.
+
+2007-06-12  Kenichi Handa  <handa@m17n.org>
+
+	* MIM/vi-telex.mim (handle-mark): Fix condition.
+
 2007-06-11  Kenichi Handa  <handa@m17n.org>
 
 	* LANGDATA/Makefile.am (pkgdata_DATA): Cancel previous change.
