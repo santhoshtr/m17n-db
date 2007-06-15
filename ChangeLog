@@ -1,3 +1,12 @@
+2007-06-15  Kenichi Handa  <handa@m17n.org>
+
+	* LANGDATA/LANGUAGE.awk (BEGIN): Fix regluar expression for
+	extracting an English name.
+	(/^[a-z][a-z][a-z]\|/): Don't modify English names extracted from
+	"en.lnm".
+
+	* SCRIPT.ext: Change name tayviet -> tay_viet.
+
 2007-06-14  Kenichi Handa  <handa@m17n.org>
 
 	* bootstrap.sh: Adjusted for the directory structure change.
