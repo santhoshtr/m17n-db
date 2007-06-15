@@ -1,3 +1,7 @@
+2007-06-15  "Tuyet Nhung" <dangtuyetnhung@gmail.com>
+
+	* im/tay-sonla.mim: New input method for Tay Viet.
+
 2007-06-14  Kenichi Handa  <handa@m17n.org>
 
 	* im/vi-han.mim (title): Change it to han characters.
