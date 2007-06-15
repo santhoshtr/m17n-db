@@ -72,8 +72,10 @@ BEGIN {
 	}
     }
     while (getline < "en.lnm") {
-	split($0, array, "\(| \"|\" \"|\"\)")
-	ENGLISH[array[2]] = array[3];
+	split($0, array, "[( ]");
+	code = array[2];
+	split($0, array, "\"");
+	ENGLISH[code] = array[2];
     }
 }
 
@@ -90,19 +92,20 @@ BEGIN {
     name = ENGLISH[code2];
     if (! name)
 	name = ENGLISH[code3];
-    if (name == "Greek, Modern (1453-)")
-	name = "Greek";
-    else {
-	gsub("; .*", "", name);
-	gsub(" \\(Other\\)$", "", name);
-	gsub(" languages$", "", name);
-	if (name ~ /\(.*[0-9].*\)$/)
-	    gsub(" \\([^)]*\\)$", "", name);
-	if (name ~ ", ") {
-	    split(name, array, ", ");
-	    name = array[2] " " array[1];
-	}
-    }
+#     if (name == "Greek, Modern (1453-)")
+# 	name = "Greek";
+#     else {
+# 	gsub("; .*", "", name);
+# 	gsub(" \\(Other\\)$", "", name);
+# 	gsub(" languages$", "", name);
+# 	gsub(" Languages$", "", name);
+# 	if (name ~ /\(.*[0-9].*\)$/)
+# 	    gsub(" \\([^)]*\\)$", "", name);
+# 	if (name ~ ", ") {
+# 	    split(name, array, ", ");
+# 	    name = array[2] " " array[1];
+# 	}
+#     }
     printf "(%s %-3s \"%s\"", code3, code2, name;
     if (native != "")
 	printf " \"%s\"", native;
