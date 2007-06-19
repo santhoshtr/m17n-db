@@ -1,0 +1,209 @@
+;; tai-sonla-kdb.mim -- Tai Viet input method with Phonetic sequence
+;; Copyright (C) 2007
+;; Thua Thien Hue Center of Information Technology (HueCIT, Vietnam)
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+(input-method tai sonla-kbd)
+
+(title "꫞")
+
+(description "Tai Viet input method using the phonetic key sequence, accord with the Tai Son La keyboard.
+The phonetic key sequence means that you type a syllable in this order:
+  C W? V v? F? T?
+where
+  C is an initial consonant,
+  W is a label to labializing C ('ꪫ'),
+  V is a vowel (prefix, postfix, or combining),
+  v is the second vowel of a digraph vowel (in that case V is 'ꪹ'),
+  F is a final consonant,
+  T is a tonemark (spacing or combining).")
+
+(map
+ (consonant
+  ("k" "ꪀ")
+  ("K" "ꪁ")
+  ("x" "ꪂ")
+  ("X" "ꪃ")
+  ("q" "ꪄ")
+  ("Q" "ꪅ")
+  ("|" "ꪆ")
+  ("\"" "ꪇ")
+  ("g" "ꪈ")
+  ("G" "ꪉ")
+  ("c" "ꪊ")
+  ("C" "ꪋ")
+  ("." "ꪌ")
+  (">" "ꪍ")
+  ("s" "ꪎ")
+  ("S" "ꪏ")
+  ("z" "ꪐ")
+  ("Z" "ꪑ")
+  ("d" "ꪒ")
+  ("D" "ꪓ")
+  ("t" "ꪔ")
+  ("T" "ꪕ")
+  ("w" "ꪖ")
+  ("W" "ꪗ")
+  ("n" "ꪘ")
+  ("N" "ꪙ")
+  ("b" "ꪚ")
+  ("B" "ꪛ")
+  ("p" "ꪜ")
+  ("P" "ꪝ")
+  ("/" "ꪞ")
+  ("?" "ꪟ")
+  ("f" "ꪠ")
+  ("F" "ꪡ")
+  ("m" "ꪢ")
+  ("M" "ꪣ")
+  ("j" "ꪤ")
+  ("J" "ꪥ")
+  ("r" "ꪦ")
+  ("R" "ꪧ")
+  ("l" "ꪨ")
+  ("L" "ꪩ")
+  ("v" "ꪪ")
+  ("V" "ꪫ")
+  ("h" "ꪬ")
+  ("H" "ꪭ")
+  ("o" "ꪮ")
+  ("O" "ꪯ"))
+
+ (final-c
+  ("b" "ꪚ")
+  ("d" "ꪒ")
+  ("k" "ꪀ")
+  ("J" "ꪥ")
+  ("M" "ꪣ")
+  ("N" "ꪙ")
+  ("G" "ꪉ")
+  ("V" "ꪫ"))  
+
+ (high-v
+  ("V" "ꪫ"))  
+
+ (special
+  ("!" "ꫛ")
+  ("@" "ꫜ")
+  ("#" "ꫝ")
+  ("coon" "ꫛ")
+  ("mootj" "ꫜ")
+  ("sawmj" "ꫝ"))
+
+ (vowel-pre
+  ("e" "ꪵ")
+  ("," "ꪶ")
+  ("E" "ꪹ")
+  ("Y" "ꪻ")
+  ("y" "ꪼ")
+  ("o^" "ꪶ")
+  ("wow" "ꪹ")		  ; that is "ươ"
+  ("auw" "ꪻ")		  ; that is "aư", note:"aw" is used for "ă"
+  ("ay" "ꪼ"))
+
+ (vowel-combining
+  ("}" "ꪰ")
+  ("i" "ꪲ")
+  ("U" "ꪳ")
+  ("u" "ꪴ")
+  ("[" "ꪷ")
+  ("I" "ꪹ")
+  ("{" "ꪾ")
+  ("ia" "ꪸ")
+  ("iee" "ꪸ")
+  ("ie^" "ꪸ")
+  ("aw" "ꪰ") ;; that is “ă”
+  ("uw" "ꪳ")
+  ("awm" "꪿"))
+
+ (vowel-post
+  ("a" "ꪱ")
+  ;; ("A" "ꪱꪲ")
+  ("<" "ꪺ")
+  ("]" "ꪽ")
+  ("ua" "ꪻ")
+  ("uo^" "ꪻ")
+  ("uoo" "ꪻ")
+  ("awn" "ꪽ"))
+
+ (vowel-digraph
+  ("r" "ꪸ")
+  ("R" "ꪰ"))
+
+ (tone-spacing
+  (":" "ꫀ")
+  (";" "ꫂ"))
+
+ (tone-combining
+  ("\"" "꪿")
+  ("'" "꫁"))
+
+ (punctuation
+  (",," ",")
+  (".." ".")
+  (";;" ";")
+  ("::" ":")
+  (";;" ";")
+  ("\"\"" "\"")
+  ("''" "'")
+  ("??" "?")
+  ("[[" "[")
+  ("]]" "]")
+  ("{{" "{")
+  ("}}" "}")))
+
+(state
+ (init
+  (t (mark M) (set U 0))
+  (consonant (mark M) (shift after-c))
+  (special)
+  (punctuation)
+  (vowel-pre)
+  (vowel-post)
+  (vowel-combining)
+  (tone-spacing)
+  (tone-combining))
+
+ (after-c
+  (high-v (mark M))
+  (vowel-pre (set V @-1)
+	     (delete @-)
+	     (move @<) (insert V) (move @>) (shift after-c-vpre))
+  (vowel-combining (set U @-1) (mark M) (shift after-c-v))
+  (vowel-post (shift after-c-v))
+  (vowel-digraph (set U @-1) (mark M) (move @-) (insert "ꪹ") (move @>)
+		 (shift after-c-v)))
+  
+ (after-c-vpre
+  (vowel-combining (set U @-1) (mark M) (shift after-c-v))
+  (vowel-post (shift after-c-v))
+  (nil (shift after-c-v)))
+
+ (after-c-v
+  (tone-spacing (shift init))
+  (tone-combining (set T @-1) (delete @-) (move M) (insert T) (move @>)
+		  (shift init))
+  (final-c (cond ((> U 0) (move M) (delete @-) (move @>) insert U))
+	   (shift after-c-v-f)))
+
+ (after-c-v-f
+  (tone-spacing (shift init))
+  (tone-combining (set T @-1) (delete @-) (move M) (insert T) (move @>)
+		  (shift init))))
