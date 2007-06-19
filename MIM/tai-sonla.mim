@@ -1,4 +1,4 @@
-;; tai-sonla-kdb.mim -- Tai Viet input method with Phonetic sequence
+;; tai-sonla.mim -- Tai Viet input method with Phonetic sequence
 ;; Copyright (C) 2007
 ;; Thua Thien Hue Center of Information Technology (HueCIT, Vietnam)
 
@@ -162,12 +162,17 @@ where
   ("::" ":")
   (";;" ";")
   ("\"\"" "\"")
+  ("//" "/")
+  ("||" "|")
   ("''" "'")
+  ("!!" "?")
   ("??" "?")
   ("[[" "[")
   ("]]" "]")
   ("{{" "{")
-  ("}}" "}")))
+  ("}}" "}")
+  ("<<" "<")
+  (">>" ">")))
 
 (state
  (init
