@@ -1,6 +1,9 @@
 ;; tai-sonla.mim -- Tai Viet input method with Phonetic sequence
 ;; Copyright (C) 2007
-;; Thua Thien Hue Center of Information Technology (HueCIT, Vietnam)
+;;   Thua Thien Hue Center of Information Technology (HueCIT, Vietnam)
+;; Copyright (C) 2007
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
 
 ;; This file is part of the m17n contrib; a sub-part of the m17n
 ;; library.
@@ -24,16 +27,25 @@
 
 (title "꫞")
 
-(description "Tai Viet input method using the phonetic key sequence, accord with the Tai Son La keyboard.
+(description (_"Tai Viet input method using the phonetic key sequence using the Tai Son La keyboard layout.
 The phonetic key sequence means that you type a syllable in this order:
   C W? V v? F? T?
 where
   C is an initial consonant,
   W is a label to labializing C ('ꪫ'),
   V is a vowel (prefix, postfix, or combining),
-  v is the second vowel of a digraph vowel (in that case V is 'ꪹ'),
+  v is the second vowel of a digraph vowel
+        (in the case that V is 'ꪹ' and v is 'ꪸ' or 'ꪷ'),
   F is a final consonant,
-  T is a tonemark (spacing or combining).")
+  T is a tonemark (spacing or combining).
+
+You can type special symbols by these keys:
+  '$' -> 'ꫛ'
+  '#' -> 'ꫜ'
+  '%' -> 'ꫝ'
+  '!' -> '꫞'
+  '@' -> '꫟'
+"))
 
 (map
  (consonant
@@ -100,12 +112,15 @@ where
   ("V" "ꪫ"))  
 
  (special
-  ("!" "ꫛ")
-  ("@" "ꫜ")
-  ("#" "ꫝ")
-  ("coon" "ꫛ")
-  ("mootj" "ꫜ")
-  ("sawmj" "ꫝ"))
+  ("$" "ꫛ")
+  ("#" "ꫜ")
+  ("%" "ꫝ")
+  ("!" "꫞")
+  ("@" "꫟")
+  ("coon" "ꫛ") ;; kon
+  ("nwng" "ꫜ") ;; nueng
+  ("sawmj" "ꫝ") ;; sam
+  )
 
  (vowel-pre
   ("e" "ꪵ")
@@ -114,8 +129,6 @@ where
   ("Y" "ꪻ")
   ("y" "ꪼ")
   ("o^" "ꪶ")
-  ("wow" "ꪹ")		  ; that is "ươ"
-  ("auw" "ꪻ")		  ; that is "aư", note:"aw" is used for "ă"
   ("ay" "ꪼ"))
 
  (vowel-combining
@@ -124,24 +137,27 @@ where
   ("U" "ꪳ")
   ("u" "ꪴ")
   ("[" "ꪷ")
-  ("I" "ꪹ")
+  ("I" "ꪸ")
   ("{" "ꪾ")
   ("ia" "ꪸ")
   ("iee" "ꪸ")
   ("ie^" "ꪸ")
   ("aw" "ꪰ") ;; that is “ă”
   ("uw" "ꪳ")
-  ("awm" "꪿"))
+  ("awm" "ꪾ"))
 
  (vowel-post
   ("a" "ꪱ")
   ;; ("A" "ꪱꪲ")
   ("<" "ꪺ")
   ("]" "ꪽ")
-  ("ua" "ꪻ")
-  ("uo^" "ꪻ")
-  ("uoo" "ꪻ")
-  ("awn" "ꪽ"))
+  ("ua" "ꪺ")
+  ("uo^" "ꪺ")
+  ("uoo" "ꪺ")
+  ("awn" "ꪽ")
+  ;; Note: "ꪮ" and "ꪯ" can be consonant and vowel. 
+  ("o" "ꪮ")
+  ("O" "ꪯ"))
 
  (vowel-digraph
   ("r" "ꪸ")
@@ -156,6 +172,11 @@ where
   ("'" "꫁"))
 
  (punctuation
+  ("!!" "!")
+  ("@@" "@")
+  ("##" "#")
+  ("$$" "$")
+  ("%%" "%")
   (",," ",")
   (".." ".")
   (";;" ";")
