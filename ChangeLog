@@ -1,3 +1,7 @@
+2007-06-20  Jens Petersen  <petersen@redhat.com>  (tiny change)
+
+	* MIM/da-post.mim: New file created by modifying sv-post.mim slightly.
+
 2007-06-15  Kenichi Handa  <handa@m17n.org>
 
 	* LANGDATA/LANGUAGE.awk (BEGIN): Fix regluar expression for
