@@ -1,3 +1,7 @@
+2007-06-20  Phan Anh Dung  <padung@huesoft.com.vn>
+
+	* im/tai-sonla.mim: Fix several rules.
+
 2007-06-19  "Tuyet Nhung" <dangtuyetnhung@gmail.com>
 
 	* im/tai-sonla.mim: New input method for Tai Viet.
@@ -12,7 +16,7 @@
 
 	* im/si-phonetic-static.mim: Patch from contributer.
 
-2007-06-13  Phan Anh Dung  <fanzung@gmail.com>
+2007-06-13  Phan Anh Dung  <padung@huesoft.com.vn>
 
 	* im/vi-nom.mim: New input method for Vietnamese Chu Nom.
 
