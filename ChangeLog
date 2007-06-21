@@ -1,3 +1,7 @@
+2007-06-21  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/DEVA-OTF.flt: Rewritten for Unicode 5.0.
+
 2007-06-20  Jens Petersen  <petersen@redhat.com>  (tiny change)
 
 	* MIM/da-post.mim: New file created by modifying sv-post.mim slightly.
