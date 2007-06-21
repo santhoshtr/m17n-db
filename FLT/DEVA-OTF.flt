@@ -129,9 +129,9 @@
     (1 =) 0x0900 (3 = *) (2 =))
    (".+" = * 0x0900))))
 
-;; Language forms If a syllable ends with a halant and a ZWNJ, render
-;; the final halant explicitly.  Do not apply 'blwf' nor 'half' to the
-;; initial RA.
+;; If a syllable ends with a halant and a ZWNJ, render the final
+;; halant explicitly.  Do not apply 'blwf' nor 'half' to the initial
+;; RA.
 (generator
  (0
   (cond
@@ -172,12 +172,13 @@
   *))
 
 ;; Apply other features.  The 'vatu' feature is applied again to get
-;; the conjunct of base and post-base.
+;; the conjunct of base and post-base.  The 'pres' feature is also
+;; applied again for pre-base vowel modifier.
 (generator
  (0
   (cond
    (" ([^ ]+) "
-    (1 otf:deva=vatu,abvs,blws,psts,haln))
+    (1 otf:deva=vatu,pres,abvs,blws,psts,haln))
    ("."
     [ otf:deva=+ ]))
   *))
