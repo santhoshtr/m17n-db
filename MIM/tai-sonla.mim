@@ -52,10 +52,10 @@ You can type special symbols by these keys:
   (set TT @-1)
   (delete @-)
   (cond ((| (= T ?ꫀ) (= T ?ꫂ)) (delete @-) (move @>))
-	((> T 0) (move M) (delete @-) (move @>)))
+	((> T 0) (move M) (delete @+) (move @>)))
   (set T TT)
   (cond ((| (= T ?ꫀ) (= T ?ꫂ)) (insert T))
-	((> T 0) (move M) (insert T) (mark M) (move @>)))))
+	((> T 0) (move M) (insert T) (move @>)))))
 
 (map
  (consonant
