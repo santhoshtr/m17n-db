@@ -33,9 +33,9 @@ The phonetic key sequence means that you type a syllable in this order:
 where
   C is an initial consonant,
   W is a label to labializing C ('ꪫ'),
-  V is a vowel (prefix, postfix, or combining),
+  V is a vowel (V1:prefix, V2:combining, or V3:postfix),
   v is the second vowel of a digraph vowel
-        (in the case that V is 'ꪹ' and v is 'ꪸ' or 'ꪷ'),
+        (in the case that V is 'ꪹ' and v is 'ꪸ', 'ꪷ', or 'ꪱ'),
   F is a final consonant,
   T is a tonemark (spacing or combining).
 
@@ -46,6 +46,16 @@ You can type special symbols by these keys:
   '!' -> '꫞'
   '@' -> '꫟'
 "))
+
+(macro
+ (adjust-tone
+  (set TT @-1)
+  (delete @-)
+  (cond ((| (= T ?ꫀ) (= T ?ꫂ)) (delete @-) (move @>))
+	((> T 0) (move M) (delete @-) (move @>)))
+  (set T TT)
+  (cond ((| (= T ?ꫀ) (= T ?ꫂ)) (insert T))
+	((> T 0) (move M) (insert T) (mark M) (move @>)))))
 
 (map
  (consonant
@@ -116,11 +126,7 @@ You can type special symbols by these keys:
   ("#" "ꫜ")
   ("%" "ꫝ")
   ("!" "꫞")
-  ("@" "꫟")
-  ("coon" "ꫛ") ;; kon
-  ("nwng" "ꫜ") ;; nueng
-  ("sawmj" "ꫝ") ;; sam
-  )
+  ("@" "꫟"))
 
  (vowel-pre
   ("e" "ꪵ")
@@ -128,8 +134,7 @@ You can type special symbols by these keys:
   ("E" "ꪹ")
   ("Y" "ꪻ")
   ("y" "ꪼ")
-  ("o^" "ꪶ")
-  ("ay" "ꪼ"))
+  ("o^" "ꪶ"))
 
  (vowel-combining
   ("}" "ꪰ")
@@ -139,11 +144,6 @@ You can type special symbols by these keys:
   ("[" "ꪷ")
   ("I" "ꪸ")
   ("{" "ꪾ")
-  ("ia" "ꪸ")
-  ("iee" "ꪸ")
-  ("ie^" "ꪸ")
-  ("aw" "ꪰ") ;; that is “ă”
-  ("uw" "ꪳ")
   ("awm" "ꪾ"))
 
  (vowel-post
@@ -151,23 +151,18 @@ You can type special symbols by these keys:
   ;; ("A" "ꪱꪲ")
   ("<" "ꪺ")
   ("]" "ꪽ")
-  ("ua" "ꪺ")
-  ("uo^" "ꪺ")
-  ("uoo" "ꪺ")
-  ("awn" "ꪽ")
   ;; Note: "ꪮ" and "ꪯ" can be consonant and vowel. 
   ("o" "ꪮ")
   ("O" "ꪯ"))
 
  (vowel-digraph
   ("r" "ꪸ")
-  ("R" "ꪰ"))
+  ("R" "ꪷ")
+  ("A" "ꪱ"))
 
- (tone-spacing
+ (tone
   (":" "ꫀ")
-  (";" "ꫂ"))
-
- (tone-combining
+  (";" "ꫂ")
   ("\"" "꪿")
   ("'" "꫁"))
 
@@ -193,43 +188,52 @@ You can type special symbols by these keys:
   ("{{" "{")
   ("}}" "}")
   ("<<" "<")
-  (">>" ">")))
+  (">>" ">"))
+
+ (backspace
+  ((BackSpace) (sub K 1) (undo K))))
 
 (state
  (init
-  (t (mark M) (set U 0))
+  (t (set K 0))
   (consonant (mark M) (shift after-c))
   (special)
   (punctuation)
   (vowel-pre)
   (vowel-post)
   (vowel-combining)
-  (tone-spacing)
-  (tone-combining))
+  (tone))
 
  (after-c
+  (t (mark M) (set V2 0) (set K @@))
   (high-v (mark M))
-  (vowel-pre (set V @-1)
+  (vowel-pre (set V1 @-1)
 	     (delete @-)
-	     (move @<) (insert V) (move @>) (shift after-c-vpre))
-  (vowel-combining (set U @-1) (mark M) (shift after-c-v))
+	     (move @<) (insert V1) (move @>) (shift after-c-vpre))
+  (vowel-combining (cond ((> V2 0) (move @-) (delete @-) (move @>))
+			 (1 (set K @@)))
+		   (set V2 @-1) (mark M))
   (vowel-post (shift after-c-v))
-  (vowel-digraph (set U @-1) (mark M) (move @-) (insert "ꪹ") (move @>)
-		 (shift after-c-v)))
+  (vowel-digraph (mark M) (move @<) (insert "ꪹ") (move @>)
+		 (shift after-c-v))
+  (final-c (delete @-) (pushback 1) (shift init))
+  (backspace)
+  (nil (shift after-c-v)))
   
  (after-c-vpre
-  (vowel-combining (set U @-1) (mark M) (shift after-c-v))
+  (t (set K @@))
+  (vowel-combining (set V2 @-1) (mark M) (shift after-c-v))
   (vowel-post (shift after-c-v))
+  (backspace)
   (nil (shift after-c-v)))
 
  (after-c-v
-  (tone-spacing (shift init))
-  (tone-combining (set T @-1) (delete @-) (move M) (insert T) (move @>)
-		  (shift init))
-  (final-c (cond ((> U 0) (move M) (delete @-) (move @>) insert U))
-	   (shift after-c-v-f)))
+  (t (set T 0) (set K @@))
+  (tone (cond ((= T 0) (set K @@))) (adjust-tone))
+  (final-c (shift after-c-v-f))
+  (backspace))
 
  (after-c-v-f
-  (tone-spacing (shift init))
-  (tone-combining (set T @-1) (delete @-) (move M) (insert T) (move @>)
-		  (shift init))))
+  (t (set K @@))
+  (tone (adjust-tone))
+  (backspace)))
