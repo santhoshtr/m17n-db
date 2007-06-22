@@ -135,19 +135,22 @@
 (generator
  (0
   (cond
-   (" (R)([^ ]*)(H)N "
-    | (1 =) (2 gsub1) (3 =) |)
-   (" (m?R)([^ ]*) "
-    | (1 = *) (2 gsub1) |)
-   (" ([^ ]+)(H)N "
-    | (1 gsub1) (2 =) |)
-   (" ([^ ]+) "
-    | (1 gsub1) |)
+   (" (R)([^Z ]*)(Z)?([^ ]*)(H)N "
+    | (1 =) (2 gsub1) (3 =) (4 gsub2) (5 =) |)
+   (" (m?R)([^Z ]*)(Z)?([^ ]*) "
+    | (1 = *) (2 gsub1) (3 =) (4 gsub2) |)
+   (" ([^Z ]+)(Z)?([^ ]*)(H)N "
+    | (1 gsub1) (2 =) (3 gsub2) (4 =) |)
+   (" ([^Z ]+)(Z)?([^ ]*) "
+    | (1 gsub1) (2 =) (3 gsub2) |)
    ("." =))
   *)
 
  (gsub1
-  otf:deva=nukt,akhn,blwf,half,vatu+))
+  otf:deva=nukt,akhn,blwf,half,vatu+)
+
+ (gsub2
+  otf:deva=blwf+))
 
 ;; Apply 'pres' to get pre-base conjuncts.
 (generator
@@ -160,7 +163,7 @@
 
 ;; When the number of glyphs between a pre-base vowel modifier and the
 ;; post-base mark is more than one, move the pre-base vowel before the
-;; final glyph.
+;; base glyph.
 (generator
  (0
   (cond
@@ -172,8 +175,8 @@
   *))
 
 ;; Apply other features.  The 'vatu' feature is applied again to get
-;; the conjunct of base and post-base.  The 'pres' feature is also
-;; applied again for pre-base vowel modifier.
+;; base and post-base conjunct.  The 'pres' feature is also applied
+;; again for pre-base vowel modifier.
 (generator
  (0
   (cond
