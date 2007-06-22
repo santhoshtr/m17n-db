@@ -1,3 +1,7 @@
+2007-06-22  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/DEVA-OTF.flt: Avoid applying OTF features over post-base mark (Z).
+
 2007-06-21  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/DEVA-OTF.flt: Rewritten for Unicode 5.0.
