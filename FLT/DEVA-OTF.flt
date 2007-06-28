@@ -156,27 +156,29 @@
 (generator
  (0
   (cond
-   (" (m)?([^ ]+) "
-    | (1 =) (2 otf:deva=pres+) |)
+   (" (m)?([^Z ]+)(Z[^ ]*) "
+    | (1 =) (2 otf:deva=pres+) (3 = *) |)
    ("." =))
   *))
 
-;; When the number of glyphs between a pre-base vowel modifier and the
-;; post-base mark is more than one, move the pre-base vowel before the
-;; base glyph.
+;; When the number of glyphs between a pre-base vowel sign and the
+;; post-base mark is more than one, move the pre-base vowel sign
+;; before the base glyph.
 (generator
  (0
   (cond
-   (" (m)([^Z ]+)([^Z ])Z([^ ]*) "
+;;   (" (m)([^ZH ]+)(H)([^Z ])Z([^ ]*) "
+;;    | (2 = *) (3 =) (1 =) (4 =) (5 = *) |)
+   (" (m)([^Z]+)([^Z])Z([^ ]*) "
     | (2 = *) (1 =) (3 =) (4 = *) |)
-   (" ([^Z ]+)Z([^ ]*) "
+   (" ([^Z]+)Z([^ ]*) "
     | (1 = *) (2 = *) |)
    ("." =))
   *))
 
 ;; Apply other features.  The 'vatu' feature is applied again to get
 ;; base and post-base conjunct.  The 'pres' feature is also applied
-;; again for pre-base vowel modifier.
+;; again for pre-base vowel sign.
 (generator
  (0
   (cond
