@@ -1,3 +1,8 @@
+2007-06-29  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/DEVA-OTF.flt: Put internal mark (Z) aftter the below form
+	consonant rather than after the base consonant.
+
 2007-06-28  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/DEVA-OTF.flt: Rewritten with new algorithm for Unicode 5.0.
