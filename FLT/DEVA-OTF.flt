@@ -48,8 +48,7 @@
  ;; Z: internal use
  (0x0900	?Z)			; internal use
  (0x0901 0x097F	?X)			; generic
- (0x0901	?A)			; SIGN CANDRABINDU
- (0x0902	?A)			; SIGN ANUSVARA
+ (0x0901 0x0902	?A)			; SIGN CANDRABINDU .. ANUSVARA
  (0x0903	?a)			; SIGN VISARGA
  (0x0904 0x0914	?V)			; LETTER SHORT A .. AU
  (0x0915 0x0939	?C)			; LETTER KA .. HA
@@ -79,21 +78,21 @@
  (0
   (cond
    ;; A syllable containing a vowel sign.
-   ;;1    23                45   6   7      89   A    BC   D
-   ("(RH)?(([CR]n?H)*[CR]n?)((m)|(b)|([up]))((A)|(a))?((S)|(s))?"
+   ;;1    23                45   6   7      8   9   10  11
+   ("(RH)?(([CR]n?H)*[CR]n?)((m)|(b)|([up]))(A)?(a)?(S)?(s)?"
     < |
-    (5 =) (2 move-h) (6 =) (13 =) (7 =) (1 otf:deva=rphf+) (9 =) (12 =) (10 =)
+    (5 =) (2 move-h) (6 =) (11 =) (7 =) (1 otf:deva=rphf+) (8 =) (10 =) (9 =)
     | >)
 
    ;; A syllable without vowel signs but with a vowel modifier.
-   ;;1    23                45   6   78   9
-   ("(RH)?(([CR]n?H)*[CR]n?)((A)|(a))((S)|(s))?"
-    < | (2 move-h) (9 =) (1 otf:deva=rphf+) (5 =) (8 =) (6 =) | >)
+   ;;1    23                45   6   7   8
+   ("(RH)?(([CR]n?H)*[CR]n?)((A)|(a))(S)?(s)?"
+    < | (2 move-h) (8 =) (1 otf:deva=rphf+) (5 =) (7 =) (6 =) | >)
 
    ;; No vowel signs, No vowel modifiers, but with a stress sign or an accent.
    ;;1    23                45   6  
    ("(RH)?(([CR]n?H)*[CR]n?)((S)|(s))"
-    < | (2 move-h) (6 =)(1 otf:deva=rphf+) (5 =) | >)
+    < | (2 move-h) (6 =) (1 otf:deva=rphf+) (5 =) | >)
 
    ;; A special case: eyelash RA
    ("(RH)J"
@@ -110,23 +109,23 @@
     < | (2 move-h) (1 otf:deva=rphf+) (4 = 0x200C) | >)
 
    ;; A syllable starting with an independent vowel.
-   ;;1  23   4    56   7
-   ("(V)((A)|(a))?((S)|(s))?"
-    < | (1 =) (7 =) (3 =) (6 =) (4 =) | >)
+   ;;1  2   3   4   5
+   ("(V)(A)?(a)?(S)?(s)?"
+    < | (1 =) (5 =) (2 =) (4 =) (3 =) | >)
 
    ("." =))
   *)
 
  ;; Move the halant that follows the base consonant to the end.
- ;; Put a mark after the base consonant.
+ ;; Put a mark after the below form consonants.
  (move-h
   (cond
-   ;;12         3     4  56
-   ("(([CR]n?H)*(Cn?))(H)((RH)*R)$"
-    (1 = *) 0x0900 (5 = *) (4 =))
+   ;;12             3  45
+   ("(([CR]n?H)*Cn?)(H)((RH)*R)$"
+    (1 = *) (4 = *) (3 =) 0x0900)
    ;;1  2  34
    ("(R)(H)((RH)*R)$"
-    (1 =) 0x0900 (3 = *) (2 =))
+    (1 =) (3 = *) (2 =) 0x0900)
    (".+" = * 0x0900))))
 
 ;; If a syllable ends with a halant and a ZWNJ, render the final
@@ -135,40 +134,26 @@
 (generator
  (0
   (cond
-   (" (R)([^Z ]*)(Z)?([^ ]*)(H)N "
-    | (1 =) (2 gsub1) (3 =) (4 gsub2) (5 =) |)
+   (" (R)([^Z]*)(Z)([^ ]*)(H)N "
+    | (1 =) (2 gsub1) (3 =) (4 = *) (5 =) |)
    (" (m?R)([^Z ]*)(Z)?([^ ]*) "
-    | (1 = *) (2 gsub1) (3 =) (4 gsub2) |)
-   (" ([^Z ]+)(Z)?([^ ]*)(H)N "
-    | (1 gsub1) (2 =) (3 gsub2) (4 =) |)
-   (" ([^Z ]+)(Z)?([^ ]*) "
-    | (1 gsub1) (2 =) (3 gsub2) |)
+    | (1 = *) (2 gsub1) (3 =) (4 = *) |)
+   (" ([^Z]+)(Z)([^ ]*)(H)N "
+    | (1 gsub1) (2 =) (3 * =) (4 =) |)
+   (" (m)?([^Z ]+)(Z)?([^ ]*) "
+    | (1 =) (2 gsub1) (3 =) (4 = *) |)
    ("." =))
   *)
 
  (gsub1
-  otf:deva=nukt,akhn,blwf,half,vatu+)
-
- (gsub2
-  otf:deva=blwf+))
-
-;; Apply 'pres' to get pre-base conjuncts.
-(generator
- (0
-  (cond
-   (" (m)?([^Z ]+)(Z[^ ]*) "
-    | (1 =) (2 otf:deva=pres+) (3 = *) |)
-   ("." =))
-  *))
+  otf:deva=nukt,akhn,blwf,half,vatu,pres+))
 
 ;; When the number of glyphs between a pre-base vowel sign and the
-;; post-base mark is more than one, move the pre-base vowel sign
-;; before the base glyph.
+;; post-below mark is more than one, move the pre-base vowel sign
+;; before the final glyph.
 (generator
  (0
   (cond
-;;   (" (m)([^ZH ]+)(H)([^Z ])Z([^ ]*) "
-;;    | (2 = *) (3 =) (1 =) (4 =) (5 = *) |)
    (" (m)([^Z]+)([^Z])Z([^ ]*) "
     | (2 = *) (1 =) (3 =) (4 = *) |)
    (" ([^Z]+)Z([^ ]*) "
@@ -176,14 +161,13 @@
    ("." =))
   *))
 
-;; Apply other features.  The 'vatu' feature is applied again to get
-;; base and post-base conjunct.  The 'pres' feature is also applied
-;; again for pre-base vowel sign.
+;; Apply other features.  The 'pres' feature is applied again for
+;; pre-base vowel sign.
 (generator
  (0
   (cond
    (" ([^ ]+) "
-    (1 otf:deva=vatu,pres,abvs,blws,psts,haln))
+    (1 otf:deva=pres,abvs,blws,psts,haln))
    ("."
     [ otf:deva=+ ]))
   *))
