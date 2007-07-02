@@ -1,3 +1,9 @@
+2007-07-02  Harshula Jayasuriya  <harshula@gmail.com>
+
+	* im/si-phonetic-static.mim:
+	Move the JOIN and TOUCH keys to more accessible key combinations.
+	Implement the correct handling of BackSpace.
+
 2007-06-20  Phan Anh Dung  <padung@huesoft.com.vn>
 
 	* im/tai-sonla.mim: Fix several rules.
