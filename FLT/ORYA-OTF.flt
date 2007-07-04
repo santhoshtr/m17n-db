@@ -79,38 +79,43 @@
  (0x200D	?J)			; ZWJ
  )
 
-;; Decompose two-part vowel signs.
-;; Move ZWJ before the consonant.
 (generator
  (0
   (cond
+   ;; Decompose two-part vowel signs.
    ((0x0B48)
     0x0B47 0x0B56)
    ((0x0B4B)
     0x0B47 0x0B3E)
    ((0x0B4C)
     0x0B47 0x0B57)
+   ;; Compose consonant and nukta.
+   ((0x0B21 0x0B3C)
+    0x0B5C)
+   ((0x0B22 0x0B3C)
+    0x0B5D)
+   ;; Move ZWJ before the consonant.
    ("(Cn?)(J)"
     (2 =) (1 = *))
    ("." =))
   *))
 
 ;; Syllable identification and reordering.
-;; Do not apply 'rphf' if a syllable begins with ZWJ.
+;; Do not apply 'rphf' if a syllable begins with a ZWJ.
 (generator
  (0
   (cond
-   ;; A syllable with ZWJ and a pre-base vowel sign.
+   ;; A syllable with a ZWJ and a pre-base vowel sign.
    ;;1  23                    4  5   6   7
    ("(J)(([CRBY]n?H)*[CRBY]n?)(m)(u)?(p)?(a)?"
     < | (1 =) (4 =) (2 pre-below) (5 =) (2 post) (6 =) (7 =) | >)
 
-   ;; A syllable with ZWJ and a non-pre-base vowel sign.
+   ;; A syllable with a ZWJ and a non-pre-base vowel sign.
    ;;1  23                    45      6   7
    ("(J)(([CRBY]n?H)*[CRBY]n?)(([bu])|(p))(a)?"
     < | (1 =) (2 pre-below) (5 =) (2 post) (6 =) (7 =) | >)
 
-   ;; A syllable with ZWJ and a vowel modifier, but without vowel signs.
+   ;; A syllable with a ZWJ and a vowel modifier, but without vowel signs.
    ;;1  23                    4
    ("(J)(([CRBY]n?H)*[CRBY]n?)(a)"
     < | (1 =) (2 pre-below) (2 post) (4 =) | >)
@@ -173,7 +178,7 @@
   (cond
    ("[CRBYnH]*[CRBn]H([YH]+)$"
     (1 = *) 0x0B4D)
-   ("Yn?H(YH)+$"
+   ("Yn?H([YH]+)$"
     (1 = *) 0x0B4D)
    (".+"
     )))
@@ -183,29 +188,20 @@
 (generator
  (0
   (cond
-   ;; If a syllable contains a ZWNJ, render the preceding halant explicitly.
+   ;; If a syllable contains a ZWNJ, render the final halant explicitly.
    (" ([^Z]+)(Z)([^N]*)(HN)([^ ]*) "
-    | (1 otf:orya=nukt,akhn,half+) (2 =) (3 otf:orya=blwf+) (4 = =)
+    | (1 otf:orya=nukt,akhn,half,pres+) (2 =) (3 otf:orya=blwf+) (4 = =)
     (5 otf:orya=pstf+) |)
 
    (" (J?m?)([^Z]+)(Z)([^ ]*) "
-    | (1 = *) (2 otf:orya=nukt,akhn,half+) (3 =) (4 otf:orya=blwf,pstf+) |)
+    | (1 = *) (2 otf:orya=nukt,akhn,half,pres+) (3 =) (4 otf:orya=blwf,pstf+) |)
 
-   ("." =))
-  *))
-
-;; Apply 'pres' to get pre-base conjuncts.
-(generator
- (0
-  (cond
-   (" (J?m?)([^Z]+)(Z)([^ ]*) "
-    | (1 = *) (2 otf:orya=pres+) (3 =) (4 = *) |)
    ("." =))
   *))
 
 ;; When the number of glyphs between a pre-base vowel sign and the
 ;; post-base mark is more than one, move the pre-base vowel sign
-;; before the base glyph.
+;; before the final glyph.
 (generator
  (0
   (cond
