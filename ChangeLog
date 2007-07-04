@@ -1,5 +1,8 @@
 2007-07-04  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
+	* FLT/ORYA-OTF.flt: Compose consonant and nukta beforehand if
+	predefined.
+
 	* FLT/BENG-OTF.flt: Rewritten for Unicode 5.0 with new algorithm.
 
 2007-06-29  TAKAHASHI Naoto  <ntakahas@m17n.org>
