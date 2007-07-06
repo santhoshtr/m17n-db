@@ -95,7 +95,7 @@
    ((0x0B22 0x0B3C)
     0x0B5D)
    ;; Move ZWJ before the consonant.
-   ("(Cn?)(J)"
+   ("([CRBY]n?)(J)"
     (2 =) (1 = *))
    ("." =))
   *))
