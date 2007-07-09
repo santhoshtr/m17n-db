@@ -1,3 +1,15 @@
+2007-07-09  Kenichi Handa  <handa@m17n.org>
+
+	* im/tai-sonla.mim: Fix typo in the description.
+
+2007-06-21  Kenichi Handa  <handa@m17n.org>
+
+	* im/tai-sonla.mim: Several rule deleted.  Add BackSpace handling.
+	(adjust-tone): New macro.
+	(vowel-digraph): Fix characters.
+	(tone): Maps tone-spacing and tone-combining are merged.
+	(backspace): New map.
+
 2007-07-02  Harshula Jayasuriya  <harshula@gmail.com>
 
 	* im/si-phonetic-static.mim:
