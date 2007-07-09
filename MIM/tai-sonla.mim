@@ -27,12 +27,12 @@
 
 (title "꫞")
 
-(description (_"Tai Viet input method using the phonetic key sequence using the Tai Son La keyboard layout.
+(description (_"Tai Viet input method using the phonetic key sequence with the Tai Son La keyboard layout.
 The phonetic key sequence means that you type a syllable in this order:
   C W? V v? F? T?
 where
   C is an initial consonant,
-  W is a label to labializing C ('ꪫ'),
+  W is a label for labializing C ('ꪫ'),
   V is a vowel (V1:prefix, V2:combining, or V3:postfix),
   v is the second vowel of a digraph vowel
         (in the case that V is 'ꪹ' and v is 'ꪸ', 'ꪷ', or 'ꪱ'),
