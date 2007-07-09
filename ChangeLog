@@ -1,3 +1,9 @@
+2007-07-09  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/DEVA-OTF.flt: Stop counting the number of pre-base glyphs
+	for matra movement.  (Unable to distinguish halant form from half
+	form.)
+
 2007-07-06  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/ORYA-OTF.flt: Add R, B and Y to the ZWJ movement.
