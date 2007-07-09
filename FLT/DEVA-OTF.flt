@@ -29,7 +29,7 @@
       (font (nil nil unicode-bmp :otf=deva=rphf)))
 
 (category
- ;; C: consonant (except for R)
+ ;; C: consonant (except for RA)
  ;; R: consonant RA
  ;; n: NUKTA
  ;; H: HALANT
@@ -45,9 +45,7 @@
  ;; N: ZWNJ
  ;; J: ZWJ
  ;; X: generic
- ;; Z: internal use
- (0x0900	?Z)			; internal use
- (0x0901 0x097F	?X)			; generic
+ (0x0900 0x097F	?X)			; generic
  (0x0901 0x0902	?A)			; SIGN CANDRABINDU .. ANUSVARA
  (0x0903	?a)			; SIGN VISARGA
  (0x0904 0x0914	?V)			; LETTER SHORT A .. AU
@@ -73,6 +71,24 @@
  (0x200D	?J)			; ZWJ
  )
 
+;; Compose consonant and nukta
+(generator
+ (0
+  (cond
+   ((0x0928 0x093C) 0x0929)
+   ((0x0930 0x093C) 0x0931)
+   ((0x0933 0x093C) 0x0934)
+   ((0x0915 0x093C) 0x0958)
+   ((0x0916 0x093C) 0x0959)
+   ((0x0917 0x093C) 0x095A)
+   ((0x091C 0x093C) 0x095B)
+   ((0x0921 0x093C) 0x095C)
+   ((0x0922 0x093C) 0x095D)
+   ((0x092B 0x093C) 0x095E)
+   ((0x092F 0x093C) 0x095F)
+   ("." =))
+  *))
+
 ;; Reordering
 (generator
  (0
@@ -80,9 +96,8 @@
    ;; A syllable containing a vowel sign.
    ;;1    23                45   6   7      8   9   10  11
    ("(RH)?(([CR]n?H)*[CR]n?)((m)|(b)|([up]))(A)?(a)?(S)?(s)?"
-    < |
-    (5 =) (2 move-h) (6 =) (11 =) (7 =) (1 otf:deva=rphf+) (8 =) (10 =) (9 =)
-    | >)
+    < | (5 =) (2 move-h) (6 =) (11 =) (7 =) (1 otf:deva=rphf+)
+    (8 =) (10 =) (9 =) | >)
 
    ;; A syllable without vowel signs but with a vowel modifier.
    ;;1    23                45   6   7   8
@@ -90,7 +105,7 @@
     < | (2 move-h) (8 =) (1 otf:deva=rphf+) (5 =) (7 =) (6 =) | >)
 
    ;; No vowel signs, No vowel modifiers, but with a stress sign or an accent.
-   ;;1    23                45   6  
+   ;;1    23                45   6
    ("(RH)?(([CR]n?H)*[CR]n?)((S)|(s))"
     < | (2 move-h) (6 =) (1 otf:deva=rphf+) (5 =) | >)
 
@@ -104,8 +119,8 @@
     < | (2 = *) (1 otf:deva=rphf+) | >)
 
    ;; When a syllable ends with a halant, add a ZWNJ explicitly.
-   ;;1    23                4   5
-   ("(RH)?(([CR]n?H)*[CR]n?)(H)?(N)?"
+   ;;1    23                4
+   ("(RH)?(([CR]n?H)*[CR]n?)(H)?N?"
     < | (2 move-h) (1 otf:deva=rphf+) (4 = 0x200C) | >)
 
    ;; A syllable starting with an independent vowel.
@@ -116,17 +131,12 @@
    ("." =))
   *)
 
- ;; Move the halant that follows the base consonant to the end.
- ;; Put a mark after the below form consonants.
  (move-h
   (cond
-   ;;12             3  45
-   ("(([CR]n?H)*Cn?)(H)((RH)*R)$"
-    (1 = *) (4 = *) (3 =) 0x0900)
-   ;;1  2  34
-   ("(R)(H)((RH)*R)$"
-    (1 =) (3 = *) (2 =) 0x0900)
-   (".+" = * 0x0900))))
+   ("([CRnH]+)(H)(R)$"
+    (1 = *) (3 =) (2 =))
+   (".+"
+    = *))))
 
 ;; If a syllable ends with a halant and a ZWNJ, render the final
 ;; halant explicitly.  Do not apply 'blwf' nor 'half' to the initial
@@ -134,32 +144,19 @@
 (generator
  (0
   (cond
-   (" (R)([^Z]*)(Z)([^ ]*)(H)N "
-    | (1 =) (2 gsub1) (3 =) (4 = *) (5 =) |)
-   (" (m?R)([^Z ]*)(Z)?([^ ]*) "
-    | (1 = *) (2 gsub1) (3 =) (4 = *) |)
-   (" ([^Z]+)(Z)([^ ]*)(H)N "
-    | (1 gsub1) (2 =) (3 * =) (4 =) |)
-   (" (m)?([^Z ]+)(Z)?([^ ]*) "
-    | (1 =) (2 gsub1) (3 =) (4 = *) |)
+   (" (R)([^N]*)(H)N "
+    | (1 =) (2 gsub1) (3 =) |)
+   (" (m?R)([^ ]*) "
+    | (1 = *) (2 gsub1) (3 = *) |)
+   (" ([^N]+)(H)N "
+    | (1 gsub1) (2 =) |)
+   (" ([^ ]+) "
+    | (1  gsub1) |)
    ("." =))
   *)
 
  (gsub1
   otf:deva=nukt,akhn,blwf,half,vatu,pres+))
-
-;; When the number of glyphs between a pre-base vowel sign and the
-;; post-below mark is more than one, move the pre-base vowel sign
-;; before the final glyph.
-(generator
- (0
-  (cond
-   (" (m)([^Z]+)([^Z])Z([^ ]*) "
-    | (2 = *) (1 =) (3 =) (4 = *) |)
-   (" ([^Z]+)Z([^ ]*) "
-    | (1 = *) (2 = *) |)
-   ("." =))
-  *))
 
 ;; Apply other features.  The 'pres' feature is applied again for
 ;; pre-base vowel sign.
