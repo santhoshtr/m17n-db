@@ -1,6 +1,16 @@
+2007-07-10  Harshula Jayasuriya  <harshula@gmail.com>
+
+	* im/si-phonetic-dynamic.mim: New file.
+
 2007-07-09  Kenichi Handa  <handa@m17n.org>
 
 	* im/tai-sonla.mim: Fix typo in the description.
+
+2007-07-02  Harshula Jayasuriya  <harshula@gmail.com>
+
+	* im/si-phonetic-static.mim:
+	Move the JOIN and TOUCH keys to more accessible key combinations.
+	Implement the correct handling of BackSpace.
 
 2007-06-21  Kenichi Handa  <handa@m17n.org>
 
@@ -9,12 +19,6 @@
 	(vowel-digraph): Fix characters.
 	(tone): Maps tone-spacing and tone-combining are merged.
 	(backspace): New map.
-
-2007-07-02  Harshula Jayasuriya  <harshula@gmail.com>
-
-	* im/si-phonetic-static.mim:
-	Move the JOIN and TOUCH keys to more accessible key combinations.
-	Implement the correct handling of BackSpace.
 
 2007-06-20  Phan Anh Dung  <padung@huesoft.com.vn>
 
