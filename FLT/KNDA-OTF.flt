@@ -30,131 +30,133 @@
       (font (nil nil unicode-bmp :otf=knda=rphf)))
 
 (category
- ;; C: general consonant
+ ;; C: consonant (except for RA)
  ;; R: RA
+ ;; n: NUKTA
  ;; H: HALANT
- ;; u: MATRA (above)
- ;; b: MATRA (below)
- ;; p: MATRA (post)
- ;; t: MATRA (two-part)
- ;; T: MATRA (three-part)
+ ;; u: vowel sign (above)
+ ;; b: vowel sign (below)
+ ;; p: vowel sign (post)
+ ;; l: length mark
  ;; a: vowel modifier (post)
  ;; V: independent vowel
  ;; N: ZWNJ (ZERO WIDTH NON-JOINER)
  ;; J: ZWJ (ZERO WIDTH JOINER)
- ;; E: ELSE
- ;;
- (0x200C	?N)			; ZWNJ
- (0x200D	?J)			; ZWJ
- (0x0964	?E)			; DANDA
- (0x0965	?E)			; DOUBLE DANDA
- (0x0C80 0x0CFF	?E)			; ELSE
- (0x0C82 0x0C83	?a)			; SIGN ANUSVARA, VISARGA
+ ;; X: generic
+ (0x0C80 0x0CFF	?X)			; generic
+ (0x0C82 0x0C83	?a)			; SIGN ANUSVARA .. VISARGA
  (0x0C85 0x0C94	?V)			; LETTER A .. LETTER AU
  (0x0C95 0x0CB9	?C)			; LETTER KA .. LETTER HA
  (0x0CB0	?R)			; LETTER RA
  (0x0CBC	?n)			; SIGN NUKTA
- (0x0CBE 	?p)			; VOWEL SIGN AA (post)
- (0x0CBF	?u)			; VOWEL SIGN I (above)
- (0x0CC0	?t)			; VOWEL SIGN II (two-part)
- (0x0CC1 0x0CC4	?p)			; VOWEL SIGN U, UU, R, RR (post)
- (0x0CC6	?u)			; VOWEL SIGN E (above)
- (0x0CC7 0x0CCA	?t)			; VOWEL SIGN EE, AI, O (two-part)
- (0x0CCB	?T)			; VOWEL SIGN OO (three-part)
- (0x0CCC	?u)			; VOWEL SIGN AU (above)
- (0x0CCD	?H)			; SIGN VIRAMA (HALANT)
- (0x0CD5 0x0CD6	?l)			; LENGTH MARK (length post)
+ (0x0CBE 	?p)			; VOWEL SIGN AA
+ (0x0CBF	?u)			; VOWEL SIGN I
+ (0x0CC1 0x0CC4	?p)			; VOWEL SIGN U .. RR
+ (0x0CC6	?u)			; VOWEL SIGN E
+ (0x0CCC	?u)			; VOWEL SIGN AU
+ (0x0CCD	?H)			; SIGN VIRAMA
+ (0x0CD5 0x0CD6	?l)			; LENGTH MARK .. AI LENGTH MARK
  (0x0CDE	?C)			; LETTER FA (LLLA)
- (0x0CE0 0x0CE1	?V)			; LETTER VOCALIC RR, LL
- (0x0CE2 0x0CE3	?b)			; VOWEL SIGN VOCALIC L, LL
- (0x0CFD	?Z)			; internal use
- (0x0CFE	?Y)			; internal use
- (0x0CFF	?X)			; internal use
+ (0x0CE0 0x0CE1	?V)			; LETTER VOCALIC RR .. LL
+ (0x0CE2 0x0CE3	?b)			; VOWEL SIGN VOCALIC L .. LL
+ (0x0964 0x0965	?X)			; DANDA .. DOUBLE DANDA
+ (0x200C	?N)			; ZWNJ
+ (0x200D	?J)			; ZWJ
  )
 
-;; Step 1 : Syllable identification and Halant movement.
+;; Preprocessing
 (generator
  (0
   (cond
-   ;; A syllable containing a three-part vowel sign.
-   ("([CR]J?n?(H[CR]n?)*)(T)(a)?"
-    < | (1 move-base-Halant) (3 0x0CC6 0x0CC2 0x0CD5) (4 =) | >)
+   ;; Decompose two-part and three-part vowels
+   ((0x0CC0)
+    0x0CBF 0x0CD5)
+   ((0x0CC7)
+    0x0CC6 0x0CD5)
+   ((0x0CC8)
+    0x0CC6 0x0CD6)
+   ((0x0CCA)
+    0x0CC6 0x0CC2)
+   ((0x0CCB)
+    0x0CC6 0x0CC2 0x0CD5)
+   ;; Move ZWJ between RA and HARANT.
+   ("(R)(J)(H)"
+    (2 =) (1 =) (3 =))
+   ("." =))
+  *))
 
-   ;; A syllable containing a two-part vowel sign.
-   ("([CR]J?n?(H[CR]n?)*)(t)(a)?"
-    < | (1 move-base-Halant) (3 two-part) (4 =) | >)
+;; Syllable identification.
+;; Apply 'nukt' and 'akhn' before reordering.
 
-   ;; A syllable ending with vowel signs and/or a vowel modifier.
-   ("([CR]J?n?(H[CR]n?)*)([ubpl]+a?|a)"
-    < | (1 move-base-Halant) (3 = *) | >)
+(generator
+ (0
+  (cond
+   ;; A syllable with an above vowel sign.
+   ;;1   2      3          4
+   ("(J)?([CR]n?(H[CR]n?)*)(up?l?a?)"
+    < | (1 =) (2 otf:knda=nukt,akhn+) (4 = *) | >)
 
-   ;; Forced Halant form.
-   ("([CR]n?H)N"
-    < | (1 move-base-Halant) | >)
+   ;; A syllable with a post- or below vowel sign.
+   ;;1   2      3          4    5
+   ("(J)?([CR]n?(H[CR]n?)*)(p|b)(a)?"
+    < | (1 =) (2 otf:knda=nukt,akhn+) (4 =) (5 =) | >)
 
-   ;; A syllable without a vowel sign nor a vowel modifier.
-   ("[CR]J?n?(H[CR]n?)*H?"
-    < | move-base-Halant | >)
+   ;; A syllable with a vowel modifier, but without vowel signs.
+   ;;1   2      3          4
+   ("(J)?([CR]n?(H[CR]n?)*)(a)"
+    < | (1 =) (2 otf:knda=nukt,akhn+) (4 =) | >)
+
+   ;; No vowel signs, no vowel modifiers.
+   ;;1   2      3          4
+   ("(J)?([CR]n?(H[CR]n?)*)(H|HN)?"
+    < | (1 =) (2 otf:knda=nukt,akhn+) (4 = *) | >)
 
    ;; A syllable starting with an independent vowel.
    ("Va?"
-    < | = * | > )
+    < | = * | >)
+
+   ("." =))
+  *))
+
+;; Reordering.  The base consonant is always the first one, because
+;; all Kannada consonants have a below form.
+(generator
+ (0
+  (cond
+   ;; 1    2  34     5     6   7   8
+   (" (RH)?(.)((H.)*)(u|b)?(p)?(l)?(a)? "
+    | (2 =) (5 =) (6 =) (3 move-h) (7 =) (1 otf:knda=rphf+) (8 =) |)
+
+   ;; A syllable ending with a halant.
+   ;; 1    2   34
+   (" (RH)?(.H)((.H)*)N? "
+    ;; WORKAROUND : Kedage fonts produce halant form with 'psts'.
+    | (2 otf:knda=haln,psts+)(3 = *) (1 otf:knda=rphf+) |)
+
+   ;; No reph movement if preceded by a ZWJ.
+   ;;  1  23     4     5   6
+   (" J(.)((H.)*)(u|b)?(p)?(l?a?) "
+    | (1 =) (4 =) (5 =) (2 move-h) (6 = *) |)
+
+   ;;  1   23
+   (" J(.H)((.H)*)N? "
+    | (1 otf:knda=haln,psts+) (2 = *) |)
 
    ("." =))
   *)
 
- ;; Move Halant on the base consonant to the tail if the syllable ends
- ;; with a consonant.
- ;; A leading 0x0CFF means Halant movement.
- ;; A leading 0x0CFE means a syllable ending with a Halant.
- ;; A leading 0x0CFD means Halant & Reph movements.
- (move-base-Halant
+ (move-h
   (cond
-   (".*H$"
-    0x0CFE = *)
-   ("(RH)([CR]n?)$"
-    0x0CFD (2 = *) (1 = =))
-   ("(RH)([CR]n?)(H)(.*)"
-    0x0CFD (2 = *) (4 = *) (3 =) (1 = =))
-   ("(R)J(H)(.*)"
-    0x0CFF (1 =) (3 = *) (2 =))
-   ("(Cn?)(H)(.*)"
-    0x0CFF (1 = *) (3 = *) (2 =))
-   (".*"
-    = *)))
+   ("(H)(.+)"
+    (2 = *) (1 =)))))
 
- ;; Divide a two-part Matra into elements.
- (two-part
-  (cond
-   ((0x0CC0)	0x0CBF 0x0CD5)
-   ((0x0CC7)	0x0CC6 0x0CD5)
-   ((0x0CC8)	0x0CC6 0x0CD6)
-   ((0x0CCA)	0x0CC6 0x0CC2)))
- )
-
-;; Step 2 : Move Matra if applicable.
-;; The base consonant in a Halant-ending syllable is changed into Halant form.
+;; Apply other OTF features.
 (generator
  (0
   (cond
-   ;;  1       2        3   4   5   6   7   8
-   (" Z([CR]n?)([CRnH]*)(RH)(u)?(b)?(p)?(l*)(a)? "
-    | (1 = *) (4 =) (5 =) (6 =) (2 = *) (7 = *) (3 otf:knda=rphf) (8 =) |)
-   ;;  1       2        3   4   5   6   7
-   (" X([CR]n?)([CRnH]*)(u)?(b)?(p)?(l*)(a)? "
-    | (1 = *) (3 =) (4 =) (5 =) (2 = *) (6 = *) (7 =) |)
-   (" Y([CR]n?H)([^ ]*) "
-    ;; Kedage-n.ttf lacks the haln feature, so "otf:knda=haln" does not work.
-    | (1 otf:knda=~rphf,~blwf,*) (2 = *) |)
-   ("." =))
-  *))
+   (" ([^ ]+) "
+    (1 otf:knda=blwf,abvs,blws,psts))
 
-;; Step 3 : Drive OTF tables.
-(generator
- (0
-  (cond
-   (" ([^ ]*) "
-    (1 otf:knda=~rphf,*))
    ("."
     [ otf:knda=+ ]))
   *))
