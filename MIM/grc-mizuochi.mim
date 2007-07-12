@@ -26,52 +26,52 @@
 (description "Mizuochi input method for classical Greek.
 
 -------------------------------------
-character     capital	      small
+character     capital         small
 -------------------------------------
-alpha		A		a
-beta		B		b
-gamma		G		g
-delta		D		d
-epsilon		E		e
-zeta		Z		z
-eta		H		h
-theta		Q		q
-iota		I		i
-kappa		K		k
-lamda		L		l
-mu		M		m
-nu		H		n
-xi		X		x
-omicron		O		o
-pi		P		p
-rho		R		r
-sigma		S		s
-final sigma			j
-tau		T		t
-upsilon		U		u
-phi		F		f
-chi		C		c
-psi		Y		y
-omega		W		w
+alpha           A               a
+beta            B               b
+gamma           G               g
+delta           D               d
+epsilon         E               e
+zeta            Z               z
+eta             H               h
+theta           Q               q
+iota            I               i
+kappa           K               k
+lamda           L               l
+mu              M               m
+nu              H               n
+xi              X               x
+omicron         O               o
+pi              P               p
+rho             R               r
+sigma           S               s
+final sigma                     j
+tau             T               t
+upsilon         U               u
+phi             F               f
+chi             C               c
+psi             Y               y
+omega           W               w
 -------------------------------------
-sampi				!
-digamma		#
-stigma				$
-koppa		&		%
+sampi                           !
+digamma         #
+stigma                          $
+koppa           &               %
 -------------------------------------
 
 ------------------------
-mark		key
+mark            key
 ------------------------
-ypogegrammeni	J
-psili		'  or  v
-dasia		`  or  V
-oxia		/
-varia		?
-perispomeni	\\  or  ^
-dialytika	\"
-ano teleia	:
-erotimatiko	;
+ypogegrammeni   J
+psili           '  or  v
+dasia           `  or  V
+oxia            /
+varia           ?
+perispomeni     \\  or  ^
+dialytika       \"
+ano teleia      :
+erotimatiko     ;
 ----------------------
 ")
 
