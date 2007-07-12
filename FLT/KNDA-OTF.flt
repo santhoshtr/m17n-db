@@ -124,7 +124,7 @@
  (0
   (cond
    ;; 1    2  34     5     6   7   8
-   (" (RH)?(.)((H.)*)(u|b)?(p)?(l)?(a)? "
+   (" (RH)?([^N])((H[^N])*)(u|b)?(p)?(l)?(a)? "
     | (2 =) (5 =) (6 =) (3 move-h) (7 =) (1 otf:knda=rphf+) (8 =) |)
 
    ;; A syllable ending with a halant.
@@ -135,7 +135,7 @@
 
    ;; No reph movement if preceded by a ZWJ.
    ;;  1  23     4     5   6
-   (" J(.)((H.)*)(u|b)?(p)?(l?a?) "
+   (" J(.)((H[^N])*)(u|b)?(p)?(l?a?) "
     | (1 =) (4 =) (5 =) (2 move-h) (6 = *) |)
 
    ;;  1   23
