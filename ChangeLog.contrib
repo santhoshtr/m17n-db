@@ -1,3 +1,9 @@
+2007-07-12  Kenichi Handa  <handa@m17n.org>
+
+	* Makefile.am (bin_SCRIPTS): Delete it.
+	(m17n_scriptdir): New variable.
+	(m17n_script_DATA): New variable.
+
 2007-07-10  Harshula Jayasuriya  <harshula@gmail.com>
 
 	* im/si-phonetic-dynamic.mim: New file.

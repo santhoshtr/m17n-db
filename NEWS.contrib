@@ -5,6 +5,12 @@ Copyright (C) 2006
 See the end for copying conditions.
 
 
+* Changes in the m17n-contrib 1.1.2
+
+** The installation directory of tbl2mim.awk is changed from ${bindir}
+to ${datadir}/m17n/scripts.
+
+
 * Changes in the m17n-contrib 1.1.0
 
 ** New file tbl2mim.awk is an awk script that converts scim-table's
