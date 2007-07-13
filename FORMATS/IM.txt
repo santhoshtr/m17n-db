@@ -572,9 +572,16 @@ you type ("^u" means Control-u):
     ^u2190^u2191^u2192^u2193
 @endverbatim
 you will get this (Unicode arrow symbols):
+@if FOR-LATEX
+@verbatim
+    $\leftarrow \uparrow \rightarrow \downarrow
+@endverbatim
+@endif
+@if FOR-HTML
 @verbatim
     ←↑→↓
 @endverbatim
+@endif
 
 The definition utilizes @c SET and @c IF commands as below:
 @verbatim

@@ -1,3 +1,19 @@
+2007-07-13  Kenichi Handa  <handa@m17n.org>
+
+	* Version 1.4.0 released.
+
+2007-07-13  Kenichi Handa  <handa@m17n.org>
+
+	* configure.ac: Change versions to 1.4.0.
+
+2007-07-12  Kenichi Handa  <handa@m17n.org>
+
+	* MIM/grc-mizuochi.mim (description): Untabify.
+
+2007-07-10  Kenichi Handa  <handa@m17n.org>
+
+	* mdb.dir: Adjusted the entry for font layouters.
+
 2007-07-12  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/KNDA-OTF.flt: Rewritten with new algorithm.
@@ -41,6 +57,8 @@
 	* MIM/da-post.mim: New file created by modifying sv-post.mim slightly.
 
 2007-06-15  Kenichi Handa  <handa@m17n.org>
+
+	* SCRIPT.tbl (tai_viet): Add this entry.
 
 	* LANGDATA/LANGUAGE.awk (BEGIN): Fix regluar expression for
 	extracting an English name.

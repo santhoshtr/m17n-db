@@ -1,8 +1,19 @@
 * NEWS -- What's new in the m17n database.			-*- outline -*-
-Copyright (C) 2004, 2005, 2006
+Copyright (C) 2004, 2005, 2006, 2007
   National Institute of Advanced Industrial Science and Technology (AIST)
   Registration Number H15PRO112
 See the end for copying conditions.
+
+
+* Changes in the m17n database 1.4.0
+
+** Several new input methods are added.
+
+da-post.mim (Danish)
+bo-ewts.mim (Tibetan)
+fr-azerty.mim (French)
+
+** New database for language names.
 
 
 * Changes in the m17n database 1.3.4
@@ -125,7 +136,7 @@ kk-kdb.mim (Kazakh in Cyrillic script)
 
 * Copyright information
 
-Copyright (C) 2004, 2005, 2006
+Copyright (C) 2004, 2005, 2006, 2007
   National Institute of Advanced Industrial Science and Technology (AIST)
   Registration Number H15PRO112
 

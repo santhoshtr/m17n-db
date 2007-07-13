@@ -21,8 +21,11 @@
 ;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;; Hangul input method with 2벌식.
+;;; @latexonly
+;;; Hangul input method with 2-bul style.
+;;; @endlatexonly
 ;;; @htmlonly
+;;; Hangul input method with 2벌식.
 ;;; This input method uses this keyboard layout:
 ;;; <table border="1" cellspacing="0" cellpadding=="0">
 ;;; ||KEY: |r |R |s |e |E |f |a |q |Q |t |T |d |w |W |c |z |x |v |g
