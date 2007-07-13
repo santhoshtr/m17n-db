@@ -150,6 +150,10 @@
 (tagbanwa (tbw) (#x1763 #x1772) tagb)	;639-3 code tbw
 (tamil (ta) (#xB95 #xB83) taml)
 (tai_le (tdd) (#x1950) tale)		;639-3 code tdd
+
+;new
+(tay_viet (tai) (#xAA80))
+
 (telugu (te) (#xC15 #xC03) telu)
 (thaana (dv) (#x78C #x7B0) thaa)
 (thai (pi th hmn) (#xE17 #xE34) thai)
