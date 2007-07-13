@@ -4,6 +4,10 @@
 
 2007-07-13  Kenichi Handa  <handa@m17n.org>
 
+	* generic.fst: Add an entry for tay_viet.
+
+2007-07-13  Kenichi Handa  <handa@m17n.org>
+
 	* configure.ac: Change versions to 1.4.0.
 
 2007-07-12  Kenichi Handa  <handa@m17n.org>
