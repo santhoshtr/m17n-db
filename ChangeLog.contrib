@@ -1,3 +1,7 @@
+2007-07-15  Kenichi Handa  <handa@m17n.org>
+
+	* Version 1.1.2 released.
+
 2007-07-12  Kenichi Handa  <handa@m17n.org>
 
 	* Makefile.am (bin_SCRIPTS): Delete it.
