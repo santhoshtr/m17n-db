@@ -37,6 +37,7 @@ EXTRA_DIST = config.rpath mkinstalldirs m4/ChangeLog \
 	mapconv compact.awk gb180302.awk gb180304.awk \
 	CHARTAB.awk NAME.awk LINEBREAK.awk \
 	CASED.awk CASE-MAPPING.awk \
+	SCRIPT.awk SCRIPT.ext \
 	get-glibc.sh \
 	${FORMATS}
 
@@ -287,7 +288,7 @@ pkgdatadir=$(datadir)/m17n
 
 bin_SCRIPTS = m17n-db
 
-pkgconfigdir = ${libdir}/pkgconfig
+pkgconfigdir = ${datadir}/pkgconfig
 
 pkgconfig_DATA = m17n-db.pc
 
