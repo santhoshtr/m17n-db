@@ -1,3 +1,8 @@
+2007-07-18  Kenichi Handa  <handa@m17n.org>
+
+	* Makefile.am (pkgconfigdir): Set to ${datadir}/pkgconfig.
+	(EXTRA_DIST): Add SCRIPT.awk and SCRIPT.ext.
+
 2007-07-13  Kenichi Handa  <handa@m17n.org>
 
 	* Version 1.4.0 released.
