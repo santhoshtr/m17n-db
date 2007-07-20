@@ -26,7 +26,7 @@
 
 (title "eo-h")
 
-(description "Meant for writing Esperanto-letters adding h's.")
+(description (_"Meant for writing Esperanto-letters adding h's."))
 
 (map
   (trans

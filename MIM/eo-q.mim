@@ -26,7 +26,7 @@
 
 (title "eo-q")
 
-(description "Meant for writing Esperanto-letters adding q's.")
+(description (_"Meant for writing Esperanto-letters adding q's."))
 
 (map
   (trans

@@ -26,7 +26,7 @@
 
 (title "EK-sistemo")
 
-(description "Meant for writing Esperanto-letters with the fundamental system and the X-system, like the default of EK.")
+(description (_"Meant for writing Esperanto-letters with the fundamental system and the X-system, like the default of EK."))
 
 (map
   (trans

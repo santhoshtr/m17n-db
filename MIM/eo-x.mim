@@ -26,7 +26,7 @@
 
 (title "eo-x")
 
-(description "Meant for writing Esperanto-letters adding x's (the X-system).")
+(description (_"Meant for writing Esperanto-letters adding x's (the X-system)."))
 
 (map
   (trans
