@@ -1,0 +1,40 @@
+# Esperanto translations for m17n-contrib package.
+# Copyright (C) 2007 AIST
+# This file is distributed under the same license as the m17n-contrib package.
+# Kenichi Handa <m17n-lib@m17n.org>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: m17n-contrib 1.1.2\n"
+"Report-Msgid-Bugs-To: bugs-m17n-lib@m17n.org\n"
+"POT-Creation-Date: 2007-07-12 14:48+0900\n"
+"PO-Revision-Date: 2007-07-20 16:15+0900\n"
+"Last-Translator: Kenichi Handa <m17n-lib@m17n.org>\n"
+"Language-Team: Esperanto\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: im/tai-sonla.mim:30
+msgid ""
+"Tai Viet input method using the phonetic key sequence with the Tai Son La "
+"keyboard layout.\n"
+"The phonetic key sequence means that you type a syllable in this order:\n"
+"  C W? V v? F? T?\n"
+"where\n"
+"  C is an initial consonant,\n"
+"  W is a label for labializing C ('ꪫ'),\n"
+"  V is a vowel (V1:prefix, V2:combining, or V3:postfix),\n"
+"  v is the second vowel of a digraph vowel\n"
+"        (in the case that V is 'ꪹ' and v is 'ꪸ', 'ꪷ', or 'ꪱ'),\n"
+"  F is a final consonant,\n"
+"  T is a tonemark (spacing or combining).\n"
+"\n"
+"You can type special symbols by these keys:\n"
+"  '$' -> 'ꫛ'\n"
+"  '#' -> 'ꫜ'\n"
+"  '%' -> 'ꫝ'\n"
+"  '!' -> '꫞'\n"
+"  '@' -> '꫟'\n"
+msgstr ""
