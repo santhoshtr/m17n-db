@@ -1,0 +1,75 @@
+;;; Copyright (C) 2007 Joop Kiefte (LaPingvino)
+;;; 
+;;; This file is part of the m17n contrib; a sub-part of the m17n
+;;; library.
+;;; 
+;;; The m17n library is free software; you can redistribute it and/or
+;;; modify it under the terms of the GNU Lesser General Public License
+;;; as published by the Free Software Foundation; either version 2.1 of
+;;; the License, or (at your option) any later version.
+;;; 
+;;; The m17n library is distributed in the hope that it will be useful,
+;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;;; Lesser General Public License for more details.
+;;; 
+;;; You should have received a copy of the GNU Lesser General Public
+;;; License along with the m17n library; if not, write to the Free
+;;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;;; Boston, MA 02110-1301, USA.
+;;; 
+;;; <li> eo-q.mim
+;;;
+;;; Inputmethod for Esperanto // Enigmetodo por Esperanto
+
+(input-method eo q-sistemo)
+
+(title "eo-q")
+
+(description "Meant for writing Esperanto-letters adding q's.")
+
+(map
+  (trans
+ 
+("cq" "ĉ")
+("gq" "ĝ")
+("hq" "ĥ")
+("jq" "ĵ")
+("sq" "ŝ")
+("uq" "ŭ")
+("Cq" "Ĉ")
+("Gq" "Ĝ")
+("Hq" "Ĥ")
+("Jq" "Ĵ")
+("Sq" "Ŝ")
+("Uq" "Ŭ")
+("CQ" "Ĉ")
+("GQ" "Ĝ")
+("HQ" "Ĥ")
+("JQ" "Ĵ")
+("SQ" "Ŝ")
+("UQ" "Ŭ")
+("cqq" "cq")
+("gqq" "gq")
+("hqq" "hq")
+("jqq" "jq")
+("sqq" "sq")
+("uqq" "uq")
+("Cqq" "Cq")
+("Gqq" "Gq")
+("Hqq" "Hq")
+("Jqq" "Jq")
+("Sqq" "Sq")
+("Uqq" "Uq")
+("CQQ" "CQ")
+("GQQ" "GQ")
+("HQQ" "HQ")
+("JQQ" "JQ")
+("SQQ" "SQ")
+("UQQ" "UQ")
+   ))
+
+(state
+  (init
+    (trans)))
+
