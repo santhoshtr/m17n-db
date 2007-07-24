@@ -1,3 +1,9 @@
+2007-07-24  Kenichi Handa  <handa@m17n.org>
+
+	* Version 1.1.3 released.
+
+	* configure.ac: Version changed to 1.1.3.
+
 2007-07-20  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	*  po/eo.po: Add translations for im/eo-*.mim files.

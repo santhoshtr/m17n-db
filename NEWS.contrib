@@ -1,14 +1,25 @@
 * NEWS -- What's new in the m17n-contrib.			-*- outline -*-
-Copyright (C) 2006
+Copyright (C) 2006, 2007
   National Institute of Advanced Industrial Science and Technology (AIST)
   Registration Number H15PRO112
 See the end for copying conditions.
+
+
+* Changes in the m17n-contrib 1.1.3
+
+** New input methods for Esperanto.
+eo-h-f.mim, eo-h.mim, eo-plena.mim, eo-q.mim, eo-x.mim
 
 
 * Changes in the m17n-contrib 1.1.2
 
 ** The installation directory of tbl2mim.awk is changed from ${bindir}
 to ${datadir}/m17n/scripts.
+
+** New input methods:
+tai-sonla.mim (Tai Viet)
+vi-nom.mim (Vietnamese ChuNom)
+vi-han.mim (Vietnamese Han)
 
 
 * Changes in the m17n-contrib 1.1.0
@@ -27,7 +38,7 @@ The directory im-indic is renamed to im.
 
 * Copyright information
 
-Copyright (C) 2006
+Copyright (C) 2006, 2007
   National Institute of Advanced Industrial Science and Technology (AIST)
   Registration Number H15PRO112
 
