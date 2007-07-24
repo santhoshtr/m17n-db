@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: m17n-contrib 1.1.2\n"
 "Report-Msgid-Bugs-To: bugs-m17n-lib@m17n.org\n"
-"POT-Creation-Date: 2007-07-20 16:27+0900\n"
+"POT-Creation-Date: 2007-07-20 16:38+0900\n"
 "PO-Revision-Date: 2007-07-20 16:15+0900\n"
 "Last-Translator: Kenichi Handa <m17n-lib@m17n.org>\n"
 "Language-Team: Esperanto\n"
@@ -19,7 +19,9 @@ msgstr ""
 #: im/eo-h-f.mim:29
 msgid ""
 "Meant for writing Esperanto-letters using Zamenhof's fundamental system."
-msgstr "Skribi Esperanton per la fundamenta skribmetodo. ch, ..., sh iĝas ĉ, ..., ŝ kaj au kaj eu iĝas aŭ kaj eŭ."
+msgstr ""
+"Skribi Esperanton per la fundamenta skribmetodo. ch, ..., sh iĝas ĉ, ..., ŝ "
+"kaj au kaj eu iĝas aŭ kaj eŭ."
 
 #: im/eo-h.mim:29
 msgid "Meant for writing Esperanto-letters adding h's."
@@ -29,11 +31,16 @@ msgstr "Skribi Esperanton per postmeto de h-o."
 msgid ""
 "Meant for writing Esperanto-letters with the fundamental system and the X-"
 "system, like the default of EK."
-msgstr "Skribi Esperanton per la iksa skribmetodo kaj per la fundamenta sistemo. Ĉi tiu maniero egalas al la defaŭltaj agordoj de EK."
+msgstr ""
+"Skribi Esperanton per la iksa skribmetodo kaj per la fundamenta sistemo. Ĉi "
+"tiu maniero egalas al la defaŭltaj agordoj de EK."
 
 #: im/eo-q.mim:29
 msgid "Meant for writing Esperanto-letters adding q's."
-msgstr "Skribi Esperanton per la kua skribmetodo. Ĉi tio precipe estas ŝerco, sed povas esti utila ĉar literkombinoj kiel cq ktp preskaŭ ne uziĝas kaj la q-klavo en qwerty-klavaro situas tute angule."
+msgstr ""
+"Skribi Esperanton per la kua skribmetodo. Ĉi tio precipe estas ŝerco, sed "
+"povas esti utila ĉar literkombinoj kiel cq ktp preskaŭ ne uziĝas kaj la q-"
+"klavo en qwerty-klavaro situas tute angule."
 
 #: im/eo-x.mim:29
 msgid "Meant for writing Esperanto-letters adding x's (the X-system)."
