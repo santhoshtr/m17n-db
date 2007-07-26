@@ -1,3 +1,7 @@
+2007-07-26  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/MLYM-OTF.flt: Rewritten with new algorithm.
+
 2007-07-18  Kenichi Handa  <handa@m17n.org>
 
 	* Makefile.am (pkgconfigdir): Set to ${datadir}/pkgconfig.
@@ -19,13 +23,13 @@
 
 	* MIM/grc-mizuochi.mim (description): Untabify.
 
-2007-07-10  Kenichi Handa  <handa@m17n.org>
-
-	* mdb.dir: Adjusted the entry for font layouters.
-
 2007-07-12  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/KNDA-OTF.flt: Rewritten with new algorithm.
+
+2007-07-10  Kenichi Handa  <handa@m17n.org>
+
+	* mdb.dir: Adjusted the entry for font layouters.
 
 2007-07-09  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
