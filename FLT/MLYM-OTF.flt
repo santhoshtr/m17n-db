@@ -214,9 +214,9 @@
  (0
   (cond
    (" ([^ ]+) "
-    (1 otf:mlym=pres,abvs,blws,psts))
+    (1 otf:mlym=pres,abvs,blws,psts+abvm,blwm,dist))
    ("."
-    [ otf:mlym=+ ]))
+    [ = ]))
   *))
 
 ;; Local Variables:
