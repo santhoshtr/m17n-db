@@ -164,9 +164,9 @@
  (0
   (cond
    (" ([^ ]+) "
-    (1 otf:deva=pres,abvs,blws,psts,haln))
+    (1 otf:deva=pres,abvs,blws,psts,haln+abvm,blwm,dist))
    ("."
-    [ otf:deva=+ ]))
+    [ = ]))
   *))
 
 ;; Local Variables:
