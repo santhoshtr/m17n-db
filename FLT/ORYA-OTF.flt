@@ -121,8 +121,8 @@
     < | (1 =) (2 pre-below) (2 post) (4 =) | >)
 
    ;; Add a ZWNJ explicitly when a syllable ends with a halant.
-   ;;1  23                    4   5
-   ("(J)(([CRBY]n?H)*[CRBY]n?)(H)?(N)?"
+   ;;1  23                    4
+   ("(J)(([CRBY]n?H)*[CRBY]n?)(H)?N?"
     < | (1 =) (2 pre-below) (4 = 0x200C) (2 post) | >)
 
    ;; With a pre-base vowel sign, without a ZWJ.
@@ -219,11 +219,11 @@
  (0
   (cond
    (" J([^ ]+) "
-    (1 otf:orya=pres,abvs,pstp,haln))
+    (1 otf:orya=pres,abvs,pstp,haln+abvm,blwm,dist))
    (" ([^ ]+) "
-    (1 otf:orya=vatu,pres,abvs,blws,pstp,haln))
+    (1 otf:orya=vatu,pres,abvs,blws,pstp,haln+abvm,blwm,dist))
    ("."
-    [ otf:orya=+ ]))
+    [ = ]))
   *))
 
 ;; Local Variables:
