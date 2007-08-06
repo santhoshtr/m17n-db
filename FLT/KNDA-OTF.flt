@@ -155,10 +155,10 @@
  (0
   (cond
    (" ([^ ]+) "
-    (1 otf:knda=blwf,abvs,blws,psts))
+    (1 otf:knda=blwf,abvs,blws,psts+abvm,blwm,dist))
 
    ("."
-    [ otf:knda=+ ]))
+    [ = ]))
   *))
 
 ;; Local Variables:
