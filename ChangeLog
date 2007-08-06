@@ -1,23 +1,23 @@
 2007-08-06  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* ORYA-OTF.flt: Specify GPOS order explicitly.
+	* FLT/ORYA-OTF.flt: Specify GPOS order explicitly.
 	Change "otf:orya=+" to "=".
 
-	* MLYM-OTF.flt: Specify GPOS order explicitly.
+	* FLT/MLYM-OTF.flt: Specify GPOS order explicitly.
 	Change "otf:mlym=+" to "=".
 
-	* KNDA-OTF.flt: Specify GPOS order explicitly.
+	* FLT/KNDA-OTF.flt: Specify GPOS order explicitly.
 	Change "otf:knda=+" to "=".
 
-	* DEVA-OTF.flt: Specify GPOS order explicitly.
+	* FLT/DEVA-OTF.flt: Specify GPOS order explicitly.
 	Change "otf:deva=+" to "=".
 
-	* BENG-OTF.flt: Specify GPOS order explicitly.
+	* FLT/BENG-OTF.flt: Specify GPOS order explicitly.
 	Change "otf:beng=+" to "=".
 
 2007-07-26  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* MLYM-OTF.flt: Rewritten with new algorithm.
+	* FLT/MLYM-OTF.flt: Rewritten with new algorithm.
 
 2007-07-26  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
