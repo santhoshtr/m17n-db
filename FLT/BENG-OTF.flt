@@ -73,7 +73,7 @@
  (0x200D	?J)			; ZWJ
  )
 
-;; Change consonant 
+;; Preprocessing
 (generator
  (0
   (cond
@@ -108,12 +108,12 @@
     < | post | >)
 
    ;; A syllable with a pre-base vowel sign.
-   ;;1    2        3       4      5       6  7   8   9
+   ;;1    2        3      4       5       6  7   8   9
    ("(RH)?([CRBY]n?(HCn?)*(H[RB])?(J?HY)?)(m)(p)?(A)?(a)?"
     < | (6 =) (2 pre-below) (1 otf:beng=rphf+) (8 =) (2 post) (7 =) (9 =) | >)
 
    ;; A syllable with a non-pre-base vowel sign.
-   ;;1    2        3       4      5       6     78   9   10  11
+   ;;1    2        3      4       5       6     78   9   10  11
    ("(RH)?([CRBY]n?(HCn?)*(H[RB])?(J?HY)?)(N)?J?((b)|(p))(A)?(a)?"
     < | (6 =) (2 pre-below) (8 =) (1 otf:beng=rphf+) (10 =)
     (2 post) (9 =) (11 =) | >)
@@ -205,11 +205,11 @@
  (0
   (cond
    (" N([^ ]+) "
-    (1 otf:beng=init,pres,abvs,psts,haln))
+    (1 otf:beng=init,pres,abvs,psts,haln+abvm,blwm,dist))
    (" ([^ ]+) "
-    (1 otf:beng=init,pres,abvs,blws,psts,haln))
+    (1 otf:beng=init,pres,abvs,blws,psts,haln+abvm,blwm,dist))
    ("."
-    [ otf:beng=+ ]))
+    [ = ]))
   *))
 
 ;; Local Variables:
