@@ -369,7 +369,7 @@ the next glyph should be shifted to the right ('<') or left ('>') from
 the previous reference point.
 
 @c YOFF specifies how much the Y position of the reference point the
-next glyphshould be shifted upward ('+') or downward ('-') from the
+next glyph should be shifted upward ('+') or downward ('-') from the
 previous reference point.
 
 In both cases, @c INTEGER is the amount of shift expressed as a
