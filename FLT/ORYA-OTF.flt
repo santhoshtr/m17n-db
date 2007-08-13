@@ -23,8 +23,7 @@
 
 ;;; <li> ORYA-OTF.flt
 ;;;
-;;; For Oriya OpenType fonts to draw the Oriya script.  Tested with
-;;; utkalm.ttf <http://oriya.sarovar.org/download/utkalm.ttf.gz>
+;;; For Oriya OpenType fonts to draw the Oriya script.
 
 (font layouter orya-otf nil
       (font (nil nil unicode-bmp :otf=orya=rphf)))
@@ -143,8 +142,8 @@
     < | (2 pre-below) (1 otf:orya=rphf) (2 post) (4 =) | >)
 
    ;; Add a ZWNJ explicitly when a syllable ends with a halant.
-   ;;1    23                    4   5
-   ("(RH)?(([CRBY]n?H)*[CRBY]n?)(H)?(N)?"
+   ;;1    23                    4
+   ("(RH)?(([CRBY]n?H)*[CRBY]n?)(H)?N?"
     < | (2 pre-below) (1 otf:orya=rphf) (4 = 0x200C) (2 post) | >)
 
    ;; A syllable starting with an independent vowel.
