@@ -23,120 +23,143 @@
 
 ;;; <li> GURU-OTF.flt
 ;;;
-;;; For Gurmukhi OpenType fonts to draw the Punjabi script.
-;;; Designed for saab.otf (version 0.91).
-;;; <http://guca.sourceforge.net/typography/fonts/saab/index.shtml>
+;;; For Gurmukhi OpenType fonts to draw the Gurmukhi script.
 
 (font layouter guru-otf nil
-      (font (nil nil unicode-bmp :otf=guru=vatu)))
+      (font (nil nil unicode-bmp :otf=guru=blwf)))
 
 (category
- ;; C: general consonant
- ;; Y: post-base consonat (YA)
- ;; R: below-base consonat (RA, VA, HA)
+ ;; C: general consonant (except for R and Y)
+ ;; R: consonant (below)
+ ;; Y: consonant YA
  ;; n: NUKTA
  ;; H: HALANT
- ;; m: MATRA (pre)
- ;; u: MATRA (above)
- ;; b: MATRA (below)
- ;; p: MATRA (post)
+ ;; m: vowel sign (pre)
+ ;; u: vowel sign (above)
+ ;; b: vowel sign (below)
+ ;; p: vowel sign (post)
  ;; A: vowel modifier (above)
  ;; a: vowel modifier (post)
  ;; V: independent vowel
+ ;; d: ADDAK
  ;; N: ZWNJ (ZERO WIDTH NON-JOINER)
  ;; J: ZWJ (ZERO WIDTH JOINER)
- ;; E: ELSE
- ;;
- (0x200C	?N)			; ZWNJ
- (0x200D	?J)			; ZWJ
- (0x0964	?E)			; DANDA
- (0x0965	?E)			; DOUBLE DANDA
- (0x0A00 0x0A7F	?E)			; ELSE
- (0x0A01	?A)			; SIGN ADAK BINDI (above)
- (0x0A02	?A)			; SIGN BINDI (above)
- (0x0A03	?a)			; SIGN VISARGA (post)
- (0x0A05 0x0A14	?V)			; LETTER A .. LETTER AU
- (0x0A15 0x0A38 ?C)			; LETTER KA .. LETTER SA
+ ;; X: generic
+ ;; Z: internal use
+ (0x0A00 0x0A7F	?X)			; generic
+ (0x0A00	?Z)			; internal use
+ (0x0A01 0x0A02	?A)			; SIGN ADAK BINDI .. BINDI
+ (0x0A03	?a)			; SIGN VISARGA
+ (0x0A05 0x0A14	?V)			; LETTER A .. AU
+ (0x0A15 0x0A38 ?C)			; LETTER KA .. SA
  (0x0A2F	?Y)			; LETTER YA
  (0x0A30	?R)			; LETTER RA
  (0x0A35	?R)			; LETTER VA
  (0x0A39	?R)			; LETTER HA
  (0x0A3C	?n)			; SIGN NUKTA
- (0x0A3E	?p)			; VOWEL SIGN AA (post)
- (0x0A3F	?m)			; VOWEL SIGN I (pre)
- (0x0A40	?p)			; VOWEL SIGN II (post)
- (0x0A41	?b)			; VOWEL SIGN U (below)
- (0x0A42	?b)			; VOWEL SIGN UU (below)
- (0x0A47	?u)			; VOWEL SIGN EE (above)
- (0x0A48	?u)			; VOWEL SIGN AI (above)
- (0x0A4B	?u)			; VOWEL SIGN OO (above)
- (0x0A4C	?u)			; VOWEL SIGN AU (above)
- (0x0A4D	?H)			; SIGN VIRAMA (HALANT)
- (0x0A59 0x0A5E	?C)			; LETTER KHHA .. LETTER FA
- (0x0A70	?A)			; TIPPI (above)
- (0x0A7F	?X)			; internal use
+ (0x0A3E	?p)			; VOWEL SIGN AA
+ (0x0A3F	?m)			; VOWEL SIGN I
+ (0x0A40	?p)			; VOWEL SIGN II
+ (0x0A41 0x0A42	?b)			; VOWEL SIGN U .. UU
+ (0x0A47 0x0A4C	?u)			; VOWEL SIGN EE .. AU
+ (0x0A4D	?H)			; SIGN VIRAMA
+ (0x0A59 0x0A5E	?C)			; LETTER KHHA .. FA
+ (0x0A70	?A)			; TIPPI
+ (0x0A71	?d)			; ADDAK
+ (0x0964 0x0965	?X)			; DANDA .. DOUBLE DANDA
+ (0x200C	?N)			; ZWNJ
+ (0x200D	?J)			; ZWJ
  )
 
-;; Step 1 : Syllable identification and Halant movement.
+;; Compose consonant and nukta
 (generator
  (0
   (cond
-   ;; A syllable ending with a vowel sign and/or a vowel modifier.
-   ("(([CRY]n?H)*[CRY]n?)([mubp][Aa]?|[Aa])"
-    < | (1 move-base-Halant) (3 =) | >)
+   ((0x0A32 0x0A3C) 0x0A33)
+   ((0x0A38 0x0A3C) 0x0A36)
+   ((0x0A16 0x0A3C) 0x0A59)
+   ((0x0A17 0x0A3C) 0x0A5A)
+   ((0x0A1C 0x0A3C) 0x0A5B)
+   ((0x0A2B 0x0A3C) 0x0A5E)
+   ("." =))
+  *))
 
-   ;; A syllable without a vowel sign nor a vowel modifier.
-   ("(([CRY]n?H)*[CRY]n?)(H)?"
-    < | move-base-Halant | >)
+;; Reordering
+(generator
+ (0
+  (cond
+   ;; A syllable with vowel signs.
+   ;;1       2           34   5       6   7
+   ("([CRY]n?(H[CRY]n?)*)((m)|(ub?|b)|(p))(A?a?d?)"
+    < | (4 =) (1 pre-below) (5 = *) (1 post) (6 =) (7 = *) | >)
+
+   ;; A syllable with vowel modifiers or an Addak.
+   ;;1       2           3
+   ("([CRY]n?(H[CRY]n?)*)(Aa?d?|ad?|d)"
+    < | (1 pre-below) (1 post) (3 = *) | >)
+
+   ;; Add a ZWNJ explicitly when a syllable ends with a halant.
+   ;;1       2             3
+   ("([CRY]n?(H[CRY]n?)*)(H)?N?"
+    < | (1 pre-below) (3 = 0x200C) (1 post) | >)
 
    ;; A syllable starting with an independent vowel.
-   ("V[Aa]?"
-    < | = * | > )
+   ;; In older texts, LETTER OO may followed by VOWEL SIGN U.
+   ("Vb?A?a?d?"
+    < | = * | >)
 
    ("." =))
   *)
 
- ;; Move Halant on the base consonant to the tail.
- ;; 0x0A7F indicates the position for above- or below Matra.
- (move-base-Halant
+ ;; Move the halant after the base consonant to the end.
+ ;; Fill the resulting gap with a special mark.
+ ;; Remove post-base parts.
+ (pre-below
   (cond
-   ("(([CRY]n?H)*[CRY]n?)(H)(Y)$"
-    (1 = *)
-    0x0A7F
-    (4 =)
-    (3 =))
-   ("(([CRY]n?H)*[CRY]n?)(H)(R)$"
-    (1 = *)
-    (4 =)
-    (3 =)
-    0x0A7F)
-   ("([CRY]n?H)*[CRY]n?H$"
-    = * 0x200C)
-   (".*"
-    = * 0x0A7F))))
+   ("(.+)(H)(R)(HY)?$"
+    (1 = *) 0x0A00 (3 =) (2 =))
+   ("(.+)HY$"
+    (1 = *) 0x0A00)
+   (".+"
+    = * 0x0A00)))
 
-;; Step 2 : Move Matra.
+ ;; Extract post-base parts and add a halant at the end.
+ ;; Produce nothing if there are no post-base parts.
+ (post
+  (cond
+   (".*(H)(Y)$"
+    (2 =) (1 =))
+   (".+"
+    ))))
+
+;; Apply language forms to concerning segments.  Note that the Saab
+;; font generates below form with 'vatu' instead of 'blwf'.
 (generator
  (0
   (cond
-   ;; 1          2    3   4      5   6
-   (" ([CRYnH]*)X(YH)?(m)?([ub])?(p)?([Aa])? "
-    | (3 =) (1 = *) (4 =) (2 = =) (5 =) (6 =) |)
+   ;; Explicit Halant.
+   ;; 1       2    3   4
+   (" ([^Z]+)Z(RH)?(H)N(YH)? "
+    | (1 otf:guru=nukt+) (2 otf:guru=blwf,vatu+) (3 =) (4 otf:guru=pstf+) |)
+
+   ;; Vowel signs and vowel modifiers.
+   ;; 1   2       3    4     5    6
+   (" (m)?([^Z]+)Z(RH)?(u?b?)(YH)?(p?A?a?d?) "
+    | (1 =) (2 otf:guru=nukt+) (3 otf:guru=blwf,vatu+) (4 = *)
+    (5 otf:guru=pstf+) (6 = *) |)
+
    ("." =))
   *))
 
-;; Step 3 : Drive OTF tables.
+;; Other features
 (generator
  (0
   (cond
-   (" ([^ ]*H)N "
-    (1 otf:guru=nukt))
-   (" ([^ ]*) "
-    (1 otf:guru=nukt,blwf,pstf,vatu,pres,abvs,blws,psts))
-   ((0x0A71)
-    otf:guru)
+   (" ([^ ]+) "
+    (1 otf:guru=vatu,pres,abvs,blws,psts+abvm,blwm,dist))
+
    ("."
-    [ otf:guru=+ ] ))
+    [ = ]))
   *))
 
 ;; Local Variables:
