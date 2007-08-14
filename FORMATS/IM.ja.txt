@@ -165,7 +165,7 @@ BRANCH ::= '(' MAP-NAME BRANCH-ACTION * ')'
 
 @c STATE-TITLE-TEXT は、もし指定されていれば、インプットメソッドがこの
 状態にある時スクリーン上に表示されるテキストである。省略された場合には
-@c STATE-TITLE-TEXT が用いられる。
+@c TITLE-TEXT が用いられる。
 
 @c BRANCH の第一の形式では、@c MAP-NAME は @c MAP に現われるものでなく
 てはならない。この場合、@c MAP-NAME の @c KEYSEQ の一つに合致するキー列
