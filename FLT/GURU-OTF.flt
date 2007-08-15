@@ -156,7 +156,7 @@
  (0
   (cond
    (" ([^ ]+) "
-    (1 otf:guru=vatu,pres,abvs,blws,psts+abvm,blwm,dist))
+    (1 otf:guru=vatu,pres,abvs,blws,psts,haln+abvm,blwm,dist))
 
    ("."
     [ = ]))
