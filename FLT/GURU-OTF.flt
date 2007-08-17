@@ -100,7 +100,7 @@
 
    ;; Add a ZWNJ explicitly when a syllable ends with a halant.
    ;;1       2           3
-   ("([CRY]n?(H[CRY]n?)*)(H|HN)?"
+   ("([CRY]n?(H[CRY]n?)*)(HN|H)?"
     < | (1 pre-below) (3 = 0x200C) (1 post) | >)
 
    ;; A syllable starting with an independent vowel.
