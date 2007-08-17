@@ -121,7 +121,7 @@
 
    ;; Add a ZWNJ explicitly when a syllable ends with a halant.
    ;;1  23                    4
-   ("(J)(([CRBY]n?H)*[CRBY]n?)(HN|H)?"
+   ("(J)(([CRBY]n?H)*[CRBY]n?)(HN?)?"
     < | (1 =) (2 pre-below) (4 = 0x200C) (2 post) | >)
 
    ;; With a pre-base vowel sign, without a ZWJ.
@@ -143,7 +143,7 @@
 
    ;; Add a ZWNJ explicitly when a syllable ends with a halant.
    ;;1    23                    4
-   ("(RH)?(([CRBY]n?H)*[CRBY]n?)(HN|H)?"
+   ("(RH)?(([CRBY]n?H)*[CRBY]n?)(HN?)?"
     < | (2 pre-below) (1 otf:orya=rphf) (4 = 0x200C) (2 post) | >)
 
    ;; A syllable starting with an independent vowel.

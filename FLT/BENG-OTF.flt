@@ -125,7 +125,7 @@
 
    ;; A syllable ending with a halant.
    ;;1    2        3      4       5       6
-   ("(RH)?([CRBY]n?(HCn?)*(H[RB])?(J?HY)?)(HN|H)?"
+   ("(RH)?([CRBY]n?(HCn?)*(H[RB])?(J?HY)?)(HN?)?"
     < | (2 pre-below) (6 =) (1 otf:beng=rphf+) (2 post) | >)
 
    ;; A syllable starting with an independent vowel.
