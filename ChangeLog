@@ -1,6 +1,6 @@
 2007-08-17  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* TAML-OTF.flt: Rewritten with new algorithm.
+	* FLT/TAML-OTF.flt: Rewritten with new algorithm.
 
 2007-08-15  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
