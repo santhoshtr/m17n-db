@@ -74,11 +74,11 @@
  (0
   (cond
    ;; A syllable with vowel signs.
-   ("((CH)*C)(m|b|u|p|mp)"
+   ("((CH)*C)(mp?|b|u|p)"
     < | (1 otf:taml=akhn,half+) (3 = *) | >)
 
    ;; No vowel signs.
-   ("((CH)*C)(HN|H)?"
+   ("((CH)*C)(HN?)?"
     < | (1 otf:taml=akhn,half+) (3 =) | >)
 
    ("." =))
