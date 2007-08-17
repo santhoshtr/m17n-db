@@ -78,7 +78,7 @@
     < | (1 otf:taml=akhn,half+) (3 = *) | >)
 
    ;; No vowel signs.
-   ("((CH)*C)(H)?N?"
+   ("((CH)*C)(HN|H)?"
     < | (1 otf:taml=akhn,half+) (3 =) | >)
 
    ("." =))
