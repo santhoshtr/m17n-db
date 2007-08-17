@@ -125,7 +125,7 @@
 
    ;; A syllable ending with a halant.
    ;;1    2        3      4       5       6
-   ("(RH)?([CRBY]n?(HCn?)*(H[RB])?(J?HY)?)(H)?N?"
+   ("(RH)?([CRBY]n?(HCn?)*(H[RB])?(J?HY)?)(HN|H)?"
     < | (2 pre-below) (6 =) (1 otf:beng=rphf+) (2 post) | >)
 
    ;; A syllable starting with an independent vowel.
@@ -157,7 +157,7 @@
    (".+"
     ))))
 
-;; Apply'nukt' and 'akhn'.
+;; Apply 'nukt' and 'akhn'.
 (generator
  (0
   (cond
