@@ -1,8 +1,13 @@
+2007-08-20  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/BENG-OTF.flt:
+	Accept 'ya-phalaa' and 'vowel sign aa' after independent vowels.
+
 2007-08-17  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/DEVA-OTF.flt, FLT/BENG-OTF.flt, FLT/GURU-OTF.flt,
-	FLT/GUJR-OTF.flt, FLT/ORYA-OTF.flt, FLT/TAML-OTF.flt,
-	FLT/KNDA-OTF.flt: Exclude syllables of the pattern ".*CN".
+	FLT/GUJR-OTF.flt, FLT/ORYA-OTF.flt, FLT/KNDA-OTF.flt: Exclude
+	syllables of the pattern ".*CN".
 
 	* FLT/TAML-OTF.flt: Rewritten with new algorithm.
 
