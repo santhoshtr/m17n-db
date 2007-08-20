@@ -103,10 +103,6 @@
    ("(RH)?(T)"
     < | (2 =) (1 otf:beng=rphf+) | >)
 
-   ;; Standalone Ya-phalaa
-   ("JHY"
-    < | post | >)
-
    ;; A syllable with a pre-base vowel sign.
    ;;1    2        3      4       5       6  7   8   9
    ("(RH)?([CRBY]n?(HCn?)*(H[RB])?(J?HY)?)(m)(p)?(A)?(a)?"
@@ -129,9 +125,9 @@
     < | (2 pre-below) (6 =) (1 otf:beng=rphf+) (2 post) | >)
 
    ;; A syllable starting with an independent vowel.
-   ;;1  2      3
-   ("(V)(J?HY)?(A?a?)"
-    < | (1 =) 0x0980 (2 post) (3 = *) | >)
+   ;;1  2       3
+   ("(V)(J?HYp)?(A?a?)"
+    < | (1 =) 0x0980 (2 0x09AF 0x09CD) (3 = *) | >)
 
    ("." =))
   *)
@@ -153,9 +149,7 @@
  (post
   (cond
    (".*(H)(Y)$"
-    (2 =) (1 =))
-   (".+"
-    ))))
+    (2 =) (1 =)))))
 
 ;; Apply 'nukt' and 'akhn'.
 (generator
@@ -172,8 +166,6 @@
   (cond
    (" (N?m?.)([^Z]*)(Z)([^ ]*) "
     | (1 = *) (2 otf:beng=blwf+) (3 =) (4 otf:beng=pstf+) |)
-   (" (YH) "
-    | (1 otf:beng=pstf+) |)
    ("." =))
   *))
 
