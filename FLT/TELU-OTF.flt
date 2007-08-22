@@ -23,107 +23,97 @@
 
 ;;; <li> TELU-OTF.flt
 ;;;
-;;; For Telugu OpenType fonts to draw Telugu.
-;;; Designed for Pothana2000.ttf <http://www.kavya-nandanam.com/>
+;;; For Telugu OpenType fonts to draw the Telugu script.
 
 (font layouter telu-otf nil
-      (font (nil nil unicode-bmp :otf=telu=haln)))
+      (font (nil nil unicode-bmp :otf=telu=blwf)))
 
 (category
- ;; C: general consonant
+ ;; C: consonant
  ;; H: HALANT
- ;; u: MATRA (above)
- ;; b: MATRA (below)
- ;; p: MATRA (post)
- ;; t: MATRA (two-part)
+ ;; u: vowel sign (above)
+ ;; p: vowel sign (post)
+ ;; b: ai length mark (below)
  ;; a: vowel modifier (post)
  ;; V: independent vowel
  ;; N: ZWNJ (ZERO WIDTH NON-JOINER)
  ;; J: ZWJ (ZERO WIDTH JOINER)
- ;; E: ELSE
- ;;
+ ;; X: generic
+ (0x0C00 0x0C7F	?E)			; generic
+ (0x0C01 0x0C03	?a)			; SIGN CANDRABINDU .. VISARGA
+ (0x0C05 0x0C14	?V)			; LETTER A .. AU
+ (0x0C15 0x0C39 ?C)			; LETTER KA .. HA
+ (0x0C3E 0x0C40	?u)			; VOWEL SIGN AA .. II
+ (0x0C41 0x0C44	?p)			; VOWEL SIGN U .. VOCALIC RR
+ (0x0C46 0x0C47	?u)			; VOWEL SIGN E .. EE
+ (0x0C4A 0x0C4C	?u)			; VOWEL SIGN O .. AU
+ (0x0C4D	?H)			; SIGN VIRAMA
+ (0x0C55	?u)			; LENGTH MARK
+ (0x0C56	?b)			; AI LENGTH MARK
+ (0x0C60 0x0C61	?V)			; LETTER VOCALIC RR .. VOCALIC LL
+ (0x0964 0x0965	?X)			; DANDA .. DOUBLE DANDA
  (0x200C	?N)			; ZWNJ
  (0x200D	?J)			; ZWJ
- (0x0964	?E)			; DANDA
- (0x0965	?E)			; DOUBLE DANDA
- (0x0C00 0x0C7F	?E)			; ELSE
- (0x0C01 0x0C03	?a)			; post signs
- (0x0C05 0x0C14	?V)			; LETTER A .. LETTER AU
- (0x0C15 0x0C39 ?C)			; LETTER KA .. LETTER HA
- (0x0C3E 0x0C40	?u)			; VOWEL SIGN AA, I, II (above)
- (0x0C41 0x0C44	?p)			; VOWEL SIGN U, UU, R, RR (post)
- (0x0C46 0x0C47	?u)			; VOWEL SIGN E, EE (above)
- (0x0C48	?t)			; VOWEL SIGN AI (two-part)
- (0x0C4A 0x0C4C	?u)			; VOWEL SIGN O, OO, AU (above)
- (0x0C4D	?H)			; SIGN VIRAMA (HALANT)
- (0x0C55	?u)			; LENGTH MARK (above)
- (0x0C56	?b)			; AI LENGTH MARK (below)
- (0x0C60 0x0C61	?V)			; LETTER VOCALIC RR, LL
- (0x0C7E	?Y)			; internal use
- (0x0C7F	?X)			; internal use
  )
 
-;; Step 1 : Syllable identification and Halant movement.
+;; Decompose two-part vowels.
 (generator
  (0
   (cond
-   ;; A syllable containing a two-part vowel sign.
-   ("(C(HC)*)(t)(a)?"
-    < | (1 move-base-Halant) (3 0x0C46 0x0C56) (4 =) | >)
+   ((0x0C48)
+    0x0C46 0x0C56)
+   ("." =))
+  *))
 
-   ;; A syllable ending with vowel signs and/or a vowel modifier.
-   ("(C(HC)*)([ubp]+a?|a)"
-    < | (1 move-base-Halant) (3 = *) | >)
+;; Syllable identification and reordering.  The base consonant is
+;; always the first one, because all Telugu consonants have a below
+;; form.
+(generator
+ (0
+  (cond
+   ;; A syllable with a vowel sign.
+   ;;1  23     4      5
+   ("(C)((HC)*)(ub?|p)(a)?"
+    < | (1 =) (2 move-h) (4 = *) (5 =) | >)
 
-   ;; Forced Halant form
-   ("(CH)N"
-    < | (1 move-base-Halant) | >)
+   ;; A syllable with a vowel modifier.
+   ;;1  23     4
+   ("(C)((HC)*)(a)"
+    < | (1 =) (2 move-h) (4 =) | >)
 
-   ;; A syllable without a vowel sign nor a vowel modifier.
-   ("C(HC)*H?"
-    < | move-base-Halant | >)
+   ;; No vowel signs, no vowel modifiers.  If the syllable ends with a
+   ;; Halant, cancel the Halant movement.
+   ;;1  23     4
+   ("(C)((HC)*)(HN?)?"
+    < | (1 =) (4 0x0C4D) (2 move-h) | >)
 
    ;; A syllable starting with an independent vowel.
    ("Va?"
-    < | = * | > )
+    < | = * | >)
 
    ("." =))
   *)
 
- ;; Move Halant on the base consonant to the tail if the syllable ends
- ;; with a consonant.
- ;; A leading 0x0C7F means Halant movement.
- ;; A leading 0x0C7E means a syllable ending with a Halant.
- (move-base-Halant
+ (move-h
   (cond
-   (".*H$"
-    0x0C7E = *)
-   ("(.)(H)(.*)"
-    0x0C7F (1 =) (3 = *) (2 =))
-   (".*"
-    = *))))
+   ("(H)(.+)"
+    (2 = *) (1 =)))))
 
-;; Step 2 : Move Matra if applicable.
-;; The base consonant in a Halant-ending syllable is changed into Halant form.
+;; Apply OTF features.  In case of Telugu, 'akhn' is applied after
+;; reordering.
 (generator
  (0
   (cond
-   ;;  1  2      3   4   5   6
-   (" X(.)([CH]*)(u)?(b)?(p)?(a)? "
-    | (1 =) (3 =) (4 =) (5 =) (2 = *) (6 =) |)
-   (" Y(..)([^ ]*) "
-    | (1 otf:telu=haln) (2 = *) |)
-   ("." =))
-  *))
+   ;; A syllable that ends with a Halant.
+   (" (CH)([^ ]*) "
+    (1 otf:telu=haln+) (2 otf:telu=akhn,blwf,abvs,blws,psts+abvm,blwm,dist))
 
-;; Step 3 : Drive OTF tables.
-(generator
- (0
-  (cond
-   (" ([^ ]*) "
-    (1 otf:telu))
+   ;; Ordinary syllables.
+   (" ([^ ]+) "
+    (1 otf:telu=akhn,blwf,abvs,blws,psts+absm,blwm,dist))
+
    ("."
-    [ otf:telu=+ ]))
+    [ = ]))
   *))
 
 ;; Local Variables:
