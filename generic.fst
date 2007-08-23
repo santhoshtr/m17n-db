@@ -57,7 +57,7 @@
   ((nil nil unicode-bmp :otf=beng=rphf) beng-otf)))
 (gurmukhi
  (nil
-  ((nil nil unicode-bmp :otf=guru=vatu) guru-otf)))
+  ((nil nil unicode-bmp :otf=guru=blwf) guru-otf)))
 (gujarati
  (nil
   ((nil nil unicode-bmp :otf=gujr=rphf) gujr-otf)))
@@ -69,7 +69,7 @@
   ((nil nil unicode-bmp :otf=taml=akhn) taml-otf)))
 (telugu
  (nil
-  ((nil nil unicode-bmp :otf=telu=haln) telu-otf)))
+  ((nil nil unicode-bmp :otf=telu=blwf) telu-otf)))
 (kannada
  (nil
   ((nil nil unicode-bmp :otf=knda=rphf) knda-otf)))
