@@ -112,6 +112,6 @@
   ((nil nil unicode-bmp :lang=zh))))
 (tay_viet
  (nil
-  (nil nil unicode-bmp :script=tay_viet)))
+  ((nil nil unicode-bmp :script=tay_viet))))
 (nil
  ((nil nil unicode-bmp)))
