@@ -78,7 +78,7 @@
   ((nil nil unicode-bmp :otf=sinh=akhn) sinh-otf)))
 (malayalam
  (nil
-  ((nil nil unicode-bmp :otf=mlym=haln) mlym-otf)))
+  ((nil nil unicode-bmp :otf=mlym=akhn) mlym-otf)))
 (thai
  (nil
   ((nil nil unicode-bmp :otf=thai+mark,mkmk) thai-otf)
