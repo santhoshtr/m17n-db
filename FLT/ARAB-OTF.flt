@@ -133,7 +133,7 @@
 
 ;; (generator
 ;;  (0
-;;   otf:arab=ccmp))
+;;   otf:arab=ccmp+))
 
 ;; Step 2: Initial, medial, or final.
 
@@ -146,20 +146,20 @@
     (cond
      ("(.)(T*)([DR].*)"
       <
-      (1 otf:arab=init)
+      (1 otf:arab=init+)
       (2 = *)
       >
       (3 join))
      ("(.)(T*)(.*)"			; == (D)(T*)(U.*)
       <
-      (1 otf:arab=isol)
+      (1 otf:arab=isol+)
       (2 = *)
       >
       (3 disjoin))))
 
    ("([RU])(T*)(.*)"
     <
-    (1 otf:arab=isol)
+    (1 otf:arab=isol+)
     (2 = *)
     >
     (3 disjoin))
@@ -174,20 +174,20 @@
     (cond
      ("(.)(T*)([DR].*)"
       <
-      (1 otf:arab=medi)
+      (1 otf:arab=medi+)
       (2 = *)
       >
       (3 join))
      ("(.)(T*)(.*)"			; == (D)(T*)(U.*)
       <
-      (1 otf:arab=fina)
+      (1 otf:arab=fina+)
       (2 = *)
       >
       (3 disjoin))))
 
    ("(.)(T*)(.*)"
     <
-    (1 otf:arab=fina)
+    (1 otf:arab=fina+)
     (2 = *)
     >
     (3 disjoin))))
@@ -198,35 +198,29 @@
     (cond
      ("(.)(T*)([DR].*)"
       <
-      (1 otf:arab=init)
+      (1 otf:arab=init+)
       (2 = *)
       >
       (3 join))
      ("(.)(T*)(.*)"			; == (D)(T*)(U.*)
       <
-      (1 otf:arab=isol)
+      (1 otf:arab=isol+)
       (2 = *)
       >
       (3 disjoin))))
 
    ("(.)(T*)(.*)"			; == ([RU])(T*)(.*)
     <
-    (1 otf:arab=isol)
+    (1 otf:arab=isol+)
     (2 = *)
     >
     (3 disjoin)))))
 
-;; Step 3: Other GSUB features (ligatures, etc.)
+;; Step 3: Other OTF features.
 
 (generator
  (0
-  otf:arab=rlig,calt,liga,dlig,cswh,mset))
-
-;; Step 4: GPOS features.
-
-(generator
- (0
-  otf:arab=))
+  otf:arab=rlig,calt,liga,dlig,cswh,mset+curs,kern,mark,mkmk))
 
 ;; Local Variables:
 ;; mode: lisp
