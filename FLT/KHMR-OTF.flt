@@ -177,7 +177,7 @@
    (" ([^ ]*) "
     (1 otf:khmr=pres,blws,abvs,psts,clig))
    ("."
-    [ otf:khmr=+ ]))
+    [ = ]))
   *))
 
 ;; Step 4.
