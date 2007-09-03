@@ -29,6 +29,7 @@
       (font (nil nil unicode-bmp :otf=deva=rphf)))
 
 (category
+ ;; X: generic
  ;; C: consonant (except for RA)
  ;; R: consonant RA
  ;; n: NUKTA
@@ -42,10 +43,11 @@
  ;; S: stress sign / accent (above)
  ;; s: stress sign / accent (below)
  ;; V: independent vowel
+ ;; Z: internal use
  ;; N: ZWNJ
  ;; J: ZWJ
- ;; X: generic
  (0x0900 0x097F	?X)			; generic
+ (0x0900	?Z)			; internal use
  (0x0901 0x0902	?A)			; SIGN CANDRABINDU .. ANUSVARA
  (0x0903	?a)			; SIGN VISARGA
  (0x0904 0x0914	?V)			; LETTER SHORT A .. AU
@@ -94,34 +96,23 @@
  (0
   (cond
    ;; A syllable containing a vowel sign.
-   ;;1    23                45   6   7      8   9   10  11
-   ("(RH)?(([CR]n?H)*[CR]n?)((m)|(b)|([up]))(A)?(a)?(S)?(s)?"
-    < | (5 =) (2 move-h) (6 =) (11 =) (7 =) (1 otf:deva=rphf+)
-    (8 =) (10 =) (9 =) | >)
+   ;;1      2            34   5   6     7   8   9   10
+   ("([CR]n?(HJ?[CR]n?)*)((m)|(b)|(u|p))(A)?(a)?(S)?(s)?"
+    < | (4 =) (1 move-h) (5 =) (10 =) (6 =) (1 reph) (7 =) (9 =) (8 =) | >)
 
    ;; A syllable without vowel signs but with a vowel modifier.
-   ;;1    23                45   6   7   8
-   ("(RH)?(([CR]n?H)*[CR]n?)((A)|(a))(S)?(s)?"
-    < | (2 move-h) (8 =) (1 otf:deva=rphf+) (5 =) (7 =) (6 =) | >)
+   ;;1      2            34   5   6   7
+   ("([CR]n?(HJ?[CR]n?)*)((A)|(a))(S)?(s)?"
+    < | (1 move-h) (7 =) (1 reph) (4 =) (6 =) (5 =) | >)
 
    ;; No vowel signs, No vowel modifiers, but with a stress sign or an accent.
-   ;;1    23                45   6
-   ("(RH)?(([CR]n?H)*[CR]n?)((S)|(s))"
-    < | (2 move-h) (6 =) (1 otf:deva=rphf+) (5 =) | >)
+   ;;1      2            34   5
+   ("([CR]n?(HJ?[CR]n?)*)((S)|(s))"
+    < | (1 move-h) (5 =) (1 reph) (4 =) | >)
 
-   ;; A special case: eyelash RA
-   ("(RH)J"
-    < (1 otf:deva=half+) >)
-
-   ;; Forced half form.  Do not move halant.
-   ;;1    23
-   ("(RH)?(([CR]n?H)+)J"
-    < | (2 = *) (1 otf:deva=rphf+) | >)
-
-   ;; When a syllable ends with a halant, add a ZWNJ explicitly.
-   ;;1    23                4
-   ("(RH)?(([CR]n?H)*[CR]n?)(HN?)?"
-    < | (2 move-h) (1 otf:deva=rphf+) (4 = 0x200C) | >)
+   ;; No marks at all.  Need further anylysis.
+   ("[CR]n?(HJ?[CR]n?)*(H(N|J)?)?"
+    < | (0 nomarks) | >)
 
    ;; A syllable starting with an independent vowel.
    ;;1  2   3   4   5
@@ -133,38 +124,105 @@
 
  (move-h
   (cond
-   ("([CRnH]+)(H)(R)$"
+   ;; Starting with an eyelash-RA, which remains there.
+   ("(RHJ.+)(H)(R)$"
+    (1 = *) (3 =) (2 =))
+   ("RHJ.*"
+    = *)
+
+   ;; Starting with a reph, which is removed.
+   ("RH(.+)(H)(R)$"
+    (1 = *) (3 =) (2 =))
+   ("RH(.+)"
+    (1 = *))
+
+   ("(.+)(H)(R)$"
     (1 = *) (3 =) (2 =))
    (".+"
-    = *))))
+    = *)))
 
-;; If a syllable ends with a halant and a ZWNJ, render the final
-;; halant explicitly.  Do not apply 'blwf' nor 'half' to the initial
-;; RA.
+ (reph
+  (cond
+   ("RHJ.*")
+   ("(RH).*"
+    (1 otf:deva=rphf+))))
+
+ (del-reph
+  (cond
+   ("RHJ.*"
+    = *)
+   ("RH(.*)"
+    (1 = *))
+   (".+"
+    = *)))
+
+ (nomarks
+  (cond
+   ;; Ending with a Halant and ZWJ.
+   (".+HJ$"
+    (0 del-reph) (0 reph))
+
+   ;; Ending with a Halant and an optional ZWNJ.  Add ZWNJ explicitly.
+   ("(.+)(H)N?$"
+    (1 move-h) (1 reph) (2 =) 0x200C)
+
+   ;; Ending with a consonant.
+   (".+"
+    (0 move-h) (0 reph))))
+ )
+
+;; Apply 'nukt' and 'akhn'.
 (generator
  (0
   (cond
-   (" (R)([^N]*)(H)N "
-    | (1 =) (2 gsub1) (3 =) |)
-   (" (m?R)([^ ]*) "
-    | (1 = *) (2 gsub1) (3 = *) |)
-   (" ([^N]+)(H)N "
-    | (1 gsub1) (2 =) |)
    (" ([^ ]+) "
-    | (1  gsub1) |)
+    | (1 otf:deva=nukt,akhn+) |)
+   ("." =))
+  *))
+
+;; Apply either 'half' or 'blwf' to consonants.  If a syllable ends
+;; with a halant and a ZWNJ, render the final halant explicitly.
+(generator
+ (0
+  (cond
+   ;; Allow eyelash RA to appear at the beginning.
+   (" (RH)J(.+)(H)N "
+    | (1 otf:deva=half+) (2 gsub) (3 =) |)
+   (" (m)?(RH)J([^ ]*) "
+    | (1 =) (2 otf:deva=half+) (3 gsub) |)
+
+   ;; Avoid applying 'half' and 'blwf' to the initial RA.
+   (" (R)(.*)(H)N "
+    | (1 =) (2 gsub) (3 =) |)
+   (" (m?R)([^ ]*) "
+    | (1 = *) (2 gsub) |)
+
+   (" (.+)(H)N "
+    | (1 gsub) (2 =) |)
+   (" ([^ ]+) "
+    | (1 gsub) |)
+
    ("." =))
   *)
 
- (gsub1
-  otf:deva=nukt,akhn,blwf,half,vatu,pres+))
+ ;; Dispite Rule R5a (p.305), we use the below form to depict the
+ ;; sequence "RHJ" at a non-initial position.  This is to avoid
+ ;; interpreting the sequence "CHRHJ" as "CH" + "RHJ".  It should be
+ ;; parsed as "CHR" + "HJ".
+ (gsub
+  (cond
+   ("(.H)J?(.*)"
+    (1 otf:deva=blwf,half+) (2 gsub))
+   ("(.)(.*)"
+    (1 =) (2 gsub))))
+ )
 
-;; Apply other features.  The 'pres' feature is applied again for
-;; pre-base vowel sign.
+;; Apply other features.
 (generator
  (0
   (cond
    (" ([^ ]+) "
-    (1 otf:deva=pres,abvs,blws,psts,haln+abvm,blwm,dist))
+    (1 otf:deva=vatu,pres,abvs,blws,psts,haln+abvm,blwm,dist))
    ("."
     [ = ]))
   *))
