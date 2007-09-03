@@ -1,3 +1,12 @@
+2007-09-03  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/DEVA-OTF.flt: Do not break a syllable after ZWNJ.
+	Allow Eyelash RA only at the beginning of a syllable.
+
+2007-09-03  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/KHMR-OTF.flt: Simplify "otf:khmr=+" to "=".
+
 2007-08-24  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/ARAB-OTF.flt: Specify OTF features explicitly.
