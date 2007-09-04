@@ -1,7 +1,13 @@
+2007-09-04  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/DEVA-OTF.flt: Remove ZWJ's _after_ 'vatu' and 'pres' are applied.
+
 2007-09-03  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* FLT/DEVA-OTF.flt: Do not break a syllable after ZWNJ.
+	* FLT/DEVA-OTF.flt: Do not break a syllable after ZWJ.
 	Allow Eyelash RA only at the beginning of a syllable.
+
+	* FLT/KHMR-OTF.flt: Simplify "otf:khmr=+" to "=".
 
 2007-09-03  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
