@@ -1,3 +1,7 @@
+2007-09-07  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/GUJR-OTF.flt: Do not break a syllable after ZWJ.
+
 2007-09-04  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/DEVA-OTF.flt: Remove ZWJ's _after_ 'vatu' and 'pres' are applied.
