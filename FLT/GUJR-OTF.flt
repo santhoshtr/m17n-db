@@ -64,32 +64,26 @@
  (0x200D	?J)			; ZWJ
  )
 
-;; Reordering
+;; Syllable identification and reordering.
 (generator
  (0
   (cond
    ;; A syllable containing a vowel sign.
-   ;;1    23                45   6       7
-   ("(RH)?(([CR]n?H)*[CR]n?)((m)|([bup]))(A?a?)"
-    < | (5 =) (2 move-h) (6 =) (1 otf:gujr=rphf+) (7 = *) | >)
+   ;;1      2            34   5       6
+   ("([CR]n?(HJ?[CR]n?)*)((m)|(b|u|p))(A|a)?"
+    < | (4 =) (1 move-h) (5 =) (1 reph) (6 =) | >)
 
    ;; A syllable without vowel signs but with a vowel modifier.
-   ;;1    23                4
-   ("(RH)?(([CR]n?H)*[CR]n?)([Aa])"
-    < | (2 move-h) (1 otf:gujr=rphf+) (4 =) | >)
+   ;;1      2            3
+   ("([CR]n?(HJ?[CR]n?)*)(A|a)"
+    < | (1 move-h) (1 reph) (3 =) | >)
 
-   ;; Forced half form.  Do not move halant.
-   ;;1    23
-   ("(RH)?(([CR]n?H)+)J"
-    < | (2 = *) (1 otf:gujr=rphf+) | >)
-
-   ;; When a syllable ends with a halant, add a ZWNJ explicitly.
-   ;;1    23                4
-   ("(RH)?(([CR]n?H)*[CR]n?)(HN?)?"
-    < | (2 move-h) (1 otf:gujr=rphf+) (4 = 0x200C) | >)
+   ;; No marks at all.  Need further anylysis.
+   ("[CR]n?(HJ?[CR]n?)*(H(N|J)?)?"
+    < | (0 nomarks) | >)
 
    ;; A syllable starting with an independent vowel.
-   ("VA?a?"
+   ("V(A|a)?"
     < | = * | >)
 
    ("." =))
@@ -97,37 +91,79 @@
 
  (move-h
   (cond
-   ("([CRnH]+)(H)(R)$"
+   ("RH(.+)(H)(R)$"
+    (1 = *) (3 =) (2 =))
+   ("RH(.+)"
+    (1 = *))
+
+   ("(.+)(H)(R)$"
     (1 = *) (3 =) (2 =))
    (".+"
-    = *))))
+    = *)))
 
-;; If a syllable ends with a halant and a ZWNJ, render the final
-;; halant explicitly.  Do not apply 'blwf' to the initial RA.
+ (reph
+  (cond
+   ("(RH).*"
+    (1 otf:gujr=rphf+))))
+
+ (del-reph
+  (cond
+   ("(RH)?(.*)"
+    (2 = *))))
+
+ (nomarks
+  (cond
+   ;; Ending with a Halant and a ZWJ.
+   (".+HJ$"
+    (0 del-reph) (0 reph))
+
+   ;; Ending with a Halant and an optional ZWNJ.  Add ZWNJ explicitly.
+   ("(.+)(H)N?$"
+    (1 move-h) (1 reph) (2 =) 0x200C)
+
+   ;; Ending with a consonant.
+   (".+"
+    (0 move-h) (0 reph))))
+ )
+
+;; Apply GSUB features.  If a syllable ends with a halant and a ZWNJ,
+;; render the final halant explicitly.  Do not apply 'blwf' to the
+;; initial RA.
 (generator
  (0
   (cond
-   (" (R)([^N]*)(H)N "
-    | (1 =) (2 gsub1) (3 =) |)
+   (" (R)(.*)(H)N "
+    | (1 =) (2 gsub) (3 =) |)
    (" (m?R)([^ ]*) "
-    | (1 = *) (2 gsub1) (3 = *) |)
-   (" ([^N]+)(H)N "
-    | (1 gsub1) (2 =) |)
+    | (1 otf:gujr=pres+) (2 gsub) |)
+
+   (" (.+)(H)N "
+    | (1 gsub) (2 =) |)
    (" ([^ ]+) "
-    | (1  gsub1) |)
+    | (1  gsub) |)
+
    ("." =))
   *)
 
- (gsub1
-  otf:gujr=nukt,akhn,blwf,half,vatu,pres+))
+ (gsub
+  otf:gujr=nukt,akhn,blwf,half,vatu,pres+)
+ )
 
-;; Apply other features.  The 'pres' feature is applied again for
-;; pre-base vowel sign.
+;; ZWJ's are used to prevent consonant conjuncts, so they are removed
+;; only after 'vatu' and 'pres' have been applied.
+(generator
+ (0
+  (cond
+   ("J")
+   ("." =))
+  *))
+
+;; Apply other features.
 (generator
  (0
   (cond
    (" ([^ ]+) "
-    (1 otf:gujr=pres,abvs,blws,psts,haln+abvm,blwm,dist))
+    (1 otf:gujr=abvs,blws,psts,haln+abvm,blwm,dist))
    ("."
     [ = ]))
   *))
