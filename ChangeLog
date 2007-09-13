@@ -1,3 +1,8 @@
+2007-09-13  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/BENG-OTF.flt:
+	Render post-base vowel sign correctly after an independent vowel.
+
 2007-09-07  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/GUJR-OTF.flt: Do not break a syllable after ZWJ.
