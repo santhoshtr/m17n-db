@@ -186,7 +186,7 @@
     | (1 =) (2 otf:deva=half+) (3 gsub) |)
 
    ;; Avoid applying 'blwf' and 'half' to the "RH" at the beginning;
-   (" (R)(.*)(H)N "
+   (" (R)([^ ]*)(H)N "
     | (1 =) (2 gsub) (3 =) |)
    (" (m?R)([^ ]*) "
     | (1 otf:deva=pres+) (2 gsub) |)
