@@ -186,7 +186,7 @@
     | (1 = *) (3 otf:mlym=blwf,half,pstf,haln+) (4 = *) |)
 
    ;; Explicit Halant / Forced chillu must not change to others.
-   (" (.+)[NJ] "
+   (" ([^ ]+)[NJ] "
     | (1 = *) |)
 
    ;; Cut off sequence.
