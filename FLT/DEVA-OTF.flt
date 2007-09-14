@@ -180,7 +180,7 @@
  (0
   (cond
    ;; Allow eyelash RA to appear at the beginning.
-   (" (RH)J(.+)(H)N "
+   (" (RH)J([^ ]+)(H)N "
     | (1 otf:deva=half+) (2 gsub) (3 =) |)
    (" (m)?(RH)J([^ ]*) "
     | (1 =) (2 otf:deva=half+) (3 gsub) |)
@@ -191,7 +191,7 @@
    (" (m?R)([^ ]*) "
     | (1 otf:deva=pres+) (2 gsub) |)
 
-   (" (.+)(H)N "
+   (" ([^ ]+)(H)N "
     | (1 gsub) (2 =) |)
    (" ([^ ]+) "
     | (1 gsub) |)
