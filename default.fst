@@ -84,6 +84,11 @@
 ;;; <li> infopage: http://www.indictrans.org/
 ;;; <li> dowvload: http://www.indictrans.org/Fonts_files/English/f2.php#freefont
 ;;; </ul>
+;;; <li> AksharYogini.ttf (family: Aksharyogini; for Devanagari)
+;;; <ul>
+;;; <li> infopage: http://aksharyogini.sudhanwa.com
+;;; <li> dowvload: http://aksharyogini.sudhanwa.com/AksharYogini.ttf
+;;; </ul>
 ;;; <li> MuktiNarrow.ttf (family: mukti narrow; for Bengali)
 ;;; <ul>
 ;;; <li> infopage: http://www.nongnu.org/freebangfont/downloads.html
