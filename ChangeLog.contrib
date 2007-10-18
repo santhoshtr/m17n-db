@@ -1,3 +1,10 @@
+2007-10-18  Kenichi Handa  <handa@m17n.org>
+
+	* im/hi-typewriter.png: Deleted.  It is newly created in m17n-db.
+
+	* Makefile.am (m17n_script_SCRIPTS): Renamed from
+	m17n_script_DATA.
+
 2007-07-24  Kenichi Handa  <handa@m17n.org>
 
 	* Version 1.1.3 released.
@@ -101,7 +108,7 @@
 
 2007-05-17  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* im/hi-typewriter.mim: Deleted because of redundancy
+	* im/hi-typewriter.mim: Deleted because of redundancy.
 
 2007-04-18  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
