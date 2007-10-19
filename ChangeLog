@@ -1,6 +1,6 @@
 2007-10-19  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* FLT/DEVA-OTF.flt:
+	* FLT/DEVA-OTF.flt, FLT/GUJR-OTF.flt:
 	Handle ZWJ correctly even if the current font does not contain it.
 
 2007-10-18  Kenichi Handa  <handa@m17n.org>
