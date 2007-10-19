@@ -146,17 +146,12 @@
   *)
 
  (gsub
-  otf:gujr=nukt,akhn,blwf,half,vatu,pres+)
- )
-
-;; ZWJ's are used to prevent consonant conjuncts, so they are removed
-;; only after 'vatu' and 'pres' have been applied.
-(generator
- (0
   (cond
-   ("J")
-   ("." =))
-  *))
+   ("([^J]*)J(.*)"
+    (1 otf:gujr=nukt,akhn,blwf,half,vatu,pres+) (2 gsub))
+   (".*"
+    otf:gujr=nukt,akhn,blwf,half,vatu,pres+)))
+ )
 
 ;; Apply other features.
 (generator
