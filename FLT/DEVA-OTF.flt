@@ -200,24 +200,18 @@
   *)
 
  ;; Dispite Rule R5a (The Unicode Standard 5.0, p.305), we use the
- ;; below form to depict the sequence "RHJ" at a non-initial position.
+ ;; below form to depict the sequence "RHJ" at non-initial positions.
  ;; This is to avoid interpreting the sequence "CHRHJ" as "CH" +
  ;; "RHJ".  It should be parsed as "CHR" + "HJ".
  (gsub
-  otf:deva=nukt,akhn,blwf,half,vatu,pres+)
+  (cond
+   ("([^J]*)J(.*)"
+    (1 otf:deva=nukt,akhn,blwf,half,vatu,pres+) (2 gsub))
+   (".*"
+    otf:deva=nukt,akhn,blwf,half,vatu,pres+)))
  )
 
 ;; Stage 3
-;; ZWJ's are used to prevent consonant conjuncts, so they are removed
-;; only after 'vatu' and 'pres' have been applied.
-(generator
- (0
-  (cond
-   ("J")
-   ("." =))
-  *))
-
-;; Stage 4
 ;; Apply other features.
 (generator
  (0
