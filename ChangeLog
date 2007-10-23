@@ -36,10 +36,6 @@
 
 	* FLT/KHMR-OTF.flt: Simplify "otf:khmr=+" to "=".
 
-2007-09-03  TAKAHASHI Naoto  <ntakahas@m17n.org>
-
-	* FLT/KHMR-OTF.flt: Simplify "otf:khmr=+" to "=".
-
 2007-08-24  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/ARAB-OTF.flt: Specify OTF features explicitly.
