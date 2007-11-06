@@ -1,3 +1,9 @@
+2007-11-06  Harshula Jayasuriya <harshula@gmail.com>
+
+	* im/si-trans.mim: New file.
+
+	* im/si-phonetic-dynamic.mim: Merge three map-lists into one.
+
 2007-10-18  Kenichi Handa  <handa@m17n.org>
 
 	* im/hi-typewriter.png: Deleted.  It is newly created in m17n-db.
@@ -16,11 +22,17 @@
 
 2007-07-20  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	*  po/eo.po: Add translations for im/eo-*.mim files.
+	* AUTHORS: New author.
+
+	* po/eo.po: Add translations for im/eo-*.mim files.
+
+2007-07-20  Kenichi Handa  <handa@duron>
+
+	* po/eo.po: New file.
 
 2007-07-20  Joop Kiefte <ikojba@gmail.com>
 
-	* im/eo-h-f.mim, im/eo-h.mim, im/eoplena.mim, im/eo-q.mim, im/eo-x.mim
+	* im/eo-h-f.mim, im/eo-h.mim, im/eo-install.txt, im/eo-plena.mim, im/eo-q.mim, im/eo-x.mim:
 	New files.
 
 2007-07-15  Kenichi Handa  <handa@m17n.org>
