@@ -1,0 +1,129 @@
+;; si-trans.mim -- Sinhala transliteration keymap
+;; m17n Keymap file for Sinhala (Sri Lanka) (2007-07-08)
+;; Maintainer: Harshula Jayasuriya <harshula@gmail.com>
+;; Last Updated: 2007-11-04
+;; This is a transliteration mapping for a standard US-English keyboard
+;; (qwerty)
+;; http://www.nongnu.org/sinhala/doc/transliteration/sinhala-transliteration_5.html
+
+
+(input-method si trans)
+
+(description "Sinhala transliteration input method:
+  <http://www.nongnu.org/sinhala/doc/transliteration/sinhala-transliteration_5.html>"
+)
+
+(title "සි (Transliteration)")
+
+(map
+ (consonants
+  ("k" "ක්")		; 0x0d9a - alpapraana kayanna (ka)
+  ("kH" "ඛ්")		; 0x0d9b - mahaapraana kayanna (kha)
+  ("g" "ග්")		; 0x0d9c - alpapraana gayanna (ga)
+  ("gH" "ඝ්")		; 0x0d9d - mahaapraana gayanna (gha)
+  ("G" "ඞ්")		; TODO - 0x0d9e - kantaja naasikyaya (nga)
+  ("Mg" "ඟ්")		; 0x0d9f - sanyaka gayanna (nnga)
+  ("c" "ච්")		; 0x0da0 - alpapraana cayanna (ca)
+  ("cH" "ඡ්")		; 0x0da1 - mahaapraana cayanna (cha)
+  ("j" "ජ්")		; 0x0da2 - alpapraana jayanna (ja)
+  ("jH" "ඣ්")		; 0x0da3 - mahaapraana jayanna (jha)
+  ("J" "ඤ්")		; TODO - 0x0da4 - taaluja naasikyaya (nya)
+  ("JJ" "ඥ්")		; TODO - 0x0da5 - taaluja sanyooga naasikyaya (jnya)
+  ("Mj" "ඦ්")		; 0x0da6 - sanyaka jayanna (nyja)
+  ("T" "ට්")		; 0x0da7 - alpapraana ttayanna (tta)
+  ("TH" "ඨ්")		; 0x0da8 - mahaapraana ttayanna (ttha)
+  ("D" "ඩ්")		; 0x0da9 - alpapraana ddayanna (dda)
+  ("DH" "ඪ්")		; 0x0daa - mahaapraana ddayanna (ddha)
+  ("N" "ණ්")		; 0x0dab - muurdhaja nayanna (nna)
+  ("MD" "ඬ්")		; 0x0dac - sanyaka ddayanna (nndda)
+  ("t" "ත්")		; 0x0dad - alpapraana tayanna (ta)
+  ("tH" "ථ්")		; 0x0dae - mahaapraana tayanna (tha)
+  ("d" "ද්")		; 0x0daf - alpapraana dayanna (da)
+  ("dH" "ධ්")		; 0x0db0 - mahaapraana dayanna (dha)
+  ("n" "න්")		; 0x0db1 - dantaja nayanna (na)
+  ("Md" "ඳ්")		; 0x0db3 - sanyaka dayanna (nda)
+  ("p" "ප්")		; 0x0db4 - alpapraana payanna (pa)
+  ("pH" "ඵ්")		; 0x0db5 - mahaapraana payanna (pha)
+  ("b" "බ්")		; 0x0db6 - alpapraana bayanna (ba)
+  ("bH" "භ්")		; 0x0db7 - mahaapraana bayanna (bha)
+  ("m" "ම්")		; 0x0db8 - mayanna (ma)
+  ("Mb" "ඹ්")		; 0x0db9 - amba bayanna (mba)
+  ("y" "ය්")		; 0x0dba - yayanna (ya)
+  ("r" "ර්")		; 0x0dbb - rayanna (ra)
+  ("l" "ල්")		; 0x0dbd - dantaja layanna (la)
+  ("v" "ව්")		; 0x0dc0 - vayanna (va)
+  ("sH" "ශ්")		; 0x0dc1 - taaluja sayanna (sha)
+  ("SH" "ෂ්")		; 0x0dc2 - muurdhaja sayanna (ssa)
+  ("s" "ස්")		; 0x0dc3 - dantaja sayanna (sa)
+  ("h" "හ්")		; 0x0dc4 - hayanna (ha)
+  ("L" "ළ්")		; 0x0dc5 - muurdhaja layanna (lla)
+  ("f" "ෆ්")		; 0x0dc6 - fayanna (fa)
+ )
+
+ (independent
+  ("a" "අ")	; 0x0d85 - ayanna (a)
+  ("aa" "ආ")	; 0x0d86 - aayanna (aa)
+  ("ae" "ඇ")	; 0x0d87 - aeyanna (ae)
+  ("aee" "ඈ")	; 0x0d88 - aeeyanna (aee)
+  ("i" "ඉ")	; 0x0d89 - iyanna (i)
+  ("ii" "ඊ")	; 0x0d8a - iiyanna (ii)
+  ("u" "උ")	; 0x0d8b - uyanna (u)
+  ("uu" "ඌ")	; 0x0d8c - uuyanna (uu)
+  ("I" "ඍ")	; TODO - 0x0d8d - iruyanna (iru)
+  ("II" "ඎ")	; TODO - 0x0d8e - iruuyanna (iruu)
+  ("U" "ඏ")	; TODO - 0x0d8f - iluyanna (ilu)
+  ("UU" "ඐ")	; TODO - 0x0d90 - iluuyanna (iluu)
+  ("e" "එ")	; 0x0d91 - eyanna (e)
+  ("ee" "ඒ")	; 0x0d92 - eeyanna (ee)
+  ("ai" "ඓ")	; 0x0d93 - aiyanna (ai)
+  ("o" "ඔ")	; 0x0d94 - oyanna (o)
+  ("oo" "ඕ")	; 0x0d95 - ooyanna (oo)
+  ("au" "ඖ")	; 0x0d96 - auyanna (au)
+  ("M" "ං")		; 0x0d82 - anusvaraya (anusvara)
+  ("H" "ඃ")		; TODO - 0x0d83 - visargaya (visarga)
+  ((A-.) "෴")		; 0x0df4 - kunddaliya (punctuation)
+  ;; Shift-space and Alt-space
+  ((S-\ ) " ")		; 0x00a0 - no-break space
+  ((A-\ ) "‌")		; 0x200c - ZWNJ
+ )
+
+ (dependent
+  ("a" (delete @-))	; (a)
+  ("aa" (delete @-) "ා")	; 0x0dcf - aela-pilla (aa)
+  ("ae" (delete @-) "ැ")	; 0x0dd0 - ketti aeda-pilla (ae)
+  ("aee" (delete @-) "ෑ")	; 0x0dd1 - diga aeda-pilla (aae)
+  ("i" (delete @-) "ි")	; 0x0dd2 - ketti is-pilla (i)
+  ("ii" (delete @-) "ී")	; 0x0dd3 - diga is-pilla (ii)
+  ("u" (delete @-) "ු")	; 0x0dd4 - ketti paa-pilla (u)
+  ("uu" (delete @-) "ූ")	; 0x0dd6 - diga paa-pilla (uu)
+  ("I" (delete @-) "ෘ")	; TODO - 0x0dd8 - gaetta-pilla (r)
+  ("II" (delete @-) "ෲ")	; TODO - 0x0df2 - diga gaetta-pilla (rr)
+  ("U" (delete @-) "ෟ")	; TODO - 0x0ddf - gayanukitta (l)
+  ("UU" (delete @-) "ෳ")	; TODO - 0x0df3 - diga gayanukitta (ll)
+  ("e" (delete @-) "ෙ")	; 0x0dd9 - kombuva (e)
+  ("ee" (delete @-) "ේ")	; 0x0dda - diga kombuva (ee)
+  ("ai" (delete @-) "ෛ")	; 0x0ddb - kombu deka (ai)
+  ("o" (delete @-) "ො")	; 0x0ddc - kombuva haa aela-pilla (o)
+  ("oo" (delete @-) "ෝ")	; 0x0ddd - kombuva haa diga aela-pilla (oo)
+  ("au" (delete @-) "ෞ")	; 0x0dde - kombuva haa gayanukitta (au)
+  ("q" (delete @-) "්‍")		; 0x0dca,0x200d - join - conjunct letters cons 0DCA ZWJ cons
+  ("Q" (delete @-) "‍්")		; 0x200d,0x0dca - touch - cons ZWJ 0DCA cons
+ )
+
+ (rakyan
+  ("R" (delete @-) "්‍ර්")		; BUG - 0x0dca,0x200d,0x0dbb - rakaaranshaya
+  ("Y" (delete @-) "්‍ය්")		; BUG - 0x0dca,0x200d,0x0dba - yansaya
+ )
+
+)
+
+(state
+ (init
+  (consonants (shift second))
+  (independent)
+ )
+ (second
+  (dependent (shift init))
+  (rakyan (shift second))
+ )
+)
