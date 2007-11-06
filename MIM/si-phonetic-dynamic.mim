@@ -1,7 +1,7 @@
 ;; si-phonetic-dynamic.mim -- Sinhala phonetic dynamic keymap
 ;; m17n Keymap file for Sinhala (Sri Lanka) (2007-07-08)
 ;; Maintainer: Harshula Jayasuriya <harshula@gmail.com>
-;; Last Updated: 2007-07-08
+;; Last Updated: 2007-11-06
 ;; This is a phonetic dynamic mapping for a standard US-English keyboard
 ;; (qwerty)
 ;; http://www.nongnu.org/sinhala/doc/keymaps/sinhala-keyboard_4.html
@@ -59,9 +59,7 @@
   ("L" "ළ")		; 0x0dc5 - muurdhaja layanna (lla)
   ("f" "ෆ")		; 0x0dc6 - fayanna (fa)
  )
-)
 
-(map
  (vowels
   ("a" (set c 0x0D85) (insert-vowel))	; 0x0d85 - ayanna (a)
   ("A" (set c 0x0D86) (insert-vowel))	; 0x0d86 - aayanna (aa)
@@ -82,9 +80,7 @@
   ("O" (set c 0x0D95) (insert-vowel))	; 0x0d95 - ooyanna (oo)
   ((A-o) (set c 0x0D96) (insert-vowel))	; 0x0d96 - auyanna (au)
  )
-)
 
-(map
  (remainder
   ((A-n) "ං")		; 0x0d82 - anusvaraya (anusvara)
   ("H" "ඃ")		; 0x0d83 - visargaya (visarga)
@@ -120,8 +116,8 @@
     )
    )
   )
-
  )
+
 )
 
 (macro
@@ -138,6 +134,7 @@
    )
   )
  )
+
  (insert-vowel
   (cond
    ((& (>= @-1 0x0D9A) (<= @-1 0xDC6))
