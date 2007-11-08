@@ -30,7 +30,7 @@
 ;;; <li> download: http://www.iiit.net/ltrc/iscii/iscii_plugin_linux.tar.gz
 ;;; </ul>
 
-(font layouter deve-cdac nil
+(font layouter deva-cdac nil
       (font (nil dv-ttyogesh apple-roman)))
 
 (category
