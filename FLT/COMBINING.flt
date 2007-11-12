@@ -23,7 +23,7 @@
 
 ;;; <li> COMBINING.flt
 ;;;
-;;; For combining diacritical marsk (U+0300..U+036F)
+;;; For combining diacritical marsk (U+0300..U+036F).
 
 (font layouter combining nil)
 
