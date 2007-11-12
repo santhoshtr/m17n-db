@@ -45,6 +45,7 @@ FONT_LAYOUT_TABLE = \
 	THAA-OTF.flt \
 	THAI-TIS620.flt THAI-NORASI.flt THAI-GENERIC.flt THAI-OTF.flt \
 	TIBT-MULE.flt TIBT-MTIB.flt TIBT-OTF.flt \
+	COMBINING.flt \
 	NO-CTL.flt
 
 pkgdatadir=$(datadir)/m17n
