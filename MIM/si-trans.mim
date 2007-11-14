@@ -1,7 +1,7 @@
 ;; si-trans.mim -- Sinhala transliteration keymap
 ;; m17n Keymap file for Sinhala (Sri Lanka) (2007-07-08)
 ;; Maintainer: Harshula Jayasuriya <harshula@gmail.com>
-;; Last Updated: 2007-11-04
+;; Last Updated: 2007-11-10
 ;; This is a transliteration mapping for a standard US-English keyboard
 ;; (qwerty)
 ;; http://www.nongnu.org/sinhala/doc/transliteration/sinhala-transliteration_5.html
@@ -21,14 +21,14 @@
   ("kH" "ඛ්")		; 0x0d9b - mahaapraana kayanna (kha)
   ("g" "ග්")		; 0x0d9c - alpapraana gayanna (ga)
   ("gH" "ඝ්")		; 0x0d9d - mahaapraana gayanna (gha)
-  ("G" "ඞ්")		; TODO - 0x0d9e - kantaja naasikyaya (nga)
+  ("NG" "ඞ්")		; 0x0d9e - kantaja naasikyaya (nga)
   ("Mg" "ඟ්")		; 0x0d9f - sanyaka gayanna (nnga)
   ("c" "ච්")		; 0x0da0 - alpapraana cayanna (ca)
   ("cH" "ඡ්")		; 0x0da1 - mahaapraana cayanna (cha)
   ("j" "ජ්")		; 0x0da2 - alpapraana jayanna (ja)
   ("jH" "ඣ්")		; 0x0da3 - mahaapraana jayanna (jha)
-  ("J" "ඤ්")		; TODO - 0x0da4 - taaluja naasikyaya (nya)
-  ("JJ" "ඥ්")		; TODO - 0x0da5 - taaluja sanyooga naasikyaya (jnya)
+  ("MJ" "ඤ්")		; 0x0da4 - taaluja naasikyaya (nya)
+  ("jqMJ" "ඥ්")		; 0x0da5 - taaluja sanyooga naasikyaya (jnya)
   ("Mj" "ඦ්")		; 0x0da6 - sanyaka jayanna (nyja)
   ("T" "ට්")		; 0x0da7 - alpapraana ttayanna (tta)
   ("TH" "ඨ්")		; 0x0da8 - mahaapraana ttayanna (ttha)
@@ -61,25 +61,25 @@
  )
 
  (independent
-  ("a" "අ")	; 0x0d85 - ayanna (a)
-  ("aa" "ආ")	; 0x0d86 - aayanna (aa)
-  ("ae" "ඇ")	; 0x0d87 - aeyanna (ae)
-  ("aee" "ඈ")	; 0x0d88 - aeeyanna (aee)
-  ("i" "ඉ")	; 0x0d89 - iyanna (i)
-  ("ii" "ඊ")	; 0x0d8a - iiyanna (ii)
-  ("u" "උ")	; 0x0d8b - uyanna (u)
-  ("uu" "ඌ")	; 0x0d8c - uuyanna (uu)
-  ("I" "ඍ")	; TODO - 0x0d8d - iruyanna (iru)
-  ("II" "ඎ")	; TODO - 0x0d8e - iruuyanna (iruu)
-  ("U" "ඏ")	; TODO - 0x0d8f - iluyanna (ilu)
-  ("UU" "ඐ")	; TODO - 0x0d90 - iluuyanna (iluu)
-  ("e" "එ")	; 0x0d91 - eyanna (e)
-  ("ee" "ඒ")	; 0x0d92 - eeyanna (ee)
-  ("ai" "ඓ")	; 0x0d93 - aiyanna (ai)
-  ("o" "ඔ")	; 0x0d94 - oyanna (o)
-  ("oo" "ඕ")	; 0x0d95 - ooyanna (oo)
-  ("au" "ඖ")	; 0x0d96 - auyanna (au)
-  ("M" "ං")		; 0x0d82 - anusvaraya (anusvara)
+  ("a" "අ")		; 0x0d85 - ayanna (a)
+  ("aa" "ආ")		; 0x0d86 - aayanna (aa)
+  ("ae" "ඇ")		; 0x0d87 - aeyanna (ae)
+  ("aee" "ඈ")		; 0x0d88 - aeeyanna (aee)
+  ("i" "ඉ")		; 0x0d89 - iyanna (i)
+  ("ii" "ඊ")		; 0x0d8a - iiyanna (ii)
+  ("u" "උ")		; 0x0d8b - uyanna (u)
+  ("uu" "ඌ")		; 0x0d8c - uuyanna (uu)
+  ("rI" "ඍ")		; 0x0d8d - iruyanna (iru)
+  ("rII" "ඎ")		; 0x0d8e - iruuyanna (iruu)
+  ("lU" "ඏ")		; 0x0d8f - iluyanna (ilu)
+  ("lUU" "ඐ")		; 0x0d90 - iluuyanna (iluu)
+  ("e" "එ")		; 0x0d91 - eyanna (e)
+  ("ee" "ඒ")		; 0x0d92 - eeyanna (ee)
+  ("ai" "ඓ")		; 0x0d93 - aiyanna (ai)
+  ("o" "ඔ")		; 0x0d94 - oyanna (o)
+  ("oo" "ඕ")		; 0x0d95 - ooyanna (oo)
+  ("au" "ඖ")		; 0x0d96 - auyanna (au)
+  ("nG" "ං")		; 0x0d82 - anusvaraya (anusvara)
   ("H" "ඃ")		; TODO - 0x0d83 - visargaya (visarga)
   ((A-.) "෴")		; 0x0df4 - kunddaliya (punctuation)
   ;; Shift-space and Alt-space
@@ -96,10 +96,10 @@
   ("ii" (delete @-) "ී")	; 0x0dd3 - diga is-pilla (ii)
   ("u" (delete @-) "ු")	; 0x0dd4 - ketti paa-pilla (u)
   ("uu" (delete @-) "ූ")	; 0x0dd6 - diga paa-pilla (uu)
-  ("I" (delete @-) "ෘ")	; TODO - 0x0dd8 - gaetta-pilla (r)
-  ("II" (delete @-) "ෲ")	; TODO - 0x0df2 - diga gaetta-pilla (rr)
-  ("U" (delete @-) "ෟ")	; TODO - 0x0ddf - gayanukitta (l)
-  ("UU" (delete @-) "ෳ")	; TODO - 0x0df3 - diga gayanukitta (ll)
+  ("rU" (delete @-) "ෘ")	; 0x0dd8 - gaetta-pilla (r)
+  ("rUU" (delete @-) "ෲ")	; 0x0df2 - diga gaetta-pilla (rr)
+  ("lU" (delete @-) "ෟ")	; 0x0ddf - gayanukitta (l)
+  ("lUU" (delete @-) "ෳ")	; 0x0df3 - diga gayanukitta (ll)
   ("e" (delete @-) "ෙ")	; 0x0dd9 - kombuva (e)
   ("ee" (delete @-) "ේ")	; 0x0dda - diga kombuva (ee)
   ("ai" (delete @-) "ෛ")	; 0x0ddb - kombu deka (ai)
@@ -111,8 +111,8 @@
  )
 
  (rakyan
-  ("R" (delete @-) "්‍ර්")		; BUG - 0x0dca,0x200d,0x0dbb - rakaaranshaya
-  ("Y" (delete @-) "්‍ය්")		; BUG - 0x0dca,0x200d,0x0dba - yansaya
+  ("R" (delete @-) "්‍ර්")		; 0x0dca,0x200d,0x0dbb - rakaaranshaya
+  ("Y" (delete @-) "්‍ය්")		; 0x0dca,0x200d,0x0dba - yansaya
  )
 
 )
