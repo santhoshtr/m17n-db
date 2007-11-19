@@ -1,3 +1,8 @@
+2007-11-19  Harshula Jayasuriya <harshula@gmail.com>
+
+	* im/si-trans.mim: Added the Alt-n and Alt-h mappings. It is now
+	ready for use!
+
 2007-11-14  Harshula Jayasuriya <harshula@gmail.com>
 
 	* im/si-trans.mim: Sync with the updated transliteration scheme
