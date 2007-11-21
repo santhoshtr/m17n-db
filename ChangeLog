@@ -5,9 +5,9 @@
 
 2007-11-12  Kenichi Handa  <handa@duron>
 
-	* COMBINING.flt: New file.
+	* FLT/COMBINING.flt: New file.
 
-	* Makefile.am (FONT_LAYOUT_TABLE): Add COMBINING.flt.
+	* FLT/Makefile.am (FONT_LAYOUT_TABLE): Add COMBINING.flt.
 
 2007-11-08  Kenichi Handa  <handa@duron>
 
