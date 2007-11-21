@@ -1,3 +1,18 @@
+2007-11-21  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/*.flt:
+	Move copying condition to the end.
+
+2007-11-12  Kenichi Handa  <handa@duron>
+
+	* COMBINING.flt: New file.
+
+	* Makefile.am (FONT_LAYOUT_TABLE): Add COMBINING.flt.
+
+2007-11-08  Kenichi Handa  <handa@duron>
+
+	* FLT/DEVA-CDAC.flt: Fix typo; deve-cdac->deva-cdac.
+
 2007-10-19  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/DEVA-OTF.flt, FLT/GUJR-OTF.flt:
