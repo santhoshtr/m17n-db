@@ -3,7 +3,7 @@
 ;; See the end for copying conditions.
 
 (font layouter thai-generic nil
-      (font (nil nil unicode-bmp :lang=th)))
+      (font (nil nil unicode-bmp :otf=thai+~mark,~mkmk :lang=th)))
 
 ;;; <li> THAI-GENERIC.flt
 ;;;
