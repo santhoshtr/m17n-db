@@ -58,7 +58,7 @@
    ("C[iIUPTNM]?"
     < | = * | > )
    ("[iIUPTNM]"
-    (cond ((font-facility 0x25CC) < [ 0x25CC = ] > ) ("." [ = ] )))
+    (cond ((font-facility 0x25CC) < 0x25CC = > ) ("." [ = ] )))
    ("."
     =))
   *))
