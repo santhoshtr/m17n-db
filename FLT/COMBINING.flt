@@ -17,10 +17,9 @@
   (cond
    ("(u)([a-t]+)"
     (cond
-     ((font-facility :otf=DFLT+mark) < :otf=DFLT+mark >)
+     ((font-facility :otf=DFLT+mark) < :otf=DFLT+mark,mkmk >)
      (".*"
-      <					; combining class
-      =					; combining class
+      <	=				; combining class
       (cond ("a" Bc.Bc =)		; < 200
 	    ("b" bl.tc =)		; 200
 	    ("c" bc.tc =)		; 202
