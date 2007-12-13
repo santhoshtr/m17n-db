@@ -4,6 +4,10 @@
 
 2007-12-13  Kenichi Handa  <handa@ni.aist.go.jp>
 
+	* FLT/THAI-TIS620.flt: Don't encode codes by itself.
+
+	* configure.ac: Version changed to 1.5.0.
+
 	* FLT/THAI-OTF.flt: Use U+25CC (DOTTED CIRCLE) if the font has it.
 
 	* FLT/THAI-GENERIC.flt: Use U+25CC (DOTTED CIRCLE) if the font has
