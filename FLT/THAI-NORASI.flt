@@ -39,7 +39,7 @@
    ("(C)(V)?(T)?"
     (1 =) (2 =) (3 =))
    ("[^C]"
-    [ = ]))
+    =))
   *))
 
 (category
@@ -62,7 +62,8 @@
  (0x0E38 0x0E3A	?v)
  (0x0E47	?V)
  (0x0E48 0x0E4C	?T)
- (0x0E4D 0x0E4E	?V))
+ (0x0E4D 0x0E4E	?V)
+ (0x25CC	?E))
 
 (generator
  (0
@@ -78,7 +79,7 @@
    ("(d)(v)?(T)?"
     < (1 =) (2 vowel-deep) (3 tone-low) >)
    ("[VvT]"
-    [ = ])
+    (cond ((font-facility 0x25CC) < 0x25CC = > ) ("." [ = ] )))
    ("."
     =))
   *)
