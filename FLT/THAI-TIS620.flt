@@ -30,32 +30,29 @@
  (0
   (cond
    ("C([vV])?T?"
-    independent dependent * )
+    = dependent * )
    ("[^C]*"
-    independent *))
+    = *))
   *)
-
- (independent
-  ((range 0x0E00 0x0E5F) 0xA0))
 
  (dependent
   (cond
-   ((0x0E31)	tc+bc 0xD1)
-   ((0x0E34)	tc+bc 0xD4)
-   ((0x0E35)	tc+bc 0xD5)
-   ((0x0E36)	tc+bc 0xD6)
-   ((0x0E37)	tc+bc 0xD7)
-   ((0x0E38)	bc-tc 0xD8)
-   ((0x0E39)	bc-tc 0xD9)
-   ((0x0E3A)	bc-tc 0xDA)
-   ((0x0E47)	tc+bc 0xE7)
-   ((0x0E48)	tc+bc 0xE8)
-   ((0x0E49)	tc+bc 0xE9)
-   ((0x0E4A)	tc+bc 0xEA)
-   ((0x0E4B)	tc+bc 0xEB)
-   ((0x0E4C)	tc+bc 0xEC)
-   ((0x0E4D)	tc+bc 0xED)
-   ((0x0E4E)	tc+bc 0xEE))))
+   ((0x0E31)	tc+bc =)
+   ((0x0E34)	tc+bc =)
+   ((0x0E35)	tc+bc =)
+   ((0x0E36)	tc+bc =)
+   ((0x0E37)	tc+bc =)
+   ((0x0E38)	bc-tc =)
+   ((0x0E39)	bc-tc =)
+   ((0x0E3A)	bc-tc =)
+   ((0x0E47)	tc+bc =)
+   ((0x0E48)	tc+bc =)
+   ((0x0E49)	tc+bc =)
+   ((0x0E4A)	tc+bc =)
+   ((0x0E4B)	tc+bc =)
+   ((0x0E4C)	tc+bc =)
+   ((0x0E4D)	tc+bc =)
+   ((0x0E4E)	tc+bc =))))
 
 ;; Copyright (C) 2003, 2004, 2007
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
