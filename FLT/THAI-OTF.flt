@@ -58,7 +58,7 @@
    ("C[iIUPTNM]?"
     < | = * | > )
    ("[iIUPTNM]"
-    < | 0x25CC = | > )
+    (cond ((font-facility 0x25CC) < [ 0x25CC = ] > ) ("." [ = ] )))
    ("."
     =))
   *))
@@ -71,7 +71,7 @@
    (" ([^ ]*) "
     (1 otf:thai))
    ("."
-    [ otf:thai=+ ]))
+    =))
   *))
 
 ;; Copyright (C) 2006, 2007
