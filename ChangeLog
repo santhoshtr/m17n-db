@@ -1,3 +1,17 @@
+2007-12-13  Kenichi Handa  <handa@ni.aist.go.jp>
+
+	* FLT/THAI-OTF.flt: Use U+25CC (DOTTED CIRCLE) if the font has it.
+
+	* FLT/THAI-GENERIC.flt: Use U+25CC (DOTTED CIRCLE) if the font has
+	it.
+
+	* FLT/THAI-NORASI.flt: Use U+25CC (DOTTED CIRCLE) if the font has
+	it.
+
+2007-12-07  Kenichi Handa  <handa@ni.aist.go.jp>
+
+	* FLT/THAI-GENERIC.flt: Fix `font' line.
+
 2007-11-21  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/*.flt:
