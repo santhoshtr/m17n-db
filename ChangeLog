@@ -1,3 +1,7 @@
+2007-12-13  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* MIM/ja-trycode.mim: Add new definitions.
+
 2007-12-13  Kenichi Handa  <handa@ni.aist.go.jp>
 
 	* FLT/THAI-OTF.flt: Use U+25CC (DOTTED CIRCLE) if the font has it.
@@ -14,8 +18,7 @@
 
 2007-11-21  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* FLT/*.flt:
-	Move copying condition to the end.
+	* FLT/*.flt: Move copying condition to the end.
 
 2007-11-12  Kenichi Handa  <handa@duron>
 
