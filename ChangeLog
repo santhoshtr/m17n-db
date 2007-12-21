@@ -1,3 +1,7 @@
+2007-12-21  Kenichi Handa  <handa@ni.aist.go.jp>
+
+	* FLT/TIBT-OTF.flt: Make a grapheme claster.
+
 2007-12-13  Kenichi Handa  <handa@ni.aist.go.jp>
 
 	* FLT/COMBINING.flt: Apply the OpenType feature mkmk too.
