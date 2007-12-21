@@ -85,7 +85,7 @@
    ;; For some reason, it is better not to apply the abvs feature when
    ;; both A and U exist.
    ("(C)(T?)(c*)(A*)(U*)(H?)(V*)(S*)(s*)"
-    otf:tibt=ccmp,blws,abvs)
+    < otf:tibt=ccmp,blws,abvs >)
    ("."
     =))
   *))
