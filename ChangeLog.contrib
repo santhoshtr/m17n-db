@@ -2,6 +2,10 @@
 
 	* Version 1.1.4 released.
 
+2007-12-28  Kenichi Handa  <handa@ni.aist.go.jp>
+
+	* configure.ac: Versions updated to 1.1.4.
+
 2007-12-19  Parag Nemade <pnemade@redhat.com>
 
 	* te-inscript.mim: New assignments to V and B.
