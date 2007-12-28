@@ -7,6 +7,13 @@ See the end for copying conditions.
 
 * Changes in the m17n-contrib 1.1.3
 
+** New input methods:
+te-pothana.mim
+si-trans.mim
+
+
+* Changes in the m17n-contrib 1.1.3
+
 ** New input methods for Esperanto.
 eo-h-f.mim, eo-h.mim, eo-plena.mim, eo-q.mim, eo-x.mim
 
