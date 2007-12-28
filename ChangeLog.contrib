@@ -1,5 +1,16 @@
 2007-12-28  Kenichi Handa  <handa@ni.aist.go.jp>
 
+	* Version 1.1.5 released.
+
+2007-12-28  Kenichi Handa  <handa@ni.aist.go.jp>
+
+	* Makefile.am (EXTRA_DIST): Delete m17n_script_DATA, add
+	m17n_script_SCRIPTS.
+
+	* configure.ac: Versions updated to 1.1.5.
+
+2007-12-28  Kenichi Handa  <handa@ni.aist.go.jp>
+
 	* Version 1.1.4 released.
 
 2007-12-28  Kenichi Handa  <handa@ni.aist.go.jp>
