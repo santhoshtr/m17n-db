@@ -97,6 +97,10 @@
    ("[CR]n?(HJ?[CR]n?)*(H(N|J)?)?"
     < | (0 nomarks) | >)
 
+   ;; This combination is used in Marathi.
+   ((0x0905 0x0945)
+    < | = = | >)
+
    ;; A syllable starting with an independent vowel.
    ;;1  2   3   4   5
    ("(V)(A)?(a)?(S)?(s)?"
