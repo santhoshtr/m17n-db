@@ -1,3 +1,8 @@
+2008-01-08  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/DEVA-OTF.flt: Accept "U+0905 U+0945" as a valid
+	sequence (mainly for Marathi).
+
 2008-01-07  Kenichi Handa  <handa@ni.aist.go.jp>
 
 	* FLT/MYMR-MYAZEDI.flt: Fix the first stage to consume JWNJ.
@@ -40,13 +45,13 @@
 
 	* FLT/*.flt: Move copying condition to the end.
 
-2007-11-12  Kenichi Handa  <handa@duron>
+2007-11-12  Kenichi Handa  <handa@m17n.org>
 
 	* FLT/COMBINING.flt: New file.
 
 	* FLT/Makefile.am (FONT_LAYOUT_TABLE): Add COMBINING.flt.
 
-2007-11-08  Kenichi Handa  <handa@duron>
+2007-11-08  Kenichi Handa  <handa@m17n.org>
 
 	* FLT/DEVA-CDAC.flt: Fix typo; deve-cdac->deva-cdac.
 
