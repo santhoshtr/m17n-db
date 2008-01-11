@@ -2,7 +2,7 @@
 ;; Copyright (C) 2008  AIST (H15PRO112)
 ;; See the end for copying conditions.
 
-(font layouter thai-generic nil
+(font layouter cham-generic nil
       (font (nil nil unicode-bmp :script=cham)))
 
 ;;; <li> CHARM-GENERIC.flt
