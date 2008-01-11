@@ -1,5 +1,9 @@
 2008-01-11  Kenichi Handa  <handa@ni.aist.go.jp>
 
+	* FLT/Makefile.am (FONT_LAYOUT_TABLE): Add CHAM-GENERIC.flt.
+
+	* FLT/CHAM-GENERIC.flt: New file.
+
 	* SCRIPT.tbl: Add cham, rename tay_viet to tai_viet.
 
 	* generic.fst: Add cham,
