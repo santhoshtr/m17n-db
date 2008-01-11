@@ -1,0 +1,79 @@
+;; CHAM-GENERIC.flt -- Font Layout Table for Cham (proportional font)
+;; Copyright (C) 2008  AIST (H15PRO112)
+;; See the end for copying conditions.
+
+(font layouter thai-generic nil
+      (font (nil nil unicode-bmp :script=cham)))
+
+;;; <li> CHARM-GENERIC.flt
+;;;
+;;; For the Cham proportional fonts to draw Cham script.
+
+(category
+ ;; C: consonant normal
+ ;; A: independent vowel A
+ ;; I: independent vowel (except for A)
+ ;; m: medial consonant (prefix)
+ ;; M: medial consonant (postfix)
+ ;; v: dependent vowel (prefix)
+ ;; V: dependent vowel (postfix)
+ ;; L: vowel lengthener
+ ;; F: consonant sign final (independent)
+ ;; f: consonant sign final (dependent)
+ ;; E: else (independent)
+ (0xAA00 0xAA5F	?E)
+ (0xAA00	?A)
+ (0xAA01 0xAA05	?I)
+ (0xAA06 0xAA28	?C)
+ (0xAA29	?L)
+ (0xAA2A 0xAA32	?V)
+ (0xAA2F	?v)
+ (0xAA33 0xAA36	?M)
+ (0xAA34	?m)
+ (0xAA40 0xAA4B ?F)
+ (0xAA43	?f)
+ (0xAA4C 0xAA4D ?f))
+
+(generator
+ (0
+  (cond
+   ("([IA])(v?)(V?L?)([fF]?)"
+    | < (2 =) (1 =) (3 = *) > (4 =) |)
+   ("([CA])(m?)(M?)(v?)(V?L?)([fF]?)"
+    | < (4 = ) (2 =) (1 =) (3 =) (4 = *) > (5 =) |)
+   ("."
+    =))
+  *))
+
+(generator
+ (0
+  (cond
+   (" .*f " < = * >)
+   (" .* " = *)
+   ("." =))))
+
+;; Copyright (C) 2008
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+;; Local Variables:
+;; mode: lisp
+;; End:
