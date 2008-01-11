@@ -152,7 +152,8 @@
 (tai_le (tdd) (#x1950) tale)		;639-3 code tdd
 
 ;new
-(tay_viet (tai) (#xAA80))
+(tai_viet (tai) (#xAA80))
+(cham () (#xAA00))
 
 (telugu (te) (#xC15 #xC03) telu)
 (thaana (dv) (#x78C #x7B0) thaa)
