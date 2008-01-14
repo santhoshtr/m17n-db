@@ -112,7 +112,7 @@
   ((nil nil unicode-bmp :lang=zh))))
 (cham
  (nil
-  ((nil nil unicode-bmp :script=cham))))
+  ((nil nil unicode-bmp :script=cham) cham-generic)))
 (tai_viet
  (nil
   ((nil nil unicode-bmp :script=tai_viet))))
