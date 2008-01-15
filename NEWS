@@ -1,8 +1,15 @@
 * NEWS -- What's new in the m17n database.			-*- outline -*-
-Copyright (C) 2004, 2005, 2006, 2007
+Copyright (C) 2004, 2005, 2006, 2007, 2008
   National Institute of Advanced Industrial Science and Technology (AIST)
   Registration Number H15PRO112
 See the end for copying conditions.
+
+
+* Changes in the m17n database 1.5.1
+
+A New FLT is added.
+
+CHAR-GENERIC.flt (For Cham script)
 
 
 * Changes in the m17n database 1.5.0
@@ -143,7 +150,7 @@ kk-kdb.mim (Kazakh in Cyrillic script)
 
 * Copyright information
 
-Copyright (C) 2004, 2005, 2006, 2007
+Copyright (C) 2004, 2005, 2006, 2007, 2008
   National Institute of Advanced Industrial Science and Technology (AIST)
   Registration Number H15PRO112
 
