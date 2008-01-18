@@ -23,9 +23,12 @@
 
 (input-method cmc kbd)
 
-(description "Cham input method simulating Cham keyboard.")
+(description (_"Cham input method simulating Cham keyboard.
+Cham characters are encoded in logical order in memory and in files.
+But, you can type Cham text in visual order with this input method.
+Backspace and Delete also work in the manner of visual order."))
 
-(title "ꨆK")
+(title "ꨌꩌk")
 
 (map
  ;; Independent vowels and consonants
