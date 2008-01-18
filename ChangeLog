@@ -1,5 +1,11 @@
 2008-01-18  Kenichi Handa  <handa@ni.aist.go.jp>
 
+	* MIM/cmc-kbd.mim (title): Improved.
+
+2008-01-18  Kenichi Handa  <handa@ni.aist.go.jp>
+
+	* MIM/cmc-kbd.mim: New file.
+
 	* MIM/Makefile.am (INPUT_METHOD): Add cmc-kbd.mim.
 
 	* FLT/CHAM-GENERIC.flt: Simplify the 1st stage.
