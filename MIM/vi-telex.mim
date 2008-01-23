@@ -152,7 +152,8 @@ If the value is 1, Backspace key undoes the previous key
   ;; Initialize variables.  C is the initial consonant.  V-N is the
   ;; (N-1)th vowel from the last.  C-AFTER-V is a number of consonants
   ;; typed after vowel.
-  (t (set C @-1) (set V-1 0) (set V-2 0) (set V-3 0) (set C-AFTER-V 0))
+  (t (set C @-1) (set V-1 0) (set V-2 0) (set V-3 0) (set C-AFTER-V 0)
+     (set SELECT 0))
 
   (consonant (set C @-1))
   (consonant-or-tone-mark (set C @-1))
