@@ -5,6 +5,7 @@
 	(after-v): When a vowel is typed, adjust tone mark place.
 	(after-t): Delete the just inserted character before calling
 	handle-mark.
+	(init): Initialize SELECT to 0.
 
 2008-01-18  Kenichi Handa  <handa@ni.aist.go.jp>
 
