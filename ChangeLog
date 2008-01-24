@@ -1,3 +1,17 @@
+2008-01-24  Kenichi Handa  <handa@ni.aist.go.jp>
+
+	* MIM/Makefile.am (INPUT_METHOD): Add vi-base.mim and vi-tcvn.mim.
+
+	* MIM/vi-tcvn.mim: New file.
+
+	* MIM/vi-base.mim: New file.
+
+	* MIM/vi-vni.mim: Fully re-written.
+
+	* MIM/vi-viqr.mim: Fully re-written.
+
+	* MIM/vi-telex.mim: Include vi-base.mim.
+
 2008-01-23  Kenichi Handa  <handa@ni.aist.go.jp>
 
 	* MIM/vi-telex.mim (handle-mark): Don't delte the previous
