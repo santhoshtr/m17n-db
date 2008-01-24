@@ -29,7 +29,7 @@ The following variables are customizable:
   tone-mark-on-last: control tone mark position in equivocal cases
   backspace-is-undo: control the action of Backspace key (delete or undo)"))
 
-(title "Ắ")
+(title "Ắ(TLX)")
 
 (variable
  (tone-mark-on-last
@@ -47,47 +47,11 @@ If the value is 1, Backspace key undoes the previous key
 \(e.g. \"q u a i s BS\" => \"quai\").")
   0 0 1))
 
-(macro
- (handle-mark
-  ;; At first, cancel the tone mark if already put.
-  (move T) (select 0)
-  (move M)
-  (cond (V-3
-	 ;; Tripple-vowel
-	 ;; Put a tone mark on the last vowel if it is ê, or ơ.
-	 ;; Otherwise put a tone mark on the second vowel.
-	 (cond ((| (= V-1 ?ê) (= V-1 ?ơ) (= V-1 ?Ê) (= V-1 ?Ơ)))
-	       (1 (move @-))))
-	(V-2
-	 ;; Double-vowel
-	 ;; Put a tone mark on the last vowel in the following cases:
-	 ;;  * The last vowel is  â, ă, ê, ô, ơ, ư, or ư (i.e. non-ASCII).
-	 ;;  * The initial consonant and the first vowel is "gi" or "qu".
-	 ;;  * tone-mark-on-last is customized to 1 in such equivocal
-	 ;;    cases as "oa", "oe", "oo", and "uy".
-	 ;; Otherwise put a tone mark on the first vowel.
-	 (cond ((| (> V-1 127)
-		   (& (| (= C ?g) (= C ?G)) (| (= V-2 ?i) (= V-2 ?I)))
-		   (& (| (= C ?q) (= C ?Q)) (| (= V-2 ?u) (= V-2 ?U)))
-		   (& (| tone-mark-on-last (> C-AFTER-V))
-		      (| (& (| (= V-2 ?o) (= V-2 ?O))
-			    (| (= V-1 ?a) (= V-1 ?A) (= V-1 ?e) (= V-1 ?E)
-			       (= V-1 ?o) (= V-1 ?O)))
-			 (& (| (= V-2 ?u) (= V-2 ?U))
-			    (| (= V-1 ?y) (= V-1 ?Y)))))))
-	       (1 (move @-)))))
-  (select SELECT)
-  (mark T)
-  (move @>)))
+(include (t nil vi-base) macro)
+(include (t nil vi-base) map)
 
 (map
- (vowel  ; sfrxj
-  ("a"  ("aáàảãạ")) ("A"  ("AÁÀẢÃẠ"))
-  ("e"  ("eéèẻẽẹ")) ("E"  ("EÉÈẺẼẸ"))
-  ("i"  ("iíìỉĩị")) ("I"  ("IÍÌỈĨỊ"))
-  ("o"  ("oóòỏõọ")) ("O"  ("OÓÒỎÕỌ"))
-  ("u"  ("uúùủũụ")) ("U"  ("UÚÙỦŨỤ"))
-  ("y"  ("yýỳỷỹỵ")) ("Y"  ("YÝỲỶỸỴ"))
+ (vowel-ext
   ("aa" ("âấầẩẫậ")) ("AA" ("ÂẤẦẨẪẬ")) ("Aa" ("ÂẤẦẨẪẬ"))
   ("aw" ("ăắằẳẵặ")) ("AW" ("ĂẮẰẲẴẶ")) ("Aw" ("ĂẮẰẲẴẶ"))
   ("ee" ("êếềểễệ")) ("EE" ("ÊẾỀỂỄỆ")) ("Ee" ("ÊẾỀỂỄỆ"))
@@ -98,6 +62,9 @@ If the value is 1, Backspace key undoes the previous key
   ("ooo" ("oóòỏõọ") ("oóòỏõọ") (set V-2 V-1) (set V-1 ?o))
   ("OOO" ("OÓÒỎÕỌ") ("OÓÒỎÕỌ") (set V-2 V-1) (set V-1 ?O))
   ("Ooo" ("OÓÒỎÕỌ") ("oóòỏõọ") (set V-2 V-1) (set V-1 ?O)))
+
+ (consonant
+  ("dd" ?đ) ("DD" ?Đ) ("Dd" ?Đ))
 
  (tone-mark
   ("z" (set SELECT 0) ?z) ("Z" (set SELECT 0) ?Z)
@@ -111,14 +78,6 @@ If the value is 1, Backspace key undoes the previous key
   ("z" ?z) ("s" ?s) ("f" ?f) ("r" ?r) ("x" ?x) ("j" ?j)
   ("Z" ?Z) ("S" ?S) ("F" ?F) ("R" ?R) ("X" ?X) ("J" ?J))
 
- (consonant
-  ("b" ?b) ("c" ?c) ("d" ?d) ("g" ?g) ("h" ?h) ("k" ?k) ("l" ?l) ("m" ?m)
-  ("n" ?n) ("p" ?p) ("q" ?q) ("t" ?t) ("v" ?v)
-  ("dd" ?đ)
-  ("B" ?B) ("C" ?C) ("D" ?D) ("G" ?G) ("H" ?H) ("K" ?K) ("L" ?L) ("M" ?M)
-  ("N" ?N) ("P" ?P) ("Q" ?Q) ("T" ?T) ("V" ?V)
-  ("DD" ?Đ) ("Dd" ?Đ))
-
  (temporary-escape
   ("aaa" "aa") ("AAA" "AA") ("Aaa" "Aa")
   ("eee" "ee") ("EEE" "EE") ("Eee" "Ee")
@@ -129,23 +88,7 @@ If the value is 1, Backspace key undoes the previous key
   ("ff" ?f) ("FF" ?F) ("Ff" ?F)
   ("rr" ?r) ("RR" ?R) ("Rr" ?R)
   ("xx" ?x) ("XX" ?X) ("Xx" ?X)
-  ("jj" ?j) ("JJ" ?J) ("Jj" ?J))
-
- (alphabet
-  ("a" ?a) ("b" ?b) ("c" ?c) ("d" ?d) ("e" ?e) ("f" ?f) ("g" ?g) 
-  ("h" ?h) ("i" ?i) ("j" ?j) ("k" ?k) ("l" ?l) ("m" ?m) ("n" ?n)
-  ("o" ?o) ("p" ?p) ("q" ?q) ("r" ?r) ("s" ?s) ("t" ?t) ("u" ?u)
-  ("v" ?v) ("w" ?w) ("x" ?x) ("y" ?y) ("z" ?z)
-  ("A" ?A) ("B" ?B) ("C" ?C) ("D" ?D) ("E" ?E) ("F" ?F) ("G" ?G) 
-  ("H" ?H) ("I" ?I) ("J" ?J) ("K" ?K) ("L" ?L) ("M" ?M) ("N" ?N)
-  ("O" ?O) ("P" ?P) ("Q" ?Q) ("R" ?R) ("S" ?S) ("T" ?T) ("U" ?U)
-  ("V" ?V) ("W" ?W) ("X" ?X) ("Y" ?Y) ("Z" ?Z))
-
- (permanent-escape
-  ("\\"))
-
- (backspace
-  ((BackSpace) (cond (backspace-is-undo (undo))))))
+  ("jj" ?j) ("JJ" ?J) ("Jj" ?J)))
 
 (state
  (init
@@ -170,8 +113,10 @@ If the value is 1, Backspace key undoes the previous key
 	 (move T) (select 0) (handle-mark) (move M))
   (consonant-or-tone-mark (delete @-) (pushback 1) (shift after-t))
   (backspace (delete @-)
-	     (cond (V-3 (set V-1 V-2) (set V-2 V-3) (set V-3 0))
-		   (V-2 (set V-1 V-2) (set V-2 0))
+	     (cond (V-3 (set V-1 V-2) (set V-2 V-3) (set V-3 0)
+			(cond ((> TPLACE 2) (set SELECT 0))))
+		   (V-2 (set V-1 V-2) (set V-2 0)
+			(cond ((> TPLACE 1) (set SELECT 0))))
 		   (1 (shift init)))))
 
  ;; The state shifted to when a consonant is typed after a vowel.
