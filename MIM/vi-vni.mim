@@ -1,5 +1,5 @@
 ;; vi-vni.mim -- Input method for Vietnames with VNI key sequence
-;; Copyright (C) 2005
+;; Copyright (C) 2005, 2008
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -23,188 +23,135 @@
 
 (input-method vi vni)
 
-(description "Vietnames input method using the VNI key sequence.
-It is based on the information at:
-  http://vietunicode.sourceforge.net/inputmethod.html
-")
+(description (_"Vietnames input method using the VNI key sequence.
+Typing Backslash ('\\') toggles the normal mode and English mode.
+The following variables are customizable:
+  tone-mark-on-last: control tone mark position in equivocal cases
+  backspace-is-undo: control the action of Backspace key (delete or undo)"))
 
-(title "ắ(VNI)")
+(title "Ắ(VNI)")
+
+(variable
+ (tone-mark-on-last
+  (_"Flag to control tone mark position in equivocal cases.
+If this variable is 0 (the default), put tone mark on the first vowel
+in such equivocal cases as \"oa\", \"oe\", \"uy\".
+Otherwise, put tone mark on the last vowel.")
+  0 0 1)
+
+ (backspace-is-undo
+  (_"Flag to control the action of Backspace key (delete or undo).
+If this variable is 0 (the default), Backspace key deletes the previous
+character (e.g. \"q u a i s BS\" => \"quá\").
+If the value is 1, Backspace key undoes the previous key
+\(e.g. \"q u a i s BS\" => \"quai\").")
+  0 0 1))
+
+(include (t nil vi-base) macro)
+(include (t nil vi-base) map)
+
 (map
- (starter 
-  ("a" (set V ?a)) ("A" (set V ?A)) ("e" (set V ?e)) ("E" (set V ?E))
-  ("i" (set V ?i)) ("I" (set V ?I)) ("o" (set V ?o)) ("O" (set V ?O)) 
-  ("u" (set V ?u)) ("U" (set V ?U)) ("d" (set V ?d)) ("D" (set V ?D)))
+ (vowel-ext
+  ("a6" ("âấầẩẫậ")) ("A6" ("ÂẤẦẨẪẬ"))
+  ("a8" ("ăắằẳẵặ")) ("A8" ("ĂẮẰẲẴẶ"))
+  ("e6" ("êếềểễệ")) ("E6" ("ÊẾỀỂỄỆ"))
+  ("o6" ("ôốồổỗộ")) ("O6" ("ÔỐỒỔỖỘ"))
+  ("o7" ("ơớờởỡợ")) ("O7" ("ƠỚỜỞỠỢ"))
+  ("u7" ("ưứừửữự")) ("U7" ("ƯỨỪỬỮỰ")))
 
- (vni-map
-  ("a" ?a)
-  ("A" ?A)
-  ("e" ?e)
-  ("E" ?E)
-  ("i" ?i)
-  ("I" ?I)
-  ("o" ?o)
-  ("O" ?O)
-  ("u" ?u)
-  ("U" ?U)
-  ("d" ?d)
-  ("D" ?D)
-  ("a1" ?á)
-  ("A1" ?Á)
-  ("a2" ?à)
-  ("A2" ?À)
-  ("a3" ?ả)
-  ("A3" ?Ả)
-  ("a4" ?ã)
-  ("A4" ?Ã)
-  ("a5" ?ạ)
-  ("A5" ?Ạ)
-  ("a6" ?â)
-  ("A6" ?Â)
-  ("a8" ?ă)
-  ("A8" ?Ă)
-  ("d9" ?đ)
-  ("D9" ?Đ)
-  ("e1" ?é)
-  ("E1" ?É)
-  ("e2" ?è)
-  ("E2" ?È)
-  ("e3" ?ẻ)
-  ("E3" ?Ẻ)
-  ("e4" ?ẽ)
-  ("E4" ?Ẽ)
-  ("e5" ?ẹ)
-  ("E5" ?Ẹ)
-  ("e6" ?ê)
-  ("E6" ?Ê)
-  ("i1" ?í)
-  ("I1" ?Í)
-  ("i2" ?ì)
-  ("I2" ?Ì)
-  ("i3" ?ỉ)
-  ("I3" ?Ỉ)
-  ("i4" ?ĩ)
-  ("I4" ?Ĩ)
-  ("i5" ?ị)
-  ("I5" ?Ị)
-  ("o1" ?ó)
-  ("O1" ?Ó)
-  ("o2" ?ò)
-  ("O2" ?Ò)
-  ("o3" ?ỏ)
-  ("O3" ?Ỏ)
-  ("o4" ?õ)
-  ("O4" ?Õ)
-  ("o5" ?ọ)
-  ("O5" ?Ọ)
-  ("o6" ?ô)
-  ("O6" ?Ô)
-  ("o7" ?ơ)
-  ("O7" ?Ơ)
-  ("u1" ?ú)
-  ("U1" ?Ú)
-  ("u2" ?ù)
-  ("U2" ?Ù)
-  ("u3" ?ủ)
-  ("U3" ?Ủ)
-  ("u4" ?ũ)
-  ("U4" ?Ũ)
-  ("u5" ?ụ)
-  ("U5" ?Ụ)
-  ("u7" ?ư)
-  ("U7" ?Ư)
-  ("y1" ?ý)
-  ("Y1" ?Ý)
-  ("y2" ?ỳ)
-  ("Y2" ?Ỳ)
-  ("y3" ?ỷ)
-  ("Y3" ?Ỷ)
-  ("y4" ?ỹ)
-  ("Y4" ?Ỹ)
-  ("y5" ?ỵ)
-  ("Y5" ?Ỵ)
+ (consonant-ext
+  ("d9" ?đ) ("D9" ?Đ))
 
-  ("a61" ?ấ)
-  ("A61" ?Ấ)
-  ("a62" ?ầ)
-  ("A62" ?Ầ)
-  ("a63" ?ẩ)
-  ("A63" ?Ẩ)
-  ("a64" ?ẫ)
-  ("A64" ?Ẫ)
-  ("a65" ?ậ)
-  ("A65" ?Ậ)
-  ("a81" ?ắ)
-  ("A81" ?Ắ)
-  ("a82" ?ằ)
-  ("A82" ?Ằ)
-  ("a83" ?ẳ)
-  ("A83" ?Ẳ)
-  ("a84" ?ẵ)
-  ("A84" ?Ẵ)
-  ("a85" ?ặ)
-  ("A85" ?Ặ)
-  ("e61" ?ế)
-  ("E61" ?Ế)
-  ("e62" ?ề)
-  ("E62" ?Ề)
-  ("e63" ?ể)
-  ("E63" ?Ể)
-  ("e64" ?ễ)
-  ("E64" ?Ễ)
-  ("e65" ?ệ)
-  ("E65" ?Ệ)
-  ("o61" ?ố)
-  ("O61" ?Ố)
-  ("o62" ?ồ)
-  ("O62" ?Ồ)
-  ("o63" ?ổ)
-  ("O63" ?Ổ)
-  ("o64" ?ỗ)
-  ("O64" ?Ỗ)
-  ("o65" ?ộ)
-  ("O65" ?Ộ)
-  ("o71" ?ớ)
-  ("O71" ?Ớ)
-  ("o72" ?ờ)
-  ("O72" ?Ờ)
-  ("o73" ?ở)
-  ("O73" ?Ở)
-  ("o74" ?ỡ)
-  ("O74" ?Ỡ)
-  ("o75" ?ợ)
-  ("O75" ?Ợ)
-  ("u71" ?ứ)
-  ("U71" ?Ứ)
-  ("u72" ?ừ)
-  ("U72" ?Ừ)
-  ("u73" ?ử)
-  ("U73" ?Ử)
-  ("u74" ?ữ)
-  ("U74" ?Ữ)
-  ("u75" ?ự)
-  ("U75" ?Ự))
+ (tone-mark
+  ("0" (set SELECT 0) ?0)
+  ("1" (set SELECT 1) ?1)
+  ("2" (set SELECT 2) ?2)
+  ("3" (set SELECT 3) ?3)
+  ("4" (set SELECT 4) ?4)
+  ("5" (set SELECT 5) ?5))
 
- (escape
-  ("\\"))
-
- (cancel
-  ("0"))
-
- (backspace
-  ((BackSpace))))
+ (temporary-escape
+  ("a66" "a6") ("A66" "A6")
+  ("a88" "a8") ("A88" "A8")
+  ("e66" "e6") ("E66" "E6")
+  ("o66" "o6") ("O66" "O6")
+  ("o77" "o7") ("O77" "O7")
+  ("u77" "u7") ("U77" "U7")))
 
 (state
  (init
-  (starter (pushback 1) (shift main)))
+  ;; Initialize variables.  C is the initial consonant.  V-N is the
+  ;; (N-1)th vowel from the last.  C-AFTER-V is a number of consonants
+  ;; typed after vowel.
+  (t (set C @-1) (set V-1 0) (set V-2 0) (set V-3 0) (set C-AFTER-V 0)
+     (set SELECT 0))
 
- (main
-  (vni-map (shift fini))
-  (nil (shift init)))
+  (consonant (set C @-1))
+  (consonant-ext (set C @-1))
+  ;; Mark M remembers the preedit position after the last vowel.
+  (vowel (mark M) (set V-2 V-1) (set V-1 @-1) (shift after-v))
+  (vowel-ext (mark M) (set V-2 V-1) (set V-1 @-1) (shift after-v))
+  (temporary-escape (shift temporary-escape))
+  (permanent-escape (shift escape-in-normal-mode)))
 
- (fini
-  (backspace (undo))
-  (escape (shift init))
-  (cancel (delete 0) (insert V) (shift init))))
+ ;; The state shifted to when a vowel is typed.
+ (after-v
+  (consonant (shift after-vc))
+  (consonant-ext (shift after-vc))
+  (vowel (mark M) (set V-3 V-2) (set V-2 V-1) (set V-1 @-1)
+	 (move T) (select 0) (handle-mark) (move M))
+  (vowel-ext (mark M) (set V-3 V-2) (set V-2 V-1) (set V-1 @-1)
+	     (move T) (select 0) (handle-mark) (move M))
+  (tone-mark (delete @-) (pushback 1) (shift after-t))
+  (backspace (delete @-)
+	     (cond (V-3 (set V-1 V-2) (set V-2 V-3) (set V-3 0)
+			(cond ((> TPLACE 2) (set SELECT 0))))
+		   (V-2 (set V-1 V-2) (set V-2 0)
+			(cond ((> TPLACE 1) (set SELECT 0))))
+		   (1 (shift init)))))
+
+ ;; The state shifted to when a consonant is typed after a vowel.
+ (after-vc
+  (t (set C-AFTER-V 1))
+  (consonant (add C-AFTER-V 1))
+  (consonant-ext (add C-AFTER-V 1))
+  (tone-mark (delete @-) (pushback 1) (shift after-t))
+  (backspace (delete @-)
+	     (sub C-AFTER-V 1)
+	     (cond ((= C-AFTER-V 0) (shift after-v)))))
+
+ ;; The state shifted to when a tone-mark is typed.
+ (after-t
+  (t (set CURRENT-SELECT -1))
+  (tone-mark (cond ((= CURRENT-SELECT SELECT) (move T) (select 0) (move @>)
+		    (shift temporary-escape))
+		   (1 (delete @-) (handle-mark) (set CURRENT-SELECT SELECT))))
+  (nil (cond (C-AFTER-V (shift after-vc))
+	     (1 (shift after-v)))))
+
+ (temporary-escape
+  "en"
+  (t (commit))
+  (alnum (commit)))
+
+ (escape-in-normal-mode
+  "EN"
+  (permanent-escape (insert "\\") (shift init))
+  ;; Any other key force shifting to permanent-escape.
+  (nil (shift permanent-escape)))
+
+ (permanent-escape
+  "EN"
+  (t (set ESCAPE 1))
+  (permanent-escape (shift escape-in-permanent-escape))
+  ;; Unhandle any characters.
+  (nil (unhandle)))
+
+ (escape-in-permanent-escape
+  "Ắ"
+  (permanent-escape (insert "\\") (commit) (shift permanent-escape))
+  ;; Any other key force shifting to init
+  ))
 
 ;; Local Variables:
 ;; coding: utf-8
