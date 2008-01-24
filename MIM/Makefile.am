@@ -66,7 +66,7 @@ INPUT_METHOD = \
 	th-pattachote.mim \
 	th-tis820.mim \
 	ug-kbd.mim \
-	vi-viqr.mim vi-telex.mim vi-vni.mim \
+	vi-base.mim vi-viqr.mim vi-telex.mim vi-vni.mim \
 	zh-py.mim zh-py-gb.mim zh-py-b5.mim \
 	zh-tonepy.mim zh-tonepy-gb.mim zh-tonepy-b5.mim \
 	zh-cangjie.mim zh-quick.mim \
