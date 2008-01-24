@@ -45,6 +45,7 @@ The following are the important key combinations for the Assamese keyboard layou
 10. The "ref" is typed as 'j' and then 'd' .
 11. Special characters 'জ্ঞ', 'ত্ৰ', 'ক্ষ' and 'শ্ৰ' are included respectively at '%', '^', '&' and '*'.
 12. The special combinations for 'ref' and 'rakar' are incorporated respectively at '$' and '#' .
+13. The character '৺' can be obtained by pressing 'Z', i.e. 'Shift' and 'z'.
 
 Some important combinations are as follows:
 
@@ -72,8 +73,7 @@ Some important combinations are as follows:
    (জ্ঞ)     (জ)      (্)        (ঞ)
                    'p'           'd'              '}'
 
-Author: Runa Bhattacharjee <runab@redhat.com>
-Key Summary: Amitakhya Phukan <aphukan@redhat.com> 
+Author: Amitakhya Phukan <aphukan@redhat.com> 
 ")
 
 (title "ক")
@@ -154,7 +154,7 @@ Key Summary: Amitakhya Phukan <aphukan@redhat.com>
   ("W" "ঐ")
   ("X" "ঁ")
   ("Y" "ভ")
-  ("Z" "Z")
+  ("Z" "৺")
   ("[" "ড")
   ("\\" "য")
   ("]" "়")

@@ -33,13 +33,14 @@ The 'ra' of Assamese is different from Bengali 'ra'. The Assamese phonetic keybo
 There is an additional alphabet 'wa' which is not there in Bengali.
 
 
-The following are the important key combinations for the Assamese keyboard layout (Bengali 'Probhat' Keyboard layout):
+The following are the important key combinations for the Assamese Phonetic keyboard layout:
 
 1. The alphabet 'ৰ' can be obtained by pressing the key 'R' in the English keyboard.
-2. The alphabet 'ৱ' can be obtained by pressing the key '^('Shift' key + '6')' in the English keyboard.
+2. The alphabet 'ৱ' can be obtained by pressing the key '\' in the English keyboard.
 3. There are two ways of typing the Assamese 'আ' . One is typing 'A' followed by 'a'. The other is by typing 'v' only.
-4. The alphabet 'ঞ' can be obtained by pressing '&' i.e 'Shift' and '7' together in the Eglish keyboard.
+4. The alphabet 'ঞ' can be obtained by pressing '^' i.e 'Shift' and '6' together in the Eglish keyboard.
 5. The '।' is located in '.' in the English keyboard.
+6. The '৺' can be obtained by pressing '|', i.e. 'Shift' and '\'.
 
 Some important combinations are as follows:
 
@@ -64,7 +65,7 @@ Some important combinations are as follows:
                'k'          '/'          'l'
 
 
-Author: Jatin Nansi <jnansi@redhat.com>, Modified : Runa <runab@redhat.com> for RH bz #193849
+Author: Amitakhya Phukan <aphukan@redhat.com>
 Key Summary: Amitakhya Phukan <aphukan@redhat.com>")
 
 (title "ক")
@@ -158,7 +159,7 @@ Key Summary: Amitakhya Phukan <aphukan@redhat.com>")
   (";" ?;)
   ("\"" ?\")
   ("'" ?')
-  ("|" ?॥)
+  ("|" ?৺)
   ("\\" ?ৱ)
   ("~"?‌)
   ("`" ?‍)
