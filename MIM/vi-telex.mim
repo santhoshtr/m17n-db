@@ -63,7 +63,7 @@ If the value is 1, Backspace key undoes the previous key
   ("OOO" ("OÓÒỎÕỌ") ("OÓÒỎÕỌ") (set V-2 V-1) (set V-1 ?O))
   ("Ooo" ("OÓÒỎÕỌ") ("oóòỏõọ") (set V-2 V-1) (set V-1 ?O)))
 
- (consonant
+ (consonant-ext
   ("dd" ?đ) ("DD" ?Đ) ("Dd" ?Đ))
 
  (tone-mark
@@ -99,18 +99,23 @@ If the value is 1, Backspace key undoes the previous key
      (set SELECT 0))
 
   (consonant (set C @-1))
+  (consonant-ext (set C @-1))
   (consonant-or-tone-mark (set C @-1))
 
   ;; Mark M remembers the preedit position after the last vowel.
   (vowel (mark M) (set V-2 V-1) (set V-1 @-1) (shift after-v))
+  (vowel-ext (mark M) (set V-2 V-1) (set V-1 @-1) (shift after-v))
   (temporary-escape (shift temporary-escape))
   (permanent-escape (shift escape-in-normal-mode)))
 
  ;; The state shifted to when a vowel is typed.
  (after-v
   (consonant (shift after-vc))
+  (consonant-ext (shift after-vc))
   (vowel (mark M) (set V-3 V-2) (set V-2 V-1) (set V-1 @-1)
 	 (move T) (select 0) (handle-mark) (move M))
+  (vowel-ext (mark M) (set V-3 V-2) (set V-2 V-1) (set V-1 @-1)
+	     (move T) (select 0) (handle-mark) (move M))
   (consonant-or-tone-mark (delete @-) (pushback 1) (shift after-t))
   (backspace (delete @-)
 	     (cond (V-3 (set V-1 V-2) (set V-2 V-3) (set V-3 0)
@@ -123,6 +128,7 @@ If the value is 1, Backspace key undoes the previous key
  (after-vc
   (t (set C-AFTER-V 1))
   (consonant (add C-AFTER-V 1))
+  (consonant-ext (add C-AFTER-V 1))
   (consonant-or-tone-mark (delete @-) (pushback 1) (shift after-t))
   (backspace (delete @-)
 	     (sub C-AFTER-V 1)
@@ -140,7 +146,7 @@ If the value is 1, Backspace key undoes the previous key
  (temporary-escape
   "en"
   (t (commit))
-  (alphabet (commit)))
+  (alnum (commit)))
 
  (escape-in-normal-mode
   "EN"
