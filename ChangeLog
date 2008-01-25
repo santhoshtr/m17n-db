@@ -1,3 +1,7 @@
+2008-01-25  Kenichi Handa  <handa@ni.aist.go.jp>
+
+	* MIM/vi-telex.mim (vowel-ext): Add more sequences.
+
 2008-01-24  Kenichi Handa  <handa@ni.aist.go.jp>
 
 	* MIM/Makefile.am (INPUT_METHOD): Add vi-base.mim and vi-tcvn.mim.
