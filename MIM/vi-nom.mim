@@ -1,5 +1,5 @@
 ;; vi-nom.mim -- Chu Nom input method with Viet-Phonetic sequence
-;; Copyright (C) 2007
+;; Copyright (C) 2007, 2008
 ;;   Thua Thien Hue Center of Information Technology (HueCIT, Vietnam)
 
 ;; This file is part of the m17n contrib; a sub-part of the m17n
@@ -341,7 +341,7 @@ temporarily by typing \"Z\".
   ("boonj" ("本𦁂𡖱坌"))
   ("boonr" ("版畚笨苯軬阪体夯夲奙本板"))
   ("boons" ("𦊚奔本"))
-  ("boop*s" ("抸𠶙"))
+  ("boops" ("抸𠶙"))
   ("boopj" ("𠶙"))
   ("boops" ?抸)
   ("boor" ("捕補补鋪哺埔"))
@@ -426,7 +426,7 @@ temporarily by typing \"Z\".
   ("bwcs" ("偪堛幅愊逼踾煏楅湢熚皕蝠輻辐"))
   ("bwj" ?被)
   ("bwng" ("𢬄挷𣵮搬𢲔氷冰怦"))
-  ("bwng*r" ("板榜"))
+  ("bwngr" ("板榜"))
   ("bwngf" ("泙𤇊𤰚旁評蓬怦"))
   ("bwngj" ?垹)
   ("bwngr" ("榜板"))
@@ -490,7 +490,7 @@ temporarily by typing \"Z\".
   ("can" ("干杆肝竿乾泔玕矸筸虷釬乹倝桿"))
   ("canf" ("乾㨴漧菫骭乹亁倝干幹旰"))
   ("cang" ("亢釭鋼剛矼綱缸罡肛伉吭"))
-  ("cang*s" ("杭綱"))
+  ("cangs" ("杭綱"))
   ("cangf" ("強彊乾强"))
   ("cangr" ?港)
   ("cangs" ("港綱伉杭"))
