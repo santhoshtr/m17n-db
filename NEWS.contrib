@@ -1,5 +1,5 @@
 * NEWS -- What's new in the m17n-contrib.			-*- outline -*-
-Copyright (C) 2006, 2007
+Copyright (C) 2006, 2007, 2008
   National Institute of Advanced Industrial Science and Technology (AIST)
   Registration Number H15PRO112
 See the end for copying conditions.
@@ -7,8 +7,10 @@ See the end for copying conditions.
 
 * Changes in the m17n-contrib 1.1.6
 
-** New input method for Vietnamese Chu Nom.
-vi-nom-vni.mim
+** New input methods:
+vi-nom-vni.mim (Vietnamese ChuNom)
+as-phonetic.mim (Assamese)
+as-inscript.mim (Assamese)
 
 
 * Changes in the m17n-contrib 1.1.5

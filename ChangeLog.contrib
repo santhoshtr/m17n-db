@@ -1,6 +1,12 @@
+2008-01-29  Phan Anh Dung  <padung@huesoft.com.vn>
+
+	* im/vi-nom.mim: Fix a few typos.
+
+	* im/vi-nom-vni.mim: New file.
+
 2008-01-24  Amitakhya Phukan <aphukan@redhat.com>
 
-	* as-phonetic.mim, as-inscript.mim: *** empty log message ***
+	* im/as-phonetic.mim, im/as-inscript.mim: New files.
 
 2007-12-28  Kenichi Handa  <handa@ni.aist.go.jp>
 
