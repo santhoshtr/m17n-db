@@ -1,3 +1,8 @@
+2008-01-29  Kenichi Handa  <handa@ni.aist.go.jp>
+
+	* MIM/vi-tcvn.mim (vowel-ext): Escape "(" by backslash in key
+	symbol names.
+
 2008-01-25  Kenichi Handa  <handa@ni.aist.go.jp>
 
 	* MIM/vi-telex.mim (vowel-ext): Add more sequences.
