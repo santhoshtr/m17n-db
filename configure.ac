@@ -29,6 +29,14 @@ AM_GNU_GETTEXT([external])
 AC_PROG_INSTALL
 AC_PROG_AWK
 
+AC_CHECK_PROG(HAVE_MSGFMT, msgfmt, yes)
+if test "x$HAVE_MSGFMT" != "xyes"; then
+  echo "  Please install the program \"msgfmt\" in advance."
+  echo "  It is usually included in the package \"gettext\"."
+  exit 1;
+else :
+fi
+
 # Checks for source data files.
 AC_ARG_WITH(charmaps,
   [  --with-charmaps=DIR     Directory of source files for charset maps.],
