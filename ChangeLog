@@ -1,3 +1,7 @@
+2008-01-30  Kenichi Handa  <handa@ni.aist.go.jp>
+
+	* configure.ac: Check the program msgfmt.
+
 2008-01-29  Kenichi Handa  <handa@ni.aist.go.jp>
 
 	* MIM/vi-tcvn.mim (vowel-ext): Escape "(" by backslash in key

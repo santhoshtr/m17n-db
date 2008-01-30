@@ -7,9 +7,14 @@ See the end for copying conditions.
 
 * Changes in the m17n database 1.5.1
 
-A New FLT is added.
+** A new FLT is added.
 
-CHAR-GENERIC.flt (For Cham script)
+CHAM-GENERIC.flt (For Cham script)
+
+** A new input method is added.
+
+vi-tcvn.mim (Vietnamese)
+cmc-kbd.mim (Cham)
 
 
 * Changes in the m17n database 1.5.0

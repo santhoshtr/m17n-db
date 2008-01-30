@@ -1,6 +1,14 @@
-2008-01-15  Kenichi Handa  <handa@ni.aist.go.jp>
+2008-01-30  Kenichi Handa  <handa@ni.aist.go.jp>
 
 	* Version 1.5.1 released.
+
+2008-01-30  Kenichi Handa  <handa@ni.aist.go.jp>
+
+	* ja.po: Updated.
+
+	* vi.po: Updated.
+
+	* m17n-db.pot: Updated.
 
 2008-01-15  Kenichi Handa  <handa@ni.aist.go.jp>
 
