@@ -1,3 +1,13 @@
+2008-01-30  Kenichi Handa  <handa@ni.aist.go.jp>
+
+	* Version 1.1.6 released.
+
+2008-01-29  Kenichi Handa  <handa@ni.aist.go.jp>
+
+	* configure.ac: Version updated to 1.1.6.
+
+	* im/vi-nom.png, im/vi-nom-vni.png: Nerw files.
+
 2008-01-29  Phan Anh Dung  <padung@huesoft.com.vn>
 
 	* im/vi-nom.mim: Fix a few typos.
