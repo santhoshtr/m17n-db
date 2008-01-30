@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: bugs-m17n-lib@m17n.org\n"
-"POT-Creation-Date: 2007-06-14 16:56+0900\n"
+"POT-Creation-Date: 2008-01-30 20:23+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,6 +21,14 @@ msgid ""
 "Flag to tell whether or not to generate precomposed characters.\n"
 "If 1, generate precomposed characters if available (e.g. \"ྲྀ\"(U+0F76).\n"
 "If 0, generate only decomposed characters (e.g. \"ྲྀ\" (U+0FB2 U+0F80)."
+msgstr ""
+
+#: MIM/cmc-kbd.mim:26
+msgid ""
+"Cham input method simulating Cham keyboard.\n"
+"Cham characters are encoded in logical order in memory and in files.\n"
+"But, you can type Cham text in visual order with this input method.\n"
+"Backspace and Delete also work in the manner of visual order."
 msgstr ""
 
 #: MIM/fr-azerty.mim:26
@@ -294,7 +302,7 @@ msgid ""
 "Start typing hexadecimal numbers of Unicode character."
 msgstr ""
 
-#: MIM/vi-telex.mim:26
+#: MIM/vi-base.mim:31 MIM/vi-telex.mim:26
 msgid ""
 "Vietnames input method using the TELEX key sequence.\n"
 "Typing Backslash ('\\') toggles the normal mode and English mode.\n"
@@ -303,7 +311,16 @@ msgid ""
 "  backspace-is-undo: control the action of Backspace key (delete or undo)"
 msgstr ""
 
-#: MIM/vi-telex.mim:36
+#: MIM/vi-tcvn.mim:26
+msgid ""
+"Vietnames input method using the TCVN6064 sequence.\n"
+"Typing Backslash ('\\') toggles the normal mode and English mode.\n"
+"The following variables are customizable:\n"
+"  tone-mark-on-last: control tone mark position in equivocal cases\n"
+"  backspace-is-undo: control the action of Backspace key (delete or undo)"
+msgstr ""
+
+#: MIM/vi-tcvn.mim:36 MIM/vi-telex.mim:36 MIM/vi-viqr.mim:36 MIM/vi-vni.mim:36
 msgid ""
 "Flag to control tone mark position in equivocal cases.\n"
 "If this variable is 0 (the default), put tone mark on the first vowel\n"
@@ -311,11 +328,29 @@ msgid ""
 "Otherwise, put tone mark on the last vowel."
 msgstr ""
 
-#: MIM/vi-telex.mim:43
+#: MIM/vi-tcvn.mim:43 MIM/vi-telex.mim:43 MIM/vi-viqr.mim:43 MIM/vi-vni.mim:43
 msgid ""
 "Flag to control the action of Backspace key (delete or undo).\n"
 "If this variable is 0 (the default), Backspace key deletes the previous\n"
 "character (e.g. \"q u a i s BS\" => \"quá\").\n"
 "If the value is 1, Backspace key undoes the previous key\n"
 "(e.g. \"q u a i s BS\" => \"quai\")."
+msgstr ""
+
+#: MIM/vi-viqr.mim:26
+msgid ""
+"Vietnames input method using the VIQR key sequence.\n"
+"Typing Backslash ('\\') toggles the normal mode and English mode.\n"
+"The following variables are customizable:\n"
+"  tone-mark-on-last: control tone mark position in equivocal cases\n"
+"  backspace-is-undo: control the action of Backspace key (delete or undo)"
+msgstr ""
+
+#: MIM/vi-vni.mim:26
+msgid ""
+"Vietnames input method using the VNI key sequence.\n"
+"Typing Backslash ('\\') toggles the normal mode and English mode.\n"
+"The following variables are customizable:\n"
+"  tone-mark-on-last: control tone mark position in equivocal cases\n"
+"  backspace-is-undo: control the action of Backspace key (delete or undo)"
 msgstr ""
