@@ -11,6 +11,7 @@ See the end for copying conditions.
 vi-nom-vni.mim (Vietnamese ChuNom)
 as-phonetic.mim (Assamese)
 as-inscript.mim (Assamese)
+ml-mozhi.mim (Malayalam)
 
 
 * Changes in the m17n-contrib 1.1.5
