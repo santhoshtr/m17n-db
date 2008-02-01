@@ -1,0 +1,216 @@
+;; ml-mozhi.mim -- Malayalam input method with ITRANS method
+;; Copyright (C) Evuraan at Gmail Dot Com
+;; 
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+(input-method ml mozhi)
+
+(description "Malayalam input method.
+For the details, see the page:
+  <http://chithrangal.blogspot.com/2008/01/m17n-itrans.html>
+")
+
+(title "ഏ")
+
+(map
+ (starter
+  (".") ("~") ("#") ("$") ("^") ("*") ((S-\ )) ((C-@))
+  ("0") ("1") ("2") ("3") ("4") ("~") ("=")
+  ("5") ("6") ("7") ("8") ("9") ("_")
+  ("A") ("C") ("D") ("G") ("H") ("I") ("J") ("K") ("L")
+  ("M") ("N") ("O") ("R") ("S") ("T") ("U") ("Y")
+  ("B") ("J") ("P") ("E") ("V") ("W")
+  ("a") ("b") ("c") ("d") ("e") ("f") ("g") ("h") ("i")
+  ("j") ("k") ("l") ("m") ("n") ("o") ("p") ("q") ("r")
+  ("s") ("t") ("u") ("v") ("w") ("x") ("y") ("z"))
+
+ (consonant
+  ("k" "ക്")
+  ("K" "ക്ക്")
+  ("kh" "ഖ്")
+  ("g" "ഗ്")
+  ("G" "ഗ്ഗ്")
+  ("gh" "ഘ്")
+  ("ng" "ങ്")
+  ("nng" "ങ്ങ്")
+  ("ch" "ച്")
+  ("Ch" "ഛ്")
+  ("chh" "ഛ്")
+  ("j" "ജ്")
+  ("J" "ജ്ജ്")
+  ("jh" "ഝ്")
+  ("nj" "ഞ്")
+  ("nch" "ഞ്ച്")
+  ("T" "ട്")
+  ("Th" "ഠ്")
+  ("D" "ഡ്")
+  ("Dh" "ഢ്")
+  ("N" "ണ്")
+  ("nT" "ണ്ട്")
+  ("nt" "ന്റ്")
+  ("nth" "ന്ത്")
+  ("th" "ത്")
+  ("thh" "ഥ്")
+  ("d" "ദ്")
+  ("dh" "ധ്")
+  ("n" "ന്")
+  ("nn" "ന്ന്")
+  ("p" "പ്")
+  ("P" "പ്പ്")
+  ("f" "ഫ്")
+  ("ph" "ഫ്")
+  ("b" "ബ്")
+  ("B" "ബ്ബ്")
+  ("bh" "ഭ്")
+  ("m" "മ്")
+  ("y" "യ്")
+  ("Y" "യ്യ്")
+  ("r" "ര്")
+  ("R" "റ്")
+  ("l" "ല്")
+  ("L" "ള്")
+  ("LL" "ള്ള്")
+  ("v" "വ്")
+  ("V" "വ്വ്")
+  ("W" "വ്വ്")
+  ("w" "വ്")
+  ("z" "ശ്")
+  ("zh" "ഴ്")
+  ("t" "റ്റ്")
+  ("S" "ശ്")
+  ("sh" "ഷ്")
+  ("Sh" "ഴ്")
+  ("s" "സ്")
+  ("h" "ഹ്")
+  ("x" "ക്ഷ്"))
+
+ (independent
+  ("a" "അ")
+  ("aa" "ആ")
+  ("A" "ആ")
+  ("i" "ഇ")
+  ("ii" "ഈ")
+  ("ee" "ഈ")
+  ("I" "ഈ")
+  ("u" "ഉ")
+  ("uu" "ഊ")
+  ("oo" "ഊ")
+  ("U" "ഊ")
+  ("RRi" "ഋ")
+  ("rr^" "രൃ")
+  ("R^i" "ഋ")
+  ("r^" "ഋ")
+  ("LLLi" "ഌ")
+  ("L^i" "ഌ")
+  ("E" "ഏ")
+  ("e" "എ")
+  ("ai" "ഐ")
+  ("O" "ഓ")
+  ("o" "ഒ")
+  ("au" "ഔ")
+  (".n" "ം")
+  ("M" "ം")
+  ("~" "്")
+  ("_" "‌‌")     
+  ("m_" "ം")
+  ("H" "ഃ")
+  (".h" "്")
+  ("0" "0")
+  ("1" "1")
+  ("2" "2")
+  ("3" "3")
+  ("4" "4")
+  ("5" "5")
+  ("6" "6")
+  ("7" "7")
+  ("8" "8")
+  ("9" "9")
+  ("=0" "൦")
+  ("=1" "൧")
+  ("=2" "൨")
+  ("=3" "൩")
+  ("=4" "൪")
+  ("=5" "൫")
+  ("=6" "൬")
+  ("=7" "൭")
+  ("=8" "൮")
+  ("=9" "൯")
+  ("#" "്ര")
+  ("$" "ര്")
+  ("^" "ത്ര")
+  ("*" "ശ്ര")
+  ((S-\ ) "‌")
+  ((C-@) "‍"))
+
+ (dependent
+  ("a" (delete @-) "")
+  ("aa" (delete @-) "ാ")
+  ("A" (delete @-) "ാ")
+  ("i" (delete @-) "ി")
+  ("ii" (delete @-) "ീ")
+  ("ee" (delete @-) "ീ")
+  ("I" (delete @-) "ീ")
+  ("u" (delete @-) "ു")
+  ("uu" (delete @-) "ൂ")
+  ("U" (delete @-) "ൂ")
+  ("oo" (delete @-) "ൂ")
+  ("RRi" (delete @-) "ൃ")
+  ("R^i" (delete @-) "ൃ")
+  ("^" (delete @-) "ൃ")
+  ("LLi" (delete @-) "")
+  ("L^i" (delete @-) "")
+  ("E" (delete @-) "േ")
+  ("e" (delete @-) "െ")
+  ("ai" (delete @-) "ൈ")
+  ("O" (delete @-) "ോ")
+  ("o" (delete @-) "ൊ")
+  ("au" (delete @-) "ൗ"))
+
+
+ (return
+  ((Return)))
+
+ (backspace
+  ((BackSpace) (undo))))
+
+(state
+ (init
+  (starter (pushback 1) (shift intermediate)))
+
+ (intermediate
+  (consonant (shift second))
+  (independent (shift finish))
+  (backspace)
+  (return (shift init)))
+
+ (second
+  (consonant)
+  (dependent (shift finish))
+  (backspace)
+  (return (shift init)))
+
+ (finish
+  (return)
+  (t (shift init))))
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: lisp
+;; End:
