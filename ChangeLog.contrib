@@ -1,3 +1,7 @@
+2008-02-07  Kenichi Handa  <handa@ni.aist.go.jp>
+
+	* Version 1.1.6 released.
+
 2008-02-01  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* AUTHORS: New author.
@@ -5,10 +9,6 @@
 2008-02-01  Evuraan <Evuraan at Gmail Dot Com>
 
 	* im/ml-mozhi.mim: New file.
-
-2008-01-30  Kenichi Handa  <handa@ni.aist.go.jp>
-
-	* Version 1.1.6 released.
 
 2008-01-29  Kenichi Handa  <handa@ni.aist.go.jp>
 
