@@ -1,3 +1,7 @@
+2008-02-28  Evuraan <Evuraan at Gmail Dot Com>
+
+	* ml-mozhi.mim: Add new entries.
+
 2008-02-07  Kenichi Handa  <handa@ni.aist.go.jp>
 
 	* Version 1.1.6 released.
@@ -8,7 +12,7 @@
 
 2008-02-01  Evuraan <Evuraan at Gmail Dot Com>
 
-	* im/ml-mozhi.mim: New file.
+	* im/ml-mozhi.mim, im/ml-mozhi.png: New file.
 
 2008-01-29  Kenichi Handa  <handa@ni.aist.go.jp>
 
