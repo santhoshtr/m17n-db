@@ -28,7 +28,7 @@ INPUT-METHOD ::=
     TITLE MAP-LIST MACRO-LIST ? MODULE-LIST ? STATE-LIST
 
 IM-DECLARATION ::= '(' 'input-method' LANGUAGE NAME VERSION ? ')'
-VERSOIN ::= '(' 'version' VERSION-NUMBER ')'
+VERSION ::= '(' 'version' VERSION-NUMBER ')'
 DESCRIPTION ::= '(' 'description' [ MTEXT-OR-GETTEXT | nil] ')'
 VARIABLE-LIST ::= '(' 'variable' VARIABLE-DECLARATION * ')'
 COMMAND-LIST ::= '(' 'command' COMMAND-DECLARATION * ')'
