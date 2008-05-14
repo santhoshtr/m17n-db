@@ -30,6 +30,51 @@ This input method requires surrounding text support.
 
 (title "සි")
 
+(macro
+ ;; prototype
+ (forward (set x 0))
+ (backward (set x 0))
+ (delete-preceding-zw (set x 0))
+ (delete-following-zw (set x 0))
+
+ ;; skip following (virama zwj consonant)* sequence
+ (forward
+  (set cc3 @+3)
+  (cond
+   ((& (= @+1 0x0DCA) (= @+2 0x200D) (>= cc3 0x0D9A) (<= cc3 0x0DC6))
+    (delete @+3)
+    0x0DCA 0x200D
+    (insert cc3)
+    (forward))))
+
+ (backward
+  (set cc1 @-1)
+  (cond
+   ((& (= @-3 0x0DCA) (= @-2 0x200D) (>= cc1 0x0D9A) (<= cc1 0x0DC6))
+    (delete @-3)
+    0x0DCA
+    0x200D
+    (insert cc1)
+    (move @<)
+    (backward))))
+
+ (delete-preceding-zw
+  (cond
+   ((| (= @-1 0x200C) (= @-1 0x200D))
+    (delete @-1)
+    (delete-preceding-zw))))
+
+ (delete-following-zw
+  (cond
+   ((| (= @+1 0x200C) (= @+1 0x200D))
+    (delete @+1)
+    (delete-following-zw))))
+
+ (merge-kombuva
+  (delete @-1)
+  (delete @+2)
+  (insert c1)))
+
 (map
  (consonant
   ("l" "ක")				; 0D9A
@@ -496,51 +541,6 @@ This input method requires surrounding text support.
      0x0DD9)))
 
   ("\\" (shift join))))
-
-(macro
- ;; prototype
- (forward (set x 0))
- (backward (set x 0))
- (delete-preceding-zw (set x 0))
- (delete-following-zw (set x 0))
-
- ;; skip following (virama zwj consonant)* sequence
- (forward
-  (set cc3 @+3)
-  (cond
-   ((& (= @+1 0x0DCA) (= @+2 0x200D) (>= cc3 0x0D9A) (<= cc3 0x0DC6))
-    (delete @+3)
-    0x0DCA 0x200D
-    (insert cc3)
-    (forward))))
-
- (backward
-  (set cc1 @-1)
-  (cond
-   ((& (= @-3 0x0DCA) (= @-2 0x200D) (>= cc1 0x0D9A) (<= cc1 0x0DC6))
-    (delete @-3)
-    0x0DCA
-    0x200D
-    (insert cc1)
-    (move @<)
-    (backward))))
-
- (delete-preceding-zw
-  (cond
-   ((| (= @-1 0x200C) (= @-1 0x200D))
-    (delete @-1)
-    (delete-preceding-zw))))
-
- (delete-following-zw
-  (cond
-   ((| (= @+1 0x200C) (= @+1 0x200D))
-    (delete @+1)
-    (delete-following-zw))))
-
- (merge-kombuva
-  (delete @-1)
-  (delete @+2)
-  (insert c1)))
 
 (state
  (init

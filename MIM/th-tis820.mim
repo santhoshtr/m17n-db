@@ -38,6 +38,8 @@ The level of character sequence acceptance defined in WTT 2.0.
 
 (title "ท")
 
+(include (th kesmanee) macro)
+
 (map
  (map
   ("!" "ๅ")
@@ -134,8 +136,6 @@ The level of character sequence acceptance defined in WTT 2.0.
   ("|" "ฃ")
   ("}" ",")
   ("~" "๛")))
-
-(include (th kesmanee) macro)
 
 (state
 
