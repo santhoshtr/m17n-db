@@ -27,7 +27,7 @@ INPUT-METHOD ::=
     IM-DECLARATION ? DESCRIPTION ? VARIABLE-LIST ? COMMAND-LIST ?
     TITLE MAP-LIST MACRO-LIST ? MODULE-LIST ? STATE-LIST
 
-IM-DECLARATION ::= '(' 'input-method' LANGUAGE NAME VERSION ? ')'
+IM-DECLARATION ::= '(' 'input-method' LANGUAGE NAME EXTRA-ID ? VERSION ? ')'
 VERSION ::= '(' 'version' VERSION-NUMBER ')'
 DESCRIPTION ::= '(' 'description' [ MTEXT-OR-GETTEXT | nil] ')'
 VARIABLE-LIST ::= '(' 'variable' VARIABLE-DECLARATION * ')'
@@ -45,6 +45,7 @@ MTEXT-OR-GETTEXT ::=
 
 LANGUAGE ::= SYMBOL
 NAME ::= SYMBOL
+EXTRA-ID ::= SYMBOL
 VERSION ::= MTEXT
 IM-DESCRIPTION ::= MTEXT
 VAR-NAME ::= SYMBOL
@@ -60,6 +61,13 @@ TITLE-TEXT ::= MTEXT
 
 @c IM-DECLARATION specifies the language and name of this input
 method.
+
+When @c LANGUAGE is @c t, the use of the input method is not limited
+to one language.
+
+When @c NAME is @c nil, the input method is not standalone, but
+is expected to be used in other input methods.  In such cases,
+@EXTRA-ID is required to identify the input method.
 
 @c VERSION specifies the required minimum version number of the m17n
 library.  The format is "XX.YY.ZZ" where XX is a major version
@@ -457,9 +465,9 @@ SET ::= '(' CMD SYMBOL1 EXPRESSION ')'
 
 CMD ::= 'set' | 'add' | 'sub' | 'mul' | 'div'
 
-EXPRESSION ::= INTEGER | SYMBOL2 | '(' OPERAND EXPRESSION * ')'
+EXPRESSION ::= INTEGER | SYMBOL2 | '(' OPERATOR EXPRESSION * ')'
 
-OPERAND ::= '+' | '-' | '*' | '/' | '|' | '&' | '!'
+OPERATOR ::= '+' | '-' | '*' | '/' | '|' | '&' | '!'
             | '=' | '<' | '>' | '<=' | '>='
 
 @endverbatim
