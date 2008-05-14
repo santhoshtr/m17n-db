@@ -1,3 +1,8 @@
+2008-05-14  Maxim Treskin <zerthurd@gmail.com>
+
+	* im/ru-translit.mim: Remove binding '@' to U+044E.
+	Add bindings for Capital Yat and Small Yat.
+
 2008-05-13  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* AUTHORS: New author.
