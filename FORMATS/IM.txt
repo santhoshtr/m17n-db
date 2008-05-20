@@ -24,8 +24,9 @@ into the form of plist in the driver.
 
 @verbatim
 INPUT-METHOD ::=
-    IM-DECLARATION ? DESCRIPTION ? VARIABLE-LIST ? COMMAND-LIST ?
-    TITLE MAP-LIST MACRO-LIST ? MODULE-LIST ? STATE-LIST
+    IM-DECLARATION ? DESCRIPTION ? TITLE ?
+     VARIABLE-LIST ? COMMAND-LIST ?  MODULE-LIST ?
+     MACRO-LIST ? MAP-LIST ? STATE-LIST ?
 
 IM-DECLARATION ::= '(' 'input-method' LANGUAGE NAME EXTRA-ID ? VERSION ? ')'
 VERSION ::= '(' 'version' VERSION-NUMBER ')'
@@ -78,6 +79,9 @@ MTEXT-OR-GETTEXT.  It it takes the second form, the text is translated
 according to the current locale by "gettext" (if the translation is
 provided).
 
+@c TITLE-TEXT is a text displayed on the screen when this input method
+is active.
+
 @c VARIABLE-DECLARATION declares a variable used in this input method.
 If a variable must be initialized to the default value, or is to be
 customized by a user, it must be declared here.
@@ -86,11 +90,43 @@ customized by a user, it must be declared here.
 If a command must be bound to the default key sequence, or is to be
 customized by a user, it must be declared here.
 
-@c TITLE-TEXT is a text displayed on the screen when this input method
-is active.
+@verbatim
+MODULE-LIST ::= '(' 'module' MODULE * ')'
+
+MODULE ::= '(' MODULE-NAME FUNCTION * ')'
+
+MODULE-NAME ::= SYMBOL
+
+FUNCTION ::= SYMBOL
+@endverbatim
+
+Each @c MODULE declares the name of external module (i.e. dynamic
+library) and function names exported by the module.  If a @c FUNCTION has
+name "init", it is called with only the default arguments (see the
+section about @c CALL) when an input context is created for the input
+method.  If a @c FUNCTION has name "fini", it is called with only the
+default arguments when an input context is destroyed.
 
 @verbatim
-MAP-LIST ::= '(' 'map' MAP * ')'
+MACRO-LIST ::=  MACRO-INCLUSION ? '(' 'macro' MACRO * ')' MACRO-INCLUSION ?
+
+MACRO ::= '(' MACRO-NAME MACRO-ACTION * ')'
+
+MACRO-NAME ::= SYMBOL
+
+MACRO-ACTION ::= ACTION
+
+TAGS ::= `(` LANGUAGE NAME EXTRA-ID ? `)`
+
+MACRO-INCLUSION ::= '(' 'include' TAGS 'macro' MACRO-NAME ? ')'
+
+@endverbatim
+
+@c MACRO-INCLUSION includes macros from another input method specified by @c TAGS.
+When @c MACRO-NAME is not given, all macros from the input method are included.
+
+@verbatim
+MAP-LIST ::= MAP-INCLUSION ? '(' 'map' MAP * ')' MAP-INCLUSION ?
 
 MAP ::= '(' MAP-NAME RULE * ')'
 
@@ -99,7 +135,13 @@ MAP-NAME ::= SYMBOL
 RULE ::= '(' KEYSEQ MAP-ACTION * ')'
 
 KEYSEQ ::= MTEXT | '(' [ SYMBOL | INTEGER ] * ')'
+
+MAP-INCLUSION ::= '(' 'include' TAGS 'map' MAP-NAME ? ')'
+
 @endverbatim
+
+When an input system is never standalone and always included in
+another system, @c MAP-LIST can be omitted.
 
 @c SYMBOL in the definitions of @c MAP-NAME must not be @c t nor @c
 nil.
@@ -125,11 +167,15 @@ with shift with meta with hyper" is @c (M-H-A) .
 @c INTEGER in the definition of @c KEYSEQ must be a valid character
 code.
 
+@c MAP-INCLUSION includes maps from another input method specified by @c TAGS.
+When @c MAP-NAME is not given, all maps from the input method are included.
+
 @verbatim
 MAP-ACTION ::= ACTION
 
 ACTION ::= INSERT | DELETE | SELECT | MOVE | MARK
-           | SHOW | HIDE | PUSHBACK | POP | UNDO | UNHANDLE | SHIFT | CALL
+           | SHOW | HIDE | PUSHBACK | POP | UNDO 
+	   | COMMIT | UNHANDLE | SHIFT | CALL
 	   | SET | IF | COND | '(' MACRO-NAME ')'
 
 PREDEFINED-SYMBOL ::=
@@ -139,34 +185,9 @@ PREDEFINED-SYMBOL ::=
     | '@@'
     | '@-0' | '@-N' | '@+N'
 @endverbatim
-@verbatim
-MACRO-LIST ::= '(' 'macro' MACRO * ')'
-
-MACRO ::= '(' MACRO-NAME MACRO-ACTION * ')'
-
-MACRO-NAME ::= SYMBOL
-
-MACRO-ACTION ::= ACTION
-@endverbatim
-@verbatim
-MODULE-LIST ::= '(' 'module' MODULE * ')'
-
-MODULE ::= '(' MODULE-NAME FUNCTION * ')'
-
-MODULE-NAME ::= SYMBOL
-
-FUNCTION ::= SYMBOL
-@endverbatim
-
-Each @c MODULE declares the name of external module (i.e. dynamic
-library) and function names exported by the module.  If a @c FUNCTION has
-name "init", it is called with only the default arguments (see the
-section about @c CALL) when an input context is created for the input
-method.  If a @c FUNCTION has name "fini", it is called with only the
-default arguments when an input context is destroyed.
 
 @verbatim
-STATE-LIST ::= '(' 'state' STATE * ')'
+STATE-LIST ::= STATE-INCUSION ? '(' 'state' STATE * ')'  STATE-INCUSION ?
 
 STATE ::= '(' STATE-NAME [ STATE-TITLE-TEXT ] BRANCH * ')'
 
@@ -177,7 +198,16 @@ STATE-TITLE-TEXT ::= MTEXT
 BRANCH ::= '(' MAP-NAME BRANCH-ACTION * ')'
 	   | '(' nil BRANCH-ACTION * ')'
 	   | '(' t BRANCH-ACTION * ')'
+
+STATE-INCLUSION ::= '(' 'include' TAGS 'state' STATE-NAME ? ')'
+
 @endverbatim
+
+When an input system is never standalone and always included in
+another system, @c STATE-LIST can be omitted.
+
+@c STATE-INCLUSION includes states from another input method specified by @c TAGS.
+When @c STATE-NAME is not given, all states from the input method are included.
 
 The optional @c STATE-TITLE-TEXT specifies a title text displayed on
 the screen when the input method is in this state.  If @c
@@ -347,6 +377,7 @@ The marker positions affected by the deletion are automatically relocated.
 @verbatim
 SELECT ::= '(' 'select' PREDEFINED-SYMBOL ')'
            | '(' 'select' INTEGER ')'
+	   | '(' 'select' SYMBOL ')'
 @endverbatim
 
 This action first checks if the character just before the current position
@@ -360,9 +391,10 @@ described above) that specifies a new candidate in the candidate list.
 The second form treats @c INTEGER as a candidate index that specifies a
 new candidate in the candidate list.
 
-@verbatim
-SHOW ::= '(show)'
-@endverbatim
+In the third form, @c SYMBOL must have a integer value, and it is treated 
+as a candidate index.
+
+@verbatim SHOW ::= '(show)' @endverbatim
 
 This actions instructs the input method driver to display a candidate
 list associated with the string before the current position.
@@ -425,10 +457,16 @@ If there's a symbol argument, it must be resolved to an integer number
 and the number is treated as the actual argument as above.
 
 @verbatim
+COMMIT :: = '(commit)'
+@endverbatim
+
+This action commits the current preedit.
+
+@verbatim
 UNHANDLE :: = '(unhandle)'
 @endverbatim
 
-This action commit the current preedit and return the last key as
+This action commits the current preedit and return the last key as
 unhandled.
 
 @verbatim
