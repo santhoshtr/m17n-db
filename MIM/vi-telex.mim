@@ -122,9 +122,11 @@ If the value is 1, Backspace key undoes the previous key
   (consonant-or-tone-mark (delete @-) (pushback 1) (shift after-t))
   (backspace (delete @-)
 	     (cond (V-3 (set V-1 V-2) (set V-2 V-3) (set V-3 0)
-			(cond ((> TPLACE 2) (set SELECT 0))))
+			(cond ((> TPLACE 2) (set SELECT 0)))
+			(handle-mark))
 		   (V-2 (set V-1 V-2) (set V-2 0)
-			(cond ((> TPLACE 1) (set SELECT 0))))
+			(cond ((> TPLACE 1) (set SELECT 0)))
+			(handle-mark))
 		   (1 (shift init)))))
 
  ;; The state shifted to when a consonant is typed after a vowel.
@@ -135,6 +137,7 @@ If the value is 1, Backspace key undoes the previous key
   (consonant-or-tone-mark (delete @-) (pushback 1) (shift after-t))
   (backspace (delete @-)
 	     (sub C-AFTER-V 1)
+	     (handle-mark)
 	     (cond ((= C-AFTER-V 0) (shift after-v)))))
 
  ;; The state shifted to when a tone-mark is typed.
