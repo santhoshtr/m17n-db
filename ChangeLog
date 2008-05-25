@@ -1,3 +1,7 @@
+2008-05-25  Kenichi Handa  <handa@m17n.org>
+
+	* MIM/vi-base.mim: Delete the second `description'.
+
 2008-05-14  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* MIM/th-tis820.mim, MIM/th-pattachote.mim, MIM/th-kesmanee.mim, MIM/si-wijesekera.mim:
