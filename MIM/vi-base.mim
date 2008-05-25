@@ -28,12 +28,6 @@ This is acutually not a standalone input method, but is expected
 to be included in the other Vietnamese input method (e.g. vi-telex, vi-vni).
 ")
 
-(description (_"Vietnames input method using the TELEX key sequence.
-Typing Backslash ('\\') toggles the normal mode and English mode.
-The following variables are customizable:
-  tone-mark-on-last: control tone mark position in equivocal cases
-  backspace-is-undo: control the action of Backspace key (delete or undo)"))
-
 ;;; Usage of variables:
 ;;; M (mark): point after the last vowel
 ;;; T (mark): point after the tone-mark-attached vowel
