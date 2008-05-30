@@ -246,8 +246,8 @@ Special:
   (T)
   (backspace)
   (punctuation)
-  (enter-fullwidth-mode)
-  (enter-single-fullwidth-mode)
+  (enter-fullwidth-mode (shift fullwidth-mode))
+  (enter-single-fullwidth-mode (shift single-fullwidth-mode))
   (toggle-mode (shift isolated-jamo-mode)))
 
  (after-L
@@ -281,8 +281,8 @@ Special:
   (T (commit))
   (V (commit))
   (commit-preedit (commit))
-  (enter-fullwidth-mode)
-  (enter-single-fullwidth-mode)
+  (enter-fullwidth-mode (shift fullwidth-mode))
+  (enter-single-fullwidth-mode (shift single-fullwidth-mode))
   (toggle-mode (shift init))
   (nil (unhandle))))
 
