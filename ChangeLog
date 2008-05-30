@@ -56,8 +56,8 @@
 
 2008-05-14  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* MIM/th-tis820.mim, MIM/th-pattachote.mim, MIM/th-kesmanee.mim, MIM/si-wijesekera.mim:
-	Move the "macro" section before "map".
+	* MIM/th-tis820.mim, MIM/th-pattachote.mim, MIM/th-kesmanee.mim,
+	MIM/si-wijesekera.mim: Move the "macro" section before "map".
 
 2008-03-06  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
