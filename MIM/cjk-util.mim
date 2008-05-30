@@ -69,17 +69,17 @@ is inserted, then the mode is turned off.
   ((Korean_Won) ?￦))
 
  (enter-fullwidth-mode
-  (">>" (shift fullwidth-mode)))
+  (">>"))
  (exit-fullwidth-mode
-  ("<<" (shift t)))
+  ("<<"))
  (enter-single-fullwidth-mode
-  ("Z" (shift single-fullwidth-mode))))
+  ("Z")))
 
 (state
  (fullwidth-mode
   "Ａ"
   (fullwidth (commit))
-  (exit-fullwidth-mode)
+  (exit-fullwidth-mode (shift t))
   (nil (unhandle)))
 
  (single-fullwidth-mode
