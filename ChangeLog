@@ -1,3 +1,52 @@
+2008-05-30  Kenichi Handa  <handa@m17n.org>
+
+	* MIM/zh-tonepy.mim (state:init): Add `shift' to the branch action
+	of enter-fullwidth-mode and enter-single-fullwidth-mode.
+
+	* MIM/zh-quick.mim (state:init): Add `shift' to the branch action
+	of enter-fullwidth-mode and enter-single-fullwidth-mode.
+
+	* MIM/zh-py.mim (state:init): Add `shift' to the branch action of
+	enter-fullwidth-mode and enter-single-fullwidth-mode.
+
+	* MIM/zh-cangjie.mim (state:init): Add `shift' to the branch
+	action of enter-fullwidth-mode and enter-single-fullwidth-mode.
+
+	* MIM/ko-romaja.mim (state:init): Add `shift' to the branch action
+	of enter-fullwidth-mode and enter-single-fullwidth-mode.
+	(state:isolated-jamo-mode): Likewise.
+
+	* MIM/cjk-util.mim (map:enter-fullwidth-mode): Don't shift.
+	(map:exit-fullwidth-mode, map:enter-single-fullwidth-mode):
+	Likewise.
+	(state:init): Add `shift' to the branch action of
+	exit-fullwidth-mode.
+
+	* MIM/zh-util.mim (map:focus-move): New map.
+	(map:focus-change): Delete (input-focus-move).
+	(state:check-unod): Add branch `focus-move'.
+	(state:select): Likewise.
+
+	* MIM/si-wijesekera.mim (map:misc): Delete "\\".
+	(map:join): New map.
+	(state:init): Add branch `join'.
+
+	* MIM/fr-azerty.mim (map:left-square-bracket): Don't shift.
+	(map:left-curly-bracket): Don't shift.
+	(map:alt-2-7, map:ctrl-2-7): Deleted.
+	(map:alt-2, map:alt-7): New maps.
+	(state:init): Add `shift' to the branch actions of
+	`left-square-bracket' and `left-curly-bracket'.  Delete branches
+	alt-2-7 and ctrl-2-7, add branches alt-2 and alt-7.
+
+	* MIM/bo-ewts.mim (map:escape): Don't shift.  Don't include "[".
+	(map:non-tibetan): New map.
+	(map:unicode): Don't shift.
+	(state:init): Add `shift' to the branch action of `escape'.
+	Include `non-tibetan' map.
+	(state:dispatch-escape): Add `shift' to the branch action of
+	`unicode'.
+
 2008-05-25  Kenichi Handa  <handa@m17n.org>
 
 	* MIM/vi-telex.mim (after-v, after-vc): Call handle-mark after
