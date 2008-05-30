@@ -51,10 +51,12 @@ to be included in the other Chinese input method (e.g. zh-py).
   ((Down) (select @]))
   ((C-n) (select @])))
 
- (focus-change
+ (focus-move
   ;; When an input spot is moved, commit the current predit by shifting
   ;; to init.
-  ((input-focus-move) (shift init))
+  ((input-focus-move)))
+
+ (focus-change
   ;; When an input focus is out or in, keep the current preedit.
   ((input-focus-out) (set KK @@) (sub KK 1) (undo KK))
   ((input-focus-in) (set KK @@) (sub KK 1) (undo KK)))
@@ -69,6 +71,7 @@ to be included in the other Chinese input method (e.g. zh-py).
  (check-undo
   ;; When Backspace is typed, cancel the last input.
   (backspace (undo))
+  (focus-move (shift init))
   (focus-change)
   ;; When anything else is typed, produce the current candidate (if
   ;; any), and re-handle the last input in "init" state.
@@ -78,6 +81,7 @@ to be included in the other Chinese input method (e.g. zh-py).
   (t (set K @@) (sub K 1))
   ;; When a number is typed, select the corresponding canidate,
   ;; produce it, and shift to "init" state.
+  (focus-move (shift init))
   (focus-change)
   (choose (hide) (shift init))
   (change-candidate)
