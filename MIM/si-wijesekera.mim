@@ -538,9 +538,10 @@ This input method requires surrounding text support.
       (1
        (delete @<))))
     ((= c 0x0DDB)
-     0x0DD9)))
+     0x0DD9))))
 
-  ("\\" (shift join))))
+ (join
+  ("\\")))
 
 (state
  (init
@@ -567,7 +568,8 @@ This input method requires surrounding text support.
        (delete @-1)
        (move @>)
        0x0DDB)))))
-  (misc))
+  (misc)
+  (join (shift join)))
 
  (join
   (consonant
