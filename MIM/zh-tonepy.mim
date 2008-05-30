@@ -2192,8 +2192,8 @@ temporarily by typing \"Z\".
   ;; When an initial character is typed, re-handle it in "main" state.
  (init
   (starter (show) (pushback 1) (shift main))
-  (enter-fullwidth-mode)
-  (enter-single-fullwidth-mode))
+  (enter-fullwidth-mode (shift fullwidth-mode))
+  (enter-single-fullwidth-mode (shift single-fullwidth-mode)))
 
  (main
   ;; When a complete sequence is typed, shift to "select" state
