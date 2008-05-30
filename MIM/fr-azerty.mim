@@ -149,18 +149,18 @@ respectively."))
 
  ;; Deadkeys
  (left-square-bracket
-  ("[" (shift circumflex)))
+  ("["))
 
  (left-curly-bracket
-  ("{" (shift diaeresis)))
+  ("{"))
 
- (alt-2-7
-  ((A-2) (shift tilde))
-  ((A-7) (shift grave)))
+ (alt-2
+  ((A-2))
+  ((C-A-2)))
 
- (ctrl-alt-2-7
-  ((C-A-2) (shift tilde))
-  ((C-A-7) (shift grave)))
+ (alt-7
+  ((A-7))
+  ((C-A-7)))
 
  ;; Letters with diacritical marks
  (circumflex
@@ -212,10 +212,10 @@ respectively."))
 (state
  (init
   (normal)
-  (left-square-bracket)
-  (left-curly-bracket)
-  (alt-2-7)
-  (ctrl-alt-2-7))
+  (left-square-bracket (shift circumflex))
+  (left-curly-bracket (shift diaeresis))
+  (alt-2 (shift tilde))
+  (alt-7 (shift grave)))
 
  (circumflex
   "AZ^"
