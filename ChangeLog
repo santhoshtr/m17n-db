@@ -1,3 +1,7 @@
+2008-06-03  Kenichi Handa  <handa@m17n.org>
+
+	* FORMATS/IM.ja.txt: Delete invalid "@ifnot FOR-MAN".
+
 2008-05-30  Kenichi Handa  <handa@m17n.org>
 
 	* configure.ac: Versions changed to 1.5.2.
