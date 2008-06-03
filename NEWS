@@ -11,10 +11,11 @@ See the end for copying conditions.
 
 CHAM-GENERIC.flt (For Cham script)
 
-** A new input method is added.
+** Several new input methods are added.
 
 vi-tcvn.mim (Vietnamese)
 cmc-kbd.mim (Cham)
+sa-harvard-kyoto.mim (Sanscrit)
 
 
 * Changes in the m17n database 1.5.0

@@ -1,6 +1,15 @@
+2008-06-03  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* MIM/sa-harvard-kyoto.mim: New file.
+
 2008-06-03  Kenichi Handa  <handa@m17n.org>
 
 	* FORMATS/IM.ja.txt: Delete invalid "@ifnot FOR-MAN".
+
+2008-05-30  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* MIM/ta-itrans.mim: Add "sh" for U+0BB6 and "SRI" for the shrii
+	ligature.
 
 2008-05-30  Kenichi Handa  <handa@m17n.org>
 
