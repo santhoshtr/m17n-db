@@ -480,8 +480,6 @@ COND ::= '(' 'cond' [ '(' EXPRESSION ACTION * ') ] * ')'
 このアクションは対応する @c EXPRESSION が 0 でない値をとる最初のアクショ
 ン @c ACTION を実行する。
 
-@ifnot FOR-MAN
-
 @section im-seealso SEE ALSO
 
 @ref mim-list "Input Methods provided by the m17n database",
