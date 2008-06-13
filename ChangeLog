@@ -1,3 +1,9 @@
+2008-06-13  Kenichi Handa  <handa@m17n.org>
+
+	* FORMATS/Dir.ja.txt (dir-description): Format fixed for man-page.
+
+	* FORMATS/Dir.txt (dir-description): Format fixed for man-page.
+
 2008-06-04  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* MIM/bo-ewts.mim: Fix typo in key string: ">" -> ")".
