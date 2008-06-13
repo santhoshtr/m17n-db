@@ -28,11 +28,12 @@ VERSION ::= MTEXT
 If TAG0 is neither `charset' nor `char-table', and TAGn (n > 0) is a
 symbol `*', FILE can contain a wildcard charater, and all files
 matching FILE accoding to the rules used by the shell are the target
-of database files.  In that case, each file must contain a plist
-element providing the actual TAGn values by the form:
+of database files.  In that case, each file must contain
+SELF-DEFINITION which is a plist element providing the actual TAGn
+values by the form:
 
 @verbatim
-'(' TAG0 TAG1 TAG2 TAG3 [ VERSION ] ')'
+SELF-DEFINITION ::= '(' TAG0 TAG1 TAG2 TAG3 [ VERSION ] ')'
 @endverbatim
 
 For instance, if a database directory contains these files:

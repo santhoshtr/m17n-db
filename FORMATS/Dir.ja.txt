@@ -28,11 +28,12 @@ VERSION ::= MTEXT
 TAG0 が `charset' でも `char-table' でもなく、TAGn (n > 0) がシンボル
 `*' ならば、FILE にワイルドカードが含まれて良い。そしてシェルが用いる規
 則によって FILE とマッチするすべてのファイルがデータベースファイルのター
-ゲットとなる。この際、各ファイルは実際の TAGn の値を以下の形式で与える
-プロパティリストの要素を持たなくてはならない。
+ゲットとなる。この際、各ファイルは実際の TAGn の値を与える
+SELF-DEFINITION を持たなくてはならない。SELF-DEFINITION は以下の形式の
+プロパティリストの要素である。
 
 @verbatim
-'(' TAG0 TAG1 TAG2 TAG3 [ VERSION ] ')'
+SELF-DEFINITION ::= '(' TAG0 TAG1 TAG2 TAG3 [ VERSION ] ')'
 @endverbatim
 
 たとえば、データベースディレクトリが下のファイルを含むとしよう。
