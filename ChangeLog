@@ -1,3 +1,7 @@
+2008-06-23  Kenichi Handa  <handa@m17n.org>
+
+	* Version 1.5.2 released.
+
 2008-06-13  Kenichi Handa  <handa@m17n.org>
 
 	* FORMATS/Dir.ja.txt (dir-description): Format fixed for man-page.

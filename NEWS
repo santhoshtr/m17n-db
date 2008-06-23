@@ -5,6 +5,13 @@ Copyright (C) 2004, 2005, 2006, 2007, 2008
 See the end for copying conditions.
 
 
+* Changes in the m17n database 1.5.2
+
+** A new input method is added.
+
+sa-harvard-kyoto.mim (Sanscrit)
+
+
 * Changes in the m17n database 1.5.1
 
 ** A new FLT is added.
