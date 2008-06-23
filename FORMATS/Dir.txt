@@ -41,11 +41,9 @@ For instance, if a database directory contains these files:
 @verbatim
 zh-py.mim:
 (input-method zh py)
-...
 
 ko-han2.mim:
 (input-method ko han2)
-...
 @endverbatim
 
 these lines in "mdb.dir":
