@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ja\n"
 "Report-Msgid-Bugs-To: bugs-m17n-lib@m17n.org\n"
-"POT-Creation-Date: 2008-01-30 20:23+0900\n"
+"POT-Creation-Date: 2008-06-23 14:58+0900\n"
 "PO-Revision-Date: 2006-09-21 23:16+0900\n"
 "Last-Translator: Kenichi Handa <handa@m17n.org>\n"
 "Language-Team: ja <ja@li.org>\n"
@@ -315,15 +315,6 @@ msgstr ""
 "Unicode入力の開始\n"
 "１６進数によるUnicode文字の入力を開始する。"
 
-#: MIM/vi-base.mim:31 MIM/vi-telex.mim:26
-msgid ""
-"Vietnames input method using the TELEX key sequence.\n"
-"Typing Backslash ('\\') toggles the normal mode and English mode.\n"
-"The following variables are customizable:\n"
-"  tone-mark-on-last: control tone mark position in equivocal cases\n"
-"  backspace-is-undo: control the action of Backspace key (delete or undo)"
-msgstr ""
-
 #: MIM/vi-tcvn.mim:26
 msgid ""
 "Vietnames input method using the TCVN6064 sequence.\n"
@@ -348,6 +339,15 @@ msgid ""
 "character (e.g. \"q u a i s BS\" => \"quá\").\n"
 "If the value is 1, Backspace key undoes the previous key\n"
 "(e.g. \"q u a i s BS\" => \"quai\")."
+msgstr ""
+
+#: MIM/vi-telex.mim:26
+msgid ""
+"Vietnames input method using the TELEX key sequence.\n"
+"Typing Backslash ('\\') toggles the normal mode and English mode.\n"
+"The following variables are customizable:\n"
+"  tone-mark-on-last: control tone mark position in equivocal cases\n"
+"  backspace-is-undo: control the action of Backspace key (delete or undo)"
 msgstr ""
 
 #: MIM/vi-viqr.mim:26
