@@ -1,3 +1,11 @@
+2008-07-02  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* AUTHORS: New author.
+
+2008-07-02  Sridhar M.A., Mysore <mas@mylug.org>
+
+	* im/kn-kgp.mim: Almost rewritten by the new author.
+
 2008-06-28  Kenichi Handa  <handa@m17n.org>
 
 	* Version 1.1.7 released.
