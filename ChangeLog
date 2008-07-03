@@ -1,3 +1,14 @@
+2008-07-03  Kenichi Handa  <handa@m17n.org>
+
+	* MIM/unicode.mim (init): Use @-1 instead of @- to refer to the
+	previous character.
+
+	* MIM/si-wijesekera-preedit.mim: Use @-1 instead of @- to refer to
+	the previous character.
+
+	* MIM/cmc-kbd.mim: Use @-1 instead of @- to refer to the previous
+	character.
+
 2008-06-23  Kenichi Handa  <handa@m17n.org>
 
 	* Version 1.5.2 released.
