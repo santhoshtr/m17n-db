@@ -118,7 +118,7 @@ This input method uses preedit rather than surrounding text.
   ("E"
    (cond
     ((= @- 0x0D85) (delete @-) "ඈ")	; 0D88
-    ((& (= @-2 0x0DC5) (= @- 0x0DD4))
+    ((& (= @-2 0x0DC5) (= @-1 0x0DD4))
      (delete @-) "ූ")			; 0DD6
     (1 "ෑ")))				; 0DD1
   ("s" "ි")				; 0DD2
@@ -146,14 +146,14 @@ This input method uses preedit rather than surrounding text.
 
   ("H"					; yansaya (0DCA 200D 0DBA)
    (cond
-    ((| (= @- 0x0DD9) (= @- 0x0DDB))
+    ((| (= @-1 0x0DD9) (= @-1 0x0DDB))
      (move @-) "්‍ය" (move @>))
     (1
      "්‍ය")))
 
   ("`"					; rakaransaya (0DCA 200D 0DBB)
    (cond
-    ((| (= @- 0x0DD2) (= @- 0x0DD3) (= @- 0x0DD9) (= @- 0x0DDB))
+    ((| (= @-1 0x0DD2) (= @-1 0x0DD3) (= @-1 0x0DD9) (= @-1 0x0DDB))
      (move @-) "්‍ර" (move @>))
     (1 "්‍ර")))
 
@@ -185,9 +185,9 @@ This input method uses preedit rather than surrounding text.
   (dependent)
   (join
    (cond
-    ((| (= @- 0x0DD9) (= @- 0x0DDB))
+    ((| (= @-1 0x0DD9) (= @-1 0x0DDB))
      (shift join-state))
-    ((| (< @- 0x0D9A) (> @- 0x0DC6))
+    ((| (< @-1 0x0D9A) (> @-1 0x0DC6))
      (undo -1))
     (1
      (shift join-state))))
@@ -199,7 +199,7 @@ This input method uses preedit rather than surrounding text.
    (mark p))
   (independent
    (move p)
-   (set c @-)
+   (set c @-1)
    (cond
     ((| (= c 0x0DD9) (= c 0x0DDB))
      (delete @-)

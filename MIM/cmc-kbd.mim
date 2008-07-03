@@ -191,7 +191,7 @@ Backspace and Delete also work in the manner of visual order."))
      )
 
   (independent
-   (set C @-) (set PREV @-2)
+   (set C @-1) (set PREV @-2)
    (cond ((= PREV PM)
 	  (set PREV @-3)
 	  (cond ((| (= PREV PV1) (= PREV PV2))
@@ -204,14 +204,14 @@ Backspace and Delete also work in the manner of visual order."))
 		 (delete @-2) (insert C) (insert PREV))))))
 
   (pre-vowel
-   (set C @-) (set NEXT @+1)
+   (set C @-1) (set NEXT @+1)
    (cond ((& (>= NEXT 0xAA00) (<= NEXT 0xAA28))
 	  (delete @-1) (delete @+1) (insert NEXT) (insert C) (set NEXT @+1)))
    (cond ((& (>= NEXT 0xAA33) (<= NEXT 0xAA36))
 	  (delete @-1) (delete @+1) (insert NEXT) (insert C))))
 
   (pre-medial
-   (set C @-) (set NEXT @+1)
+   (set C @-1) (set NEXT @+1)
    (cond ((& (>= NEXT 0xAA00) (<= NEXT 0xAA28))
 	  (delete @-1) (delete @+1) (insert NEXT) (insert C))))
 
