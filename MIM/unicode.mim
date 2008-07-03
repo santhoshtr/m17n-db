@@ -57,8 +57,8 @@ Start typing hexadecimal numbers of Unicode character.")
   (starter (set code 0) (set count 0) (shift uni-hex)))
 
  (uni-hex
-  (hex (set this @-)
-       (cond ((< @- ?A) (sub this 48))
+  (hex (set this @-1)
+       (cond ((< @-1 ?A) (sub this 48))
 	     (1 (sub this 55)))
        (set code (+ (* code 16) this))
        (set count (+ count 1))
