@@ -14,7 +14,7 @@
  ;; H: HALANT
  ;; u: vowel sign (above)
  ;; p: vowel sign (post)
- ;; b: ai length mark (below)
+ ;; b: vowel sign (below)
  ;; a: vowel modifier (post)
  ;; V: independent vowel
  ;; N: ZWNJ (ZERO WIDTH NON-JOINER)
@@ -31,7 +31,9 @@
  (0x0C4D	?H)			; SIGN VIRAMA
  (0x0C55	?u)			; LENGTH MARK
  (0x0C56	?b)			; AI LENGTH MARK
+ (0x0C58 0x0C59 ?C)			; LETTER TSA .. DZA
  (0x0C60 0x0C61	?V)			; LETTER VOCALIC RR .. VOCALIC LL
+ (0x0C62 0x0C63 ?b)			; VOWEL SIGN VOCALIC L .. LL
  (0x0964 0x0965	?X)			; DANDA .. DOUBLE DANDA
  (0x200C	?N)			; ZWNJ
  (0x200D	?J)			; ZWJ
