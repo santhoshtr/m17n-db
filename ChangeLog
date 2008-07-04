@@ -1,3 +1,13 @@
+2008-07-04  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/TELU-OTF.flt: Add TELUGU LETTER TSA,DZA (U+0C58,U+0C59) and
+	TELUGU VOWEL SIGN VOCALIC L,LL (U+0C62,U+0C63).
+
+	* FLT/ORYA-OTF.flt: Add ORIYA VOWEL SIGN VOCALIC
+	RR,L,LL (U+0B44,U+0B62,U+0B63).
+
+	* FLT/DEVA-OTF.flt: Add DEVANAGARI LETTER CANDRA A (U+0972).
+
 2008-07-03  Kenichi Handa  <handa@m17n.org>
 
 	* MIM/unicode.mim (init): Use @-1 instead of @- to refer to the
