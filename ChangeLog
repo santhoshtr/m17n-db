@@ -1,3 +1,22 @@
+2008-07-11  Kenichi Handa  <handa@m17n.org>
+
+	* MIM/zh-util.mim (change-candidate): Escape '[' and ']'.
+
+	* MIM/vi-tcvn.mim (misc): Escape '[', ']', and '#'.
+
+	* MIM/si-wijesekera-preedit.mim (independent): Escape "'".
+
+	* MIM/si-wijesekera-preedit-alt.mim (others): Escape "'".
+
+	* MIM/si-wijesekera.mim (misc): Escape "'".
+
+	* MIM/ja-anthy.mim (henkan-edit, change-candidate): Escape '[' and
+	']'.
+
+	* MIM/bn-unijoy.mim (livekey): Escape '#'.
+
+	* MIM/ar-kbd.mim (generic): Escape '[' and ']'.
+
 2008-07-04  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/TELU-OTF.flt: Add TELUGU LETTER TSA,DZA (U+0C58,U+0C59) and
