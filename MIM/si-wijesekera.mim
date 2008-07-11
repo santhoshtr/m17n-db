@@ -140,7 +140,7 @@ This input method requires surrounding text support.
   ("Q" "ූ")				; 0DD6
 
   ((A-a) "ෳ")				; 0DF3
-  ((A-') "෴")				; 0DF4
+  ((A-\') "෴")				; 0DF4
 
   ("\]" ";")
   ("}" ":")
