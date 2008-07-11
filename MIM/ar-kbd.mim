@@ -118,8 +118,8 @@
 
   ((C-,) ">")
   ((C-.) "<")
-  ((C-[) "]")
-  ((C-]) "[")
+  ((C-\[) "]")
+  ((C-\]) "[")
   ((C-J) "‍")				; zero width joiner
   ((C-L) "‎")				; left to right mark
   ((C-N) "‌")				; zero width non joiner
