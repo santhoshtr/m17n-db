@@ -117,7 +117,7 @@ This input method uses preedit rather than surrounding text.
 
   ("DD" "ෲ")				; 0DF2
   ((A-a) "ෳ")				; 0DF3
-  ((A-') "෴")				; 0DF4
+  ((A-\') "෴")				; 0DF4
 
   ("J" "ළු")				; muurdhaja lu (0DC5 0DD4)
   ("JE" "ළූ")				; 0DC5 0DD6
