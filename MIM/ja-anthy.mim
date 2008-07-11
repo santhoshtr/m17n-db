@@ -207,8 +207,8 @@ Select Hiragana or Katakana"
   ((Right) (move @+)))
 
  (henkan-edit
-  ((Left) (move @[))
-  ((Right) (move @]))
+  ((Left) (move @\[))
+  ((Right) (move @\]))
   ((S-Left) (call libmimx-anthy resize t))
   ((S-Right) (call libmimx-anthy resize nil)))
 
@@ -226,13 +226,13 @@ Select Hiragana or Katakana"
 
  (change-candidate
   ((C-A) (select @<))
-  ((C-P) (select @[))
+  ((C-P) (select @\[))
   ((C-B) (select @-))
   ((Up) (select @-))
   (" " (select @+))
   ((C-F) (select @+))
   ((Down) (select @+))
-  ((C-N) (select @]))
+  ((C-N) (select @\]))
   ((C-E) (select @>)))
  )
 
