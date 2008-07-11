@@ -46,10 +46,10 @@ to be included in the other Chinese input method (e.g. zh-py).
   ((C-b) (select @-))
   ((Right) (select @+))
   ((C-f) (select @+))
-  ((Up) (select @[))
-  ((C-p) (select @[))
-  ((Down) (select @]))
-  ((C-n) (select @])))
+  ((Up) (select @\[))
+  ((C-p) (select @\[))
+  ((Down) (select @\]))
+  ((C-n) (select @\])))
 
  (focus-move
   ;; When an input spot is moved, commit the current predit by shifting
