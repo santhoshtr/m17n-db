@@ -101,23 +101,23 @@ This input method uses preedit rather than surrounding text.
   ((A-x) "ඃ")				; 0D83
   ("a"
    (cond
-    ((= @- 0x0D91) (delete @-) "ඒ")	; 0D92
-    ((= @- 0x0D94) (delete @-) "ඕ")	; 0D95
-    ((= @- 0x0DD9) (delete @-) "ේ")	; 0DDA
-    ((= @- 0x0DDC) (delete @-) "ෝ")	; 0DDD
+    ((= @-1 0x0D91) (delete @-) "ඒ")	; 0D92
+    ((= @-1 0x0D94) (delete @-) "ඕ")	; 0D95
+    ((= @-1 0x0DD9) (delete @-) "ේ")	; 0DDA
+    ((= @-1 0x0DDC) (delete @-) "ෝ")	; 0DDD
     (1 "්")))				; 0DCA
   ("d"
    (cond
-    ((= @- 0x0D85) (delete @-) "ආ")	; 0D86
-    ((= @- 0x0DD9) (delete @-) "ො")	; 0DDC
+    ((= @-1 0x0D85) (delete @-) "ආ")	; 0D86
+    ((= @-1 0x0DD9) (delete @-) "ො")	; 0DDC
     (1 "ා")))				; 0DCF
   ("e"
    (cond
-    ((= @- 0x0D85) (delete @-) "ඇ")	; 0D87
+    ((= @-1 0x0D85) (delete @-) "ඇ")	; 0D87
     (1 "ැ")))				; 0DD0
   ("E"
    (cond
-    ((= @- 0x0D85) (delete @-) "ඈ")	; 0D88
+    ((= @-1 0x0D85) (delete @-) "ඈ")	; 0D88
     ((& (= @-2 0x0DC5) (= @-1 0x0DD4))
      (delete @-) "ූ")			; 0DD6
     (1 "ෑ")))				; 0DD1
@@ -128,19 +128,19 @@ This input method uses preedit rather than surrounding text.
 
   ("D"
    (cond
-    ((= @- 0x0D8D) (delete @-) "ඎ")	; 0D8E
+    ((= @-1 0x0D8D) (delete @-) "ඎ")	; 0D8E
 ;; The following line does not work when no consonant proceeds.
-;;    ((= @- 0x0DD8) (delete @-) "ෲ")	; 0DF2
+;;    ((= @-1 0x0DD8) (delete @-) "ෲ")	; 0DF2
     (1 "ෘ")))				; 0DD8
 ;; This one works with or without a preceeding consonant.
   ("DD" "ෲ") 				; 0DF2
 
   ("A"
    (cond
-    ((= @- 0x0D8B) (delete @-) "ඌ")	; 0D8C
-    ((= @- 0x0D8F) (delete @-) "ඐ")	; 0D90
-    ((= @- 0x0D94) (delete @-) "ඖ")	; 0D96
-    ((= @- 0x0DD9) (delete @-) "ෞ")	; 0DDE
+    ((= @-1 0x0D8B) (delete @-) "ඌ")	; 0D8C
+    ((= @-1 0x0D8F) (delete @-) "ඐ")	; 0D90
+    ((= @-1 0x0D94) (delete @-) "ඖ")	; 0D96
+    ((= @-1 0x0DD9) (delete @-) "ෞ")	; 0DDE
     (1 "ෟ")))				; 0DDF
   ((A-a) "ෳ")				; 0DF3
 
