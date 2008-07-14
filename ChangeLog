@@ -1,3 +1,12 @@
+2008-07-14  Kenichi Handa  <handa@m17n.org>
+
+	* MIM/lo-lrt.mim: Change the mark name @tone to TONE.
+
+	* MIM/si-wijesekera-preedit.mim: Use @-1, not @-, to refer to the
+	previous character.
+
+	* MIM/bo-ewts.mim: Change the marker name @BEG to BEG.
+
 2008-07-11  Kenichi Handa  <handa@m17n.org>
 
 	* MIM/zh-util.mim (change-candidate): Escape '[' and ']'.
