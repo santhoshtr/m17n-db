@@ -74,12 +74,12 @@
 
  (vowel-simple
   ("ar" "າ")
-  ("i" "ິ" (mark @tone))
-  ("ii" "ີ" (mark @tone))
-  ("eu" "ຶ" (mark @tone))
-  ("ur" "ື" (mark @tone))
-  ("u" "ຸ" (mark @tone))
-  ("uu" "ູ" (mark @tone))
+  ("i" "ິ" (mark TONE))
+  ("ii" "ີ" (mark TONE))
+  ("eu" "ຶ" (mark TONE))
+  ("ur" "ື" (mark TONE))
+  ("u" "ຸ" (mark TONE))
+  ("uu" "ູ" (mark TONE))
   ("aM" "ຳ")
 
   ("ee" (move @-) (move @-) "ເ" (move @+) (move @+))
@@ -88,11 +88,11 @@
   ("ai" (move @-) (move @-) "ໄ" (move @+) (move @+))
   ("ei" (move @-) (move @-) "ໃ" (move @+) (move @+))
 
-  ("er" (move @-) (move @-) "ເ" (move @+) (move @+) "ິ" (mark @tone))
-  ("ir" (move @-) (move @-) "ເ" (move @+) (move @+) "ີ" (mark @tone))
-  ("ea" (move @-) (move @-) "ເ" (move @+) (move @+) "ຶ" (mark @tone) "ອ")
-  ("eaa" (move @-) (move @-) "ເ" (move @+) (move @+) "ື" (mark @tone) "ອ")
-  ("ao" (move @-) (move @-) "ເ" (move @+) (move @+) "ົ" (mark @tone) "າ"))
+  ("er" (move @-) (move @-) "ເ" (move @+) (move @+) "ິ" (mark TONE))
+  ("ir" (move @-) (move @-) "ເ" (move @+) (move @+) "ີ" (mark TONE))
+  ("ea" (move @-) (move @-) "ເ" (move @+) (move @+) "ຶ" (mark TONE) "ອ")
+  ("eaa" (move @-) (move @-) "ເ" (move @+) (move @+) "ື" (mark TONE) "ອ")
+  ("ao" (move @-) (move @-) "ເ" (move @+) (move @+) "ົ" (mark TONE) "າ"))
 
  (vowel-a-e-ae
   ("a" "ະ")
@@ -106,19 +106,19 @@
   ("o" (move @-) (move @-) "ໂ" (move @+) (move @+) "ະ"))
 
  (vowel-or
-  ("or" "ໍ" (mark @tone)))
+  ("or" "ໍ" (mark TONE)))
 
  (vowel-ua
-  ("ua" "ົ" (mark @tone) "ວະ"))
+  ("ua" "ົ" (mark TONE) "ວະ"))
 
  (vowel-uaa
-  ("uaa" "ົ" (mark @tone) "ວ"))
+  ("uaa" "ົ" (mark TONE) "ວ"))
 
  (vowel-ie
-  ("ie" (move @-) (move @-) "ເ" (move @+) (move @+) "ັ" (mark @tone) "ຽະ"))
+  ("ie" (move @-) (move @-) "ເ" (move @+) (move @+) "ັ" (mark TONE) "ຽະ"))
 
  (vowel-ia
-  ("ia" (move @-) (move @-) "ເ" (move @+) (move @+) "ັ" (mark @tone) "ຽ"))
+  ("ia" (move @-) (move @-) "ເ" (move @+) (move @+) "ັ" (mark TONE) "ຽ"))
 
  (maa-sakod
   ("k" "ກ")
@@ -145,11 +145,11 @@
   ("m" "ມ"))
 
  (tone
-  ("'" (move @tone) "່" (move @>))
-  ("\"" (move @tone) "້" (move @>))
-  ("^" (move @tone) "໊" (move @>))
-  ("+" (move @tone) "໋" (move @>))
-  ("~" (move @tone) "໌" (move @>)))
+  ("'" (move TONE) "່" (move @>))
+  ("\"" (move TONE) "້" (move @>))
+  ("^" (move TONE) "໊" (move @>))
+  ("+" (move TONE) "໋" (move @>))
+  ("~" (move TONE) "໌" (move @>)))
 
  (punctuation
   ("\\0" "໐")
@@ -167,7 +167,7 @@
 
 (state
  (init
-  (consonant (move 1) (mark @tone) (move @>) (shift c-state))
+  (consonant (move 1) (mark TONE) (move @>) (shift c-state))
   (vowel-simple)
   (vowel-a-e-ae)
   (vowel-oe)
@@ -201,19 +201,19 @@
   (nil (shift csvm-state)))
 
  (csv-a-e-ae-state
-  (maa-sakod (move @-) (delete @-) "ັ" (mark @tone) (move @>)
+  (maa-sakod (move @-) (delete @-) "ັ" (mark TONE) (move @>)
 	     (shift csvm-state))
   (nil (shift csvm-state)))
 
  (csv-oe-state
-  (maa-sakod (move @-) (delete @-) (delete @-) "ັ" (mark @tone) "ອ" (move @>)
+  (maa-sakod (move @-) (delete @-) (delete @-) "ັ" (mark TONE) "ອ" (move @>)
 	     (shift csvm-state))
   (nil (shift csvm-state)))
 
  (csv-o-state
-  (maa-sakod-y-v (move @-) (delete @-) "ັ" (mark @tone) (move @>)
+  (maa-sakod-y-v (move @-) (delete @-) "ັ" (mark TONE) (move @>)
 		 (shift csvm-state))
-  (maa-sakod-non-y-v (move @-) (delete @-) "ົ" (mark @tone)
+  (maa-sakod-non-y-v (move @-) (delete @-) "ົ" (mark TONE)
 		     (move 0) (delete @+) (move @>)
 		     (shift csvm-state))
   (nil (shift csvm-state)))
