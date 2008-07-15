@@ -269,7 +269,7 @@ This input method uses this keyboard layout:
   ("ftt" (set T ?ᇖ) ?ᇖ (compose))
   ("ft/" (set T ?ᇗ) ?ㅬ (compose))
   ("fz" (set T ?ᇘ) ?ᇘ (compose))
-  ("fmd" (set T ?ᇙ) ?ㅭ (compose))
+  ("fMd" (set T ?ᇙ) ?ㅭ (compose))
   ("ar" (set T ?ᇚ) ?ᇚ (compose))
   ("af" (set T ?ᇛ) ?ᇛ (compose))
   ("at" (set T ?ᇝ) ?ㅯ (compose))
