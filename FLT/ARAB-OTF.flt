@@ -1,5 +1,5 @@
 ;; ARAB-OTF.flt -- Font Layout Table for Arabic OpenType font
-;; Copyright (C) 2004, 2006, 2007  AIST (H15PRO112)
+;; Copyright (C) 2004, 2006, 2007, 2008  AIST (H15PRO112)
 ;; See the end for copying conditions.
 
 (font layouter arab-otf nil
@@ -15,12 +15,13 @@
  ;; p: high hamza carrier (p for positive)
  ;; n: high hamza suppressor (n for negative)
  ;; x: don't care
+ ;; X: presentation form
  (0x0600 0x06FF		?x)
- (0x0750 0x077F		?x)		; Arabic Supplement
  (0x0674 0x0678		?p)
  (0x0643		?n)
  (0x06AF		?n)
  (0x06D5		?n)
+ (0x0750 0x077F		?x)		; Arabic Supplement
  (0x200C		?x)
  (0x200D		?x)
  (0x25CC		?x)
@@ -104,7 +105,13 @@
  (0x0759 0x075B		?R)
  (0x075C 0x076A		?D)
  (0x076B 0x076C		?R)
- (0x076D		?D)
+ (0x076D 0x0770		?D)
+ (0x0771		?R)
+ (0x0772		?D)
+ (0x0773 0x0774		?R)
+ (0x0775 0x0777		?D)
+ (0x0778 0x0779		?R)
+ (0x077A 0x077F		?D)
  (0x200C		?U)
  (0x200D		?D)
  (0x25CC		?U)
@@ -203,7 +210,7 @@
  (0
   otf:arab=rlig,calt,liga,dlig,cswh,mset+curs,kern,mark,mkmk))
 
-;; Copyright (C) 2004, 2006, 2007
+;; Copyright (C) 2004, 2006, 2007, 2008
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
