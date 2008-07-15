@@ -1,3 +1,8 @@
+2008-07-15  Kenichi Handa  <handa@m17n.org>
+
+	* MIM/ko-han2.mim (L-or-T-head): Change key "fmd" to "fMd" to
+	avoid conflict with the other rules.
+
 2008-07-14  Kenichi Handa  <handa@m17n.org>
 
 	* MIM/lo-lrt.mim: Change the mark name @tone to TONE.
