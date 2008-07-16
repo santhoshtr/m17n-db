@@ -36,10 +36,10 @@ COMMAND-LIST ::= '(' 'command' COMMAND-DECLARATION * ')'
 TITLE ::= '(' 'title' TITLE-TEXT ')'
 
 VARIABLE-DECLARATION ::=
-    '(' VAR-NAME [ MTEXT-OR-GETTEXT | nil ] VALUE VALUE-CANDIDATE * ')'
+    '(' VAR-NAME [ [ MTEXT-OR-GETTEXT | nil ] VALUE VALUE-CANDIDATE * ]')'
 
 COMMAND-DECLARATION ::=
-    '(' CMD-NAME [ MTEXT-OR-GETTEXT | nil ] KEYSEQ * ')'
+    '(' CMD-NAME [ [ MTEXT-OR-GETTEXT | nil ] KEYSEQ * ] ')'
 
 MTEXT-OR-GETTEXT ::=
     [ MTEXT | '(' '_' MTEXT ')']
@@ -84,11 +84,24 @@ is active.
 
 @c VARIABLE-DECLARATION declares a variable used in this input method.
 If a variable must be initialized to the default value, or is to be
-customized by a user, it must be declared here.
+customized by a user, it must be declared here.  The declaration can
+be used in two ways.  One is to introduce a new variable.  In that
+case, VALUE must not be omitted.  Another is to inherit the variable
+from what declared in the special MIM file "global.mim", and to give
+the different default value and/or to make the variable customizable
+specially for the current input method.  In the last case, VALUE can
+be omitted.
+
 
 @c COMMAND-DECLARATION declares a command used in this input method.
 If a command must be bound to the default key sequence, or is to be
-customized by a user, it must be declared here.
+customized by a user, it must be declared here.  As well as
+VARIABLE-DECLARATION, the declaration can be used in two ways.  One is
+to introduce a new command.  In that case, KEYSEQ must not be omitted.
+Another is to inherit the command from what declared in the special
+MIM file "global.mim", and to give the different key binding and/or to
+make the command customizable specially for the current input method.
+In the last case, KEYSEQ can be omitted.
 
 @verbatim
 MODULE-LIST ::= '(' 'module' MODULE * ')'
