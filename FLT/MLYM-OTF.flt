@@ -1,5 +1,5 @@
 ;; MLYM-OTF.flt -- Font Layout Table for Malayalam OpenType font
-;; Copyright (C) 2003, 2004, 2005, 2007  AIST (H15PRO112)
+;; Copyright (C) 2003, 2004, 2005, 2007, 2008  AIST (H15PRO112)
 ;; See the end for copying conditions.
 
 (font layouter mlym-otf nil
@@ -16,6 +16,7 @@
  ;; P: consonant (post)
  ;; H: HALANT
  ;; m: vowel sign (pre)
+ ;; b: vowel sign (below)
  ;; p: vowel sign (post)
  ;; A: vowel modifier (post)
  ;; V: independent vowel
@@ -32,11 +33,13 @@
  (0x0D30	?R)			; LETTER RA
  (0x0D32	?B)			; LETTER LA
  (0x0D35	?P)			; LETTER VA
- (0x0D3E 0x0D43	?p)			; VOWEL SIGN AA .. VOCALIC R
+ (0x0D3E 0x0D44	?p)			; VOWEL SIGN AA .. VOCALIC RR
  (0x0D46 0x0D48	?m)			; VOWEL SIGN E .. AI
  (0x0D4D	?H)			; SIGN VIRAMA
  (0x0D57	?p)			; AU LENGTH MARK
  (0x0D60 0x0D61	?V)			; LETTER VOCALIC RR .. VOCALIC LL
+ (0x0D62 0x0D63 ?b)			; VOWEL SIGN VOCALIC L .. LL
+ (0x0D7A 0x0D7F ?C)			; LETTER CHILLU NN .. K
  (0x0964 0x0965	?X)			; DANDA .. DOUBLE DANDA
  (0x200C	?N)			; ZWNJ
  (0x200D	?J)			; ZWJ
@@ -66,9 +69,10 @@
    ("([CRBP](H[CRBP])*)(m)(p?A?)"
     < | (3 =) (1 get-rh) 0x0D00 (1 move-h) (4 = *) | >)
 
-   ;; A syllable with a right vowel sign and/or a vowel modifier.
+   ;; A syllable with a right vowel sign, a below vowel sign
+   ;; and/or a vowel modifier.
    ;;1      2          3
-   ("([CRBP](H[CRBP])*)(pA?|A)"
+   ("([CRBP](H[CRBP])*)(bA?|pA?|A)"
     < | (1 get-rh) 0x0D00 (1 move-h) (3 = *) | >)
 
    ;; Explicit Halant / forced chillu form is cut off from the preceders.
@@ -138,7 +142,7 @@
    ;; we apply only 'akhn' here and postpone applying other features
    ;; to the next stage.
    ;; 1  2      3         4  5
-   (" (m?(RH)?Z)([CRBPH]+)(Z)([RBPHpA]*) "
+   (" (m?(RH)?Z)([CRBPH]+)(Z)([RBPHbpA]*) "
     | (1 = *) (3 otf:mlym=akhn+) (4 =) (5 otf:mlym=blwf,pstf+) |)
 
    ;; Explicit Halant.
@@ -199,7 +203,7 @@
     [ = ]))
   *))
 
-;; Copyright (C) 2003, 2004, 2005, 2007
+;; Copyright (C) 2003, 2004, 2005, 2007, 2008
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
