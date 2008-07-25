@@ -1,6 +1,14 @@
+2008-07-25  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* MIM/grc-mizuochi.mim (map): Remove duplicated "\\" and "^".
+
 2008-07-25  Kenichi Handa  <handa@m17n.org>
 
 	* MIM/ja-anthy.mim (starter): Remove duplication.
+
+2008-07-23  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/MLYM-OTF.flt: Add new characters for Unicode 5.1.
 
 2008-07-15  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
