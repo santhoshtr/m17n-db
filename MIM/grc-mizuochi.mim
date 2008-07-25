@@ -118,9 +118,7 @@ erotimatiko     ;
   ("Y" ?Ψ)
   ("Z" ?Ζ)
   ("?" ?`)				; varia
-  ("\\" ?͂)				; #x0342 combining perispomeni
   ("\\" ?῀)				; #x1fc0 perispomeni
-  ("^" ?͂)				; #x0342 combining perispomeni
   ("^" ?῀)				; #x1fc0 perispomeni
 
   ("`" ?῾) ("V" ?῾)			; dasia
