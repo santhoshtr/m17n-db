@@ -490,8 +490,9 @@ unhandled.
 SHIFT :: = '(' 'shift' STATE-NAME ')'
 @endverbatim
 
-This action shifts the current state to @c STATE-NAME.  @c
-STATE-NAME must appear in @c STATE-LIST.
+This action shifts the current state to @c STATE-NAME if @c is not @c
+t, and to the previous state if @c STATE-NAME is @c t.  In the former
+case, @c STATE-NAME must appear in @c STATE-LIST.
 
 @verbatim
 CALL ::= '(' 'call' MODULE-NAME FUNCTION ARG * ')'
