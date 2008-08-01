@@ -89,7 +89,7 @@ be used in two ways.  One is to introduce a new variable.  In that
 case, VALUE must not be omitted.  Another is to inherit the variable
 from what declared in the special MIM file "global.mim", and to give
 the different default value and/or to make the variable customizable
-specially for the current input method.  In the last case, VALUE can
+specially for the current input method.  In the latter case, VALUE can
 be omitted.
 
 
@@ -101,7 +101,7 @@ to introduce a new command.  In that case, KEYSEQ must not be omitted.
 Another is to inherit the command from what declared in the special
 MIM file "global.mim", and to give the different key binding and/or to
 make the command customizable specially for the current input method.
-In the last case, KEYSEQ can be omitted.
+In the latter case, KEYSEQ can be omitted.
 
 @verbatim
 MODULE-LIST ::= '(' 'module' MODULE * ')'

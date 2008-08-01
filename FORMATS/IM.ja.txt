@@ -27,7 +27,11 @@ INPUT-METHOD ::=
     IM-DECLARATION ? DESCRIPTION ? VARIABLE-LIST ? COMMAND-LIST ?
     TITLE MAP-LIST MACRO-LIST ? MODULE-LIST ? STATE-LIST
 
+<<<<<<< IM.ja.txt
+IM-DECLARATION ::= '(' 'input-method' LANGUAGE NAME [ VERSION ] ')'
+=======
 IM-DECLARATION ::= '(' 'input-method' LANGUAGE NAME [ '(version' VERSION ')'] ')'
+>>>>>>> 1.13
 DESCRIPTION ::= '(' 'description' [ MTEXT-OR-GETTEXT | nil] ')'
 VARIABLE-LIST ::= '(' 'variable' VARIABLE-DECLARATION * ')'
 COMMAND-LIST ::= '(' 'command' COMMAND-DECLARATION * ')'
@@ -44,7 +48,11 @@ MTEXT-OR-GETTEXT ::=
 
 LANGUAGE ::= SYMBOL
 NAME ::= SYMBOL
+<<<<<<< IM.ja.txt
+VERSION ::=MTEXT
+=======
 VERSION ::= MTEXT
+>>>>>>> 1.13
 VAR-NAME ::= SYMBOL
 VAR-DESCRIPTION ::= MTEXT
 VALUE ::= MTEXT | SYMBOL | INTEGER
@@ -58,10 +66,17 @@ TITLE-TEXT ::= MTEXT
 
 @c IM-DECLARATION はこの入力メソッドの言語と名前を指定する。
 
+<<<<<<< IM.ja.txt
+@c VERSION は 最低必要な m17n ライブラリのバージョン番号を示す。フォー
+マットは "XX.YY.ZZ" であり、XX はメジャーバージョン番号、YY はマイナー
+バージョン番号、ZZ はパッチレベルである。
+
+=======
 @c VERSION はこの入力メソッドが必要とする m17n ライブラリの最小バージョ
 ンを指定する。フォーマットは "XX.YY.ZZ" であり、XX はメジャーバージョ
 ン、 YY はマイナーバージョン、ZZ はパッチレベルを表す。
 
+>>>>>>> 1.13
 @c DESCRIPTION はこの入力メソッドの説明を @c MTEXT-OR-GETTEXT で指定す
 る。もしこれが２番目の形式を取っていれば、 @c MTEXT は現在のロケールに
 従って "gettext" によって翻訳される（翻訳文が提供されている場合）。
