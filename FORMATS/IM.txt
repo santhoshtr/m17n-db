@@ -61,47 +61,51 @@ TITLE-TEXT ::= MTEXT
 @endverbatim
 
 @c IM-DECLARATION specifies the language and name of this input
-method.
+method.  
 
 When @c LANGUAGE is @c t, the use of the input method is not limited
 to one language.
 
 When @c NAME is @c nil, the input method is not standalone, but
 is expected to be used in other input methods.  In such cases,
-@EXTRA-ID is required to identify the input method.
+@c EXTRA-ID is required to identify the input method.
 
 @c VERSION specifies the required minimum version number of the m17n
 library.  The format is "XX.YY.ZZ" where XX is a major version
 number, YY is a minor version number, and ZZ is a patch level.
 
 @c DESCRIPTION specifies the description text of this input method by
-MTEXT-OR-GETTEXT.  It it takes the second form, the text is translated
+@c MTEXT-OR-GETTEXT.  It it takes the second form, the text is translated
 according to the current locale by "gettext" (if the translation is
 provided).
 
 @c TITLE-TEXT is a text displayed on the screen when this input method
 is active.
 
+There is one special input method file "global.mim" that declares
+common variables and commands.  The input method driver always loads
+this file and other input methods can inherit the variables and the
+commands.
+
 @c VARIABLE-DECLARATION declares a variable used in this input method.
 If a variable must be initialized to the default value, or is to be
 customized by a user, it must be declared here.  The declaration can
 be used in two ways.  One is to introduce a new variable.  In that
-case, VALUE must not be omitted.  Another is to inherit the variable
-from what declared in the special MIM file "global.mim", and to give
-the different default value and/or to make the variable customizable
-specially for the current input method.  In the latter case, VALUE can
-be omitted.
-
+case, @c VALUE must not be omitted.  Another is to inherit the variable
+from what declared in "global.mim", and to give the different default
+value and/or to make the variable customizable specially for the
+current input method.  In the latter case, @c VALUE can be omitted.
 
 @c COMMAND-DECLARATION declares a command used in this input method.
 If a command must be bound to the default key sequence, or is to be
-customized by a user, it must be declared here.  As well as
+customized by a user, it must be declared here.  Like @c
 VARIABLE-DECLARATION, the declaration can be used in two ways.  One is
-to introduce a new command.  In that case, KEYSEQ must not be omitted.
-Another is to inherit the command from what declared in the special
-MIM file "global.mim", and to give the different key binding and/or to
-make the command customizable specially for the current input method.
-In the latter case, KEYSEQ can be omitted.
+to introduce a new command.  In that case, @c KEYSEQ must not be omitted.
+Another is to inherit the command from what declared in "global.mim",
+and to give the different key binding and/or to make the command
+customizable specially for the current input method.  In the latter
+case, @c KEYSEQ can be omitted.
+
 
 @verbatim
 MODULE-LIST ::= '(' 'module' MODULE * ')'
@@ -135,8 +139,9 @@ MACRO-INCLUSION ::= '(' 'include' TAGS 'macro' MACRO-NAME ? ')'
 
 @endverbatim
 
-@c MACRO-INCLUSION includes macros from another input method specified by @c TAGS.
-When @c MACRO-NAME is not given, all macros from the input method are included.
+@c MACRO-INCLUSION includes macros specified by @c MACRO-NAME, from
+another input method specified by @c TAGS.  When @c MACRO-NAME is not
+given, all macros from the input method are included.
 
 @verbatim
 MAP-LIST ::= MAP-INCLUSION ? '(' 'map' MAP * ')' MAP-INCLUSION ?
@@ -153,8 +158,8 @@ MAP-INCLUSION ::= '(' 'include' TAGS 'map' MAP-NAME ? ')'
 
 @endverbatim
 
-When an input system is never standalone and always included in
-another system, @c MAP-LIST can be omitted.
+When an input method is never standalone and always included in
+another method, @c MAP-LIST can be omitted.
 
 @c SYMBOL in the definitions of @c MAP-NAME must not be @c t nor @c
 nil.
@@ -180,8 +185,9 @@ with shift with meta with hyper" is @c (M-H-A) .
 @c INTEGER in the definition of @c KEYSEQ must be a valid character
 code.
 
-@c MAP-INCLUSION includes maps from another input method specified by @c TAGS.
-When @c MAP-NAME is not given, all maps from the input method are included.
+@c MAP-INCLUSION includes maps specified by @c MAP-NAME, from another
+input method specified by @c TAGS.  When @c MAP-NAME is not given, all
+maps from the input method are included.
 
 @verbatim
 MAP-ACTION ::= ACTION
@@ -219,8 +225,9 @@ STATE-INCLUSION ::= '(' 'include' TAGS 'state' STATE-NAME ? ')'
 When an input system is never standalone and always included in
 another system, @c STATE-LIST can be omitted.
 
-@c STATE-INCLUSION includes states from another input method specified by @c TAGS.
-When @c STATE-NAME is not given, all states from the input method are included.
+@c STATE-INCLUSION includes states specified by @c STATE-NAME, from
+another input method specified by @c TAGS.  When @c STATE-NAME is not
+given, all states from the input method are included.
 
 The optional @c STATE-TITLE-TEXT specifies a title text displayed on
 the screen when the input method is in this state.  If @c
@@ -490,8 +497,8 @@ unhandled.
 SHIFT :: = '(' 'shift' STATE-NAME ')'
 @endverbatim
 
-This action shifts the current state to @c STATE-NAME if @c is not @c
-t, and to the previous state if @c STATE-NAME is @c t.  In the former
+If @c STATE-NAME is @c t, this action shifts the current state to the
+previous one, otherwise it shifts to @c STATE-NAME.  In the latter
 case, @c STATE-NAME must appear in @c STATE-LIST.
 
 @verbatim
