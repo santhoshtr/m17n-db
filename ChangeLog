@@ -1,3 +1,15 @@
+2008-08-11  VAnhTu1987  <vanhtu1987@gmail.com>  (tiny change)
+
+	* MIM/vi-base.mim (ending-1st-consonant, ending-2nd-consonant):
+	New maps.
+
+	* MIM/vi-telex.mim (map:vowel-ext): Handling of "w" and "W" fixed.
+	(consonant-ext): Handling of "dd" and the variants fixed.
+	(init:consonant-or-tone-mark): Check invalid consonant starter.
+	(after-v:ending-1st-consonant): New branch.
+	(after-vc:consonant,consonant-ext): Deleted.
+	(after-vc:ending-2nd-consonant, vowel, vowel-ex): New branches.
+
 2008-07-25  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* MIM/grc-mizuochi.mim (map): Remove duplicated "\\" and "^".
