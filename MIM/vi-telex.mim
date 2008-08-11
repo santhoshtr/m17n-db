@@ -58,13 +58,16 @@ If the value is 1, Backspace key undoes the previous key
   ("oo" ("ôốồổỗộ")) ("OO" ("ÔỐỒỔỖỘ")) ("Oo" ("ÔỐỒỔỖỘ"))
   ("ow" ("ơớờởỡợ")) ("OW" ("ƠỚỜỞỠỢ")) ("Ow" ("ƠỚỜỞỠỢ"))
   ("uw" ("ưứừửữự")) ("UW" ("ƯỨỪỬỮỰ")) ("Uw" ("ƯỨỪỬỮỰ"))
-  ("w"  ("ưứừửữự")) ("W"  ("ƯỨỪỬỮỰ"))
+  ("w"  (cond ((= V-1 0) ("ưứừửữự")) (1 "w"))) ; Works when it's the
+  ("W"  (cond ((= V-1 0) ("ƯỨỪỬỮỰ")) (1 "W"))) ; first vowel (not seư)
   ("ooo" ("oóòỏõọ") ("oóòỏõọ") (set V-2 V-1) (set V-1 ?o))
   ("OOO" ("OÓÒỎÕỌ") ("OÓÒỎÕỌ") (set V-2 V-1) (set V-1 ?O))
   ("Ooo" ("OÓÒỎÕỌ") ("oóòỏõọ") (set V-2 V-1) (set V-1 ?O)))
 
  (consonant-ext
-  ("dd" ?đ) ("DD" ?Đ) ("Dd" ?Đ))
+  ("dd" (cond ((= C-AFTER-V 0) "dd") (1 ?đ))) ; Works when
+  ("DD" (cond ((= C-AFTER-V 0) "DD") (1 ?Đ))) ; it is the first
+  ("Dd" (cond ((= C-AFTER-V 0) "Dd") (1 ?Đ)))) ; letter (not ađ)
 
  (tone-mark
   ("z" (set SELECT 0) ?z) ("Z" (set SELECT 0) ?Z)
@@ -103,7 +106,10 @@ If the value is 1, Backspace key undoes the previous key
 
   (consonant (set C @-1))
   (consonant-ext (set C @-1))
-  (consonant-or-tone-mark (set C @-1))
+  (consonant-or-tone-mark
+   (cond ((| (= @-1 ?f) (= @-1 ?j) (= @-1 ?z) ; Invalid beginning consonants                                                                                   
+             (= @-1 ?F) (= @-1 ?J) (= @-1 ?Z)) (shift temporary-escape))
+         (1 (set C @-1))))
 
   ;; Mark M remembers the preedit position after the last vowel.
   (vowel (mark M) (set V-2 V-1) (set V-1 @-1) (shift after-v))
@@ -113,8 +119,7 @@ If the value is 1, Backspace key undoes the previous key
 
  ;; The state shifted to when a vowel is typed.
  (after-v
-  (consonant (shift after-vc))
-  (consonant-ext (shift after-vc))
+  (ending-1st-consonant (handle-mark) (shift after-vc)) ; toans/toasn->toán
   (vowel (mark M) (set V-3 V-2) (set V-2 V-1) (set V-1 @-1)
 	 (move T) (select 0) (handle-mark) (move M))
   (vowel-ext (mark M) (set V-3 V-2) (set V-2 V-1) (set V-1 @-1)
@@ -132,9 +137,13 @@ If the value is 1, Backspace key undoes the previous key
  ;; The state shifted to when a consonant is typed after a vowel.
  (after-vc
   (t (set C-AFTER-V 1))
-  (consonant (add C-AFTER-V 1))
-  (consonant-ext (add C-AFTER-V 1))
+  (ending-2nd-consonant
+   (cond ((| (= @-2 ?n) (= @-2 ?c) ; 1st ending consonant must be n/c
+             (= @-2 ?N) (= @-2 ?C)) (add C-AFTER-V 1))
+         (1 (shift temporary-escape))))
   (consonant-or-tone-mark (delete @-) (pushback 1) (shift after-t))
+  (vowel (shift temporary-escape))      ; There can only be one
+  (vowel-ext (shift temporary-escape))  ; main vowel in a word
   (backspace (delete @-)
 	     (sub C-AFTER-V 1)
 	     (handle-mark)
