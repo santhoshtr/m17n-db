@@ -97,6 +97,14 @@ to be included in the other Vietnamese input method (e.g. vi-telex, vi-vni).
   ("B" ?B) ("C" ?C) ("D" ?D) ("G" ?G) ("H" ?H) ("K" ?K) ("L" ?L) ("M" ?M)
   ("N" ?N) ("P" ?P) ("Q" ?Q) ("T" ?T) ("V" ?V))
 
+ ;; These are the consonants that can end a word, anything else is not VNese
+ (ending-1st-consonant ; (e.g. tốt, đẹp, xấu)
+  ("c" ?c) ("m" ?m) ("n" ?n) ("p" ?p) ("t" ?t)
+  ("C" ?C) ("M" ?M) ("N" ?N) ("P" ?P) ("T" ?T))
+ (ending-2nd-consonant ; Can only go with 'n' or 'c' (e.g. sóng, sang, ích)
+  ("g" ?g) ("h" ?h)
+  ("G" ?G) ("H" ?H))
+
  (alnum
   ("a" ?a) ("b" ?b) ("c" ?c) ("d" ?d) ("e" ?e) ("f" ?f) ("g" ?g) 
   ("h" ?h) ("i" ?i) ("j" ?j) ("k" ?k) ("l" ?l) ("m" ?m) ("n" ?n)
