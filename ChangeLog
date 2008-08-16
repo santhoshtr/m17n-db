@@ -1,3 +1,8 @@
+2008-08-16  Kenichi Handa  <handa@m17n.org>
+
+	* FLT/THAI-OTF.flt (1st generator): On handling SARA-AM, keep,
+	glyph<->char correspondance.
+
 2008-08-11  VAnhTu1987  <vanhtu1987@gmail.com>  (tiny change)
 
 	* MIM/vi-base.mim (ending-1st-consonant, ending-2nd-consonant):
