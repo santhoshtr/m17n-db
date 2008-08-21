@@ -75,7 +75,7 @@ library.  The format is "XX.YY.ZZ" where XX is a major version
 number, YY is a minor version number, and ZZ is a patch level.
 
 @c DESCRIPTION specifies the description text of this input method by
-@c MTEXT-OR-GETTEXT.  It it takes the second form, the text is translated
+@c MTEXT-OR-GETTEXT.  If it takes the second form, the text is translated
 according to the current locale by "gettext" (if the translation is
 provided).
 
