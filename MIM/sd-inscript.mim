@@ -2,6 +2,7 @@
 ;; This file is derived from the Hindi inscript table of scim-tables,
 ;; which was derived from iiimf unitLE's Hindi inscript layout.
 ;; Copyright (c) 2003 Sun Microsystems, Inc. All Rights Reserved.
+;; Copyright (c) 2008 Red Hat, Inc. All Rights Reserved.
 
 ;; This file is part of the m17n contrib; a sub-part of the m17n
 ;; library.
