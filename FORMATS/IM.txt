@@ -265,10 +265,13 @@ position of a marker is referred by the @c MOVE and the @c DELETE actions.
 
 <li> variable list
 
-A variable is a symbol associated with an integer value.  The value of
-a variable is set by the @c SET action, and is referred by the @c SET,
-the @c INSERT, and the @c IF actions.  All variables are implicitly
-initialized to zero.
+A variable is a symbol associated with an integer, a symbol, or an
+M-text value.  The integer value of a variable can be set and referred
+by the @c SET action.  It can be referred by the @c INSERT and the @c
+IF actions.  The M-text value of a variable can be referred by the @c
+INSERT action.  The symbol value of a variable can not be referred
+directly, is used the library implicitly (e.g. candidates-charset).
+All variables are implicitly initialized to the integer value zero.
 
 </ul>
 
