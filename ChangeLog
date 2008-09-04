@@ -1,3 +1,7 @@
+2008-09-04  Kenichi Handa  <handa@m17n.org>
+
+	* FORMATS/IM.txt (variable list): Fixed.
+
 2008-08-16  Kenichi Handa  <handa@m17n.org>
 
 	* FLT/THAI-OTF.flt (1st generator): On handling SARA-AM, keep,
