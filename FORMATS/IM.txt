@@ -117,7 +117,7 @@ MODULE-NAME ::= SYMBOL
 FUNCTION ::= SYMBOL
 @endverbatim
 
-Each @c MODULE declares the name of external module (i.e. dynamic
+Each @c MODULE declares the name of an external module (i.e. dynamic
 library) and function names exported by the module.  If a @c FUNCTION has
 name "init", it is called with only the default arguments (see the
 section about @c CALL) when an input context is created for the input
@@ -267,11 +267,12 @@ position of a marker is referred by the @c MOVE and the @c DELETE actions.
 
 A variable is a symbol associated with an integer, a symbol, or an
 M-text value.  The integer value of a variable can be set and referred
-by the @c SET action.  It can be referred by the @c INSERT and the @c
-IF actions.  The M-text value of a variable can be referred by the @c
-INSERT action.  The symbol value of a variable can not be referred
-directly, is used the library implicitly (e.g. candidates-charset).
-All variables are implicitly initialized to the integer value zero.
+by the @c SET action.  It can be referred by the @c SET, the @c
+INSERT, the @c SELECT, the @c UNDO, the @c IF, the @c COND actions.
+The M-text value of a variable can be referred by the @c INSERT
+action.  The symbol value of a variable can not be referred directly,
+is used the library implicitly (e.g. candidates-charset).  All
+variables are implicitly initialized to the integer value zero.
 
 </ul>
 
@@ -361,6 +362,7 @@ The arguments and the behavior of each action are listed below.
 INSERT ::= '(' 'insert' MTEXT ')'
            | MTEXT
 	   | INTEGER
+	   | SYMBOL
            | '(' 'insert' SYMBOL ')'
            | '(' 'insert' '(' CANDIDATES * ')' ')'
            | '(' CANDIDATES * ')' 
@@ -373,10 +375,11 @@ The first and second forms insert @c MTEXT before the current position.
 The third form inserts the character @c INTEGER before the current
 position.
 
-The fourth form treats @c SYMBOL as a variable, and inserts its value
-(if it is a valid character code) before the current position.
+The fourth and fith form treats @c SYMBOL as a variable, and inserts
+its value (if it is a valid character code) before the current
+position.
 
-In the fifth and sixth forms, each @c CANDIDATES represents a
+In the sixth and seventh forms, each @c CANDIDATES represents a
 candidate group, and each element of @c CANDIDATES represents a
 candidate, i.e. if @c CANDIDATES is an M-text, the candidates are the
 characters in the M-text; if @c CANDIDATES is a list of M-texts, the
@@ -478,7 +481,7 @@ If there's no argument, this action cancels the last two key events
 
 If there's an integer argument NUM, it must be positive or negative
 (not zero).  If positive, from the NUMth to the last events are
-canceled.  If negative the last (- NUM) events are canceled.
+canceled.  If negative, the last (- NUM) events are canceled.
 
 If there's a symbol argument, it must be resolved to an integer number
 and the number is treated as the actual argument as above.
@@ -493,7 +496,7 @@ This action commits the current preedit.
 UNHANDLE :: = '(unhandle)'
 @endverbatim
 
-This action commits the current preedit and return the last key as
+This action commits the current preedit and returns the last key as
 unhandled.
 
 @verbatim
