@@ -128,13 +128,12 @@ MACRO-ACTION ::= ACTION
 
 TAGS ::= `(` LANGUAGE NAME EXTRA-ID ? `)`
 
-MACRO-INCLUSION ::= '(' 'include' TAGS 'macro' MACRO-NAME ? ')'
+MACRO-INCLUSION ::= '(' 'include' TAGS 'macro' ')'
 
 @endverbatim
 
-@c MACRO-INCLUSION は、@c TAGS で指定される他の入力メソッドから@c
-MACRO-NAME で指定されたマクロを読み込む。@c MACRO-NAME が与えられない場
-合は、その入力メソッドのすべてのマクロを読み込む。
+@c MACRO-INCLUSION は、@c TAGS で指定される他の入力メソッドから
+すべてのマクロを読み込む。
 
 @verbatim
 MAP-LIST ::= MAP-INCLUSION ? '(' 'map' MAP * ')' MAP-INCLUSION ?
@@ -147,7 +146,7 @@ RULE ::= '(' KEYSEQ MAP-ACTION * ')'
 
 KEYSEQ ::= MTEXT | '(' [ SYMBOL | INTEGER ] * ')'
 
-MAP-INCLUSION ::= '(' 'include' TAGS 'map' MAP-NAME ? ')'
+MAP-INCLUSION ::= '(' 'include' TAGS 'map' ')'
 
 @endverbatim
 
@@ -175,9 +174,8 @@ MTEXT は Latin-1 文字を含んでもよい。
 
 @c KEYSEQ 定義中の @c INTEGER は、有効な文字コードでなくてはならない。
 
-@c MAP-INCLUSION は、@c TAGS で指定される他の入力メソッドから@c
-MAP-NAME で指定されたマップを読み込む。@c MAP-NAME が与えられない場合は、
-その入力メソッドのすべてのマップを読み込む。
+@c MAP-INCLUSION は、@c TAGS で指定される他の入力メソッドから
+すべてのマップを読み込む。
 
 @verbatim
 MAP-ACTION ::= ACTION
@@ -214,9 +212,8 @@ STATE-INCLUSION ::= '(' 'include' TAGS 'state' STATE-NAME ? ')'
 入力メソッドがそれ単体で利用されることがなく常に他の入力メソッドに読
 み込まれて用いられる場合には、@c STATE-LIST は省略できる。
 
-@c STATE-INCLUSION は、@c TAGS で指定される他の入力メソッドから@c
-STATE-NAME で指定されたステートを読み込む。@c STATE-NAME が与えられない
-場合は、その入力メソッドのすべてのステートを読み込む。
+@c STATE-INCLUSION は、@c TAGS で指定される他の入力メソッドから
+すべてのステートを読み込む。
 
 @c STATE-TITLE-TEXT は、もし指定されていれば、入力メソッドがこの
 状態にある時スクリーン上に表示されるテキストである。省略された場合には
