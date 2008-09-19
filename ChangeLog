@@ -1,3 +1,7 @@
+2008-09-19  Kenichi Handa  <handa@m17n.org>
+
+	* MIM/global.mim (-reload): Renamed from @reload.
+
 2008-09-04  Kenichi Handa  <handa@m17n.org>
 
 	* FORMATS/IM.txt (variable list): Fixed.
