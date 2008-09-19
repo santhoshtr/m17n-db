@@ -168,7 +168,7 @@ Extend the current segment length to the tail")
   (_"Shrink segment
 Shrink the current segment length from the tail")
   (S-Left) (C-I))
- (@reload
+ (-reload
   (_"Reload input method
 Reload the input method (and configulation if any) and freshly start it.
 Note that the length of key-sequence bound for this command must be 1.
