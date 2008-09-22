@@ -135,12 +135,13 @@ MACRO-ACTION ::= ACTION
 
 TAGS ::= `(` LANGUAGE NAME EXTRA-ID ? `)`
 
-MACRO-INCLUSION ::= '(' 'include' TAGS 'macro' ')'
+MACRO-INCLUSION ::= '(' 'include' TAGS 'macro' MACRO-NAME ? ')'
 
 @endverbatim
 
-@c MACRO-INCLUSION includes macros from another input method specified by @c TAGS. 
-
+@c MACRO-INCLUSION includes macros from another input method specified
+by @c TAGS.  When @c MACRO-NAME is not given, all macros from the
+input method are included.
 
 @verbatim MAP-LIST ::= MAP-INCLUSION ? '(' 'map' MAP * ')'
 MAP-INCLUSION ?
@@ -153,7 +154,7 @@ RULE ::= '(' KEYSEQ MAP-ACTION * ')'
 
 KEYSEQ ::= MTEXT | '(' [ SYMBOL | INTEGER ] * ')'
 
-MAP-INCLUSION ::= '(' 'include' TAGS 'map' ')'
+MAP-INCLUSION ::= '(' 'include' TAGS 'map' MAP-NAME ? ')'
 
 @endverbatim
 
@@ -185,7 +186,9 @@ with shift with meta with hyper" is @c (M-H-A) .
 code.
 
 @c MAP-INCLUSION includes maps from another input method specified by
-@c TAGS. 
+@c TAGS. When @c MAP-NAME is not given, all maps from the input method
+are included.
+
 
 @verbatim
 MAP-ACTION ::= ACTION
@@ -216,15 +219,16 @@ BRANCH ::= '(' MAP-NAME BRANCH-ACTION * ')'
 	   | '(' nil BRANCH-ACTION * ')'
 	   | '(' t BRANCH-ACTION * ')'
 
-STATE-INCLUSION ::= '(' 'include' TAGS 'state' ')'
+STATE-INCLUSION ::= '(' 'include' TAGS 'state' STATE-NAME ? ')'
 
 @endverbatim
 
 When an input system is never standalone and always included in
 another system, @c STATE-LIST can be omitted.
 
-@c STATE-INCLUSION includes states from
-another input method specified by @c TAGS. 
+@c STATE-INCLUSION includes states from another input method specified
+by @c TAGS. When @c STATE-NAME is not given, all states from the input
+method are included.
 
 The optional @c STATE-TITLE-TEXT specifies a title text displayed on
 the screen when the input method is in this state.  If @c
