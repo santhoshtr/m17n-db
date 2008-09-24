@@ -21,8 +21,8 @@
 # Boston, MA 02110-1301, USA.
 
 # Process this file with autoconf to produce a configure script.
-AC_INIT(m17n-db, 1.5.2, bugs-m17n-lib@m17n.org)
-AM_INIT_AUTOMAKE(m17n-db, 1.5.2)
+AC_INIT(m17n-db, 1.5.3, bugs-m17n-lib@m17n.org)
+AM_INIT_AUTOMAKE(m17n-db, 1.5.3)
 AM_GNU_GETTEXT([external])
 
 # Checks for programs.
