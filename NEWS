@@ -5,6 +5,11 @@ Copyright (C) 2004, 2005, 2006, 2007, 2008
 See the end for copying conditions.
 
 
+* Changes in the m17n database 1.5.3
+
+This release is just for bug fixing.
+
+
 * Changes in the m17n database 1.5.2
 
 ** A new input method is added.
