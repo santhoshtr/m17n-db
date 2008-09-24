@@ -1,3 +1,7 @@
+2008-09-24  Kenichi Handa  <handa@m17n.org>
+
+	* configure.ac: Versions changed to 1.5.3.
+
 2008-09-19  Kenichi Handa  <handa@m17n.org>
 
 	* MIM/global.mim (-reload): Renamed from @reload.
