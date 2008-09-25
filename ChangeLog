@@ -1,3 +1,15 @@
+2008-09-25  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* MIM/si-wijesekera.mim: Remove prototypes.
+
+	* MIM/ug-kbd.mim:
+	Change the constant representation "0x062c" to "0x062C".
+
+	* MIM/si-wijesekera-preedit-alt.mim:
+	Replace "+" in state names with "--".
+	Fix typo: "yansaka" -> "yansaya".
+	Remove the state "touch".
+
 2008-09-24  Kenichi Handa  <handa@m17n.org>
 
 	* configure.ac: Versions changed to 1.5.3.
@@ -26,6 +38,10 @@
 	(after-v:ending-1st-consonant): New branch.
 	(after-vc:consonant,consonant-ext): Deleted.
 	(after-vc:ending-2nd-consonant, vowel, vowel-ex): New branches.
+
+2008-07-29  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FORMATS/IM.txt: Fix a typo.
 
 2008-07-25  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
