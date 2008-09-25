@@ -1,3 +1,15 @@
+2008-09-25  Harshula Jayasuriya <harshula@gmail.com>
+
+	* im/si-trans.mim: BUGFIX: MJ -> My, A-n J -> A-n y
+	BUGFIX: Add consonants group to the second state to ensure consonant
+	clusters involving ra and la at the second position are available.
+
+	* im/si-phonetic-dynamic.mim:
+	Move the macro section to the top as suggested by Takahashi.
+
+	* im/si-phonetic-static.mim:
+	Remove any requirement for surrounding text support.
+
 2008-08-29  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* im/sd-inscript.mim: Modify copyright.
@@ -7,7 +19,7 @@
 	* AUTHORS: New author.
 
 2008-08-14  Pravin Satpute <psatpute@redhat.com>
-	
+
 	* im/sd-inscript.mim, im/sd-inscript.png: New file.
 
 2008-07-02  TAKAHASHI Naoto  <ntakahas@m17n.org>
