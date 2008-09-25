@@ -1,5 +1,5 @@
 ;; si-wijesekera-preedit-alt.mim -- Sinhala input method with wijesekera method
-;; Copyright (C) 2006
+;; Copyright (C) 2006, 2008
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -144,7 +144,7 @@ This input method uses preedit rather than surrounding text.
  (kombuva
   ("f" "ෙ"))				; 0DD9
 
- (yansaka
+ (yansaya
   ("H"))
 
  (rakaransaya
@@ -166,8 +166,7 @@ This input method uses preedit rather than surrounding text.
   ("A"))
 
  (join
-  ("\\")
-  ("|"))
+  ("\\"))
 
  (backspace
   ((BackSpace)))
@@ -185,9 +184,9 @@ This input method uses preedit rather than surrounding text.
   (yansaya 0x0DCA 0x200D 0x0DBA)
   (repaya (move @-) 0x0DBB 0x0DCA 0x200D (move @+))
   (is-pilla (shift is-pilla))
-  (join 0x0DCA 0x200D (shift consonant+join)))
+  (join 0x0DCA 0x200D (shift consonant--join)))
 
- (consonant+join
+ (consonant--join
   (consonant (shift consonant))
   (backspace (undo)))
 
@@ -200,7 +199,7 @@ This input method uses preedit rather than surrounding text.
   (kombuva (delete @<) 0x0DDB (shift combu_deka))
   (aela-pilla (delete @<) 0x0DDC (shift kombuva_haa_aela-pilla))
   (gayanukitta (delete @<) 0x0DDE (shift init))
-  (consonant (move @1) (delete @0) (move @>) 0x0DD9 (shift consonant+kombuva))
+  (consonant (move @1) (delete @0) (move @>) 0x0DD9 (shift consonant--kombuva))
   (backspace (undo)))
 
  (combu_deka
@@ -211,23 +210,22 @@ This input method uses preedit rather than surrounding text.
   (al-lakuna (delete @<) 0x0DDD (shift init))
   (backspace (undo)))
 
- (consonant+kombuva
+ (consonant--kombuva
   (al-lakuna (delete @-) 0x0DDA (shift init))
-  (aela-pilla (delete @-) 0x0DDC (shift consonant+kombuva_haa_aela-pilla))
+  (aela-pilla (delete @-) 0x0DDC (shift consonant--kombuva_haa_aela-pilla))
   (gayanukitta (delete @-) 0x0DDE (shift init))
-  (yansaka (move @-) 0x0DCA 0x200D 0x0DBA (move @>))
+  (yansaya (move @-) 0x0DCA 0x200D 0x0DBA (move @>))
   (rakaransaya (move @-) 0x0DCA 0x200D 0x0DBB (move @>))
-  (join (shift consonant+join+kombuva))
-  (touch (move @-) 0x200D 0x0DCA (move @>))
+  (join (shift consonant--join--kombuva))
   (backspace (undo)))
 
- (consonant+kombuva_haa_aela-pilla
+ (consonant--kombuva_haa_aela-pilla
   (al-lakuna (delete @-) 0x0DDD (shift init))
   (backspace (undo)))
 
- (consonant+join+kombuva
+ (consonant--join--kombuva
   (consonant (move @-) (delete @-) 0x0DCA 0x200D (move @+) 0x0DD9
-	     (shift consonant+kombuva))
+	     (shift consonant--kombuva))
   (backspace (undo)))
  )
 
