@@ -1,7 +1,24 @@
 ;; si-trans.mim -- Sinhala transliteration keymap
+;; Copyright (C) 2007-2008  Harshula Jayasuriya <harshula@gmail.com>
+
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU General Public License
+;; as published by the Free Software Foundation; either version 2
+;; of the License, or (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program; if not, write to the Free Software
+;; Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA  02110-1301, USA.
+
 ;; m17n Keymap file for Sinhala (Sri Lanka) (2007-07-08)
 ;; Maintainer: Harshula Jayasuriya <harshula@gmail.com>
-;; Last Updated: 2007-11-17
+;; Last Updated: 2008-09-10
 ;; This is a transliteration mapping for a standard US-English keyboard
 ;; (qwerty)
 ;; http://www.nongnu.org/sinhala/doc/transliteration/sinhala-transliteration_5.html
@@ -28,10 +45,10 @@
   ("cH" "ඡ්")		; 0x0da1 - mahaapraana cayanna (cha)
   ("j" "ජ්")		; 0x0da2 - alpapraana jayanna (ja)
   ("jH" "ඣ්")		; 0x0da3 - mahaapraana jayanna (jha)
-  ("MJ" "ඤ්")		; 0x0da4 - taaluja naasikyaya (nya)
-  ((A-n J) "ඤ්")		; AS ABOVE
-  ("jqMJ" "ඥ්")		; 0x0da5 - taaluja sanyooga naasikyaya (jnya)
-  ((j q A-n J) "ඥ්")		; AS ABOVE
+  ("My" "ඤ්")		; 0x0da4 - taaluja naasikyaya (nya)
+  ((A-n y) "ඤ්")		; AS ABOVE
+  ("jqMy" "ඥ්")		; 0x0da5 - taaluja sanyooga naasikyaya (jnya)
+  ((j q A-n y) "ඥ්")		; AS ABOVE
   ("Mj" "ඦ්")		; 0x0da6 - sanyaka jayanna (nyja)
   ((A-n j) "ඦ්")		; AS ABOVE
   ("T" "ට්")		; 0x0da7 - alpapraana ttayanna (tta)
@@ -130,7 +147,8 @@
   (independent)
  )
  (second
+  (consonants)
   (dependent (shift init))
-  (rakyan (shift second))
+  (rakyan)
  )
 )
