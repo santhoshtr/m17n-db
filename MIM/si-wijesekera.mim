@@ -1,5 +1,5 @@
 ;; si-wijesekera.mim -- Sinhala input method with wijesekera method
-;; Copyright (C) 2005, 2006
+;; Copyright (C) 2005, 2006, 2008
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -31,12 +31,6 @@ This input method requires surrounding text support.
 (title "සි")
 
 (macro
- ;; prototype
- (forward (set x 0))
- (backward (set x 0))
- (delete-preceding-zw (set x 0))
- (delete-following-zw (set x 0))
-
  ;; skip following (virama zwj consonant)* sequence
  (forward
   (set cc3 @+3)
