@@ -9,11 +9,20 @@
 ;;;
 ;;; For Malayalam OpenType fonts to draw the reformed Malayalam script.
 
+;; Tested with the following fonts.  All of these fonts require Halant
+;; movement for syllable-final YA, LA and VA, but not for RA.
+
+;; AnjaliOldLipi.ttf
+;; Dyuthi3.ttf
+;; Kalyani121.ttf
+;; Meera_04.ttf
+;; Rachana_04.ttf
+;; RaghuMalayalamSans2.ttf
+;; suruma2.ttf
+
 (category
- ;; C: consonant (except for R, B, and P)
- ;; R: consonant RA
- ;; B: consonant (below)
- ;; P: consonant (post)
+ ;; C: ordinary consonants (except P)
+ ;; P: consonants that have a post- or below-form
  ;; H: HALANT
  ;; m: vowel sign (pre)
  ;; b: vowel sign (below)
@@ -22,16 +31,15 @@
  ;; V: independent vowel
  ;; N: ZWNJ (ZERO WIDTH NON-JOINER)
  ;; J: ZWJ (ZERO WIDTH JOINER)
- ;; X: generic
  ;; Z: internal use
+ ;; X: generic
  (0x0D00 0x0D7F	?X)			; generic
- (0x0D00	?Z)			; internal use
+ (0x0D00        ?Z)			; internal use
  (0x0D02 0x0D03	?A)			; SIGN ANUSVARA .. VISARGA
  (0x0D05 0x0D14	?V)			; LETTER A .. AU
  (0x0D15 0x0D39 ?C)			; LETTER KA .. HA
  (0x0D2F	?P)			; LETTER YA
- (0x0D30	?R)			; LETTER RA
- (0x0D32	?B)			; LETTER LA
+ (0x0D32	?P)			; LETTER LA
  (0x0D35	?P)			; LETTER VA
  (0x0D3E 0x0D44	?p)			; VOWEL SIGN AA .. VOCALIC RR
  (0x0D46 0x0D48	?m)			; VOWEL SIGN E .. AI
@@ -45,6 +53,7 @@
  (0x200D	?J)			; ZWJ
  )
 
+;; Stage 0
 ;; Decompose two-part vowels.
 (generator
  (0
@@ -58,147 +67,138 @@
    ("." =))
   *))
 
+;; Stage 1
 ;; Syllable identification and reordering.  
-;; Put the mark 0x0D00 before the first pre-base consonant and after
-;; the base consonant.
+;; Put the mark Z after the base consonant.
 (generator
  (0
   (cond
    ;; A syllable with a left vowel sign.
-   ;;1      2          3  4
-   ("([CRBP](H[CRBP])*)(m)(p?A?)"
-    < | (3 =) (1 get-rh) 0x0D00 (1 move-h) (4 = *) | >)
+   ;;1    2        3  4
+   ("([CP](H[CP])*)(m)(p?A?)"
+    < | (3 =) (1 move-h) (4 = *) | >)
 
    ;; A syllable with a right vowel sign, a below vowel sign
    ;; and/or a vowel modifier.
-   ;;1      2          3
-   ("([CRBP](H[CRBP])*)(bA?|pA?|A)"
-    < | (1 get-rh) 0x0D00 (1 move-h) (3 = *) | >)
+   ;;1    2        3
+   ("([CP](H[CP])*)(bA?|pA?|A)"
+    < | (1 move-h) (3 = *) | >)
 
-   ;; Explicit Halant / forced chillu form is cut off from the preceders.
-   ("(([CRBP]H)*)([CRBP]H[NJ])"
-    (1 cut-off) (3 < | = * | >))
+   ;; Explicit Halant / forced chillu form is separated from the
+   ;; preceding characters.
+   ;;12        3
+   ("(([CP]H)*)([CP]H[NJ])"
+    (1 < | cut-off | >) (3 < | = * | >))
 
    ;; A syllable with no vowel signs/modifiers.
-   ("([CRBP](H[CRBP])*H?)"
-    < | (1 get-rh) 0x0D00 (1 move-h) | >)
+   ("[CP](H[CP])*H?"
+    < | (0 move-h) | >)
 
    ;; Starting with an independent vowel.
-   ("(VA?)"
-    < | (1 = *) | >)
+   ("VA?"
+    < | (0 = *) | >)
 
    ("." =))
   *)
 
- ;; Extract RH that will be moved to the left.
- (get-rh
-  (cond
-   (".+HR$"
-    0x0D30 0x0D4D)))
 
- ;; Move the halant after the base consonant to the end.
- ;; Fill the resulting gap with 0x0D00.
- ;; Remove final RH if any.
+ ;; Move the halant that follows the base consonant to the end.
  (move-h
   (cond
-   ;; There is a C and the syllable ends with an R.  Remove final RH.
-   ("([CRBPH]*C)H([RBPH]*)R$"
-    (1 = *) 0x0D00 (2 = *))
-
-   ;; The syllable ends other than R.  Move H.
-   ("([CRBPH]*C)(H)([RBPH]+)$"
-    (1 = *) 0x0D00 (3 = *) (2 =))
-
-   ;; No C and end with R.  The first consonant will be the base.  Remove RH.
-   ("([RBP])H([RBPH]*)R$"
-    (1 =) 0x0D00 (2 = *))
-
-   ;; No C and not end with R.  Move H.
-   ("([RBP])(H)([RBPH]+)$"
+   ;; All consonants are P's.
+   ("(P)(H)([PH]*)$"
     (1 =) 0x0D00 (3 = *) (2 =))
 
-   ;; Otherwise, no need to move H.
+   ;; One or more Non-P consonants.
+   ("([CPH]*C)(H)([PH]+)$"
+    (1 = *) 0x0D00 (3 = *) (2 =))
+
+   ;; Otherwise, final consonant is not P.  No need to move H.
    (".+"
     = * 0x0D00)))
 
- ;; If there are some letters make them a separate syllable.
+ ;; If there are some letters, make them a separate syllable.
  (cut-off
   (cond
-   (".+"
-    < | = * | >)))
+   ("[CP](H[CP])*H?"
+    (0 move-h))))
  )
 
-;; Apply GSUB features.
-;; According to Microsoft Typography
-;; <http://www.microsoft.com/typography/otfntdev/malayot/features.htm>
-;; 'chillu' are generated with the 'haln' feature.  However, some
-;; fonts generate them with 'half'.
+;; Stage 2
+;; Apply 'akhn' feature.
 (generator
  (0
   (cond
    ;; Ordinary syllable.  We must avoid applying 'blwf' and 'pstf' to
-   ;; the first consonant.  Also 'haln' and 'half' must be avoided
-   ;; because chillu does not appear at the beginning of a word.  Thus
-   ;; we apply only 'akhn' here and postpone applying other features
-   ;; to the next stage.
-   ;; 1  2      3         4  5
-   (" (m?(RH)?Z)([CRBPH]+)(Z)([RBPHbpA]*) "
-    | (1 = *) (3 otf:mlym=akhn+) (4 =) (5 otf:mlym=blwf,pstf+) |)
+   ;; the first consonant if it is a P, but 'akhn' must be applied
+   ;; always.  Other GSUB features are applied in the following
+   ;; satges.
+
+   ;; 1   2       3  4
+   (" (m)?([CPH]*)(Z)([PHbpA]*) "
+    | (1 =) (2 otf:mlym=akhn+) (3 =) (4 otf:mlym=blwf,pstf+) |)
+
+   ("." =))
+  *))
+
+;; Stage 3
+;; Apply 'blwf' to non-initial glyphs.
+(generator
+ (0
+  (cond
+   ;; 1       2       3
+   (" (m?[^Z])([^Z ]*)(Z[^ ]*) "
+    | (1 = *) (2 otf:mlym=blwf+) (3 = *) |)
+
+   ("." =))
+  *))
+
+;; Stage 4
+;; Apply other language forms.
+(generator
+ (0
+  (cond
+   ;; All characters should have the 'half' form glyph, and 'pstf' is
+   ;; always applied after 'half'.  Thus we do not need to worry
+   ;; about applying 'pstf' to the first glyph.
+   ;; 1   2       3
+   (" (m)?([^Z ]*)(Z[^ ]*) "
+    | (1 = *) (2 otf:mlym=half,pstf+) (3 = *) |)
 
    ;; Explicit Halant.
-   (" [CRBP]HN "
-    = *)
-
-   ;; Forced chillu form.
-   (" ([CRBP]H)(J) "
-    | (1 otf:mlym=haln,half+) (2 =) |)
-
-   ;; Sequence that was cut off from a forced form.  Again we apply
-   ;; only 'akhn' here.
-   (" ([CRBPH]+) "
-    | (1 otf:mlym=akhn+) |)
-
-   ("." =))
-  *))
-
-;; Apply postoponed GSUB features to ordinary syllables.
-(generator
- (0
-  (cond
-   ;; Ordinary syllable.
-   ;; 1  2          3      4 
-   (" (m?(RH)?Z[^Z])([^Z]*)(Z[^ ]*) "
-    | (1 = *) (3 otf:mlym=blwf,half,pstf,haln+) (4 = *) |)
-
-   ;; Explicit Halant / Forced chillu must not change to others.
-   (" ([^ ]+)[NJ] "
+   (" ([CP]H)N "
     | (1 = *) |)
 
-   ;; Cut off sequence.
-   (" ([^ ])([^ ]*) "
-    | (1 =) (2 otf:mlym=blwf,half,pstf,haln+) |)
+   ;; Forced chillu form.  According to Microsoft Typography
+   ;; <http://www.microsoft.com/typography/otfntdev/malayot/features.htm>
+   ;; 'chillu' glyphs are generated with the 'haln' feature.  However,
+   ;; some fonts generate them with 'half'.
+   (" ([CP]HJ) "
+    | (1 otf:mlym=haln,half+) |)
 
    ("." =))
   *))
 
+;; Stage 5
 ;; Second reordering.  If there are glyphs before the base, move left
-;; vowel sign and RH to the left of the base.
+;; vowel sign to the left of the base.
 (generator
  (0
   (cond
-   ;; 1   2     3      4      5
-   (" (m)?(RH)?Z([^Z]*)([^Z])Z([^ ]*) "
-    | (3 = *) (1 =) (2 otf:mlym=pstf+) (4 =) (5 = *) |)
+   ;; 1   2       3      4
+   (" (m)?([^Z ]*)([^Z])Z([^ ]*) "
+    | (2 = *) (1 =) (3 =) (4 = *) |)
 
    ("." =))
   *))
 
-;; Apply substitutions and GPOS features.
+;; Stage 6
+;; Apply typographical forms, 'haln' and GPOS features.
 (generator
  (0
   (cond
    (" ([^ ]+) "
-    (1 otf:mlym=pres,abvs,blws,psts+abvm,blwm,dist))
+    (1 otf:mlym=pres,abvs,blws,psts,haln+abvm,blwm,dist))
    ("."
     [ = ]))
   *))
