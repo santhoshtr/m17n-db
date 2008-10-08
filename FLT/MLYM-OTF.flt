@@ -154,16 +154,17 @@
   *))
 
 ;; Stage 4
-;; Apply other language forms.
+;; Apply other language forms and 'pres'.
 (generator
  (0
   (cond
    ;; All characters should have the 'half' form glyph, and 'pstf' is
-   ;; always applied after 'half'.  Thus we do not need to worry
-   ;; about applying 'pstf' to the first glyph.
+   ;; always applied after 'half'.  Thus we do not need to worry about
+   ;; applying 'pstf' to the first glyph.  Also 'pres' is applied here
+   ;; to form pre-base conjuncts.
    ;; 1   2       3
    (" (m)?([^Z ]*)(Z[^ ]*) "
-    | (1 = *) (2 otf:mlym=half,pstf+) (3 = *) |)
+    | (1 = *) (2 otf:mlym=half,pstf,pres+) (3 = *) |)
 
    ;; Explicit Halant.
    (" ([CP]H)N "
@@ -193,12 +194,12 @@
   *))
 
 ;; Stage 6
-;; Apply typographical forms, 'haln' and GPOS features.
+;; Apply remaining typographical forms, 'haln' and GPOS features.
 (generator
  (0
   (cond
    (" ([^ ]+) "
-    (1 otf:mlym=pres,abvs,blws,psts,haln+abvm,blwm,dist))
+    (1 otf:mlym=abvs,blws,psts,haln+abvm,blwm,dist))
    ("."
     [ = ]))
   *))
