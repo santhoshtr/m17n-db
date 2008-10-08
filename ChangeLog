@@ -1,5 +1,9 @@
 2008-10-08  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
+	* FLT/MLYM-OTF.flt: Move 'pres' from Stage 6 to Stage 4.
+
+2008-10-08  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
 	* FLT/MLYM-OTF.flt:
 	Add ZWJ to the chillu sequence passed to the OTF driver.
 	Do not move syllable-final RA to the beginning.  Let the font handle it.
