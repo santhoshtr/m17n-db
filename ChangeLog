@@ -1,3 +1,9 @@
+2008-10-09  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/MLYM-OTF.flt:
+	Do not move H for LA's below form.  Let the fonts hadle it.
+	Exclude chillu forms from the consonant group.
+
 2008-10-08  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/MLYM-OTF.flt: Move 'pres' from Stage 6 to Stage 4.
