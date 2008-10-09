@@ -22,7 +22,7 @@
 
 (category
  ;; C: ordinary consonants (except P)
- ;; P: consonants that have a post- or below-form
+ ;; P: consonants that have a post form
  ;; H: HALANT
  ;; m: vowel sign (pre)
  ;; b: vowel sign (below)
@@ -39,7 +39,6 @@
  (0x0D05 0x0D14	?V)			; LETTER A .. AU
  (0x0D15 0x0D39 ?C)			; LETTER KA .. HA
  (0x0D2F	?P)			; LETTER YA
- (0x0D32	?P)			; LETTER LA
  (0x0D35	?P)			; LETTER VA
  (0x0D3E 0x0D44	?p)			; VOWEL SIGN AA .. VOCALIC RR
  (0x0D46 0x0D48	?m)			; VOWEL SIGN E .. AI
@@ -47,7 +46,6 @@
  (0x0D57	?p)			; AU LENGTH MARK
  (0x0D60 0x0D61	?V)			; LETTER VOCALIC RR .. VOCALIC LL
  (0x0D62 0x0D63 ?b)			; VOWEL SIGN VOCALIC L .. LL
- (0x0D7A 0x0D7F ?C)			; LETTER CHILLU NN .. K
  (0x0964 0x0965	?X)			; DANDA .. DOUBLE DANDA
  (0x200C	?N)			; ZWNJ
  (0x200D	?J)			; ZWJ
@@ -91,8 +89,9 @@
     (1 < | cut-off | >) (3 < | = * | >))
 
    ;; A syllable with no vowel signs/modifiers.
-   ("[CP](H[CP])*H?"
-    < | (0 move-h) | >)
+   ;;1    2        3
+   ("([CP](H[CP])*)(H)?"
+    < | (1 move-h) (3 =) | >)
 
    ;; Starting with an independent vowel.
    ("VA?"
@@ -120,51 +119,21 @@
  ;; If there are some letters, make them a separate syllable.
  (cut-off
   (cond
-   ("[CP](H[CP])*H?"
-    (0 move-h))))
+   ("([CP](H[CP])*)(H)?"
+    (1 move-h) (3 =))))
  )
 
 ;; Stage 2
-;; Apply 'akhn' feature.
+;; Apply GSUB features.
 (generator
  (0
   (cond
-   ;; Ordinary syllable.  We must avoid applying 'blwf' and 'pstf' to
-   ;; the first consonant if it is a P, but 'akhn' must be applied
-   ;; always.  Other GSUB features are applied in the following
-   ;; satges.
-
-   ;; 1   2       3  4
+   ;; An ordinary syllable.  The tested fonts make LA's below form
+   ;; with 1. 'half' + 'blws', 2. 'half' + 'pres' or 3. 'akhn'.
+   ;; 1   2        3  4
    (" (m)?([CPH]*)(Z)([PHbpA]*) "
-    | (1 =) (2 otf:mlym=akhn+) (3 =) (4 otf:mlym=blwf,pstf+) |)
-
-   ("." =))
-  *))
-
-;; Stage 3
-;; Apply 'blwf' to non-initial glyphs.
-(generator
- (0
-  (cond
-   ;; 1       2       3
-   (" (m?[^Z])([^Z ]*)(Z[^ ]*) "
-    | (1 = *) (2 otf:mlym=blwf+) (3 = *) |)
-
-   ("." =))
-  *))
-
-;; Stage 4
-;; Apply other language forms and 'pres'.
-(generator
- (0
-  (cond
-   ;; All characters should have the 'half' form glyph, and 'pstf' is
-   ;; always applied after 'half'.  Thus we do not need to worry about
-   ;; applying 'pstf' to the first glyph.  Also 'pres' is applied here
-   ;; to form pre-base conjuncts.
-   ;; 1   2       3
-   (" (m)?([^Z ]*)(Z[^ ]*) "
-    | (1 = *) (2 otf:mlym=half,pstf,pres+) (3 = *) |)
+    | (1 =) (2 otf:mlym=akhn,half,pstf,pres,abvs,blws+) (3 =)
+    (4 otf:mlym=pstf+) |)
 
    ;; Explicit Halant.
    (" ([CP]H)N "
@@ -180,7 +149,7 @@
    ("." =))
   *))
 
-;; Stage 5
+;; Stage 3
 ;; Second reordering.  If there are glyphs before the base, move left
 ;; vowel sign to the left of the base.
 (generator
@@ -193,13 +162,15 @@
    ("." =))
   *))
 
-;; Stage 6
-;; Apply remaining typographical forms, 'haln' and GPOS features.
+;; Stage 4
+;; Apply remaining GSUB and GPOS features to all syllables.  To get
+;; correct Y-YA and V-VA conjunctions, we must apply 'psts' to the
+;; entire syllable.
 (generator
  (0
   (cond
    (" ([^ ]+) "
-    (1 otf:mlym=abvs,blws,psts,haln+abvm,blwm,dist))
+    (1 otf:mlym=psts,haln+abvm,blwm,dist))
    ("."
     [ = ]))
   *))
