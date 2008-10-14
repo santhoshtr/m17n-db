@@ -10,7 +10,7 @@
 ;;; For Malayalam OpenType fonts to draw the reformed Malayalam script.
 
 ;; Tested with the following fonts.  All of these fonts require Halant
-;; movement for syllable-final YA, LA and VA, but not for RA.
+;; movement for syllable-final YA and VA, but not for RA and LA.
 
 ;; AnjaliOldLipi.ttf
 ;; Dyuthi3.ttf
@@ -82,16 +82,16 @@
    ("([CP](H[CP])*)(bA?|pA?|A)"
     < | (1 move-h) (3 = *) | >)
 
-   ;; Explicit Halant / forced chillu form is separated from the
-   ;; preceding characters.
-   ;;12        3
-   ("(([CP]H)*)([CP]H[NJ])"
-    (1 < | cut-off | >) (3 < | = * | >))
-
-   ;; A syllable with no vowel signs/modifiers.
+   ;; Forced chillu form.
    ;;1    2        3
-   ("([CP](H[CP])*)(H)?"
-    < | (1 move-h) (3 =) | >)
+   ("([CP](H[CP])*)(HJ)"
+    < | (1 move-h) (3 = =) | >)
+
+   ;; A syllable with no vowel signs/modifiers, optionally followed by
+   ;; an H or an HN.
+   ;;1    2        3
+   ("([CP](H[CP])*)(H|HN)?"
+    < | (1 move-h) (3 0x0D4D) | >)
 
    ;; Starting with an independent vowel.
    ("VA?"
@@ -115,12 +115,6 @@
    ;; Otherwise, final consonant is not P.  No need to move H.
    (".+"
     = * 0x0D00)))
-
- ;; If there are some letters, make them a separate syllable.
- (cut-off
-  (cond
-   ("([CP](H[CP])*)(H)?"
-    (1 move-h) (3 =))))
  )
 
 ;; Stage 2
@@ -128,23 +122,12 @@
 (generator
  (0
   (cond
-   ;; An ordinary syllable.  The tested fonts make LA's below form
-   ;; with 1. 'half' + 'blws', 2. 'half' + 'pres' or 3. 'akhn'.
-   ;; 1   2        3  4
-   (" (m)?([CPH]*)(Z)([PHbpA]*) "
+   ;; The tested fonts make LA's below form with 1. 'half' + 'blws',
+   ;; 2. 'half' + 'pres' or 3. 'akhn'.
+   ;; 1   2       3  4
+   (" (m)?([CPH]*)(Z)([PHbpAJ]*) "
     | (1 =) (2 otf:mlym=akhn,half,pstf,pres,abvs,blws+) (3 =)
     (4 otf:mlym=pstf+) |)
-
-   ;; Explicit Halant.
-   (" ([CP]H)N "
-    | (1 = *) |)
-
-   ;; Forced chillu form.  According to Microsoft Typography
-   ;; <http://www.microsoft.com/typography/otfntdev/malayot/features.htm>
-   ;; 'chillu' glyphs are generated with the 'haln' feature.  However,
-   ;; some fonts generate them with 'half'.
-   (" ([CP]HJ) "
-    | (1 otf:mlym=haln,half+) |)
 
    ("." =))
   *))
@@ -164,7 +147,7 @@
 
 ;; Stage 4
 ;; Apply remaining GSUB and GPOS features to all syllables.  To get
-;; correct Y-YA and V-VA conjunctions, we must apply 'psts' to the
+;; correct Y.YA and V.VA conjunctions, we must apply 'psts' to the
 ;; entire syllable.
 (generator
  (0
