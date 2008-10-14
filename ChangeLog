@@ -1,3 +1,7 @@
+2008-10-14  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/MLYM-OTF.flt: Interpret CHCHJ as CHCH J rather than CH CHJ.
+
 2008-10-09  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/MLYM-OTF.flt:
