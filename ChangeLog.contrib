@@ -2,6 +2,10 @@
 
 	* Version 1.1.8 released.
 
+2008-10-20  Kenichi Handa  <handa@m17n.org>
+
+	* configure.ac: Version changed to 1.1.8.
+
 2008-09-25  Harshula Jayasuriya <harshula@gmail.com>
 
 	* im/si-trans.mim: BUGFIX: MJ -> My, A-n J -> A-n y
