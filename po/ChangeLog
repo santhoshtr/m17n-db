@@ -1,8 +1,14 @@
+2008-10-20  Kenichi Handa  <handa@m17n.org>
+
+	* Version 1.5.3 released.
+
 2008-06-23  Kenichi Handa  <handa@m17n.org>
 
 	* Version 1.5.2 released.
 
 2008-06-23  Kenichi Handa  <handa@m17n.org>
+
+	* m17n-db.pot: Updated.
 
 	* vi.po: Updated.
 

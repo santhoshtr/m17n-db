@@ -1,3 +1,7 @@
+2008-10-20  Kenichi Handa  <handa@m17n.org>
+
+	* Version 1.5.3 released.
+
 2008-10-20  Phan Anh Dung  <fanzung@gmail.com>  (tiny change)
 
 	* MIM/vi-telex.mim (map:consonant-ext): Don't check C-AFTER-V for
