@@ -65,9 +65,10 @@ If the value is 1, Backspace key undoes the previous key
   ("Ooo" ("OÓÒỎÕỌ") ("oóòỏõọ") (set V-2 V-1) (set V-1 ?O)))
 
  (consonant-ext
-  ("dd" (cond ((= C-AFTER-V 0) "dd") (1 ?đ))) ; Works when
-  ("DD" (cond ((= C-AFTER-V 0) "DD") (1 ?Đ))) ; it is the first
-  ("Dd" (cond ((= C-AFTER-V 0) "Dd") (1 ?Đ)))) ; letter (not ađ)
+  ("dd" ?đ) ("DD" ?Đ) ("Dd" ?Đ))
+  ;("dd" (cond ((= C-AFTER-V 0) "dd") (1 ?đ))) ; Works when
+  ;("DD" (cond ((= C-AFTER-V 0) "DD") (1 ?Đ))) ; it is the first
+  ;("Dd" (cond ((= C-AFTER-V 0) "Dd") (1 ?Đ)))) ; letter (not ađ)
 
  (tone-mark
   ("z" (set SELECT 0) ?z) ("Z" (set SELECT 0) ?Z)
@@ -124,6 +125,7 @@ If the value is 1, Backspace key undoes the previous key
 	 (move T) (select 0) (handle-mark) (move M))
   (vowel-ext (mark M) (set V-3 V-2) (set V-2 V-1) (set V-1 @-1)
 	     (move T) (select 0) (handle-mark) (move M))
+  (ending-1st-notviet-consonant (shift temporary-escape)) ;; See ending-1st-notviet-consonant section in the vi-base.mim 
   (consonant-or-tone-mark (delete @-) (pushback 1) (shift after-t))
   (backspace (delete @-)
 	     (cond (V-3 (set V-1 V-2) (set V-2 V-3) (set V-3 0)
@@ -141,6 +143,7 @@ If the value is 1, Backspace key undoes the previous key
    (cond ((| (= @-2 ?n) (= @-2 ?c) ; 1st ending consonant must be n/c
              (= @-2 ?N) (= @-2 ?C)) (add C-AFTER-V 1))
          (1 (shift temporary-escape))))
+  (ending-1st-notviet-consonant (shift temporary-escape)) ;; Expand notviet-consonant section in the vi-base.mim 
   (consonant-or-tone-mark (delete @-) (pushback 1) (shift after-t))
   (vowel (shift temporary-escape))      ; There can only be one
   (vowel-ext (shift temporary-escape))  ; main vowel in a word
