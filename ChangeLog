@@ -1,3 +1,14 @@
+2008-10-20  Phan Anh Dung  <fanzung@gmail.com>  (tiny change)
+
+	* MIM/vi-telex.mim (map:consonant-ext): Don't check C-AFTER-V for
+	"dd".
+	(state:after-v, after-vc): New branch
+	ending-1st-notviet-consonant.
+
+2008-10-20  Phan Anh Dung  <fanzung@gmail.com>  (tiny change)
+
+	* MIM/vi-base.mim (map:ending-1st-notviet-consonant) New map.
+
 2008-10-14  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/MLYM-OTF.flt: Interpret CHCHJ as CHCH J rather than CH CHJ.
