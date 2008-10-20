@@ -96,7 +96,11 @@ to be included in the other Vietnamese input method (e.g. vi-telex, vi-vni).
   ("n" ?n) ("p" ?p) ("q" ?q) ("t" ?t) ("v" ?v)
   ("B" ?B) ("C" ?C) ("D" ?D) ("G" ?G) ("H" ?H) ("K" ?K) ("L" ?L) ("M" ?M)
   ("N" ?N) ("P" ?P) ("Q" ?Q) ("T" ?T) ("V" ?V))
-
+ ;;Khi cac phu am nay di sau nguyen am thi nen thoat ve tieng Anh
+ ;;Should switch to English when these consonants are after any vowel (set temporary-escape)  
+ (ending-1st-notviet-consonant ;
+  ("q" ?q) ("Q" ?Q) ("d" ?d) ("D" ?D) ("g" ?g) ("G" ?G) ("h" ?h) ("H" ?H)
+  ("k" ?k) ("K" ?K) ("l" ?l) ("L" ?L) ("v" ?v) ("V" ?V) ("b" ?b) ("B" ?B) ("z" ?z) ("Z" ?Z))
  ;; These are the consonants that can end a word, anything else is not VNese
  (ending-1st-consonant ; (e.g. tốt, đẹp, xấu)
   ("c" ?c) ("m" ?m) ("n" ?n) ("p" ?p) ("t" ?t)
