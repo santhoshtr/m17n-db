@@ -1,4 +1,4 @@
-#!/usr/bin/gawk
+#!/usr/bin/gawk -f
 # Copyright (C) 2006
 #   National Institute of Advanced Industrial Science and Technology (AIST)
 #   Registration Number H15PRO112
