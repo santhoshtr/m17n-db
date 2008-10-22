@@ -27,7 +27,11 @@ BEGIN {
 
 /^ICON *=/ { ICON = " \""$3"\""; next; }
 /^NAME *=/ { NAME = tolower($3); next; }
-/^LANGUAGES *=/ { LANG = $3; next; }
+/^LANGUAGES *=/ {
+    LANG = $3;
+    if (LANG == "other")
+	LANG = "t";
+    next; }
 /^STATUS_PROMPT *=/ { TITLE = $3; next; }
 /^BEGIN_TABLE/ {
     printf "(input-method %s %s)\n", LANG, NAME;
