@@ -1,6 +1,7 @@
-2008-10-21  Jens Petersen  <petersen@redhat.com>  (tiny change)
+2008-10-22  Jens Petersen  <petersen@redhat.com>  (tiny change)
 
 	* tbl2mim.awk: Add -f to invocation so that it runs as a script.
+	Handle language "other".
 
 2008-10-20  Kenichi Handa  <handa@m17n.org>
 
