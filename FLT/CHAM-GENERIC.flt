@@ -5,7 +5,7 @@
 (font layouter cham-generic nil
       (font (nil nil unicode-bmp :script=cham)))
 
-;;; <li> CHARM-GENERIC.flt
+;;; <li> CHAM-GENERIC.flt
 ;;;
 ;;; For the Cham proportional fonts to draw Cham script.
 
