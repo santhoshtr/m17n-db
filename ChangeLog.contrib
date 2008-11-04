@@ -1,3 +1,8 @@
+2008-11-04  Maxim Treskin  <zerthurd@gmail.com>
+
+	* im/ru-translit.mim:
+	Add buryat (mongol) symbols: U+04AE, U+04AF, U+04E8, U+04E9.
+
 2008-10-22  Jens Petersen  <petersen@redhat.com>  (tiny change)
 
 	* tbl2mim.awk: Add -f to invocation so that it runs as a script.
