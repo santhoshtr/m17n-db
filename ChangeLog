@@ -1,3 +1,8 @@
+2008-11-17  Kenichi Handa  <handa@m17n.org>
+
+	* FORMATS/Fontset.txt (FONT-SPEC): Add descripition of OTF-SPEC
+	and LANG-SPEC.
+
 2008-10-28  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* MIM/grc-mizuochi.mim:
