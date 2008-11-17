@@ -29,7 +29,8 @@ FONT-SPEC-ELEMENT ::= '(' FONT-SPEC [ FLT-NAME ] ')'
 FONT-SPEC ::=
      '(' [ FOUNDRY FAMILY
            [ WEIGHT [ STYLE [ STRETCH [ ADSTYLE ]]]]]
-         REGISTRY ')'
+         REGISTRY
+	 [ OTF-SPEC ] [ LANG-SPEC ] ')'
 @endverbatim    
 
 @c SCRIPT is a symbol of script name (e.g. latin, han) or @c nil.  @c
@@ -39,6 +40,35 @@ LANGUAGE is a two-letter symbol of language name code defined by ISO
 @c FONT-SPEC is to specify properties of a font.  @c FOUNDRY to @c
 REGISTRY are symbols corresponding to #Mfoundry to #Mregistry property
 of a font.  See @ref m17nFont for the meaning of each property.
+
+@c OTF-SPEC is a symbol specifing the required OTF features.  The
+symbol name has the following syntax.
+
+@verbatim
+  OTF-SPEC-NAME ::= ':otf=' SCRIPT LANGSYS ? GSUB-FEATURES ? GPOS-FEATURES ?
+
+  SCRIPT ::= SYMBOL
+
+  LANGSYS ::= '/' SYMBOL
+
+  GSUB-FEATURES ::= '=' FEATURE-LIST ?
+
+  GPOS-FEATURES ::= '+' FEATURE-LIST ?
+
+  FEATURE-LIST ::= '~' ? FEATURE ( ',' '~' ? FEATURE ',' )
+
+@endverbatim
+
+Here, @c FEATURE is a four-letter Open Type feature.
+
+@c LANG-SPEC is a symbol specifying the required language support.
+The symbol name has the following syntax.
+
+@verbatim
+  LANG-SPEC-NAME ::= ':lang=' LANG
+@endverbatim
+
+Here, @c LANG is a two or three-letter ISO-639 language code.
 
 @c FLT-NAME is a name of Font Layout Table (@ref mdbFLT).
 
