@@ -48,7 +48,6 @@ symbol name has the following syntax.
   OTF-SPEC-NAME ::= ':otf=' SCRIPT LANGSYS ? GSUB-FEATURES ? GPOS-FEATURES ?
 
   SCRIPT ::= SYMBOL
-
   LANGSYS ::= '/' SYMBOL
 
   GSUB-FEATURES ::= '=' FEATURE-LIST ?

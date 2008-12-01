@@ -24,40 +24,35 @@ into the form of plist in the driver.
 
 @verbatim
 INPUT-METHOD ::=
-    IM-DECLARATION ? DESCRIPTION ? TITLE ?
+    IM-DECLARATION ? IM-DESCRIPTION ? TITLE ?
      VARIABLE-LIST ? COMMAND-LIST ?  MODULE-LIST ?
      MACRO-LIST ? MAP-LIST ? STATE-LIST ?
 
 IM-DECLARATION ::= '(' 'input-method' LANGUAGE NAME EXTRA-ID ? VERSION ? ')'
-VERSION ::= '(' 'version' VERSION-NUMBER ')'
-DESCRIPTION ::= '(' 'description' [ MTEXT-OR-GETTEXT | nil] ')'
-VARIABLE-LIST ::= '(' 'variable' VARIABLE-DECLARATION * ')'
-COMMAND-LIST ::= '(' 'command' COMMAND-DECLARATION * ')'
-TITLE ::= '(' 'title' TITLE-TEXT ')'
-
-VARIABLE-DECLARATION ::=
-    '(' VAR-NAME [ [ MTEXT-OR-GETTEXT | nil ] VALUE VALUE-CANDIDATE * ]')'
-
-COMMAND-DECLARATION ::=
-    '(' CMD-NAME [ [ MTEXT-OR-GETTEXT | nil ] KEYSEQ * ] ')'
-
-MTEXT-OR-GETTEXT ::=
-    [ MTEXT | '(' '_' MTEXT ')']
-
 LANGUAGE ::= SYMBOL
 NAME ::= SYMBOL
 EXTRA-ID ::= SYMBOL
-VERSION-NUMBER ::= MTEXT
-IM-DESCRIPTION ::= MTEXT
+VERSION ::= '(' 'version' VERSION-NUMBER ')'
+
+IM-DESCRIPTION ::= '(' 'description' DESCRIPTION ')'
+DESCRIPTION ::= MTEXT-OR-GETTEXT | 'nil'
+MTEXT-OR-GETTEXT ::=  [ MTEXT | '(' '_' MTEXT ')']
+
+TITLE ::= '(' 'title' TITLE-TEXT ')'
+TITLE-TEXT ::= MTEXT
+
+VARIABLE-LIST ::= '(' 'variable' VARIABLE-DECLARATION * ')'
+VARIABLE-DECLARATION ::=  '(' VAR-NAME [ DESCRIPTION VALUE VALUE-CANDIDATE * ]')'
 VAR-NAME ::= SYMBOL
-VAR-DESCRIPTION ::= MTEXT
 VALUE ::= MTEXT | SYMBOL | INTEGER
 VALUE-CANDIDATE ::= VALUE | '(' RANGE-FROM RANGE-TO ')'
 RANGE-FROM ::= INTEGER
 RANGE-TO ::= INTEGER
+
+COMMAND-LIST ::= '(' 'command' COMMAND-DECLARATION * ')'
+COMMAND-DECLARATION ::=  '(' CMD-NAME [ DESCRIPTION KEYSEQ * ] ')'
 CMD-NAME ::= SYMBOL
-CMD-DESCRIPTION ::= MTEXT
-TITLE-TEXT ::= MTEXT
+
 @endverbatim
 
 @c IM-DECLARATION specifies the language and name of this input
@@ -74,10 +69,10 @@ is expected to be used in other input methods.  In such cases,
 library.  The format is "XX.YY.ZZ" where XX is a major version
 number, YY is a minor version number, and ZZ is a patch level.
 
-@c DESCRIPTION specifies the description text of this input method by
-@c MTEXT-OR-GETTEXT.  If it takes the second form, the text is translated
-according to the current locale by "gettext" (if the translation is
-provided).
+@c DESCRIPTION, if not nil, specifies the description text of an input
+method, a variable or a command.  If @c MTEXT-OR-GETTEXT takes the
+second form, the text is translated according to the current locale by
+"gettext" (if the translation is provided).
 
 @c TITLE-TEXT is a text displayed on the screen when this input method
 is active.
@@ -216,8 +211,8 @@ STATE-NAME ::= SYMBOL
 STATE-TITLE-TEXT ::= MTEXT
 
 BRANCH ::= '(' MAP-NAME BRANCH-ACTION * ')'
-	   | '(' nil BRANCH-ACTION * ')'
-	   | '(' t BRANCH-ACTION * ')'
+	   | '(' 'nil' BRANCH-ACTION * ')'
+	   | '(' 't' BRANCH-ACTION * ')'
 
 STATE-INCLUSION ::= '(' 'include' TAGS 'state' STATE-NAME ? ')'
 
