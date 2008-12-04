@@ -102,8 +102,8 @@ VERSION ::= '(' 'version' MTEXT ')'
 FONT ::= '(' 'font' FONT-SPEC ')'
 FONT-SPEC ::=
      '(' [ FOUNDRY FAMILY
-           [ WEIGHT [ STYLE [ STRETCH [ ADSTYLE ]]]]]
-         REGISTRY
+           [ WEIGHT [ STYLE [ STRETCH [ ADSTYLE ]]]]
+         REGISTRY ]
 	 [ OTF-SPEC ] [ LANG-SPEC ] ')'
 
 STAGE0 ::= CATEGORY-TABLE GENERATOR
