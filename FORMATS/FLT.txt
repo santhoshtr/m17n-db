@@ -93,7 +93,18 @@ The m17n library loads an FLT from the m17n database using the tag
 \<font, layouter, FLT-NAME\>.  The date format of an FLT is as follows:
 
 @verbatim
-FONT-LAYOUT-TABLE ::= STAGE0 STAGE *
+FONT-LAYOUT-TABLE ::= FLT-DECLARATION ? STAGE0 STAGE *
+
+FLT-DECLARATION ::= '(' 'font' 'layouter' NAME nil PROP * ')'
+NAME ::= SYMBOL
+PROP :: = VERSION | FONT
+VERSION ::= '(' 'version' MTEXT ')'
+FONT ::= '(' 'font' FONT-SPEC ')'
+FONT-SPEC ::=
+     '(' [ FOUNDRY FAMILY
+           [ WEIGHT [ STYLE [ STRETCH [ ADSTYLE ]]]]]
+         REGISTRY
+	 [ OTF-SPEC ] [ LANG-SPEC ] ')'
 
 STAGE0 ::= CATEGORY-TABLE GENERATOR
 
@@ -121,7 +132,7 @@ whose code falls between the two @c CODEs.
 GENERATOR ::= '(' 'generator' RULE MACRO-DEF * ')'
 
 RULE ::= REGEXP-BLOCK | MATCH-BLOCK | SUBST-BLOCK | COND-BLOCK
-         | DIRECT-CODE | COMBINING-SPEC | OTF-SPEC
+         FONT-FACILITY-BLOCK | DIRECT-CODE | COMBINING-SPEC | OTF-SPEC
          | PREDEFINED-RULE | MACRO-NAME
 
 MACOR-DEF ::= '(' MACRO-NAME RULE + ')'
@@ -246,8 +257,17 @@ glyph code of the code sequence.  In this case, this rule sets the
 default code-offset to the first glyph code minus the first @c CODE
 specifying the range.
 
-
 If no match is found, this rule fails.
+
+@verbatim
+FONT-FACILITY-BLOCK ::= '(' FONT-FACILITY RULE * ')'
+FONT-FACILITY = '(' font-facility' CHARACTER * ')'
+	      	| '(' 'font-facility' FONT-SPEC ')'
+@endverbatim
+
+If the current font has glyphs for @c CHARACTERs or matches with
+FONT-SPEC, this rule succeeds and @c RULEs are executed.  Otherwise,
+this rule fails.
 
 @verbatim
 COND-BLOCK ::= '(' 'cond' RULE + ')'
