@@ -261,7 +261,7 @@ If no match is found, this rule fails.
 
 @verbatim
 FONT-FACILITY-BLOCK ::= '(' FONT-FACILITY RULE * ')'
-FONT-FACILITY = '(' font-facility' CHARACTER * ')'
+FONT-FACILITY = '(' 'font-facility' CHARACTER * ')'
 	      	| '(' 'font-facility' FONT-SPEC ')'
 @endverbatim
 
@@ -284,7 +284,7 @@ OTF-SPEC ::= SYMBOL
 driver.  The name has the following syntax.
 
 @verbatim
-  OTF-SPEC-NAME ::= 'otf:' SCRIPT LANGSYS ? GSUB-FEATURES ? GPOS-FEATURES ?
+  OTF-SPEC-NAME ::= ':otf' SCRIPT LANGSYS ? GSUB-FEATURES ? GPOS-FEATURES ?
 
   SCRIPT ::= SYMBOL
 
