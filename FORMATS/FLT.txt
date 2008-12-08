@@ -101,8 +101,8 @@ PROP :: = VERSION | FONT
 VERSION ::= '(' 'version' MTEXT ')'
 FONT ::= '(' 'font' FONT-SPEC ')'
 FONT-SPEC ::=
-     '(' [ FOUNDRY FAMILY
-           [ WEIGHT [ STYLE [ STRETCH [ ADSTYLE ]]]]
+     '(' [[ FOUNDRY FAMILY
+           [ WEIGHT [ STYLE [ STRETCH [ ADSTYLE ]]]]]
          REGISTRY ]
 	 [ OTF-SPEC ] [ LANG-SPEC ] ')'
 
@@ -261,11 +261,11 @@ If no match is found, this rule fails.
 
 @verbatim
 FONT-FACILITY-BLOCK ::= '(' FONT-FACILITY RULE * ')'
-FONT-FACILITY = '(' 'font-facility' CHARACTER * ')'
+FONT-FACILITY = '(' 'font-facility' CODE * ')'
 	      	| '(' 'font-facility' FONT-SPEC ')'
 @endverbatim
 
-If the current font has glyphs for @c CHARACTERs or matches with
+If the current font has glyphs for @c CODEs or matches with
 FONT-SPEC, this rule succeeds and @c RULEs are executed.  Otherwise,
 this rule fails.
 
