@@ -36,7 +36,8 @@ FLT は 1 つ以上の変換ステージが続いたものである。各ステージでコード列
 
 <li> カテゴリ
 
-そのステージの @c CATEGORY-TABLE で定義されたカテゴリーコード。
+そのステージの @c CATEGORY-TABLE で定義されたか、以前のステージで定義さ
+れ上書きされていないカテゴリーコード。
 
 <li> 結合規則
 
@@ -55,11 +56,11 @@ FLT は 1 つ以上の変換ステージが続いたものである。各ステージでコード列
 </ul>
 
 レイアウトエンジンがテキストを描く際には、まずテキストの各文字に対して
-それぞれフォントとFLT を決定する。同じフォントと FLT を用いる部分文字
-列に関して、レイアウトエンジンは対応する中間的なグリフの列を生成する。
-中間的なグリフコードの各要素は、コードの属性として対応する文字コード、
-他の属性として 0 を持つ。この列はFLT の最初のステージで現行の @e ラン 
-(部分列) として処理される。
+それぞれフォントとFLT を決定する。同じフォントと FLT を用いる部分文字列
+に関して、レイアウトエンジンは対応する中間的なグリフの列を生成する。中
+間的なグリフコードの各要素は、コードの属性として対応する文字コード、他
+の属性として 0 を持つ。この列はFLT の最初のステージで現行の @e ラン (部
+分列) として処理される。
 
 各ステージは以下のように働く。
 
@@ -80,7 +81,18 @@ m17n ライブラリ は m17n データベースからタグ \<font, layouter,
 FLT-NAME\> を用いて FLT をロードする。FLT のデータのフォーマットは以下の通り：
 
 @verbatim
-FONT-LAYOUT-TABLE ::= STAGE0 STAGE *
+FONT-LAYOUT-TABLE ::= FLT-DECLARATION ? STAGE0 STAGE *
+
+FLT-DECLARATION ::= '(' 'font' 'layouter' NAME nil PROP * ')'
+NAME ::= SYMBOL
+PROP :: = VERSION | FONT
+VERSION ::= '(' 'version' MTEXT ')'
+FONT ::= '(' 'font' FONT-SPEC ')'
+FONT-SPEC ::=
+     '(' [[ FOUNDRY FAMILY
+           [ WEIGHT [ STYLE [ STRETCH [ ADSTYLE ]]]]]
+         REGISTRY ]
+	 [ OTF-SPEC ] [ LANG-SPEC ] ')'
 
 STAGE0 ::= CATEGORY-TABLE GENERATOR
 
@@ -108,7 +120,7 @@ CATEGORY ::= INTEGER
 GENERATOR ::= '(' 'generator' RULE MACRO-DEF * ')'
 
 RULE ::= REGEXP-BLOCK | MATCH-BLOCK | SUBST-BLOCK | COND-BLOCK
-         | DIRECT-CODE | COMBINING-SPEC | OTF-SPEC
+         FONT-FACILITY-BLOCK | DIRECT-CODE | COMBINING-SPEC | OTF-SPEC
          | PREDEFINED-RULE | MACRO-NAME
 
 MACOR-DEF ::= '(' MACRO-NAME RULE + ')'
@@ -125,7 +137,7 @@ DIRECT-CODE ::= INTEGER
 このルールはグリフを消費せず、以下の属性を持つグリフを生成する。
 
 <ul>
-<li> コード : @c INTEGER ＋ デフォルトのコードオフセット
+<li> コード : @c INTEGER にデフォルトのコードオフセットを足したもの
 <li> 結合規則 : デフォルト値
 <li> 左パデイングフラグ : デフォルト値
 <li> 右パデイングフラグ : 0
@@ -203,8 +215,8 @@ MATCH-INDEX ::= INTEGER
 
 合致する部分が無ければ、この規則は失敗する。
 
-この規則がステージの最初に規則であれば、@c MATCH-INDEX は 0 であり、現
-行のラン全体に合致する。
+この規則がステージの最初の規則である場合は、@c MATCH-INDEX は 0 でなく
+てはならない。この場合ラン全体に合致することになる。
 
 @verbatim
 SUBST-BLOCK ::= '(' SOURCE-PATTERN RULE * ')'
@@ -226,6 +238,17 @@ SOURCE-PATTERN ::= '(' CODE + ')'
 
 合致する部分が無ければ、この規則は失敗する。
 
+
+@verbatim
+FONT-FACILITY-BLOCK ::= '(' FONT-FACILITY RULE * ')'
+FONT-FACILITY = '(' 'font-facility' CODE * ')'
+	      	| '(' 'font-facility' FONT-SPEC ')'
+@endverbatim
+
+現在のフォントが @c CODE のグリフを持っているか、@c FONT-SPEC と合致す
+れば、この規則は成功し、@c RULE を実行する。そうでなければ、この規則は
+失敗する。
+
 @verbatim
 COND-BLOCK ::= '(' 'cond' RULE + ')'
 @endverbatim
@@ -241,7 +264,7 @@ OTF-SPEC ::= SYMBOL
 名前は以下の文法に従う。
 
 @verbatim
-  OTF-SPEC-NAME ::= 'otf:' SCRIPT LANGSYS ? GSUB-FEATURES ? GPOS-FEATURES ?
+  OTF-SPEC-NAME ::= ':otf' SCRIPT LANGSYS ? GSUB-FEATURES ? GPOS-FEATURES ?
 
   SCRIPT ::= SYMBOL
 
@@ -272,7 +295,7 @@ GSUB-FEATURES 自体が省略されればすべての GSUB feature が適用される。
 
 @c GPOS-FEATURES の指定は @c GSUB-FEATURES の場合と同様である。
 
-全てのタグ名は ASCII の４文字であること。
+全てのタグ名は ASCII の表示可能文字４つからなること。
 
 OpenType の指定方法については次のページを参照のこと。\n
     <http://www.microsoft.com/typography/otspec/default.htm>

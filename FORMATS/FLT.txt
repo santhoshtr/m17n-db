@@ -41,8 +41,9 @@ glyph code.
 
 <li> category
 
-This is the category code defined in the @c CATEGORY-TABLE
-of the current stage.
+The category code defined in the @c CATEGORY-TABLE of the current
+stage, or defined in the one of the former stages and not overwritten
+by later stages.
 
 <li> combining-spec
 
@@ -65,21 +66,20 @@ overlap with the next one.
 
 When the layout engine draws text, it at first determines a font and
 an FLT for each character in the text.  For each subsequence of
-characters that use use the same font and FLT, the layout engine
-generates an intermediate glyph sequence from the character
-subsequence.  Each element in the intermediate glyph sequence
-has the corresponding character code as the code attribute and zeroes
-for other attributes.  This sequence is processed in the
+characters that use the same font and FLT, the layout engine generates
+a corresponding intermediate glyph sequence.  The code attribute of
+each element in the intermediate glyph sequence is its character code,
+and all other attributes are zeros.  This sequence is processed in the
 first stage of FLT as the current @e run (substring).
 
 Each stage works as follows.
 
-At first, if the stage has a @c CATEGORY-TABLE, the category of each glyph
-in the current run is updated.  If there is a glyph that has no category,
-the current run ends before that glyph.
+At first, if the stage has a @c CATEGORY-TABLE, the category of each
+glyph in the current run is updated.  If there is a glyph that has no
+category, the current run ends before that glyph.
 
-Then, the default values of code-offset, combining-spec, and left-padding-flag
-of this stage are initialized to zero.
+Then, the default values of code-offset, combining-spec, and
+left-padding-flag of this stage are initialized to zero.
 
 Next, the initial conversion rule of the stage is applied to the
 current run.
@@ -138,10 +138,10 @@ RULE ::= REGEXP-BLOCK | MATCH-BLOCK | SUBST-BLOCK | COND-BLOCK
 MACOR-DEF ::= '(' MACRO-NAME RULE + ')'
 @endverbatim
 
-Each @c RULE specifies glyphs to be consumed and glyphs to be produced.  When
-some glyphs are consumed, they are taken away from the current run.  A
-rule may fail in some condition.  If not described explicitly to
-fail, it should be regarded that the rule succeeds.
+Each @c RULE specifies glyphs to be consumed and glyphs to be
+produced.  When some glyphs are consumed, they are taken away from the
+current run.  A rule may fail in some condition.  If not described
+explicitly to fail, it should be regarded that the rule succeeds.
 
 @verbatim
 DIRECT-CODE ::= INTEGER
@@ -192,15 +192,14 @@ No glyph is consumed.  No glyph is produced.
 
 <li> @c @]
 
-This rule changes the right-padding-flag of the lastly generated
-glyph to 1.
-No glyph is consumed.  No glyph is produced.
+This rule changes the right-padding-flag of the lastly generated glyph
+to 1.  No glyph is consumed.  No glyph is produced.
 
 <li> @c |
 
 This rule consumes no glyph and produces a special glyph whose
-category is ' ' and other attributes are zero.  
-This is the only rule that produces that special glyph.
+category is ' ' and other attributes are zero.  This is the only rule
+that produces that special glyph.
 
 </ul>
 
@@ -265,7 +264,7 @@ FONT-FACILITY = '(' 'font-facility' CODE * ')'
 	      	| '(' 'font-facility' FONT-SPEC ')'
 @endverbatim
 
-If the current font has glyphs for @c CODEs or matches with
+If the current font has glyphs for @c CODEs or matches with @c
 FONT-SPEC, this rule succeeds and @c RULEs are executed.  Otherwise,
 this rule fails.
 
@@ -308,12 +307,12 @@ For @c LANGSYS, @c SYMBOL specifies a Language System tag name.  If @c
 LANGSYS is omitted, the Default Language System
 table is used.
 
-For @c GSUB-FEATURES, each @c SYMBOL in @c FEATURE LIST specifies a GSUB Feature tag name
-to apply.  '*' is allowed as the last item to specify all remaining
-features.  If @c SYMBOL is preceded by '~' and the last item is '*',
-@c SYMBOL is excluded from the features to apply.  If no @c SYMBOL is
-specified, no GSUB feature is applied.  If @c GSUB-FEATURES itself is
-omitted, all GSUB features are applied.
+For @c GSUB-FEATURES, each @c SYMBOL in @c FEATURE LIST specifies a
+GSUB Feature tag name to apply.  '*' is allowed as the last item to
+specify all remaining features.  If @c SYMBOL is preceded by '~' and
+the last item is '*', @c SYMBOL is excluded from the features to
+apply.  If no @c SYMBOL is specified, no GSUB feature is applied.  If
+@c GSUB-FEATURES itself is omitted, all GSUB features are applied.
 
 The specification of @c GPOS-FEATURES is analogous to that of @c
 GSUB-FEATURES.
@@ -327,10 +326,10 @@ See the following page for the OpenType specification.\n
 COMBINING ::= SYMBOL
 @endverbatim
 
-@c COMBINING is a symbol whose name specifies how
-to combine the next glyph with the previous one.  This rule sets the
-default combining-spec to an integer code that is unique to the symbol
-name.  The name has the following syntax.
+@c COMBINING is a symbol whose name specifies how to combine the next
+glyph with the previous one.  This rule sets the default
+combining-spec to an integer code that is unique to the symbol name.
+The name has the following syntax.
 
 @verbatim
   COMBINING-NAME ::= VPOS HPOS OFFSET VPOS HPOS
