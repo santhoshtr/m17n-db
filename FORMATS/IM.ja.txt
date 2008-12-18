@@ -527,7 +527,7 @@ OPERAND ::= '+' | '-' | '*' | '/' | '|' | '&' | '!'
 のにする。
 
 @verbatim
-IF ::= '(' CONDITION ACTION-LIST1 ACTION-LIST2 ')'
+IF ::= '(' CONDITION ACTION-LIST1 ACTION-LIST2 ? ')'
 
 CONDITION ::= [ '=' | '<' | '>' | '<=' | '>=' ] EXPRESSION1 EXPRESSION2
 

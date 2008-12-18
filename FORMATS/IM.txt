@@ -556,7 +556,7 @@ If @c CMD is 'div', it divides the value of @c SYMBOL1 by the value of
 @c EXPRESSION.
 
 @verbatim
-IF ::= '(' CONDITION ACTION-LIST1 ACTION-LIST2 ')'
+IF ::= '(' CONDITION ACTION-LIST1 ACTION-LIST2 ? ')'
 
 CONDITION ::= [ '=' | '<' | '>' | '<=' | '>=' ] EXPRESSION1 EXPRESSION2
 
