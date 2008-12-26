@@ -31,7 +31,7 @@ INPUT_METHOD = \
 	as-itrans.mim \
 	bn-itrans.mim \
 	bn-unijoy.mim \
-	bo-ewts.mim bo-wylie.mim\
+	bo-ewts.mim bo-tcrc.mim bo-wylie.mim \
 	cmc-kbd.mim \
 	da-post.mim \
 	dv-phonetic.mim \
