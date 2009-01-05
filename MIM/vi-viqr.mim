@@ -64,11 +64,11 @@ If the value is 1, Backspace key undoes the previous key
 
  (tone-mark
   ("0" (set SELECT 0) ?0)
-  ("'" (set SELECT 1) ?1)
-  ("`" (set SELECT 2) ?2)
-  ("?" (set SELECT 3) ?3)
-  ("~" (set SELECT 4) ?4)
-  ("." (set SELECT 5) ?5))
+  ("'" (set SELECT 1) ?')
+  ("`" (set SELECT 2) ?`)
+  ("?" (set SELECT 3) ??)
+  ("~" (set SELECT 4) ?~)
+  ("." (set SELECT 5) ?.))
 
  (temporary-escape
   ("a^^" "a^") ("A^^" "A^")
