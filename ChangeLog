@@ -1,3 +1,7 @@
+2009-01-05  Kenichi Handa  <handa@m17n.org>
+
+	* MIM/vi-viqr.mim (tone-mark): Fix the entries.
+
 2008-11-17  Kenichi Handa  <handa@m17n.org>
 
 	* FORMATS/Fontset.txt (FONT-SPEC): Add descripition of OTF-SPEC
