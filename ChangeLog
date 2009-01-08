@@ -1,6 +1,6 @@
 2009-01-08  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* Makefile.am (INPUT_METHOD): Add hi-typewriter.mim,
+	* MIM/Makefile.am (INPUT_METHOD): Add hi-typewriter.mim,
 	sa-harvard-kyoto.mim, si-wijesekera-preedit-alt.mim and
 	ta-lk-renganathan.mim
 
@@ -10,7 +10,7 @@
 
 2008-12-26  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* Makefile.am (INPUT_METHOD): Add bo-tcrc.mim.
+	* MIM/Makefile.am (INPUT_METHOD): Add bo-tcrc.mim.
 
 2008-11-17  Kenichi Handa  <handa@m17n.org>
 
