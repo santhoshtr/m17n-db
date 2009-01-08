@@ -41,7 +41,7 @@ INPUT_METHOD = \
 	grc-mizuochi.mim \
 	gu-itrans.mim \
 	he-kbd.mim \
-	hi-itrans.mim \
+	hi-itrans.mim hi-typewriter.mim \
 	hr-kbd.mim \
 	hy-kbd.mim \
 	ja-anthy.mim ja-tcode.mim ja-trycode.mim \
@@ -56,11 +56,13 @@ INPUT_METHOD = \
 	or-itrans.mim \
 	pa-itrans.mim \
 	ru-kbd.mim ru-yawerty.mim ru-phonetic.mim \
-	si-samanala.mim si-wijesekera.mim si-wijesekera-preedit.mim \
+	sa-harvard-kyoto.mim \
+	si-samanala.mim si-wijesekera.mim \
+	si-wijesekera-preedit-alt.mim si-wijesekera-preedit.mim \
 	sk-kbd.mim \
 	sr-kbd.mim \
 	sv-post.mim \
-	ta-itrans.mim \
+	ta-itrans.mim ta-lk-renganathan.mim \
 	te-itrans.mim \
 	th-kesmanee.mim \
 	th-pattachote.mim \
