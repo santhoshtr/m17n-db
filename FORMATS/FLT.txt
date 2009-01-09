@@ -307,12 +307,16 @@ For @c LANGSYS, @c SYMBOL specifies a Language System tag name.  If @c
 LANGSYS is omitted, the Default Language System
 table is used.
 
-For @c GSUB-FEATURES, each @c SYMBOL in @c FEATURE LIST specifies a
-GSUB Feature tag name to apply.  '*' is allowed as the last item to
+For @c GSUB-FEATURES, each @c SYMBOL in @c FEATURE-LIST specifies 
+a GSUB Feature tag name to apply.  '*' is allowed as the last item to
 specify all remaining features.  If @c SYMBOL is preceded by '~' and
 the last item is '*', @c SYMBOL is excluded from the features to
 apply.  If no @c SYMBOL is specified, no GSUB feature is applied.  If
 @c GSUB-FEATURES itself is omitted, all GSUB features are applied.
+
+When @c OTF-SPEC appears in a @c FONT-SPEC, @c FEATURE-LIST specifies
+features that the font must have (or must not have if preceded by
+'~'), and the last'*', even if exists, has no meaning.
 
 The specification of @c GPOS-FEATURES is analogous to that of @c
 GSUB-FEATURES.

@@ -50,7 +50,7 @@ For instance
 @verbatim
   (n i)
 @endverbatim
-represents a key sequence of <<n>> and <<i>>.
+represents a key sequence of \<n\> and \<i\>.
 If all SYMBOLIC-KEYs are ASCII characters, you can use the short form
 @verbatim
   "ni"
@@ -104,8 +104,8 @@ Here is a simple example of an input method that works as CapsLock.
 When this input method is activated, it is in the initial condition of
 the first state (in this case, the only state [[init]]).  In the
 initial condition, no key is being processed and no action is
-suspended.  When the input method receives a key event <<a>>, it
-searches branches in the current state for a rule that matches <<a>>
+suspended.  When the input method receives a key event \<a\>, it
+searches branches in the current state for a rule that matches \<a\>
 and finds one in the map [[toupper]].  Then it executes MAP-ACTIONs
 (in this case, just inserting "A" in the preedit buffer).  After all
 MAP-ACTIONs have been executed, the input method shifts to the initial
@@ -122,7 +122,7 @@ that event is unhandled and given back to the application program.
 
 Turkish users may want to extend the above example for "İ" (U+0130:
 LATIN CAPITAL LETTER I WITH DOT ABOVE).  It seems that assigning the
-key sequence <<i>> <<i>> for that character is convenient.  So, he
+key sequence \<i\> \<i\> for that character is convenient.  So, he
 will add this rule in [[toupper]].
 
 @verbatim
@@ -135,30 +135,30 @@ However, we already have the following rule:
     ("i" "I")
 @endverbatim
 
-What will happen when a key event <<i>> is sent to the input method?
+What will happen when a key event \<i\> is sent to the input method?
 
-No problem.  When the input method receives <<i>>, it inserts "I" in the
+No problem.  When the input method receives \<i\>, it inserts "I" in the
 preedit buffer.  It knows that there is another rule that may
-match the additional key event <<i>>.  So, after inserting "I", it
+match the additional key event \<i\>.  So, after inserting "I", it
 suspends the normal behavior of shifting to the initial condition, and
 waits for another key.  Thus, the user sees "I" with underline, which
 indicates it is not yet committed.
 
-When the input method receives the next <<i>>, it cancels the effects
+When the input method receives the next \<i\>, it cancels the effects
 done by the rule for the previous "i" (in this case, the preedit buffer is
 cleared), and executes MAP-ACTIONs of the rule for "ii".  So, "İ" is
 inserted in the preedit buffer.  This time, as there are no other rules
 that match with an additional key, it shifts to the initial condition
 of the current state, which leads to commit "İ".
 
-Then, what will happen when the next key event is <<a>> instead of <<i>>?
+Then, what will happen when the next key event is \<a\> instead of \<i\>?
 
 No problem, either.
 
-The input method knows that there are no rules that match the <<i>> <<a>> key
-sequence.  So, when it receives the next <<a>>, it executes the
+The input method knows that there are no rules that match the \<i\> \<a\> key
+sequence.  So, when it receives the next \<a\>, it executes the
 suspended behavior (i.e. shifting to the initial condition), which
-leads to commit "I".  Then the input method tries to handle <<a>> in
+leads to commit "I".  Then the input method tries to handle \<a\> in
 the current state, which leads to commit "A".
 
 So far, we have explained MAP-ACTION, but not
@@ -230,16 +230,16 @@ method before explaining how it works.
     (nil (shift init))))
 @endverbatim
 
-Let's see what happens when the user types the key sequence <<a>> <<b>> << >>.
-Upon <<a>>, "A" is committed and the state shifts to [[non-upcase]].
-So, the next <<b>> is handled in the [[non-upcase]] state.
+Let's see what happens when the user types the key sequence \<a\> \<b\> \< \>.
+Upon \<a\>, "A" is committed and the state shifts to [[non-upcase]].
+So, the next \<b\> is handled in the [[non-upcase]] state.
 As it matches a
 rule in the map [[lower]], "b" is inserted in the preedit buffer and it
 is committed explicitly by the "commit" command in BRANCH-ACTION.  After
-that, the input method is still in the [[non-upcase]] state.  So the next << >>
+that, the input method is still in the [[non-upcase]] state.  So the next \< \>
 is also handled in [[non-upcase]].  For this time, no rule in this state
 matches it.  Thus the branch [[(nil (shift init))]] is selected and the
-state is shifted to [[init]].  Please note that << >> is not yet
+state is shifted to [[init]].  Please note that \< /> is not yet
 handled because the map [[nil]] does not consume any key event.
 So, the input method tries to handle it in the [[init]] state.  Again no
 rule matches it.  Therefore, that event is given back to the application
@@ -248,7 +248,7 @@ program, which usually inserts a space for that.
 When you type "a quick blown fox" with this input method, you get "A
 Quick Blown Fox".  OK, you find a typo in "blown", which should be
 "brown".  To correct it, you probably move the cursor after "l" and type
-<<Backspace>> and <<r>>.  However, if the current input method is still
+\<Backspace>> and \<r>>.  However, if the current input method is still
 active, a capital "R" is inserted.  It is not a sophisticated
 behavior.
 
@@ -518,7 +518,7 @@ BRANCH-ACTIONs, the character is commited.
 
 This new input method always checks the character before the current
 position, so "A Quick Blown Fox" will be successfully fixed to "A
-Quick Brown Fox" by the key sequence <<BackSpace>> <<r>>.
+Quick Brown Fox" by the key sequence \<BackSpace>> \<r>>.
 
 
 */
