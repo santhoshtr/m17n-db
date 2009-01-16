@@ -32,6 +32,8 @@ communicate with Anthy.  For more detail about Anthy, see the page
   <http://sourceforge.jp/projects/anthy/>.
 ")
 
+(title "aあ")
+
 (variable
  (input-mode 
   "Hiragana or Katakana (not yet implemented)
@@ -46,7 +48,8 @@ Select Hiragana or Katakana"
 (command
  (convert) (commit))
 
-(title "aあ")
+(module
+ (libmimx-anthy convert resize change commit init fini))
 
 (map
  (starter
@@ -235,9 +238,6 @@ Select Hiragana or Katakana"
   ((C-N) (select @\]))
   ((C-E) (select @>)))
  )
-
-(module
- (libmimx-anthy convert resize change commit init fini))
 
 (state
  (init
