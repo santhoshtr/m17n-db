@@ -31,6 +31,9 @@ done by the m17n input method.
 
 (title "ISPELL")
 
+(module
+ (libmimx-ispell ispell_word init fini))
+
 (map
  (alpha
   ("A" "A") ("B" "B") ("C" "C") ("D" "D") ("E" "E") ("F" "F") ("G" "G")
@@ -47,9 +50,6 @@ done by the m17n input method.
  (change
   ((Left) (select @-))
   ((Right) (select @+))))
-
-(module
- (libmimx-ispell ispell_word init fini))
 
 (state
  (init
