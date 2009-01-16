@@ -1,5 +1,5 @@
 ;; ja-trycode.mim -- Japanese input method with TRY-CODE
-;; Copyright (C) 2006
+;; Copyright (C) 2006, 2009
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -2971,7 +2971,7 @@ for the details.
   (" fk" "悔")
   (" gk" "隙")
   (" ck" "揚")
-  (" rk" "■")
+  (" rk" "韮")
   (" lk" "妊")
   (" ak" "婿")
   (" ok" "俯")
