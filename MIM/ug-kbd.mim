@@ -23,11 +23,11 @@
 
 (input-method ug kbd)
 
-(title "ئۇ")
-
 (description "Uyghur input method simulating an Uyghur keyboard layout.
 Based on <http://tarim.yulghun.com/docs/src/uyghur.xkb>
 ")
+
+(title "ئۇ")
 
 (map
  (map
