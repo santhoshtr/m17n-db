@@ -23,7 +23,7 @@
 
 (input-method fr azerty)
 
-(documentation (_"Simulating Azerty keyboard on English keyboard.
+(description (_"Simulating Azerty keyboard on English keyboard.
 
      &1  é2  \"3  '4  (5  -6  è7  _8  ç9  à0  )°  =_  ²~
       aA  zZ  eE  rR  tT  yY  uU  iI  oO  pP  ^¨  $£
