@@ -1,3 +1,12 @@
+2009-01-16  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* MIM/ispell.mim, MIM/ug-kbd.mim, MIM/th-tis820.mim,
+	MIM/th-pattachote.mim, MIM/th-kesmanee.mim, MIM/ko-han2.mim,
+	MIM/ja-anthy.mim, MIM/bo-ewts.mim:
+	Canonicalise section orders.
+
+	* MIM/ja-trycode.mim: Add a new character.
+
 2009-01-08  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* MIM/Makefile.am (INPUT_METHOD): Add hi-typewriter.mim,
