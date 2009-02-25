@@ -1,3 +1,7 @@
+2009-02-25  Kenichi Handa  <handa@m17n.org>
+
+	* configure.ac: Version changed to 1.1.9.
+
 2009-02-20  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* AUTHORS: New author.

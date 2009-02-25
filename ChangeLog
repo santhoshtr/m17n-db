@@ -1,3 +1,7 @@
+2009-02-25  Kenichi Handa  <handa@m17n.org>
+
+	* configure.ac: Versions changed to 1.5.4.
+
 2009-01-19  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* MIM/bn-itrans.mim: Modify the descrpition string for readability.
