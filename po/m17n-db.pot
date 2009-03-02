@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: bugs-m17n-lib@m17n.org\n"
-"POT-Creation-Date: 2008-06-23 14:58+0900\n"
+"POT-Creation-Date: 2009-02-25 12:51+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: MIM/bo-ewts.mim:32
+#: MIM/bo-ewts.mim:34
 msgid ""
 "Flag to tell whether or not to generate precomposed characters.\n"
 "If 1, generate precomposed characters if available (e.g. \"ྲྀ\"(U+0F76).\n"
@@ -275,7 +275,13 @@ msgid ""
 "should not be used in a map of an input method."
 msgstr ""
 
-#: MIM/th-kesmanee.mim:33 MIM/th-pattachote.mim:33 MIM/th-tis820.mim:33
+#: MIM/ta-lk-renganathan.mim:33
+msgid ""
+"Surrounding text vs. preedit\n"
+"If 1, try to use surrounding text.  Otherwise, use preedit."
+msgstr ""
+
+#: MIM/th-kesmanee.mim:35 MIM/th-pattachote.mim:35 MIM/th-tis820.mim:35
 msgid ""
 "Acceptance level\n"
 "The level of character sequence acceptance defined in WTT 2.0.\n"
