@@ -1,5 +1,9 @@
 2009-03-02  Kenichi Handa  <handa@m17n.org>
 
+	* Version 1.5.4 released.
+
+2009-03-02  Kenichi Handa  <handa@m17n.org>
+
 	* UNIDATA/CaseFolding.txt, UNIDATA/LineBreak.txt,
 	UNIDATA/PropList.txt, UNIDATA/Scripts.txt,
 	UNIDATA/SpecialCasing.txt, UNIDATA/UnicodeData.txt,
