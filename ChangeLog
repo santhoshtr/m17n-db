@@ -1,3 +1,12 @@
+2009-03-02  Kenichi Handa  <handa@m17n.org>
+
+	* UNIDATA/CaseFolding.txt, UNIDATA/LineBreak.txt,
+	UNIDATA/PropList.txt, UNIDATA/Scripts.txt,
+	UNIDATA/SpecialCasing.txt, UNIDATA/UnicodeData.txt,
+	UNIDATA/WordBreakProperty.txt, UNIDATA/copyright.html: Updated.
+
+	* po/ja.po, po/m17n-db.pot, po/vi.po: Re-generated.
+
 2009-02-25  Kenichi Handa  <handa@m17n.org>
 
 	* configure.ac: Versions changed to 1.5.4.
