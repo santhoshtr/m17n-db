@@ -568,8 +568,6 @@ ACTION-LIST2 ::= '(' ACTION * ')'
 This action performs actions in @c ACTION-LIST1 if @c CONDITION is
 true, and performs @c ACTION-LIST2 (if any) otherwise.
 
-@c SYMBOL1 and @c SYMBOL2 are treated as variables.
-
 @verbatim
 COND ::= '(' 'cond' [ '(' EXPRESSION ACTION * ') ] * ')'
 @endverbatim
