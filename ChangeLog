@@ -1,3 +1,8 @@
+2009-03-11  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* MIM/unicode.mim:
+	Move the "title" section to the canonicalised position.
+
 2009-03-02  Kenichi Handa  <handa@m17n.org>
 
 	* Version 1.5.4 released.
