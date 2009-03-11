@@ -28,6 +28,8 @@ Type C-u followed by four hexadecimal numbers [0-9A-Fa-f]
 of a Unicode character code.
 "))
 
+(title "UNICODE")
+
 (variable
  (prompt (_"Preedit prompt
 Prompt string shown in the preedit area while typing hexadecimal numbers.")
@@ -36,8 +38,6 @@ Prompt string shown in the preedit area while typing hexadecimal numbers.")
  (start (_"Start Unicode
 Start typing hexadecimal numbers of Unicode character.")
 	(C-U)))
-
-(title "UNICODE")
 
 (map
  (starter
