@@ -1,3 +1,13 @@
+2009-03-24  Kenichi Handa  <handa@m17n.org>
+
+	* AUTHORS: Add Michaël Monzo.
+
+2009-03-24  Michaël Monzo <elbrazotontodelaley@free.fr>
+
+	* im/ps-phonetic.mim: New input method for pashto.
+
+	* im/ps-phonetic.png: New icon.
+
 2009-03-02  Kenichi Handa  <handa@m17n.org>
 
 	* Version 1.1.9 released.
