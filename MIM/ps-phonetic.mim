@@ -1,0 +1,134 @@
+;; ps-phonetic.mim -- Pashto input method for phonetic layout
+;; Copyright (c) 2009 Michaël Monzo <elbrazotontodelaley@free.fr>
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+
+(input-method ps phonetic)
+
+(description "Pashto input method for phonetic layout.
+Author: Michaël Monzo <elbrazotontodelaley@free.fr>")
+
+(title "ps-phonetic")
+
+(map
+ (trans
+  ("!" "!")
+  ("1" "۱")
+  ("@" "ﷺ")
+  ("2" "۲")
+  ("#" "/")
+  ("3" "۳")
+  ("$" "ئ")
+  ("4" "۴")
+  ("%" "ھ")
+  ("5" "۵")
+  ("^" "ۖ")
+  ("6" "۶")
+  ("&" "ٔ")
+  ("7" "۷")
+  ("*" "ٌ")
+  ("8" "۸")
+  ("(" ")")
+  ("9" "۹")
+  (")" "(")
+  ("0" "۰")
+  ("_" "ّ")
+  ("-" "ْ")
+  ("+" "ء")
+  ("=" "ؤ")
+
+  ("Q" "ښ")
+  ("q" "ق")
+  ("W" "ؤ")
+  ("w" "و")
+  ("E" "ږ")
+  ("e" "ع")
+  ("R" "ړ")
+  ("r" "ر")
+  ("/r" "ڑ")
+  ("T" "ټ")
+  ("t" "ت")
+  ("/t" "ٹ")
+  ("Y" "ی")
+  ("y" "ے")
+  ("U" "ئ")
+  ("u" "ۍ")
+  ("I" "ې")
+  ("i" "ي")
+  ("O" "ۃ")
+  ("o" "ہ")
+  ("P" "څ")
+  ("p" "پ")
+  ("{" "ٰ")
+  ("[" "]")
+  ("}" "ُ")
+  ("]" "[")
+  ("A" "ٓ")
+  ("a" "ا")
+  ("S" "ص")
+  ("s" "س")
+  ("D" "ډ")
+  ("d" "د")
+  ("/d" "ڈ")
+  ("F" "")
+  ("f" "ف")
+  ("G" "غ")
+  ("g" "ګ")
+  ("/g" "گ")
+  ("h" "ح")
+  ("H" "ځ")
+  ("J" "ض")
+  ("j" "ج")
+  ("K" "خ")
+  ("k" "ک")
+  ("L" "ؓ")
+  ("l" "ل")
+  (":" ":")
+  (";" "؛")
+  ("|" "ؔ")
+  ("\"" "؎")
+  ("'" "")
+  ("Z" "ذ")
+  ("z" "ز")
+  ("X" "ژ")
+  ("x" "ش")
+  ("C" "ث")
+  ("c" "چ")
+  ("V" "ظ")
+  ("v" "ط")
+  ("B" "ؒ")
+  ("b" "ب")
+  ("N" "ڼ")
+  ("n" "ن")
+  ("/n" "ں")
+  ("M" "")
+  ("m" "م")
+  ("<" "ِ")
+  ("," "،")
+  (">" "َ")
+  ("." "۔")
+  ("?" "؟")
+  ("`" "ٍ")
+  ("~" "ً")
+  ))
+
+(state
+  (init
+    (trans)))
