@@ -1,0 +1,137 @@
+;; kashmiri.mim -- Kashmiri input method with Kashmiri keyboard layout
+;; Copyright (c) 2009 Mohammad Nayeem Teli <mohammad.nayeem@gmail.com>
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+
+(input-method ks kbd)
+
+(description "Kashmiri input method simulating Kahsmiri keyboard.
+This input method simulates the Kashmiri keyboard
+shown in this text book:
+    کءشر کتاب نمبر ۱
+دی جموں و کشمیر سٹیٹ بورڑ آف سکول ایجوکیشن
+
+Author: Mohammad Nayeem Teli <mohammad.nayeem@gmail.com> with help from
+        Mohammad Yehya Teli and Shafaat Ahmed for providing me the alphabet.")
+
+(title "کءشر")
+
+(map
+ (trans
+  ("~" "ٓ")
+  ("!" "!")
+  ("1" "۱")
+  ("@" "@")
+  ("2" "۲")
+  ("#" "#")
+  ("3" "۳")
+  ("$" "$")
+  ("4" "۴")
+  ("5" "۵")
+  ("6" "۶")
+  ("7" "۷")
+  ("8" "۸")
+  ("(" ")")
+  ("9" "۹")
+  (")" "(")
+  ("0" "۰")
+  ("_" "ّ")
+  ("-" "-")
+  ("+" "+")
+  ("=" "=")
+  ("Q" "ﷺ")
+  ("q" "ق")
+  ("W" "ؤ")
+  ("w" "و")
+  ("E" "ئ")
+  ("e" "ع")
+  ("R" "ڑ")
+  ("r" "ر")
+  ("T" "ٹ")
+  ("t" "ت")
+  ("Y" "؁") 
+  ("y" "ے")
+  ("U" "،")
+  ("u" "ء")
+  ("I" "ۆ")
+  ("i" "ی")
+  ("O" "ۃ")
+  ("o" "ہ")
+  ("P" "إ")
+  ("p" "پ")
+  ("{" "ٰ")
+  ("[" "]")
+  ("}" "ٰ")
+  ("]" "[")
+  ("A" "آ")
+  ("a" "ا")
+  ("S" "ش")
+  ("s" "س")
+  ("D" "ڈ")
+  ("d" "د")
+  ("F" "ُ")
+  ("f" "ف")
+  ("G" "غ")
+  ("g" "گ")
+  ("H" "ح")
+  ("h" "ھ")
+  ("J" "ژ")
+  ("j" "ج")
+  ("K" "خ")
+  ("k" "ک")
+  ("L" "ؓ")
+  ("l" "ل")
+  (":" ":")
+  (";" "؛")
+  ("\" "\")
+  ("'" "ٰ")
+  ("|" "أ")
+  ("\\" "؎")
+  ("~" "ً")
+  ("`" "ٍ")
+  ("Z" "ذ")
+  ("z" "ز")
+  ("X" "ض")
+  ("x" "ص")
+  ("C" "ث")
+  ("c" "چ")
+  ("V" "ظ")
+  ("v" "ط")
+  ("B" "أ")
+  ("b" "ب")
+  ("N" "ں")
+  ("n" "ن")
+  ("M" "ٔ")
+  ("m" "م")
+  (">" "َ")
+  ("," "،")
+  ("<" "ِ")
+  ("." "۔")
+  ("?" "؟")
+  ("/" "/")
+  ("%" "%")
+  ("^" "^")
+  ("&" "&")
+  ("*" "*")
+  ))
+
+(state
+  (init
+    (trans)))
