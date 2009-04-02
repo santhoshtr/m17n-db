@@ -1,5 +1,8 @@
 2009-04-01  Kenichi Handa  <handa@m17n.org>
 
+	* im/ks-kbd.mim: Renamed from im/ks-kdb.mim.  Fix typo: kdb->kbd.
+	Fix title.
+
 	* AUTHORS: Add Mohammad Nayeem Teli.
 
 2009-04-01  Mohammad Nayeem Teli  <mohammad.nayeem@gmail.com>
