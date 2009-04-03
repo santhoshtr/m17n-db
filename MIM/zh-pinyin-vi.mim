@@ -1,6 +1,6 @@
 ;;Created by:Trần Ngọc Quân
 ;;Email: vnwildman@gmai.com
-;; zh-pinyin-vi.mim -- Input method for Chinese Pinyin characters using "s" for second tone "r" for the third tone, "j" and "f" for the fourth and fifth tone.
+;; zh-pinyin-vi.mim -- Input method for Chinese Pinyin characters using "j" for first tone "s" for the second tone, "r" and "f" for the third and fourth tone.
 
 (input-method zh pinyin-vi)
 
