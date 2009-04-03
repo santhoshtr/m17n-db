@@ -1,3 +1,11 @@
+2009-04-03  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* AUTHORS: Add an input method.
+
+	* im/zh-pinyin-vi.mim: Correct comment description.
+
+	* im/zh-pinyin-vi.mim: New file.
+
 2009-04-01  Kenichi Handa  <handa@m17n.org>
 
 	* im/ks-kbd.mim: Renamed from im/ks-kdb.mim.  Fix typo: kdb->kbd.
