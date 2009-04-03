@@ -1,0 +1,24 @@
+;;Created by:Trần Ngọc Quân
+;;Email: vnwildman@gmai.com
+;; zh-pinyin-vi.mim -- Input method for Chinese Pinyin characters using "s" for second tone "r" for the third tone, "j" and "f" for the fourth and fifth tone.
+
+(input-method zh pinyin-vi)
+
+(description "Input method for Chinese Pinyin characters.Note that it's not for inputting Han characters.")
+
+(title "PinYinVi")
+
+(map
+ (tone
+  ("j" (select 1))
+  ("s" (select 2))
+  ("r" (select 3))
+  ("f" (select 4))))
+
+(include (zh pinyin) map vowel)
+
+(state
+ (init
+  (vowel (shift select)))
+ (select
+  (tone (shift init))))
