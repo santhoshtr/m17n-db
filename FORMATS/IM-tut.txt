@@ -278,7 +278,7 @@ whose Unicode character code is 32 (i.e. SPACE).
 The second argument of the [[set]] action can be an expression of this form:
 
 @verbatim
-  (OPERAND ARG1 [ARG2])
+  (OPERATOR ARG1 [ARG2])
 @endverbatim
 
 Both ARG1 and ARG2 can be an expression.  So,
@@ -289,19 +289,19 @@ Both ARG1 and ARG2 can be an expression.  So,
 
 sets [[X]] to the value of [[Y * 32 + Z]].
 
-We have the following arithmetic/bitwise OPERANDs (require two arguments):
+We have the following arithmetic/bitwise OPERATORs (require two arguments):
 
 @verbatim
   + - * / & |
 @endverbatim
 
-these relational OPERANDs (require two arguments):
+these relational OPERATORs (require two arguments):
 
 @verbatim
   == <= >= < >
 @endverbatim
 
-and this logical OPERAND (requires one argument):
+and this logical OPERATOR (requires one argument):
 
 @verbatim
   !
