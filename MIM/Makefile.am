@@ -57,8 +57,7 @@ INPUT_METHOD = \
 	pa-itrans.mim \
 	ru-kbd.mim ru-yawerty.mim ru-phonetic.mim \
 	sa-harvard-kyoto.mim \
-	si-samanala.mim si-wijesekera.mim \
-	si-wijesekera-preedit-alt.mim si-wijesekera-preedit.mim \
+	si-samanala.mim si-wijesekera.mim si-wijesekera-preedit.mim \
 	sk-kbd.mim \
 	sr-kbd.mim \
 	sv-post.mim \
