@@ -423,11 +423,11 @@ There are several predefined variables that represent a specific position in the
 preedit buffer.  They are:
 
 <ul>
-<li> [[@@<, @=, @@>]] 
+<li> [[@@<, @@=, @@>]] 
 
 The first, current, and last positions.
 
-<li> [[@-, @+]]
+<li> [[@@-, @@+]]
 
 The previous and the next positions.
 </ul>
