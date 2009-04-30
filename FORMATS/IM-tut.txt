@@ -231,11 +231,12 @@ method before explaining how it works.
 @endverbatim
 
 Let's see what happens when the user types the key sequence \<a\> \<b\> \< \>.
-Upon \<a\>, "A" is committed and the state shifts to [[non-upcase]].
+Upon \<a\>, "A" is inserted into the buffer and the state shifts to [[non-upcase]].
 So, the next \<b\> is handled in the [[non-upcase]] state.
 As it matches a
-rule in the map [[lower]], "b" is inserted in the preedit buffer and it
-is committed explicitly by the "commit" command in BRANCH-ACTION.  After
+rule in the map [[lower]], "b" is inserted in the preedit buffer and characters in the 
+buffer ("Ab")
+are committed explicitly by the "commit" command in BRANCH-ACTION.  After
 that, the input method is still in the [[non-upcase]] state.  So the next \< \>
 is also handled in [[non-upcase]].  For this time, no rule in this state
 matches it.  Thus the branch [[(nil (shift init))]] is selected and the
