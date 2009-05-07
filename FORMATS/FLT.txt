@@ -95,8 +95,8 @@ The m17n library loads an FLT from the m17n database using the tag
 @verbatim
 FONT-LAYOUT-TABLE ::= FLT-DECLARATION ? STAGE0 STAGE *
 
-FLT-DECLARATION ::= '(' 'font' 'layouter' NAME nil PROP * ')'
-NAME ::= SYMBOL
+FLT-DECLARATION ::= '(' 'font' 'layouter' FLT-NAME nil PROP * ')'
+FLT-NAME ::= SYMBOL
 PROP :: = VERSION | FONT
 VERSION ::= '(' 'version' MTEXT ')'
 FONT ::= '(' 'font' FONT-SPEC ')'
