@@ -1,4 +1,4 @@
-;; kashmiri.mim -- Kashmiri input method with Kashmiri keyboard layout
+;; ks-kbd.mim -- Kashmiri input method with Kashmiri keyboard layout
 ;; Copyright (c) 2009 Mohammad Nayeem Teli <mohammad.nayeem@gmail.com>
 
 ;; This file is part of the m17n contrib; a sub-part of the m17n
