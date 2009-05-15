@@ -1,0 +1,185 @@
+;; cs-kbd.mim -- Czech input method with Czech keyboard layout
+;; Copyright (C) 2009  Matěj Cepl <mcepl@redhat.com>
+;; This file is created by modifying sk-kbd.mim in the m17n database.
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+;;; Input method for Czech simulating the standard Czech keyboard.
+;;; @image html cs-kbd.png "Keyboard Layout"
+;;; @image latex cs-kbd.eps "Keyboard Layout" width=\narrowwidth
+
+;;      ;° +1  ě2  š3  č4  ř5  ž6  ý7  á8  í9  é0  =%  '+
+;;        qQ  wW  eE  rR  tT  yY  uU  iI  oO  pP  ú/  )(
+;;         aA  sS  dD  fF  gG  hH  jJ  kK  lL  ů"  §!  ¨'
+;;           zZ  xX  cC  vV  bB  nN  mM  ,?  .:  -_
+
+;;; You can also input more characters by the following key sequences:
+;;; @image html cs-kbd2.png
+;;; @image latex cs-kbd2.eps "Extra Keys" width=\narrowwidth
+
+;; key char key char key char key char key char key char
+;; --- ---- --- ---- --- ---- --- ---- --- ---- --- ----
+;; +C  Č    +L  Ľ    +S  Š    +Y  Ž    +r  ř    =R  Ŕ
+;; +D  Ď    +N  Ň    +T  Ť    +d  ď    +u  ů    =l  ĺ
+;; +E  Ě    +R  Ř    +U  Ů    +e  ě    =L  Ĺ    =r  ŕ
+
+(input-method cs kbd)
+
+(description
+ "Czech input method simulating the standard Czech keyboard.
+This is the keyboard layout.
+      ;° +1  ě2  š3  č4  ř5  ž6  ý7  á8  í9  é0  =%  '+
+        qQ  wW  eE  rR  tT  yY  uU  iI  oO  pP  ú/  )(
+         aA  sS  dD  fF  gG  hH  jJ  kK  lL  ů"  §!  ¨'
+           zZ  xX  cC  vV  bB  nN  mM  ,?  .:  -_
+
+You can also input more characters by the following key sequences:
+
+key char key char key char key char key char key char
+--- ---- --- ---- --- ---- --- ---- --- ---- --- ----
++C  Č    +L  Ľ    +S  Š    +Y  Ž    +r  ř    =R  Ŕ
++D  Ď    +N  Ň    +T  Ť    +d  ď    +u  ů    =l  ĺ
++E  Ě    +R  Ř    +U  Ů    +e  ě    =L  Ĺ    =r  ŕ
+")
+
+(title "CS")
+
+(map
+ (map
+  ("1" ?+)
+  ("2" ?ě)
+  ("3" ?š)
+  ("4" ?č)
+  ("5" ?ř)
+  ("6" ?ž)
+  ("7" ?ý)
+  ("8" ?á)
+  ("9" ?í)
+  ("0" ?é)
+  ("!" ?1)
+  ("@" ?2)
+  ("#" ?3)
+  ("$" ?4)
+  ("%" ?5)
+  ("^" ?6)
+  ("&" ?7)
+  ("*" ?8)
+  ("(" ?9)
+  (")" ?0)
+  ("-" ?=)
+  ("_" ?%)
+  ("=" ?')
+  ("[" ?ú)
+  ("{" ?/)
+  ("]" ?\))
+  ("}" ?\()
+;;  ("\\" ?ň)
+  ("|" ?\')
+  (";" ?ů)
+  (":" ?\")
+  ("'" ?§)
+  ("\"" ?!)
+  ("<" ??)
+  (">" ?:)
+  ("/" ?-)
+  ("?" ?_)
+  ("`" ?\;)
+  ("~" ?°)
+;;  ("y" ?z)
+;;  ("z" ?y)
+;;  ("Y" ?Z)
+;;  ("Z" ?Y)
+  ("=a" ?á)
+  ("+a" ?ä)
+  ("+c" ?č)
+  ("+d" ?ď)
+  ("=e" ?é)
+  ("+e" ?ě)
+  ("=i" ?í)
+  ("=l" ?ĺ)
+  ("+l" ?ľ)
+  ("+n" ?ň)
+  ("=o" ?ó)
+  ("+o" ?ô)
+  ("~o" ?ô)
+  ("+=o" ?ö)
+  ("=r" ?ŕ)
+  ("+r" ?ř)
+  ("=s" ?ß)
+  ("+s" ?š)
+  ("+t" ?ť)
+  ("=u" ?ú)
+  ("+u" ?ů)
+  ("+=u" ?ü)
+  ("=z" ?ý)
+  ("+y" ?ž)
+  ("=A" ?Á)
+  ("+A" ?Ä)
+  ("+=A" ?Ä)
+  ("+C" ?Č)
+  ("+D" ?Ď)
+  ("=E" ?É)
+  ("+E" ?Ě)
+  ("=I" ?Í)
+  ("=L" ?Ĺ)
+  ("+L" ?Ľ)
+  ("+N" ?Ň)
+  ("=O" ?Ó)
+  ("+O" ?Ô)
+  ("~O" ?Ô)
+  ("+=O" ?Ö)
+  ("=R" ?Ŕ)
+  ("+R" ?Ř)
+  ("=S" ?ß)
+  ("+S" ?Š)
+  ("+T" ?Ť)
+  ("=U" ?Ú)
+  ("+U" ?Ů)
+  ("+=U" ?Ü)
+  ("=Z" ?Ý)
+  ("+Y" ?Ž)
+  ("=q" ?`)
+  ("=2" ?@)
+  ("=3" ?#)
+  ("=4" ?$)
+  ("=5" ?%)
+  ("=6" ?^)
+  ("=7" ?&)
+  ("=8" ?*)
+  ("=9" ?\()
+  ("=0" ?\))
+  ("+1" ?!)
+  ("+2" ?@)
+  ("+3" ?#)
+  ("+4" ?$)
+  ("+5" ?%)
+  ("+6" ?^)
+  ("+7" ?&)
+  ("+8" ?*)
+  ("+9" ?\()
+  ("+0" ?\))))
+
+(state
+ (init
+  (map)))
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: lisp
+;; End:
