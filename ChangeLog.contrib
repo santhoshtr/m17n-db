@@ -1,3 +1,9 @@
+2009-05-15  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* AUTHORS: New author.
+
+	* im/cs-kbd.mim, im/cs-kbd.png: New file.
+
 2009-05-14  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* AUTHORS, im/ks-kbd.mim: Fix the filename in the 1st line of comments.
