@@ -388,7 +388,7 @@ The next glyph is drawn so that these two reference points align.
 reference points are on the same position.
 
 @c XOFF specifies how much the X position of the reference point of
-the next glyph should be shifted to the right ('<') or left ('>') from
+the next glyph should be shifted to the left ('<') or right ('>') from
 the previous reference point.
 
 @c YOFF specifies how much the Y position of the reference point the
