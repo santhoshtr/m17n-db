@@ -21,6 +21,7 @@
 
 ;; Begin author's comments:
 
+;; Vutam is meant for those who know to write Tamil.
 ;; Vutam Type_As_You_Write is suitable for 3 basket mechanical type writers.
 ;; Had the Unicode encoding scheme followed that of TSCII, Vutam can run even in unintelligent keyboards with atleast three baskets.
 ;; The intelligent SCIM supports many baskets; the third basket is selected in it, by pressing any Alt key & a Normal key together.
