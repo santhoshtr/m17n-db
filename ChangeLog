@@ -1,3 +1,13 @@
+2009-06-19  Kenichi Handa  <handa@m17n.org>
+
+	* MIM/vi-base.mim (smart-quotes): New map.
+
+	* MIM/vi-telex.mim (init): Add smart-quotes.
+
+	* MIM/vi-tcvn.mim (init): Add smart-quotes.
+
+	* MIM/vi-vni.mim (init): Add smart-quotes.
+
 2009-04-14  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* MIM/si-wijesekera-preedit-alt.mim: Deleted.
