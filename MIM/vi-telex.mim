@@ -116,7 +116,8 @@ If the value is 1, Backspace key undoes the previous key
   (vowel (mark M) (set V-2 V-1) (set V-1 @-1) (shift after-v))
   (vowel-ext (mark M) (set V-2 V-1) (set V-1 @-1) (shift after-v))
   (temporary-escape (shift temporary-escape))
-  (permanent-escape (shift escape-in-normal-mode)))
+  (permanent-escape (shift escape-in-normal-mode))
+  (smart-quotes))
 
  ;; The state shifted to when a vowel is typed.
  (after-v
