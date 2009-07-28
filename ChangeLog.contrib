@@ -4,6 +4,8 @@
 
 2009-07-28  Kenichi Handa  <handa@m17n.org>
 
+	* Makefile.am (EXTRA_DIST): Add bootstrap.sh.
+
 	* configure.ac: Version changed to 1.1.10.
 
 2009-07-28  TAKAHASHI Naoto  <ntakahas@m17n.org>
