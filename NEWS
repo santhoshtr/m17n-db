@@ -5,6 +5,17 @@ Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009
 See the end for copying conditions.
 
 
+* Changes in the m17n database 1.5.5
+
+** An input method is deleted.
+
+si-wijesekera-preedit-alt.mim
+
+** These Vietnamese input methods adopt smart-quotes.
+
+vi-telex.mim, vi-tcvn.mim, vi-vni.mim
+
+
 * Changes in the m17n database 1.5.4
 
 ** A new input method is added.

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: m17n-db 1.3.4\n"
 "Report-Msgid-Bugs-To: bugs-m17n-lib@m17n.org\n"
-"POT-Creation-Date: 2009-02-25 12:51+0900\n"
+"POT-Creation-Date: 2009-07-28 16:24+0900\n"
 "PO-Revision-Date: 2007-06-14 22:54+0900\n"
 "Last-Translator: Phan Anh Dung <padung@huesoft.com.vn>\n"
 "Language-Team: Phan Anh Dung <padung@huesoft.com.vn>\n"
@@ -296,13 +296,13 @@ msgid ""
 "of a Unicode character code.\n"
 msgstr ""
 
-#: MIM/unicode.mim:32
+#: MIM/unicode.mim:34
 msgid ""
 "Preedit prompt\n"
 "Prompt string shown in the preedit area while typing hexadecimal numbers."
 msgstr ""
 
-#: MIM/unicode.mim:36
+#: MIM/unicode.mim:38
 msgid ""
 "Start Unicode\n"
 "Start typing hexadecimal numbers of Unicode character."

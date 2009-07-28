@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ja\n"
 "Report-Msgid-Bugs-To: bugs-m17n-lib@m17n.org\n"
-"POT-Creation-Date: 2009-02-25 12:51+0900\n"
+"POT-Creation-Date: 2009-07-28 16:24+0900\n"
 "PO-Revision-Date: 2006-09-21 23:16+0900\n"
 "Last-Translator: Kenichi Handa <handa@m17n.org>\n"
 "Language-Team: ja <ja@li.org>\n"
@@ -305,7 +305,7 @@ msgstr ""
 "C-u に続けてUnicode の文字コードを４桁の１６進数をタイプして\n"
 "Unicode 文字を入力する。\n"
 
-#: MIM/unicode.mim:32
+#: MIM/unicode.mim:34
 msgid ""
 "Preedit prompt\n"
 "Prompt string shown in the preedit area while typing hexadecimal numbers."
@@ -313,7 +313,7 @@ msgstr ""
 "Preedit プロンプト\n"
 "Unicode を１６進数で入力中、preedit 領域に表示されるプロンプト文字列。"
 
-#: MIM/unicode.mim:36
+#: MIM/unicode.mim:38
 msgid ""
 "Start Unicode\n"
 "Start typing hexadecimal numbers of Unicode character."
