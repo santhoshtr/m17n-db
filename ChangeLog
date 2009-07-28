@@ -14,15 +14,15 @@
 
 	* MIM/Makefile.am: Remove si-wijesekera-preedit-alt.mim.
 
-2009-03-19  Mikiko Nisikimi  <nisikimi@duron>
+2009-03-19  Mikiko Nisikimi  <nisikimi@m17n.org>
 
 	* FORMATS/IM-xml.txt: New file.
 
-2009-03-18  Mikiko Nisikimi  <nisikimi@duron>
+2009-03-18  Mikiko Nisikimi  <nisikimi@m17n.org>
 
 	* MIM/mim.rng: element <plist>removed.
 
-2009-03-17  Mikiko Nisikimi  <nisikimi@duron>
+2009-03-17  Mikiko Nisikimi  <nisikimi@m17n.org>
 
 	* MIM/mim.rng:
 	<data type="string"><param name="pattern">@.+</param></data>
