@@ -24,7 +24,7 @@
 ;; http://www.nongnu.org/sinhala/doc/transliteration/sinhala-transliteration_5.html
 
 
-(input-method si trans)
+(input-method si transliteration)
 
 (description "Sinhala transliteration input method:
   <http://www.nongnu.org/sinhala/doc/transliteration/sinhala-transliteration_5.html>"
