@@ -10,6 +10,12 @@ See the end for copying conditions.
 ** New input method:
 
 ks-kdb.mim (Kashmiri)
+zh-zhuyin.mim (Chinese)
+ta-vutam.mim (Tamil)
+cs-kbd.mim (Czech)
+zh-pinyin-vi.mim (Chinese)
+ks-kbd.mim (Kashmiri)
+ps-phonetic (Pashto)
 
 
 * Changes in the m17n-contrib 1.1.9
