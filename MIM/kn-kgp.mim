@@ -2,6 +2,8 @@
 ;;   Copyright (C) 2008
 ;;   Sridhar M.A., Mysore; mas@mylug.org
 
+;; Modified for better visual appeal by Prasad H. L. hlprasu@gmail.com
+
 
 ;; This file is part of the m17n contrib; a sub-part of the m17n
 ;; library.
@@ -35,7 +37,7 @@
   ("A") ("B") ("C") ("D") ("E") ("G") ("H") ("I") ("J") ("K") 
   ("L") ("M") ("N") ("O") ("P") ("Q") ("R") ("S") ("T") ("U")
   ("V") ("W") ("Y") ("Z")
-  ("a") ("b") ("c") ("d") ("e") ("f") ("g") ("h") ("i")
+  ("a") ("b") ("c") ("d") ("e") ("g") ("h") ("i")
   ("j") ("k") ("l") ("m") ("n") ("o") ("p") ("q") ("r")
   ("s") ("t") ("u") ("v") ("w") ("x") ("y") ("z"))
 
@@ -94,8 +96,6 @@
   ("o" "ಒ")
   ("O" "ಓ")
   ("V" "ಔ")
-  ("M" "ಂ")
-  ("H" "ಃ")
   ("|" "।")
   ("||" "॥")
   ("sX" "ಽ")
@@ -110,8 +110,15 @@
   ("8" "೮")
   ("9" "೯"))
 
+ (halantha
+   ("f" "್")
+   ("ff" "್‌"))
+ 
+ (ayogavaaha
+  ("M" "ಂ")
+  ("H" "ಃ"))
+
  (dependent
-  ("f" "್")
   ("A" "ಾ")
   ("i" "ಿ")
   ("I" "ೀ")
@@ -124,8 +131,7 @@
   ("Y" "ೈ")
   ("o" "ೊ")
   ("O" "ೋ")
-  ("V" "ೌ")
-  ("ff" "್‌"))
+  ("V" "ೌ"))
 
  (return
   ((Return)))
@@ -135,23 +141,36 @@
 
 (state
  (init
-  (starter (pushback 1) (shift intermediate)))
+  (starter (pushback 1) (shift start)))
 
- (intermediate
-  (consonant (shift second))
-  (independent (shift finish))
+ (start
+  (consonant (shift first))
+  (independent (shift ayogavaaha))
+  (backspace)
+  (return (shift init)))
+
+ (first
+  (consonant (set a @-1) (undo -1) (commit) (pushback a) (shift start))
+  (ayogavaaha (shift finish))
+  (dependent (shift ayogavaaha))
+  (halantha (shift second))
   (backspace)
   (return (shift init)))
 
  (second
-  (consonant)
-  (dependent (shift finish))
+  (consonant (shift first))
   (backspace)
   (return (shift init)))
 
+ (ayogavaaha
+  (ayogavaaha (shift ayogavaaha))
+  (backspace)
+  (return (shift init))
+
  (finish
-  (return)
-  )
+  (backspace)
+  (return))
+)
 
 ;; (finish
 ;;  (return)
