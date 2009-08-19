@@ -125,7 +125,7 @@ CATEGORY is ASCII code of an upper or lower letter, i.e. one of 'A',
 ... 'Z', 'a', .. 'z'.
 
 The first form of @c CATEGORY-SPEC assigns @c CATEGORY to a glyph
-whose code @c CODE.  The second form assigns @c CATEGORY to glyphs
+whose code is @c CODE.  The second form assigns @c CATEGORY to glyphs
 whose code falls between the two @c CODEs.
 
 @verbatim
@@ -371,9 +371,10 @@ as described below.
 
 The left figure shows 12 reference points of a glyph by numbers 0 to
 11.  The rectangle 0-6-8-2 is the bounding box of the glyph, the
-positions 3, 4, and 5 are on the baseline, 9 and 11 are on the center
-of the lines 0-6 and 2-8 respectively, 1, 10, 4, and 7 are on the
-center of the lines 1-2, 3-5, 9-11, and 6-8 respectively.
+positions 3, 4, and 5 are on the baseline, 9-11 are on the vertical
+center of the box, 0-2 and 6-8 are on the top and on the bottom
+respectively.  1, 10, 4, and 7 are on the horizontal center of the
+box.
 
 The right table shows how those reference points are specified by a
 pair of @c VPOS and @c HPOS.
