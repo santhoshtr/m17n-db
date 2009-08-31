@@ -1,6 +1,7 @@
 ;;; Created by: Trần Ngọc Quân
 ;;; Email: vnwildman@gmail.com
 ;;; Started: 2009-02-19
+;;;	Last modified: 2009-08-30
 ;;; 
 ;;; This file is part of the m17n contrib; a sub-part of the m17n
 ;;; library.
@@ -39,12 +40,18 @@
 ("jj" "ĵ")
 ("ss" "ŝ")
 ("uu" "ŭ")
+("au" "aŭ")
+("eu" "eŭ")
 ("Cc" "Ĉ")
 ("Gg" "Ĝ")
 ("Hh" "Ĥ")
 ("Jj" "Ĵ")
 ("Ss" "Ŝ")
 ("Uu" "Ŭ")
+("Au" "Aŭ")
+("Eu" "Eŭ")
+("AU" "AŬ")
+("EU" "EŬ")
 ("CC" "Ĉ")
 ("GG" "Ĝ")
 ("HH" "Ĥ")
@@ -63,6 +70,12 @@
 ("Jjj" "Jj")
 ("Sss" "Ss")
 ("Uuu" "Uu")
+("auu" "au")
+("euu" "eu")
+("Auu" "Au")
+("Euu" "Eu")
+("AUU" "AU")
+("EUU" "EU")
 ("CCC" "CC")
 ("GGG" "GG")
 ("HHH" "HH")
