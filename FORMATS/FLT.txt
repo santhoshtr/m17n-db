@@ -280,7 +280,7 @@ OTF-SPEC ::= SYMBOL
 @endverbatim
 
 @c OTF-SPEC is a symbol whose name specifies an instruction to the OTF
-driver.  The name has the following syntax.
+driver.  The name has the following syntax.  @anchor OTF-SPEC
 
 @verbatim
   OTF-SPEC-NAME ::= ':otf' SCRIPT LANGSYS ? GSUB-FEATURES ? GPOS-FEATURES ?
