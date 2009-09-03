@@ -50,8 +50,7 @@
   ((nil thaana\ unicode\ akeh unicode-bmp) thaa-otf)))
 (devanagari
  (nil
-  ((nil nil unicode-bmp :otf=deva=rphf) deva-otf)
-  ((nil dv-ttyogesh apple-roman) deva-cdac)))
+  ((nil nil unicode-bmp :otf=deva=rphf) deva-otf)))
 (bengali
  (nil
   ((nil nil unicode-bmp :otf=beng=rphf) beng-otf)))

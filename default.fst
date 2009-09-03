@@ -61,17 +61,10 @@
 ;;; <li> infopage: http://www.bethmardutho.org/meltho/
 ;;; <li> download: http://www.bethmardutho.org/support/meltho/download/
 ;;; </ul>
-;;; XXXXX<li> Thaana1U.TTF (family:Thaana Unicode Akeh; for Thaana)
-;;; XXXXX<ul>
-;;; XXXXX<li> infopage: http://www.mitf.net/index.php/projects/thaana/font-unicode.html
-;;; XXXXX<li> download: http://www.mitf.net/download/thaana1u.zip
-;;; XXXXX</ul>
-;;; XXXXX<li> DVYG0ntt.ttf (family: DV-TTYogesh; for Devanagari),\n
-;;; XXXXX     MLKR0ntt.ttf (family: ML-TTKarthika; for Malayalam),\n
-;;; XXXXX     TMVL0ntt.ttf (family: TM-TTValluvar; for Tamil)
-;;; XXXXX<ul>
-;;; XXXXX<li> infopage: http://www.iiit.net/ltrc/iscii/FAQ.htm#SEC2.1
-;;; XXXXX<li> download: http://www.iiit.net/ltrc/iscii/iscii_plugin_linux.tar.gz
+;;; <li> Mv Elaaf Lite.otf (family:Mv Elaaf Lite; for Thaana)
+;;; <ul>
+;;; <li> infopage: http://www.mcst.gov.mv/News_and_Events/xpfonts.htm
+;;; <li> download: http://www.mcst.gov.mv/Downloads/New/Divehi%20xp%20fonts/Mv%20Elaaf%20Lite.otf.ttf
 ;;; </ul>
 ;;; <li> raghu.ttf (family: Raghindi; for Devanagari)
 ;;; <ul>
@@ -150,15 +143,9 @@
 ;;; <li> infopage: http://www.supersoftweb.com/ThoolikaUnicode.aspx
 ;;; <li> download: http://www.supersoftweb.com/FreeDownloades/ThooliUC.TTF
 ;;; </ul>
-;;; XXXX<li> lklug.otf (family: LKLUG; for Sinhala)
-;;; XXXX<ul>
-;;; XXXX<li> infopage: http://sinhala.linux.lk/
-;;; XXXX<li> download: http://sinhala.linux.lk/pub/fonts/lklug.otf
-;;; </ul>
-;;; XXXX<li> mtib.ttf (family: mtib; for Tibetan)
-;;; XXXX<ul>
-;;; XXXX<li> infopage: http://www.m17n.org/emacs-ttf/
-;;; XXXX<li> download: http://www.m17n.org/emacs-ttf/fonts/tibetan/mtib.ttf
+;;; <li> lklug.otf (family: LKLUG; for Sinhala)
+;;; <ul>
+;;; <li> debian package:: ttf-sinhala-lklug
 ;;; </ul>
 ;;; <li> TibetanMachineUniAlpha.ttf (family: tibetan machine uni; for Tibetan)
 ;;; <ul>
@@ -168,20 +155,10 @@
 ;;; <ul>
 ;;; <li> debian package: ttf-thai-tlwg
 ;;; </ul>
-;;; XXXX<li> ALICE0.TTF (family: Alice0 Lao; for Lao)
-;;; XXXX<ul>
-;;; XXXX<li> infopage: http://seasrc.th.net/font/font.htm
-;;; XXXX<li> download: http://seasrc.th.net/font/fontlao.dir/alice0.zip
-;;; </ul>
 ;;; <li> Phetsarath_OT.ttf (family: Phetsarath OT; for Lao)
 ;;; <ul>
 ;;; <li> infopage: http://sourceforge.net/projects/laofoss
 ;;; <li> download: http://prdownloads.sourceforge.net/laofoss/Phetsarath_OT.zip
-;;; </ul>
-;;; XXXX<li> ANLONG.TTF (family: Anlongvill Khek; for Khmer)
-;;; XXXX<ul>
-;;; XXXX<li> infopage: http://www.cambodia.org/fonts/index.html#dl
-;;; XXXX<li> download: http://www.cambodia.org/fonts/khmerfnt.zip
 ;;; </ul>
 ;;; <li> KhmerOS.ttf (family: Khmer OS; for Khmer)
 ;;; <ul>
@@ -271,9 +248,7 @@
  (nil
   ((nil gargi_1.7 unicode-bmp) deva-otf)
   ((nil gargi unicode-bmp) deva-otf)
-  ((nil raghindi unicode-bmp) deva-otf)
-  ((nil dv-ttyogesh apple-roman) deva-cdac)
-  ((devanagari-cdac) deva-cdac)))
+  ((nil raghindi unicode-bmp) deva-otf)))
 (bengali
  (nil
   ((nil mukti\ narrow unicode-bmp) beng-otf)
@@ -291,7 +266,6 @@
   ((nil utkal unicode-bmp) orya-otf)))
 (tamil
  (nil
-  ((nil tm-ttvalluvar apple-roman) taml-cdac)
   ((nil akrutitml1 unicode-bmp) taml-otf)
   ((nil akrutitml2 unicode-bmp) taml-otf)
   ((nil tscu_paranar unicode-bmp) taml-otf)
@@ -299,8 +273,7 @@
   ((nil tscu_times unicode-bmp) taml-otf)
   ((nil tamu_kadambri unicode-bmp) taml-otf)
   ((nil tamu_kalyani unicode-bmp) taml-otf)
-  ((nil tamu_maduram unicode-bmp) taml-otf)
-  ((tamil-cdac) taml-cdac)))
+  ((nil tamu_maduram unicode-bmp) taml-otf)))
 (telugu
  (nil
   ((nil pothana2000 unicode-bmp) telu-otf)))
@@ -312,9 +285,7 @@
 (malayalam
  (nil
   ((nil rachana unicode-bmp) mlym-rachana)
-  ((nil thoolikaunicode unicode-bmp) mlym-otf)
-  ((malayalam-cdac) mlym-cdac)
-  ((nil ml-ttkarthika apple-roman) mlym-cdac)))
+  ((nil thoolikaunicode unicode-bmp) mlym-otf)))
 (sinhala
  (nil
   ((nil lklug unicode-bmp) sinh-otf)))
