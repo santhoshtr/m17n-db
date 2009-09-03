@@ -1,3 +1,15 @@
+2009-09-03  Kenichi Handa  <handa@m17n.org>
+
+	* default.fst: Remove cdac entries.
+
+	* generic.fst: Remove cdac entries.
+
+2009-09-02  Kenichi Handa  <handa@m17n.org>
+
+	* icons/ru-phonetic.png: New file.
+
+	* icons/zh-bopomofo.png: New file.
+
 2009-07-28  Kenichi Handa  <handa@m17n.org>
 
 	* Version 1.5.5 released.
