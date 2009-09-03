@@ -47,8 +47,7 @@
 ;;; <li> PakType Naqsh 2.2.ttf (family: PakType Naqsh; for Arabic)
 ;;; <li> PakType Tehreer 1.2.tty (family: PakType Tehreer; for Arabic)
 ;;; <ul>
-;;; <li> infopage: http://www.zaban.net/paktype/index.htm
-;;; <li> download: http://sourceforge.net/projects/paktype/
+;;; <li> debian package: ttf-paktype
 ;;; </ul>
 ;;; <li> Cyberbase.ttf (family: Bitstream CyberBase; for Arabic)
 ;;; <ul>
@@ -62,42 +61,39 @@
 ;;; <li> infopage: http://www.bethmardutho.org/meltho/
 ;;; <li> download: http://www.bethmardutho.org/support/meltho/download/
 ;;; </ul>
-;;; <li> Thaana1U.TTF (family:Thaana Unicode Akeh; for Thaana)
-;;; <ul>
-;;; <li> infopage: http://www.mitf.net/index.php/projects/thaana/font-unicode.html
-;;; <li> download: http://www.mitf.net/download/thaana1u.zip
-;;; </ul>
-;;; <li> DVYG0ntt.ttf (family: DV-TTYogesh; for Devanagari),\n
-;;;      MLKR0ntt.ttf (family: ML-TTKarthika; for Malayalam),\n
-;;;      TMVL0ntt.ttf (family: TM-TTValluvar; for Tamil)
-;;; <ul>
-;;; <li> infopage: http://www.iiit.net/ltrc/iscii/FAQ.htm#SEC2.1
-;;; <li> download: http://www.iiit.net/ltrc/iscii/iscii_plugin_linux.tar.gz
+;;; XXXXX<li> Thaana1U.TTF (family:Thaana Unicode Akeh; for Thaana)
+;;; XXXXX<ul>
+;;; XXXXX<li> infopage: http://www.mitf.net/index.php/projects/thaana/font-unicode.html
+;;; XXXXX<li> download: http://www.mitf.net/download/thaana1u.zip
+;;; XXXXX</ul>
+;;; XXXXX<li> DVYG0ntt.ttf (family: DV-TTYogesh; for Devanagari),\n
+;;; XXXXX     MLKR0ntt.ttf (family: ML-TTKarthika; for Malayalam),\n
+;;; XXXXX     TMVL0ntt.ttf (family: TM-TTValluvar; for Tamil)
+;;; XXXXX<ul>
+;;; XXXXX<li> infopage: http://www.iiit.net/ltrc/iscii/FAQ.htm#SEC2.1
+;;; XXXXX<li> download: http://www.iiit.net/ltrc/iscii/iscii_plugin_linux.tar.gz
 ;;; </ul>
 ;;; <li> raghu.ttf (family: Raghindi; for Devanagari)
 ;;; <ul>
 ;;; <li> infopage: http://www.nepali.info/nepali/help.asp
 ;;; <li> download: http://www.nepali.info/nepali/fonts/raghu.ttf
 ;;; </ul>
-;;; <li> Gargi-1.7.ttf (family: Gargi; for Devanagari)
+;;; <li> gargi.ttf (family: gargi; for Devanagari)
 ;;; <ul>
-;;; <li> infopage: http://www.indictrans.org/
-;;; <li> dowvload: http://www.indictrans.org/Fonts_files/English/f2.php#freefont
+;;; <li> debian package: ttf-devanagari-fonts
 ;;; </ul>
-;;; <li> AksharYogini.ttf (family: Aksharyogini; for Devanagari)
+;;; <li> AksharYoginiNormal.ttf (family: Aksharyogini; for Devanagari)
 ;;; <ul>
-;;; <li> infopage: http://aksharyogini.sudhanwa.com
-;;; <li> dowvload: http://aksharyogini.sudhanwa.com/AksharYogini.ttf
+;;; <li> infopage: http://aksharyogini.sudhanwa.com/aksharyogini.html
+;;; <li> download: http://aksharyogini.sudhanwa.com/AksharYoginiNormal.ttf
 ;;; </ul>
 ;;; <li> MuktiNarrow.ttf (family: mukti narrow; for Bengali)
 ;;; <ul>
-;;; <li> infopage: http://www.nongnu.org/freebangfont/downloads.html
-;;; <li> download: http://savannah.nongnu.org/download/freebangfont/MukutiNarrow-0.94.tar.bz2
+;;; <li> debian package: ttf-bengali-fonts
 ;;; </ul>
 ;;; <li> LikhanNormal.otf (family: likhan; for Bengali)
 ;;; <ul>
-;;; <li> infopage: http://www.stat.wisc.edu/~deepayan/Bengali/WebPage/Font/fonts.html
-;;; <li> download: http://www.stat.wisc.edu/~deepayan/Bengali/WebPage/Font/LinkhanNormal.otf
+;;; <li> debian package: ttf-bengali-fonts
 ;;; </ul>
 ;;; <li> Sagar0.6_GPL.ttf (family: sagar; for Bengali)
 ;;; <ul>
@@ -111,8 +107,7 @@
 ;;; </ul>
 ;;; <li> padmaa-Medium-0.5.ttf (family: padmaa; for Gujarati)
 ;;; <ul>
-;;; <li> infopage: http://www.indictrans.org/
-;;; <li> dowvload: http://www.indictrans.org/Fonts_files/English/f2.php#freefont
+;;; <li> debian package: ttf-gujarati-fonts
 ;;; </ul>
 ;;; <li> utkalm.ttf (family utkal; for Oriya)
 ;;; <ul>
@@ -146,54 +141,51 @@
 ;;; <li> infopage: http://kannada.sourceforge.net/
 ;;; <li> download: http://brahmi.sourceforge.net/dl/Sampige.ttf
 ;;; </ul>
-;;; <li> RanachaMedium.ttf (family: rachana; for Malayalam)
+;;; <li> Rachana_04.ttf (family: rachana; for Malayalam)
 ;;; <ul>
-;;; <li> infopage: http://www.hackgnu.org/rachana/otf/
-;;; <li> download: http://www.hackgnu.org/rachana/otf/rachana.otf.bz2
+;;; <li> debian package: ttf-malayalam-fonts
 ;;; </ul>
 ;;; <li> THOOLIUC.TTF (family: thoolikaunicode; for Malayalam)
 ;;; <ul>
-;;; <li> infopage: http://www.supersoftweb.com/Unicode.htm
-;;; <li> downpage: http://www.supersoftweb.com/THOOLIUC.TTF
+;;; <li> infopage: http://www.supersoftweb.com/ThoolikaUnicode.aspx
+;;; <li> download: http://www.supersoftweb.com/FreeDownloades/ThooliUC.TTF
 ;;; </ul>
-;;; <li> lklug.otf (family: LKLUG; for Sinhala)
-;;; <ul>
-;;; <li> infopage: http://sinhala.linux.lk/
-;;; <li> download: http://sinhala.linux.lk/pub/fonts/lklug.otf
+;;; XXXX<li> lklug.otf (family: LKLUG; for Sinhala)
+;;; XXXX<ul>
+;;; XXXX<li> infopage: http://sinhala.linux.lk/
+;;; XXXX<li> download: http://sinhala.linux.lk/pub/fonts/lklug.otf
 ;;; </ul>
-;;; <li> mtib.ttf (family: mtib; for Tibetan)
-;;; <ul>
-;;; <li> infopage: http://www.m17n.org/emacs-ttf/
-;;; <li> download: http://www.m17n.org/emacs-ttf/fonts/tibetan/mtib.ttf
+;;; XXXX<li> mtib.ttf (family: mtib; for Tibetan)
+;;; XXXX<ul>
+;;; XXXX<li> infopage: http://www.m17n.org/emacs-ttf/
+;;; XXXX<li> download: http://www.m17n.org/emacs-ttf/fonts/tibetan/mtib.ttf
 ;;; </ul>
 ;;; <li> TibetanMachineUniAlpha.ttf (family: tibetan machine uni; for Tibetan)
 ;;; <ul>
-;;; <li> infopage: http://www.thdl.org/
-;;; <li> download: http://ftp.debian.org/debian/pool/main/t/ttf-tmuni/ttf-tmuni_1.901b.orig.tar.gz
+;;; <li> debian package: ttf-tmuni
 ;;; </ul>
-;;; <li> norasi_b.ttf, norasi_bi.ttf, norasi_i.ttf, norasi_n.ttf (family Norasi; for Thai)
+;;; <li> Nrasi_Bold.ttf, Norasi_BoldItalic.ttf, Norasi_Italic.ttf, Norasi.ttf (family Norasi; for Thai)
 ;;; <ul>
-;;; <li> infopage: http://packages.debian.org/stable/x11/xfonts-thai-ttf.html
+;;; <li> debian package: ttf-thai-tlwg
 ;;; </ul>
-;;; <li> ALICE0.TTF (family: Alice0 Lao; for Lao)
-;;; <ul>
-;;; <li> infopage: http://seasrc.th.net/font/font.htm
-;;; <li> download: http://seasrc.th.net/font/fontlao.dir/alice0.zip
+;;; XXXX<li> ALICE0.TTF (family: Alice0 Lao; for Lao)
+;;; XXXX<ul>
+;;; XXXX<li> infopage: http://seasrc.th.net/font/font.htm
+;;; XXXX<li> download: http://seasrc.th.net/font/fontlao.dir/alice0.zip
 ;;; </ul>
 ;;; <li> Phetsarath_OT.ttf (family: Phetsarath OT; for Lao)
 ;;; <ul>
 ;;; <li> infopage: http://sourceforge.net/projects/laofoss
 ;;; <li> download: http://prdownloads.sourceforge.net/laofoss/Phetsarath_OT.zip
 ;;; </ul>
-;;; <li> ANLONG.TTF (family: Anlongvill Khek; for Khmer)
-;;; <ul>
-;;; <li> infopage: http://www.cambodia.org/fonts/index.html#dl
-;;; <li> download: http://www.cambodia.org/fonts/khmerfnt.zip
+;;; XXXX<li> ANLONG.TTF (family: Anlongvill Khek; for Khmer)
+;;; XXXX<ul>
+;;; XXXX<li> infopage: http://www.cambodia.org/fonts/index.html#dl
+;;; XXXX<li> download: http://www.cambodia.org/fonts/khmerfnt.zip
 ;;; </ul>
 ;;; <li> KhmerOS.ttf (family: Khmer OS; for Khmer)
 ;;; <ul>
-;;; <li> infopage: http://www.khmeros.info/drupal/?q=en/download/fonts
-;;; <li> download: http://www.khmeros.info/download/KhmerOS.ttf
+;;; <li> debian package: ttf-khmeros
 ;;; </ul>
 ;;; <li> MyaZedi_M17N.ttf (family: MyaZedi; for Myanmar)
 ;;; <ul>
@@ -201,8 +193,8 @@
 ;;; </ul>
 ;;; <li> BPG-Classic-99Um.ttf (family: BPG Classic 99U; for Georgian) 
 ;;; <ul>
-;;; <li> infopage: http://beso.tripod.com/bpg_classic.htm
-;;; <li> download: http://beso.tripod.com/files/BPG-Classic-U.zip
+;;; <li> infopage: http://bpg.sytes.net/bpgfonts/bpg_classic.htm
+;;; <li> download: http://bpg.sytes.net/bpgfonts/files/BPG-Classic-U.zip
 ;;; </ul>
 ;;; <li> kochi-gothic.ttf, kochi-gothic-subst.ttf
 ;;;		(family: kochi gothic;for Japanese)
@@ -212,18 +204,15 @@
 ;;; </ul>
 ;;; <li> dotum.ttf (family: Baekmuk Dotum; for Hangul)
 ;;; <ul>
-;;; <li> infopage: http://packages.debian.org/unstable/x11/ttf-baekmuk.html
-;;; <li> download: http://ftp.debian.org/debian/pool/main/t/ttf-baekmuk/ttf-baekmuk_2.1.orig.tar.gz
+;;; <li> debian package: ttf-baekmuk
 ;;; </ul>
 ;;; <li> gbsn00lp.ttf (family: AR PL SungtiL GB; for Chinese)
 ;;; <ul>
-;;; <li> infopage: http://packages.debian.org/unstable/x11/ttf-arphic-gbsn00lp.html
-;;; <li> download: http://ftp.debian.org/debian/pool/main/t/ttf-arphic-gbsn00lp/ttf-arphic-gbsn00lp_2.11.orig.tar.gz
+;;; <li> debian package: ttf-arphic-gbsn00lp
 ;;; </ul>
 ;;; <li> bsmi00lp.ttf (family AR PL Mingti2L Big5; for Chinese)
 ;;; <ul>
-;;; <li> infopage: http://packages.debian.org/unstable/x11/ttf-arphic-bsmi00lp.html
-;;; <li> download: http://ftp.debian.org/debian/pool/main/t/ttf-arphic-bsmi00lp/ttf-arphic-bsmi00lp_2.10.orig.tar.gz
+;;; <li> debian package: ttf-arphic-bsmi00lp
 ;;; </ul>
 ;;; </ul>
 
