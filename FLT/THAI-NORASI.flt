@@ -10,7 +10,7 @@
 ;;; For the Thai Norasi family fonts to draw Thai script.  The fonts are
 ;;; available at:
 ;;; <ul>
-;;; <li> infopage: <http://packages.debian.org/stable/x11/xfonts-thai-ttf.html>
+;;; <li> debian package: ttf-thai-tlwg
 ;;; </ul>
 
 ;; 1st stage: basic composition of CVT

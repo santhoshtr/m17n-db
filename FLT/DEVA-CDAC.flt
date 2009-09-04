@@ -5,6 +5,7 @@
 (font layouter deve-cdac nil
       (font (nil dv-ttyogesh apple-roman)))
 
+;;; <li> DEVA-CDAC.flt
 
 (category
  ;; A: ANUSVARA or CANDRABINDU

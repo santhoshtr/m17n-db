@@ -6,13 +6,6 @@
       (font (nil tm-ttvalluvar apple-roman)))
 
 ;;; <li> TAML-CDAC.flt
-;;;
-;;; For the font TMVL0ntt.ttf (developped by C-DAC, encoding is ISFOC)
-;;; to draw Tamil script.  The font is available at:
-;;; <ul>
-;;; <li>	infopage: http://www.iiit.net/ltrc/iscii/FAQ.htm#SEC2.1
-;;; <li> download: http://www.iiit.net/ltrc/iscii/iscii_plugin_linux.tar.gz
-;;; </ul>
 
 (category
  ;; C: CONSONANT

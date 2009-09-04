@@ -7,13 +7,6 @@
 	    (nil ml-ttkarthika apple-roman)))
 
 ;;; <li> MLYM-CDAC.flt
-;;;
-;;; For the font MLKR0ntt.ttf (developped by C-DAC, encoding is ISFOC)
-;;; to draw Malayalam script.  The font is available at:
-;;; <ul>
-;;; <li>	infopage: http://www.iiit.net/ltrc/iscii/FAQ.htm#SEC2.1
-;;; <li> download: http://www.iiit.net/ltrc/iscii/iscii_plugin_linux.tar.gz
-;;; </ul>
 
 (category
  (0x0D00 0x0D7F	?E)			; all malayalam characters

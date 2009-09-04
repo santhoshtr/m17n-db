@@ -10,8 +10,7 @@
 ;;; For TibetanMachineUniAlpha.ttf to draw Tibetan script.
 ;;; The font is available at:
 ;;; <ul>
-;;; <li> infopage: http://www.thdl.org/
-;;; <li> download: http://ftp.debian.org/debian/pool/main/t/ttf-tmuni/ttf-tmuni_0.0.20040806.orig.tar.gz
+;;; <li> debian package: ttf-tmuni
 ;;; </ul>
 
 ;; Step 0: Reordering Characters

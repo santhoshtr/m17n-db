@@ -5,6 +5,7 @@
 (font layouter khmr-anlong nil
       (font (nil anlongvill\ khek apple-roman)))
 
+;;; <li> KHMR-ANLONG.flt
 
 (category
  ;; C: CONSONANT (except R and KHMER LETTER LA)

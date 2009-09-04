@@ -6,6 +6,7 @@
       (font (nil alice0\ lao apple-roman)
 	    (nil alice0\ lao iso8859-1)))
 
+;;; <li> LAOO-ALICE.flt
 
 (category
  ;; C: CONSONANT (except for c and s)
