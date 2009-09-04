@@ -6,14 +6,6 @@
       (font (nil alice0\ lao apple-roman)
 	    (nil alice0\ lao iso8859-1)))
 
-;;; <li> LAOO-ALICE.flt
-;;;
-;;; For the font ALICE0.TTF to draw Lao script.  The font is
-;;; available at:
-;;; <ul>
-;;; <li> infopage: http://seasrc.th.net/font/font.htm
-;;; <li> download: http://seasrc.th.net/font/fontlao.dir/alice0.zip
-;;; </ul>
 
 (category
  ;; C: CONSONANT (except for c and s)

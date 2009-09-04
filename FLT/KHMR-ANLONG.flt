@@ -5,14 +5,6 @@
 (font layouter khmr-anlong nil
       (font (nil anlongvill\ khek apple-roman)))
 
-;;; <li> KHMR-ANLONG.flt
-;;;
-;;; For the font ANLONG.TTF to draw Khmer script.  The font is
-;;; available at:
-;;; <ul>
-;;; <li> infopage: http://www.cambodia.org/fonts/index.html#dl
-;;; <li> download: http://www.cambodia.org/fonts/khmerfnt.zip
-;;; </ul>
 
 (category
  ;; C: CONSONANT (except R and KHMER LETTER LA)

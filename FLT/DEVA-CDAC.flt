@@ -5,14 +5,6 @@
 (font layouter deve-cdac nil
       (font (nil dv-ttyogesh apple-roman)))
 
-;;; <li> DEVA-CDAC.flt
-;;;
-;;; For the font DVYG0ntt.ttf (developed by C-DAC, encoding is ISFOC)
-;;; to draw Devanagari script.  The font is available at:
-;;; <ul>
-;;; <li>	infopage: http://www.iiit.net/ltrc/iscii/FAQ.htm#SEC2.1
-;;; <li> download: http://www.iiit.net/ltrc/iscii/iscii_plugin_linux.tar.gz
-;;; </ul>
 
 (category
  ;; A: ANUSVARA or CANDRABINDU
