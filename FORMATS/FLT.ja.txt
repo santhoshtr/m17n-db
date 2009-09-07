@@ -280,7 +280,7 @@ OTF-SPEC ::= SYMBOL
 
 各 @c SYMBOL は OpenType specification 中でのタグ名を指定する。
 
-@c SCRIPT については、@c SYMBOL はスクリプトタグ名を表す。Devanagari 
+@c SCRIPT については、@c SYMBOL はスクリプトタグ名を表す。(Devanagari 
 は deva など。)
 
 @c LANGSYS の場合は、@c SYMBOL は言語システムタグ名を指定する。@c
