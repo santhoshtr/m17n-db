@@ -21,16 +21,11 @@
 ;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;; Input method for Korean Hangul using Romaja keys.  The
-;;; roman-transliteration rules follows that of IIIMF shown in this
-;;; page: http://www3.sympatico.ca/d.moser/hangul.html
-
 (input-method ko romaja)
 
 (description
  "Hangul input method with romaja keys.
-The roman-transliteration rules follows that of IIIMF shown in
-the page <http://www3.sympatico.ca/d.moser/hangul.html>.
+The roman-transliteration rules follows that of Hangule LE in IIIMF.
 
 Common to CHOSEONG and JONGSEONG:
   ㄱ(g) ㄲ(gg,kk,qq,c) ㄴ(n) ㄷ(d) ㄹ(l) ㄹ(r) ㅁ(m) ㅂ(b,v) ㅅ(s)
