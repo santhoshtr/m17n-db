@@ -1,3 +1,11 @@
+2009-10-15  Kenichi Handa  <handa@m17n.org>
+
+	* xfont.fst (khmer): Delete this script.
+
+	* default.fst (khmer): Delete the entry for mulekhmer-1 font.
+
+	* FLT/KHMR-MULE.flt: Delete it.
+
 2009-09-04  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* MIM/si-wijesekera.mim:
