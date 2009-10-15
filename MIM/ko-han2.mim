@@ -21,19 +21,25 @@
 ;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;; @latexonly
+;;; @if FOR_LATEX
 ;;; Hangul input method with 2-bul style.
-;;; @endlatexonly
-;;; @htmlonly
+;;; @endif
+;;; @if FOR_HTML
 ;;; Hangul input method with 2벌식.
+;;; @endif
 ;;; This input method uses this keyboard layout:
-;;; <table border="1" cellspacing="0" cellpadding=="0">
-;;; ||KEY: |r |R |s |e |E |f |a |q |Q |t |T |d |w |W |c |z |x |v |g
-;;;        |k |i |j |p |P |u |h |y |n |b |m |l |o |O ||
-;;; ||한글:|ㄱ|ㄲ|ㄴ|ㄷ|ㄸ|ㄹ|ㅁ|ㅂ|ㅃ|ㅅ|ㅆ|ㅇ|ㅈ|ㅉ|ㅊ|ㅋ|ㅌ|ㅍ|ㅎ
-;;;        |ㅏ|ㅑ|ㅓ|ㅔ|ㅖ|ㅕ|ㅗ|ㅛ|ㅜ|ㅠ|ㅡ|ㅣ|ㅐ|ㅒ||
-;;; </table>
-;;; @endhtmlonly
+;;; @image html ko-han2.png "Keyboard Layout"
+;;; @image latex ko-han2.eps "Keyboard Layout" width=\narrowwidth
+;; ┌─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┐
+;; │1!│2@│3#│4$│5%│6^│7&│8*│9(│0)│-_│=+│`~│
+;; └┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┘
+;;   │ㅃ│ㅉ│ㄸ│ㄲ│ㅆ│  │  │  │ㅒ│ㅖ│{ │} │
+;;   │ㅂ│ㅈ│ㄷ│ㄱ│ㅅ│ㅛ│ㅕ│ㅑ│ㅐ│ㅔ│[ │] │
+;;   └┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┐
+;;     │ㅁ│ㄴ│ㅇ│ㄹ│ㅎ│ㅗ│ㅓ│ㅏ│ㅣ│;:│'"│\|│
+;;     └┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴─┘
+;;       │ㅋ│ㅌ│ㅊ│ㅍ│ㅠ│ㅜ│ㅡ│,<│.>│/?│
+;;       └─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
 
 (input-method ko han2)
 

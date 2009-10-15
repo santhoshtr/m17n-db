@@ -61,11 +61,6 @@
 ;;; <li> infopage: http://www.bethmardutho.org/meltho/
 ;;; <li> download: http://www.bethmardutho.org/support/meltho/download/
 ;;; </ul>
-;;; <li> Mv Elaaf Lite.otf (family:Mv Elaaf Lite; for Thaana)
-;;; <ul>
-;;; <li> infopage: http://www.mcst.gov.mv/News_and_Events/xpfonts.htm
-;;; <li> download: http://www.mcst.gov.mv/Downloads/New/Divehi%20xp%20fonts/Mv%20Elaaf%20Lite.otf.ttf
-;;; </ul>
 ;;; <li> raghu.ttf (family: Raghindi; for Devanagari)
 ;;; <ul>
 ;;; <li> infopage: http://www.nepali.info/nepali/help.asp
@@ -151,7 +146,7 @@
 ;;; <ul>
 ;;; <li> debian package: ttf-tmuni
 ;;; </ul>
-;;; <li> Nrasi_Bold.ttf, Norasi_BoldItalic.ttf, Norasi_Italic.ttf, Norasi.ttf (family Norasi; for Thai)
+;;; <li> Norasi_Bold.ttf, Norasi_BoldItalic.ttf, Norasi_Italic.ttf, Norasi.ttf (family Norasi; for Thai)
 ;;; <ul>
 ;;; <li> debian package: ttf-thai-tlwg
 ;;; </ul>

@@ -50,7 +50,7 @@ For instance
 @verbatim
   (n i)
 @endverbatim
-represents a key sequence of <<n>> and <<i>>.
+represents a key sequence of \<n\> and \<i\>.
 If all SYMBOLIC-KEYs are ASCII characters, you can use the short form
 @verbatim
   "ni"
@@ -61,7 +61,7 @@ Both MAP-ACTION and BRANCH-ACTION are a sequence of actions of this format:
 @verbatim
   (ACTION ARG ARG ...)
 @endverbatim
-The most common action is [[insert]], which is written as this:
+The most common action is <tt>insert</tt>, which is written as this:
 @verbatim
   (insert "TEXT")
 @endverbatim
@@ -69,7 +69,7 @@ But as it is very frequently used, you can use the short form
 @verbatim
   "TEXT"
 @endverbatim
-If [["TEXT"]] contains only one character "C", you can write it as
+If <TT>"TEXT"</TT> contains only one character "C", you can write it as
 @verbatim
   (insert ?C)
 @endverbatim
@@ -102,11 +102,11 @@ Here is a simple example of an input method that works as CapsLock.
 @endverbatim
 
 When this input method is activated, it is in the initial condition of
-the first state (in this case, the only state [[init]]).  In the
+the first state (in this case, the only state <tt>init</tt>).  In the
 initial condition, no key is being processed and no action is
-suspended.  When the input method receives a key event <<a>>, it
-searches branches in the current state for a rule that matches <<a>>
-and finds one in the map [[toupper]].  Then it executes MAP-ACTIONs
+suspended.  When the input method receives a key event \<a\>, it
+searches branches in the current state for a rule that matches \<a\>
+and finds one in the map <tt>toupper</tt>.  Then it executes MAP-ACTIONs
 (in this case, just inserting "A" in the preedit buffer).  After all
 MAP-ACTIONs have been executed, the input method shifts to the initial
 condition of the current state.
@@ -122,8 +122,8 @@ that event is unhandled and given back to the application program.
 
 Turkish users may want to extend the above example for "İ" (U+0130:
 LATIN CAPITAL LETTER I WITH DOT ABOVE).  It seems that assigning the
-key sequence <<i>> <<i>> for that character is convenient.  So, he
-will add this rule in [[toupper]].
+key sequence \<i\> \<i\> for that character is convenient.  So, he
+will add this rule in <tt>toupper</tt>.
 
 @verbatim
     ("ii" "İ")
@@ -135,30 +135,30 @@ However, we already have the following rule:
     ("i" "I")
 @endverbatim
 
-What will happen when a key event <<i>> is sent to the input method?
+What will happen when a key event \<i\> is sent to the input method?
 
-No problem.  When the input method receives <<i>>, it inserts "I" in the
+No problem.  When the input method receives \<i\>, it inserts "I" in the
 preedit buffer.  It knows that there is another rule that may
-match the additional key event <<i>>.  So, after inserting "I", it
+match the additional key event \<i\>.  So, after inserting "I", it
 suspends the normal behavior of shifting to the initial condition, and
 waits for another key.  Thus, the user sees "I" with underline, which
 indicates it is not yet committed.
 
-When the input method receives the next <<i>>, it cancels the effects
+When the input method receives the next \<i\>, it cancels the effects
 done by the rule for the previous "i" (in this case, the preedit buffer is
 cleared), and executes MAP-ACTIONs of the rule for "ii".  So, "İ" is
 inserted in the preedit buffer.  This time, as there are no other rules
 that match with an additional key, it shifts to the initial condition
 of the current state, which leads to commit "İ".
 
-Then, what will happen when the next key event is <<a>> instead of <<i>>?
+Then, what will happen when the next key event is \<a\> instead of \<i\>?
 
 No problem, either.
 
-The input method knows that there are no rules that match the <<i>> <<a>> key
-sequence.  So, when it receives the next <<a>>, it executes the
+The input method knows that there are no rules that match the \<i\> \<a\> key
+sequence.  So, when it receives the next \<a\>, it executes the
 suspended behavior (i.e. shifting to the initial condition), which
-leads to commit "I".  Then the input method tries to handle <<a>> in
+leads to commit "I".  Then the input method tries to handle \<a\> in
 the current state, which leads to commit "A".
 
 So far, we have explained MAP-ACTION, but not
@@ -176,8 +176,8 @@ we modify the "init" state as this:
     (toupper (shift non-upcase)))
 @endverbatim
 
-Here [[(shift non-upcase)]] is an action to shift to the new state
-[[non-upcase]], which has two branches as below:
+Here <tt>(shift non-upcase)</tt> is an action to shift to the new state
+<tt>non-upcase</tt>, which has two branches as below:
 
 @verbatim
   (non-upcase
@@ -185,7 +185,7 @@ Here [[(shift non-upcase)]] is an action to shift to the new state
     (nil (shift init)))
 @endverbatim
 
-The first branch is simple.  We can define the new map [[lower]] as the
+The first branch is simple.  We can define the new map <tt>lower</tt> as the
 following to insert lowercase letters as they are.
 
 @verbatim
@@ -199,7 +199,7 @@ following to insert lowercase letters as they are.
          ("z" "z")))
 @endverbatim
 
-The second branch has a special meaning.  The map name [[nil]] means
+The second branch has a special meaning.  The map name <tt>nil</tt> means
 that it matches with any key event that does not match any rules in the
 other maps in the current state.  In addition, it does not
 consume any key event.  We will show the full code of the new input
@@ -230,26 +230,26 @@ method before explaining how it works.
     (nil (shift init))))
 @endverbatim
 
-Let's see what happens when the user types the key sequence <<a>> <<b>> << >>.
-Upon <<a>>, "A" is inserted into the buffer and the state shifts to [[non-upcase]].
-So, the next <<b>> is handled in the [[non-upcase]] state.
+Let's see what happens when the user types the key sequence \<a\> \<b\> \< \>.
+Upon \<a\>, "A" is inserted into the buffer and the state shifts to <tt>non-upcase</tt>.
+So, the next \<b\> is handled in the <tt>non-upcase</tt> state.
 As it matches a
-rule in the map [[lower]], "b" is inserted in the preedit buffer and characters in the 
+rule in the map <tt>lower</tt>, "b" is inserted in the preedit buffer and characters in the 
 buffer ("Ab")
 are committed explicitly by the "commit" command in BRANCH-ACTION.  After
-that, the input method is still in the [[non-upcase]] state.  So the next << >>
-is also handled in [[non-upcase]].  For this time, no rule in this state
-matches it.  Thus the branch [[(nil (shift init))]] is selected and the
-state is shifted to [[init]].  Please note that << >> is not yet
-handled because the map [[nil]] does not consume any key event.
-So, the input method tries to handle it in the [[init]] state.  Again no
+that, the input method is still in the <tt>non-upcase</tt> state.  So the next \< \>
+is also handled in <tt>non-upcase</tt>.  For this time, no rule in this state
+matches it.  Thus the branch <tt>(nil (shift init))</tt> is selected and the
+state is shifted to <tt>init</tt>.  Please note that \< \> is not yet
+handled because the map <tt>nil</tt> does not consume any key event.
+So, the input method tries to handle it in the <tt>init</tt> state.  Again no
 rule matches it.  Therefore, that event is given back to the application
 program, which usually inserts a space for that.
 
 When you type "a quick blown fox" with this input method, you get "A
 Quick Blown Fox".  OK, you find a typo in "blown", which should be
 "brown".  To correct it, you probably move the cursor after "l" and type
-<<Backspace>> and <<r>>.  However, if the current input method is still
+\<Backspace\> and \<r\>.  However, if the current input method is still
 active, a capital "R" is inserted.  It is not a sophisticated
 behavior.
 
@@ -273,10 +273,10 @@ of an action is treated as a variable.  For instance, the commands
   (set X 32) (insert X)
 @endverbatim
 
-set the variable [[X]] to integer value 32, then insert a character
+set the variable <tt>X</tt> to integer value 32, then insert a character
 whose Unicode character code is 32 (i.e. SPACE).
 
-The second argument of the [[set]] action can be an expression of this form:
+The second argument of the <tt>set</tt> action can be an expression of this form:
 
 @verbatim
   (OPERATOR ARG1 [ARG2])
@@ -288,7 +288,7 @@ Both ARG1 and ARG2 can be an expression.  So,
   (set X (+ (* Y 32) Z))
 @endverbatim
 
-sets [[X]] to the value of [[Y * 32 + Z]].
+sets <tt>X</tt> to the value of <tt>Y * 32 + Z</tt>.
 
 We have the following arithmetic/bitwise OPERATORs (require two arguments):
 
@@ -317,17 +317,17 @@ For surrounding text support, we have these preserved variables:
 The values of them are predefined as below and can not be altered.
 
 <ul>
-<li> [[@-0]]
+<li> <tt>@-0</tt>
 
 -1 if surrounding text is supported, -2 if not.
 
-<li> [[@-N]]
+<li> <tt>@-N</tt>
 
 The Nth previous character in the preedit buffer.  If there are only M
 (M<N) previous characters in it, the value is the (N-M)th previous
 character from the inputting spot.
 
-<li> [[@+N]]
+<li> <tt>@+N</tt>
 
 The Nth following character in the preedit buffer.  If there are only M
 (M<N) following characters in it, the value is the (N-M)th following
@@ -405,12 +405,12 @@ Now you are ready to write a new version of the input method "Titlecase".
                   (1 (set X (+ X 32)) (insert X))))))))
 @endverbatim
 
-The above example contains the new action [[delete]].  So, it is time
+The above example contains the new action <tt>delete</tt>.  So, it is time
 to explain more about the preedit buffer.  The preedit buffer is a
 temporary place to store a sequence of characters.  In this buffer,
 the input method keeps a position called the "current position".  The
 current position exists between two characters, at the beginning of
-the buffer, or at the end of the buffer.  The [[insert]] action inserts
+the buffer, or at the end of the buffer.  The <tt>insert</tt> action inserts
 characters before the current position.  For instance, when your
 preedit buffer contains "ab.c" ("." indicates the current position),
 
@@ -424,16 +424,16 @@ There are several predefined variables that represent a specific position in the
 preedit buffer.  They are:
 
 <ul>
-<li> [[@@<, @@=, @@>]] 
+<li> <tt>@@<, @@=, @@></tt> 
 
 The first, current, and last positions.
 
-<li> [[@@-, @@+]]
+<li> <tt>@@-, @@+</tt>
 
 The previous and the next positions.
 </ul>
 
-The format of the [[delete]] action is this:
+The format of the <tt>delete</tt> action is this:
 
 @verbatim
   (delete POS)
@@ -441,8 +441,8 @@ The format of the [[delete]] action is this:
 
 where POS is a predefined positional variable.
 The above action deletes the characters between POS and
-the current position.  So, [[(delete @-)]] deletes one character before
-the current position.  The other examples of [[delete]] include the followings:
+the current position.  So, <tt>(delete @-)</tt> deletes one character before
+the current position.  The other examples of <tt>delete</tt> include the followings:
 
 @verbatim
   (delete @+)  ; delete the next character
@@ -450,7 +450,7 @@ the current position.  The other examples of [[delete]] include the followings:
   (delete @>)  ; delete all the following characters in the buffer
 @endverbatim
 
-You can change the current position using the [[move]] action as below:
+You can change the current position using the <tt>move</tt> action as below:
 
 @verbatim
   (move @-)  ; move the current position to the position before the
@@ -461,16 +461,16 @@ You can change the current position using the [[move]] action as below:
 Other positional variables work similarly.
 
 Let's see how our new example works.  Whatever a key event is, the
-input method is in its only state, [[init]].  Since an event of a lower letter
+input method is in its only state, <tt>init</tt>.  Since an event of a lower letter
 key is firstly handled by MAP-ACTIONs, every key is changed into the
 corresponding uppercase and put into the preedit buffer.  Now this character
-can be accessed with [[@-1]].
+can be accessed with <tt>@-1</tt>.
 
 How can we tell whether the new character should be a lowercase or an
 uppercase?  We can do so by checking the character before it, i.e.
-[[@-2]].  BRANCH-ACTIONs in the [[init]] state do the job.
+<tt>@-2</tt>.  BRANCH-ACTIONs in the <tt>init</tt> state do the job.
 
-It first checks if the character [[@-2]] is between A to Z, between
+It first checks if the character <tt>@-2</tt> is between A to Z, between
 a to z, or İ by the conditional below.
 
 @verbatim
@@ -482,7 +482,7 @@ a to z, or İ by the conditional below.
 If not, there is nothing to do specially.  If so, our new key should
 be changed back into lowercase.  Since the uppercase character is
 already in the preedit buffer, we retrieve and remember it in the
-variable [[X]] by
+variable <tt>X</tt> by
 
 @verbatim
     (set X @-1)
@@ -511,15 +511,15 @@ The second branch
 @endverbatim
 
 starts with "1", which is always resolved into nonzero, so this branch
-is a catchall.  Actions in this branch increase [[X]] by 32, then
-insert [[X]].  In other words, they change A...Z into a...z
+is a catchall.  Actions in this branch increase <tt>X</tt> by 32, then
+insert <tt>X</tt>.  In other words, they change A...Z into a...z
 respectively and insert the resulting lowercase character into the
 preedit buffer.  As the input method reaches the end of the
 BRANCH-ACTIONs, the character is commited.
 
 This new input method always checks the character before the current
 position, so "A Quick Blown Fox" will be successfully fixed to "A
-Quick Brown Fox" by the key sequence <<BackSpace>> <<r>>.
+Quick Brown Fox" by the key sequence \<BackSpace\> \<r\>.
 
 
 */

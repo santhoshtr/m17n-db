@@ -256,6 +256,7 @@ COND-BLOCK ::= '(' 'cond' RULE + ')'
 この規則は @c RULE を順に、どれかが成功するまで実行する。どのルールも
 成功しなければ、この規則は失敗する。そうでなければ成功である。
 
+@anchor OTF-SPEC
 @verbatim
 OTF-SPEC ::= SYMBOL
 @endverbatim

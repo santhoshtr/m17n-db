@@ -275,12 +275,13 @@ COND-BLOCK ::= '(' 'cond' RULE + ')'
 This rule sequentially executes @c RULEs until one succeeds.  If no
 rule succeeds, this rule fails.  Otherwise, it succeeds.
 
+@anchor OTF-SPEC
 @verbatim
 OTF-SPEC ::= SYMBOL
 @endverbatim
 
 @c OTF-SPEC is a symbol whose name specifies an instruction to the OTF
-driver.  The name has the following syntax.  @anchor OTF-SPEC
+driver.  The name has the following syntax.
 
 @verbatim
   OTF-SPEC-NAME ::= ':otf' SCRIPT LANGSYS ? GSUB-FEATURES ? GPOS-FEATURES ?
