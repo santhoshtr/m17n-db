@@ -51,8 +51,7 @@
 ;;; </ul>
 ;;; <li> Cyberbase.ttf (family: Bitstream CyberBase; for Arabic)
 ;;; <ul>
-;;; <li> infopage: ftp://ftp.NetBSD.org/pub/NetBSD/packages/pkgsrc/fonts/cyberbase-ttf/README.html
-;;; <li> download: ftp://ftp.netbsd.org/pub/NetBSD/packages/1.6.1/amiga/All/cyberbase-ttf-2.0.tgz
+;;; <li> download: http://www.ffonts.net/Bitstream-CyberBase.font.download
 ;;; </ul>
 ;;; <li> SyrCOMEdessa.otf (family: Estrangelo Edessa; for Syriac),\n
 ;;;      SyrCOMJerusalem.otf (family: Serto Jerusalem; for Syriac),\n
