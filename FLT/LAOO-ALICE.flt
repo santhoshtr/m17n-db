@@ -7,6 +7,13 @@
 	    (nil alice0\ lao iso8859-1)))
 
 ;;; <li> LAOO-ALICE.flt
+;;;
+;;; For the font ALICE0.TTF to draw Lao script.  The font is
+;;; available at:
+;;; <ul>
+;;; <li> infopage: http://cg.scs.carleton.ca/~luc/laos.html
+;;; <li> download: http://sources.asie.free.fr/aide/polices/ALICE0.TTF
+;;; </ul>
 
 (category
  ;; C: CONSONANT (except for c and s)
