@@ -313,7 +313,6 @@
   ((nil freeserif unicode-bmp))))
 (khmer
  (nil
-  ((mulekhmer-1) khmr-mule)
   ((nil khmer\ os unicode-bmp) khmr-otf)
   ((nil anlongvill\ khek apple-roman) khmr-anlong)))
 (hiragana
