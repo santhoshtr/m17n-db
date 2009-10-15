@@ -98,9 +98,6 @@
  (nil
   ((mulelao-1) lao-mule)
   ((nil alice0\ lao iso8859-1) lao-alice)))
-(khmer
- (nil
-  ((mulekhmer-1) khmer-mule)))
 (tibetan
  (nil
   ((muletibetan-2) tib-mule)))
