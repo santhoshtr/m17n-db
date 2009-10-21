@@ -1,4 +1,5 @@
-
+;; si-wijesekera.mim -- Sinhala input method with wijesekera method
+;; Copyright (C) 2005, 2006, 2008, 2009
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -20,7 +21,7 @@
 ;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-(input-method si wijesekera)
+(input-method si wijesekera (version "1.6.l"))
 
 (description "Sinhala input method based on SLS 1134 Rev. 2:2004.
   <http://www.fonts.lk/doc/sin-kbd-layout4.pdf>
@@ -38,9 +39,9 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
 (macro
  ;; skip following (virama zwj consonant)* sequence
  (forward
-  (set cc3 @+3)
+  (set cc3 @+2)
   (cond
-   ((& (= @+1 0x0DCA) (= @+2 0x200D) (>= cc3 0x0D9A) (<= cc3 0x0DC6))
+   ((& (= @+0 0x0DCA) (= @+1 0x200D) (>= cc3 0x0D9A) (<= cc3 0x0DC6))
     (delete @+3)
     0x0DCA 0x200D
     (insert cc3)
@@ -65,7 +66,7 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
 
  (delete-following-zw
   (cond
-   ((| (= @+1 0x200C) (= @+1 0x200D))
+   ((| (= @+0 0x200C) (= @+0 0x200D))
     (delete @+1)
     (delete-following-zw))))
 
@@ -263,13 +264,13 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
      0x0DDF)))
 
   ("f"
-   (set c @+1)
+   (set c @+0)
    (cond
     ((& (>= c 0x0D9A) (<= c 0x0DC6))
      (delete @+1)
      (insert c)
      (forward)
-     (set c @+1)
+     (set c @+0)
      (cond
       ((= c 0x0DCA)
        (delete @+1)
@@ -291,7 +292,7 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
     ((= c 0x0DD9)
      (delete @+1)
      0x0DDB)
-    ((& (= c 0x200C) (= @+2 0x0DD9))
+    ((& (= c 0x200C) (= @+1 0x0DD9))
      (delete @+2)
      0x200C 0x0DDB)
     ((& (= @-1 0x0DD9)
@@ -414,23 +415,23 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
     ((= c 0x0DD9)
      (cond
       ((| (< @-1 0x0D9A) (> @-1 0x0DC6)))
-      ((= @+1 0x0D91)
+      ((= @+0 0x0D91)
        (delete @-1)
        (delete @+1)
        0x0D93)
-      ((& (>= @+1 0x0D9A) (<= @+1 0x0DC6))
-       (set c1 @+1)
+      ((& (>= @+0 0x0D9A) (<= @+0 0x0DC6))
+       (set c1 @+0)
        (cond
-	((= @+2 0x0DD9)
+	((= @+1 0x0DD9)
 	 (merge-kombuva)
 	 0x0DDB)
-	((= @+2 0x0DCA)
+	((= @+1 0x0DCA)
 	 (merge-kombuva)
 	 0x0DDA)
-	((= @+2 0x0DCF)
+	((= @+1 0x0DCF)
 	 (merge-kombuva)
 	 0x0DDC)
-	((= @+2 0x0DDF)
+	((= @+1 0x0DDF)
 	 (merge-kombuva)
 	 0x0DDE)
 	(1
@@ -489,12 +490,12 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
    (cond
     ((& (>= @-1 0x0D9A)
 	(<= @-1 0x0DC6)
-	(| (= @+1 0x0DD9) (= @+1 0x0DDB)))
+	(| (= @+0 0x0DD9) (= @+0 0x0DDB)))
      0x200C)))
 
   ((Delete)
    (delete-following-zw)
-   (set c @+1)
+   (set c @+0)
    (cond
     ((< c 0)
      (unhandle)))
@@ -519,26 +520,26 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
     ((& (>= c 0x0D9A) (<= c 0x0DC6))
      (forward)
      (cond
-      ((= @+1 0x0DD9)
+      ((= @+0 0x0DD9)
        (delete @+1)
        (move @<)
        (insert c))
-      ((= @+1 0x0DDB)
+      ((= @+0 0x0DDB)
        (delete @+1)
        0x0DD9
        (move @<)
        (insert c))
-      ((= @+1 0x0DDA)
+      ((= @+0 0x0DDA)
        (delete @+1)
        0x0DCA
        (move @<)
        (insert c))
-      ((= @+1 0x0DDC)
+      ((= @+0 0x0DDC)
        (delete @+1)
        0x0DCF
        (move @<)
        (insert c))
-      ((= @+1 0x0DDE)
+      ((= @+0 0x0DDE)
        (delete @+1)
        0x0DDF
        (move @<)

@@ -21,7 +21,7 @@
 ;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-(input-method ta lk-renganathan)
+(input-method ta lk-renganathan (version "1.6.0"))
 
 (description "Tamil input method with Renganathan layout.
 For the detail, see the page: <http://www.locallanguages.lk/>
@@ -40,23 +40,23 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
    ((= @-1 0x200C)
     (delete @-1)))
   (cond
-   ((= @+1 0x200C)
+   ((= @+0 0x200C)
     (delete @+1))))
 
  (post-proc
   (cond
    ((& (>= @-1 0x0B95) (<= @-1 0x0BB9)	; a consonant
-       (>= @+1 0x0BC6) (<= @+1 0x0BCC))	; a left/two-part vowel sign
+       (>= @+0 0x0BC6) (<= @+0 0x0BCC))	; a left/two-part vowel sign
     ;; prevent syllable formation
     0x200C)
 
    ((& (| (< @-2 0x0B95) (> @-2 0x0BB9))  ; not a consonant
        (>= @-1 0x0BC6) (<= @-1 0x0BCC)	  ; a left/two-part vowel sign
-       (>= @+1 0x0B95) (<= @+1 0x0BB9)	  ; a consonant
-       (| (< @+2 0x0BBE) (> @+2 0x0BD7))) ; not a vowel sign
-    ;; exchange @-1 and @+1
+       (>= @+0 0x0B95) (<= @+0 0x0BB9)	  ; a consonant
+       (| (< @+1 0x0BBE) (> @+1 0x0BD7))) ; not a vowel sign
+    ;; exchange @-1 and @+0
     (set vs @-1)
-    (set c @+1)
+    (set c @+0)
     (delete @-1)
     (delete @+1)
     (insert c)
@@ -64,13 +64,13 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
 
    ((& (= @-1 0x200C)
        (| (< @-2 0x0B95) (> @-2 0x0BB9)	; not a constant
-	  (< @+1 0x0BC6) (> @+1 0x0BCC))) ; not a left/two-part vowel sign
+	  (< @+0 0x0BC6) (> @+0 0x0BCC))) ; not a left/two-part vowel sign
     ;; delete unnecessary ZWNJ
     (delete @-1))
 
-   ((& (= @+1 0x200C)
+   ((& (= @+0 0x200C)
        (| (< @-1 0x0B95) (> @-1 0x0BB9)	; not a constant
-	  (< @+2 0x0BC6) (> @+2 0x0BCC))) ; not a left/two-part vowel sign
+	  (< @+1 0x0BC6) (> @+1 0x0BCC))) ; not a left/two-part vowel sign
     ;; delete unnecessary ZWNJ
     (delete @+1))))
 
@@ -92,24 +92,24 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
 
   (move @>)
   (cond
-   ((& (= @+1 0x200C)
-       (| (< @+2 0x0BC6) (> @+2 0x0BCC))) ; not a left vowel sign
+   ((& (= @+0 0x200C)
+       (| (< @+1 0x0BC6) (> @+1 0x0BCC))) ; not a left vowel sign
     (delete @+1)))
 
   (cond
    ((= vs 0x0BC6)
     (cond
-     ((= @+1 0x0BBE)
+     ((= @+0 0x0BBE)
       (delete @+1)
       0x0BCA)
-     ((| (= @+1 0x0BB3) (= @+1 0x0BD7))
+     ((| (= @+0 0x0BB3) (= @+0 0x0BD7))
       (delete @+1)
       0x0BCC)
      (1
       0x0BC6)))
    ((= vs 0x0BC7)
     (cond
-     ((= @+1 0x0BBE)
+     ((= @+0 0x0BBE)
       (delete @+1)
       0x0BCB)
      (1
@@ -119,16 +119,16 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
 
   (cond
    ((& (>= @-1 0x0B95) (<= @-1 0x0BB9)	; a consonant
-       (>= @+1 0x0BC6) (<= @+1 0x0BCC))	; a left vowel sign
+       (>= @+0 0x0BC6) (<= @+0 0x0BCC))	; a left vowel sign
     0x200C)))
 
  (check-surrounding-text
   (cond
-   ((& (= @+1 0x0B95) (= @+2 0x0BCD) (= @+3 0x0BB7)) ; k.ssa follows
+   ((& (= @+0 0x0B95) (= @+1 0x0BCD) (= @+2 0x0BB7)) ; k.ssa follows
     0x0B95 0x0BCD 0x0BB7
     (delete @+3))
-   ((& (>= @+1 0x0B95) (<= @+1 0x0BB9))	; a consonant follows
-    (set c @+1)
+   ((& (>= @+0 0x0B95) (<= @+0 0x0BB9))	; a consonant follows
+    (set c @+0)
     (insert c)
     (delete @+1))
    ((& (>= @-1 0x0B95) (<= @-1 0x0BB9))	; a consonant precedes
@@ -304,13 +304,13 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
      (delete @-1)
      0x0BCC
      (cond
-      ((= @+1 0x200C)
+      ((= @+0 0x200C)
        (delete @+1))))
     ((= @-1 0x0B92)
      (delete @-1)
      0x0B94
      (cond
-      ((= @+1 0x200C)
+      ((= @+0 0x200C)
        (delete @+1))))
     (1
      0x0BB3
@@ -333,7 +333,7 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
 
   (sign
    (cond
-    ((= @+1 0x200C)
+    ((= @+0 0x200C)
      (delete @+1)))
    (move @<)
    (cond
@@ -390,9 +390,9 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
 
    (cond
     ;; additional check-surrounding-text for this vowel sign
-    ((& (>= @+1 0x0B95) (<= @+1 0x0BB9)	; a consonant
-	(= @+2 0x0BB3))
-     (set c @+1)
+    ((& (>= @+0 0x0B95) (<= @+0 0x0BB9)	; a consonant
+	(= @+1 0x0BB3))
+     (set c @+0)
      (delete @+2)
      (insert c)
      0x0BCC)
@@ -401,10 +401,10 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
     (1
      (check-surrounding-text)
      (cond
-      ((= @+1 0x0BBE)
+      ((= @+0 0x0BBE)
        (delete @+1)
        0x0BCA)
-      ((= @+1 0x0BD7)
+      ((= @+0 0x0BD7)
        (delete @+1)
        0x0BCC)
       (1
@@ -417,7 +417,7 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
 
    (check-surrounding-text)
    (cond
-    ((= @+1 0x0BBE)
+    ((= @+0 0x0BBE)
      (delete @+1)
      0x0BCB)
     (1
@@ -478,16 +478,16 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
 	 (delete @-1)))
 
        (cond
-	((& (>= @+1 0x0B95) (<= @+1 0x0BB9)    ; a consonant follows
-	    (| (< @+2 0x0BBE) (> @+2 0x0BD7))) ; not a vowel sign
+	((& (>= @+0 0x0B95) (<= @+0 0x0BB9)    ; a consonant follows
+	    (| (< @+1 0x0BBE) (> @+1 0x0BD7))) ; not a vowel sign
 	 ;; visual  : E C1 | C2  ->  E C2 |
 	 ;; logical : C1 E | C2  ->  C2 E |
 	 (cond
-	  ((& (= @+1 0x0B95) (= @+2 0x0BCD) (= @+3 0x0BB7)) ; k.ssa
+	  ((& (= @+0 0x0B95) (= @+1 0x0BCD) (= @+2 0x0BB7)) ; k.ssa
 	   (delete @+3)
 	   0x0B95 0x0BCD 0x0BB7)
 	  (1
-	   (set c @+1)
+	   (set c @+0)
 	   (delete @+1)
 	   (insert c)))
 	 (insert vs))
@@ -516,46 +516,46 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
    (pre-proc)
 
    (cond
-    ((& (= @+1 0x0BB6) (= @+2 0x0BCD) (= @+3 0x0BB0) (= @+4 0x0C0)) ; shrii
+    ((& (= @+0 0x0BB6) (= @+1 0x0BCD) (= @+2 0x0BB0) (= @+3 0x0C0)) ; shrii
      (delete @+4))
 
-    ((& (= @+1 0x0B95) (= @+2 0x0BCD) (= @+3 0x0BB7)) ; k.ssa
+    ((& (= @+0 0x0B95) (= @+1 0x0BCD) (= @+2 0x0BB7)) ; k.ssa
      (cond
-      ((& (>= @+4 0x0BC6) (<= @+4 0x0BC8)) ; a left vowel sign
+      ((& (>= @+3 0x0BC6) (<= @+3 0x0BC8)) ; a left vowel sign
        (delete @+4)
        0x0B95 0x0BCD 0x0BB7)
-      ((| (= @+4 0x0BCA) (= @+4 0x0BCB)) ; vowel sign e/ee
+      ((| (= @+3 0x0BCA) (= @+3 0x0BCB)) ; vowel sign e/ee
        (delete @+4)
        0x0B95 0x0BCD 0x0BB7 0x0BBE)
-      ((| (& (>= @+4 0x0BBE) (<= @+4 0x0BC2)) ; vowel sign aa .. uu
-	  (= @+4 0x0BCC)		      ; vowel sign ai
-	  (= @+4 0x0BCD))		      ; virama
+      ((| (& (>= @+3 0x0BBE) (<= @+3 0x0BC2)) ; vowel sign aa .. uu
+	  (= @+3 0x0BCC)		      ; vowel sign ai
+	  (= @+3 0x0BCD))		      ; virama
        (delete @+4))
       (1
        (delete @+3))))
 
-    ((& (>= @+1 0x0B95) (<= @+1 0x0BB9)) ; a consonant
-     (set c @+1)
+    ((& (>= @+0 0x0B95) (<= @+0 0x0BB9)) ; a consonant
+     (set c @+0)
      (cond
-      ((& (>= @+2 0x0BC6) (<= @+2 0x0BC8)) ; a left vowel sign
+      ((& (>= @+1 0x0BC6) (<= @+1 0x0BC8)) ; a left vowel sign
        (delete @+2)
        (insert c))
-      ((| (= @+2 0x0BCA) (= @+2 0x0BCB)) ; vowel sign e/ee
+      ((| (= @+1 0x0BCA) (= @+1 0x0BCB)) ; vowel sign e/ee
        (delete @+2)
        (insert c)
        0x0BBE)
-      ((| (& (>= @+2 0x0BBE) (<= @+2 0x0BC2)) ; vowel sign aa .. uu
-	  (= @+2 0x0BCC)		      ; vowel sign ai
-	  (= @+2 0x0BCD))		      ; virama
+      ((| (& (>= @+1 0x0BBE) (<= @+1 0x0BC2)) ; vowel sign aa .. uu
+	  (= @+1 0x0BCC)		      ; vowel sign ai
+	  (= @+1 0x0BCD))		      ; virama
        (delete @+2))
       (1
        (delete @+1))))
 
-    ((| (= @+1 0x0BCA) (= @+1 0x0BCB))	; vowel sign e/ee
+    ((| (= @+0 0x0BCA) (= @+0 0x0BCB))	; vowel sign e/ee
      (delete @+1)
      0x0BBE)
 
-    ((= @+1 0x0BCC)			; vowel sign ai
+    ((= @+0 0x0BCC)			; vowel sign ai
      (delete @+1)
      0x0BB3)
 
@@ -572,7 +572,7 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
      (delete @-1)))
    (move @>)
    (cond
-    ((= @+1 0x200C)
+    ((= @+0 0x200C)
      (delete @+1)))
    (commit)))
 
