@@ -21,7 +21,7 @@
 ;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-(input-method si wijesekera (version "1.6.l"))
+(input-method si wijesekera (version "1.6.0"))
 
 (description "Sinhala input method based on SLS 1134 Rev. 2:2004.
   <http://www.fonts.lk/doc/sin-kbd-layout4.pdf>
