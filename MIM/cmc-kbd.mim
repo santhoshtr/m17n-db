@@ -21,7 +21,7 @@
 ;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-(input-method cmc kbd)
+(input-method cmc kbd (version "1.6.0"))
 
 (description (_"Cham input method simulating Cham keyboard.
 Cham characters are encoded in logical order in memory and in files.
