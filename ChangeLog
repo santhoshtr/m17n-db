@@ -1,3 +1,11 @@
+2009-10-21  Kenichi Handa  <handa@m17n.org>
+
+	* MIM/cmc-kbd.mim: Fix @+N notation.
+
+2009-10-20  Kenichi Handa  <handa@m17n.org>
+
+	* FLT/Makefile.am (FONT_LAYOUT_TABLE): Delet KHMR-MULE.flt.
+
 2009-10-15  Kenichi Handa  <handa@m17n.org>
 
 	* xfont.fst (khmer): Delete this script.
