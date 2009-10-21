@@ -1,6 +1,6 @@
 2009-10-21  Kenichi Handa  <handa@m17n.org>
 
-	* MIM/cmc-kbd.mim: Fix @+N notation.
+	* MIM/cmc-kbd.mim: Fix @+N notation.  Version set to 1.6.0.
 
 2009-10-20  Kenichi Handa  <handa@m17n.org>
 
