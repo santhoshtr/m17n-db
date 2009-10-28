@@ -1,3 +1,7 @@
+2009-10-28  Kenichi Handa  <handa@m17n.org>
+
+	* SCRIPT.tbl (devanagari): Add OTF script tag "dev2".
+
 2009-10-21  Kenichi Handa  <handa@m17n.org>
 
 	* MIM/cmc-kbd.mim: Fix @+N notation.  Version set to 1.6.0.
