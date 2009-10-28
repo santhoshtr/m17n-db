@@ -30,6 +30,8 @@
 ;; CHAR: representative characters of the script selected from "last
 ;; resort" glyph of Unicode and/or by arbitrary way.
 
+;; OTF-TAG: OpenType font script tag or a list of tags.
+
 ;;; <li> SCRIPT-LANGUAGE.tbl
 ;;;
 ;;; Table of scripts vs languages using the corresponding script.
@@ -62,7 +64,7 @@
 	      ru sr hr bs tg tk tt ug uk uz) (#x42F) cyrl)
 (cypriot () (#x10800) cprt)
 (deseret (en) (#x10414) dsrt)
-(devanagari (bh hi ks mr ne sa awa new doi gon pa bra raj sd kru mwr mag mai) (#x915 #x902) deva)
+(devanagari (bh hi ks mr ne sa awa new doi gon pa bra raj sd kru mwr mag mai) (#x915 #x902) (deva dev2))
 (ethiopic (am ti om byn tig gez) (#x1208 #x1361) ethi)
 (georgian (ka) (#x10D3) geor)
 (glagolitic (cu) (#x2C00) glag)		;No "last resort" glyph
