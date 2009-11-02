@@ -24,17 +24,18 @@
 (input-method si wijesekera (version "1.6.0"))
 
 (description "Sinhala input method based on SLS 1134 Rev. 2:2004.
-  <http://www.fonts.lk/doc/sin-kbd-layout4.pdf>
-This input method uses surrounding text if possible, or a preedit
-buffer otherwise.
+  <http://www.siyabas.lk/docs/sin-kbd-layout5.pdf>
+Although this code supports both surrounding text and preedit,
+the former is disabled by default to avoid confusion caused by
+faulty applications.
 ")
 
 (title "සි")
 
 (variable
- (use-surrounding-text (_"Surrounding text vs. preedit
+ (use-surrounding-text (_"Surrounding text vs. preedit.
 If 1, try to use surrounding text.  Otherwise, use preedit.")
-		       1 1 0))
+		       0 1 0))
 
 (macro
  ;; skip following (virama zwj consonant)* sequence
