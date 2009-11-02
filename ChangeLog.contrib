@@ -1,3 +1,7 @@
+2009-11-02  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* im/si-phonetic-static.mim: Removed.
+
 2009-08-31  Tran Ngoc Quan  <vnwildman@gmail.com>
 
 	* im/eo-vi.mim: Updated by the contributer.
