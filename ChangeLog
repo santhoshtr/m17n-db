@@ -1,3 +1,10 @@
+2009-11-02  author  <author@duron>
+
+	* MIM/si-wijesekera-preedit.mim: Removed.
+
+	* MIM/si-wijesekera.mim: Disable surrounding text by default.
+	Update information URL.
+
 2009-10-28  Kenichi Handa  <handa@m17n.org>
 
 	* SCRIPT.tbl (devanagari): Add OTF script tag "dev2".
