@@ -73,6 +73,7 @@
   ("r" (move 1) "ຼ" (move @>)))
 
  (vowel-simple
+  ("hya" "ຽ")
   ("ar" "າ")
   ("i" "ິ" (mark TONE))
   ("ii" "ີ" (mark TONE))
