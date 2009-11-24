@@ -69,7 +69,7 @@
    ("(cs?)([vV]?T?)"
     < (1 independent semi-vowel) (2 Br<Bl vowel-tone-after-c *) > )
    ("[sVvTA]"
-    [ isolated-dependent ])
+    \[ isolated-dependent \])
    ("."
     independent))
   *)
@@ -107,7 +107,7 @@
    ((0x0EB0)	0xBD)
    ((0x0EB2)	0xBE)
    ((0x0EB3)	0xBF)
-   ((0x0EB4)	[ 0xF2 ])
+   ((0x0EB4)	\[ 0xF2 \])
    ((0x0EBD)	0xBC)
    ((0x0EC0)	0xC0)
    ((0x0EC1)	0xC1)
