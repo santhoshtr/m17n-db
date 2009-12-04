@@ -1,5 +1,5 @@
 ;; MLYM-OTF.flt -- Font Layout Table for Malayalam OpenType font
-;; Copyright (C) 2003, 2004, 2005, 2007, 2008  AIST (H15PRO112)
+;; Copyright (C) 2003, 2004, 2005, 2007, 2008, 2009  AIST (H15PRO112)
 ;; See the end for copying conditions.
 
 (font layouter mlym-otf nil
@@ -153,12 +153,12 @@
  (0
   (cond
    (" ([^ ]+) "
-    (1 otf:mlym=psts,haln+abvm,blwm,dist))
+    (1 otf:mlym=akhn,psts,haln+abvm,blwm,dist))
    ("."
     [ = ]))
   *))
 
-;; Copyright (C) 2003, 2004, 2005, 2007, 2008
+;; Copyright (C) 2003, 2004, 2005, 2007, 2008, 2009
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
