@@ -1,3 +1,7 @@
+2010-01-21  Kenichi Handa  <handa@m17n.org>
+
+	* MIM/si-samanala.mim (title): Changed.
+
 2009-12-08  Kenichi Handa  <handa@m17n.org>
 
 	* MIM/Makefile.am (INPUT_METHOD): Exclude
