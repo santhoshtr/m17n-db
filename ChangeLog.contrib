@@ -1,3 +1,11 @@
+2010-01-25  Sarath Camillus Jayewardena  <sakzje@gmail.com>
+
+	* im/si-sumihiri.mim: New file.
+
+2010-01-25  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* AUTHORS: New author.
+
 2010-01-22  Kenichi Handa  <handa@m17n.org>
 
 	* im/si-phonetic-dynamic.png: New icon.
