@@ -84,7 +84,7 @@
 (generator
  (0
   (cond
-   ;; Decompose two-part vowel signs.
+   ;; Compose a consonant and a nukta
    ((0x0928 0x093C) 0x0929)
    ((0x0930 0x093C) 0x0931)
    ((0x0933 0x093C) 0x0934)
