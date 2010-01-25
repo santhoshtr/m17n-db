@@ -1,0 +1,147 @@
+;; TEL2-OTF.flt -- Font Layout Table for tel2 OpenType fonts
+;; Copyright (C) 2010 AIST (H15PRO112)
+;; See the end for copying conditions.
+
+(font layouter tel2-otf nil
+      (version "1.6.0")
+      (font (nil nil unicode-bmp :otf=tel2)))
+
+;;; <li> TEL2-OTF.flt
+;;;
+;;; For tel2 OpenType fonts to draw the Telugu script.
+
+;; gautami.ttf requires the following glyph order to layout the Telugu script.
+;; 1. base consonant
+;; 2. above matra (0C3E..0C42, 0C46, 0C47, 0C4A, 0C4C)
+;; 3. below matra (0C56)
+;; 4. blwf consonants
+;; 5. post matra (0C43, 0C44)
+;; 6. candrabindu (0C01), anusvara (0C02), visarga(0C03)
+
+;; 0C62 and 0C63, which should be below matras, are not yet implemented.
+
+(category
+ (0x0C00 0x0C7F	?X)			; generic
+ (0x0C01 0x0C03	?A)			; SIGN CANDRABINDU .. VISARGA
+ (0x0C05 0x0C14	?V)			; LETTER A .. AU
+ (0x0C15 0x0C39 ?C)			; LETTER KA .. HA
+ (0x0C3E 0x0C42	?u)			; VOWEL SIGN AA .. II
+ (0x0C43 0x0C44	?p)			; VOWEL SIGN U .. VOCALIC RR
+ (0x0C46 0x0C47	?u)			; VOWEL SIGN E .. EE
+ (0x0C4A 0x0C4C	?u)			; VOWEL SIGN O .. AU
+ (0x0C4D	?H)			; SIGN VIRAMA
+ (0x0C55	?u)			; LENGTH MARK
+ (0x0C56	?b)			; AI LENGTH MARK
+ (0x0C58 0x0C59 ?C)			; LETTER TSA .. DZA
+ (0x0C60 0x0C61	?V)			; LETTER VOCALIC RR .. VOCALIC LL
+ (0x0C62 0x0C63 ?b)			; VOWEL SIGN VOCALIC L .. VOCALIC LL
+
+ (0x200C	?N)			; ZWNJ
+ (0x200D	?J)			; ZWJ
+ (0x25CC	?X)			; DOTTED CIRCLE
+
+ (blwf		?B)
+ )
+
+;; Stage 0
+;; Preprocessing
+(generator
+ (0
+  (cond
+   ;; Decompose two-part vowels.
+   ((0x0C48)
+    0x0C46 0x0C56)
+
+   ("." =))
+  *))
+
+;; Stage 1
+;; Syllable identification and basic shaping forms
+(generator
+ (0
+  (cond
+   ;; Consonant-based syllables
+   ;;12          3              4
+   ("((CJ?HJ?)*C)(H[NJ]?|u?b?p?)(A)?"
+    < | (1 :otf=tel2=locl,akhn,blwf,cjct+) (3 = *) (4 =) | >)
+
+   ;; Syllables with an independent vowel
+   ;;1  2      3
+   ("(V)(J?HC)?(u?b?p?A?)"
+    < | (1 =) (2 :otf=tel2=locl,blwf+) (3 = *) | >)
+
+   ;; Combining marks are displayed with a DOTTED CIRCLE.
+   ("H|ub?|b|p|A|JHC"
+    < 0x25CC (0 :otf=tel2=blwf+) >)
+
+   ("." =))
+  *))
+
+;; Stage 2
+;; Move subscript glyphs
+(generator
+ (0
+  (cond
+   (" ([^B ]*[^BJ])J?(B*)(ub?|b)([^ ]*) "
+    | (1 = *) (3 = *) (2 = *) (4 = *) |)
+
+   ("." =))
+  *))
+
+;; Stage 3
+;; Presentation forms
+(generator
+ (0
+  (cond
+   (" ([^ ]+) "
+    | (1 :otf=tel2=pres,abvs,blws,psts,haln,calt+) |)
+
+   ("." =))
+  *))
+
+;; Stage 4
+;; Remove ZWNJ/ZWJ
+(generator
+ (0
+  (cond
+   ("[NJ]")
+
+   ("." =))
+  *))
+
+;; Stage 5
+;; GPOS processing
+(generator
+ (0
+  (cond
+   (" ([^ ]+) "
+    (1 :otf=tel2=+kern,dist,abvm,blwm))
+
+   ("." =))
+  *))
+
+;; Copyright (C) 2010
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+;; Local Variables:
+;; mode: emacs-lisp
+;; End:

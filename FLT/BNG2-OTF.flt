@@ -1,0 +1,268 @@
+;; BNG2-OTF.flt -- Font Layout Table for bng2 OpenType fonts
+;; Copyright (C) 2010 AIST (H15PRO112)
+;; See the end for copying conditions.
+
+(font layouter bng2-otf nil
+      (version "1.6.0")
+      (font (nil nil unicode-bmp :otf=bng2)))
+
+;;; <li> BNG2-OTF.flt
+;;;
+;;; For bng2 OpenType fonts to draw the Bengali script.  
+
+;; It seems that "Shornar Bangla.ttf" is designed to render the bng2
+;; script with the following glyph sequence.
+;; 1. pre matra
+;; 2. half forms and below forms
+;; 3. base glyph
+;; 4. below forms
+;; 5. below matra (09C1..09C4)
+;; 6. reph
+;; 7. post forms
+;; 8. post matra (09C0, 09D7)
+;; 9. candrabindu (0981)
+;; 10. anusvara (0982) or visarga (0983)
+
+(category
+ ;; X: generic
+ ;; V: independent vowel
+ ;; C: consonant
+ ;; R: RA
+ ;; T: KHANDA TA
+ ;; n: NUKTA
+ ;; H: HALANT
+ ;; m: vowel sign (pre)
+ ;; b: vowel sign (below)
+ ;; p: vowel sign (post)
+ ;; a: vowel modifier (above)
+ ;; A: vowel modifier (post)
+ ;; N: ZWNJ
+ ;; J: ZWJ
+ (0x0980 0x09FF	?X)			; generic
+ (0x0981	?a)			; SIGN CANDRABINDU
+ (0x0982 0x0983	?A)			; SIGN ANUSVARA .. VISARGA
+ (0x0985 0x0994	?V)			; LETTER A .. AU
+ (0x0995 0x09B9	?C)			; LETTER KA .. HA
+ (0x09B0	?R)			; LETTER RA
+ (0x09BC	?n)			; SIGN NUKTA
+ (0x09BE	?p)			; VOWEL SIGN AA
+ (0x09BF	?m)			; VOWEL SIGN I
+ (0x09C0	?p)			; VOWEL SIGN II
+ (0x09C1 0x09C4	?b)			; VOWEL SIGN U .. RR
+ (0x09C7 0x09C8	?m)			; VOWEL SIGN E .. AI
+ (0x09CD	?H)			; SIGN VIRAMA
+ (0x09CE	?T)			; LETTER KHANDA TA
+ (0x09D7	?p)			; AU LENGTH MARK
+ (0x09DC 0x09DF	?C)			; LETTER RRA .. YYA
+ (0x09E0 0x09E1	?V)			; LETTER VOCALIC RR, LL
+ (0x09E2 0x09E3	?b)			; VOWEL SIGN L .. LL
+ (0x09F0	?R)			; LETTER RA WITH MIDDLE DIAGONAL
+ (0x09F1	?C)			; LETTER RA WITH LOWER DIAGONAL
+
+ (0x200C	?N)			; ZWNJ
+ (0x200D	?J)			; ZWJ
+ (0x25CC	?X)			; DOTTED CIRCLE
+
+ (rphf		?r)
+ (pstf		?P)
+ )
+
+;; Stage 0
+;; Preprocessing
+(generator
+ (0
+  (cond
+   ;; Decompose two-part vowel signs.
+   ((0x09CB)
+    0x09C7 0x09BE)
+   ((0x09CC)
+    0x09C7 0x09D7)
+
+   ;; TA + HALANT + ZWJ -> KHANDA-TA
+   ((0x09A4 0x09CD 0x200D)
+    0x09CE)
+
+   ;; consonant + NUKTA
+   ((0x09A1 0x09BC)
+    0x09DC)
+   ((0x09A2 0x09BC)
+    0x09DD)
+   ((0x09AF 0x09BC)
+    0x09DF)
+
+   ("." =))
+  *))
+
+;; Stage 1
+;; Syllable identification
+(generator
+ (0
+  (cond
+   ;; Syllables with an independent vowel
+   ("(RH)?Vn?(J?H[CR])?m?b?p?n?a?A?"
+    < | (0 = *) | >)
+
+   ;; KHANDA-TA combines only with reph.
+   ("(RH)?(T)"
+    < (2 =) (1 :otf=bng2=rphf+) >)
+
+   ;; Consonant-based syllables
+   ("([CR]n?J?HJ?)*[CR]n?(H[NJ]?|m?([NJ]?b)?p?n?)a?A?"
+    < | (0 = *) | >)
+
+   ;; Combining marks are displayed with a DOTTED CIRCLE.
+   ("n|H|b|p|a|A|JH[CR]"
+    < 0x25CC (0 :otf=bng2=blwf,pstf+) >)
+
+   ;; Pre-base matra
+   ("(m)(p)?"
+    < (1 =) 0x25CC (2 =) >)
+
+   ("." =))
+  *))
+
+;; Stage 2
+;; Basic shaping forms and matra reordering
+(generator
+ (0
+  (cond
+   ;; Explicit halant form starting with RA + H + ZWJ
+   (" (RHJ[CRnHJ]+)(HN?a?A?) "
+    (1 :otf?bng2=locl,nukt,akhn,blwf,pstf+)
+    | (1 b4post) (1 post) (2 = *) |)
+
+   ;; Explicit halant form starting with a reph
+   (" (RH)([CRnHJ]+)(HN?a?A?) "
+    (2 :otf?bng2=locl,nukt,akhn,blwf,pstf+)
+    | (1 :otf=bng2=rphf+) (2 b4post) (2 post) (3 = *) |)
+
+   ;; Other explicit halant forms
+   (" ([CRnHJ]+)(HN?a?A?) "
+    (1 :otf?bng2=locl,nukt,akhn,blwf,pstf+)
+    | (1 b4post) (1 post) (2 = *) |)
+
+   ;; Ordinary syllables starting with RA + H + ZWJ
+   ;; 1             2     3     45
+   (" (RHJ[CRnHJN]*)(mn?)?(bn?)?((pn?)?a?A?) "
+    ;;            |
+    ;; This is an asterisk.  (See DEV2-OTF.flt)
+    (1 :otf?bng2=locl,nukt,akhn,blwf,pstf+)
+    | (2 = *) (1 b4post) (3 = *) (1 post) (4 = *) |)
+
+   ;; Ordinary syllables starting with a reph
+   ;; 1   2           3     4     56
+   (" (RH)([CRnHJVN]+)(mn?)?(bn?)?((pn?)?a?A?) "
+    (2 :otf?bng2=locl,nukt,akhn,blwf,pstf+)
+    | (3 = *) (1 :otf=bng2=rphf+) (2 b4post) (4 = *) (2 post) (5 = *) |)
+
+   ;; Other ordinary syllables
+   ;; 1           2     3     45
+   (" ([CRnHJVN]+)(mn?)?(bn?)?((pn?)?a?A?) "
+    (1 :otf?bng2=locl,nukt,akhn,blwf,pstf+)
+    | (2 = *) (1 b4post) (3 = *) (1 post) (4 = *) |)
+
+   ("." =))
+  *)
+
+ (b4post
+  (cond
+   ;;1                 23       4
+   ("([CRnHJP]*[CRV]n?)((J?PP)+)([NJ])?$"
+    (1 :otf=bng2=locl,nukt,akhn,blwf,half,vatu,cjct+) (4 =))
+   (".+"
+    (0 :otf=bng2=locl,nukt,akhn,blwf,half,vatu,cjct+) (4 =))))
+
+ (post
+  (cond
+   ("[CRnHJP]*[CRV]n?((J?PP)+)([NJ])?$"
+    (1 :otf=bng2=pstf+))))
+ )
+
+;; Stage 3
+;; Final reordering #1 (Move pre-base matra after the last halant)
+(generator
+ (0
+  (cond
+   ;; 1    2         3
+   (" (mn?)([^ ]+HJ?)([^H ]+) "
+    | (2 = *) (1 = *) (3 = *) |)
+
+   ("." =))
+  *))
+
+;; Stage 4
+;; Final reordering #2 (Move reph after the first halant)
+(generator
+ (0
+  (cond
+   ;; Syllables with a reph and an explicit halant
+   ;; 1     2  3           4
+   (" (mn?)?(r)([^HP ]+HJ?)([^ ]*) "
+    | (1 = *) (3 = *) (2 =) (4 = *) |)
+
+   ;; A reph without explicit halant
+   ;; 1     2  3          4
+   (" (mn?)?(r)([^PpaA ]+)(P*H?p?n?a?A?) "
+    | (1 = *) (3 = *) (2 =) (4 = *) |)
+
+   ("." =))
+  *))
+
+;; Stage 5
+;; Nukta for matra and Presentation forms
+(generator
+ (0
+  (cond
+   (" (mn?)?([^ ]+) "
+    | (1 :otf=bng2=nukt,init+)
+    (2 :otf=bng2=nukt,pres,abvs,blws,psts,haln,calt+) |)
+
+   ("." =))
+  *))
+
+;; Stage 6
+;; Remove ZWNJ/ZWJ
+(generator
+ (0
+  (cond
+   ("[NJ]")
+
+   ("." =))
+  *))
+
+;; Stage 7
+;; GPOS processing
+(generator
+ (0
+  (cond
+   (" ([^ ]+) "
+    (1 :otf=bng2=+kern,dist,abvm,blwm))
+
+   ("." =))
+  *))
+
+;; Copyright (C) 2010
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+;; Local Variables:
+;; mode: emacs-lisp
+;; End:

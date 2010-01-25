@@ -1,0 +1,207 @@
+;; MLM2-OTF.flt -- Font Layout Table for mlm2 OpenType fonts
+;; Copyright (C) 2010 AIST (H15PRO112)
+;; See the end for copying conditions.
+
+(font layouter mlm2-otf nil
+      (version "1.6.0")
+      (font (nil nil unicode-bmp :otf=mlm2)))
+
+;;; <li> MLM2-OTF.flt
+;;;
+;;; For mlm2 OpenType fonts to draw the Malayalam script.  
+
+;; Observed behaviour of Uniscribe in combination with kartika.ttf:
+
+;; 1. Only the last RA can take the pref form.  This last RA can come
+;;  a) just before blwf consonants
+;;  b) between blwf consonants and pstf consonants, or
+;;  c) after pstf consonants.
+
+;; 2. Multiple blwf forms are allowed anywhere in a syllable as long
+;; as the context (the combination of the preceding consonant and the
+;; blwf consonant) permits.
+
+;; 3. Multiple pstf forms are allowed as long as they are the last
+;; consonants, optionally followed by a RA.
+
+;; About chillu letters:
+
+;; The sequence "consonant + VIRAMA + ZWJ" represents a chillu letter,
+;; which makes an independent syllable.  The only exception is "CHILLU
+;; N + RRA" (0D7B 0D31) and its equivalent "NA + VIRAMA + ZWJ + RRA"
+;; (0D28 0D4D 200D 0D31), which make a ligature.
+
+(category
+ (0x0D00 0x0D7F	?X)			; generic
+ (0x0D02 0x0D03	?A)			; SIGN ANUSVARA .. VISARGA
+ (0x0D05 0x0D14	?V)			; LETTER A .. AU
+ (0x0D15 0x0D39	?C)			; LETTER KA .. HA
+ (0x0D3E 0x0D44	?p)			; VOWEL SIGN AA .. VOCALIC RR
+ (0x0D46 0x0D48	?m)			; VOWEL SIGN E .. AI
+ (0x0D4D	?H)			; SIGN VIRAMA
+ (0x0D57	?p)			; AU LENGTH MARK
+ (0x0D60 0x0D61	?V)			; LETTER VOCALIC RR .. VOCALIC LL
+ (0x0D62 0x0D63 ?b)			; VOWEL SIGN VOCALIC L .. LL
+
+ (0x200C	?N)			; ZWNJ
+ (0x200D	?J)			; ZWJ
+ (0x25CC	?X)			; DOTTED CIRCLE
+
+ (akhn		?C)
+ (blwf		?B)
+ (pstf		?P)
+ (pref		?R)
+ )
+
+;; Stage 0
+;; Preprocessing
+(generator
+ (0
+  (cond
+   ;; Decompose two-part vowel signs
+   ((0x0D4A) 0x0D46 0x0D3E)
+   ((0x0D4B) 0x0D47 0x0D3E)
+   ((0x0D4C) 0x0D46 0x0D57)
+
+   ;; Replace CHILLU N + RRA with a pseudo-consonant
+   ((0x0D7B 0x0D31) :otf=mlm2=akhn+)
+   ((0x0D28 0x0D4D 0x200D 0x0D31) :otf=mlm2=akhn+)
+
+   ;; Other chillu letters
+   ((0x0D23 0x0D4D 0x200D) 0x0D7A)
+   ((0x0D28 0x0D4D 0x200D) 0x0D7B)
+   ((0x0D30 0x0D4D 0x200D) 0x0D7C)
+   ((0x0D32 0x0D4D 0x200D) 0x0D7D)
+   ((0x0D33 0x0D4D 0x200D) 0x0D7E)
+   ((0x0D15 0x0D4D 0x200D) 0x0D7F)
+
+   ("." =))
+  *))
+
+;; Stage 1
+;; Syllable identification
+(generator
+ (0
+  (cond
+   ;; Consonant-based syllables
+   ("(CJ?HJ?)*C(H[NJ]?|m?b?p?)A?"
+    < | (0 = *) | >)
+
+   ;; Syllables with an independent vowel
+   ("V(J?HC)?m?b?p?A?"
+    < | (0 = *) | >)
+
+   ;; Combining marks are displayed with a DOTTED CIRCLE.
+   ("H|b|p|A|JHC"
+    < 0x25CC (0 :otf=mlm2=pref,blwf,pstf+) >)
+
+   ;; Pre-base matra
+   ("(m)(p)?"
+    < (1 =) 0x25CC (2 =) >)
+
+   ("." =))
+  *))
+
+;; Stage 2
+;; Basic shaping forms and matra reordering
+(generator
+ (0
+  :otf?mlm2=locl,akhn,pref,blwf,pstf+
+
+  (cond
+   ;; pref after pstf
+   ;; 1                23         4   5        6   7
+   (" ([CRBPHJ]*[CRBV])((J?PP)*)J?(RR)(H[NJ]?)?(m)?(b?p?A?) "
+    | (6 =) (4 :otf=mlm2=pref+) (1 :otf=mlm2=locl,akhn,blwf,half,cjct+)
+    (2 :otf=mlm2=pstf+) (5 = *) (7 = *) |)
+
+   ;; pref between blwf and pstf
+   ;; 1           2   34       5        6   7
+   (" ([CRBPHJV]+)(RR)((J?PP)+)(H[NJ]?)?(m)?(b?p?A?) "
+    | (6 =) (2 :otf=mlm2=pref+) (1 :otf=mlm2=locl,akhn,blwf,half,cjct+)
+    (3 :otf=mlm2=pstf+) (5 = *) (7 = *) |)
+
+   ;; pref before blwf
+   ;; 1           2   34       56       7        8   9
+   (" ([CRBPHJV]+)(RR)((J?BB)+)((J?PP)*)(H[NJ]?)?(m)?(b?p?A?) "
+    | (8 =) (2 :otf=mlm2=pref+) (1 :otf=mlm2=locl,akhn,blwf,half,cjct+)
+    (3 :otf=mlm2=blwf+) (5 :otf=mlm2=pstf+) (7 = *) (9 = *) |)
+
+   ;; no pref
+   ;; 1                23       4        5   6
+   (" ([CRBPHJ]*[CRBV])((J?PP)*)(H[NJ]?)?(m)?(b?p?A?) "
+    | (5 =) (1 :otf=mlm2=locl,akhn,blwf,half,cjct+) (2 :otf=mlm2=pstf+)
+    (4 = *) (6 = *) |)
+
+   ("." =))
+  *))
+
+;; Stage 3
+;; Final reordering (Move pre-base matra and pre-base RA after the last halant)
+(generator
+ (0
+  (cond
+   ;; 1     2       3
+   (" (m?R?)([^ ]+H)([^H ]+) "
+    | (2 = *) (1 = *) (3 = *) |)
+
+   ("." =))
+  *))
+
+;; Stage 4
+;; Presentation forms
+(generator
+ (0
+  (cond
+   (" ([^ ]+) "
+    | (1 :otf=mlm2=pres,abvs,blws,psts,haln,calt+) |)
+
+   ("." =))
+  *))
+
+;; Stage 5
+;; Remove ZWNJ/ZWJ
+(generator
+ (0
+  (cond
+   ("[NJ]")
+
+   ("." =))
+  *))
+
+;; Stage 6
+;; GPOS processing
+(generator
+ (0
+  (cond
+   (" ([^ ]+) "
+    (1 :otf=mlm2=+kern,dist,abvm,blwm))
+
+   ("." =))
+  *))
+
+;; Copyright (C) 2010
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+;; Local Variables:
+;; mode: emacs-lisp
+;; End:
