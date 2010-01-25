@@ -1,0 +1,153 @@
+;; si-sumihiri.mim -- Sinhala input method for sumihiri transliteration scheme
+;; m17n Keymap file for Sinhala (Sri Lanka) (2008-09-12)
+;; Copyright (C) 2010 Sarath Camillus Jayewardena
+
+;; Maintainer: Sarath Camillus Jayewardena <sakzje@gmail.com>
+;; Last Updated: 2008-09-12
+;; This is a transliteration mapping for a standard US-English keyboard
+;; (qwerty)
+;; http://www.nongnu.org/sinhala/doc/transliteration/sinhala-transliteration_2.html
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+(input-method si sumihiri)
+
+(description "Sinhala input method using transliteration.
+The transliteration is based on 'sumihiri' scheme developed by
+Sarath Camillus Jayewardena.
+  <http://www.nongnu.org/sinhala/doc/transliteration/sinhala-transliteration_2.html>
+")
+
+(title "සු (Transliteration)")
+
+(map
+ (consonants
+  ("k" "ක්")		; 0x0d9a - alpapraana kayanna (ka)
+  ("K" "ඛ්")		; 0x0d9b - mahaapraana kayanna (kha)
+  ("g" "ග්")		; 0x0d9c - alpapraana gayanna (ga)
+  ("G" "ඝ්")		; 0x0d9d - mahaapraana gayanna (gha)
+  ("Z" "ඞ්")		; 0x0d9e - kantaja naasikyaya (nga)
+  ("Ng" "ඟ්")		; 0x0d9f - sanyaka gayanna (nnga)
+  ("ch" "ච්")		; 0x0da0 - alpapraana cayanna (ca)
+  ("Ch" "ඡ්")		; 0x0da1 - mahaapraana cayanna (cha)
+  ("j" "ජ්")		; 0x0da2 - alpapraana jayanna (ja)
+  ("J" "ඣ්")		; 0x0da3 - mahaapraana jayanna (jha)
+  ("q" "ඤ්")		; 0x0da4 - taaluja naasikyaya (nya)
+  ("GN" "ඥ්")		; 0x0da5 - taaluja sanyooga naasikyaya (jnya)
+  ("Mj" "ඦ්")		; 0x0da6 - sanyaka jayanna (nyja)
+  ("t" "ට්")		; 0x0da7 - alpapraana ttayanna (tta)
+  ("T" "ඨ්")		; 0x0da8 - mahaapraana ttayanna (ttha)
+  ("d" "ඩ්")		; 0x0da9 - alpapraana ddayanna (dda)
+  ("D" "ඪ්")		; 0x0daa - mahaapraana ddayanna (ddha)
+  ("N" "ණ්")		; 0x0dab - muurdhaja nayanna (nna)
+  ("Nd" "ඬ්")		; 0x0dac - sanyaka ddayanna (nndda)
+  ("th" "ත්")		; 0x0dad - alpapraana tayanna (ta)
+  ("Th" "ථ්")		; 0x0dae - mahaapraana tayanna (tha)
+  ("dh" "ද්")		; 0x0daf - alpapraana dayanna (da)
+  ("Dh" "ධ්")		; 0x0db0 - mahaapraana dayanna (dha)
+  ("n" "න්")		; 0x0db1 - dantaja nayanna (na)
+  ("Ndh" "ඳ්")		; 0x0db3 - sanyaka dayanna (nda)
+  ("p" "ප්")		; 0x0db4 - alpapraana payanna (pa)
+  ("P" "ඵ්")		; 0x0db5 - mahaapraana payanna (pha)
+  ("b" "බ්")		; 0x0db6 - alpapraana bayanna (ba)
+  ("B" "භ්")		; 0x0db7 - mahaapraana bayanna (bha)
+  ("m" "ම්")		; 0x0db8 - mayanna (ma)
+  ("Mb" "ඹ්")		; 0x0db9 - amba bayanna (mba)
+  ("y" "ය්")		; 0x0dba - yayanna (ya)
+  ("r" "ර්")		; 0x0dbb - rayanna (ra)
+  ("l" "ල්")		; 0x0dbd - dantaja layanna (la)
+  ("w" "ව්")		; 0x0dc0 - vayanna (va)
+  ("sh" "ශ්")		; 0x0dc1 - taaluja sayanna (sha)
+  ("Sh" "ෂ්")		; 0x0dc2 - muurdhaja sayanna (ssa)
+  ("s" "ස්")		; 0x0dc3 - dantaja sayanna (sa)
+  ("h" "හ්")		; 0x0dc4 - hayanna (ha)
+  ("L" "ළ්")		; 0x0dc5 - muurdhaja layanna (lla)
+  ("f" "ෆ්")		; 0x0dc6 - fayanna (fa)
+  ("x" "ක්‍ෂ‍්")		; - xayanne (xa)
+ )
+
+ (independent
+  ("a" "අ")		; 0x0d85 - ayanna (a)
+  ("aa" "ආ")		; 0x0d86 - aayanna (aa)
+  ("z" "ඇ")		; 0x0d87 - aeyanna (ae)
+  ("zz" "ඈ")		; 0x0d88 - aeeyanna (aee)
+  ("i" "ඉ")		; 0x0d89 - iyanna (i)
+  ("ii" "ඊ")		; 0x0d8a - iiyanna (ii)
+  ("u" "උ")		; 0x0d8b - uyanna (u)
+  ("uu" "ඌ")		; 0x0d8c - uuyanna (uu)
+  ("sRu" "ඍ")		; 0x0d8d - iruyanna (iru)
+  ("sRuu" "ඎ")		; 0x0d8e - iruuyanna (iruu)
+  ;;("lU" "ඏ")		; 0x0d8f - iluyanna (ilu)
+  ;;("lUU" "ඐ")		; 0x0d90 - iluuyanna (iluu)
+  ("E" "එ")		; 0x0d91 - eyanna (e)
+  ("ee" "ඒ")		; 0x0d92 - eeyanna (ee)
+  ("ai" "ඓ")		; 0x0d93 - aiyanna (ai)
+  ("o" "ඔ")		; 0x0d94 - oyanna (o)
+  ("oo" "ඕ")		; 0x0d95 - ooyanna (oo)
+  ("au" "ඖ")		; 0x0d96 - auyanna (au)
+  ("NG" "ං")		; 0x0d82 - anusvaraya (anusvara)
+  ("H" "ඃ")		; 0x0d83 - visargaya (visarga)
+  ((A-.) "෴")		; 0x0df4 - kunddaliya (punctuation)
+  ;; Shift-space and Alt-space
+  ((S-\ ) " ")		; 0x00a0 - no-break space
+  ((A-\ ) "‌")		; 0x200c - ZWNJ
+ )
+
+ (dependent
+  ("a" (delete @-))	; (a)
+  ("e" (delete @-))	; (a)
+  ("aa" (delete @-) "ා")	; 0x0dcf - aela-pilla (aa)
+  ("z" (delete @-) "ැ")	; 0x0dd0 - ketti aeda-pilla (ae)
+  ("zz" (delete @-) "ෑ")	; 0x0dd1 - diga aeda-pilla (aae)
+  ("i" (delete @-) "ි")	; 0x0dd2 - ketti is-pilla (i)
+  ("ii" (delete @-) "ී")	; 0x0dd3 - diga is-pilla (ii)
+  ("u" (delete @-) "ු")	; 0x0dd4 - ketti paa-pilla (u)
+  ("uu" (delete @-) "ූ")	; 0x0dd6 - diga paa-pilla (uu)
+  ("Ru" (delete @-) "ෘ")	; 0x0dd8 - gaetta-pilla (r)
+  ("Ruu" (delete @-) "ෲ")	; 0x0df2 - diga gaetta-pilla (rr)
+  ;;("lU" (delete @-) "ෟ")	; 0x0ddf - gayanukitta (l)
+  ;;("lUU" (delete @-) "ෳ")	; 0x0df3 - diga gayanukitta (ll)
+  ("E" (delete @-) "ෙ")	; 0x0dd9 - kombuva (e)
+  ("ee" (delete @-) "ේ")	; 0x0dda - diga kombuva (ee)
+  ("ai" (delete @-) "ෛ")	; 0x0ddb - kombu deka (ai)
+  ("o" (delete @-) "ො")	; 0x0ddc - kombuva haa aela-pilla (o)
+  ("oo" (delete @-) "ෝ")	; 0x0ddd - kombuva haa diga aela-pilla (oo)
+  ("au" (delete @-) "ෞ")	; 0x0dde - kombuva haa gayanukitta (au)
+  ;;("q" (delete @-) "්‍")		; 0x0dca,0x200d - join - conjunct letters cons 0DCA ZWJ cons
+  ("Q" (delete @-) "‍්")		; 0x200d,0x0dca - touch - cons ZWJ 0DCA cons
+ )
+
+ (rakyan
+  ("R" (delete @-) "්‍ර්")		; 0x0dca,0x200d,0x0dbb - rakaaranshaya
+  ("Y" (delete @-) "්‍ය්")		; 0x0dca,0x200d,0x0dba - yansaya
+ )
+
+)
+
+(state
+ (init
+  (consonants (shift second))
+  (independent)
+ )
+ (second
+  (dependent (shift init))
+  (rakyan)
+ )
+)
+
