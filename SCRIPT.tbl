@@ -42,7 +42,7 @@
 ;new
 (balinese (ban sas) (#x1B13 #x1B02) bali) ;No "last resort" glyph
 
-(bengali (as bn mni kha sat) (#x995 #x981) beng)
+(bengali (as bn mni kha sat) (#x995 #x981) (beng bng2))
 (bopomofo (zh) (#x3105) bopo)
 (braille () (#x281D) brai)
 (buginese (bug) (#x1A01 #x1A1B) bugi)	;No "last resort" glyph
@@ -70,14 +70,14 @@
 (glagolitic (cu) (#x2C00) glag)		;No "last resort" glyph
 (gothic (got) (#x10330 #x1034A) goth)
 (greek (el cop) (#x3A9 #x3C9 #x3AC) grek)
-(gujarati (gu pa sd) (#xA95 #xA83) gujr)
-(gurmukhi (pa) (#xA15 #xA03) guru)
+(gujarati (gu pa sd) (#xA95 #xA83) (gujr gjr2))
+(gurmukhi (pa) (#xA15 #xA03) (guru gur2))
 (han (ja ko zh) (#x5B57) hani)
 (hangul (ko) (#xAC00) hang)
 (hanunoo (hnn) (#x1723 #x1732) hano)	;639-3 code hnn
 (hebrew (he yi jpr arc lad jrb) (#x5D0 #x591) hebr)
 (hiragana (ja) (#x304B) kana)
-(kannada (kn kok) (#xC95 #xC83) knda)
+(kannada (kn kok) (#xC95 #xC83) (knda knd2))
 (katakana (ja) (#x30AB) kana)
 
 ;new
@@ -109,7 +109,7 @@
 (lydian (xld)(#x10920 #x1093F))		;No "last resort" glyph
 					;639-3 code xld
 
-(malayalam (ml) (#xD15 #xD03) mlym)
+(malayalam (ml) (#xD15 #xD03) (mlym mlm2))
 (mongolian (mn mnc) (#x1826 #x1803) mong)
 (myanmar (my pi shn kar) (#x1000 #x102C) mymr)
 (new_tai_lue () (#x1980 #x19B1))	;No "last resort" glyph 
@@ -120,7 +120,7 @@
 
 (old_italic () (#x10300) ital)
 (old_persian (peo) (#x103A3 #x103D0) xpeo) ;No "last resort" glyph
-(oriya (or) (#xB15 #xB03) orya)
+(oriya (or) (#xB15 #xB03) (orya ory2))
 (osmanya (so) (#x10480) osma)
 
 ;new
@@ -150,14 +150,14 @@
 (syriac (hy arc syr sam) (#x710 #x700) syrc)
 (tagalog (tl) (#x1703 #x1712) tglg)
 (tagbanwa (tbw) (#x1763 #x1772) tagb)	;639-3 code tbw
-(tamil (ta) (#xB95 #xB83) taml)
+(tamil (ta) (#xB95 #xB83) (taml tml2))
 (tai_le (tdd) (#x1950) tale)		;639-3 code tdd
 
 ;new
 (tai_viet (tai) (#xAA80))
 (cham () (#xAA00))
 
-(telugu (te) (#xC15 #xC03) telu)
+(telugu (te) (#xC15 #xC03) (telu tel2))
 (thaana (dv) (#x78C #x7B0) thaa)
 (thai (pi th hmn) (#xE17 #xE34) thai)
 (tibetan (bo dz) (#xF40 #xF71) tibt)
