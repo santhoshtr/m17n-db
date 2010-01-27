@@ -142,7 +142,7 @@
    ;; 1            2     3
    (" (RHJ[CRnHJ]*)(mn?)?(u?b?p?n?a?(Ss?|sS?)?A?) "
     ;;           |
-    ;; This is an asterisk.  If it were a plus sign, a standalone RHJ
+    ;; This is an asterisk.  If it were a plus sign, an isolated RHJ
     ;; would match with the next pattern, not with this one.
     | (2 = *) (1 :otf=dev2=locl,nukt,akhn,rkrf,blwf,half,vatu,cjct+)
     (3 = *) |)
