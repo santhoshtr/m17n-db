@@ -16,6 +16,7 @@
 ;; 1. matra (pre, below, above, post)
 ;; 2. one of candrabindu (0901), anusvara (0902), grave (0953), acute (0954)
 ;; 3. udatta (0951) and/or anudatta (0952)
+;; 4. visarga (0953)
 
 ;; For rendering, on the other hand, the combination of Uniscribe and
 ;; mangal.ttf (dev2) requires the following orders.
