@@ -1,0 +1,188 @@
+;; yi-yivo.mim -- Yiddish input method with YIVO transliteration
+;; Copyright (C) 2010
+;; Raghav Krishnapriyan (raghav.r.krishnapriyan@gmail.com)
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+(input-method yi yivo)
+											
+(description "Yiddish input method using YIVO transliteration.
+A short description of the YIVO transliteration scheme can be found here: http://www.ibiblio.org/pub/academic/languages/yiddish/mendele/vol4.170
+A description of the YIVO orthography can be found in Mordkhe Schaechter, _Der eynheytlekher Yidisher oysleyg: Takones fun yidishn oysleyg_, New York: Yivo and Yiddish Language Resource Center of the League for Yiddish (6th ed. 1999).
+")
+											
+(title "ייִדיש")
+(map
+  (initials
+    ("i" "אי")
+    ("u" "או")
+    ("ey" "אײ")
+    ("ay" "אײַ")
+    ("oy" "אױ")
+	("ayo" "אַיאָ")
+  )
+  (initdiph
+    ("e" ?ע)
+    ("a" "אַ")
+    ("o" "אָ")
+  )
+  (openquotes ("\"" "„"))
+  (closequotes ("\"" "‟") ("?\"" "?‟") (".\"" ".‟") ("!\"" "!‟"))
+  (parentheses
+      ("\(" "\)")
+      ("\)" "\(")
+  )
+  (makef ("-" "־"))
+  (otherchars
+    ("A") ("b") ("d") ("f") ("g") ("h") ("H") ("k") ("l") ("m") ("n") ("p") ("r") ("s") ("S") ("t") ("u") ("v") ("y") ("z") ("B") ("K") ("T") ("W")
+  )
+  (singlechars
+    ("A" ?א)
+    ("b" ?ב)
+    ("d" ?ד)
+    ("e" ?ע)
+    ("ey" "ײ")
+    ("f" ?ף)
+    ("g" ?ג)
+    ("h" ?ה)
+    ("H" ?ח)
+    ("i" ?י)
+    ("k" ?ק)
+    ("kh" ?ך)
+    ("l" ?ל)
+    ("m" ?ם)
+    ("n" ?ן)
+    ("oy" "ױ")
+    ("r" ?ר)
+    ("s" ?ס)
+    ("sh" ?ש)
+    ("S" ?ת)
+    ("t" ?ט)
+    ("ts" ?ץ)
+    ("u" ?ו)
+    ("v" "װ")
+    ("y" ?י)
+    ("z" ?ז)
+  )
+  (doublechars
+    ("a" "אַ")
+    ("B" "בֿ")
+    ("ay" "ײַ")
+    ("K" "כּ")
+    ("o" "אָ")
+    ("p" "פּ")
+    ("T" "תּ")
+    ("tsh" "טש")
+    ("W" "שׂ")
+    ("zh" "זש")
+  )
+  (triplechars
+    ("uv" "וּװ")
+    ("vu" "װוּ")
+    ("yi" "ייִ")
+    ("ui" "ויִ")
+	("eyi" "ײיִ")
+	("ie" "יִע")
+	("ei" "עיִ")
+  )
+  (quadruplechars
+	("ii" "יִיִ")
+	("ayi" "ײַיִ")
+	("ia" "יִאַ")
+	("io" "יִאָ")
+  )
+  (quintuplechars
+	("uvu" "וּװוּ")	; For words like "tsuvuks!"
+  )
+  (abbreviations
+    ("s'" "ס'")
+    ("m'" "מ'")
+	("kh'" "כ'")
+  )
+  (gershayim
+    ("`" "׳")
+	("``" "״")
+  )
+  (backspace
+    ((BackSpace) (undo)))
+)
+											
+(state 
+  (init
+    (initials (shift subsq))
+    (initdiph)
+    (openquotes)
+    (otherchars (pushback 1) (shift subsq))
+    (backspace)
+	(parentheses)
+  )
+  (subsq
+    (singlechars
+      (cond
+        ((= @-2 ?ף) (set X @-1) (delete @-2) (insert "פֿ") (insert X))
+        ((= @-2 ?ך) (set X @-1) (delete @-2) (insert ?כ) (insert X))
+        ((= @-2 ?ם) (set X @-1) (delete @-2) (insert ?מ) (insert X))
+        ((= @-2 ?ן) (set X @-1) (delete @-2) (insert ?נ) (insert X))
+	    ((= @-2 ?ץ) (set X @-1) (delete @-2) (insert ?צ) (insert X))
+       )
+     )
+	 (doublechars
+      (cond
+        ((= @-3 ?ף) (set X @-1) (set Y @-2) (delete @-3) (insert "פֿ") (insert Y) (insert X))
+        ((= @-3 ?ך) (set X @-1) (set Y @-2) (delete @-3) (insert ?כ) (insert Y) (insert X))
+        ((= @-3 ?ם) (set X @-1) (set Y @-2) (delete @-3) (insert ?מ) (insert Y) (insert X))
+        ((= @-3 ?ן) (set X @-1) (set Y @-2) (delete @-3) (insert ?נ) (insert Y) (insert X))
+	    ((= @-3 ?ץ) (set X @-1) (set Y @-2) (delete @-3) (insert ?צ) (insert Y) (insert X))
+       )
+     )
+	 (triplechars
+	   (cond
+        ((= @-4 ?ף) (set X @-1) (set Y @-2) (set Z @-3) (delete @-4) (insert "פֿ") (insert Z) (insert Y) (insert X))
+        ((= @-4 ?ך) (set X @-1) (set Y @-2) (set Z @-3) (delete @-4) (insert ?כ) (insert Z) (insert Y) (insert X))
+        ((= @-4 ?ם) (set X @-1) (set Y @-2) (set Z @-3) (delete @-4) (insert ?מ) (insert Z) (insert Y) (insert X))
+        ((= @-4 ?ן) (set X @-1) (set Y @-2) (set Z @-3) (delete @-4) (insert ?נ) (insert Z) (insert Y) (insert X))
+	    ((= @-4 ?ץ) (set X @-1) (set Y @-2) (set Z @-3) (delete @-4) (insert ?צ) (insert Z) (insert Y) (insert X))
+       )
+     )
+	 (quadruplechars
+	  (cond
+        ((= @-5 ?ף) (set X @-1) (set Y @-2) (set Z @-3) (set A @-4) (delete @-5) (insert "פֿ") (insert A) (insert Z) (insert Y) (insert X))
+        ((= @-5 ?ך) (set X @-1) (set Y @-2) (set Z @-3) (set A @-4) (delete @-5) (insert ?כ) (insert A) (insert Z) (insert Y) (insert X))
+        ((= @-5 ?ם) (set X @-1) (set Y @-2) (set Z @-3) (set A @-4) (delete @-5) (insert ?מ) (insert A) (insert Z) (insert Y) (insert X))
+        ((= @-5 ?ן) (set X @-1) (set Y @-2) (set Z @-3) (set A @-4) (delete @-5) (insert ?נ) (insert A) (insert Z) (insert Y) (insert X))
+        ((= @-5 ?ץ) (set X @-1) (set Y @-2) (set Z @-3) (set A @-4) (delete @-5) (insert ?צ) (insert A) (insert Z) (insert Y) (insert X))
+	  )
+     )
+     (quintuplechars
+	  (cond
+        ((= @-6 ?ף) (set X @-1) (set Y @-2) (set Z @-3) (set A @-4) (set B @-5) (delete @-6) (insert "פֿ") (insert B) (insert A) (insert Z) (insert Y) (insert X))
+        ((= @-6 ?ך) (set X @-1) (set Y @-2) (set Z @-3) (set A @-4) (set B @-5) (delete @-6) (insert ?כ) (insert B) (insert A) (insert Z) (insert Y) (insert X))
+        ((= @-6 ?ם) (set X @-1) (set Y @-2) (set Z @-3) (set A @-4) (set B @-5) (delete @-6) (insert ?מ) (insert B) (insert A) (insert Z) (insert Y) (insert X))
+        ((= @-6 ?ן) (set X @-1) (set Y @-2) (set Z @-3) (set A @-4) (set B @-5) (delete @-6) (insert ?נ) (insert B) (insert A) (insert Z) (insert Y) (insert X))
+        ((= @-6 ?ץ) (set X @-1) (set Y @-2) (set Z @-3) (set A @-4) (set B @-5) (delete @-6) (insert ?צ) (insert B) (insert A) (insert Z) (insert Y) (insert X))
+	  )
+     )
+	 (closequotes)
+	 (gershayim)
+	 (makef (shift init))
+	 (abbreviations (shift init))
+	 (backspace)
+	 (nil (shift init))
+   )
+)
