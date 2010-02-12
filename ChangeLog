@@ -1,10 +1,18 @@
+2010-02-12  Kenichi Handa  <handa@m17n.org>
+
+	* UNIDATA/CaseFolding.txt, UNIDATA/copyright.html,
+	UNIDATA/LineBreak.txt, UNIDATA/PropList.txt, UNIDATA/README,
+	UNIDATA/Scripts.txt, UNIDATA/SpecialCasing.txt,
+	UNIDATA/UnicodeData.txt, UNIDATA/WordBreakProperty.txt: Updated.
+
 2010-01-25  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
-	* SCRIPT.tbl:
-	Add dev2, bng2, gur2, gjr2, ory2, tml2, tel2, knd2 and mlm2.
+	* SCRIPT.tbl: Add dev2, bng2, gur2, gjr2, ory2, tml2, tel2, knd2
+	and mlm2.
 
-	* FLT/MLM2-OTF.flt, FLT/KND2-OTF.flt, FLT/TEL2-OTF.flt, FLT/TML2-OTF.flt, FLT/ORY2-OTF.flt, FLT/GJR2-OTF.flt, FLT/GUR2-OTF.flt, FLT/BNG2-OTF.flt, FLT/DEV2-OTF.flt:
-	New file.
+	* FLT/MLM2-OTF.flt, FLT/KND2-OTF.flt, FLT/TEL2-OTF.flt,
+	FLT/TML2-OTF.flt, FLT/ORY2-OTF.flt, FLT/GJR2-OTF.flt,
+	FLT/GUR2-OTF.flt, FLT/BNG2-OTF.flt, FLT/DEV2-OTF.flt: New file.
 
 2010-01-22  Kenichi Handa  <handa@m17n.org>
 
