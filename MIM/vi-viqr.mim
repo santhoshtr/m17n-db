@@ -82,17 +82,23 @@ If the value is 1, Backspace key undoes the previous key
  (init
   ;; Initialize variables.  C is the initial consonant.  V-N is the
   ;; (N-1)th vowel from the last.  C-AFTER-V is a number of consonants
-  ;; typed after vowel.
+  ;; typed after vowel.  NST is 1 iff surrounding text is not supported.
   (t (set C @-1) (set V-1 0) (set V-2 0) (set V-3 0) (set C-AFTER-V 0)
-     (set SELECT 0))
+     (set SELECT 0) (set NST (= @-0 -2)))
 
-  (consonant (set C @-1))
-  (consonant-ext (set C @-1))
+  (consonant (set C @-1) (cond (NST (shift after-c))))
+  (consonant-ext (set C @-1) (cond (NST (shift after-c))))
   ;; Mark M remembers the preedit position after the last vowel.
   (vowel (mark M) (set V-2 V-1) (set V-1 @-1) (shift after-v))
   (vowel-ext (mark M) (set V-2 V-1) (set V-1 @-1) (shift after-v))
   (temporary-escape (shift temporary-escape))
   (permanent-escape (shift escape-in-normal-mode)))
+
+ ;; The state shifted to when an initial consonants is typed and
+ ;; surrounding text is not supported.
+ (after-c
+  (vowel (mark M) (set V-2 V-1) (set V-1 @-1) (shift after-v))
+  (vowel-ext (mark M) (set V-2 V-1) (set V-1 @-1) (shift after-v)))
 
  ;; The state shifted to when a vowel is typed.
  (after-v
