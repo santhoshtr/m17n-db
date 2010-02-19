@@ -265,7 +265,7 @@ OTF-SPEC ::= SYMBOL
 名前は以下の文法に従う。
 
 @verbatim
-  OTF-SPEC-NAME ::= ':otf' SCRIPT LANGSYS ? GSUB-FEATURES ? GPOS-FEATURES ?
+  OTF-SPEC-NAME ::= ':otf=' SCRIPT LANGSYS ? GSUB-FEATURES ? GPOS-FEATURES ?
 
   SCRIPT ::= SYMBOL
 
@@ -308,7 +308,6 @@ COMBINING ::= SYMBOL
 @c COMBINING は、 次のグリフを前のものとどう結合するかの指示を名前とし
 て持つシンボルである。このルールはデフォルトの結合規則をシンボル名固有
 の整数コードにセットする。名前は以下の文法に従う。
-following syntax.
 
 @verbatim
   COMBINING-NAME ::= VPOS HPOS OFFSET VPOS HPOS
