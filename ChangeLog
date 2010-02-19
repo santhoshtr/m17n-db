@@ -15,7 +15,6 @@
 	after-c when an initial consonant is typed.
 	(state:after-c): New state.
 
->>>>>>> 1.361
 2010-02-12  Kenichi Handa  <handa@m17n.org>
 
 	* UNIDATA/CaseFolding.txt, UNIDATA/copyright.html,
