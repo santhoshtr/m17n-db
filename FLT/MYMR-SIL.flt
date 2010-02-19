@@ -1,0 +1,138 @@
+;; MYMR-SIL.flt -- Font Layout Table for Padauk.ttf
+;; Copyright (C) 2010 AIST (H15PRO112)
+;; See the end for copying conditions.
+
+(font layouter mymr-sil nil
+      (font (nil nil unicode-bmp :otf=mymr)))
+
+;;; <li> MYMR-SIL.flt
+;;;
+;;; For Padauk.ttf to draw the Myanmar script.
+
+;; Padauk.ttf is very smart.  All we have to do is identify boundaries
+;; of character sequences and apply the clig feature to them.  No
+;; reordering is necessary.  See Unicode Technical Note #11
+;; http://www.unicode.org/notes/tn11/ for details.
+
+(category
+ ;; c: ordinary consonants
+ ;; C: consonants with a subjoined form
+ ;; g: consonant with a kinzi form (Burmese nga and Mon gna)
+ ;; G: consonant with a repha form (Sanscrit)
+ ;; v: virama
+ ;; V: asat
+ ;; y: medial YA
+ ;; r: medial RA
+ ;; w: medial WA
+ ;; h: medial HA
+ ;; e: E vowel
+ ;; E: Shan E vowel
+ ;; u: upper vowel
+ ;; l: lower vowel
+ ;; k: karen vowel
+ ;; s: Shan vowel
+ ;; a: A vowel
+ ;; A: anusvara
+ ;; p: pwo tone
+ ;; b: lower dot
+ ;; H: Mon medial LA
+ ;; w: visarga
+ ;; R: reduplication
+ ;; x: others
+
+ (0x1000 0x1021	?C)			; LETTER KA .. A
+ (0x1004	?g)			; LETTER GNA
+ (0x101A	?c)			; LETTER YA
+ (0x101B	?G)			; LETTER RA
+ (0x101D	?c)			; LETTER WA
+ (0x101F	?c)			; LETTER HA
+
+ (0x1022 0x102A ?c)			; LETTER SHAN A .. AU
+ (0x102B 0x102C	?a)			; VOWEL SIGN TALL AA .. AA
+ (0x102D 0x102E	?u)			; VOWEL SIGN I .. II
+ (0x102F 0x1030	?l)			; VOWEL SIGN U .. UU
+ (0x1031	?e)			; VOWEL SIGN E
+ (0x1032	?A)			; VOWEL SIGN AI
+ (0x1033 0x1035	?u)			; VOWEL SIGN MON II .. E ABOVE
+ (0x1036	?A)			; SIGN ANUSVARA
+ (0x1037	?b)			; SIGN DOT BELOW
+ (0x1038	?w)			; SIGN VISARGA
+ (0x1039	?v)			; SIGN VIRAMA
+ (0x103A	?V)			; SIGN ASAT
+ (0x103B	?y)			; CONSONANT SIGN MEDIAL YA
+ (0x103C	?r)			; CONSONANT SIGN MEDIAL RA
+ (0x103D	?w)			; CONSONANT SIGN MEDIAL WA
+ (0x103E	?h)			; CONSONANT SIGN MEDIAL HA
+
+ (0x103F 0x1049	?c)			; LETTER LETTER GREAT SA .. DIGIT NINE
+ (0x1040	?x)			; DIGIT ZERO
+
+ (0x104A 0x1059	?x)			; SIGN LITTLE SECTION .. VOWEL SIGN VOCALIC LL
+ (0x104E	?c)			; SYMBOL AFORMENTIONED
+
+ (0x105A	?g)			; LETTER MON NGA
+ (0x105B 0x105D	?C)			; LETTER MON JHA .. MON BBE
+ (0x105E 0x105F	?y)			; LETTER CONSONANT SIGN MON MEDIAL NA .. MA
+ (0x1060	?H)			; LETTER CONSONANT SIGN MON MEDIAL LA
+ (0x1061	?c)			; LETTER SGAW KAREN SHA
+ (0x1062	?k)			; VOWEL SIGN SGAW KAREN EU
+ (0x1063	?a)			; TONE MARK SGAW KAREN HATHI
+ (0x1064	?p)			; TONE MARK SGAW KAREN KE PHO
+ (0x1065 0x1066	?c)			; LETTER WESTERN PWO KAREN THA .. PWA
+ (0x1067 0x1068	?a)			; VOWEL SIGN WESTERN PWO KAREN EU .. UE
+ (0x1069 0x106D	?p)			; SIGN WESTERN PWO KAREN TONE 1 .. 5
+ (0x106E 0x1070	?c)			; LETTER EASTERN PWO KAREN NNA .. GHWA
+ (0x1071 0x1074	?u)			; VOWEL SIGN GEBA RAREN I .. KAYAH EE
+ (0x1075 0x1081	?c)			; LETTER SHAN KA .. HA
+ (0x1082	?w)			; CONSONANT SIGN SHAN MEDIAL WA
+ (0x1083	?a)			; VOWEL SIGN SHAN AA
+ (0x1084	?E)			; VOWEL SIGN SHAN E
+ (0x1085	?u)			; VOWEL SIGN SHAN E ABOVE
+ (0x1086	?s)			; VOWEL SIGN SHAN FINAL Y
+ (0x1087 0x108D	?w)			; SHAN TONE-2 .. COUNCIL EMPHATIC TONE
+ (0x108E	?c)			; LETTER RUMAI PALAUNG FA
+ (0x108F	?w)			; SIGN RUMAI PALAUNG TONE-5
+ (0x1090 0x1099	?x)			; SHAN DIGIT ZERO .. NINE
+ (0x109A 0x109C	?w)			; SIGN KHAMTI TONE-1 .. VOWEL SIGN AITON A
+ (0x109E 0x109F	?X)			; SYMBOL SHAN ONE .. EXCLAMATION
+
+ (0xAA60 0xAA76	?c)			; LETTER KHAMTI GA .. LOGOGRAM KHAMTI HM
+ (0xAA70	?R)			; LETTER KHAMTI REDUPLICATION
+
+ (0xAA77 0xAA7B ?x)			; SYMBOL AITON EXCLAMATION .. PAO KAREN TONE
+ )
+
+(generator
+ (0
+  (cond
+   ("([gG]Vv)?[cCgG](v[Cg])?(v[Cg])?V?y?r?w?[hH]?V?(ee?|E)?[uA]?(l|[kb])?s?[ak]?A?p?b?h?V?w?R?"
+   :otf=mymr=clig)
+
+   ("." =))
+  *))
+
+;; Copyright (C) 2010
+;;   National Institute of Advanced Industrial Science and Technology (AIST)
+;;   Registration Number H15PRO112
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+;; Local Variables:
+;; mode: emacs-lisp
+;; End:
