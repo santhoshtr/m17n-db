@@ -50,33 +50,39 @@
   ((nil thaana\ unicode\ akeh unicode-bmp) thaa-otf)))
 (devanagari
  (nil
+  ((nil nil unicode-bmp :otf=dev2) dev2-otf)
   ((nil nil unicode-bmp :otf=deva=rphf) deva-otf)))
 (bengali
  (nil
+  ((nil nil unicode-bmp :otf=bng2) bng2-otf)
   ((nil nil unicode-bmp :otf=beng=rphf) beng-otf)))
 (gurmukhi
  (nil
+  ((nil nil unicode-bmp :otf=gur2) gur2-otf)
   ((nil nil unicode-bmp :otf=guru=blwf) guru-otf)))
 (gujarati
  (nil
+  ((nil nil unicode-bmp :otf=gjr2) gjr2-otf)
   ((nil nil unicode-bmp :otf=gujr=rphf) gujr-otf)))
 (oriya
  (nil
+  ((nil nil unicode-bmp :otf=ory2) ory2-otf)
   ((nil nil unicode-bmp :otf=orya=rphf) orya-otf)))
 (tamil
  (nil
+  ((nil nil unicode-bmp :otf=tml2) tml2-otf)
   ((nil nil unicode-bmp :otf=taml=akhn) taml-otf)))
 (telugu
  (nil
+  ((nil nil unicode-bmp :otf=tel2) tel2-otf)
   ((nil nil unicode-bmp :otf=telu=blwf) telu-otf)))
 (kannada
  (nil
+  ((nil nil unicode-bmp :otf=knd2) knd2-otf)
   ((nil nil unicode-bmp :otf=knda=rphf) knda-otf)))
-(sinhala
- (nil
-  ((nil nil unicode-bmp :otf=sinh=akhn) sinh-otf)))
 (malayalam
  (nil
+  ((nil nil unicode-bmp :otf=mlm2) mlm2-otf)
   ((nil nil unicode-bmp :otf=mlym=akhn) mlym-otf)))
 (thai
  (nil
