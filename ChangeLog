@@ -1,3 +1,13 @@
+2010-02-19  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* generic.fst: Add mymr-sil for Myanmar.
+
+	* generic.fst: Add new oft's for Indic scripts.
+
+	* FLT/Makefile.am: More flt files.
+
+	* FLT/MYMR-SIL.flt: New file.
+
 2010-02-18  Kenichi Handa  <handa@m17n.org>
 
 	* MIM/vi-telex.mim, MIM/vi-viqr.mim, MIM/vi-vni.mim,MIM/vi-tcvn.mim
@@ -5,6 +15,7 @@
 	after-c when an initial consonant is typed.
 	(state:after-c): New state.
 
+>>>>>>> 1.361
 2010-02-12  Kenichi Handa  <handa@m17n.org>
 
 	* UNIDATA/CaseFolding.txt, UNIDATA/copyright.html,
