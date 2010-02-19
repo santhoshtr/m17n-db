@@ -99,6 +99,7 @@
   ((nil mtib unicode-bmp) tibt-mtib)))
 (myanmar
  (nil
+  ((nil padauk unicode-bmp) mymr-sil)
   ((nil myazedi_m17n unicode-bmp) mymr-myazedi)))
 (khmer
  (nil
