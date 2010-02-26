@@ -113,6 +113,7 @@
   ((nil tibetan\ machine\ uni unicode-bmp) tibt-otf)))
 (myanmar
  (nil
+  ((nil padauk unicode-bmp) mymr-sil)
   ((nil myazedi_m17n unicode-bmp) mymr-myazedi)))
 (georgian
  (nil

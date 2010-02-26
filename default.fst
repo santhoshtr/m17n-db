@@ -158,6 +158,11 @@
 ;;; <ul>
 ;;; <li> debian package: ttf-khmeros
 ;;; </ul>
+;;; <li> Padauk.ttf (family: Padauk; for Myanmar)
+;;; <ul>
+;;; <li> infopage: http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&item_id=padauk
+;;; <li> download: http://scripts.sil.org/cms/scripts/render_download.php?site_id=nrsi&format=file&media_id=MH_Padauk_tarball&filename=ttf-sil-padauk-2.6.1.tar.gz
+;;; </ul>
 ;;; <li> MyaZedi_M17N.ttf (family: MyaZedi; for Myanmar)
 ;;; <ul>
 ;;; <li> download: http://www.myazedi.com/downloads/MyaZedi_M17N.ttf
@@ -301,6 +306,7 @@
   ((nil tibetan\ machine\ uni unicode-bmp) tibt-otf)))
 (myanmar
  (nil
+  ((nil padauk unicode-bmp) mymr-sil)
   ((nil myazedi_m17n unicode-bmp) mymr-myazedi)))
 (georgian
  (nil
