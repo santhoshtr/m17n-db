@@ -64,7 +64,7 @@
  (0x103D	?w)			; CONSONANT SIGN MEDIAL WA
  (0x103E	?h)			; CONSONANT SIGN MEDIAL HA
 
- (0x103F 0x1049	?c)			; LETTER LETTER GREAT SA .. DIGIT NINE
+ (0x103F 0x1049	?c)			; LETTER GREAT SA .. DIGIT NINE
  (0x1040	?x)			; DIGIT ZERO
 
  (0x104A 0x1059	?x)			; SIGN LITTLE SECTION .. VOWEL SIGN VOCALIC LL
@@ -100,6 +100,8 @@
  (0xAA70	?R)			; LETTER KHAMTI REDUPLICATION
 
  (0xAA77 0xAA7B ?x)			; SYMBOL AITON EXCLAMATION .. PAO KAREN TONE
+
+ (0x25CC	?x)			; DOTTED CIRCLE
  )
 
 (generator
@@ -107,6 +109,12 @@
   (cond
    ("([gG]Vv)?[cCgG](v[Cg])?(v[Cg])?V?y?r?w?[hH]?V?(ee?|E)?[uA]?(l|[kb])?s?[ak]?A?p?b?h?V?w?R?"
     < :otf=mymr=clig >)
+
+   ("[vVywhulksaApbHw]"
+    < 0x25CC = >)
+
+   ("[reE]"
+    < = 0x25CC >)
 
    ("." =))
   *))
