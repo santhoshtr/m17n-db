@@ -1,0 +1,273 @@
+;; oj-phonetic.mim -- Phonetic input method for Ojibwe syllabics
+;; Copyright (C) 2010
+;;   Goren (goren -at- riseup.net)
+;; This input method table is licensed under the WTFPL. 
+;; See http://sam.zoy.org/wtfpl/ for the full text of license and 
+;; conditions that apply.
+
+;; This file is made for the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; Input method for Ojibwe languages
+;;;
+
+(input-method oj phonetic)
+
+(description
+ "Phonetic input method for Ojibwe dialects. This input method can be used to input canadian syllabics for following languages:
+
+    * (Anicinâbemowin) Algonquin [alq]
+    * ᐊᓂᔑᓂᓂᒧᐏᐣ (Anishininiimowin) Severn Ojibwa [ojs]
+    * Eastern Ojibwa [ojg]
+    * Central Ojibwa [ojc]
+    * Northwestern Ojibwa [ojb]
+    * Western Ojibwa [ojw]
+    * Chippewa [ciw]
+    * Ottawa [otw]
+")
+
+(title "oj")
+
+;; The Ojibwe i-style finals are not yet in official Unicode standard
+;; and are not supported by most common fonts.  Here the capital
+;; consonants will input the Unicode characters that represent them in
+;; unofficial fonts and are most likely to represent them in future
+;; standards.
+(variable
+ (i-style-p ("unofficial" 0xA9EE))
+ (i-style-t ("unofficial" 0xA9EF))
+ (i-style-k ("unofficial" 0xA9F0))
+ (i-style-c ("unofficial" 0xA9F1))
+ (i-style-m ("unofficial" 0xA9F2))
+ (i-style-n ("unofficial" 0xA9F3))
+ (i-style-s ("unofficial" 0xA9F4))
+ (i-style-sh ("unofficial" 0xA9F5)))
+
+(map
+ (map
+  ("-" "") ;; adding dead dash to break symbols input when needed.
+  ("e" "ᐁ")
+  ("i" "ᐃ")
+  ("ii" "ᐄ")
+  ("o" "ᐅ")
+  ("oo" "ᐆ")
+  ("a" "ᐊ")
+  ("aa" "ᐋ")
+
+  ("pe" "ᐯ")
+  ("pi" "ᐱ")
+  ("pii" "ᐲ")
+  ("po" "ᐳ")
+  ("poo" "ᐴ")
+  ("pa" "ᐸ")
+  ("paa" "ᐹ")
+  ("p" "ᑉ") 
+  ("P" (insert i-style-p))
+
+  ("te" "ᑌ")
+  ("ti" "ᑎ")
+  ("tii" "ᑏ")
+  ("to" "ᑐ")
+  ("too" "ᑑ")
+  ("ta" "ᑕ")
+  ("taa" "ᑖ")
+  ("t" "ᑦ") 
+  ("T" (insert i-style-t))
+
+  ("ke" "ᑫ")
+  ("ki" "ᑭ")
+  ("kii" "ᑮ")
+  ("ko" "ᑯ")
+  ("koo" "ᑰ")
+  ("ka" "ᑲ")
+  ("kaa" "ᑳ")
+  ("k" "ᒃ")
+  ("K" (insert i-style-k))
+
+  ("ce" "ᒉ")
+  ("ci" "ᒋ")
+  ("cii" "ᒌ")
+  ("co" "ᒍ")
+  ("coo" "ᒎ")
+  ("ca" "ᒐ")
+  ("caa" "ᒑ")
+  ("c" "ᒡ") 
+  ("C" (insert i-style-c))
+
+  ("me" "ᒣ")
+  ("mi" "ᒥ")
+  ("mii" "ᒦ")
+  ("mo" "ᒧ")
+  ("moo" "ᒨ")
+  ("ma" "ᒪ")
+  ("maa" "ᒫ")
+  ("m" "ᒻ") 
+  ("M" (insert i-style-m))
+
+  ("ne" "ᓀ")
+  ("ni" "ᓂ")
+  ("nii" "ᓃ")
+  ("no" "ᓄ")
+  ("noo" "ᓅ")
+  ("na" "ᓇ")
+  ("naa" "ᓈ")
+  ("n" "ᓐ") 
+  ("N" (insert i-style-n))
+
+  ("se" "ᓭ")
+  ("si" "ᓯ")
+  ("sii" "ᓰ")
+  ("so" "ᓱ")
+  ("soo" "ᓲ")
+  ("sa" "ᓴ")
+  ("saa" "ᓵ")
+  ("s" "ᔅ") 
+  ("S" (insert i-style-s))
+
+  ("she" "ᔐ")
+  ("shi" "ᔑ")
+  ("shii" 0x1512)
+  ("sho" "ᔓ")
+  ("shoo" 0x1514)
+  ("sha" "ᔕ")
+  ("shaa" 0x1516)
+  ("sh" "ᔥ") 
+  ("Sh" (insert i-style-sh))
+  ("SH" (insert i-style-sh))
+
+  ("ye" "ᔦ")
+  ("yi" "ᔨ")
+  ("yii" "ᔩ")
+  ("yo" "ᔪ")
+  ("yoo" "ᔫ")
+  ("ya" "ᔭ")
+  ("yaa" "ᔮ")
+  ("y" "ᔾ") 
+  ("Y" "ᐞ")
+
+;; There's only one middle form for /r/ and one for /l/ sound. Most often, the n-series is used to represent them in native words.
+  ("r" "ᕒ") 
+  ("l" "ᓬ")
+
+
+;; Syllables with w
+
+  ("we" "ᐌ")
+  ("wi" "ᐎ")
+  ("wii" "ᐐ")
+  ("wo" "ᐒ")
+  ("woo" "ᐔ")
+  ("wa" "ᐗ")
+  ("waa" "ᐙ")
+  ("w" "ᐤ")
+
+  ("pwe" 0x143a)
+  ("pwi" 0x143c)
+  ("pwii" 0x143e)
+  ("pwo" 0x1440)
+  ("pwoo" 0x1442)
+  ("pwa" 0x1444)
+  ("pwaa" 0x1446)
+
+  ("twe" 0x1457)
+  ("twi" 0x1459)
+  ("twii" 0x145b)
+  ("two" 0x145d)
+  ("twoo" 0x145f)
+  ("twa" 0x1461)
+  ("twaa" 0x1463)
+
+  ("kwe" 0x1474)
+  ("kwi" 0x1476)
+  ("kwii" 0x1478)
+  ("kwo" 0x147a)
+  ("kwoo" 0x147c)
+  ("kwa" 0x147e)
+  ("kwaa" 0x1480)
+  ("kw" "ᒄ")
+
+  ("cwe" 0x1492)
+  ("cwi" 0x1494)
+  ("cwii" 0x1496)
+  ("cwo" 0x1498)
+  ("cwoo" 0x149a)
+  ("cwa" 0x149c)
+  ("cwaa" 0x149e)
+
+  ("mwe" 0x14ac)
+  ("mwi" 0x14ae)
+  ("mwii" 0x14b0)
+  ("mwo" 0x14b2)
+  ("mwoo" 0x14b4)
+  ("mwa" 0x14b6)
+  ("mwaa" 0x14b8)
+  ("mw" "ᒽ")
+
+  ("nwe" 0x14c9)
+  ("nwa" 0x14cb)
+  ("nwaa" 0x14cd)
+
+  ("lwe" 0x14dc)
+  ("lwi" 0x14de)
+  ("lwii" 0x14e0)
+  ("lwo" 0x14e2)
+  ("lwoo" 0x14e4)
+  ("lwa" 0x14e6)
+  ("lwaa" 0x14e8)
+
+  ("rwaa" 0x154e)
+
+  ("swe" 0x14f6)
+  ("swi" 0x14f8)
+  ("swii" 0x14fa)
+  ("swo" 0x14fc)
+  ("swoo" 0x14fe)
+  ("swa" 0x1500)
+  ("swaa" 0x1502)
+
+  ("shwe" 0x1517)
+  ("shwi" 0x1519)
+  ("shwii" 0x151b)
+  ("shwo" 0x151d)
+  ("shwoo" 0x151f)
+  ("shwa" 0x1521)
+  ("shwaa" 0x1523)
+
+  ("ywe" 0x152f)
+  ("ywi" 0x1531)
+  ("ywii" 0x1533)
+  ("ywo" 0x1535)
+  ("ywoo" 0x1537)
+  ("ywa" 0x1539)
+  ("ywaa" 0x153b)
+
+  ("h" "ᐦ")
+
+;; Special punctuation symbols for Ojibwe.
+  ("." "᙮")
+
+))
+
+(state
+ (init
+  (map)))
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: lisp
+;; End:

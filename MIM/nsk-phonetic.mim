@@ -1,0 +1,139 @@
+;; nsk-phonetic.mim -- Phonetic input method for Eastern Cree syllabics
+;; Copyright (C) 2010
+;;   Goren (goren -at- riseup.net)
+;; This input method table is licensed under the WTFPL. 
+;; See http://sam.zoy.org/wtfpl/ for the full text of license and 
+;; conditions that apply.
+
+;; This file is made for the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; Input method for Naskapi language
+;;;
+
+(input-method nsk phonetic)
+
+(description
+ "Phonetic input method for Naskapi (ᓇᔅᑲᐱ (Naskapi), ᐃᔪᐤ ᐃᔨᒧᐅᓐ (Iyow Iyimoon) [nsk]) language.
+
+")
+
+(title "nsk")
+
+(map
+ (map
+  ("-" "") ;; adding dead dash to break symbols input when needed.
+  ("i" "ᐃ")
+  ("o" "ᐅ")
+  ("a" "ᐊ")
+  ("wo" "ᐖ")
+  ("wa" "ᐛ")
+  ("w" "ᐤ")
+
+  ("pi" "ᐱ")
+  ("po" "ᐳ")
+  ("pa" "ᐸ")
+  ("pwa" 0x1448) ;; rare
+  ("p" "ᑉ") 
+
+  ("ti" "ᑎ")
+  ("to" "ᑐ")
+  ("ta" "ᑕ")
+  ("twa" "ᑥ")
+  ("t" "ᑦ") 
+
+  ("ki" "ᑭ")
+  ("ko" "ᑯ")
+  ("ka" "ᑲ")
+  ("kwa" "ᒂ")
+  ("k" "ᒃ")
+  ("kw" "ᒄ")
+
+  ("ci" "ᒋ")
+  ("co" "ᒍ")
+  ("ca" "ᒐ")
+  ("cwa" "ᒠ")
+  ("c" "ᒡ") 
+
+  ("mi" "ᒥ")
+  ("mo" "ᒧ")
+  ("ma" "ᒪ")
+  ("mwa" "ᒺ")
+  ("m" "ᒻ") 
+  ("mw" "ᒽ")
+
+  ("ni" "ᓂ")
+  ("no" "ᓄ")
+  ("na" "ᓇ")
+  ("nwa" "ᓏ")
+  ("n" "ᓐ") 
+
+  ("si" "ᓯ")
+  ("so" "ᓱ")
+  ("sa" "ᓴ")
+  ("swa" "ᔄ")
+  ("s" "ᔅ") 
+
+  ("yi" "ᔨ")
+  ("yo" "ᔪ")
+  ("ya" "ᔭ")
+  ("ywa" "ᔽ")
+  ("y" "ᔾ") 
+  ("Y" "ᐤ") ;; This variant of y-final clashes with 'w' and is rarely used, hence inputting with capital Y.
+
+  ("ri" "ᕆ")
+  ("ro" "ᕈ")
+  ("ra" "ᕋ")
+  ("r" "ᕐ") 
+
+  ("li" "ᓕ")
+  ("lo" "ᓗ")
+  ("la" "ᓚ")
+  ("l" "ᓪ")
+
+  ("h" "ᐦ")
+  ("hke" "ᐧᑫ")
+  ("hki" "ᐧᑭ")
+  ("hko" "ᐧᑯ")
+  ("hka" "ᐧᑲ")
+  ("hkwa" "ᐧᒂ")
+
+;; The sCw-series.
+;; Not sure if some of them other than spwa, stwa, skwa and scwa are used, but providing universal way to input them for consistency
+
+  ("spwa" "ᔌ")
+  ("stwa" "ᔍ")
+  ("skwa" "ᔎ")
+  ("scwa" "ᔏ")
+  ("smwa" "ᔋᒪ")
+  ("snwa" "ᔋᓇ")
+  ("skw" "ᔊ")
+
+;; Special punctuation symbols for Naskapi.
+  ("." "᙮")
+
+))
+
+(state
+ (init
+  (map)))
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: lisp
+;; End:

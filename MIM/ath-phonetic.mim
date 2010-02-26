@@ -1,0 +1,404 @@
+;; ath-phonetic.mim -- Phonetic input method for Eastern Cree syllabics
+;; Copyright (C) 2010
+;;   Goren (goren -at- riseup.net)
+;; This input method table is licensed under the WTFPL. 
+;; See http://sam.zoy.org/wtfpl/ for the full text of license and 
+;; conditions that apply.
+
+;; This file is made for the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; Input method for Carrier language
+;;;
+
+(input-method ath phonetic)
+
+(description
+ "Phonetic input method for Carrier (ᑕᗸᒡ Dakeɬ) language Déné (ᑓᘅ) Syllabics.
+Although rarely used novadays, this interesting writing system has a big value.
+The input table mostly follows the CLC standard (http://www.ydli.org/dakinfo/clcexp.htm)
+Some additional ways to input di- or trigraph consonants were added for convinience.
+") 
+
+(title "ᑕᗸᒡ")
+
+;; The symbol for [s̪] is not in official unicode standard, but is
+;; chosen from reserved for private use range.
+(variable (s-bridge-below ("private use" 0xE3AB)))
+
+(map
+ (map
+  ("-" "") ;; adding dead dash to break symbols input when needed.
+
+  ("a" "ᐊ")
+  ("u" "ᐅ")
+  ("e" "ᐈ")
+  ("i" "ᐉ")
+  ("o" "ᐃ")
+  ("oo" "ᐁ")
+
+  ("ba" "ᗭ")
+  ("bu" "ᗪ")
+  ("be" "ᗫ")
+  ("bi" "ᗬ")
+  ("bo" "ᗩ")
+  ("boo" "ᗨ")
+  ("b" "ᗮ")
+
+  ("ta" "ᗡ")
+  ("tu" "ᗞ")
+  ("te" "ᗟ")
+  ("ti" "ᗠ")
+  ("to" "ᗝ")
+  ("too" "ᗜ")
+  ("t" "ᐪ")
+
+  ("da" "ᑕ")
+  ("du" "ᑐ")
+  ("de" "ᑓ")
+  ("di" "ᑔ")
+  ("do" "ᑎ")
+  ("doo" "ᑌ")
+
+;; [t']-sound series
+  ("Ta" "ᗧ")
+  ("Tu" "ᗤ")
+  ("Te" "ᗥ")
+  ("Ti" "ᗦ")
+  ("To" "ᗣ")
+  ("Too" "ᗢ")
+
+  ("t'a" "ᗧ")
+  ("t'u" "ᗤ")
+  ("t'e" "ᗥ")
+  ("t'i" "ᗦ")
+  ("t'o" "ᗣ")
+  ("t'oo" "ᗢ")
+
+;; [k]
+  ("ka" "ᗺ")
+  ("ku" "ᗷ")
+  ("ke" "ᗸ")
+  ("ki" "ᗹ")
+  ("ko" "ᗶ")
+  ("koo" "ᗵ")
+  ("k" "ᐠ")
+
+;; [g]
+  ("ga" "ᗴ")
+  ("gu" "ᗱ")
+  ("ge" "ᗲ")
+  ("gi" "ᗳ")
+  ("go" "ᗰ")
+  ("goo" "ᗯ")
+  ("g" "ᐟ")
+
+;; [k']
+
+  ("Ka" "ᘀ")
+  ("Ku" "ᗽ")
+  ("Ke" "ᗾ")
+  ("Ki" "ᗿ")
+  ("Ko" "ᗼ")
+  ("Koo" "ᗻ")
+  ("K" "ᘁ")
+
+  ("k'a" "ᘀ")
+  ("k'u" "ᗽ")
+  ("k'e" "ᗾ")
+  ("k'i" "ᗿ")
+  ("k'o" "ᗼ")
+  ("k'oo" "ᗻ")
+  ("k'" "ᘁ")
+
+;; [tʃ]
+
+  ("cha" "ᙠ")
+  ("chu" "ᙝ")
+  ("che" "ᙞ")
+  ("chi" "ᙟ")
+  ("cho" "ᙜ")
+  ("choo" "ᙛ")
+
+;; [dʒ]
+
+  ("ja" "ᘛ")
+  ("ju" "ᘗ")
+  ("je" "ᘘ")
+  ("ji" "ᘙ")
+  ("jo" "ᘖ")
+  ("joo" "ᘔ")
+
+;; [tʃ'] - three variants
+
+  ("ch'a" "ᘡ")
+  ("ch'u" "ᘞ")
+  ("ch'e" "ᘟ")
+  ("ch'i" "ᘠ")
+  ("ch'o" "ᘝ")
+  ("ch'oo" "ᘜ")
+
+  ("Cha" "ᘡ")
+  ("Chu" "ᘞ")
+  ("Che" "ᘟ")
+  ("Chi" "ᘠ")
+  ("Cho" "ᘝ")
+  ("Choo" "ᘜ")
+
+  ("CHa" "ᘡ")
+  ("CHu" "ᘞ")
+  ("CHe" "ᘟ")
+  ("CHi" "ᘠ")
+  ("CHo" "ᘝ")
+  ("CHoo" "ᘜ")
+
+;; [ts]
+
+  ("tsa" "ᙦ")
+  ("tsu" "ᙣ")
+  ("tse" "ᙤ")
+  ("tsi" "ᙥ")
+  ("tso" "ᙢ")
+  ("tsoo" "ᙡ")
+
+  ("ca" "ᙦ")
+  ("cu" "ᙣ")
+  ("ce" "ᙤ")
+  ("ci" "ᙥ")
+  ("co" "ᙢ")
+  ("coo" "ᙡ")
+
+;; [dz]
+
+  ("dza" "ᙍ")
+  ("dzu" "ᙊ")
+  ("dze" "ᙋ")
+  ("dzi" "ᙌ")
+  ("dzo" "ᙉ")
+  ("dzoo" "ᙈ")
+
+  ("Ja" "ᙍ")
+  ("Ju" "ᙊ")
+  ("Je" "ᙋ")
+  ("Ji" "ᙌ")
+  ("Jo" "ᙉ")
+  ("Joo" "ᙈ")
+
+;; [ts']
+
+  ("Ca" "ᙬ")
+  ("Cu" "ᙩ")
+  ("Ce" "ᙪ")
+  ("Ci" "ᙫ")
+  ("Co" "ᙨ")
+  ("Coo" "ᙧ")
+
+  ("ts'a" "ᙬ")
+  ("ts'u" "ᙩ")
+  ("ts'e" "ᙪ")
+  ("ts'i" "ᙫ")
+  ("ts'o" "ᙨ")
+  ("ts'oo" "ᙧ")
+
+;; [n]
+
+  ("na" "ᘇ")
+  ("nu" "ᘄ")
+  ("ne" "ᘅ")
+  ("ni" "ᘆ")
+  ("no" "ᘃ")
+  ("noo" "ᘂ")
+  ("n" "ᐣ")
+
+;; [m]
+  ("ma" "ᘍ")
+  ("mu" "ᘊ")
+  ("me" "ᘋ")
+  ("mi" "ᘌ")
+  ("mo" "ᘉ")
+  ("moo" "ᘈ")
+  ("m" "ᒼ")
+
+  ("ng" "ᓑ") ;; [ŋ]
+
+;;[l]
+  ("la" "ᘧ")
+  ("lu" "ᘤ")
+  ("le" "ᘥ")
+  ("li" "ᘦ")
+  ("lo" "ᘣ")
+  ("loo" "ᘢ")
+  ("l" "ᑊ")
+
+;; [ɬ] - adding two variants of input of this sound as different people find different variants more intuitive.
+  ("La" "ᘳ")
+  ("Lu" "ᘰ")
+  ("Le" "ᘱ")
+  ("Li" "ᘲ")
+  ("Lo" "ᘯ")
+  ("Loo" "ᘮ")
+  ("L" "ᒡ")
+
+  ("lha" "ᘳ")
+  ("lhu" "ᘰ")
+  ("lhe" "ᘱ")
+  ("lhi" "ᘲ")
+  ("lho" "ᘯ")
+  ("lhoo" "ᘮ")
+  ("lh" "ᒡ")
+
+;; [tɬ]
+  ("tla" "ᘹ")
+  ("tlu" "ᘶ")
+  ("tle" "ᘷ")
+  ("tli" "ᘸ")
+  ("tlo" "ᘵ")
+  ("tloo" "ᘴ")
+
+;; [dl]
+  ("dla" "ᘭ")
+  ("dlu" "ᘪ")
+  ("dle" "ᘫ")
+  ("dli" "ᘬ")
+  ("dlo" "ᘩ")
+  ("dloo" "ᘨ")
+
+;; [tɬ']
+  ("tl'a" "ᘿ")
+  ("tl'u" "ᘼ")
+  ("tl'e" "ᘽ")
+  ("tl'i" "ᘾ")
+  ("tl'o" "ᘻ")
+  ("tl'oo" "ᘺ")
+
+;; [s]
+  ("sa" "ᙓ")
+  ("su" "ᙐ")
+  ("se" "ᙑ")
+  ("si" "ᙒ")
+  ("so" "ᙏ")
+  ("soo" "ᙎ")
+  ("s" "ᔆ")
+
+  ("S" (insert s-bridge-below))
+
+  ("za" "ᙅ")
+  ("zu" "ᙂ")
+  ("ze" "ᙃ")
+  ("zi" "ᙄ")
+  ("zo" "ᙁ")
+  ("zoo" "ᙀ")
+  ("z" "ᙆ")
+
+  ("Z" "ᙇ") ;; [z̪]
+
+;; [ʃ]
+  ("sha" "ᙙ")
+  ("shu" "ᙖ")
+  ("she" "ᙗ")
+  ("shi" "ᙘ")
+  ("sho" "ᙕ")
+  ("shoo" "ᙔ")
+  ("sh" "ᙚ")
+
+;; [x]
+  ("kha" "ᗉ")
+  ("khu" "ᗆ")
+  ("khe" "ᗇ")
+  ("khi" "ᗈ")
+  ("kho" "ᗅ")
+  ("khoo" "ᗄ")
+  ("kh" "ᐥ")
+
+  ("xa" "ᗉ")
+  ("xu" "ᗆ")
+  ("xe" "ᗇ")
+  ("xi" "ᗈ")
+  ("xo" "ᗅ")
+  ("xoo" "ᗄ")
+  ("x" "ᐥ")
+
+;; [ɣ]
+  ("gha" "ᗏ")
+  ("ghu" "ᗌ")
+  ("ghe" "ᗍ")
+  ("ghi" "ᗎ")
+  ("gho" "ᗋ")
+  ("ghoo" "ᗊ")
+  ("gh" "ᐦ")
+
+  ("Ga" "ᗏ")
+  ("Gu" "ᗌ")
+  ("Ge" "ᗍ")
+  ("Gi" "ᗎ")
+  ("Go" "ᗋ")
+  ("Goo" "ᗊ")
+  ("G" "ᐦ")
+
+;; [h]
+  ("ha" "ᐸ")
+  ("hu" "ᐳ")
+  ("he" "ᐶ")
+  ("hi" "ᐷ")
+  ("ho" "ᐱ")
+  ("hoo" "ᐯ")
+  ("h" "ᑋ")
+
+;; [w]
+  ("wa" "ᗕ")
+  ("wu" "ᗒ")
+  ("we" "ᗓ")
+  ("wi" "ᗔ")
+  ("wo" "ᗑ")
+  ("woo" "ᗐ")
+
+;; [xʷ]
+  ("wha" "ᗛ")
+  ("whu" "ᗘ")
+  ("whe" "ᗙ")
+  ("whi" "ᗚ")
+  ("who" "ᗗ")
+  ("whoo" "ᗖ")
+
+  ("xwa" "ᗛ")
+  ("xwu" "ᗘ")
+  ("xwe" "ᗙ")
+  ("xwi" "ᗚ")
+  ("xwo" "ᗗ")
+  ("xwoo" "ᗖ")
+
+;; [j]
+  ("ya" "ᘓ")
+  ("yu" "ᘐ")
+  ("ye" "ᘑ")
+  ("yi" "ᘒ")
+  ("yo" "ᘏ")
+  ("yoo" "ᘎ")
+
+  ("'" "ᐧ") ;; [ʔ], a glottal stop.
+
+))
+
+(state
+ (init
+  (map)))
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: lisp
+;; End:

@@ -1,0 +1,248 @@
+;; iu-phonetic.mim -- Phonetic input method for Inuktitut
+;; Copyright (C) 2010
+;;   Goren (goren -at- riseup.net)
+;; This input method table is licensed under the WTFPL. 
+;; See http://sam.zoy.org/wtfpl/ for the full text of license and 
+;; conditions that apply.
+
+;; This file is made for the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; Input method for Inuktitut
+;;;
+
+(input-method iu phonetic)
+
+(description
+ "Phonetic input method for Inuktitut syllabry
+")
+
+(title "ᐃᓄᒃᑎᑐᑦ")
+
+(map
+ (map
+  ("-" "") ;; adding dead dash to break symbols input when needed.
+  ("i" "ᐃ")
+  ("ii" "ᐄ")
+  ("u" "ᐅ")
+  ("uu" "ᐆ")
+  ("a" "ᐊ")
+  ("aa" "ᐋ")
+  ((A-h) 0x1426) ;; an "empty" ending can be put in with alt-h. It is rarely used in writing this days.
+
+  ("pi" "ᐱ")
+  ("pii" "ᐲ")
+  ("pu" "ᐳ")
+  ("puu" "ᐴ")
+  ("pa" "ᐸ")
+  ("paa" "ᐹ")
+  ("p" "ᑉ") 
+
+  ("ti" "ᑎ")
+  ("tii" "ᑏ")
+  ("tu" "ᑐ")
+  ("tuu" "ᑑ")
+  ("ta" "ᑕ")
+  ("taa" "ᑖ")
+  ("t" "ᑦ") 
+
+  ("ki" "ᑭ")
+  ("kii" "ᑮ")
+  ("ku" "ᑯ")
+  ("kuu" "ᑰ")
+  ("ka" "ᑲ")
+  ("kaa" "ᑳ")
+  ("k" "ᒃ")
+
+  ("gi" "ᒋ")
+  ("gii" "ᒌ")
+  ("gu" "ᒍ")
+  ("guu" "ᒎ")
+  ("ga" "ᒐ")
+  ("gaa" "ᒑ")
+  ("g" "ᒡ") 
+
+  ("mi" "ᒥ")
+  ("mii" "ᒦ")
+  ("mu" "ᒧ")
+  ("muu" "ᒨ")
+  ("ma" "ᒪ")
+  ("maa" "ᒫ")
+  ("m" "ᒻ") 
+
+  ("ni" "ᓂ")
+  ("nii" "ᓃ")
+  ("nu" "ᓄ")
+  ("nuu" "ᓅ")
+  ("na" "ᓇ")
+  ("naa" "ᓈ")
+  ("n" "ᓐ") 
+
+  ("si" "ᓯ")
+  ("sii" "ᓰ")
+  ("su" "ᓱ")
+  ("suu" "ᓲ")
+  ("sa" "ᓴ")
+  ("saa" "ᓵ")
+  ("s" "ᔅ") 
+
+  ("li" "ᓕ")
+  ("lii" "ᓖ")
+  ("lu" "ᓗ")
+  ("luu" "ᓘ")
+  ("la" "ᓚ")
+  ("laa" "ᓛ")
+  ("l" "ᓪ") 
+
+  ("ji" "ᔨ")
+  ("jii" "ᔩ")
+  ("ju" "ᔪ")
+  ("juu" "ᔫ")
+  ("ja" "ᔭ")
+  ("jaa" "ᔮ")
+  ("j" "ᔾ") 
+
+;; The cluster /jj/ is tyically written ᑦᔭ. No oficial ligature, but useful nontheless.
+  ("jji" "ᑦᔨ")
+  ("jjii" "ᑦᔩ")
+  ("jju" "ᑦᔪ")
+  ("jjuu" "ᑦᔫ")
+  ("jja" "ᑦᔭ")
+  ("jjaa" "ᑦᔮ")
+  ("jj" "ᑦᔾ") 
+
+  ("vi" "ᕕ")
+  ("vii" "ᕖ")
+  ("vu" "ᕗ")
+  ("vuu" "ᕘ")
+  ("va" "ᕙ")
+  ("vaa" "ᕚ")
+  ("v" "ᕝ") 
+
+  ("ri" "ᕆ")
+  ("rii" "ᕇ")
+  ("ru" "ᕈ")
+  ("ruu" "ᕉ")
+  ("ra" "ᕋ")
+  ("raa" "ᕌ")
+  ("r" "ᕐ")
+
+  ("qi" "ᕿ")
+  ("qii" "ᖀ")
+  ("qu" "ᖁ")
+  ("quu" "ᖂ")
+  ("qa" "ᖃ")
+  ("qaa" "ᖄ")
+  ("q" "ᖅ") 
+
+  ("ngi" "ᖏ")
+  ("ngii" "ᖐ")
+  ("ngu" "ᖑ")
+  ("nguu" "ᖒ")
+  ("nga" "ᖓ")
+  ("ngaa" "ᖔ")
+  ("ng" "ᖕ") 
+
+  ("nngi" "ᙱ")
+  ("nngii" "ᙲ")
+  ("nngu" "ᙳ")
+  ("nnguu" "ᙴ")
+  ("nnga" "ᙵ")
+  ("nngaa" "ᙶ")
+  ("ng" "ᖖ") 
+
+;; The IPA [ɬ]-sound series, often written as ł or & in transliteration
+
+  ("Li" "ᖠ")
+  ("Lii" "ᖡ")
+  ("Lu" "ᖢ")
+  ("Luu" "ᖣ")
+  ("La" "ᖤ")
+  ("Laa" "ᖥ")
+  ("L" "ᖦ")
+
+;; The h-series is very rare, probably not used any more. Included for completeness' sake. 
+;; It is recommended to use the s-series instead.
+
+  ("hi" "ᕵ")
+  ("hii" 0x1576)
+  ("hu" "ᕷ")
+  ("huu" 0x1578)
+  ("ha" "ᕹ")
+  ("haa" 0x157a)
+  ("h" "ᕻ")
+  ("H" 0x157c) ;; Unicode has a special character for Nunavut version of Latin capital H to be used with syllabics in loanwords
+
+;; The Cree th-series can be occasionally borrowed to represent the IPA [ɉ]-sound (sometimes written as r*) 
+;; in Natsilingmiutut and maybe some other dialects of Inuktitut.
+
+  ("Jai" 0x15a7)
+  ("Ji" 0x15a8)
+  ("Jii" 0x15a9)
+  ("Ju" 0x15aa)
+  ("Juu" 0x15ab)
+  ("Ja" 0x15ac)
+  ("Jaa" 0x15ad)
+  ("J" 0x15ae)
+
+;; "Classic" /ai/-row symbols, abandoned in 1970-s and recently reinstated in Nunavik (but not in Nunavut).
+;; If you don't wish to use them, comment the following lines out.
+;; Tha long /aai/-row is extremely rare, probably not used anymore. Maybe can be useful for historical purposes.
+
+  ("ai" "ᐁ")
+  ("aai" "ᐂ")
+  ("pai" "ᐯ")
+  ("paai" 0x1430)
+  ("tai" "ᑌ")
+  ("taai" 0x144d)
+  ("kai" "ᑫ")
+  ("kaai" 0x146c)
+  ("gai" "ᒉ")
+  ("gaai" 0x148a)
+  ("mai" "ᒣ")
+  ("maai" 0x14a4)
+  ("nai" "ᓀ")
+  ("naai" 0x14c1)
+  ("sai" "ᓭ")
+  ("saai" 0x14ee)
+  ("lai" "ᓓ")
+  ("laai" 0x14d4)
+  ("jai" "ᔦ")
+  ("jaai" 0x1527)
+  ("jjai" "ᑦᔦ")
+  ("jjaai" "ᑦᔧ")
+  ("vai" "ᕓ")
+  ("vaai" 0x1554)
+  ("rai" "ᕃ")
+  ("raai" 0x1545)
+  ("qai" "ᙯ")
+  ("qaai" 0x157e)
+  ("ngai" "ᙰ")
+  ("ngaai" 0x158e)
+  ("hai" "ᕴ")
+
+))
+
+(state
+ (init
+  (map)))
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: lisp
+;; End:

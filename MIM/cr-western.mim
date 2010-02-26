@@ -1,0 +1,258 @@
+;; cr-western.mim -- Phonetic input method for Western Cree syllabics
+;; Copyright (C) 2010
+;;   Goren (goren -at- riseup.net)
+;; This input method table is licensed under the WTFPL. 
+;; See http://sam.zoy.org/wtfpl/ for the full text of license and 
+;; conditions that apply.
+
+;; This file is made for the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+;;; Input method for Western Cree dialects
+;;;
+
+(input-method cr western)
+
+(description
+ "Phonetic input method for Western Cree dialects. This input method can be used to input following languages:
+
+    * ᓀᐦᐃᔭᐍᐏᐣ (Nēhiyawēwin) Plains Cree [crk]
+    * ᓀᐦᐃᔭᐍᒧᐏᐣ (Nēhiyawēmowin) Northern Plains Cree [crk]
+    * ᓀᐦᐃᖬᐍᐏᐣ (Nīhithawīwin) Woods Cree [cwd]
+    * ᐃᓂᓃᒧᐏᐣ (Ininīmowin) Western Swampy Cree [csw]
+
+")
+
+(title "cr")
+
+(map
+ (map
+  ("-" "") ;; adding dead dash to break symbols input when needed.
+  ("e" "ᐁ") ;; writing e instead of ee for brevity
+  ("i" "ᐃ")
+  ("ii" "ᐄ")
+  ("o" "ᐅ")
+  ("oo" "ᐆ")
+  ("a" "ᐊ")
+  ("aa" "ᐋ")
+
+  ("pe" "ᐯ")
+  ("pi" "ᐱ")
+  ("pii" "ᐲ")
+  ("po" "ᐳ")
+  ("poo" "ᐴ")
+  ("pa" "ᐸ")
+  ("paa" "ᐹ")
+  ("p" "ᑊ") 
+
+  ("te" "ᑌ")
+  ("ti" "ᑎ")
+  ("tii" "ᑏ")
+  ("to" "ᑐ")
+  ("too" "ᑑ")
+  ("ta" "ᑕ")
+  ("taa" "ᑖ")
+  ("t" "ᐟ") 
+
+  ("ke" "ᑫ")
+  ("ki" "ᑭ")
+  ("kii" "ᑮ")
+  ("ko" "ᑯ")
+  ("koo" "ᑰ")
+  ("ka" "ᑲ")
+  ("kaa" "ᑳ")
+  ("k" "ᐠ")
+
+  ("ce" "ᒉ")
+  ("ci" "ᒋ")
+  ("cii" "ᒌ")
+  ("co" "ᒍ")
+  ("coo" "ᒎ")
+  ("ca" "ᒐ")
+  ("caa" "ᒑ")
+  ("c" "ᐨ") 
+
+  ("me" "ᒣ")
+  ("mi" "ᒥ")
+  ("mii" "ᒦ")
+  ("mo" "ᒧ")
+  ("moo" "ᒨ")
+  ("ma" "ᒪ")
+  ("maa" "ᒫ")
+  ("m" "ᒼ") 
+
+  ("ne" "ᓀ")
+  ("ni" "ᓂ")
+  ("nii" "ᓃ")
+  ("no" "ᓄ")
+  ("noo" "ᓅ")
+  ("na" "ᓇ")
+  ("naa" "ᓈ")
+  ("n" "ᐣ") 
+
+  ("se" "ᓭ")
+  ("si" "ᓯ")
+  ("sii" "ᓰ")
+  ("so" "ᓱ")
+  ("soo" "ᓲ")
+  ("sa" "ᓴ")
+  ("saa" "ᓵ")
+  ("s" "ᐢ") 
+
+  ("she" "ᔐ")
+  ("shi" "ᔑ")
+  ("shii" 0x1512)
+  ("sho" "ᔓ")
+  ("shoo" 0x1514)
+  ("sha" "ᔕ")
+  ("shaa" 0x1516)
+  ("sh" "ᐡ") 
+
+  ("ye" "ᔦ")
+  ("yi" "ᔨ")
+  ("yii" "ᔩ")
+  ("yo" "ᔪ")
+  ("yoo" "ᔫ")
+  ("ya" "ᔭ")
+  ("yaa" "ᔮ")
+  ("y" "ᐩ") 
+  ("Y" "ᐝ") ;; dot variant of y-final is more rare this days, hence inputting with capital Y.
+
+;; The [ð]-sound series
+  ("the" 0x15a7)
+  ("thi" 0x15a8)
+  ("thii" 0x15a9)
+  ("tho" 0x15aa)
+  ("thoo" 0x15ab)
+  ("tha" 0x15ac)
+  ("thaa" 0x15ad)
+  ("th" "‡") ;; the special character for final 'th' in Cree is not yet supported by Unicode. 
+             ;; ‡ is generally used as the most similar typographic symbol.
+
+;; Standard Western Cree forms of R and L
+  ("L" "ᓬ")
+  ("R" "ᕒ")
+
+;; Roman Catholic r-series
+  ("le" "ᕃ")
+  ("li" "ᕆ")
+  ("lo" "ᕊ")
+  ("la" "ᕍ")
+  ("l" "ᔆ")
+
+  ("re" "ᖊ")
+  ("ri" "ᖋ")
+  ("ro" "ᖌ")
+  ("ra" "ᖍ")
+  ("r" "ᙆ") 
+
+;; Syllables with w
+
+  ("we" "ᐍ")
+  ("wi" "ᐏ")
+  ("wii" "ᐑ")
+  ("wo" "ᐓ")
+  ("woo" "ᐕ")
+  ("wa" "ᐘ")
+  ("waa" "ᐚ")
+  ("w" "ᐤ")
+
+  ("pwe" 0x143b)
+  ("pwi" "ᐽ")
+  ("pwii" "ᐿ")
+  ("pwo" 0x1441)
+  ("pwoo" 0x1443)
+  ("pwa" 0x1445)
+  ("pwaa" 0x1447)
+
+  ("twe" 0x1458)
+  ("twi" 0x145a)
+  ("twii" 0x145c)
+  ("two" 0x145e)
+  ("twoo" 0x1460)
+  ("twa" 0x1462)
+  ("twaa" 0x1464)
+
+  ("kwe" 0x1475)
+  ("kwi" 0x1477)
+  ("kwii" 0x1479)
+  ("kwo" 0x147b)
+  ("kwoo" 0x147d)
+  ("kwa" 0x147f)
+  ("kwaa" 0x1481)
+
+  ("cwe" 0x1493)
+  ("cwi" 0x1495)
+  ("cwii" 0x1497)
+  ("cwo" 0x1499)
+  ("cwoo" 0x149b)
+  ("cwa" 0x149d)
+  ("cwaa" 0x149f)
+
+  ("mwe" 0x14ad)
+  ("mwi" 0x14af)
+  ("mwii" 0x14b1)
+  ("mwo" 0x14b3)
+  ("mwoo" 0x14b5)
+  ("mwa" 0x14b7)
+  ("mwaa" 0x14b9)
+
+  ("nwe" 0x14ca)
+  ("nwa" 0x14cc)
+  ("nwaa" 0x14ce)
+
+  ("swe" 0x14f7)
+  ("swi" 0x14f9)
+  ("swii" 0x14fb)
+  ("swo" 0x14fd)
+  ("swoo" 0x14ff)
+  ("swa" 0x1501)
+  ("swaa" 0x1503)
+
+  ("shwe" 0x1518)
+  ("shwi" 0x151a)
+  ("shwii" 0x151c)
+  ("shwo" 0x151e)
+  ("shwoo" 0x1520)
+  ("shwa" 0x1522)
+  ("shwaa" 0x1524)
+
+  ("ywe" 0x1530)
+  ("ywi" 0x1532)
+  ("ywii" 0x1534)
+  ("ywo" 0x1536)
+  ("ywoo" 0x1538)
+  ("ywa" 0x153a)
+  ("ywaa" 0x153c)
+
+  ("h" "ᐦ")
+  ("hk" "ᕽ")
+
+;; Special punctuation symbols for Cree.
+  ("." "᙮")
+
+))
+
+(state
+ (init
+  (map)))
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: lisp
+;; End:
