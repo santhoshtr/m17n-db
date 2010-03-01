@@ -65,19 +65,35 @@
   (cond
    ;; Consonant-based syllables
    ("(CJ?HJ?)*C(H[NJ]?|m?p?)a?"
-    < | (0 :otf=tml2=locl,akhn,half,cjct+) | >)
+    < | :otf=tml2=locl,akhn,half,cjct+ | >)
 
    ;; Syllables with an independent vowel
    ("Vm?p?a?"
-    < | (0 = *) | >)
+    < | = * | >)
+
+   ;; Two-part vowel signs
+   ((0x0BC6 0x0BBE)
+    (cond
+     ((font-facility 0x25CC) < 0x0BC6 0x25CC 0x0BBE >)
+     (".+" < 0x0BCA >)))
+   ((0x0BC7 0x0BBE)
+    (cond
+     ((font-facility 0x25CC) < 0x0BC7 0x25CC 0x0BBE >)
+     (".+" < 0x0BCB >)))
+   ((0x0BC6 0x0BD7)
+    (cond
+     ((font-facility 0x25CC) < 0x0BC6 0x25CC 0x0BD7 >)
+     (".+" < 0x0BCC >)))
 
    ;; Combining marks are displayed with a DOTTED CIRCLE.
-   ("H|p|a"
-    < 0x25CC (0 =) >)
-
-   ;; Pre-base matra
-   ("(m)(p)?"
-    < (1 =) 0x25CC (2 =) >)
+   ("m"
+    (cond
+     ((font-facility 0x25CC) < = 0x25CC >)
+     ("." [ = ])))
+   ("[Hpa]"
+    (cond
+     ((font-facility 0x25CC) < 0x25CC = >)
+     ("." [ = ])))
 
    ("." =))
   *))

@@ -62,7 +62,7 @@
 (generator
  (0
   (cond
-   ;; Decompose two-part and three-part vowel signs.
+   ;; Decompose multi-part vowel signs.
    ((0x0CC0)
     0x0CBF 0x0CD5)
    ((0x0CC7)
@@ -84,15 +84,43 @@
   (cond
    ;; Syllables with an independent vowel
    ("(RH)?Vn?(J?H[CR])?b?b?a?A?"
-    < | (0 = *) | >)
+    < | = * | >)
 
    ;; Consonant-based syllables
    ("([CR]n?J?HJ?)*[CR]n?(H[NJ]?|b?b?a?n?)A?"
-    < | (0 = *) | >)
+    < | = * | >)
+
+   ;; Multi-part vowel signs
+   ((0x0CBF 0x0CD5)
+    (cond
+     ((font-facility 0x25CC) < 0x25CC 0x0CBF 0x0CD5 >)
+     (".+" < 0x0CC0 >)))
+   ((0x0CC6 0x0CD5)
+    (cond
+     ((font-facility 0x25CC) < 0x25CC 0x0CC6 0x0CD5 >)
+     (".+" < 0x0CC7 >)))
+   ((0x0CC6 0x0CD6)
+    (cond
+     ((font-facility 0x25CC) < 0x25CC 0x0CC6 0x0CD6 >)
+     (".+" < 0x0CC8 >)))
+   ((0x0CC6 0x0CC2 0x0CD5)
+    (cond
+     ((font-facility 0x25CC) < 0x25CC 0x0CC6 0x0CC2 0x0CD5 >)
+     (".+" < 0x0CCB >)))
+   ((0x0CC6 0x0CC2)
+    (cond
+     ((font-facility 0x25CC) < 0x25CC 0x0CC6 0x0CC2 >)
+     (".+" < 0x0CCA >)))
 
    ;; Combining marks are displayed with a DOTTED CIRCLE.
-   ("n|H|bb?a?|a|A|JH[CR]"
-    < 0x25CC (0 :otf=knd2=blwf+) >)
+   ("[nHbaA]"
+    (cond
+     ((font-facility 0x25CC) < 0x25CC = >)
+     ("." [ = ])))
+   ("JH[CR]"
+    (cond
+     ((font-facility 0x25CC) < 0x25CC :otf=knd2=blwf+ >)
+     (".+" [ :otf=knd2=blwf+ ])))
 
    ("." =))
   *))

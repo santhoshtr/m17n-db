@@ -108,15 +108,25 @@
   (cond
    ;; Syllables with an independent vowel
    ("(RH)?Vn?(J?HR)?m?u?b?p?n?a?(Ss?|sS?)?A?"
-    < | (0 = *) | >)
+    < | = * | >)
 
    ;; Consonant-based syllables
    ("([CR]n?J?HJ?)*[CR]n?(H[NJ]?|m?u?b?p?n?)a?(Ss?|sS?)?A?"
-    < | (0 = *) | >)
+    < | = * | >)
 
    ;; Combining marks are displayed with a DOTTED CIRCLE.
-   ("(m)|(n|H|u|b|p|a|S|s|A|JHR)"
-    < (1 =) 0x25CC (2 :otf=dev2=blwf+) >)
+   ("m"
+    (cond
+     ((font-facility 0x25CC) < = 0x25CC >)
+     ("." [ = ])))
+   ("[nHubpaSsA]"
+    (cond
+     ((font-facility 0x25CC) < 0x25CC = >)
+     ("." [ = ])))
+   ("JHR"
+    (cond
+     ((font-facility 0x25CC) < 0x25CC :otf=dev2=blwf+ >)
+     (".+" [ :otf=dev2=blwf+ ])))
 
    ("." =))
   *))

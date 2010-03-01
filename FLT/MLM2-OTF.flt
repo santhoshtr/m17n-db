@@ -85,19 +85,43 @@
   (cond
    ;; Consonant-based syllables
    ("(CJ?HJ?)*C(H[NJ]?|m?b?p?)A?"
-    < | (0 = *) | >)
+    < | = * | >)
 
    ;; Syllables with an independent vowel
    ("V(J?HC)?m?b?p?A?"
-    < | (0 = *) | >)
+    < | = * | >)
+
+   ;; Two-part vowel signs
+   ((0x0D46 0x0D3E)
+    (cond
+     ((font-facility 0x25CC) < 0x0D46 0x25CC 0x0D3E >)
+     (".+" < 0x0D4A >)))
+   ((0x0D47 0x0D3E)
+    (cond
+     ((font-facility 0x25CC) < 0x0D47 0x25CC 0x0D3E >)
+     (".+" < 0x0D4B >)))
+   ((0x0D46 0x0D57)
+    (cond
+     ((font-facility 0x25CC) < 0x0D46 0x25CC 0x0D57 >)
+     (".+" < 0x0D4C >)))
 
    ;; Combining marks are displayed with a DOTTED CIRCLE.
-   ("H|b|p|A|JHC"
-    < 0x25CC (0 :otf=mlm2=pref,blwf,pstf+) >)
-
-   ;; Pre-base matra
-   ("(m)(p)?"
-    < (1 =) 0x25CC (2 =) >)
+   ("(m)"
+    (cond
+     ((font-facility 0x25CC) < = 0x25CC >)
+     ("." [ = ])))
+   ("[HbpA]"
+    (cond
+     ((font-facility 0x25CC) < 0x25CC = >)
+     ("." [ = ])))
+   ((0x200D 0x0D4D 0x0D30)
+    (cond
+     ((font-facility 0x25CC) < :otf=mlm2=pref+ 0x25CC >)
+     (".+" [ :otf=mlm2=pref+ ])))
+   ("JHC"
+    (cond
+     ((font-facility 0x25CC) < 0x25CC :otf=mlm2=blwf,pstf+ >)
+     (".+" [ :otf=mlm2=blwf,pstf+ ])))
 
    ("." =))
   *))

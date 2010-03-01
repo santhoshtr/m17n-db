@@ -48,7 +48,7 @@
 (generator
  (0
   (cond
-   ;; Decompose two-part vowels.
+   ;; Decompose two-part vowel signs.
    ((0x0C48)
     0x0C46 0x0C56)
 
@@ -70,9 +70,21 @@
    ("(V)(J?HC)?(u?b?p?A?)"
     < | (1 =) (2 :otf=tel2=locl,blwf+) (3 = *) | >)
 
+   ;; Two-part vowel signs
+   ((0x0C46 0x0C56)
+    (cond
+     ((font-facility 0x25CC) < 0x25CC 0x0C46 0x0C56 >)
+     (".+" < 0x0C48 >)))
+
    ;; Combining marks are displayed with a DOTTED CIRCLE.
-   ("H|ub?|b|p|A|JHC"
-    < 0x25CC (0 :otf=tel2=blwf+) >)
+   ("[HubpA]"
+    (cond
+     ((font-facility 0x25CC) < 0x25CC = >)
+     ("." [ = ])))
+   ("JHC"
+    (cond
+     ((font-facility 0x25CC) < 0x25CC :otf=tel2=blwf+ >)
+     (".+" [ :otf=tel2=blwf+ ])))
 
    ("." =))
   *))

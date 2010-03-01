@@ -42,6 +42,7 @@
 (generator
  (0
   (cond
+   ;; Compose a consonant and a nukta
    ((0x0A32 0x0A3C) 0x0A33)
    ((0x0A38 0x0A3C) 0x0A36)
    ((0x0A16 0x0A3C) 0x0A59)
@@ -58,15 +59,25 @@
   (cond
    ;; Consonant-based syllables
    ("(Cn?J?HJ?)*Cn?(H[NJ]?|m?u?b?p?n?)a?A?"
-    < | (0 = *) | >)
+    < | = * | >)
 
    ;; Syllables with an independent vowel
    ("Vn?(J?HC)?m?u?b?p?n?a?A?"
-    < | (0 = *) | >)
+    < | = * | >)
 
    ;; Combining marks are displayed with a DOTTED CIRCLE.
-   ("(m)|(n|H|u|b|p|a|A|JHC)"
-    < (1 =) 0x25CC (2 :otf=gur2=blwf,pstf+) >)
+   ("m"
+    (cond
+     ((font-facility 0x25CC) < = 0x25CC >)
+     ("." [ = ])))
+   ("[nHubpaA]"
+    (cond
+     ((font-facility 0x25CC) < 0x25CC = >)
+     ("." [ = ])))
+   ("JHC"
+    (cond
+     ((font-facility 0x25CC) < 0x25CC :otf=gur2=blwf,pstf+ >)
+     (".+" [ :otf=gur2=blwf,pstf+ ])))
 
    ("." =))
   *))
