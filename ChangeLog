@@ -1,3 +1,10 @@
+2010-03-01  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/TML2-OTF.flt, FLT/TEL2-OTF.flt, FLT/ORY2-OTF.flt,
+	FLT/MLM2-OTF.flt, FLT/KND2-OTF.flt, FLT/GUR2-OTF.flt,
+	FLT/GJR2-OTF.flt, FLT/DEV2-OTF.flt, FLT/BNG2-OTF.flt: Use
+	font-facility to check U+25CC's availability.
+
 2010-02-26  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/MYMR-SIL.flt: Display non-spacing marks with DOTTED CIRCLE.
