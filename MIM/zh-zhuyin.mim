@@ -2354,9 +2354,9 @@
 
 ;; In zhuyin, almost all symbol can be starters, except tone marks)
 (state
-    "Init"
     (init
-        (t
+    "Init"
+    (t
 	    (set initial-key nil)
 	    (set medial-key nil)
 	    (set final-key nil)
