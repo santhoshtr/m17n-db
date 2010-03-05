@@ -39,7 +39,7 @@ Some additional ways to input di- or trigraph consonants were added for convinie
 
 ;; The symbol for [s̪] is not in official unicode standard, but is
 ;; chosen from reserved for private use range.
-(variable (s-bridge-below ("private use" 0xE3AB)))
+(variable (s-bridge-below "private use" 0xE3AB))
 
 (map
  (map

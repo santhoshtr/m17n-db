@@ -1,3 +1,8 @@
+2010-02-26  Goren  <goren -at- riseup.net>
+
+	* im/ath-phonetic.mim, im/bla-phonetic.mim, im/cr-western.mim, im/iu-phonetic.mim, im/nsk-phonetic.mim, im/oj-phonetic.mim:
+	New file.
+
 2010-02-02  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* AUTHORS: New author.

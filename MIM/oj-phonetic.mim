@@ -49,14 +49,14 @@
 ;; unofficial fonts and are most likely to represent them in future
 ;; standards.
 (variable
- (i-style-p ("unofficial" 0xA9EE))
- (i-style-t ("unofficial" 0xA9EF))
- (i-style-k ("unofficial" 0xA9F0))
- (i-style-c ("unofficial" 0xA9F1))
- (i-style-m ("unofficial" 0xA9F2))
- (i-style-n ("unofficial" 0xA9F3))
- (i-style-s ("unofficial" 0xA9F4))
- (i-style-sh ("unofficial" 0xA9F5)))
+ (i-style-p "unofficial" 0xA9EE)
+ (i-style-t "unofficial" 0xA9EF)
+ (i-style-k "unofficial" 0xA9F0)
+ (i-style-c "unofficial" 0xA9F1)
+ (i-style-m "unofficial" 0xA9F2)
+ (i-style-n "unofficial" 0xA9F3)
+ (i-style-s "unofficial" 0xA9F4)
+ (i-style-sh "unofficial" 0xA9F5))
 
 (map
  (map
