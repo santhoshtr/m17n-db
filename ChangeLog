@@ -1,3 +1,9 @@
+2010-03-19  Kenichi Handa  <handa@m17n.org>
+
+	* configure.ac: Versions changed to 1.6.0.
+
+	* po/ja.po, po/m17n-db.pot, po/vi.po: Re-generated.
+
 2010-03-01  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/TML2-OTF.flt, FLT/TEL2-OTF.flt, FLT/ORY2-OTF.flt,
