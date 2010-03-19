@@ -1,52 +1,38 @@
 ;; ORYA-OTF.flt -- Font Layout Table for Oriya OpenType font
-;; Copyright (C) 2004, 2007, 2008 AIST (H15PRO112)
+;; Copyright (C) 2004, 2007, 2008, 2010 AIST (H15PRO112)
 ;; See the end for copying conditions.
 
 (font layouter orya-otf nil
-      (font (nil nil unicode-bmp :otf=orya=rphf)))
+      (version "1.6.0")
+      (font (nil nil unicode-bmp :otf=orya)))
 
 ;;; <li> ORYA-OTF.flt
 ;;;
 ;;; For Oriya OpenType fonts to draw the Oriya script.
 
 (category
- ;; C: consonant (except for R, B and Y)
- ;; R: consonant RA
- ;; B: consonant (below)
- ;; Y: consonant (post)
- ;; n: NUKTA
- ;; H: HALANT
- ;; m: vowel sign (pre)
- ;; u: vowel sign (above)
- ;; b: vowel sign (below)
- ;; p: vowel sign (post)
- ;; t: vowel sign (two-part)
- ;; A: vowel modifier (above)
- ;; a: vowel modifier (post)
- ;; V: independent vowel
- ;; N: ZWNJ (ZERO WIDTH NON-JOINER)
- ;; J: ZWJ (ZERO WIDTH JOINER)
- ;; X: generic
- ;; Z: internal use
+ ;; B: consonants that have a below form
+ ;; C: consonants that do not
+ ;; This table is made for Samyak-Oriya.ttf and utkal.ttf.
+ ;; (lohit_or.ttf has more below form consonants.)
  (0x0B00 0x0B7F ?X)			; generic
- (0x0B00	?Z)			; internal use
- (0x0B01 0x0B03	?a)			; SIGN CANDRABINDU .. VISARGA
+ (0x0B01	?a)			; SIGN CANDRABINDU
+ (0x0B02 0x0B03	?A)			; SIGN ANUSVARA .. VISARGA
  (0x0B05 0x0B14	?V)			; LETTER A .. VOCALIC AU
- (0x0B15 0x0B39	?C)			; LETTER KA .. HA
- (0x0B24	?B)			; LETTER TA
- (0x0B28	?B)			; LETTER NA
- (0x0B2C 0x0B2E	?B)			; LETTER BA .. MA
+ (0x0B15 0x0B39	?B)			; LETTER KA .. HA
+ (0x0B18 0x0B1A	?C)			; LETTER GHA .. CA
+ (0x0B1E	?C)			; LETTER NYA
+ (0x0B22	?C)			; LETTER DDHA
+ (0x0B25 0x0B26	?C)			; LETTER THA .. DA
  (0x0B2F	?Y)			; LETTER YA
  (0x0B30	?R)			; LETTER RA
- (0x0B32 0x0B33	?B)			; LETTER LA
- (0x0B33	?B)			; LETTER LLA
+ (0x0B36 0x0B37	?C)			; LETTER SHA .. SSA
  (0x0B3C	?n)			; SIGN NUKTA
  (0x0B3E	?p)			; VOWEL SIGN AA
  (0x0B3F	?u)			; VOWEL SIGN I
  (0x0B40	?p)			; VOWEL SIGN II
  (0x0B41 0x0B44	?b)			; VOWEL SIGN U .. VOCALIC RR
  (0x0B47	?m)			; VOWEL SIGN E
- (0x0B48 0x0B4C ?t)			; VOWEL SIGN AI .. AU
  (0x0B4D	?H)			; SIGN VIRAMA
  (0x0B56	?u)			; AI LENGTH MARK
  (0x0B57	?p)			; AU LENGTH MARK
@@ -55,11 +41,17 @@
  (0x0B60 0x0B61	?V)			; LETTER VOCALIC RR .. LL
  (0x0B62 0x0B63 ?b)			; VOWEL SIGN VOCALIC L .. LL
  (0x0B71	?C)			; LETTER WA
- (0x0B64 0x0B65	?X)			; DANDA .. DOUBLE DANDA
+
  (0x200C	?N)			; ZWNJ
  (0x200D	?J)			; ZWJ
+ (0x25CC	?X)			; DOTTED CIRCLE
+
+ (rphf		?r)
+ (pstf		?P)
  )
 
+;; Stage 0
+;; Preprocessing
 (generator
  (0
   (cond
@@ -70,144 +62,199 @@
     0x0B47 0x0B3E)
    ((0x0B4C)
     0x0B47 0x0B57)
+
    ;; Compose consonant and nukta.
    ((0x0B21 0x0B3C)
     0x0B5C)
    ((0x0B22 0x0B3C)
     0x0B5D)
-   ;; Move ZWJ before the consonant.
-   ("([CRBY]n?)(J)"
-    (2 =) (1 = *))
+
    ("." =))
   *))
 
-;; Syllable identification and reordering.
-;; Do not apply 'rphf' if a syllable begins with a ZWJ.
+;; Stage 1
+;; Syllable identification
 (generator
  (0
   (cond
-   ;; A syllable with a ZWJ and a pre-base vowel sign.
-   ;;1  23                    4  5   6   7
-   ("(J)(([CRBY]n?H)*[CRBY]n?)(m)(u)?(p)?(a)?"
-    < | (1 =) (4 =) (2 pre-below) (5 =) (2 post) (6 =) (7 =) | >)
+   ;; Syllables with an independent vowel
+   ("(RH)?(Vn?)((J?H[BYR])?m?u?b?p?n?a?A?)"
+    < | (1 = =) (2 :otf=orya=nukt+) (3 = *) | >)
 
-   ;; A syllable with a ZWJ and a non-pre-base vowel sign.
-   ;;1  23                    45      6   7
-   ("(J)(([CRBY]n?H)*[CRBY]n?)(([bu])|(p))(a)?"
-    < | (1 =) (2 pre-below) (5 =) (2 post) (6 =) (7 =) | >)
+   ;; Consonant-based syllables
+   ;;1        23                   4
+   ("([CBYR]n?((J?H|HJ?)[CBYR]n?)*)(H[NJ]?|m?u?b?p?n?a?A?)"
+    < | (1 :otf=orya=nukt,akhn+)
+    (4 (cond ("HJ" = =)
+	     ("(H)N?" (1 =) 0x200C)
+	     (".+" = *))) | >)
 
-   ;; A syllable with a ZWJ and a vowel modifier, but without vowel signs.
-   ;;1  23                    4
-   ("(J)(([CRBY]n?H)*[CRBY]n?)(a)"
-    < | (1 =) (2 pre-below) (2 post) (4 =) | >)
+   ;; Two-part vowel signs
+   ((0x0B47 0x0B56)
+    (cond
+     ((font-facility 0x25CC) < 0x0B47 0x25CC 0x0B56 >)
+     (".+" < 0x0B48 >)))
+   ((0x0B47 0x0B3E)
+    (cond
+     ((font-facility 0x25CC) < 0x0B47 0x25CC 0x0B3E >)
+     (".+" < 0x0B4B >)))
+   ((0x0B47 0x0B57)
+    (cond
+     ((font-facility 0x25CC) < 0x0B47 0x25CC 0x0B57 >)
+     (".+" < 0x0B4C >)))
 
-   ;; Add a ZWNJ explicitly when a syllable ends with a halant.
-   ;;1  23                    4
-   ("(J)(([CRBY]n?H)*[CRBY]n?)(HN?)?"
-    < | (1 =) (2 pre-below) (4 = 0x200C) (2 post) | >)
+   ;; Combining marks are displayed with a DOTTED CIRCLE.
+   ("m"
+    (cond
+     ((font-facility 0x25CC) < = 0x25CC >)
+     ("." [ = ])))
+   ("[nHubpaA]"
+    (cond
+     ((font-facility 0x25CC) < 0x25CC = >)
+     ("." [ = ])))
 
-   ;; With a pre-base vowel sign, without a ZWJ.
-   ;;1    23                    4  5   6   7
-   ("(RH)?(([CRBY]n?H)*[CRBY]n?)(m)(u)?(p)?(a)?"
-    < |
-    (4 =) (2 pre-below) (5 =) (1 otf:orya=rphf) (2 post) (6 =) (7 =)
-    | >)
+   ;; Isolated blwf and pstf are displayed with a DOTTED CIRCLE in the
+   ;; next stage.
+   ("(J)(H)([BYR])"
+    < | (1 =) (3 =) (2 =) | >)
 
-   ;; With a non-pre-base vowel sign, without a ZWJ.
-   ;; 1   23                    45      6   7
-   ("(RH)?(([CRBY]n?H)*[CRBY]n?)(([bu])|(p))(a)?"
-    < | (2 pre-below) (5 =) (1 otf:orya=rphf) (2 post) (6 =) (7 =) | >)
+   ("." =))
+  *))
 
-   ;; With a vowel modifier, without vowel signs and a ZWJ.
-   ;;1    23                    4
-   ("(RH)?(([CRBY]n?H)*[CRBY]n?)(a)"
-    < | (2 pre-below) (1 otf:orya=rphf) (2 post) (4 =) | >)
+;; Stage 2
+;; Reorder halant for blwf and pstf
+(generator
+ (0
+  (cond
+   ;; Isolated blwf and pstf
+   (" J([BYR]H) "
+    (cond
+     ((font-facility 0x25CC) < 0x25CC (1 :otf=orya=blwf,pstf+) >)
+     (" J([BYR]H) " [ (1 :otf=orya=blwf,pstf+) ])))
 
-   ;; Add a ZWNJ explicitly when a syllable ends with a halant.
-   ;;1    23                    4
-   ("(RH)?(([CRBY]n?H)*[CRBY]n?)(HN?)?"
-    < | (2 pre-below) (1 otf:orya=rphf) (4 = 0x200C) (2 post) | >)
+   ;; Syllables with an overt halant
+   (" (RHJ?)?([^ ]+)(HN) "
+    | (1 = *) (2 reorder) (3 = =) |)
 
-   ;; A syllable starting with an independent vowel.
-   ("Va?"
-    < | = * | >)
+   ;; Ordinary syllables
+   (" (RHJ?)?([^mubpaA ]+)(m?u?b?p?n?a?A?) "
+    | (1 = *) (2 reorder) (3 = *) |)
 
    ("." =))
   *)
 
- ;; Move a halant after the base consonant to the end.
- ;; Fill the resulting gap with a special mark.
- ;; Remove post-base parts.
- (pre-below
-  (cond
-   ("([CRBYnH]*[CYn])H([RBH]+)[YH]+$"
-    (1 = *) 0x0B00 (2 = *))
-   ("([CRBYnH]*[CYn])(H)([RBH]+)$"
-    (1 = *) 0x0B00 (3 = *) (2 =))
-   ("([CRBYnH]*[Cn])[YH]*$"
-    (1 = *) 0x0B00)
-   ("([RB]n?)H([RBH]*)[YH]+$"
-    (1 = *) 0x0B00 (2 = *))
-   ("([RB]n?)(H)([RBH]*)$"
-    (1 = *) 0x0B00 (3 = *) (2 =))
-   ("([RBY]n?)[YH]*$"
-    (1 = *) 0x0B00)))
+ (reorder
+  ("(.|.+[^YJ])((J?HY)*)$"
+   (1 reorder-BR) (2 reorder-Y)))
 
- ;; Extract post-base parts and add a halant at the end.
- ;; Produce nothing if there are no post-base parts.
- (post
+ (reorder-BR
   (cond
-   ("[CRBYnH]*[CRBn]H([YH]+)$"
-    (1 = *) 0x0B4D)
-   ("Yn?H([YH]+)$"
-    (1 = *) 0x0B4D)
-   (".+"
-    )))
+   ("J?(H)([BR])(.*)"
+    (2 =) (1 =) (3 reorder-BR))
+   ("(.)(.*)"
+    (1 =) (2 reorder-BR))))
+
+ (reorder-Y
+  ("J?(H)(Y)(.*)"
+   (2 =) (1 =) (3 reorder-Y)))
  )
 
-;; Apply language forms to concerning segments.
+;; Stage 3
+;; Language forms and matra reordering
 (generator
  (0
   (cond
-   ;; If a syllable contains a ZWNJ, render the final halant explicitly.
-   (" ([^Z]+)(Z)([^N]*)(HN)([^ ]*) "
-    | (1 otf:orya=nukt,akhn,half,pres+) (2 =) (3 otf:orya=blwf+) (4 = =)
-    (5 otf:orya=pstf+) |)
+   ;; Overt halant forms
+   (" (RHJ?)?([^ ]+)(HN) "
+    |
+    (1 (cond ("RHJ" :otf=orya=half+)
+	     ("RH" :otf=orya=rphf+)))
+    (2 b4post) (2 post) (3 = =) |)
 
-   (" (J?m?)([^Z]+)(Z)([^ ]*) "
-    | (1 = *) (2 otf:orya=nukt,akhn,half,pres+) (3 =) (4 otf:orya=blwf,pstf+) |)
+   ;; Other syllables
+   ;; 1      2            3     4     5     6     7   8
+   (" (RHJ?)?([^mubpaA ]*)(mn?)?(un?)?(bn?)?(pn?)?(a)?(A)? "
+    | (3 = *)
+    (1 (cond ("RHJ" :otf=orya=half+)
+	     ("RH" :otf=orya=rphf+)))
+    (2 b4post) (5 = *) (4 = *) (7 =) (2 post) (6 = *) (8 =) |)
+
+   ("." =))
+  *)
+
+ (b4post
+  ("(.|.+[^YH]H?)(YH)*$"
+   (1 (cond ("(.H)(.+)" (1 :otf=orya=half+) (2 :otf=orya=blwf,half,vatu+))
+ 	    (".+" :otf=orya=blwf,half,vatu+)))))
+
+ (post
+  ("(.|.+[^YH]H?)((YH)+)$"
+   (2 :otf=orya=pstf+)))
+ )
+
+;; Stage 4
+;; Final reordering #1 (Move pre-base matra after the last halant)
+(generator
+ (0
+  (cond
+   ;; 1    2         3
+   (" (mn?)([^ ]+HJ?)([^H ]+) "
+    | (2 = *) (1 = *) (3 = *) |)
 
    ("." =))
   *))
 
-;; When the number of glyphs between a pre-base vowel sign and the
-;; post-base mark is more than one, move the pre-base vowel sign
-;; before the final glyph.
+;; Stage 5
+;; Final reordering #2 (Move reph after the first halant)
 (generator
  (0
   (cond
-   (" (J)?(m)([^Z]+)([^Z])Z([^N ]*)N?([^ ]*) "
-    | (1 =) (3 = *) (2 =) (4 =) (5 = *) (6 = *)|)
-   (" ([^Z]+)Z([^N ]*)N?([^ ]*) "
-    | (1 = *) (2 = *) (3 = *) |)
+   ;; Syllables with a reph and an overt halant
+   ;; 1     2  3           4
+   (" (mn?)?(r)([^HP ]+HJ?)([^ ]*) "
+    | (1 = *) (3 = *) (2 =) (4 = *) |)
+
+   ;; A reph without overt halant
+   ;; 1     2  3          4
+   (" (mn?)?(r)([^aPpA ]+)(a?P*(HN)?p?n?A?) "
+    | (1 = *) (3 = *) (2 =) (4 = *) |)
+
    ("." =))
   *))
 
-;; Apply other features.
-;; Do not apply 'vatu' and 'blws' if there is a ZWJ.
-;; The 'pres' feature is applied again for pre-base vowel sign.
+;; Stage 6
+;; Nukta for matra and Presentation forms
 (generator
  (0
   (cond
-   (" J([^ ]+) "
-    (1 otf:orya=pres,abvs,pstp,haln+abvm,blwm,dist))
    (" ([^ ]+) "
-    (1 otf:orya=vatu,pres,abvs,blws,pstp,haln+abvm,blwm,dist))
-   ("."
-    [ = ]))
+    | (1 :otf=orya=nukt,pres,abvs,blws,psts,haln+) |)
+
+   ("." =))
   *))
 
-;; Copyright (C) 2004, 2007, 2008
+;; Stage 7
+;; Remove ZWNJ/ZWJ
+(generator
+ (0
+  (cond
+   ("[NJ]")
+
+   ("." =))
+  *))
+
+;; Stage 8
+;; GPOS processing
+(generator
+ (0
+  (cond
+   (" ([^ ]+) "
+    (1 :otf=orya=+abvm,blwm,dist))
+
+   ("." =))
+  *))
+
+;; Copyright (C) 2004, 2007, 2008, 2010
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 

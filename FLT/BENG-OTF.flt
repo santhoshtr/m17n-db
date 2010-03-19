@@ -1,36 +1,44 @@
-;; BENG-OTF.flt -- Font Layout Table for Bengali OpenType font
-;; Copyright (C) 2004, 2007  AIST (H15PRO112)
+;; BENG-OTF.flt -- Font Layout Table for Bengali OpenType fonts
+;; Copyright (C) 2004, 2007, 2010 AIST (H15PRO112)
 ;; See the end for copying conditions.
 
 (font layouter beng-otf nil
-      (font (nil nil unicode-bmp :otf=beng=rphf)))
+      (version "1.6.0")
+      (font (nil nil unicode-bmp :otf=beng)))
 
 ;;; <li> BENG-OTF.flt
 ;;;
 ;;; For Bengali OpenType fonts to draw the Bengali script.  
 
+;; After-base glyph order for rendering:
+;; 1. below form consonants
+;; 2. below matra
+;; 3. reph
+;; 4. candrabindu (0981)
+;; 5. post form consonants
+;; 6. post matra
+;; 7. anusvara (0982) and visarga (0983)
+
 (category
  ;; X: generic
  ;; V: independent vowel
- ;; C: consonant (except for R, B and Y)
- ;; R: consonant RA
- ;; B: consonant BA
- ;; Y: consonant YA
+ ;; C: consonant
+ ;; B: BA
+ ;; Y: YA
+ ;; R: RA
  ;; T: KHANDA TA
  ;; n: NUKTA
  ;; H: HALANT
  ;; m: vowel sign (pre)
  ;; b: vowel sign (below)
  ;; p: vowel sign (post)
- ;; A: vowel modifier (above)
- ;; a: vowel modifier (post)
- ;; Z: internal use
- ;; N: ZWNJ (ZERO WIDTH NON-JOINER)
- ;; J: ZWJ (ZERO WIDTH JOINER)
+ ;; a: vowel modifier (above)
+ ;; A: vowel modifier (post)
+ ;; N: ZWNJ
+ ;; J: ZWJ
  (0x0980 0x09FF	?X)			; generic
- (0x0980	?Z)			; internal use
- (0x0981	?A)			; SIGN CANDRABINDU
- (0x0982 0x0983	?a)			; SIGN ANUSVARA .. VISARGA
+ (0x0981	?a)			; SIGN CANDRABINDU
+ (0x0982 0x0983	?A)			; SIGN ANUSVARA .. VISARGA
  (0x0985 0x0994	?V)			; LETTER A .. AU
  (0x0995 0x09B9	?C)			; LETTER KA .. HA
  (0x09AC	?B)			; LETTER BA
@@ -48,12 +56,18 @@
  (0x09DC 0x09DF	?C)			; LETTER RRA .. YYA
  (0x09E0 0x09E1	?V)			; LETTER VOCALIC RR, LL
  (0x09E2 0x09E3	?b)			; VOWEL SIGN L .. LL
- (0x09F0 0x09F1	?C)			; LETTER RR WITH MIDDLE/LOWER DIAGONAL
- (0x0964 0x0965	?X)			; DANDA .. DOUBLE DANDA
+ (0x09F0	?R)			; LETTER RA WITH MIDDLE DIAGONAL
+ (0x09F1	?C)			; LETTER RA WITH LOWER DIAGONAL
+
  (0x200C	?N)			; ZWNJ
  (0x200D	?J)			; ZWJ
+ (0x25CC	?X)			; DOTTED CIRCLE
+
+ (rphf		?r)
+ (pstf		?P)
  )
 
+;; Stage 0
 ;; Preprocessing
 (generator
  (0
@@ -63,9 +77,11 @@
     0x09C7 0x09BE)
    ((0x09CC)
     0x09C7 0x09D7)
+
    ;; TA + HALANT + ZWJ -> KHANDA-TA
    ((0x09A4 0x09CD 0x200D)
     0x09CE)
+
    ;; consonant + NUKTA
    ((0x09A1 0x09BC)
     0x09DC)
@@ -73,119 +89,207 @@
     0x09DD)
    ((0x09AF 0x09BC)
     0x09DF)
+
    ("." =))
   *))
 
-;; Syllable identification and reordering.
+;; Stage 1
+;; Syllable identification
 (generator
  (0
   (cond
-   ;; Khanda-Ta
+   ;; Syllables with an independent vowel
+   ("(RH)?(Vn?)((J?H[BYR])?m?b?p?n?a?A?)"
+    < | (1 = =) (2 :otf=beng=nukt+) (3 = *) | >)
+
+   ;; KHANDA-TA combines only with reph.
    ("(RH)?(T)"
-    < | (2 =) (1 otf:beng=rphf+) | >)
+    < (2 =) (1 :otf=beng=rphf+) >)
 
-   ;; A syllable with a pre-base vowel sign.
-   ;;1    2        3      4       5       6  7   8   9
-   ("(RH)?([CRBY]n?(HCn?)*(H[RB])?(J?HY)?)(m)(p)?(A)?(a)?"
-    < | (6 =) (2 pre-below) (1 otf:beng=rphf+) (8 =) (2 post) (7 =) (9 =) | >)
+   ;; Consonant-based syllables
+   ;;1        23                   4
+   ("([CBYR]n?((J?H|HJ?)[CBYR]n?)*)(H[NJ]?|m?([NJ]?b)?p?n?a?A?)"
+    < | (1 :otf=beng=nukt,akhn+)
+    (4 (cond ("HJ" = =)
+	     ("(H)N?" (1 =) 0x200C)
+	     (".+" = *))) | >)
 
-   ;; A syllable with a non-pre-base vowel sign.
-   ;;1    2        3      4       5       6     78   9   10  11
-   ("(RH)?([CRBY]n?(HCn?)*(H[RB])?(J?HY)?)(N)?J?((b)|(p))(A)?(a)?"
-    < | (6 =) (2 pre-below) (8 =) (1 otf:beng=rphf+) (10 =)
-    (2 post) (9 =) (11 =) | >)
+   ;; Two-part vowel signs
+   ((0x09C7 0x09BE)
+    (cond
+     ((font-facility 0x25CC) < 0x09C7 0x25CC 0x09BE >)
+     (".+" < 0x09CB >)))
+   ((0x09C7 0x09D7)
+    (cond
+     ((font-facility 0x25CC) < 0x09C7 0x25CC 0x09D7 >)
+     (".+" < 0x09CC >)))
 
-   ;; A syllable with a vowel modifier and no vowel signs.
-   ;;1    2        3      4       5       67   8
-   ("(RH)?([CRBY]n?(HCn?)*(H[RB])?(J?HY)?)((A)|(a))"
-    < | (2 pre-below) (1 otf:beng=rphf+) (7 =) (2 post) (8 =) | >)
+   ;; Combining marks are displayed with a DOTTED CIRCLE.
+   ("m"
+    (cond
+     ((font-facility 0x25CC) < = 0x25CC >)
+     ("." [ = ])))
+   ("[nHbpaA]"
+    (cond
+     ((font-facility 0x25CC) < 0x25CC = >)
+     ("." [ = ])))
 
-   ;; A syllable ending with a halant.
-   ;;1    2        3      4       5       6
-   ("(RH)?([CRBY]n?(HCn?)*(H[RB])?(J?HY)?)(HN?)?"
-    < | (2 pre-below) (6 =) (1 otf:beng=rphf+) (2 post) | >)
+   ;; Isolated blwf and pstf are displayed with a DOTTED CIRCLE in the
+   ;; next stage.
+   ("(J)(H)([BYR])"
+    < | (1 =) (3 =) (2 =) | >)
 
-   ;; A syllable starting with an independent vowel.
-   ;;1  2  3  4  5    6
-   ("(V)(J?(H)(Y)(p))?(A?a?)"
-    < | (1 =) 0x0980 (4 =) (3 =) (5 =) (6 = *) | >)
+   ("." =))
+  *))
+
+;; Stage 2
+;; Reorder halant for blwf and pstf
+(generator
+ (0
+  (cond
+   ;; Isolated blwf and pstf
+   (" J([BYR]H) "
+    (cond
+     ((font-facility 0x25CC) < 0x25CC (1 :otf=beng=blwf,pstf+) >)
+     (" J([BYR]H) " [ (1 :otf=beng=blwf,pstf+) ])))
+
+   ;; Syllables with an overt halant
+   (" (RHJ?)?([^ ]+)(HN) "
+    | (1 = *) (2 reorder) (3 = =) |)
+
+   ;; Ordinary syllables
+   (" (RHJ?)?([^mbpaA ]*[^mbpaANJ ])(m?([NJ]?b)?p?n?a?A?) "
+    | (1 = *) (2 reorder) (3 = *) |)
 
    ("." =))
   *)
 
- ;; Move a halant after the base consonant to the end.
- ;; Put a special mark after the final belew-base consonant.
- ;; Remove post-base parts.
- (pre-below
-  (cond
-   ("(.+)(H)([RB])(J?HY)?$"
-    (1 = *) (3 =) (2 =) 0x0980)
-   ("([^J]+)J?HY$"
-    (1 = *) 0x0980)
-   (".+"
-    = * 0x0980)))
+ (reorder
+  ("(.|.+[^YJ])((J?HY)*)$"
+   (1 reorder-BR) (2 reorder-Y)))
 
- ;; Extract post-base parts and add a halant at the end.
- ;; Produce nothing if there are no post-base parts.
+ ;; Unlike Devanagari and Gujarati, vattu in Bengali does not have a
+ ;; half form.  Therefore the sequence CHRHC can be safely reordered
+ ;; as CRHHC.  Same for CHBHC.
+ (reorder-BR
+  (cond
+   ("J?(H)([BR])(.*)"
+    (2 =) (1 =) (3 reorder-BR))
+   ("(.)(.*)"
+    (1 =) (2 reorder-BR))))
+
+ (reorder-Y
+  ("J?(H)(Y)(.*)"
+   (2 =) (1 =) (3 reorder-Y)))
+ )
+
+;; Stage 3
+;; Language forms and matra reordering
+(generator
+ (0
+  (cond
+   ;; Overt halant forms
+   (" (RHJ?)?([^ ]+)(HN) "
+    |
+    (1 (cond ("RHJ" :otf=beng=half+)
+	     ("RH" :otf=beng=rphf+)))
+    (2 b4post) (2 post) (3 = =) |)
+
+   ;; Syllables with a below matra
+   ;; 1      2              3     4         5
+   (" (RHJ?)?([^mb]*[^mbNJ])(mn?)?([NJ]?bn?)(p?n?a?A?) "
+    | (3 = *)
+    (1 (cond ("RHJ" :otf=beng=half+)
+	     ("RH" :otf=beng=rphf+)))
+    (2 b4post) (4 = *) (2 post) (5 = *) |)
+
+   ;; Other syllables
+   ;; 1      2          3     4
+   (" (RHJ?)?([^mpaA ]*)(mn?)?(p?n?a?A?) "
+    | (3 = *)
+    (1 (cond ("RHJ" :otf=beng=half+)
+	     ("RH" :otf=beng=rphf+)))
+    (2 b4post) (2 post) (4 = *) |)
+
+   ("." =))
+  *)
+
+ ;; FIXME: When the constant C has both half and blwf, the partial
+ ;; sequence CHJ changes into blwf, instead of half, unless it is
+ ;; placed at the beginning of a syllable.
+ (b4post
+  ("(.|.+[^YH]H?)(YH)*$"
+   (1 (cond ("(.H)(.+)" (1 :otf=beng=half+) (2 :otf=beng=blwf,half,vatu+))
+	    (".+" :otf=beng=blwf,half,vatu+)))))
+
  (post
-  (cond
-   (".*(H)(Y)$"
-    (2 =) (1 =)))))
+  ("(.|.+[^YH]H?)((YH)+)$"
+   (2 :otf=beng=pstf+)))
+ )
 
-;; Apply 'nukt' and 'akhn'.
+;; Stage 4
+;; Final reordering #1 (Move pre-base matra after the last halant)
 (generator
  (0
   (cond
-   (" ([^Z]+)(Z[^ ]*) "
-    | (1 otf:beng=nukt,akhn+) (2 = *) |)
+   ;; 1    2         3
+   (" (mn?)([^ ]+HJ?)([^H ]+) "
+    | (2 = *) (1 = *) (3 = *) |)
+
    ("." =))
   *))
 
-;; Apply 'blwf' and 'pstf' to the concerning parts.
+;; Stage 5
+;; Final reordering #2 (Move reph after the first halant)
 (generator
  (0
   (cond
-   (" (N?m?.)([^Z]*)(Z)([^ ]*) "
-    | (1 = *) (2 otf:beng=blwf+) (3 =) (4 otf:beng=pstf+) |)
+   ;; Syllables with a reph and an explicit halant
+   ;; 1     2  3           4
+   (" (mn?)?(r)([^HP ]+HJ?)([^ ]*) "
+    | (1 = *) (3 = *) (2 =) (4 = *) |)
+
+   ;; A reph without explicit halant
+   ;; 1     2  3          4
+   (" (mn?)?(r)([^PpaA ]+)(P*(HN)?p?n?a?A?) "
+    | (1 = *) (3 = *) (2 =) (4 = *) |)
+
    ("." =))
   *))
 
-;; Get pre-base and below-base conjuncts.
+;; Stage 6
+;; Nukta for matra and Presentation forms
 (generator
  (0
   (cond
-   (" (N?m?)([^Z]+)(Z)([^ ]*) "
-    | (1 = *) (2 otf:beng=half,vatu,pres,blws+) (3 =) (4 = *) |)
+   (" (mn?)?([^ ]+) "
+    | (1 :otf=beng=nukt,init+) (2 :otf=beng=nukt,pres,abvs,blws,psts,haln+) |)
+
    ("." =))
   *))
 
-;; When the number of glyphs between a pre-base vowel sign and the
-;; post-below mark is more than one, move the pre-base vowel sign
-;; before the final glyph.
+;; Stage 7
+;; Remove ZWNJ/ZWJ
 (generator
  (0
   (cond
-   (" (N)?(m)([^Z]+)([^Z])Z([^ ]*) "
-    | (1 =) (3 = *) (2 =) (4 =) (5 = *) |)
-   (" ([^Z]+)Z([^ ]*) "
-    | (1 = *) (2 = *) |)
+   ("[NJ]")
+
    ("." =))
   *))
 
-;; Get matra conjuncts.
-;; Do not apply 'blws' to syllables that begins with ZWNJ.
+;; Stage 8
+;; GPOS processing
 (generator
  (0
   (cond
-   (" N([^ ]+) "
-    (1 otf:beng=init,pres,abvs,psts,haln+abvm,blwm,dist))
    (" ([^ ]+) "
-    (1 otf:beng=init,pres,abvs,blws,psts,haln+abvm,blwm,dist))
-   ("."
-    [ = ]))
+    (1 :otf=beng=+abvm,blwm,dist))
+
+   ("." =))
   *))
 
-;; Copyright (C) 2004, 2007
+;; Copyright (C) 2004, 2007, 2010
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 

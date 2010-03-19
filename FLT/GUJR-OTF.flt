@@ -1,150 +1,207 @@
 ;; GUJR-OTF.flt -- Font Layout Table for Gujarati OpenType fonts
-;; Copyright (C) 2004, 2007  AIST (H15PRO112)
+;; Copyright (C) 2004, 2007, 2010 AIST (H15PRO112)
 ;; See the end for copying conditions.
 
 (font layouter gujr-otf nil
-      (font (nil nil unicode-bmp :otf=gujr=rphf)))
+      (version "1.6.0")
+      (font (nil nil unicode-bmp :otf=gujr)))
 
 ;;; <li> GUJR-OTF.flt
 ;;;
 ;;; For Gujarati OpenType fonts to draw the Gujarati script.
 
 (category
- ;; C: consonant (except for RA)
- ;; R: consonant RA
+ ;; X: generic
+ ;; V: independent vowel
+ ;; C: consonant
+ ;; R: RA
  ;; n: NUKTA
  ;; H: HALANT
  ;; m: vowel sign (pre)
  ;; u: vowel sign (above)
  ;; b: vowel sign (below)
  ;; p: vowel sign (post)
- ;; A: vowel modifier (above)
- ;; a: vowel modifier (post)
- ;; V: independent vowel
+ ;; a: vowel modifier (above)
+ ;; A: vowel modifier (post)
  ;; N: ZWNJ
  ;; J: ZWJ
- ;; X: generic
  (0x0A80 0x0AFF	?X)			; generic
- (0x0A81 0x0A82	?A)			; SIGN CANDRABINDU .. ANUSVARA
- (0x0A83	?a)			; SIGN VISARGA
- (0x0A85 0x0A94	?V)			; LETTER AA .. AU
- (0x0A95 0x0AB9 ?C)			; LETTER KA .. HA
+ (0x0A81 0x0A82	?a)			; SIGN CANDRABINDU .. ANUSVARA
+ (0x0A83	?A)			; SIGN VISARGA
+ (0x0A85 0x0A94	?V)			; LETTER A .. AU
+ (0x0A95 0x0AB9	?C)			; LETTER KA .. HA
  (0x0AB0	?R)			; LETTER RA
  (0x0ABC	?n)			; SIGN NUKTA
- (0x0ABE 	?p)			; VOWEL SIGN AA
+ (0x0ABE	?p)			; VOWEL SIGN AA
  (0x0ABF	?m)			; VOWEL SIGN I
  (0x0AC0	?p)			; VOWEL SIGN II
- (0x0AC1 0x0AC4	?b)			; VOWEL SIGN U .. VOCALIC RR
+ (0x0AC1 0x0AC4	?b)			; VOWEL SIGN UU .. VOCALIC RR
  (0x0AC5 0x0AC8	?u)			; VOWEL SIGN CANDRA E .. AI
  (0x0AC9 0x0ACC	?p)			; VOWEL SIGN CANDRA O .. AU
  (0x0ACD	?H)			; SIGN VIRAMA
- (0x0AE0 0x0AE1	?V)			; LETTER VOCALIC RR .. VOCALIC LL
+ (0x0AE0 0x0AE1	?V)			; LETTER VOCALIC RR  .. VOCALIC LL
  (0x0AE2 0x0AE3	?b)			; VOWEL SIGN VOCALIC L .. VOCALIC LL
- (0x0964 0x0965	?X)			; DANDA .. DOUBLE DANDA
+
  (0x200C	?N)			; ZWNJ
  (0x200D	?J)			; ZWJ
+ (0x25CC	?X)			; DOTTED CIRCLE
+
+ (rphf		?r)
  )
 
-;; Syllable identification and reordering.
+;; Stage 0
+;; Syllable identification
 (generator
  (0
   (cond
-   ;; A syllable containing a vowel sign.
-   ;;1      2            34   5       6
-   ("([CR]n?(HJ?[CR]n?)*)((m)|(b|u|p))(A|a)?"
-    < | (4 =) (1 move-h) (5 =) (1 reph) (6 =) | >)
+   ;; Syllables with an independent vowel
+   ("(RH)?(Vn?)((J?HR)?m?u?b?p?n?a?A?)"
+    < | (1 = =) (2 :otf=gujr=nukt+) (3 = *) | >)
 
-   ;; A syllable without vowel signs but with a vowel modifier.
-   ;;1      2            3
-   ("([CR]n?(HJ?[CR]n?)*)(A|a)"
-    < | (1 move-h) (1 reph) (3 =) | >)
+   ;; Consonant-based syllables
+   ;;1      23                 4
+   ("([CR]n?((J?H|HJ?)[CR]n?)*)(H[NJ]?|m?u?b?p?n?a?A?)"
+    < | (1 :otf=gujr=nukt,akhn+)
+    (4 (cond ("HJ" = =)
+	     ("(H)N?" (1 =) 0x200C)
+	     (".+" = *))) | >)
 
-   ;; No marks at all.  Need further anylysis.
-   ("[CR]n?(HJ?[CR]n?)*(H(N|J)?)?"
-    < | (0 nomarks) | >)
+   ;; Combining marks are displayed with a DOTTED CIRCLE.
+   ("m"
+    (cond
+     ((font-facility 0x25CC) < = 0x25CC >)
+     ("." [ = ])))
+   ("[nHubpaA]"
+    (cond
+     ((font-facility 0x25CC) < 0x25CC = >)
+     ("." [ = ])))
 
-   ;; A syllable starting with an independent vowel.
-   ("V(A|a)?"
-    < | = * | >)
+   ;; Isolated blwf is displayed with a DOTTED CIRCLE in the next stage.
+   ("(J)(H)(R)"
+    < | (1 =) (3 =) (2 =) | >)
 
    ("." =))
-  *)
-
- (move-h
-  (cond
-   ("RH(.+)(H)(R)$"
-    (1 = *) (3 =) (2 =))
-   ("RH(.+)"
-    (1 = *))
-
-   ("(.+)(H)(R)$"
-    (1 = *) (3 =) (2 =))
-   (".+"
-    = *)))
-
- (reph
-  (cond
-   ("(RH).*"
-    (1 otf:gujr=rphf+))))
-
- (del-reph
-  (cond
-   ("(RH)?(.*)"
-    (2 = *))))
-
- (nomarks
-  (cond
-   ;; Ending with a Halant and a ZWJ.
-   (".+HJ$"
-    (0 del-reph) (0 reph))
-
-   ;; Ending with a Halant and an optional ZWNJ.  Add ZWNJ explicitly.
-   ("(.+)(H)N?$"
-    (1 move-h) (1 reph) (2 =) 0x200C)
-
-   ;; Ending with a consonant.
-   (".+"
-    (0 move-h) (0 reph))))
- )
-
-;; Apply GSUB features.  If a syllable ends with a halant and a ZWNJ,
-;; render the final halant explicitly.  Do not apply 'blwf' to the
-;; initial RA.
-(generator
- (0
-  (cond
-   (" (R)([^ ]*)(H)N "
-    | (1 =) (2 gsub) (3 =) |)
-   (" (m?R)([^ ]*) "
-    | (1 otf:gujr=pres+) (2 gsub) |)
-
-   (" ([^ ]+)(H)N "
-    | (1 gsub) (2 =) |)
-   (" ([^ ]+) "
-    | (1  gsub) |)
-
-   ("." =))
-  *)
-
- (gsub
-  (cond
-   ("([^J]*)J(.*)"
-    (1 otf:gujr=nukt,akhn,blwf,half,vatu,pres+) (2 gsub))
-   (".*"
-    otf:gujr=nukt,akhn,blwf,half,vatu,pres+)))
- )
-
-;; Apply other features.
-(generator
- (0
-  (cond
-   (" ([^ ]+) "
-    (1 otf:gujr=abvs,blws,psts,haln+abvm,blwm,dist))
-   ("."
-    [ = ]))
   *))
 
-;; Copyright (C) 2004, 2007
+;; Stage 1
+;; Reorder halant for blwf
+(generator
+ (0
+  (cond
+   ;; Isolated blwf
+   (" J(RH) "
+    (cond
+     ((font-facility 0x25CC) < 0x25CC :otf=gujr=blwf+ >)
+     (" J(RH) " [ (1 :otf=gujr=blwf+) ])))
+
+   ;; Syllables with an overt halant
+   (" (RHJ?)?([^ ]+)(HN) "
+    | (1 = *) (2 reorder) (3 = =) |)
+
+   ;; Ordinary syllables
+   (" (RHJ?)?([^mubpaA ]+)(m?u?b?p?n?a?A?) "
+    | (1 = *) (2 reorder) (3 = *) |)
+
+   ("." =))
+  *)
+
+ (reorder
+  (cond
+   ("J?(H)(R)$" (2 =) (1 =))
+   ("J?(HR)(.+)$" (1 = =) (2 reorder))
+   ("(.)(.*)$" (1 =) (2 reorder))))
+ )
+
+;; Stage 2
+;; Language forms and matra reordering
+(generator
+ (0
+  (cond
+   ;; Overt halant forms
+   (" (RHJ?)?([^ ]+)(HN) "
+    |
+    (1 (cond ("RHJ" :otf=gujr=half+)
+	     ("RH" :otf=gujr=rphf+)))
+    (2 (cond ("(.H)(.+)" (1 :otf=gujr=half+) (2 :otf=gujr=blwf,half+))
+	     (".+" :otf=gujr=blwf,half+)))
+    (3 = =) |)
+
+   ;; Other syllables
+   ;; 1      2            3     4     5     6
+   (" (RHJ?)?([^mubpaA ]*)(mn?)?(un?)?(bn?)?(p?n?a?A?) "
+    | (3 = *)
+    (1 (cond ("RHJ" :otf=gujr=half+)
+	     ("RH" :otf=gujr=rphf+)))
+    (2 (cond ("(.H)(.+)" (1 :otf=gujr=half+) (2 :otf=gujr=blwf,half+))
+	     (".+" :otf=gujr=blwf,half+)))
+    (5 = *) (4 = *) (6 = *) |)
+
+   ("." =))
+  *))
+
+;; Stage 3
+;; Final reordering #1 (Move pre-base matra after the last halant)
+(generator
+ (0
+  (cond
+   ;; 1    2         3
+   (" (mn?)([^ ]+HJ?)([^H ]+) "
+    | (2 = *) (1 = *) (3 = *) |)
+
+   ("." =))
+  *))
+
+;; Stage 4
+;; Final reordering #2 (Move reph after the first halant)
+(generator
+ (0
+  (cond
+   ;; Syllables with a reph and an explicit halant
+   ;; 1     2  3          4
+   (" (mn?)?(r)([^H ]+HJ?)([^ ]*) "
+    | (1 = *) (3 = *) (2 =) (4 = *) |)
+
+   ;; A reph without explicit halant
+   ;; 1     2  3        4
+   (" (mn?)?(r)([^aA ]+)(a?A?) "
+    | (1 = *) (3 = *) (2 =) (4 = *) |)
+
+   ("." =))
+  *))
+
+;; Stage 5
+;; Nukta for matra, vattu and presentation forms
+(generator
+ (0
+  (cond
+   (" ([^ ]+) "
+    | (1 :otf=gujr=nukt,vatu,pres,abvs,blws,psts,haln+) |)
+
+   ("." =))
+  *))
+
+;; Stage 6
+;; Remove ZWNJ/ZWJ
+(generator
+ (0
+  (cond
+   ("[NJ]")
+
+   ("." =))
+  *))
+
+;; Stage 7
+;; GPOS processing
+(generator
+ (0
+  (cond
+   (" ([^ ]+) "
+    (1 :otf=gujr=+abvm,blwm,dist))
+
+   ("." =))
+  *))
+
+;; Copyright (C) 2004, 2007, 2010
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 

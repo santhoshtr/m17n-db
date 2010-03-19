@@ -1,44 +1,39 @@
-;; MLYM-OTF.flt -- Font Layout Table for Malayalam OpenType font
-;; Copyright (C) 2003, 2004, 2005, 2007, 2008, 2009  AIST (H15PRO112)
+;; MLYM-OTF.flt -- Font Layout Table for Malayalam OpenType fonts
+;; Copyright (C) 2003, 2004, 2005, 2007, 2008, 2009, 2010 AIST (H15PRO112)
 ;; See the end for copying conditions.
 
 (font layouter mlym-otf nil
-      (font (nil nil unicode-bmp :otf=mlym=akhn)))
+      (version "1.6.0")
+      (font (nil nil unicode-bmp :otf=mlym)))
 
 ;;; <li> MLYM-OTF.flt
 ;;;
 ;;; For Malayalam OpenType fonts to draw the reformed Malayalam script.
 
-;; Tested with the following fonts.  All of these fonts require Halant
-;; movement for syllable-final YA and VA, but not for RA and LA.
+;; AnjaliOldLipi.ttf, Dyuthi3.ttf, Meera_04.ttf, Rachana_04.ttf, suruma2.ttf
+;; blwf: 0d32
+;; pstf: 0d2f 0d30 0d35
 
-;; AnjaliOldLipi.ttf
-;; Dyuthi3.ttf
-;; Kalyani121.ttf
-;; Meera_04.ttf
-;; Rachana_04.ttf
 ;; RaghuMalayalamSans2.ttf
-;; suruma2.ttf
+;; blwf: 0d32
+;; pstf: 0d2f 0d30 0d35 0d41
+
+;; lohit_ml.ttf
+;; blwf: 0d32
+;; pstf: 0d2f 0d30 0d31 0d35 0d41
+
+;; Kalyani121.ttf
+;; blwf: N/A
+;; pstf: 0d2f 0d30 0d32 0d35 0d41
 
 (category
- ;; C: ordinary consonants (except P)
- ;; P: consonants that have a post form
- ;; H: HALANT
- ;; m: vowel sign (pre)
- ;; b: vowel sign (below)
- ;; p: vowel sign (post)
- ;; A: vowel modifier (post)
- ;; V: independent vowel
- ;; N: ZWNJ (ZERO WIDTH NON-JOINER)
- ;; J: ZWJ (ZERO WIDTH JOINER)
- ;; Z: internal use
- ;; X: generic
  (0x0D00 0x0D7F	?X)			; generic
- (0x0D00        ?Z)			; internal use
  (0x0D02 0x0D03	?A)			; SIGN ANUSVARA .. VISARGA
  (0x0D05 0x0D14	?V)			; LETTER A .. AU
  (0x0D15 0x0D39 ?C)			; LETTER KA .. HA
  (0x0D2F	?P)			; LETTER YA
+ (0x0D30	?R)			; LETTER RA
+ (0x0D32	?B)			; LETTER LA
  (0x0D35	?P)			; LETTER VA
  (0x0D3E 0x0D44	?p)			; VOWEL SIGN AA .. VOCALIC RR
  (0x0D46 0x0D48	?m)			; VOWEL SIGN E .. AI
@@ -46,119 +41,217 @@
  (0x0D57	?p)			; AU LENGTH MARK
  (0x0D60 0x0D61	?V)			; LETTER VOCALIC RR .. VOCALIC LL
  (0x0D62 0x0D63 ?b)			; VOWEL SIGN VOCALIC L .. LL
- (0x0964 0x0965	?X)			; DANDA .. DOUBLE DANDA
+
  (0x200C	?N)			; ZWNJ
  (0x200D	?J)			; ZWJ
+ (0x25CC	?X)			; DOTTED CIRCLE
+
+ (pstf		?r)
  )
 
 ;; Stage 0
-;; Decompose two-part vowels.
+;; Preprocessing
 (generator
  (0
   (cond
-   ((0x0D4A)
-    0x0D46 0x0D3E)
-   ((0x0D4B)
-    0x0D47 0x0D3E)
-   ((0x0D4C)
-    0x0D46 0x0D57)
+   ;; Decompose two-part vowel signs
+   ((0x0D4A) 0x0D46 0x0D3E)
+   ((0x0D4B) 0x0D47 0x0D3E)
+   ((0x0D4C) 0x0D46 0x0D57)
+
+   ;; Chillu letters
+   ((0x0D23 0x0D4D 0x200D) :otf=mlym=akhn,half,haln+)
+   ((0x0D28 0x0D4D 0x200D) :otf=mlym=akhn,half,haln+)
+   ((0x0D30 0x0D4D 0x200D) :otf=mlym=akhn,half,haln+)
+   ((0x0D32 0x0D4D 0x200D) :otf=mlym=akhn,half,haln+)
+   ((0x0D33 0x0D4D 0x200D) :otf=mlym=akhn,half,haln+)
+   ((0x0D15 0x0D4D 0x200D) :otf=mlym=akhn,half,haln+)
+
    ("." =))
   *))
 
 ;; Stage 1
-;; Syllable identification and reordering.  
-;; Put the mark Z after the base consonant.
+;; Syllable identification
 (generator
  (0
   (cond
-   ;; A syllable with a left vowel sign.
-   ;;1    2        3  4
-   ("([CP](H[CP])*)(m)(p?A?)"
-    < | (3 =) (1 move-h) (4 = *) | >)
+   ;; Consonant-based syllables
+   ;;1      23                 4
+   ("([CBPR]((J?H|HJ?)[CBPR])*)(H[NJ]?|m?p?A?)"
+    < | (1 :otf=mlym=akhn+)
+    (4 (cond ("HJ" = =)
+	     ("(H)N?" (1 =) 0x200C)
+	     (".+" = *))) | >)
 
-   ;; A syllable with a right vowel sign, a below vowel sign
-   ;; and/or a vowel modifier.
-   ;;1    2        3
-   ("([CP](H[CP])*)(bA?|pA?|A)"
-    < | (1 move-h) (3 = *) | >)
+   ;; Syllables with an independent vowel
+   ("V(J?H[BPR])?m?p?A?"
+    < | = * | >)
 
-   ;; Forced chillu form.
-   ;;1    2        3
-   ("([CP](H[CP])*)(HJ)"
-    < | (1 move-h) (3 = =) | >)
+   ;; Two-part vowel signs
+   ((0x0D46 0x0D3E)
+    (cond
+     ((font-facility 0x25CC) < 0x0D46 0x25CC 0x0D3E >)
+     (".+" < 0x0D4A >)))
+   ((0x0D47 0x0D3E)
+    (cond
+     ((font-facility 0x25CC) < 0x0D47 0x25CC 0x0D3E >)
+     (".+" < 0x0D4B >)))
+   ((0x0D46 0x0D57)
+    (cond
+     ((font-facility 0x25CC) < 0x0D46 0x25CC 0x0D57 >)
+     (".+" < 0x0D4C >)))
 
-   ;; A syllable with no vowel signs/modifiers, optionally followed by
-   ;; an H or an HN.
-   ;;1    2        3
-   ("([CP](H[CP])*)(H|HN)?"
-    < | (1 move-h) (3 0x0D4D) | >)
+   ;; Combining marks are displayed with a DOTTED CIRCLE.
+   ("m"
+    (cond
+     ((font-facility 0x25CC) < = 0x25CC >)
+     ("." [ = ])))
+   ("[HbpA]"
+    (cond
+     ((font-facility 0x25CC) < 0x25CC = >)
+     ("." [ = ])))
 
-   ;; Starting with an independent vowel.
-   ("VA?"
-    < | (0 = *) | >)
+   ;; Isolated blwf and pstf are displayed with a DOTTED CIRCLE in the
+   ;; next stage.
+   ("(J)(H)([BPR])"
+    < | (1 =) (3 =) (2 =) | >)
+
+   ("." =))
+  *))
+
+;; Stage 2
+;; Reorder halant for blwf and pstf
+(generator
+ (0
+  (cond
+   ;; Isolated blwf and pstf
+   (" J([BP]H) "
+    (cond
+     ((font-facility 0x25CC) < 0x25CC (1 :otf=mlym=blwf,pstf+) >)
+     (" J([BP]H) " [ (1 :otf=mlym=blwf,pstf+) ])))
+
+   ;; Isolated pref
+   (" J(RH) "
+    (cond
+     ((font-facility 0x25CC) < (1 :otf=mlym=pstf+) 0x25CC >)
+     (" J(RH) " [ (1 :otf=mlym=pstf+) ])))
+
+   ;; Overt halnt forms
+   (" ([^ ]+)(HN) "
+    | (1 reorder) (2 = =) |)
+
+   ;; Ordinary syllables
+   (" ([^mbpA ]+)(m?p?A?) "
+    | (1 reorder) (2 = *) |)
 
    ("." =))
   *)
 
-
- ;; Move the halant that follows the base consonant to the end.
- (move-h
+ (reorder
   (cond
-   ;; All consonants are P's.
-   ("(P)(H)([PH]*)$"
-    (1 =) 0x0D00 (3 = *) (2 =))
+   ;; pref after pstf
+   ("(.|.+[^PJ])((J?HP)*J?HR)$"
+    (1 reorder-B) (2 reorder-any))
+   ;; pref between blwf and pstf
+   ("(.*[^J])(J?HR(J?HP)+)$"
+    (1 reorder-B) (2 reorder-any))
+   ;; pref before blwf
+   ("(.*[^J])(J?HR(J?HB)+(J?HP)*)$"
+    (1 reorder-B) (2 reorder-any))
+   ;; no pref
+   ("(.|.+[^PJ])((J?HP)*)$"
+    (1 reorder-B) (2 reorder-any))
+   (".+" = *)))    
 
-   ;; One or more Non-P consonants.
-   ("([CPH]*C)(H)([PH]+)$"
-    (1 = *) 0x0D00 (3 = *) (2 =))
+ (reorder-B
+  (cond
+   ("J?(H)(B)(.*)"
+    (2 =) (1 =) (3 reorder-B))
+   ("(.)(.*)"
+    (1 =) (2 reorder-B))))
 
-   ;; Otherwise, final consonant is not P.  No need to move H.
-   (".+"
-    = * 0x0D00)))
+ (reorder-any
+  ("J?(H)(.)(.*)"
+   (2 =) (1 =) (3 reorder-any)))
  )
 
-;; Stage 2
-;; Apply GSUB features.
-(generator
- (0
-  (cond
-   ;; The tested fonts make LA's below form with 1. 'half' + 'blws',
-   ;; 2. 'half' + 'pres' or 3. 'akhn'.
-   ;; 1   2       3  4
-   (" (m)?([CPH]*)(Z)([PHbpAJ]*) "
-    | (1 =) (2 otf:mlym=akhn,half,pstf,pres,abvs,blws+) (3 =)
-    (4 otf:mlym=pstf+) |)
-
-   ("." =))
-  *))
-
 ;; Stage 3
-;; Second reordering.  If there are glyphs before the base, move left
-;; vowel sign to the left of the base.
+;; Language forms and matra reordering
 (generator
  (0
   (cond
-   ;; 1   2       3      4
-   (" (m)?([^Z ]*)([^Z])Z([^ ]*) "
-    | (2 = *) (1 =) (3 =) (4 = *) |)
+   ;; Overt halant forms
+   (" ([^ ]+)(HN) "
+    | (1 blwf-pstf) (2 = =) |)
+
+   ;; Other syllables
+   ;; 1          2   3
+   (" ([^mpA ]+)(m)?(p?A?) "
+    | (2 =) (1 blwf-pstf) (3 = *) |)
 
    ("." =))
-  *))
+  *)
+
+ (blwf-pstf
+  (cond
+   ;;1              23     4
+   ("(.|.+BH|.+[^H])((PH)*)(RH)$"
+    (4 :otf=mlym=pstf) (1 :otf=mlym=blwf+) (2 :otf=mlym=pstf+))
+   ;;1   2   3
+   ("(.*)(RH)((PH)+)$"
+    (2 :otf=mlym=pstf+) (1 :otf=mlym=blwf+) (3 :otf=mlym=pstf+))
+   ;;1   2   34     5
+   ("(.*)(RH)((BH)+)((PH)*)$"
+    (2 :otf=mlym=pstf+) (1 :otf=mlym=blwf+) (3 :otf=mlym=blwf+)
+    (5 :otf=mlym=pstf+))
+   ;;1              2
+   ("(.|.+BH|.+[^H])((PH)*)$"
+    (1 :otf=mlym=blwf+) (2 :otf=mlym=pstf+))))
+ )
 
 ;; Stage 4
-;; Apply remaining GSUB and GPOS features to all syllables.  To get
-;; correct Y.YA and V.VA conjunctions, we must apply 'psts' to the
-;; entire syllable.
+;; Final reordering (Move pre-base matra and pref after the last halant)
+(generator
+ (0
+  (cond
+   ;; With a pref, one or more intermediate-  and a final overt halant forms.
+   ;; 1  2         3
+   (" (r)([^ ]+HJ?)([^H ]+HN) "
+    | (2 = *) (1 =) (3 = *) |)
+
+   ;; With a pref and a final overt halant form.  Don't move the pref.
+   (" r[^H ]+HN "
+    = *)
+
+   ;; 1     2         3
+   (" (m?r?)([^ ]+HJ?)([^H ]+) "
+    | (2 = *) (1 = *) (3 = *) |)
+
+   ("." =))
+  *))
+
+;; Stage 5
+;; Remove ZWNJ/ZWJ
+(generator
+ (0
+  (cond
+   ("[NJ]")
+
+   ("." =))
+  *))
+
+;; Stage 6
+;; GPOS processing
 (generator
  (0
   (cond
    (" ([^ ]+) "
-    (1 otf:mlym=akhn,psts,haln+abvm,blwm,dist))
-   ("."
-    [ = ]))
+    (1 :otf=mlym=+abvm,blwm,dist))
+
+   ("." =))
   *))
 
-;; Copyright (C) 2003, 2004, 2005, 2007, 2008, 2009
+;; Copyright (C) 2003, 2004, 2005, 2007, 2008, 2009, 2010
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 

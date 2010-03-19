@@ -1,16 +1,34 @@
-;; DEVA-OTF.flt -- Font Layout Table for Devanagari OpenType font
-;; Copyright (C) 2003, 2004, 2007, 2008  AIST (H15PRO112)
+;; DEVA-OTF.flt -- Font Layout Table for Devanagari OpenType fonts
+;; Copyright (C) 2003, 2004, 2007, 2008, 2010 AIST (H15PRO112)
 ;; See the end for copying conditions.
 
 (font layouter deva-otf nil
-      (font (nil nil unicode-bmp :otf=deva=rphf)))
+      (version "1.6.0")
+      (font (nil nil unicode-bmp :otf=deva)))
 
 ;;; <li> DEVA-OTF.flt
 ;;;
 ;;; For Devanagari OpenType fonts to draw the Devanagari script.
 
+;; Accepted modifier sequence:
+;; 1. matra (pre, below, above, post)
+;; 2. candrabindu (0901) or anusvara (0902)
+;; 3. udatta (0951) or anudatta (0952)
+;; 4. grave (0953) or acute (0954)
+;; 5. visarga (0903)
+
+;; Rendering glyph order:
+;; 1. below matra
+;; 2. anudatta (0952)
+;; 3. above- or post matra
+;; 4. reph
+;; 5. candrabindu (0901) or anusvara (0902)
+;; 6. udatta (0951)
+;; 7. visarga (0903)
+
 (category
  ;; X: generic
+ ;; V: independent vowel
  ;; C: consonant (except for RA)
  ;; R: consonant RA
  ;; n: NUKTA
@@ -19,18 +37,16 @@
  ;; u: vowel sign (above)
  ;; b: vowel sign (below)
  ;; p: vowel sign (post)
- ;; A: vowel modifier (above)
- ;; a: vowel modifier (post)
- ;; S: stress sign / accent (above)
- ;; s: stress sign / accent (below)
- ;; V: independent vowel
+ ;; a: vowel modifier (above)
+ ;; A: vowel modifier (post)
+ ;; s: stress sign / accent (above)
+ ;; S: stress sign (below)
  ;; Z: internal use
  ;; N: ZWNJ
  ;; J: ZWJ
  (0x0900 0x097F	?X)			; generic
- (0x0900	?Z)			; internal use
- (0x0901 0x0902	?A)			; SIGN CANDRABINDU .. ANUSVARA
- (0x0903	?a)			; SIGN VISARGA
+ (0x0900 0x0902	?a)			; SIGN INVERTED CANDRABINDU .. ANUSVARA
+ (0x0903	?A)			; SIGN VISARGA
  (0x0904 0x0914	?V)			; LETTER SHORT A .. AU
  (0x0915 0x0939	?C)			; LETTER KA .. HA
  (0x0930	?R)			; LETTER RA
@@ -42,24 +58,30 @@
  (0x0945 0x0948	?u)			; VOWEL SIGN CANDRA E .. AI
  (0x0949 0x094C	?p)			; VOWEL SIGN CANDRA O .. AU
  (0x094D	?H)			; SIGN VIRAMA
- (0x0951	?S)			; STRESS SIGN UDATTA
- (0x0952	?s)			; STRESS SIGN ANUDATTA
- (0x0953 0x0954	?S)			; GRAVE ACCENT .. ACUTE ACCENT
+ (0x094E	?m)			; VOWEL SIGN PRISHTHAMATRA E
+ (0x0951	?s)			; STRESS SIGN UDATTA
+ (0x0952	?S)			; STRESS SIGN ANUDATTA
+ (0x0953 0x0954	?t)			; GRAVE ACCENT .. ACUTE ACCENT
+ (0x0955	?u)			; VOWEL SIGN CHANDRA LONG E
  (0x0958 0x095F	?C)			; LETTER QA .. YYA
  (0x0960 0x0961	?V)			; LETTER VOCALIC RR  .. VOCALIC LL
  (0x0962 0x0963	?b)			; VOWEL SIGN VOCALIC L .. VOCALIC LL
  (0x0972	?V)			; LETTER CANDRA A
- (0x097B 0x097C	?C)			; LETTER GGA .. JJA
- (0x097E 0x097F	?C)			; LETTER DDDA .. BBA
+ (0x0979 0x097F	?C)			; LETTER ZHA .. BBA
+
  (0x200C	?N)			; ZWNJ
  (0x200D	?J)			; ZWJ
+ (0x25CC	?X)			; DOTTED CIRCLE
+
+ (rphf		?r)
  )
 
 ;; Stage 0
-;; Compose consonant and nukta
+;; Preprocessing
 (generator
  (0
   (cond
+   ;; Compose a consonant and a nukta
    ((0x0928 0x093C) 0x0929)
    ((0x0930 0x093C) 0x0931)
    ((0x0933 0x093C) 0x0934)
@@ -71,144 +93,167 @@
    ((0x0922 0x093C) 0x095D)
    ((0x092B 0x093C) 0x095E)
    ((0x092F 0x093C) 0x095F)
+
    ("." =))
   *))
 
 ;; Stage 1
-;; Syllable identification and eordering.
+;; Syllable identification
 (generator
  (0
   (cond
-   ;; A syllable containing a vowel sign.
-   ;;1      2            34   5   6     7   8   9   10
-   ("([CR]n?(HJ?[CR]n?)*)((m)|(b)|(u|p))(A)?(a)?(S)?(s)?"
-    < | (4 =) (1 move-h) (5 =) (10 =) (6 =) (1 reph) (7 =) (9 =) (8 =) | >)
+   ;; Syllables with an independent vowel
+   ;;
+   ("(RH)?(Vn?)((J?HR)?m?u?b?p?n?a?[sS]?t?A?)"
+    < | (1 = =) (2 :otf=deva=nukt+) (3 = *) | >)
 
-   ;; A syllable without vowel signs but with a vowel modifier.
-   ;;1      2            34   5   6   7
-   ("([CR]n?(HJ?[CR]n?)*)((A)|(a))(S)?(s)?"
-    < | (1 move-h) (7 =) (1 reph) (4 =) (6 =) (5 =) | >)
+   ;; Consonant-based syllables
+   ;;1      23                 4
+   ("([CR]n?((J?H|HJ?)[CR]n?)*)(H[NJ]?|m?u?b?p?n?a?[sS]?t?A?)"
+    < | (1 :otf=deva=nukt,akhn+)
+    (4 (cond ("HJ" = =)
+	     ("(H)N?" (1 =) 0x200C)
+	     (".+" = *))) | >)
 
-   ;; No vowel signs, No vowel modifiers, but with a stress sign or an accent.
-   ;;1      2            34   5
-   ("([CR]n?(HJ?[CR]n?)*)((S)|(s))"
-    < | (1 move-h) (5 =) (1 reph) (4 =) | >)
+   ;; Combining marks are displayed with a DOTTED CIRCLE.
+   ("m"
+    (cond
+     ((font-facility 0x25CC) < = 0x25CC >)
+     ("." [ = ])))
+   ("[nHubpaSsA]"
+    (cond
+     ((font-facility 0x25CC) < 0x25CC = >)
+     ("." [ = ])))
 
-   ;; No marks at all.  Need further anylysis.
-   ("[CR]n?(HJ?[CR]n?)*(H(N|J)?)?"
-    < | (0 nomarks) | >)
-
-   ;; This combination is used in Marathi.
-   ((0x0905 0x0945)
-    < | = = | >)
-
-   ;; A syllable starting with an independent vowel.
-   ;;1  2   3   4   5
-   ("(V)(A)?(a)?(S)?(s)?"
-    < | (1 =) (5 =) (2 =) (4 =) (3 =) | >)
+   ;; Isolated blwf is displayed with a DOTTED CIRCLE in the next stage.
+   ("(J)(H)(R)"
+    < | (1 =) (3 =) (2 =) | >)
 
    ("." =))
-  *)
-
- (move-h
-  (cond
-   ;; Starting with an eyelash-RA, which remains there.
-   ("(RHJ.+)(H)(R)$"
-    (1 = *) (3 =) (2 =))
-   ("RHJ.*"
-    = *)
-
-   ;; Starting with a reph, which is removed.
-   ("RH(.+)(H)(R)$"
-    (1 = *) (3 =) (2 =))
-   ("RH(.+)"
-    (1 = *))
-
-   ("(.+)(H)(R)$"
-    (1 = *) (3 =) (2 =))
-   (".+"
-    = *)))
-
- (reph
-  (cond
-   ("RHJ.*")
-   ("(RH).*"
-    (1 otf:deva=rphf+))))
-
- (del-reph
-  (cond
-   ("RHJ.*"
-    = *)
-   ("RH(.*)"
-    (1 = *))
-   (".+"
-    = *)))
-
- (nomarks
-  (cond
-   ;; Ending with a Halant and a ZWJ.
-   (".+HJ$"
-    (0 del-reph) (0 reph))
-
-   ;; Ending with a Halant and an optional ZWNJ.  Add ZWNJ explicitly.
-   ("(.+)(H)N?$"
-    (1 move-h) (1 reph) (2 =) 0x200C)
-
-   ;; Ending with a consonant.
-   (".+"
-    (0 move-h) (0 reph))))
- )
+  *))
 
 ;; Stage 2
-;; Apply GSUB features.  If a syllable ends with a halant and a ZWNJ,
-;; render the final halant explicitly.
+;; Reorder halant for blwf
 (generator
  (0
   (cond
-   ;; Allow eyelash RA to appear at the beginning.
-   (" (RH)J([^ ]+)(H)N "
-    | (1 otf:deva=half+) (2 gsub) (3 =) |)
-   (" (m)?(RH)J([^ ]*) "
-    | (1 =) (2 otf:deva=half+) (3 gsub) |)
+   ;; Isolated blwf
+   (" J(RH) "
+    (cond
+     ((font-facility 0x25CC) < 0x25CC :otf=deva=blwf+ >)
+     (" J(RH) " [ (1 :otf=deva=blwf+) ])))
 
-   ;; Avoid applying 'blwf' and 'half' to the "RH" at the beginning;
-   (" (R)([^ ]*)(H)N "
-    | (1 =) (2 gsub) (3 =) |)
-   (" (m?R)([^ ]*) "
-    | (1 otf:deva=pres+) (2 gsub) |)
+   ;; Syllables with an overt halant
+   (" (RHJ?)?([^ ]+)(HN) "
+    | (1 = *) (2 reorder) (3 = =) |)
 
-   (" ([^ ]+)(H)N "
-    | (1 gsub) (2 =) |)
-   (" ([^ ]+) "
-    | (1 gsub) |)
+   ;; Ordinary syllables
+   (" (RHJ?)?([^mubpasStA ]+)(m?u?b?p?n?a?[sS]?t?A?) "
+    | (1 = *) (2 reorder) (3 = *) |)
 
    ("." =))
   *)
 
- ;; Dispite Rule R5a (The Unicode Standard 5.0, p.305), we use the
- ;; below form to depict the sequence "RHJ" at non-initial positions.
- ;; This is to avoid interpreting the sequence "CHRHJ" as "CH" +
- ;; "RHJ".  It should be parsed as "CHR" + "HJ".
- (gsub
+ ;; In Devanagari and Gujarati, vattu has a half form.  Thus we handle
+ ;; the sequence CHRHC as (CH)half + (RH)blwf + C instead of
+ ;; reordering and interpreting it as C + (RH)blwf + H + C.
+ (reorder
   (cond
-   ("([^J]*)J(.*)"
-    (1 otf:deva=nukt,akhn,blwf,half,vatu,pres+) (2 gsub))
-   (".*"
-    otf:deva=nukt,akhn,blwf,half,vatu,pres+)))
+   ("J?(H)(R)$" (2 =) (1 =))
+   ("J?(HR)(.+)$" (1 = =) (2 reorder))
+   ("(.)(.*)$" (1 =) (2 reorder))))
  )
 
 ;; Stage 3
-;; Apply other features.
+;; Language forms and matra reordering
+(generator
+ (0
+  (cond
+   ;; Overt halant forms
+   (" (RHJ?)?([^ ]+)(HN) "
+    |
+    (1 (cond ("RHJ" :otf=deva=half+)
+	     ("RH" :otf=deva=rphf+)))
+    (2 (cond ("(.H)(.+)" (1 :otf=deva=half+) (2 :otf=deva=blwf,half+))
+	     (".+" :otf=deva=blwf,half+)))
+    (3 = =) |)
+
+   ;; Other syllables
+   ;; 1      2               3     4     5     6       7   8
+   (" (RHJ?)?([^mubpasStA ]*)(mn?)?(un?)?(bn?)?(p?n?a?)(S)?(s?t?A?) "
+    | (3 = *)
+    (1 (cond ("RHJ" :otf=deva=half+)
+	     ("RH" :otf=deva=rphf+)))
+    (2 (cond ("(.H)(.+)" (1 :otf=deva=half+) (2 :otf=deva=blwf,half+))
+	     (".+" :otf=deva=blwf,half+)))
+    (5 = *) (7 =) (4 = *) (6 = *) (8 = *) |)
+
+   ("." =))
+  *))
+
+;; Stage 4
+;; Final reordering #1 (Move pre-base matra after the last halant)
+(generator
+ (0
+  (cond
+   ;; 1    2         3
+   (" (mn?)([^ ]+HJ?)([^H ]+) "
+    | (2 = *) (1 = *) (3 = *) |)
+
+   ("." =))
+  *))
+
+;; Stage 5
+;; Final reordering #2 (Move reph after the first halant)
+(generator
+ (0
+  (cond
+   ;; Syllables with a reph and an explicit halant
+   ;; 1     2  3             4
+   (" (mn?)?(r)([^H ]+HJ?)([^ ]*) "
+    | (1 = *) (3 = *) (2 =) (4 = *) |)
+
+   ;; A reph without explicit halant
+   ;; 1     2  3          4
+   (" (mn?)?(r)([^astA ]+)(a?s?t?A?) "
+    | (1 = *) (3 = *) (2 =) (4 = *) |)
+
+   ("." =))
+  *))
+
+;; Stage 6
+;; Nukta for matra, vattu and presentation forms
 (generator
  (0
   (cond
    (" ([^ ]+) "
-    (1 otf:deva=abvs,blws,psts,haln+abvm,blwm,dist))
-   ("."
-    [ = ]))
+    | (1 :otf=deva=nukt,vatu,pres,abvs,blws,psts,haln+) |)
+
+   ("." =))
   *))
 
-;; Copyright (C) 2003, 2004, 2007, 2008
+;; Stage 7
+;; Remove ZWNJ/ZWJ
+(generator
+ (0
+  (cond
+   ("[NJ]")
+
+   ("." =))
+  *))
+
+;; Stage 8
+;; GPOS processing
+(generator
+ (0
+  (cond
+   (" ([^ ]+) "
+    (1 :otf=deva=+abvm,blwm,dist))
+
+   ("." =))
+  *))
+
+;; Copyright (C) 2003, 2004, 2007, 2008, 2010
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
