@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ja\n"
 "Report-Msgid-Bugs-To: bugs-m17n-lib@m17n.org\n"
-"POT-Creation-Date: 2009-07-28 16:24+0900\n"
+"POT-Creation-Date: 2010-03-19 20:28+0900\n"
 "PO-Revision-Date: 2006-09-21 23:16+0900\n"
 "Last-Translator: Kenichi Handa <handa@m17n.org>\n"
 "Language-Team: ja <ja@li.org>\n"
@@ -279,6 +279,12 @@ msgid ""
 "Note that the length of key-sequence bound for this command must be 1.\n"
 "This is one of special commands reserved by the m17n library, and\n"
 "should not be used in a map of an input method."
+msgstr ""
+
+#: MIM/si-wijesekera.mim:36
+msgid ""
+"Surrounding text vs. preedit.\n"
+"If 1, try to use surrounding text.  Otherwise, use preedit."
 msgstr ""
 
 #: MIM/ta-lk-renganathan.mim:33
