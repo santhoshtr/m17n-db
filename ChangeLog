@@ -1,3 +1,9 @@
+2010-03-19  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/MLYM-OTF.flt, FLT/ORYA-OTF.flt, FLT/GUJR-OTF.flt,
+	FLT/BENG-OTF.flt, FLT/DEVA-OTF.flt: Rewritten to emulate the new
+	OTF behaviour by using old fonts.
+
 2010-03-19  Kenichi Handa  <handa@m17n.org>
 
 	* configure.ac: Versions changed to 1.6.0pre.
