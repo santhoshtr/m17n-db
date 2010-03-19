@@ -106,7 +106,7 @@
      (".+" < 0x0D4C >)))
 
    ;; Combining marks are displayed with a DOTTED CIRCLE.
-   ("(m)"
+   ("m"
     (cond
      ((font-facility 0x25CC) < = 0x25CC >)
      ("." [ = ])))
