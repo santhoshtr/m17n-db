@@ -1,6 +1,6 @@
 2010-03-19  Kenichi Handa  <handa@m17n.org>
 
-	* configure.ac: Versions changed to 1.6.0.
+	* configure.ac: Versions changed to 1.6.0pre.
 
 	* po/ja.po, po/m17n-db.pot, po/vi.po: Re-generated.
 
