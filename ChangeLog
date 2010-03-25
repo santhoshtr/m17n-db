@@ -1,3 +1,19 @@
+2010-03-25  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/ORYA-OTF.flt (reorder): Add the patters JY and HJ before pstf.
+
+	* FLT/MLYM-OTF.flt (reorder): Add the patters JP and HJ before pstf.
+
+	* FLT/GUJR-OTF.flt (stage 1):
+	Use iteration rather than recursive for reordering.
+
+	* FLT/DEVA-OTF.flt (stage 2):
+	Use iteration rather than recursive for reordering.
+
+	* FLT/BENG-OTF.flt (stage 0):
+	Use font-facility to check KHANDA-TA's availability.
+	(reorder): Add the patterns JY and HJ before pstf.
+
 2010-03-19  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/MLYM-OTF.flt, FLT/ORYA-OTF.flt, FLT/GUJR-OTF.flt,
