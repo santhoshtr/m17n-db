@@ -90,15 +90,15 @@
    ;; Two-part vowel signs
    ((0x0D46 0x0D3E)
     (cond
-     ((font-facility 0x25CC) < 0x0D46 0x25CC 0x0D3E >)
+     ((font-facility 0x25CC) < = 0x25CC = >)
      (".+" < 0x0D4A >)))
    ((0x0D47 0x0D3E)
     (cond
-     ((font-facility 0x25CC) < 0x0D47 0x25CC 0x0D3E >)
+     ((font-facility 0x25CC) < = 0x25CC = >)
      (".+" < 0x0D4B >)))
    ((0x0D46 0x0D57)
     (cond
-     ((font-facility 0x25CC) < 0x0D46 0x25CC 0x0D57 >)
+     ((font-facility 0x25CC) < = 0x25CC = >)
      (".+" < 0x0D4C >)))
 
    ;; Combining marks are displayed with a DOTTED CIRCLE.
@@ -150,29 +150,28 @@
  (reorder
   (cond
    ;; pref after pstf
-   ("(.|.+[^PJ])((J?HP)*J?HR)$"
-    (1 reorder-B) (2 reorder-any))
+   ("(.|.+([^PJ]|JP))((J?HP)*J?HR)$"
+    (1 reorder-B *) (3 reorder-any *))
    ;; pref between blwf and pstf
    ("(.*[^J])(J?HR(J?HP)+)$"
-    (1 reorder-B) (2 reorder-any))
+    (1 reorder-B *) (2 reorder-any *))
    ;; pref before blwf
    ("(.*[^J])(J?HR(J?HB)+(J?HP)*)$"
-    (1 reorder-B) (2 reorder-any))
+    (1 reorder-B *) (2 reorder-any *))
    ;; no pref
-   ("(.|.+[^PJ])((J?HP)*)$"
-    (1 reorder-B) (2 reorder-any))
+   ("(.|.+([^PJ]|JP|HJ))((J?HP)*)$"
+    (1 reorder-B *) (3 reorder-any *))
    (".+" = *)))    
 
  (reorder-B
   (cond
-   ("J?(H)(B)(.*)"
-    (2 =) (1 =) (3 reorder-B))
-   ("(.)(.*)"
-    (1 =) (2 reorder-B))))
+   ("J?(H)(B)"
+    (2 =) (1 =))
+   ("." =)))
 
  (reorder-any
-  ("J?(H)(.)(.*)"
-   (2 =) (1 =) (3 reorder-any)))
+  ("J?(H)(.)"
+   (2 =) (1 =)))
  )
 
 ;; Stage 3
