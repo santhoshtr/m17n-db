@@ -96,20 +96,23 @@
 
    ;; Syllables with an overt halant
    (" (RHJ?)?([^ ]+)(HN) "
-    | (1 = *) (2 reorder) (3 = =) |)
+    | (1 = *) (2 reorder *) (3 = =) |)
 
    ;; Ordinary syllables
    (" (RHJ?)?([^mubpaA ]+)(m?u?b?p?n?a?A?) "
-    | (1 = *) (2 reorder) (3 = *) |)
+    | (1 = *) (2 reorder *) (3 = *) |)
 
    ("." =))
   *)
 
+ ;; In Devanagari and Gujarati, vattu has a half form.  Thus we handle
+ ;; the sequence CHRHC as (CH)half + (RH)blwf + C instead of
+ ;; reordering and interpreting it as C + (RH)blwf + H + C.
  (reorder
   (cond
    ("J?(H)(R)$" (2 =) (1 =))
-   ("J?(HR)(.+)$" (1 = =) (2 reorder))
-   ("(.)(.*)$" (1 =) (2 reorder))))
+   ("J?(HR)" (1 = =))
+   ("." =)))
  )
 
 ;; Stage 2
