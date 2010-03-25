@@ -78,9 +78,11 @@
    ((0x09CC)
     0x09C7 0x09D7)
 
-   ;; TA + HALANT + ZWJ -> KHANDA-TA
-   ((0x09A4 0x09CD 0x200D)
-    0x09CE)
+   ;; Many fonts still do not have KHANDA-TA.
+   ((0x09CE)
+    (cond
+     ((font-facility 0x09CE) =)
+     (".+" 0x09A4 0x09CD 0x200D)))
 
    ;; consonant + NUKTA
    ((0x09A1 0x09BC)
@@ -117,11 +119,11 @@
    ;; Two-part vowel signs
    ((0x09C7 0x09BE)
     (cond
-     ((font-facility 0x25CC) < 0x09C7 0x25CC 0x09BE >)
+     ((font-facility 0x25CC) < = 0x25CC = >)
      (".+" < 0x09CB >)))
    ((0x09C7 0x09D7)
     (cond
-     ((font-facility 0x25CC) < 0x09C7 0x25CC 0x09D7 >)
+     ((font-facility 0x25CC) < = 0x25CC = >)
      (".+" < 0x09CC >)))
 
    ;; Combining marks are displayed with a DOTTED CIRCLE.
@@ -157,30 +159,33 @@
    (" (RHJ?)?([^ ]+)(HN) "
     | (1 = *) (2 reorder) (3 = =) |)
 
-   ;; Ordinary syllables
-   (" (RHJ?)?([^mbpaA ]*[^mbpaANJ ])(m?([NJ]?b)?p?n?a?A?) "
+   ;; Syllables with a below matra
+   (" (RHJ?)?([^mbpaA ]*[^mbpaANJ ])(m?[NJ]?bp?n?a?A?) "
+    | (1 = *) (2 reorder) (3 = *) |)
+
+   ;; Other syllables
+   (" (RHJ?)?([^mbpaA ]+)(m?p?n?a?A?) "
     | (1 = *) (2 reorder) (3 = *) |)
 
    ("." =))
   *)
 
  (reorder
-  ("(.|.+[^YJ])((J?HY)*)$"
-   (1 reorder-BR) (2 reorder-Y)))
-
+  ("(.|.+([^YJ]|JY|HJ))((J?HY)*)$"
+   (1 reorder-BR *) (3 reorder-Y *)))
+ 
  ;; Unlike Devanagari and Gujarati, vattu in Bengali does not have a
  ;; half form.  Therefore the sequence CHRHC can be safely reordered
- ;; as CRHHC.  Same for CHBHC.
+ ;; to CRHHC.  Same for CHBHC.
  (reorder-BR
   (cond
-   ("J?(H)([BR])(.*)"
-    (2 =) (1 =) (3 reorder-BR))
-   ("(.)(.*)"
-    (1 =) (2 reorder-BR))))
+   ("J?(H)([BR])"
+    (2 =) (1 =))
+   ("." =)))
 
  (reorder-Y
-  ("J?(H)(Y)(.*)"
-   (2 =) (1 =) (3 reorder-Y)))
+  ("J?(H)(Y)"
+   (2 =) (1 =)))
  )
 
 ;; Stage 3
@@ -214,17 +219,23 @@
    ("." =))
   *)
 
- ;; FIXME: When the constant C has both half and blwf, the partial
- ;; sequence CHJ changes into blwf, instead of half, unless it is
- ;; placed at the beginning of a syllable.
  (b4post
-  ("(.|.+[^YH]H?)(YH)*$"
-   (1 (cond ("(.H)(.+)" (1 :otf=beng=half+) (2 :otf=beng=blwf,half,vatu+))
-	    (".+" :otf=beng=blwf,half,vatu+)))))
+  (cond
+   ("(.H)J?(.*)"
+    (1 :otf=beng=half+)
+    (2 ("(.|.+([^YH]|JY|[BR]H))((YH)*)$" (1 lang-forms *))))
+   ("(.|.+([^YH]|JY|[BR]H))((YH)*)"
+    (1 lang-forms *))))
+
+ (lang-forms
+  (cond
+   ("(.H)J" (1 :otf=beng=half+))
+   (".H" :otf=beng=blwf,half,vatu+)
+   ("." =)))
 
  (post
-  ("(.|.+[^YH]H?)((YH)+)$"
-   (2 :otf=beng=pstf+)))
+  ("(.|.+([^YH]|JY|[BR]H))((YH)+)$"
+   (3 :otf=beng=pstf+)))
  )
 
 ;; Stage 4
