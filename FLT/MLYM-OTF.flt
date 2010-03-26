@@ -59,14 +59,6 @@
    ((0x0D4B) 0x0D47 0x0D3E)
    ((0x0D4C) 0x0D46 0x0D57)
 
-   ;; Chillu letters
-   ((0x0D23 0x0D4D 0x200D) :otf=mlym=akhn,half,haln+)
-   ((0x0D28 0x0D4D 0x200D) :otf=mlym=akhn,half,haln+)
-   ((0x0D30 0x0D4D 0x200D) :otf=mlym=akhn,half,haln+)
-   ((0x0D32 0x0D4D 0x200D) :otf=mlym=akhn,half,haln+)
-   ((0x0D33 0x0D4D 0x200D) :otf=mlym=akhn,half,haln+)
-   ((0x0D15 0x0D4D 0x200D) :otf=mlym=akhn,half,haln+)
-
    ("." =))
   *))
 
@@ -162,8 +154,7 @@
     (1 reorder-B *) (2 reorder-any *))
    ;; no pref
    ("(.|.+([^PJ]|JP|HJ))((J?HP)*)$"
-    (1 reorder-B *) (3 reorder-any *))
-   (".+" = *)))    
+    (1 reorder-B *) (3 reorder-any *))))
 
  (reorder-B
   (cond
