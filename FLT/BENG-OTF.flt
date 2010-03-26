@@ -111,10 +111,12 @@
    ;; Consonant-based syllables
    ;;1        23                   4
    ("([CBYR]n?((J?H|HJ?)[CBYR]n?)*)(H[NJ]?|m?([NJ]?b)?p?n?a?A?)"
-    < | (1 :otf=beng=nukt,akhn+)
-    (4 (cond ("HJ" = =)
-	     ("(H)N?" (1 =) 0x200C)
-	     (".+" = *))) | >)
+    < |
+    (cond
+     (".+HJ$" :otf=beng=nukt,akhn+)
+     ("(.+)(H)N?$" (1 :otf=beng=nukt,akhn+) (2 =) 0x200C)
+     (".+" :otf=beng=nukt,akhn+))
+    | >)
 
    ;; Two-part vowel signs
    ((0x09C7 0x09BE)

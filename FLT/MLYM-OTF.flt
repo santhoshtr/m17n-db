@@ -78,10 +78,12 @@
    ;; Consonant-based syllables
    ;;1      23                 4
    ("([CBPR]((J?H|HJ?)[CBPR])*)(H[NJ]?|m?p?A?)"
-    < | (1 :otf=mlym=akhn+)
-    (4 (cond ("HJ" = =)
-	     ("(H)N?" (1 =) 0x200C)
-	     (".+" = *))) | >)
+    < |
+    (cond
+     (".+HJ$" :otf=mlym=nukt,akhn+)
+     ("(.+)(H)N?$" (1 :otf=mlym=nukt,akhn+) (2 =) 0x200C)
+     (".+" :otf=mlym=nukt,akhn+))
+    | >)
 
    ;; Syllables with an independent vowel
    ("V(J?H[BPR])?m?p?A?"
