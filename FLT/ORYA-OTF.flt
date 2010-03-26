@@ -147,9 +147,7 @@
 
  (reorder
   ("(.|.+([^YJ]|JY|HJ))((J?HY)*)$"
-   (1 reorder-BR *) (3 reorder-Y *))
-  ("(.*)(.HJ)$"
-   (1 reorder-BR) (2 = *)))
+   (1 reorder-BR *) (3 reorder-Y *)))
 
  (reorder-BR
   (cond
