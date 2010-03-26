@@ -1,5 +1,13 @@
 2010-03-26  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
+	* FLT/MLYM-OTF.flt: Chillu characters form consonant clusters.
+
+2010-03-26  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/KNDA-OTF.flt, FLT/TELU-OTF.flt, FLT/TAML-OTF.flt,
+	FLT/GURU-OTF.flt: Rewritten to emulate the new OTF behaviour by
+	using old fonts.
+
 	* FLT/ORYA-OTF.flt, FLT/MLYM-OTF.flt, FLT/BENG-OTF.flt,
 	FLT/GUJR-OTF.flt, FLT/DEVA-OTF.flt: Include syllable final HJ to
 	otf part.
