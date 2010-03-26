@@ -1,54 +1,49 @@
 ;; KNDA-OTF.flt -- Font Layout Table for Kannada OpenType fonts
-;; Copyright (C) 2004, 2007  AIST (H15PRO112)
+;; Copyright (C) 2004, 2007, 2010 AIST (H15PRO112)
 ;; See the end for copying conditions.
 
 (font layouter knda-otf nil
-      (font (nil nil unicode-bmp :otf=knda=rphf)))
+      (version "1.6.0")
+      (font (nil nil unicode-bmp :otf=knda)))
 
 ;;; <li> KNDA-OTF.flt
 ;;;
 ;;; For Kannada OpenType fonts to draw the Kannada script.
 
 (category
- ;; C: consonant (except for RA)
- ;; R: RA
- ;; n: NUKTA
- ;; H: HALANT
- ;; u: vowel sign (above)
- ;; b: vowel sign (below)
- ;; p: vowel sign (post)
- ;; l: length mark
- ;; a: vowel modifier (post)
- ;; V: independent vowel
- ;; N: ZWNJ (ZERO WIDTH NON-JOINER)
- ;; J: ZWJ (ZERO WIDTH JOINER)
- ;; X: generic
+ ;; b: before subscript matras
+ ;; a: after subscript matras
  (0x0C80 0x0CFF	?X)			; generic
- (0x0C82 0x0C83	?a)			; SIGN ANUSVARA .. VISARGA
+ (0x0C82 0x0C83	?A)			; SIGN ANUSVARA .. VISARGA
  (0x0C85 0x0C94	?V)			; LETTER A .. LETTER AU
  (0x0C95 0x0CB9	?C)			; LETTER KA .. LETTER HA
  (0x0CB0	?R)			; LETTER RA
  (0x0CBC	?n)			; SIGN NUKTA
- (0x0CBE 	?p)			; VOWEL SIGN AA
- (0x0CBF	?u)			; VOWEL SIGN I
- (0x0CC1 0x0CC4	?p)			; VOWEL SIGN U .. RR
- (0x0CC6	?u)			; VOWEL SIGN E
- (0x0CCC	?u)			; VOWEL SIGN AU
+ (0x0CBE 0x0CBF	?b)			; VOWEL SIGN AA .. I
+ (0x0CC1 0x0CC2	?b)			; VOWEL SIGN U .. UU
+ (0x0CC3 0x0CC4	?a)			; VOWEL SIGN VOCALIC R .. VOCALIC RR
+ (0x0CC6	?b)			; VOWEL SIGN E
+ (0x0CCC	?b)			; VOWEL SIGN AU
  (0x0CCD	?H)			; SIGN VIRAMA
- (0x0CD5 0x0CD6	?l)			; LENGTH MARK .. AI LENGTH MARK
+ (0x0CD5 0x0CD6	?a)			; LENGTH MARK .. AI LENGTH MARK
  (0x0CDE	?C)			; LETTER FA (LLLA)
- (0x0CE0 0x0CE1	?V)			; LETTER VOCALIC RR .. LL
- (0x0CE2 0x0CE3	?b)			; VOWEL SIGN VOCALIC L .. LL
- (0x0964 0x0965	?X)			; DANDA .. DOUBLE DANDA
+ (0x0CE0 0x0CE1	?V)			; LETTER VOCALIC RR .. VOCALIC LL
+ (0x0CE2 0x0CE3	?b)			; VOWEL SIGN VOCALIC L .. VOCALIC LL
+
  (0x200C	?N)			; ZWNJ
  (0x200D	?J)			; ZWJ
+ (0x25CC	?X)			; DOTTED CIRCLE
+
+ (blwf		?B)
+ (rphf		?r)
  )
 
-;; Preprocessing.
+;; Stage 0
+;; Preprocessing
 (generator
  (0
   (cond
-   ;; Decompose two-part and three-part vowel signs.
+   ;; Decompose multi-part vowel signs.
    ((0x0CC0)
     0x0CBF 0x0CD5)
    ((0x0CC7)
@@ -59,89 +54,190 @@
     0x0CC6 0x0CC2)
    ((0x0CCB)
     0x0CC6 0x0CC2 0x0CD5)
-   ;; Move ZWJ between RA and HARANT.
-   ("(R)(J)(H)"
-    (2 =) (1 =) (3 =))
-   ("." =))
-  *))
-
-;; Syllable identification.
-;; Apply 'nukt' and 'akhn' before reordering.
-
-(generator
- (0
-  (cond
-   ;; A syllable with an above vowel sign.
-   ;;1   2      3          4
-   ("(J)?([CR]n?(H[CR]n?)*)(up?l?a?)"
-    < | (1 =) (2 otf:knda=nukt,akhn+) (4 = *) | >)
-
-   ;; A syllable with a post- or below vowel sign.
-   ;;1   2      3          4    5
-   ("(J)?([CR]n?(H[CR]n?)*)(p|b)(a)?"
-    < | (1 =) (2 otf:knda=nukt,akhn+) (4 =) (5 =) | >)
-
-   ;; A syllable with a vowel modifier, but without vowel signs.
-   ;;1   2      3          4
-   ("(J)?([CR]n?(H[CR]n?)*)(a)"
-    < | (1 =) (2 otf:knda=nukt,akhn+) (4 =) | >)
-
-   ;; No vowel signs, no vowel modifiers.
-   ;;1   2      3          4
-   ("(J)?([CR]n?(H[CR]n?)*)(HN?)?"
-    < | (1 =) (2 otf:knda=nukt,akhn+) (4 = *) | >)
-
-   ;; A syllable starting with an independent vowel.
-   ("Va?"
-    < | = * | >)
 
    ("." =))
   *))
 
-;; Reordering.  The base consonant is always the first one, because
-;; all Kannada consonants have a below form.
+;; Stage 1
+;; Syllable identification
 (generator
  (0
   (cond
-   ;; 1    2     34        5     6   7   8
-   (" (RH)?([^N])((H[^N])*)(u|b)?(p)?(l)?(a)? "
-    | (2 =) (5 =) (6 =) (3 move-h) (7 =) (1 otf:knda=rphf+) (8 =) |)
+   ;; Syllables with an independent vowel
+   ("(RH)?(Vn?)((J?H[CR])?b?b?a?A?)"
+    < | (1 = =) (2 :otf=knda=nukt+) (3 = *) | >)
 
-   ;; A syllable ending with a halant.
-   ;; 1    2   34
-   (" (RH)?(.H)((.H)*)N? "
-    ;; WORKAROUND : Kedage fonts produce halant form with 'psts'.
-    | (2 otf:knda=haln,psts+)(3 = *) (1 otf:knda=rphf+) |)
+   ;; Consonant-based syllables
+   ;;1      23                 4
+   ("([CR]n?((J?H|HJ?)[CR]n?)*)(H[NJ]?|b?b?a?n?A?)"
+    < |
+    (cond
+     (".+HJ$" :otf=knda=nukt,akhn+)
+     ("(.+)(H)N?$" (1 :otf=knda=nukt,akhn+) (2 =) 0x200C)
+     (".+" :otf=knda=nukt,akhn+))
+    | >)
 
-   ;; No reph movement if preceded by a ZWJ.
-   ;;  1  23        4     5   6
-   (" J(.)((H[^N])*)(u|b)?(p)?(l?a?) "
-    | (1 =) (4 =) (5 =) (2 move-h) (6 = *) |)
+   ;; Multi-part vowel signs
+   ((0x0CBF 0x0CD5)
+    (cond
+     ((font-facility 0x25CC) < 0x25CC = = >)
+     (".+" [ 0x0CC0 ])))
+   ((0x0CC6 0x0CD5)
+    (cond
+     ((font-facility 0x25CC) < 0x25CC = = >)
+     (".+" [ 0x0CC7 ])))
+   ((0x0CC6 0x0CD6)
+    (cond
+     ((font-facility 0x25CC) < 0x25CC = = >)
+     (".+" [ 0x0CC8 ])))
+   ((0x0CC6 0x0CC2 0x0CD5)
+    (cond
+     ((font-facility 0x25CC) < 0x25CC = = = >)
+     (".+" [ 0x0CCB ])))
+   ((0x0CC6 0x0CC2)
+    (cond
+     ((font-facility 0x25CC) < 0x25CC = = >)
+     (".+" [ 0x0CCA ])))
 
-   ;;  1   23
-   (" J(.H)((.H)*)N? "
-    | (1 otf:knda=haln,psts+) (2 = *) |)
+   ;; Combining marks are displayed with a DOTTED CIRCLE.
+   ("[nHbaA]"
+    (cond
+     ((font-facility 0x25CC) < 0x25CC = >)
+     ("." [ = ])))
+
+   ;; Isolated blwf is displayed with a DOTTED CIRCLE in the
+   ;; next stage.
+   ("(J)(H)([CR])"
+    < | (1 =) (3 =) (2 =) | >)
+
+   ("." =))
+  *))
+
+;; Stage 2
+;; Reorder halant for blwf
+(generator
+ (0
+  (cond
+   ;; Isolated blwf
+   (" J([CR]H) "
+    (cond
+     ((font-facility 0x25CC) < 0x25CC (1 :otf=knda=blwf+) >)
+     (" J([CR]H) " [ (1 :otf=knda=blwf+) ])))
+
+   ;; Syllables with an overt halant
+   (" (RHJ?)?([^ ]+)(HN) "
+    | (1 = *) (2 reorder *) (3 = =) |)
+
+   ;; Ordinary syllables
+   (" (RHJ?)?([^baA ]+)(b?b?n?a?n?A?) "
+    | (1 = *) (2 reorder *) (3 = *) |)
 
    ("." =))
   *)
 
- (move-h
+ (reorder
   (cond
-   ("(H)(.+)"
-    (2 = *) (1 =)))))
+   ("J?(H)([CR])" (2 =) (1 =))
+   ("." =)))
+ )
 
-;; Apply other OTF features.
+;; Stage 3
+;; Language forms
+;; Although all consonants have a blow form and none has a half form,
+;; we have to prevent the first consonant from forming the below form.
+(generator
+ (0
+  (cond
+   ;; Overt halant forms
+   (" (RHJ?)?([^ ]+)(HN) "
+    |
+    (1 (cond ("RHJ" = =)
+	     ("RH" :otf=knda=rphf+)))
+    (2 (cond ("(.H)J?(.*)" (1 :otf=knda=half+) (2 lang-forms *))
+	     (".+" lang-forms *)))
+    (3 = =) |)
+
+   ;; Other syllables
+   (" (RHJ?)?([^baA ]*)(b?b?n?a?n?A?) "
+    |
+    (1 (cond ("RHJ" = =)
+	     ("RH" :otf=knda=rphf+)))
+    (2 (cond ("(.H)J?(.*)" (1 :otf=knda=half+) (2 lang-forms *))
+	     (".+" lang-forms *)))
+    (3 = *) |)
+
+   ("." =))
+  *)
+
+ (lang-forms
+  (cond
+   ("(.H)J" (1 :otf=knda=half+))
+   (".H" :otf=knda=blwf,half+)
+   ("." =)))
+ )
+
+;; Stage 4
+;; Final reordering #1 (Move before-subscript matras)
+(generator
+ (0
+  (cond
+   (" ([^B ]*[^BJ])J?(B*)(bb?n?)([^ ]*) "
+    | (1 = *) (3 = *) (2 = *) (4 = *) |)
+
+   ("." =))
+  *))
+
+;; Stage 5
+;; Final reordering #2 (Move reph after the first halant)
+(generator
+ (0
+  (cond
+   ;; Syllables with a reph and an explicit halant
+   ;; 1  2           3
+   (" (r)([^H ]+HJ?)([^ ]*) "
+    | (2 = *) (1 =) (3 = *) |)
+
+   ;; A reph without explicit halant
+   ;; 1  2       3
+   (" (r)([^A ]+)(A)? "
+    | (2 = *) (1 =) (3 =) |)
+
+   ("." =))
+  *))
+
+;; Stage 6
+;; Nukta for matra and presentation forms
 (generator
  (0
   (cond
    (" ([^ ]+) "
-    (1 otf:knda=blwf,abvs,blws,psts+abvm,blwm,dist))
+    | (1 :otf=knda=nukt,pres,abvs,blws,psts,haln+) |)
 
-   ("."
-    [ = ]))
+   ("." =))
   *))
 
-;; Copyright (C) 2004, 2007
+;; Stage 7
+;; Remove ZWNJ/ZWJ
+(generator
+ (0
+  (cond
+   ("[NJ]")
+
+   ("." =))
+  *))
+
+;; Stage 8
+;; GPOS processing
+(generator
+ (0
+  (cond
+   (" ([^ ]+) "
+    (1 :otf=knda=+abvm,blwm,dist))
+
+   ("." =))
+  *))
+
+;; Copyright (C) 2004, 2007, 2010
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 

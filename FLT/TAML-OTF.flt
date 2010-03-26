@@ -1,35 +1,39 @@
 ;; TAML-OTF.flt -- Font Layout Table for Tamil OpenType fonts
-;; Copyright (C) 2004, 2006, 2007  AIST (H15PRO112)
+;; Copyright (C) 2004, 2006, 2007, 2010 AIST (H15PRO112)
 ;; See the end for copying conditions.
 
 (font layouter taml-otf nil
-      (font (nil nil unicode-bmp :otf=taml=akhn)))
+      (version "1.6.0")
+      (font (nil nil unicode-bmp :otf=taml)))
 
 ;;; <li> TAML-OTF.flt
 ;;;
 ;;; For Tamil OpenType fonts to draw the Tamil script.
 
 (category
+ ;; X: generic
+ ;; a: ANUSVARA
+ ;; V: independent vowel
  ;; C: consonant
  ;; H: HALANT
  ;; m: vowel sign (pre)
- ;; u: vowel sign (above)
- ;; b: vowel sign (below)
- ;; p: vowel sign (post)
- ;; X: generic
+ ;; p: vowel sign (others)
  (0x0B80 0x0BFF	?X)			; generic
+ (0x0B82	?a)			; SIGN ANUSVARA
+ (0x0B85 0x0B94 ?V)			; LETTER A .. AU
  (0x0B95 0x0BB9 ?C)			; LETTER KA .. HA
- (0x0BBE 0x0BBF	?p)			; VOWEL SIGN AA .. I
- (0x0BC0	?u)			; VOWEL SIGN II
- (0x0BC1 0x0BC2	?b)			; VOWEL SIGN U .. UU
+ (0x0BBE 0x0BC2	?p)			; VOWEL SIGN AA .. I
  (0x0BC6 0x0BC8	?m)			; VOWEL SIGN E .. AI
  (0x0BCD	?H)			; SIGN VIRAMA
  (0x0BD7	?p)			; AU LENGTH MARK
- (0x0964 0x0965	?X)			; DANDA .. DOUBLE DANDA
+
  (0x200C	?N)			; ZWNJ
+ (0x200D	?J)			; ZWJ
+ (0x25CC	?X)			; DOTTED CIRCLE
  )
 
-;; Preprocessing.
+;; Stage 0
+;; Preprocessing
 (generator
  (0
   (cond
@@ -40,51 +44,115 @@
     0x0BC7 0x0BBE)
    ((0x0BCC)
     0x0BC6 0x0BD7)
+
    ;; A variation of AU.
    ((0x0B92 0x0BD7)
     0x0B94)
-   ;; TAMu and TSCu fonts generate the SRI ligature with 'akhn'.
-   ;; (lohit and latha do it with 'half' + 'abvs'.)
+
+   ;; The SHRII ligature and its old definition
+   ((0x0BB6 0x0BCD 0x0BB0 0x0BC0)
+    (0 :otf=taml=akhn,half,pres,abvs,blws,psts,haln+))
    ((0x0BB8 0x0BCD 0x0BB0 0x0BC0)
-    otf:taml=akhn+)
+    (0 :otf=taml=akhn,half,pres,abvs,blws,psts,haln+))
+
    ("." =))
   *))
 
-;; Syllable identification.
+;; Stage 1
+;; Syllable identification
 (generator
  (0
   (cond
-   ;; A syllable with vowel signs.
-   ("((CH)*C)(mp?|b|u|p)"
-    < | (1 otf:taml=akhn,half+) (3 = *) | >)
+   ;; Consonant-based syllables
+   ;;1 23            4
+   ("(C((J?H|HJ?)C)*)(H[NJ]?|m?p?a?)"
+    < |
+    (cond
+     (".+HJ$" :otf=taml=nukt,akhn+)
+     ("(.+)(H)N?$" (1 :otf=taml=nukt,akhn+) (2 =) 0x200C)
+     (".+" :otf=taml=nukt,akhn+))
+    | >)
 
-   ;; No vowel signs.
-   ("((CH)*C)(HN?)?"
-    < | (1 otf:taml=akhn,half+) (3 =) | >)
+   ;; Syllables with an independent vowel
+   ("Vm?p?a?"
+    < | = * | >)
+
+   ;; Two-part vowel signs
+   ((0x0BC6 0x0BBE)
+    (cond
+     ((font-facility 0x25CC) < = 0x25CC = >)
+     (".+" [ 0x0BCA ])))
+   ((0x0BC7 0x0BBE)
+    (cond
+     ((font-facility 0x25CC) < = 0x25CC = >)
+     (".+" [ 0x0BCB ])))
+   ((0x0BC6 0x0BD7)
+    (cond
+     ((font-facility 0x25CC) < = 0x25CC = >)
+     (".+" [ 0x0BCC ])))
+
+   ;; Combining marks are displayed with a DOTTED CIRCLE.
+   ("m"
+    (cond
+     ((font-facility 0x25CC) < = 0x25CC >)
+     ("." [ = ])))
+   ("[Hpa]"
+    (cond
+     ((font-facility 0x25CC) < 0x25CC = >)
+     ("." [ = ])))
 
    ("." =))
   *))
 
-;; Move Matra before the base consonant.
+;; Stage 2
+;; Move pre-base matra after the last halant, or to the beginning
 (generator
  (0
   (cond
-   (" ([^ m]*)([^ m])(m)(p)? "
-    | (1 = *) (3 =) (2 =) (4 =) |)
+   ;; 1         2       3  4
+   (" ([^ ]+HJ?)([^H ]+)(m)([^ ]*) "
+    | (1 = *) (3 =) (2 = *) (4 = *) |)
+
+   ;; 1      2  3
+   (" ([^ ]+)(m)([^ ]*) "
+    | (2 =) (1 = *) (3 = *) |)
+
    ("." =))
   *))
 
-;; Apply other OTF features.
+;; Stage 3
+;; Presentation forms
 (generator
  (0
   (cond
    (" ([^ ]+) "
-    (1 otf:taml=pres,abvs,blws,psts,haln+abvm,blwm,dist))
-   ("."
-    [ = ]))
+    | (1 :otf=taml=pres,abvs,blws,psts,haln+) |)
+
+   ("." =))
   *))
 
-;; Copyright (C) 2004, 2006, 2007
+;; Stage 4
+;; Remove ZWNJ/ZWJ
+(generator
+ (0
+  (cond
+   ("[NJ]")
+
+   ("." =))
+  *))
+
+;; Stage 5
+;; GPOS processing
+(generator
+ (0
+  (cond
+   (" ([^ ]+) "
+    (1 :otf=taml=+abvm,blwm,dist))
+
+   ("." =))
+  *))
+
+;; Copyright (C) 2004, 2006, 2007, 2010
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
