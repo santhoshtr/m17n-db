@@ -107,13 +107,15 @@
    ("(RH)?(Vn?)((J?HR)?m?u?b?p?n?a?[sS]?t?A?)"
     < | (1 = =) (2 :otf=deva=nukt+) (3 = *) | >)
 
-   ;; Consonant-based syllables
+   ;; Ordinary syllables
    ;;1      23                 4
    ("([CR]n?((J?H|HJ?)[CR]n?)*)(H[NJ]?|m?u?b?p?n?a?[sS]?t?A?)"
-    < | (1 :otf=deva=nukt,akhn+)
-    (4 (cond ("HJ" = =)
-	     ("(H)N?" (1 =) 0x200C)
-	     (".+" = *))) | >)
+    < |
+    (cond
+     (".+HJ$" :otf=deva=nukt,akhn+)
+     ("(.+)(H)N?$" (1 :otf=deva=nukt,akhn+) (2 =) 0x200C)
+     (".+" :otf=deva=nukt,akhn+))
+    | >)
 
    ;; Combining marks are displayed with a DOTTED CIRCLE.
    ("m"
@@ -145,11 +147,11 @@
 
    ;; Syllables with an overt halant
    (" (RHJ?)?([^ ]+)(HN) "
-    | (1 = *) (2 reorder *) (3 = =) |)
+    | (1 = *) (2 reorder) (3 = =) |)
 
    ;; Ordinary syllables
    (" (RHJ?)?([^mubpasStA ]+)(m?u?b?p?n?a?[sS]?t?A?) "
-    | (1 = *) (2 reorder *) (3 = *) |)
+    | (1 = *) (2 reorder) (3 = *) |)
 
    ("." =))
   *)
@@ -159,9 +161,8 @@
  ;; reordering and interpreting it as C + (RH)blwf + H + C.
  (reorder
   (cond
-   ("J?(H)(R)$" (2 =) (1 =))
-   ("J?(HR)" (1 = =))
-   ("." =)))
+   ("(.+)(H)(R)$" (1 = *) (3 =) (2 =))
+   (".+" = *)))
  )
 
 ;; Stage 3
@@ -184,12 +185,19 @@
     | (3 = *)
     (1 (cond ("RHJ" :otf=deva=half+)
 	     ("RH" :otf=deva=rphf+)))
-    (2 (cond ("(.H)(.+)" (1 :otf=deva=half+) (2 :otf=deva=blwf,half+))
-	     (".+" :otf=deva=blwf,half+)))
+    (2 (cond ("(.H)J?(.*)" (1 :otf=deva=half+) (2 lang-forms *))
+	     (".+" lang-forms *)))
     (5 = *) (7 =) (4 = *) (6 = *) (8 = *) |)
 
    ("." =))
-  *))
+  *)
+
+ (lang-forms
+  (cond
+   ("(.H)J" (1 :otf=deva=half+))
+   (".H" :otf=deva=blwf,half+)
+   ("." =)))
+ )
 
 ;; Stage 4
 ;; Final reordering #1 (Move pre-base matra after the last halant)
