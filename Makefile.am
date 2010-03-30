@@ -81,8 +81,7 @@ MISC =  KOI-8.map KOI8-R.map KOI8-U.map KOI8-T.map \
 CHAR_TABLE = \
 	NAME.tab SCRIPT.tab CASE-S.tab CASE-C.tab \
 	CATEGORY.tab COMBINE.tab BIDI.tab LINEBREAK.tab \
-	CASED.tab SOFT-DOTTED.tab CASE-MAPPING.tab \
-	BLOCK.tab
+	CASED.tab SOFT-DOTTED.tab CASE-MAPPING.tab
 
 MISC_TABLE = \
 	LOCALE.cs LOCALE.ali \
@@ -277,9 +276,6 @@ CASE-MAPPING.tab: UNIDATA/SpecialCasing.txt UNIDATA/UnicodeData.txt CASE-MAPPING
 LINEBREAK.tab: UNIDATA/LineBreak.txt LINEBREAK.awk
 	echo "# Generated from $<." > $@
 	@$(AWK) -f LINEBREAK.awk $< >> $@
-
-BLOCK.tab:
-	echo "No need to re-generate BLOCK.tab."
 
 %.tab: UNIDATA/UnicodeData.txt CHARTAB.awk
 	echo "# Generated from $<." > $@
