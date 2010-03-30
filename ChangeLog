@@ -1,8 +1,10 @@
 2010-03-30  Kenichi Handa  <handa@m17n.org>
 
-	* Makefile.am (pkgdata_DATA): Add BLOCK.tab.
-
 	* configure.ac: Versions changed to 1.6.0.
+
+	* Makefile.am (pkgdata_DATA): Add BLOCK.tab.
+	(CHAR_TABLE): Remove BLOCK.tab.
+	(BLOCK.tab): Delete this target.
 
 2010-03-30  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
