@@ -41,7 +41,6 @@
  ;; A: vowel modifier (post)
  ;; s: stress sign / accent (above)
  ;; S: stress sign (below)
- ;; Z: internal use
  ;; N: ZWNJ
  ;; J: ZWJ
  (0x0900 0x097F	?X)			; generic

@@ -12,7 +12,6 @@
 
 (category
  (0x0A00 0x0A7F	?X)			; generic
- (0x0A00	?Z)			; internal use
  (0x0A01 0x0A02	?a)			; SIGN ADAK BINDI .. BINDI
  (0x0A03	?A)			; SIGN VISARGA
  (0x0A05 0x0A14	?V)			; LETTER A .. AU
