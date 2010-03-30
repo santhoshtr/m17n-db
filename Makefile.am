@@ -27,6 +27,7 @@ pkgdata_DATA = \
 	${CHARSETS} \
 	${CHAR_TABLE} \
 	${MISC_TABLE} \
+	BLOCK.tab \
 	mdb.dir
 
 EXTRA_DIST = config.rpath mkinstalldirs m4/ChangeLog bootstrap.sh \
