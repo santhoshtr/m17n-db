@@ -1,9 +1,9 @@
 ;; SINH-OTF.flt -- Font Layout Table for Sinhala OpenType fonts
-;; Copyright (C) 2004, 2005, 2007  AIST (H15PRO112)
+;; Copyright (C) 2004, 2005, 2007, 2010 AIST (H15PRO112)
 ;; See the end for copying conditions.
 
 (font layouter sinh-otf nil
-      (font (nil nil unicode-bmp :otf=sinh=akhn)))
+      (font (nil nil unicode-bmp :otf=sinh)))
 
 ;;; <li> SINH-OTF.flt
 ;;;
@@ -11,103 +11,93 @@
 ;;; A Font is available from <http://sinhala.linux.lk/>.
 
 (category
- ;; V : independent vowels
- ;; C : consonants
- ;; H : AL-LAKUNA (virama)
- ;; m : KOMBUVA
- ;; M : DIGA KOMBUVA
- ;; b : below-consonant vowel signs
- ;; u : above-consonant vowel signs
- ;; p : post-consonant vowel signs
- ;; q : AELA-PILLA
- ;; r : GAYANUKITTA
- ;; s : KOMBUVA HAA AELA-PILLA
- ;; t : two-part vowel sign
- ;; a : AVUSVARAYA & VISARGAYA
- ;; E : else
- ;; J : ZERO WIDTH JOINER
- (0x0D80 0x0DFF ?E)
- (0x0D82 0x0D83 ?a)
+ (0x0D80 0x0DFF ?x)
+ (0x0D82 0x0D83 ?A)
  (0x0D85 0x0D96 ?V)
- (0x0D96 0x0DC6 ?C)
+ (0x0D9A 0x0DC6 ?C)
  (0x0DCA	?H)
- (0x0DCF	?q)
- (0x0DD0 0x0DD1 ?p)
+ (0x0DCF 0x0DD1 ?p)
  (0x0DD2 0x0DD3 ?u)
  (0x0DD4 0x0DD6 ?b)
  (0x0DD8	?p)
  (0x0DD9	?m)
- (0x0DDA	?t)
- (0x0DDB	?M)
- (0x0DDC	?s)
- (0x0DDD 0x0DDE ?t)
- (0x0DDF	?r)
+ (0x0DDA	?m)
+ (0x0DDF	?p)
  (0x0DF2 0x0DF3 ?p)
  (0x200D	?J)
  )
 
-;; Step 0 : Syllable identification
+;; Stage 0
+;; Preprocessing
 (generator
-
  (0
   (cond
-   ;; A syllable containing a completely decomposed two-part vowel sign.
-   ("(C(HJ[CR])*)(m(H|qH?|r)a?)"
-    < | (1 otf:sinh=akhn,vatu,pres) (3 = *) | >)
-
-   ;; A syllable containing KOMBUVA HAA AELA-PILLA.
-   ("(C(HJ[CR])*)(s)(H)?(a)?"
-    < | (1 otf:sinh=akhn,vatu,pres) (3 two-part) (4 =) (5 =) | >)
-
-   ;; A syllable with a two-part vowel sign.
-   ("(C(HJ[CR])*)(t)(a)?"
-    < | (1 otf:sinh=akhn,vatu,pres) (3 two-part) (4 =) | >)
-
-   ;; A syllable with a vowel sign and/or a various sign.
-   ("(C(HJ[CR])*)([mMbupqr]a?|a)"
-    < | (1 otf:sinh=akhn,vatu,pres) (3 = *) | >)
-
-   ;; No signs.
-   ("C(HJ[CR])*H?"
-    < | otf:sinh=akhn,vatu,pres | >)
-
-   ;; Independent vowels.
-   ("Va?"
-    < | = * | >)
-
-   ("." =))
-  *)
-
- ;; Split two-part dependent vowel signs for canonicalisation.
- (two-part
-  (cond
+   ;; Decompose multi-part vowel signs.
    ((0x0DDA)	0x0DD9 0x0DCA)
    ((0x0DDC)	0x0DD9 0x0DCF)
    ((0x0DDD)	0x0DD9 0x0DCF 0x0DCA)
-   ((0x0DDE)	0x0DD9 0x0DDF)))
- )
+   ((0x0DDE)	0x0DD9 0x0DDF)
+   ("." =))
+  *))
 
-;; Step 1 : Move pre-consonant signs.
+;; Step 1
+;; Syllable identification and matra reordering
 (generator
  (0
   (cond
-   ;; 1             2     3   4   5   6   7   8   9
-   (" ([^ mMbupqr]+)(m|M)?(b)?(u)?(p)?(q)?(r)?(H)?(a)? "
-    | (2 =) (1 = *) (3 =) (4 =) (5 =) (6 =) (7 =) (8 =) (9 =) |)
-   ("." =))
+   ;; Consonant-based syllables
+   ;;1 2      3     4
+   ("(C(HJC)*)(mm?)?(u?b?p?H?A?)"
+    < | (3 = *) (1 = *) (4 = *) | >)
+
+   ;; Syllables with an independent vowel
+   ("VA?"
+    < | = * | >)
+
+   ;; Combining marks are displayed with a DOTTED CIRCLE.
+   ((0x0DD9 0x0DCA)
+    (cond
+     ((font-facility 0x25CC) < = 0x25CC = >)
+     (".+" [ 0x0DDA ])))
+
+   ((0x0DD9 0x0DCF 0x0DCA)
+    (cond
+     ((font-facility 0x25CC) < = 0x25CC = = >)
+     (".+" [ 0x0DDD ])))
+
+   ((0x0DD9 0x0DCF)
+    (cond
+     ((font-facility 0x25CC) < = 0x25CC = >)
+     (".+" [ 0x0DDC ])))
+
+   ((0x0DD9 0x0DDF)
+    (cond
+     ((font-facility 0x25CC) < = 0x25CC = >)
+     (".+" [ 0x0DDE ])))
+
+   ("m"
+    (cond
+     ((font-facility 0x25CC) < = 0x25CC >)
+     ("." [ = ])))
+
+   ("[AHubp]"
+    (cond
+     ((font-facility 0x25CC) < 0x25CC = >)
+     ("." [ = ])))
+
+   ("." [ = ]))
   *))
 
 ;; Step 2 : OTF substitutions.
 (generator
  (0
   (cond
-   (" ([^ ]*) "
-    (1 otf:sinh))
-   ("."
-    [ = ]))
+   (" ([^ ]+) "
+    (1 :otf=sinh=akhn,vatu,liga+pres,abvs,blws,psts))
+   ("." = ))
   *))
 
-;; Copyright (C) 2004, 2005, 2007
+;; Copyright (C) 2004, 2005, 2007, 2010
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
