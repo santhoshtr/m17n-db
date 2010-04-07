@@ -111,10 +111,12 @@
     < :otf=mymr=clig >)
 
    ("[vVywhulksaApbHw]"
-    < 0x25CC = >)
+    (cond ((font-facility 0x25CC) < 0x25CC = >)
+	  ("." [ = ])))
 
    ("[reE]"
-    < = 0x25CC >)
+    (cond ((font-facility 0x25CC) < = 0x25CC >)
+	  ("." [ = ])))
 
    ("." =))
   *))
