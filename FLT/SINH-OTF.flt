@@ -8,7 +8,7 @@
 ;;; <li> SINH-OTF.flt
 ;;;
 ;;; For Sinhala OpenType fonts to draw Sinhala.
-;;; A Font is available from <http://sinhala.linux.lk/>.
+;;; A Font is available from <http://sinhala.sourceforge.net/files/>.
 
 (category
  (0x0D80 0x0DFF ?x)
