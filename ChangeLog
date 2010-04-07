@@ -1,5 +1,7 @@
 2010-04-07  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
+	* FLT/SINH-OTF.flt: Change font download URL.
+
 	* FLT/MYMR-SIL.flt: Use font-facility to check U+25CC's availability.
 
 2010-04-02  TAKAHASHI Naoto  <ntakahas@m17n.org>
