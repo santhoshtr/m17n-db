@@ -122,11 +122,11 @@
    ((0x09C7 0x09BE)
     (cond
      ((font-facility 0x25CC) < = 0x25CC = >)
-     (".+" < 0x09CB >)))
+     (".+" [ 0x09CB ])))
    ((0x09C7 0x09D7)
     (cond
      ((font-facility 0x25CC) < = 0x25CC = >)
-     (".+" < 0x09CC >)))
+     (".+" [ 0x09CC ])))
 
    ;; Combining marks are displayed with a DOTTED CIRCLE.
    ("m"

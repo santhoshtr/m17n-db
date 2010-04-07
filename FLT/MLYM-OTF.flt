@@ -85,15 +85,15 @@
    ((0x0D46 0x0D3E)
     (cond
      ((font-facility 0x25CC) < = 0x25CC = >)
-     (".+" < 0x0D4A >)))
+     (".+" [ 0x0D4A ])))
    ((0x0D47 0x0D3E)
     (cond
      ((font-facility 0x25CC) < = 0x25CC = >)
-     (".+" < 0x0D4B >)))
+     (".+" [ 0x0D4B ])))
    ((0x0D46 0x0D57)
     (cond
      ((font-facility 0x25CC) < = 0x25CC = >)
-     (".+" < 0x0D4C >)))
+     (".+" [ 0x0D4C ])))
 
    ;; Combining marks are displayed with a DOTTED CIRCLE.
    ("m"
