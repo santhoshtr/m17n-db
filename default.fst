@@ -283,7 +283,7 @@
   ((nil sampige unicode-bmp) knda-otf)))
 (malayalam
  (nil
-  ((nil rachana unicode-bmp) mlym-rachana)
+  ((nil rachana unicode-bmp) mlym-otf)
   ((nil thoolikaunicode unicode-bmp) mlym-otf)))
 (sinhala
  (nil
