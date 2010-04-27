@@ -1,5 +1,5 @@
 ;; hi-remington.mim -- Hindi input method for Remington typewriter layout
-;; Copyright (c) 2006-2007 Red Hat, Inc. All Rights Reserved.
+;; Copyright (c) 2006-2010 Red Hat, Inc. All Rights Reserved.
 
 ;; This file is part of the m17n contrib; a sub-part of the m17n
 ;; library.
@@ -28,8 +28,49 @@ Author: Rajesh Ranjan <rranjan@redhat.com>
 (title "क")
 
 (map
- (trans
- 
+ (starter
+  (".") ("~") ("!") ("@") ("#") ("$") ("%") ("^") ("&") 
+  ("*") ("(") (")") ("{") ("}") ("[") ("]") ("<") (">")
+  (",") ("?") ("/") ("\\") ("\"") (":") (";") ("+") ("=")
+  ("_") ("-") ("0") ("1") ("2") ("3") ("4") ("5") ("6")
+  ("7") ("8") ("9") ("`") ("|") ("'")
+  ("A") ("B")("C") ("D") ("E") ("F") ("G") ("H") ("I") 
+  ("J") ("K") ("L") ("M") ("N") ("O") ("P") ("Q") ("R")
+  ("S") ("T") ("U") ("V") ("W") ("X") ("Y") ("Z")
+  ("a") ("b") ("c") ("d") ("e") ("f") ("g") ("h") ("i")
+  ("j") ("k") ("l") ("m") ("n") ("o") ("p") ("q") ("r")
+  ("s") ("t") ("u") ("v") ("w") ("x") ("y") ("z")
+  ((KP_1)) ((KP_2)) ((KP_3)) ((KP_4)) ((KP_5))
+  ((KP_6)) ((KP_7)) ((KP_8)) ((KP_9)) ((KP_0)))
+
+ (consonant
+  ("{" "क्ष्")
+  ("[" "ख्")
+  (")" "द्घ")
+  ("}" "द्व")
+ ("E" "म्")
+ ("R" "त्")
+ ("T" "ज्")
+ ("Y" "ल्")
+ ("U" "न्")
+ ("I" "प्")
+ ("O" "व्")
+("P" "च्") 
+ ("D" "क्")
+ ("F" "थ्")
+ ("H" "भ्")
+ ("L" "स्")
+  ("\"" "ष्")
+  ("'" "श्")
+ ("z" "्र")
+ ("Z" "र्") 
+ ("X" "ग्")
+ ("C" "ब्")
+  ("." "ण्")
+  ("?" "घ्")
+  ("/" "ध्"))
+
+  (independent
   ((KP_1) "१")
   ((KP_2) "२")
   ((KP_3) "३")
@@ -45,9 +86,14 @@ Author: Rajesh Ranjan <rranjan@redhat.com>
   ((KP_Multiply) "*")
   ((KP_Add) "+")
   ((KP_Subtract) "-") 
- 
-  ("~" "ृ")
- ("`" "`") 
+  ("vk" "आ")
+  ("Wa" "ँ")
+  ("ks" "ो")
+  ("kS" "ौ")
+  ("vAs" "ओ")
+  ("vAS" "औ")
+  ("`" "ृ")
+ ("~" "`") 
  ("!" "!")
   ("1" "१")
  ("@" "/")
@@ -66,65 +112,43 @@ Author: Rajesh Ranjan <rranjan@redhat.com>
   ("8" "८")
  ("(" ";")
   ("9" "९")
-  (")" "द्घ")
   ("0" "०")
   ("_" "ऋ")
  ("-" ".")
   ("+" "़")
   ("=" "त्र")
- ("Q" "फ")
- ("q" "ु")
+("q" "ु")
  ("W" "ॅ")
  ("w" "ू")
- ("E" "म्")
- ("e" "म")
- ("R" "त्")
+ ("Q" "फ")
  ("r" "त")
- ("T" "ज्")
+ ("e" "म")
  ("t" "ज")
- ("Y" "ल्")
  ("y" "ल")
- ("U" "न्")
  ("u" "न")
- ("I" "प्")
  ("i" "प")
- ("O" "व्")
  ("o" "व")
- ("P" "च्")
  ("p" "च")
-  ("{" "क्ष्")
-  ("[" "ख्")
-  ("}" "द्व")
  ("]" ",")
   ("|" "द्य")
- ("\" "?")
+ ("\\" "?")
  ("A" "।")
- ("a" ".")
+ ("a" "ं")
  ("S" "ै")
  ("s" "े")
- ("D" "क्")
  ("d" "क")
- ("F" "थ्")
  ("f" "ि")
  ("G" "ळ")
  ("g" "ह")
- ("H" "भ्")
  ("h" "ी")
  ("J" "श्र")
  ("j" "र")
  ("K" "ज्ञ")
  ("k" "ा")
- ("L" "स्")
  ("l" "स")
   (":" "रू")
   (";" "य")
-  ("\"" "ष्")
-  ("'" "श्")
- ("Z" "र्") 
- ("z" "z")
- ("X" "ग्")
  ("x" "ग")
- ("C" "ब्")
  ("c" "ब")
  ("V" "ट")
  ("v" "अ")
@@ -136,15 +160,34 @@ Author: Rajesh Ranjan <rranjan@redhat.com>
  ("m" "उ")
   ("<" "ढ")
   ("," "ए")
-  (">" "झ")
-  ("." "ण्")
-  ("?" "घ्")
-  ("/" "ध्")
-  ))
+  (">" "झ"))
+
+(dependent
+  ("k" (delete @-) ""))
+  
+ (return
+  ((Return)))
+
+ (backspace
+  ((BackSpace) (undo))))
 
 (state
-  (init
-    (trans)))
+ (init
+  (starter (pushback 1) (shift intermediate)))
 
+ (intermediate
+  (consonant (shift second))
+  (independent (shift init))
+  (backspace)
+  (return (shift init)))
 
+ (second
+  (consonant)
+  (dependent (shift init))
+  (backspace)
+  (return (shift init))))
 
+;; Local Variables:
+;; coding: utf-8
+;; mode: emacs-lisp
+;; End:
