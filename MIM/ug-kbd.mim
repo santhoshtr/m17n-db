@@ -1,5 +1,5 @@
 ;; ug-kbd.mim -- Uyghur input method with Uyghur keyboard layout
-;; Copyright (C) 2006, 2008
+;; Copyright (C) 2006, 2008, 2010
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -93,7 +93,11 @@ Based on <http://tarim.yulghun.com/docs/src/uyghur.xkb>
   ("B" 0x0628)
   ("N" 0x0646)
   ("M" 0x0645)
-  ("?" 0x061F)))
+  ("?" 0x061F)
+
+  ("<" 0x2039)
+  (">" 0x203A)
+  ("_" 0x2013)))
 
 (state
  (init
