@@ -1,3 +1,13 @@
+2010-05-21  Kenichi Handa  <handa@m17n.org>
+
+	* MIM/ko-han2.mim (map:L-or-T-head): Remove conflicting key
+	sequences.
+	(map:L): Likewise.  Add "rr", "ee", "qq" , "tt".
+	(map:T-or-TL): Renamed from T. Set T1 in rules.
+	(state:init): Remove branch T.
+	(state:state-LV): Remove branch T.  Add branch T-or-TL.
+	(state:state-LVT-or-LVTL): New state.
+
 2010-05-20  Gheyret T. Kenji  <gheyret@gmail.com>  (tiny change)
 
 	* MIM/ug-kbd.mim: Add three punctuations.
