@@ -1,3 +1,7 @@
+2010-05-22  Kenichi Handa  <handa@m17n.org>
+
+	* MIM/ko-han2.mim (state:state-LVT-or-LVTL): Add backspace branch.
+
 2010-05-21  Kenichi Handa  <handa@m17n.org>
 
 	* MIM/ko-han2.mim (map:L-or-T-head): Remove conflicting key
