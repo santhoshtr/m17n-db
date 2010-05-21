@@ -351,8 +351,8 @@ This input method uses this keyboard layout:
   (L-or-T-head ;; e.g. "rkrtr"; make the last "r" start a new composing.
    (pushback 1) (shift init))
   (V-head ;; e.g. "rkrth"; make the last "th" start a new composing.
-   (delete @<) (set T T1) (compose) (pushback 2) (shift init)))
-)
+   (delete @<) (set T T1) (compose) (pushback 2) (shift init))
+  (backspace)))
 
 ;; Local Variables:
 ;; coding: utf-8
