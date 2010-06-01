@@ -97,7 +97,7 @@ Based on <http://tarim.yulghun.com/docs/src/uyghur.xkb>
 
   ("<" 0x2039)
   (">" 0x203A)
-  ("_" 0x2013)))
+  ("_" 0x2014)))
 
 (state
  (init
