@@ -1,3 +1,7 @@
+2010-06-14  Parag Nemade <pnemade@redhat.com>
+
+	* im/ta-tamil99.mim: Add more characters to be typed.
+
 2010-05-19  Kenichi Handa  <handa@m17n.org>
 
 	* im/ml-inscript.mim (map:trans): Delete unnecessary "\".
