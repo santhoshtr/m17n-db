@@ -93,7 +93,7 @@
  (0
   (cond
    (" ([^ ]+) "
-    (1 :otf=sinh=akhn,vatu,liga+pres,abvs,blws,psts))
+    (1 :otf=sinh=akhn,vatu,liga,pres,abvs,blws,psts))
    ("." = ))
   *))
 
