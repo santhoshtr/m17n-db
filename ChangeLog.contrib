@@ -1,3 +1,13 @@
+2010-07-01  Suraj N. Kurapati <sunaku@gmail.com>
+
+	* im/te-rts.mim: Add support for several new Unicode characters.
+	Add a 'j&n' combination to produce the literal 'jn' compound.
+	Clean up the formatting.
+
+2010-07-01  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* AUTHORS: Update mail address of a contributor.
+
 2010-06-14  Parag Nemade <pnemade@redhat.com>
 
 	* im/ta-tamil99.mim: Add more characters to be typed.
