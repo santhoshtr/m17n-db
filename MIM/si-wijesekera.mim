@@ -757,7 +757,9 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
    (shift independent-state))
   (kombuva
    (shift kombuva-state))
-  (dependent))
+  (dependent)
+  (nil
+   (unhandle)))
 
  (independent-state
   (dependent)
