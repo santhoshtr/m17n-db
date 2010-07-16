@@ -36,6 +36,11 @@ Just after you checked out or updated this package, run the script
 % make
 % make install
 
+(3) Copyright of files under "po" directory.
+
+Some of *.po files are contributed by people no belonging to AIST.
+Such files have different copyright notices.
+
 ----------------------------------------------------------------------
 Copyright information
 

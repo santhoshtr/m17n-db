@@ -1,3 +1,11 @@
+2010-07-16  Kenichi Handa  <handa@m17n.org>
+
+	* LINGUAS: Add de.
+
+2010-07-16  Chris Leick  <c.leick@vollbio.de>
+
+	* de.po: New file.
+
 2009-07-28  Kenichi Handa  <handa@m17n.org>
 
 	* Version 1.5.5 released.
