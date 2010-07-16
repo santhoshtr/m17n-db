@@ -1,6 +1,5 @@
 # German translation of m17n-db.
-# Copyright (C) 2003 - 2010 National Institute of Advanced Industrial Science
-# and Technology.
+# Copyright (C) 2010 Chris Leick <c.leick@vollbio.de>
 # This file is distributed under the same license as the m17n-db package.
 # Chris Leick <c.leick@vollbio.de>, 2010.
 #
