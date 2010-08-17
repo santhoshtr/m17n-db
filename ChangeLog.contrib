@@ -1,3 +1,7 @@
+2010-08-17  Kenichi Handa  <handa@m17n.org>
+
+	* im/be-kbd.png: New file.
+
 2010-07-01  Suraj N. Kurapati <sunaku@gmail.com>
 
 	* im/te-rts.mim: Add support for several new Unicode characters.
