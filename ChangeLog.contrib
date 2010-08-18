@@ -1,3 +1,11 @@
+2010-08-18  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* AUTHORS: New author.
+
+2010-08-18  Yuri Victorovich <yuri@tsoft.com>
+
+	* im/be-kbd.mim: New file.
+
 2010-08-17  Kenichi Handa  <handa@m17n.org>
 
 	* im/be-kbd.png: New file.
