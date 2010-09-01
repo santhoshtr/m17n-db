@@ -1,3 +1,19 @@
+2010-09-01  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/ARAB-OTF.flt: Use U+25CC for isolated vowel signs.
+
+2010-07-16  Kenichi Handa  <handa@m17n.org>
+
+	* po/de.po: Fix copyright.
+
+	* po/LINGUAS: Add de.
+
+2010-07-16  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* MIM/si-wijesekera.mim (map:preedit):
+	Unhandle those keys that belong to the map "starter"
+	but not to "independent", "kombuva", nor "dependent".
+
 2010-07-01  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/HEBR-OTF.flt: New file.
