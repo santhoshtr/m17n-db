@@ -278,8 +278,10 @@ LINEBREAK.tab: UNIDATA/LineBreak.txt LINEBREAK.awk
 	@$(AWK) -f LINEBREAK.awk $< >> $@
 
 %.tab: UNIDATA/UnicodeData.txt CHARTAB.awk
-	echo "# Generated from $<." > $@
-	@$(AWK) -f CHARTAB.awk FIELD=$@ $< >>$@
+	if [ "$@" != "BLOCK.tab" ] ; then \
+	  echo "# Generated from $<." > $@; \
+	  @$(AWK) -f CHARTAB.awk FIELD=$@ $< >>$@; \
+	fi
 
 pkgdatadir=$(datadir)/m17n
 
