@@ -32,7 +32,7 @@ FONT_LAYOUT_TABLE = \
 	DEVA-CDAC.flt DEVA-OTF.flt DEV2-OTF.flt \
 	GUJR-OTF.flt GJR2-OTF.flt \
 	GURU-OTF.flt GUR2-OTF.flt \
-	HEBR.flt HEBR-FF.flt \
+	HEBR.flt HEBR-FF.flt HEBR-OTF.flt \
 	KHMR-ANLONG.flt KHMR-OTF.flt \
 	KNDA-OTF.flt KND2-OTF.flt \
 	LAOO-MULE.flt LAOO-ALICE.flt LAOO-GENERIC.flt LAOO-OTF.flt \
