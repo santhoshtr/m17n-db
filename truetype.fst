@@ -7,10 +7,17 @@
 ;;; documentation of the fontset "default" for the information about
 ;;; each font.
 
+(latin
+ (vi
+  ((nil dejavu\ sans unicode-bmp))
+  ((nil nil unicode-bmp :lang=vi)))
+ (nil
+  ((nil dejavu\ sans unicode-bmp))
+  ((nil nil unicode-bmp :lang=en))))
 (hebrew
  (nil
   ((nil ezra\ sil unicode-bmp) hebr-otf)
-  ((nil nil unicode-bmp :otf=hebr+mark) hebr-otf)))
+  ((nil nil unicode-bmp :otf=hebr) hebr-otf)))
 (arabic
  (nil
   ((nil scheherazade unicode-bmp) arab-otf)
@@ -58,13 +65,13 @@
   ((nil nil unicode-bmp :otf=orya) orya-otf)))
 (tamil
  (nil
-  ((nil lohit\ tamil apple-roman) taml-cdac)
+  ((nil lohit\ tamil unicode-bmp) taml-otf)
   ((nil nil unicode-bmp :otf=tml2) tml2-otf)
   ((nil nil unicode-bmp :otf=taml) taml-otf)))
 (telugu
  (nil
   ((nil pothana2000 unicode-bmp) telu-otf)
-  ((nil venama unicode-bmp) telu-otf)
+  ((nil venama2000 unicode-bmp) telu-otf)
   ((nil nil unicode-bmp :otf=tel2) tel2-otf)
   ((nil nil unicode-bmp :otf=telu) telu-otf)))
 (kannada
@@ -108,31 +115,35 @@
   ((nil anlongvill\ khek apple-roman) khmr-anlong)))
 (han
  (ja
-  ((nil kochi\ gothic unicode-bmp)))
+  ((nil takaogothic unicode-bmp))
+  ((nil nil unicode-bmp :lang=ja)))
  (zh
-  ((nil ar\ pl\ sungtil\ gb unicode-bmp))
-  ((nil ar\ pl\ mingti2l\ big5 unicode-bmp)))
+  ((nil wenquanyi\ zen\ hei unicode-bmp))
+  ((nil nil unicode-bmp :lang=zh)))
  (ko
-  ((nil baekmuk\ dotum unicode-bmp))))
+  ((nil undotum unicode-bmp))
+  ((nil nil unicode-bmp :lang=ko))))
 (hiragana
  (nil
-  ((nil kochi\ gothic unicode-bmp))
-  ))
+  ((nil takaogothic unicode-bmp))
+  ((nil nil unicode-bmp :lang=ja))))
 (katakana
  (nil
-  ((nil kochi\ gothic unicode-bmp))
-  ))
+  ((nil takaogothic unicode-bmp))
+  ((nil nil unicode-bmp :lang=ja))))
 (hangul
  (nil
-  ((nil baekmuk\ dotum unicode-bmp))))
+  ((nil undotum unicode-bmp))
+  ((nil nil unicode-bmp :lang=ko))))
 (ethiopic
  (nil
-  ((nil abyssinica\ sil unicode-bmp))))
+  ((nil abyssinica\ sil unicode-bmp))
+  ((nil nil unicode-bmp :lang=am))))
 (cham
  (nil
   ((nil nil unicode-bmp :script=cham) cham-generic)))
 (nil
- ((nil dejavu\ sans unicode-bmp)))
+ ((nil nil unicode-bmp)))
 
 ;; Copyright (C) 2003, 2004, 2007, 2010
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
