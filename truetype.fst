@@ -1,5 +1,140 @@
-;; truetype.fst -- Fontset using only TrueType fonts  -*- lisp -*-
-;; Copyright (C) 2003, 2004, 2005, 2006
+;; truetype.fst -- Fontset using only TrueType fonts
+;; Copyright (C) 2003, 2004, 2005, 2006, 2010  AIST (H15PRO112)
+
+;;; <li> truetype.fst
+;;;
+;;; Fontset using only freely available TrueType fonts.  See the
+;;; documentation of the fontset "default" for the information about
+;;; each font.
+
+(hebrew
+ (nil
+  ((nil ezra\ sil unicode-bmp) hebr-otf)
+  ((nil nil unicode-bmp :otf=hebr+mark) hebr-otf)))
+(arabic
+ (nil
+  ((nil scheherazade unicode-bmp) arab-otf)
+  ((nil nil unicode-bmp :otf=arab) arab-otf)
+  ((nil bitstream\ cyberbase unicode-bmp) arab)))
+(syriac
+ (nil
+  ((nil estrangelo\ talada unicode-bmp) syrc-otf)
+  ((nil serto\ jerusalem unicode-bmp) syrc-otf)
+  ((nil east\ syriac adiabene unicode-bmp) syrc-otf)
+  ((nil nil unicode-bmp :otf=syrc) syrc-otf)))
+(thaana
+ (nil
+  ((nil thaana\ unicode\ akeh unicode-bmp) thaa-otf)
+  ((nil nil unicode-bmp :otf=thaa) thaa-otf)))
+(devanagari
+ (nil
+  ((nil gargi unicode-bmp) deva-otf)
+  ((nil lohit\ hind unicode-bmp) deva-otf)
+  ((nil nil unicode-bmp :otf=dev2) dev2-otf)
+  ((nil nil unicode-bmp :otf=deva) deva-otf)
+  ((nil dv-ttyogesh apple-roman) deva-cdac)))
+(bengali
+ (nil
+  ((nil lohit\ bengali unicode-bmp) beng-otf)
+  ((nil mukti\ narrow unicode-bmp) beng-otf)
+  ((nil nil unicode-bmp :otf=bng2) bng2-otf)
+  ((nil nil unicode-bmp :otf=beng) beng-otf)))
+(gurmukhi
+ (nil
+  ((nil lohit\ punjabi unicode-bmp) guru-otf)
+  ((nil saab unicode-bmp) guru-otf)
+  ((nil nil unicode-bmp :otf=gur2) gur2-otf)
+  ((nil nil unicode-bmp :otf=guru) guru-otf)))
+(gujarati
+ (nil
+  ((nil lohit\ gujarati unicode-bmp) gujr-otf)
+  ((nil rekha unicode-bmp) gujr-otf)
+  ((nil nil unicode-bmp :otf=gjr2) gjr2-otf)
+  ((nil nil unicode-bmp :otf=gujr) gujr-otf)))
+(oriya
+ (nil
+  ((nil utkal unicode-bmp) orya-otf)
+  ((nil nil unicode-bmp :otf=ory2) ory2-otf)
+  ((nil nil unicode-bmp :otf=orya) orya-otf)))
+(tamil
+ (nil
+  ((nil lohit\ tamil apple-roman) taml-cdac)
+  ((nil nil unicode-bmp :otf=tml2) tml2-otf)
+  ((nil nil unicode-bmp :otf=taml) taml-otf)))
+(telugu
+ (nil
+  ((nil pothana2000 unicode-bmp) telu-otf)
+  ((nil venama unicode-bmp) telu-otf)
+  ((nil nil unicode-bmp :otf=tel2) tel2-otf)
+  ((nil nil unicode-bmp :otf=telu) telu-otf)))
+(kannada
+ (nil
+  ((nil kedage unicode-bmp) knda-otf)
+  ((nil mallige unicode-bmp) knda-otf)
+  ((nil nil unicode-bmp :otf=knd2) knd2-otf)
+  ((nil nil unicode-bmp :otf=knda) knda-otf)))
+(malayalam
+ (nil
+  ((nil meera unicode-bmp) mlym-otf)
+  ((nil rachana unicode-bmp) mlym-otf)
+  ((nil nil unicode-bmp :otf=mlm2) mlm2-otf)
+  ((nil nil unicode-bmp :otf=mlym) mlym-otf)))
+(sinhala
+ (nil
+  ((nil lklug unicode-bmp) sinh-otf)
+  ((nil nil unicode-bmp :otf=sinh) sinh-otf)))
+(tibetan
+ (nil
+  ((nil tibetan\ machine\ uni unicode-bmp) tibt-otf)
+  ((nil nil unicode-bmp :otf=tibt) tibt-otf)
+  ((nil mtib unicode-bmp) tibt-mtib)))
+(thai
+ (nil
+  ((nil norasi unicode-bmp) thai-norasi)
+  ((nil nil unicode-bmp :otf=thai) thai-otf)))
+(lao
+ (nil
+  ((nil phetsarath\ ot unicode-bmp) laoo-otf)
+  ((nil nil unicode-bmp :otf=laoo) laoo-otf)
+  ((nil alice0\ lao apple-roman) laoo-alice)))
+(myanmar
+ (nil
+  ((nil padauk unicode-bmp) mymr-sil)
+  ((nil myazedi_m17n unicode-bmp) mymr-myazedi)))
+(khmer
+ (nil
+  ((nil khmer\ os unicode-bmp) khmr-otf)
+  ((nil nil unicode-bmp :otf=khmr) khmr-otf)
+  ((nil anlongvill\ khek apple-roman) khmr-anlong)))
+(han
+ (ja
+  ((nil kochi\ gothic unicode-bmp)))
+ (zh
+  ((nil ar\ pl\ sungtil\ gb unicode-bmp))
+  ((nil ar\ pl\ mingti2l\ big5 unicode-bmp)))
+ (ko
+  ((nil baekmuk\ dotum unicode-bmp))))
+(hiragana
+ (nil
+  ((nil kochi\ gothic unicode-bmp))
+  ))
+(katakana
+ (nil
+  ((nil kochi\ gothic unicode-bmp))
+  ))
+(hangul
+ (nil
+  ((nil baekmuk\ dotum unicode-bmp))))
+(ethiopic
+ (nil
+  ((nil abyssinica\ sil unicode-bmp))))
+(cham
+ (nil
+  ((nil nil unicode-bmp :script=cham) cham-generic)))
+(nil
+ ((nil dejavu\ sans unicode-bmp)))
+
+;; Copyright (C) 2003, 2004, 2007, 2010
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -21,131 +156,6 @@
 ;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;; <li> truetype.fst
-;;;
-;;; Fontset using only freely available TrueType fonts.  See the
-;;; documentation of the fontset "default" for the information about
-;;; each font.
-
-(latin
- (vi
-  ((nil freeserif unicode-bmp))
-  ((nil freesans unicode-bmp))
-  ((nil freemono unicode-bmp)))
- (nil
-  ((nil freesans unicode-bmp))
-  ((nil freeserif unicode-bmp))
-  ((nil freemono unicode-bmp))))
-(hebrew
- (nil
-  ((nil freesans unicode-bmp) hebr)))
-(arabic
- (nil
-  ((nil riwaj unicode-bmp) arab-otf)
-  ((nil bitstream\ cyberbase unicode-bmp) arab)))
-(syriac
- (nil
-  ((nil estrangelo\ talada unicode-bmp) syrc-otf)
-  ((nil serto\ jerusalem unicode-bmp) syrc-otf)
-  ((nil east\ syriac adiabene unicode-bmp) syrc-otf)))
-(thaana
- (nil
-  ((nil thaana\ unicode\ akeh unicode-bmp) thaa-otf)))
-(devanagari
- (nil
-  ((nil gargi_1.7 unicode-bmp) deva-otf)
-  ((nil gargi unicode-bmp) deva-otf)
-  ((nil raghindi unicode-bmp) deva-otf)
-  ((nil dv-ttyogesh apple-roman) deva-cdac)))
-(bengali
- (nil
-  ((nil mukti\ narrow unicode-bmp) beng-otf)
-  ((nil likhan unicode-bmp) beng-otf)
-  ((nil sagar unicode-bmp) beng-otf)))
-(gurmukhi
- (nil
-  ((nil lohit\ punjabi unicode-bmp) guru-otf)
-  ((nil saab unicode-bmp) guru-otf)))
-(gujarati
- (nil
-  ((nil padmaa unicode-bmp) gujr-otf)))
-(oriya
- (nil
-  ((nil utkal unicode-bmp) orya-otf)))
-(tamil
- (nil
-  ((nil akrutitml1 unicode-bmp) taml-otf)
-  ((nil akrutitml2 unicode-bmp) taml-otf)
-  ((nil tscu_paranar unicode-bmp) taml-otf)
-  ((nil tscu_comic unicode-bmp) taml-otf)
-  ((nil tscu_times unicode-bmp) taml-otf)
-  ((nil tamu_kadambri unicode-bmp) taml-otf)
-  ((nil tamu_kalyani unicode-bmp) taml-otf)
-  ((nil tamu_maduram unicode-bmp) taml-otf)
-  ((nil tm-ttvalluvar apple-roman) taml-cdac)))
-(telugu
- (nil
-  ((nil pothana2000 unicode-bmp) telu-otf)))
-(kannada
- (nil
-  ((nil kedage unicode-bmp) knda-otf)
-  ((nil mallige unicode-bmp) knda-otf)
-  ((nil sampige unicode-bmp) knda-otf)))
-(sinhala
- (nil
-  ((nil lklug unicode-bmp) sinh-otf)))
-(malayalam
- (nil
-  ((nil rachana unicode-bmp) mlym-otf)
-  ((nil thoolikaunicode unicode-bmp) mlym-otf)
-  ((nil ml-ttkarthika apple-roman) mlym-cdac)))
-(thai
- (nil
-  ((nil nil unicode-bmp :otf=thai+mark,mkmk) thai-otf)
-  ((nil norasi unicode-bmp) thai-norasi)))
-(lao
- (nil
-  ((nil phetsarath\ ot unicode-bmp) laoo-otf)
-  ((nil alice0\ lao apple-roman) laoo-alice)))
-(tibetan
- (nil
-  ((nil mtib unicode-bmp) tibt-mtib)
-  ((nil tibetan\ machine\ uni unicode-bmp) tibt-otf)))
-(myanmar
- (nil
-  ((nil padauk unicode-bmp) mymr-sil)
-  ((nil myazedi_m17n unicode-bmp) mymr-myazedi)))
-(georgian
- (nil
-  ((nil bpg\ classic\ 99u unicode-bmp))))
-(ethiopic
- (nil
-  ((nil freeserif unicode-bmp))))
-(khmer
- (nil
-  ((nil khmer\ os unicode-bmp) khmr-otf)
-  ((nil anlongvill\ khek apple-roman) khmr-anlong)))
-(hiragana
- (nil
-  ((nil kochi\ gothic unicode-bmp))
-  ))
-(katakana
- (nil
-  ((nil kochi\ gothic unicode-bmp))
-  ))
-(hangul
- (nil
-  ((nil baekmuk\ dotum unicode-bmp))))
-(han
- (ja
-  ((nil kochi\ gothic unicode-bmp)))
- (zh
-  ((nil ar\ pl\ sungtil\ gb unicode-bmp))
-  ((nil ar\ pl\ mingti2l\ big5 unicode-bmp)))
- (ko
-  ((nil baekmuk\ dotum unicode-bmp))))
-
-(nil
- ((nil freesans unicode-bmp))
- ((nil freeserif unicode-bmp))
- ((nil freemono unicode-bmp)))
+;; Local Variables:
+;; mode: lisp
+;; End:
