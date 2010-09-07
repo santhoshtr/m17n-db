@@ -1,11 +1,142 @@
 ;; truetype.fst -- Fontset using only TrueType fonts
 ;; Copyright (C) 2003, 2004, 2005, 2006, 2010  AIST (H15PRO112)
+;; See the end for copying conditions.
 
 ;;; <li> truetype.fst
 ;;;
-;;; Fontset using only freely available TrueType fonts.  See the
-;;; documentation of the fontset "default" for the information about
-;;; each font.
+;;; Fontset using only freely available TrueType fonts.
+;;; <ul>
+
+;;; <li> DejaVuSans.ttf (family: DejaVu Sans)
+;;; <ul>
+;;; <li> debian package: ttf-dejavu-core
+;;; </ul>
+
+;;; <li> SILEOT.ttf (family: ezra sil; for Hebrew)
+;;; <ul>
+;;; <li> debian package: ttf-sil-ezra
+;;; </ul>
+
+;;; <li> ScheherazadeRegOT.ttf (family: scheherazade; for Arabic)
+;;; <ul>
+;;; <li> debian package: ttf-sil-scheherazade
+;;; </ul>
+
+;;; <li> SyrCOMTalada.otf (family: estrangelo talada; for Syriac)
+;;; <li> SyrCOMJerusalem.otf (family: serto jerusalem; for Syriac)
+;;; <li> SyrCOMAdiabene.otf (family: east syriac adiabene; for Syriac)
+;;; <ul>
+;;; <li> debian package: ttf-xfree86-nonfree-syriac
+;;; </ul>
+
+;;; <li> mvboli.ttf (family: mv boli; for Thaana)
+;;; <ul>
+;;; <li> dowload: http://mvlinux.blogspot.com/2010/02/thaana-font-installer-for-linux-deb.html
+;;; </ul>
+
+;;; <li> gargi.ttf (family: gargi; for Devanagari)
+;;; <li> lohit_hi.ttf (family: lohit hindi; for Devanagari)
+;;; <ul>
+;;; <li> debian package: ttf-devanagari-fonts
+;;; </ul>
+
+;;; <li> lohit_bn.ttf (family: lohit bengali; for Bengali)
+;;; <li> MuktiNarrow.ttf (family: mukti narrow; for Bengali)
+;;; <ul>
+;;; <li> debian package: ttf-bengali-fonts
+;;; </ul>
+
+;;; <li> lohit_pa.ttf (family: lohit punjabi; for Gurmukhi)
+;;; <li> Saab.ttf (family: saab; for Gurmukhi)
+;;; <ul>
+;;; <li> debian package: ttf-punjabi-fonts
+;;; </ul>
+
+;;; <li> lohit_gu.ttf (family: lohit gujarati; for Gujarati)
+;;; <li> Rekha.ttf (family: rekha; for Gujarati)
+;;; <ul>
+;;; <li> debian package: ttf-gujarati-fonts
+;;; </ul>
+
+;;; <li> utkal.ttf (family: utkal; for Oriya)
+;;; <ul>
+;;; <li> debian package: ttf-oriya-fonts
+;;; </ul>
+
+;;; <li> lohit_ta.ttf (family: lohit tamil; for Tamil)
+;;; <ul>
+;;; <li> debian package: ttf-tamil-fonts
+;;; </ul>
+
+;;; <li> Pothana2000.ttf (family: pothana2000; for Telugu)
+;;; <li> Vemana.ttf (family: vemana2000; for Telugu)
+;;; <ul>
+;;; <li> debian package: ttf-telugu-fonts
+;;; </ul>
+
+;;; <li> Kedage-n.ttf (family: kedage; for Kannada)
+;;; <li> Malige-n.ttf (family: mallige; for Kannada)
+;;; <ul>
+;;; <li> debian package: ttf-kannada-fonts
+;;; </ul>
+
+;;; <li> Meera_04.ttf (family: meera; for Malayalam)
+;;; <li> Rachana_04.ttf (family: rachana; for Malayalam)
+;;; <ul>
+;;; <li> debian package: ttf-malayalam-fonts
+;;; </ul>
+
+;;; <li> lklug.ttf (family: lklug; for Sinhala)
+;;; <ul>
+;;; <li> debian package: ttf-sinhala-lklug
+;;; </ul>
+
+;;; <li> TibetanMachineUniAlpha.ttf (family: tibetan machine uni; for Tibetan)
+;;; <ul>
+;;; <li> debian package: ttf-tmuni
+;;; </ul>
+
+;;; <li> Norasi.ttf (family: norasi; for Thai)
+;;; <ul>
+;;; <li> debian package: ttf-thai-tlwg
+;;; </ul>
+
+;;; <li> Phetsarath_OT.ttf (family: phetsarath ot; for Lao)
+;;; <ul>
+;;; <li> debian package: ttf-lao
+;;; </ul>
+
+;;; <li> Padauk.ttf (family: padauk; for Myanmar)
+;;; <ul>
+;;; <li> debian package: ttf-sil-padauk
+;;; </ul>
+
+;;; <li> KhmerOS.ttf (family: khmer os; for Khmer)
+;;; <ul>
+;;; <li> debian package: ttf-khmeros
+;;; </ul>
+
+;;; <li> wqy-zenhei.ttf (family: wenquanyi zen hei; for Chinese)
+;;; <ul>
+;;; <li> debian package: ttf-wqy-zenhei
+;;; </ul>
+
+;;; <li> TakaoGothic.ttf (family: takaogothic)
+;;; <ul>
+;;; <li> debian package: ttf-takao-gothic
+;;; </ul>
+
+;;; <li> UnDotum.ttf (family: undotum; for Korean)
+;;; <ul>
+;;; <li> debian package: ttf-unfonts-core
+;;; </ul>
+
+;;; <li> Abyssinica_SIL.ttf (family: abyssinica sil; for Ethiopic)
+;;; <ul>
+;;; <li> debian package: ttf-sil-abyssinica
+;;; </ul>
+
+;;; </ul>
 
 (latin
  (vi
@@ -13,33 +144,33 @@
   ((nil nil unicode-bmp :lang=vi)))
  (nil
   ((nil dejavu\ sans unicode-bmp))
-  ((nil nil unicode-bmp :lang=en))))
+  ((nil nil unicode-bmp :script=latin))))
 (hebrew
  (nil
   ((nil ezra\ sil unicode-bmp) hebr-otf)
-  ((nil nil unicode-bmp :otf=hebr) hebr-otf)))
+  ((nil nil unicode-bmp :otf=hebr) hebr-otf)
+  ((nil nil unicode-bmp :script=hebrew))))
 (arabic
  (nil
   ((nil scheherazade unicode-bmp) arab-otf)
   ((nil nil unicode-bmp :otf=arab) arab-otf)
-  ((nil bitstream\ cyberbase unicode-bmp) arab)))
+  ((nil nil unicode-bmp :script=arabic) arab)))
 (syriac
  (nil
   ((nil estrangelo\ talada unicode-bmp) syrc-otf)
   ((nil serto\ jerusalem unicode-bmp) syrc-otf)
-  ((nil east\ syriac adiabene unicode-bmp) syrc-otf)
+  ((nil east\ syriac\ adiabene unicode-bmp) syrc-otf)
   ((nil nil unicode-bmp :otf=syrc) syrc-otf)))
 (thaana
  (nil
-  ((nil thaana\ unicode\ akeh unicode-bmp) thaa-otf)
+  ((nil mv\ boli unicode-bmp) thaa-otf)
   ((nil nil unicode-bmp :otf=thaa) thaa-otf)))
 (devanagari
  (nil
   ((nil gargi unicode-bmp) deva-otf)
-  ((nil lohit\ hind unicode-bmp) deva-otf)
+  ((nil lohit\ hindi unicode-bmp) deva-otf)
   ((nil nil unicode-bmp :otf=dev2) dev2-otf)
-  ((nil nil unicode-bmp :otf=deva) deva-otf)
-  ((nil dv-ttyogesh apple-roman) deva-cdac)))
+  ((nil nil unicode-bmp :otf=deva) deva-otf)))
 (bengali
  (nil
   ((nil lohit\ bengali unicode-bmp) beng-otf)
@@ -71,7 +202,7 @@
 (telugu
  (nil
   ((nil pothana2000 unicode-bmp) telu-otf)
-  ((nil venama2000 unicode-bmp) telu-otf)
+  ((nil vemana2000 unicode-bmp) telu-otf)
   ((nil nil unicode-bmp :otf=tel2) tel2-otf)
   ((nil nil unicode-bmp :otf=telu) telu-otf)))
 (kannada
@@ -93,33 +224,29 @@
 (tibetan
  (nil
   ((nil tibetan\ machine\ uni unicode-bmp) tibt-otf)
-  ((nil nil unicode-bmp :otf=tibt) tibt-otf)
-  ((nil mtib unicode-bmp) tibt-mtib)))
+  ((nil nil unicode-bmp :otf=tibt) tibt-otf)))
 (thai
  (nil
-  ((nil norasi unicode-bmp) thai-norasi)
+  ((nil norasi unicode-bmp) thai-otf)
   ((nil nil unicode-bmp :otf=thai) thai-otf)))
 (lao
  (nil
   ((nil phetsarath\ ot unicode-bmp) laoo-otf)
-  ((nil nil unicode-bmp :otf=laoo) laoo-otf)
-  ((nil alice0\ lao apple-roman) laoo-alice)))
+  ((nil nil unicode-bmp :otf=laoo) laoo-otf)))
 (myanmar
  (nil
-  ((nil padauk unicode-bmp) mymr-sil)
-  ((nil myazedi_m17n unicode-bmp) mymr-myazedi)))
+  ((nil padauk unicode-bmp) mymr-sil)))
 (khmer
  (nil
   ((nil khmer\ os unicode-bmp) khmr-otf)
-  ((nil nil unicode-bmp :otf=khmr) khmr-otf)
-  ((nil anlongvill\ khek apple-roman) khmr-anlong)))
+  ((nil nil unicode-bmp :otf=khmr) khmr-otf)))
 (han
- (ja
-  ((nil takaogothic unicode-bmp))
-  ((nil nil unicode-bmp :lang=ja)))
  (zh
   ((nil wenquanyi\ zen\ hei unicode-bmp))
   ((nil nil unicode-bmp :lang=zh)))
+ (ja
+  ((nil takaogothic unicode-bmp))
+  ((nil nil unicode-bmp :lang=ja)))
  (ko
   ((nil undotum unicode-bmp))
   ((nil nil unicode-bmp :lang=ko))))
