@@ -1,5 +1,79 @@
-;; xfont.fst -- Fontset using only X fonts			-*- lisp -*-
-;; Copyright (C) 2003, 2004, 2006
+;; xfont.fst -- Fontset using only X fonts
+;; Copyright (C) 2003, 2004, 2006, 2010  AIST (H15PRO112)
+;; See the end for copying conditions.
+
+;; The file format is this:
+;;	(SCRIPT (LANGAUGE (FONT-SPEC-LIST [LAYOUTER]) ...) ...) ...
+;;	(CHARSET (FONT-SPEC-LIST [LAYOUTER]) ...) ...
+;;	(nil (FONT-SPEC-LIST [LAYOUTER]) ...) ...
+;; See FORMAT/Fontset.txt for the detail.
+
+;;; <li> xfont.fst
+;;;
+;;; Fontset using only X fonts.
+
+(latin
+ (vi
+  ((viscii1.1-1)))
+ (nil
+  ((iso8859-1))
+  ((iso8859-2))
+  ((iso8859-15))
+  ((iso10646-1))
+  ((iso8859-3))
+  ((iso8859-4))
+  ((iso8859-5))
+  ((iso8859-9))
+  ((iso8859-10))
+  ((iso8859-13))
+  ((iso8859-14))))
+(greek
+ (nil
+  ((iso8859-7))))
+(cyrillic
+ (nil
+  ((iso8859-5))
+  ((microsoft-cp1251))))
+(hebrew
+ (nil
+  ((iso8859-8))))
+(arabic
+ (nil
+  ((iso10646-1) arabic)))
+(thai
+ (nil
+  ((tis620.2529-1) thai-tis620)
+  ((tis620.2533-0) thai-tis620)
+  ((iso8859-11))))
+(han
+ (zh
+  ((gb2312.1980-0))
+  ((big5.eten-0))
+  ((big5-1))
+  ((gbk-0)))
+ (ja
+  ((jisx0208.1983-0))
+  ((jisx0212.1990-0)))
+ (ko
+  ((ksc5601.1987-0))))
+(hiragana
+ (nil
+  ((jisx0208.1983-0))
+  ((gb2312.1980-0))
+  ((ksc5601.1987-0))))
+(katakana
+ (nil
+  ((jisx0208.1983-0))
+  ((jisx0201.1976-0))
+  ((gb2312.1980-0))
+  ((ksc5601.1987-0))))
+(hangul
+ (nil
+  ((ksc5601.1987-0))))
+(nil
+ ((iso10646-1)))
+
+;; Copyright (C) 2003, 2004, 2007, 2010
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -21,103 +95,6 @@
 ;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;; The file format is this:
-;;	(SCRIPT (LANGAUGE (FONT-SPEC-LIST [LAYOUTER]) ...) ...) ...
-;;	(CHARSET (FONT-SPEC-LIST [LAYOUTER]) ...) ...
-;;	(nil (FONT-SPEC-LIST [LAYOUTER]) ...) ...
-;; See FORMAT/Fontset.txt for the detail.
-
-;;; <li> xfont.fst
-;;;
-;;; Fontset using only X fonts.
-
-(latin
- (nil
-  ((iso8859-1))
-  ((iso8859-2))
-  ((iso8859-15))
-  ((iso10646-1))
-  ((iso8859-3))
-  ((iso8859-4))
-  ((iso8859-5))
-  ((iso8859-9))
-  ((iso8859-10))
-  ((iso8859-13))
-  ((iso8859-14)))
- (vi
-  ((viscii1.1-1))
-  ((iso10646-1))))
-(greek
- (nil
-  ((iso8859-7))
-  ((iso10646-1))))
-(cyrillic
- (nil
-  ((iso8859-5))
-  ((microsoft-cp1251))
-  ((iso10646-1))))
-(hebrew
- (nil
-  ((iso8859-8))
-  ((iso10646-1))))
-(arabic
- (nil
-  ((nil misc iso10646-1) arabic)))
-(devanagari
- (nil
-  ((devanagari-cdac) dev-cdac)
-  ))
-(malayalam
- (nil
-  ((malayalam-cdac) mlm-cdac)))
-(tamil
- (nil
-  ((tamil-cdac) tml-cdac)))
-(hiragana
- (ja
-  ((jisx0208.1983-0)))
- (nil
-  ((jisx0208.1983-0))
-  ((gb2312.1980-0))
-  ((ksc5601.1987-0))))
-(katakana
- (ja
-  ((jisx0208.1983-0)))
- (nil
-  ((jisx0208.1983-0))
-  ((jisx0201.1976-0))
-  ((gb2312.1980-0))
-  ((ksc5601.1987-0))))
-(hangul
- (nil
-  ((ksc5601.1987-0))))
-(ethiopic
- (nil
-  ((ethiopic-unicode))))
-(lao
- (nil
-  ((mulelao-1) lao-mule)
-  ((nil alice0\ lao iso8859-1) lao-alice)))
-(tibetan
- (nil
-  ((muletibetan-2) tib-mule)))
-(thai
- (nil
-  ((tis620.2529-1) thai-tis620)
-  ((tis620.2533-0) thai-tis620)
-  ))
-(han
- (ja
-  ((jisx0208.1983-0))
-  ((jisx0212.1990-0)))
- (zh
-  ((gb2312.1980-0))
-  ((big5.eten-0))
-  ((big5-1))
-  ((gbk-0)))
- (ko
-  ((ksc5601.1987-0))))
-
-(nil
- ((nil \1col iso10646-1))
- ((iso10646-1)))
+;; Local Variables:
+;; mode: lisp
+;; End:
