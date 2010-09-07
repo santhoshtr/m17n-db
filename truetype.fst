@@ -243,9 +243,15 @@
 (han
  (zh
   ((nil wenquanyi\ zen\ hei unicode-bmp))
+  ((nil ar\ pl\ kaitim\ gb unicode-bmp))
+  ((nil ar\ pl\ kaitim\ big5 unicode-bmp))
+  ((nil ar\ pl\ sungtil\ gb unicode-bmp))
+  ((nil ar\ pl\ mingti2l\ big5 unicode-bmp))
   ((nil nil unicode-bmp :lang=zh)))
  (ja
   ((nil takaogothic unicode-bmp))
+  ((nil sazanami\ gothic unicode-bmp))
+  ((nil kochi\ gothic unicode-bmp))
   ((nil nil unicode-bmp :lang=ja)))
  (ko
   ((nil undotum unicode-bmp))
@@ -253,10 +259,14 @@
 (hiragana
  (nil
   ((nil takaogothic unicode-bmp))
+  ((nil sazanami\ gothic unicode-bmp))
+  ((nil kochi\ gothic unicode-bmp))
   ((nil nil unicode-bmp :lang=ja))))
 (katakana
  (nil
   ((nil takaogothic unicode-bmp))
+  ((nil sazanami\ gothic unicode-bmp))
+  ((nil kochi\ gothic unicode-bmp))
   ((nil nil unicode-bmp :lang=ja))))
 (hangul
  (nil
@@ -270,6 +280,7 @@
  (nil
   ((nil nil unicode-bmp :script=cham) cham-generic)))
 (nil
+ ((nil dejavu\ sans unicode-bmp))
  ((nil nil unicode-bmp)))
 
 ;; Copyright (C) 2003, 2004, 2007, 2010
