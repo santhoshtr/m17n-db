@@ -1,5 +1,7 @@
 2010-09-07  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
+	* truetype.fst: Enhance preferred fonts for han.
+
 	* xfont.fst: Reconstructed.
 
 	* default.fst: Reconstructed.
