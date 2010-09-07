@@ -1,3 +1,21 @@
+2010-09-07  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* xfont.fst: Reconstructed.
+
+	* default.fst: Reconstructed.
+	default.fst = generic.fst + xfont.fst.
+
+	* generic.fst: Cosmetic changes.
+
+	* truetype.fst: Reconstructed.
+	truetype.fst = generic.fst + tested free truetype fonts.
+
+2010-09-06  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* truetype.fst: More Reconstruction.
+
+	* truetype.fst: Reconstructed.
+
 2010-09-03  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* generic.fst: Reconstructed.
