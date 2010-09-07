@@ -12,22 +12,23 @@
  (vi
   ((nil nil unicode-bmp :lang=vi)))
  (nil
-  ((nil nil unicode-bmp :lang=en))))
+  ((nil nil unicode-bmp :script=latin))))
 (hebrew
  (nil
   ((nil nil unicode-bmp :otf=hebr) hebr-otf)
-  ((nil nil unicode-bmp :lang=he,yi))))
+  ((nil nil unicode-bmp :script=hebrew))))
 (arabic
  (nil
   ((nil nil unicode-bmp :otf=arab=init,medi,fina,liga+mark) arab-otf)
   ((nil nil unicode-bmp :otf=arab=init,medi,fina,liga+~mark) arab-otf-no-gpos)
-  ((nil nil unicode-bmp :lang=ar) arab)))
+  ((nil nil unicode-bmp :script=arabic) arab)))
 (syriac
  (nil
   ((nil nil unicode-bmp :otf=syrc) syrc-otf)))
 (thaana
  (nil
-  ((nil nil unicode-bmp :otf=thaa) thaa-otf)))
+  ((nil nil unicode-bmp :otf=thaa) thaa-otf)
+  ((nil nil unicode-bmp :script=thaana))))
 (devanagari
  (nil
   ((nil nil unicode-bmp :otf=dev2) dev2-otf)
@@ -73,11 +74,11 @@
 (thai
  (nil
   ((nil nil unicode-bmp :otf=thai) thai-otf)
-  ((nil nil unicode-bmp :lang=th) thai-generic)))
+  ((nil nil unicode-bmp :script=thai) thai-generic)))
 (lao
  (nil
   ((nil nil unicode-bmp :otf=laoo) laoo-otf)
-  ((nil nil unicode-bmp :lang=lo) laoo-generic)))
+  ((nil nil unicode-bmp :script=lao) laoo-generic)))
 (myanmar
  (nil
   ((nil padauk unicode-bmp) mymr-sil)))
@@ -85,16 +86,21 @@
  (nil
   ((nil nil unicode-bmp :otf=khmr) khmr-otf)))
 (han
+ (zh
+  ((nil nil unicode-bmp :lang=zh)))
  (ja
   ((nil nil unicode-bmp :lang=ja)))
- (zh
-  ((nil nil unicode-bmp :lang=zh))))
+ (ko
+  ((nil nil unicode-bmp :lang=ko))))
 (hiragana
- (ja
+ (nil
   ((nil nil unicode-bmp :lang=ja))))
 (katakana
- (ja
+ (nil
   ((nil nil unicode-bmp :lang=ja))))
+(hangul
+ (nil
+  ((nil nil unicode-bmp :lang=ko))))
 (cham
  (nil
   ((nil nil unicode-bmp :script=cham) cham-generic)))
