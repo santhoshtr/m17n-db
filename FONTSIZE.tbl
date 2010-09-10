@@ -34,7 +34,6 @@
 ((nil ml-ttkarthika apple-roman) 150)
 ((unknown nf3 adobe-fontspecific) 150)
 ((nil nf3 \7-2) 150)
-((nil norasi unicode-bmp) 150)
 ((altsys nahkt ascii-0) 120)
 ((nil anlongvill apple-roman) 90)
 
