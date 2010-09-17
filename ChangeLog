@@ -1,3 +1,8 @@
+2010-09-17  Kenichi Handa  <handa@m17n.org>
+
+	* FLT/ARAB-OTF-NO-GPOS.flt: Fix for the case of failed LAM-AREF
+	ligature.
+
 2010-09-15  Kenichi Handa  <handa@m17n.org>
 
 	* FLT/ARAB-OTF-NO-GPOS.flt: Mostly re-write for LAM-AREF ligature.
