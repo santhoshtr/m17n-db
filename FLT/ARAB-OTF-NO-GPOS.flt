@@ -3,7 +3,7 @@
 ;; See the end for copying conditions.
 
 (font layouter arab-otf-no-gpos nil
-      (font (nil nil unicode-bmp :otf=arab=init,medi,fina,liga+~mark)))
+      (font (nil nil unicode-bmp :otf=arab=init,medi,fina+~mark)))
 
 ;;; <li> ARAB-OTF-NO-GPOS.flt
 ;;;
