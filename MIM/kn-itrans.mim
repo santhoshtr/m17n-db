@@ -1,5 +1,5 @@
 ;; kn-itrans.mim -- Kannada input method with ITRANS method
-;; Copyright (C) 2003, 2004, 2005, 2006, 2007
+;; Copyright (C) 2003, 2004, 2005, 2006, 2007, 2010
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 
@@ -97,7 +97,8 @@ on 18 Aug 2005.
   ("j~n" "ಜ್ಞ್")
   ("dny" "ಜ್ಞ್")			; not in ITRANS Kannada table
   ("x" "ಕ್ಷ್")
-  ("ksh" "ಕ್ಷ್"))
+;;;("ksh" "ಕ್ಷ್")				; (conflict) commented, to support the ks consonant cluster. For the expected ITRANS "ksh" use x or kSh
+ )
 
  (independent
   ("a" "ಅ")
@@ -112,9 +113,10 @@ on 18 Aug 2005.
   ("RRi" "ಋ")
   ("R^i" "ಋ")
   ("Ru" "ಋ")				; not in ITRANS Kannada table
-  ("LLi" "ಌ")
+;;;("LLi" "ಌ")				; (conflict) commented, to support the LL consonant cluster
   ("L^i" "ಌ")
-  ("Lru" "ಌ")				; not in ITRANS Kannada table
+;;;("Lru" "ಌ")				; not in ITRANS Kannada table ; (objection) LRu is more appropriate
+  ("LRu" "ಌ") 				; not in ITRANS Kannada table ; (correction) Replaces "Lru"
   ("e" "ಎ")
   ("E" "ಏ")
   ("ee" "ಏ")				; not in ITRANS Kannada table
@@ -126,7 +128,7 @@ on 18 Aug 2005.
   ("RRI" "ೠ")
   ("R^I" "ೠ")
   ("RU" "ೠ")				; not in ITRANS Kannada table
-  ("LLI" "ೡ")
+;;;("LLI" "ೡ")				; (conflict) commented, to support the LL consonant cluster
   ("L^I" "ೡ")
   ("LRU" "ೡ")				; not in ITRANS Kannada table
   (".n" "ಂ")
@@ -171,10 +173,12 @@ on 18 Aug 2005.
   ("U" (delete @-) "ೂ")
   ("RRi" (delete @-) "ೃ")
   ("R^i" (delete @-) "ೃ")
+  ("Ru" (delete @-) "ೃ") 		; not in ITRANS kannada table ; (consistency) added to sync with the independent "Ru"
   ("RRI" (delete @-) "ೄ")
   ("R^I" (delete @-) "ೄ")
-  ("LLi" (delete @-) "ೄ")		; not in ITRANS Kannada table
-  ("L^i" (delete @-) "ೄ")		; not in ITRANS Kannada table
+  ("RU" (delete @-) "ೄ") 		; not in ITRANS kannada table ; (consistency) adde to sync with the independent "RU"
+;;;("LLi" (delete @-) "ೄ")		; not in ITRANS Kannada table ; (conflict) commented, to support the LL consonant cluster
+  ("L^i" (delete @-) "ೄ")		; not in ITRANS Kannada table ; (conflict) commented, to support the LL consonant cluster
   ("e" (delete @-) "ೆ")
   ("E" (delete @-) "ೇ")
   ("ee" (delete @-) "ೇ")		; not in ITRANS Kannada table
@@ -183,15 +187,15 @@ on 18 Aug 2005.
   ("O" (delete @-) "ೋ")
   ("oo" (delete @-) "ೋ")		; not in ITRANS Kannada table
   ("au" (delete @-) "ೌ")
-  ("LLI" (delete @-) "")		; not in ITRANS Kannada table
-  ("L^I" (delete @-) ""))		; not in ITRANS Kannada table
+;;;("LLI" (delete @-) "")		; not in ITRANS Kannada table ; (conflict) commented, to support the LL consonant cluster
+  ("L^I" (delete @-) "")		; not in ITRANS Kannada table
+ )
 
  (return
   ((Return)))
 
  (backspace
   ((BackSpace) (undo))))
-
 
 (state
  (init
