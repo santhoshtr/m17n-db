@@ -586,7 +586,9 @@ If 1, try to use surrounding text.  Otherwise, use preedit.")
   (aa "ா" (commit))			; 0BBE
   (e  "ெ" (shift e-state))		; 0BC6
   (ee "ே" (shift ee-state))		; 0BC7
-  (ai "ை" (shift ai-state)))		; 0BC8
+  (ai "ை" (shift ai-state))		; 0BC8
+  (nil
+   (unhandle)))
 
  (c-state
   (sign (shift c-s-state))
