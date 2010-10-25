@@ -1,3 +1,9 @@
+2010-10-25  Harshula <harshula@gmail.com>  (tiny change)
+
+	* MIM/ta-lk-renganathan.mim (map:preedit):
+	Unhandle those keys that belong to the map "starter" but not
+	processed explicitly.
+
 2010-10-04  Kenichi Handa  <handa@m17n.org>
 
 	* Version 1.6.2 released.
