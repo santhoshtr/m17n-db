@@ -1,5 +1,5 @@
 ;; ml-swanalekha.mim -- m17n version of  Swanalekha Malayalam input method
-;; Copyright (C) 2008, Santhosh Thottingal <santhosh.thottingal@gmail.com>, Swathanthra Malayalam Computing
+;; Copyright (C) 2008, 2010 Santhosh Thottingal <santhosh.thottingal@gmail.com>, Swathanthra Malayalam Computing
 
 ;; This file is part of the m17n contrib; a sub-part of the m17n
 ;; library.
@@ -86,7 +86,7 @@
   ("Bee" (("ഭീ")))
   ("bei" (("ബൈ")))
   ("Bei" (("ഭൈ")))
-("bh^" (("ഭ്")))
+  ("bh^" (("ഭ്")))
   ("bh" (("ഭ്")))
   ("bha" (("ഭ")))
   ("bhA" (("ഭാ")))
@@ -851,7 +851,7 @@
   ("Ngou" (("ങൌ")))
   ("NgR" (("ങൃ")))
   ("ngR" (("ങ്ങൃ") ("ങൃ")))
-  ("ngU" (("ങൂ") ("ങ്ങൂ")))
+  ("ngU" (("ങ്ങൂ") ("ങൂ")))
   ("Ngu" (("ങു")))
   ("ngu" (("ങ്ങു") ("ങു")))
   ("Nguu" (("ങൂ")))
@@ -1105,8 +1105,8 @@
   ("rO" (("രോ")))
   ("Ro" (("റൊ")))
   ("RO" (("റോ")))
-  ("Roo" (("റൂ") ("രൂ")))
-  ("roo" (("രൂ")))
+  ("Roo" (("റൂ") ("രൂ") ("₹")))
+  ("roo" (("രൂ") ("₹")))
   ("Rou" (("റൌ")))
   ("rou" (("രൌ")))
   ("RR" (("ഋ")))
@@ -1114,10 +1114,11 @@
   ("rR" (("രൃ")))
   ("Ru" (("റു") ("രു")))
   ("ru" (("രു") ("റു")))
+  ("Rs" (("റ്സ്")("₹")))
   ("RU" (("റൂ")))
-  ("rU" (("രൂ")))
-  ("Ruu" (("റൂ") ("രൂ")))
-  ("ruu" (("രൂ")))
+  ("rU" (("രൂ") ("₹")))
+  ("Ruu" (("റൂ") ("രൂ") ("₹")))
+  ("ruu" (("രൂ") ("₹")))
   ("S^" (("ശ്")))
   ("s^" (("സ്")))
   ("s" (("സ്") ("ശ്") ("സ്സ്") ("സു്") ("സ്സു്") ("എസ്")))
