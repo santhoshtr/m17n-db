@@ -1,3 +1,9 @@
+2010-10-26  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* im/si-singlish.mim: Renamed from singlish.mim.
+
+	* im/singlish.mim: Removed.
+
 2010-10-26  Santhosh Thottingal  <santhosh.thottingal@gmail.com>
 
 	* im/ml-swanalekha.mim: Support Rupee (U+20B9).
