@@ -1,0 +1,421 @@
+;; hi-vedmata.mim -- Hindi input method with Remington method
+;; Copyright (C) 2010  Shantikunj, Haridwar, UK, INDIA <www.awgp.org>
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+;; 02111-1307, USA.
+
+(input-method hi vedmata)
+
+(description "Hindi input method for Remington typewriter layout. Author: Shantikunj, Haridwar, UK, INDIA <www.awgp.org>")
+
+
+
+(title "वेदमाता हिन्दी")
+
+(map
+	(starter
+		(".") ("~") ("#") ("$") ("^") ("*") ((S-\ )) ((C-@))
+		("0") ("1") ("2") ("3") ("4")
+		("5") ("6") ("7") ("8") ("9")
+		("A") ("C") ("D") ("G") ("H") ("I") ("J") ("K") ("L")
+		("M") ("N") ("O") ("R") ("S") ("T") ("U") ("Y")
+		("a") ("b") ("c") ("d") ("e") ("f") ("g") ("h") ("i")
+		("j") ("k") ("l") ("m") ("n") ("o") ("p") ("q") ("r")
+		("s") ("t") ("u") ("v") ("w") ("x") ("y") ("z")
+		("[") ("{") ("]") ("}") ("P") ("Q") ("z") ("Z")
+		("E") ("F") ("X") ("B") ("-") ("_") ("(") (")")
+		("+") ("=") ("\"") ("|") (",") ("<") (">") ("?") ("/")
+		("@") ("&") ("%") ("V") ("`") (":") (";") ("W") ("'")
+	)
+
+	(consonant
+		((KP_1) "१")
+		((KP_2) "२")
+		((KP_3) "३")
+		((KP_4) "४")
+		((KP_5) "५")
+		((KP_6) "६")
+		((KP_7) "७")
+		((KP_8) "८")
+		((KP_9) "९")
+		((KP_0) "०")
+		((KP_Decimal) ".")
+		((KP_Divide) "/")
+		((KP_Multiply) "*")
+		((KP_Add) "+")
+		((KP_Subtract) "-") 
+	)
+
+
+	(chotiMatra
+		("f" "ि" (set C @-1))
+	)
+	(setFullChar
+		("e" "म" (insert C))
+		("r"  "त" (insert C))
+		("t"  "ज" (insert C))
+		("iQ"  "फ" (insert C))
+		("y" "ल" (insert C))
+		("u" "न" (insert C))
+		("i"  "प" (insert C))
+		("o"  "व" (insert C))
+		("p" "च" (insert C))
+		("d" "क" (insert C))
+		("G" "ळ" (insert C))
+		("g" "ह" (insert C))
+		("j" "र" (insert C))
+		("l" "स" (insert C))
+		(";"    "य" (insert C))
+		("x"  "ग" (insert C))
+		("c"  "ब" (insert C))
+		("V"  "ट" (insert C))
+		("B"  "ठ" (insert C))
+		("b"  "इ" (insert C))
+		("N"  "छ" (insert C))
+		("n"  "द" (insert C))
+		("M"  "ड" (insert C))
+		("m"  "उ" (insert C))
+		("<"  "ढ" (insert C))
+		(">"  "झ" (insert C))
+		("{k"  "क्ष" (insert C))
+		("Hk"  "भ" (insert C))
+		("Fk"  "थ" (insert C))
+		("'k"  "श" (insert C))
+		("\"k"  "ष" (insert C))
+		(".k"  "ण" (insert C))
+		("/k"  "ध" (insert C))
+		("?k"  "घ" (insert C))
+		("[k"  "ख" (insert C))
+		("_"  "त्र" (insert C))
+		("J"  "श्र" (insert C))
+		("K"  "ज्ञ" (insert C))
+		("x@"  "ॻ" (insert C))
+		("t@"  "ॼ" (insert C))
+		("M@"  "ॾ" (insert C))
+		("c@"  "ॿ" (insert C))
+		
+	)
+	(setHalfChar
+		("e" (delete @-) (insert B) "म"   (insert C))
+		("r"  (delete @-) (insert B)  "त"  (insert C))
+		("t"  (delete @-) (insert B) "ज"   (insert C))
+		("iQ" (delete @-) (insert B) "फ"   (insert C))
+		("y" (delete @-) (insert B) "ल"  (insert C))
+		("u" (delete @-) (insert B) "न"   (insert C))
+		("i" (delete @-) (insert B) "प"  (insert C))
+		("o" (delete @-) (insert B) "व"   (insert C))
+		("p" (delete @-) (insert B) "च"  (insert C))
+		("d" (delete @-) (insert B) "क"  (insert C))
+		("G" (delete @-) (insert B) "ळ"  (insert C))
+		("g" (delete @-) (insert B) "ह"  (insert C))
+		("j" (delete @-) (insert B) "र"   (insert C))
+		("l" (delete @-) (insert B) "स"  (insert C))
+		(";" (delete @-) (insert B) "य"  (insert C))
+		("x" (delete @-) (insert B) "ग"  (insert C))
+		("c" (delete @-) (insert B) "ब"  (insert C))
+		("V" (delete @-) (insert B) "ट"  (insert C))
+		("B" (delete @-) (insert B) "ठ"  (insert C))
+		("b" (delete @-) (insert B) "इ"  (insert C))
+		("N" (delete @-) (insert B) "छ"  (insert C))
+		("n" (delete @-) (insert B) "द"  (insert C))
+		("M" (delete @-) (insert B) "ड"  (insert C))
+		("m" (delete @-) (insert B) "उ"  (insert C))
+		("<" (delete @-) (insert B) "ढ"  (insert C))
+		(">" (delete @-) (insert B) "झ"  (insert C))
+		("{k" (delete @-) (insert B) "क्ष"  (insert C))
+		("Hk" (delete @-) (insert B) "भ"  (insert C))
+		("Fk" (delete @-) (insert B) "थ"  (insert C))
+		("'k" (delete @-) (insert B) "श"  (insert C))
+		(".k" (delete @-) (insert B) "ण"  (insert C))
+		("\"k" (delete @-) (insert B) "ष" (insert C))
+		("[k" (delete @-) (insert B) "ख" (insert C))		
+	)
+	
+	(matra 
+		("~" "◌") 
+		("`" "्") 
+		("1" "़")
+		("2" "ृ")
+		("%" "ः")
+		("^" "=")
+		("q" "ु")
+		("W" "ॅ")
+		("w" "ू")
+		("A" "ँ")
+		("a" "ं")
+		("S" "ै")
+		("s" "े")
+		("h" "ी")
+		("k" "ा")
+		("sk" "ो")
+		("ks" "ो")
+		("kS" "ौ")
+		("Sk" "ौ")
+		("z" "्र")
+		("@" " ॒")
+		("ka"  "ां")
+		("kW" "ा" (delete @-) "ॉ")
+		("vW" "ॲ")
+		(",W" "ऍ")
+		("vkW" "अा" (delete @-)(delete @-) "ऑ")
+		("ha"  "ीं")
+		("sa"  "ें")
+		("Sa"  "ैं")
+		("qa"  "ुं")
+		("wa"  "ूं")
+		("kA"  "ाँ")
+		("hA"  "ीँ")
+		("sA"  "ेँ")
+		("SA"  "ैँ")
+		("qA"  "ुँ")
+		("wA"  "ूँ")
+
+
+	)
+
+
+	(number
+;;		("1" ".")
+;;		("2" "ृ")
+		("3" "१")
+		("4" "२")
+		("5" "३")
+		("6" "४")
+		("7" "५")
+		("8" "६")
+		("9" "७")
+		("0" "८")
+		("-" "९")
+		("=" "०")
+	)
+
+;;	(symbol
+;;		("!" "!")
+;;		("@" "/")
+;;		("$" "+")
+;;		("&" "-")
+;;		("*" "ञ")
+;;		("(" ";")
+;;		("=" "त्र")
+;;		("]" ",")
+;;	)
+
+	(mainChar
+		("v" "अ")
+		("vk" (delete @-) "आ")
+		("vsk" (delete @-) "ओ")
+		("vks" (delete @-) "ओ")
+		("vSk" (delete @-) "औ")
+		("vkS" (delete @-) "औ")
+	)
+
+	(fullChar
+		
+		("e" "म")
+		("r" "त")
+		("t" "ज")
+		("Q" "ऊ")
+		("y" "ल")
+		("u" "न")
+		("i" "प")
+		("o" "व")
+		("p" "च")
+		("d" "क")
+		("G" "ळ")
+		("g" "ह")
+		("j" "र")
+		("l" "स")
+		(";" "य")
+		("x" "ग")
+		("c" "ब")
+		("V" "ट")
+		("B" "ठ")
+		("b" "इ")
+		("N" "छ")
+		("n" "द")
+		("M" "ड")
+		("m" "उ")
+		("<" "ढ")
+		("," "ए")
+		(",s" "ऐ")
+		(">" "झ")
+		("{k" "क्ष")
+		("Hk" "भ")
+		("Fk" "थ")
+		("'k" "श")
+		("\"k" "ष")
+		(".k" "ण")
+		("/k" "ध")		
+		("?k" "घ")		
+		("[k" "ख")
+		("iQ" "फ")
+		("x@" "ॻ")
+		("t@" "ॼ")
+		("M@" "ॾ")
+		("c@" "ॿ")
+		("+2" "ॠ")
+		("+22" "ॠ") 
+		("~y" "ऌ")
+		("~y2" "ॡ") 
+
+		(")" "द्घ")
+		("}" "द्व")
+		("|" "द्य")
+		("J" "श्र")
+		("K" "ज्ञ")
+;;		(":" "रू") 
+		(":" "ॐ") 
+		("~a" "ऽ")
+		("~a" "ऽ")
+		
+
+		("!" "?")
+		("#" ".")
+		("$" "ङ")
+		("&" "-")
+		("*" "ञ")
+		("(" " ।")
+		("((" " ॥")
+		("_" "त्र")
+		("+" "ऋ")
+		("\\" "्र")
+		("]" ",")
+
+	)
+	(getHalfChar
+		("E" "म्" (set B @-1))
+		("R" "त्" (set B @-1))
+		("T" "ज्" (set B @-1) )
+		("Y" "ल्" (set B @-1))
+		("U" "न्" (set B @-1))
+		("I" "प्" (set B @-1))
+		("O" "व्" (set B @-1))
+		("P" "च्" (set B @-1) )
+		("{" "क्ष्" (set B @-1) )
+		("D" "क्" (set B @-1))
+		("F" "थ्" (set B @-1) )
+		("H" "भ्" (set B @-1))
+		("L" "स्" (set B @-1) )
+		("\"" "ष्" (set B @-1))
+		("'" "श्" (set B @-1))
+		("Z" "र्" (set B @-1))
+		("X" "ग्" (set B @-1))
+		("C" "ब्" (set B @-1))
+		("." "ण्" (set B @-1))
+		("?" "घ्" (set B @-1))
+		("/" "ध्" (set B @-1))
+		("[" "ख्" (set B @-1))
+
+	)
+	(halfChar
+		("E" "म्")
+		("R" "त्")
+		("T" "ज्")
+		("Y" "ल्")
+		("U" "न्")
+		("I" "प्")
+		("O" "व्")
+		("P" "च्")
+		("{" "क्ष्")
+		("D" "क्")
+		("F" "थ्")
+		("H" "भ्")
+		("L" "स्")
+		("\"" "ष्")
+		("'" "श्")
+		("Z" "र्") 
+		("X" "ग्")
+		("C" "ब्")
+		("." "ण्")
+		("?" "घ्")
+		("/" "ध्")
+		("[" "ख्")
+		
+	)
+
+	(jointChar
+
+		(")" "द्घ")
+		("}" "द्व")
+		("|" "द्य")
+		("J" "श्र")
+		("K" "ज्ञ")
+	)
+
+
+	(pause)
+
+	(return
+		((Return))
+	)
+
+	(backspace
+		((BackSpace) (undo))
+	)
+)
+
+(state
+	(init
+		(starter 
+			(pushback 1) (shift intermediate)
+		)
+	)
+
+
+	(intermediate
+		(matra (shift intermediate))
+		(chotiMatra (delete @-) (shift third))
+		(mainChar (shift intermediate))
+		(fullChar (shift second))
+		(halfChar (shift intermediate))
+		(jointChar (shift intermediate))
+		(number (shift intermediate))
+		(backspace)
+		(return (shift init))
+	)
+
+
+	(third
+
+		(getHalfChar (shift fourth))
+		(setFullChar (shift intermediate))
+	)
+	
+	(fourth
+		(setHalfChar (shift intermediate))
+	)
+	
+	(second
+		(mainChar (shift intermediate))
+		(fullChar (shift intermediate))
+		(halfChar (shift intermediate))
+		(matra (shift intermediate))
+		(jointChar (shift intermediate))
+		(backspace)
+		(return (shift init))
+	)
+
+	(finish
+		(return)
+		(t (shift init))
+	)
+)
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: lisp
+;; End: 
