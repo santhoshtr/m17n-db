@@ -1,3 +1,8 @@
+2010-11-24  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/SINH-OTF.flt:
+	Remove 0x0DDA from left matra group.  Add 0x0DDB to left matra group.
+
 2010-10-25  Harshula <harshula@gmail.com>  (tiny change)
 
 	* MIM/ta-lk-renganathan.mim (map:preedit):
