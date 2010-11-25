@@ -1,3 +1,4 @@
+
 ;; hi-vedmata.mim -- Hindi input method with Remington method
 ;; Copyright (C) 2010  Shantikunj, Haridwar, UK, INDIA <www.awgp.org>
 ;; This file is part of the m17n contrib; a sub-part of the m17n
@@ -24,7 +25,7 @@
 
 
 
-(title "वेदमाता हिन्दी")
+(title "वेदमाता हिन्दी - Remington")
 
 (map
 	(starter
@@ -66,42 +67,72 @@
 	)
 	(setFullChar
 		("e" "म" (insert C))
+		("ez" "म्र" (insert C))
 		("r"  "त" (insert C))
+		("rz"  "त्र" (insert C))
 		("t"  "ज" (insert C))
+		("tz"  "ज्र" (insert C))
 		("iQ"  "फ" (insert C))
+		("iQz"  "फ्र" (insert C))
 		("y" "ल" (insert C))
+		("yz" "ल्र" (insert C))
 		("u" "न" (insert C))
+		("uz" "न्र" (insert C))
 		("i"  "प" (insert C))
+		("iz"  "प्र" (insert C))
 		("o"  "व" (insert C))
+		("oz"  "व्र" (insert C))
 		("p" "च" (insert C))
+		("pz" "च्र" (insert C))
 		("d" "क" (insert C))
+		("dz" "क्र" (insert C))
 		("G" "ळ" (insert C))
 		("g" "ह" (insert C))
+		("gz" "ह्र" (insert C))
 		("j" "र" (insert C))
 		("l" "स" (insert C))
+		("lz" "स्र" (insert C))
 		(";"    "य" (insert C))
+		(";z"  "य्र" (insert C))
 		("x"  "ग" (insert C))
+		("xz"  "ग्र" (insert C))
 		("c"  "ब" (insert C))
+		("cz"  "ब्र" (insert C))
 		("V"  "ट" (insert C))
+		("Vz"  "ट्र" (insert C))
 		("B"  "ठ" (insert C))
+		("Bz"  "ठ्र" (insert C))
 		("b"  "इ" (insert C))
 		("N"  "छ" (insert C))
+		("Nz"  "छ्र" (insert C))
 		("n"  "द" (insert C))
+		("nz"  "द्र" (insert C))
 		("M"  "ड" (insert C))
+		("Mz"  "ड्र" (insert C))
 		("m"  "उ" (insert C))
 		("<"  "ढ" (insert C))
+		("<z"  "ढ्र" (insert C))
 		(">"  "झ" (insert C))
+		(">z"  "झ्र" (insert C))
 		("{k"  "क्ष" (insert C))
 		("Hk"  "भ" (insert C))
+		("Hkz"  "भ्र" (insert C))
 		("Fk"  "थ" (insert C))
+		("Fkz"  "थ्र" (insert C))
 		("'k"  "श" (insert C))
+		("'kz"  "श्र" (insert C))
 		("\"k"  "ष" (insert C))
+		("\"kz"  "ष्र" (insert C))
 		(".k"  "ण" (insert C))
 		("/k"  "ध" (insert C))
+		("/kz"  "ध्र" (insert C))
 		("?k"  "घ" (insert C))
+		("?kz"  "घ्र" (insert C))
 		("[k"  "ख" (insert C))
+		("[kz"  "ख्र" (insert C))
 		("_"  "त्र" (insert C))
 		("J"  "श्र" (insert C))
+;;		("*"     "ञ" (insert C))
 		("K"  "ज्ञ" (insert C))
 		("x@"  "ॻ" (insert C))
 		("t@"  "ॼ" (insert C))
@@ -129,11 +160,11 @@
 		("c" (delete @-) (insert B) "ब"  (insert C))
 		("V" (delete @-) (insert B) "ट"  (insert C))
 		("B" (delete @-) (insert B) "ठ"  (insert C))
-		("b" (delete @-) (insert B) "इ"  (insert C))
+;;		("b" (delete @-) (insert B) "इ"  (insert C))
 		("N" (delete @-) (insert B) "छ"  (insert C))
 		("n" (delete @-) (insert B) "द"  (insert C))
 		("M" (delete @-) (insert B) "ड"  (insert C))
-		("m" (delete @-) (insert B) "उ"  (insert C))
+;;		("m" (delete @-) (insert B) "उ"  (insert C))
 		("<" (delete @-) (insert B) "ढ"  (insert C))
 		(">" (delete @-) (insert B) "झ"  (insert C))
 		("{k" (delete @-) (insert B) "क्ष"  (insert C))
@@ -142,7 +173,9 @@
 		("'k" (delete @-) (insert B) "श"  (insert C))
 		(".k" (delete @-) (insert B) "ण"  (insert C))
 		("\"k" (delete @-) (insert B) "ष" (insert C))
-		("[k" (delete @-) (insert B) "ख" (insert C))		
+	        ("[k" (delete @-) (insert B) "ख" (insert C))
+		("*" (delete @-) (insert B) "ञ" (insert C))
+
 	)
 	
 	(matra 
@@ -168,10 +201,10 @@
 		("z" "्र")
 		("@" " ॒")
 		("ka"  "ां")
-		("kW" "ा" (delete @-) "ॉ")
+		("kW" "ॉ")
 		("vW" "ॲ")
 		(",W" "ऍ")
-		("vkW" "अा" (delete @-)(delete @-) "ऑ")
+		("vkW" "ऑ")
 		("ha"  "ीं")
 		("sa"  "ें")
 		("Sa"  "ैं")
@@ -183,7 +216,9 @@
 		("SA"  "ैँ")
 		("qA"  "ुँ")
 		("wA"  "ूँ")
-
+		("~2"  "ॄ")
+		("~y"  "ॢ")
+		("~y2"  "ॣ")
 
 	)
 
@@ -203,22 +238,14 @@
 		("=" "०")
 	)
 
-;;	(symbol
-;;		("!" "!")
-;;		("@" "/")
-;;		("$" "+")
-;;		("&" "-")
-;;		("*" "ञ")
-;;		("(" ";")
-;;		("=" "त्र")
-;;		("]" ",")
-;;	)
 
 	(mainChar
 		("v" "अ")
+		("~v" "ऄ")
 		("vk" (delete @-) "आ")
 		("vsk" (delete @-) "ओ")
 		("vks" (delete @-) "ओ")
+		("~o" "ऒ")
 		("vSk" (delete @-) "औ")
 		("vkS" (delete @-) "औ")
 	)
@@ -245,12 +272,14 @@
 		("V" "ट")
 		("B" "ठ")
 		("b" "इ")
+		("bZ" "ई")
 		("N" "छ")
 		("n" "द")
 		("M" "ड")
 		("m" "उ")
 		("<" "ढ")
 		("," "ए")
+		("~," "ऎ")
 		(",s" "ऐ")
 		(">" "झ")
 		("{k" "क्ष")
@@ -271,6 +300,8 @@
 		("+22" "ॠ") 
 		("~y" "ऌ")
 		("~y2" "ॡ") 
+		("d~y" "कॢ")
+		("d~y2" "कॣ")
 
 		(")" "द्घ")
 		("}" "द्व")
@@ -279,7 +310,7 @@
 		("K" "ज्ञ")
 ;;		(":" "रू") 
 		(":" "ॐ") 
-		("~a" "ऽ")
+		("::" "卐")
 		("~a" "ऽ")
 		
 
@@ -312,13 +343,14 @@
 		("L" "स्" (set B @-1) )
 		("\"" "ष्" (set B @-1))
 		("'" "श्" (set B @-1))
-		("Z" "र्" (set B @-1))
+;;		("Z" "र्" (set B @-1))
 		("X" "ग्" (set B @-1))
 		("C" "ब्" (set B @-1))
 		("." "ण्" (set B @-1))
 		("?" "घ्" (set B @-1))
 		("/" "ध्" (set B @-1))
 		("[" "ख्" (set B @-1))
+		("*`" "ञ्" (set B @-1))
 
 	)
 	(halfChar
@@ -344,9 +376,13 @@
 		("?" "घ्")
 		("/" "ध्")
 		("[" "ख्")
+		("*`" "ञ्")
 		
 	)
 
+;;	(rChar
+;;		("Z" "र्" (set A1 @-) (set A2 @-1) (set A3 @-2)(set A4 @-3)(delete @-) (delete @-1)(delete @-1)(insert A3)(insert A2)(insert A4)) 
+;;	)
 	(jointChar
 
 		(")" "द्घ")
@@ -377,6 +413,7 @@
 
 
 	(intermediate
+;;		(rChar (shift intermediate))
 		(matra (shift intermediate))
 		(chotiMatra (delete @-) (shift third))
 		(mainChar (shift intermediate))
@@ -398,13 +435,16 @@
 	(fourth
 		(setHalfChar (shift intermediate))
 	)
-	
+	(fifth 
+		(setrChar (shift intermediate))
+	)
 	(second
 		(mainChar (shift intermediate))
 		(fullChar (shift intermediate))
 		(halfChar (shift intermediate))
 		(matra (shift intermediate))
 		(jointChar (shift intermediate))
+;;		(rChar (shift intermediate))
 		(backspace)
 		(return (shift init))
 	)
