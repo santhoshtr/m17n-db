@@ -1,3 +1,12 @@
+2010-11-26  Kenichi Handa  <handa@m17n.org>
+
+	* AUTHORS: New author.
+
+2010-11-26  Hugues MOISY  <hugues.moisy@gmail.com>
+
+	* im/bo-ewts.mim: Improve the original one (was in m17n-db
+	package).
+
 2010-11-25  Shantikunj, Haridwar, UK, INDIA <www.awgp.org>
 
 	* im/hi-vedmata.mim: Update by the author.

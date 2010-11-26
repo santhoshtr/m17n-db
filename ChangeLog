@@ -1,3 +1,10 @@
+2010-11-26  Kenichi Handa  <handa@m17n.org>
+
+	* MIM/Makefile.am (INPUT_METHOD): Remove bo-ewts.mim.
+
+	* MIM/bo-ewts.mim: Moved to the m17n-contrib package with
+	improvements by Hugues MOISY <hugues.moisy@gmail.com>.
+
 2010-11-24  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/SINH-OTF.flt:
