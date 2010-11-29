@@ -1,3 +1,13 @@
+2010-11-29  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* MIM/Makefile.am (INPUT_METHOD): Add ua-kbd.mim.
+
+2010-11-29  Nikolay Orlyuk <virkony gmail com>  (tiny change)
+
+	* icons/ua-kbd.png: New file.  Modified from ru-kbd.png.
+
+	* MIM/ua-kbd.mim: New file.  Modified from ru-kbd.mim.
+
 2010-11-26  Kenichi Handa  <handa@m17n.org>
 
 	* MIM/Makefile.am (INPUT_METHOD): Remove bo-ewts.mim.
