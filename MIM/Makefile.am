@@ -66,6 +66,7 @@ INPUT_METHOD = \
 	th-kesmanee.mim \
 	th-pattachote.mim \
 	th-tis820.mim \
+	ua-kbd.mim \
 	ug-kbd.mim \
 	vi-base.mim vi-viqr.mim vi-telex.mim vi-vni.mim vi-tcvn.mim \
 	zh-py.mim zh-py-gb.mim zh-py-b5.mim \
