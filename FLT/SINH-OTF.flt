@@ -1,5 +1,5 @@
 ;; SINH-OTF.flt -- Font Layout Table for Sinhala OpenType fonts
-;; Copyright (C) 2004, 2005, 2007, 2010 AIST (H15PRO112)
+;; Copyright (C) 2004, 2005, 2007, 2008, 2010 AIST (H15PRO112)
 ;; See the end for copying conditions.
 
 (font layouter sinh-otf nil
