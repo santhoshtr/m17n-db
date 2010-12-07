@@ -41,7 +41,7 @@ LANGUAGE is a two-letter symbol of language name code defined by ISO
 REGISTRY are symbols corresponding to #Mfoundry to #Mregistry property
 of a font.  See @ref m17nFont for the meaning of each property.
 
-@c OTF-SPEC is a symbol specifing the required OTF features.  The
+@c OTF-SPEC is a symbol specifyng the required OTF features.  The
 symbol name has the following syntax.
 
 @verbatim
