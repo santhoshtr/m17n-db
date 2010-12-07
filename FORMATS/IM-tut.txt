@@ -515,7 +515,7 @@ is a catchall.  Actions in this branch increase <tt>X</tt> by 32, then
 insert <tt>X</tt>.  In other words, they change A...Z into a...z
 respectively and insert the resulting lowercase character into the
 preedit buffer.  As the input method reaches the end of the
-BRANCH-ACTIONs, the character is commited.
+BRANCH-ACTIONs, the character is committed.
 
 This new input method always checks the character before the current
 position, so "A Quick Blown Fox" will be successfully fixed to "A
