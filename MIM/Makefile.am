@@ -1,5 +1,5 @@
 # Makefile.am -- Makefile for the m17n database
-# Copyright (C) 2007
+# Copyright (C) 2007, 2008, 2009, 2010
 #   National Institute of Advanced Industrial Science and Technology (AIST)
 #   Registration Number H15PRO112
 
