@@ -265,7 +265,7 @@
 
 2010-02-18  Kenichi Handa  <handa@m17n.org>
 
-	* MIM/vi-telex.mim, MIM/vi-viqr.mim, MIM/vi-vni.mim,MIM/vi-tcvn.mim
+	* MIM/vi-telex.mim, MIM/vi-viqr.mim, MIM/vi-vni.mim, MIM/vi-tcvn.mim
 	(state:init): If surrounding text is not supported, shift to
 	after-c when an initial consonant is typed.
 	(state:after-c): New state.
