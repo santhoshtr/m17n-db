@@ -1,5 +1,5 @@
 ;; THAI-OTF.flt -- Font Layout Table for Thai
-;; Copyright (C) 2006, 2007  AIST (H15PRO112)
+;; Copyright (C) 2006, 2007, 2008  AIST (H15PRO112)
 ;; See the end for copying conditions.
 
 (font layouter thai-otf nil
