@@ -1,3 +1,7 @@
+2011-01-05  Kenichi Handa  <handa@m17n.org>
+
+	* FORMATS/FLT.txt: Fix typo.
+
 2010-12-08  Kenichi Handa  <handa@m17n.org>
 
 	* MIM/kn-itrans.mim: Comment header ";;;" are changed to ";;" to
