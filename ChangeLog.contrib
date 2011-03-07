@@ -1,3 +1,7 @@
+2011-03-07  Pravin Satpute <psatpute@redhat.com>
+
+	* im/ks-inscript.mim: New file.
+
 2010-11-26  Kenichi Handa  <handa@m17n.org>
 
 	* AUTHORS: New author.
