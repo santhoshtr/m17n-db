@@ -13,6 +13,7 @@
 	Remove the addional space character after ొ in ("t"    "ొ ") which
 	   should be like this-->("t"    "ొ")
 	Add (";" (delete @-) "ప") in (halant_consonants)
+
 2011-03-07  Pravin Satpute <psatpute@redhat.com>
 
 	* im/ks-inscript.mim: New file.
