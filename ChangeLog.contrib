@@ -1,3 +1,8 @@
+2011-04-01  Parag Nemade  <pnemade@redhat.com>
+
+	* im/as-inscript.mim, im/bn-inscript.mim, im/gu-inscript.mim, im/hi-inscript.mim, im/kn-inscript.mim, im/ks-inscript.mim, im/ml-inscript.mim, im/mr-inscript.mim, im/or-inscript.mim, im/pa-inscript.mim, im/sd-inscript.mim, im/ta-inscript.mim, im/te-inscript.mim:
+	Add Rupee sign.
+
 2011-03-11  Praveen Illa  <mail2ipn@gmail.com>
 
 	* im/te-apple.png: New file.
