@@ -1,3 +1,7 @@
+2011-04-18  Daiki Ueno  <ueno@unixuser.org>  (tiny change)
+
+	* im/ru-translit.mim: Change "w" to ?щ, delete "sj" for ?щ.
+
 2011-04-01  Parag Nemade  <pnemade@redhat.com>
 
 	* im/as-inscript.mim, im/bn-inscript.mim, im/gu-inscript.mim, im/hi-inscript.mim, im/kn-inscript.mim, im/ks-inscript.mim, im/ml-inscript.mim, im/mr-inscript.mim, im/or-inscript.mim, im/pa-inscript.mim, im/sd-inscript.mim, im/ta-inscript.mim, im/te-inscript.mim:
