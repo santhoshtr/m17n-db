@@ -1,3 +1,7 @@
+2011-05-13  handa  <handa@m17n.org>
+
+	* im/si-transliteration.png: Renamed from si-trans.png.
+
 2011-04-18  Daiki Ueno  <ueno@unixuser.org>  (tiny change)
 
 	* im/ru-translit.mim: Change "w" to ?щ, delete "sj" for ?щ.
