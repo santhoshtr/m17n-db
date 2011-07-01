@@ -1,0 +1,114 @@
+;; uz-kbd.mim -- Uzbek input method with Russian keyboard layout
+;; created by Bahodir Mansurov (beemzet@gmail.com)
+
+;;; Input method for Uzbek by simulating the Uzbek keyboard.
+;;;
+;;; @image html uz-kbd.png "Keyboard Layout"
+
+(input-method uz kbd)
+
+(description
+ "Uzbek input method simulating the Russian keyboard.
+ ёЁ 1! 2\" 3№ 4; 5% 6: 7? 8* 9( 0) ғҒ ҳҲ
+     Й  Ц  У  К  Е  Н  Г  Ш  Ў  З  Х  Ъ
+      Ф  Қ  В  А  П  Р  О  Л  Д  Ж  Э \\|
+       Я  Ч  С  М  И  Т  Ь  Б  Ю  .,
+")
+
+(title "Ўзб")
+
+(map
+ (map
+  ("`" ?ё)
+  ("q" ?й)
+  ("w" ?ц)
+  ("e" ?у)
+  ("r" ?к)
+  ("t" ?е)
+  ("y" ?н)
+  ("u" ?г)
+  ("i" ?ш)
+  ("o" ?ў)
+  ("p" ?з)
+  ("[" ?х)
+  ("]" ?ъ)
+  ("a" ?ф)
+  ("s" ?қ)
+  ("d" ?в)
+  ("f" ?а)
+  ("g" ?п)
+  ("h" ?р)
+  ("j" ?о)
+  ("k" ?л)
+  ("l" ?д)
+  (";" ?ж)
+  ("'" ?э)
+  ("\\" ?\\)
+  ("z" ?я)
+  ("x" ?ч)
+  ("c" ?с)
+  ("v" ?м)
+  ("b" ?и)
+  ("n" ?т)
+  ("m" ?ь)
+  ("," ?б)
+  ("." ?ю)
+  ("/" ?.)
+  ("!" ?!)
+  ("@" ?\")
+  ("#" ?№)
+  ("$" ?\;)
+  ("%" ?%)
+  ("^" ?:)
+  ("&" ??)
+  ("*" ?*)
+  ("(" ?\()
+  (")" ?\))
+  ("-" ?ғ)
+  ("_" ?Ғ)
+  ("=" ?ҳ)
+  ("+" ?Ҳ)
+  ("~" ?Ё)
+  ("Q" ?Й)
+  ("W" ?Ц)
+  ("E" ?У)
+  ("R" ?К)
+  ("T" ?Е)
+  ("Y" ?Н)
+  ("U" ?Г)
+  ("I" ?Ш)
+  ("O" ?Ў)
+  ("P" ?З)
+  ("{" ?Х)
+  ("}" ?Ъ)
+  ("A" ?Ф)
+  ("S" ?Қ)
+  ("D" ?В)
+  ("F" ?А)
+  ("G" ?П)
+  ("H" ?Р)
+  ("J" ?О)
+  ("K" ?Л)
+  ("L" ?Д)
+  (":" ?Ж)
+  ("\"" ?Э)
+  ("|" ?\|)
+  ("Z" ?Я)
+  ("X" ?Ч)
+  ("C" ?С)
+  ("V" ?М)
+  ("B" ?И)
+  ("N" ?Т)
+  ("M" ?Ь)
+  ("<" ?Б)
+  (">" ?Ю)
+  ("?" ?,)))
+
+(state
+ (init
+  (map)))
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: lisp
+;; End:
