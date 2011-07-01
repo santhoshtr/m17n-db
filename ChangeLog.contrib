@@ -1,4 +1,10 @@
-2011-05-13  handa  <handa@m17n.org>
+2011-07-01  Bahodir Mansurov  <beemzet@gmail.com>
+
+	* im/uz-kbd.mim: New file.
+
+	* im/uz-kbd.png: New file.
+
+2011-05-13  Kenichi Handa  <handa@m17n.org>
 
 	* im/si-transliteration.png: Renamed from si-trans.png.
 
