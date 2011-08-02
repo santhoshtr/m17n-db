@@ -132,20 +132,12 @@
    ;; LAM-ALEF pattern.  Move diacritcs on LAM after ALEF.  This is to
    ;; avoid loosing surrounding separators by OTF's liga or rlig
    ;; features in the next step.
-   ("L(T*)A.*"
-    (cond
-     ("(.)(T*)(A)(T*)([DLRA].*)"
-      (1 otf:arab=init)
-      (3 otf:arab=fina)
-      (2 | = * |)
-      (4 | = * |)
-      (5 join))
-     ("(.)(T*)(A)(T*)(.*)"			; == (D)(T*)(U.*)
-      (1 otf:arab=init)
-      (3 otf:arab=fina)
-      (2 | = * |)
-      (4 | = * |)
-      (5 disjoin))))
+   ("(L)(T*)(A)(T*)(.*)"
+    (1 otf:arab=init)
+    (3 otf:arab=fina)
+    (2 | = * |)
+    (4 | = * |)
+    (5 disjoin))
 
    ("[DL].*"
     (cond
@@ -173,20 +165,12 @@
  (join
   (cond
    ;; LAM-ALEF pattern.  See the above comment.
-   ("L(T*)A.*"
-    (cond
-     ("(.)(T*)(A)(T*)([DLRA].*)"
-      (1 otf:arab=medi)
-      (3 otf:arab=fina)
-      (2 | = * |)
-      (4 | = * |)
-      (5 join))
-     ("(.)(T*)(A)(T*)(.*)"			; == (D)(T*)(U.*)
-      (1 otf:arab=medi)
-      (3 otf:arab=fina)
-      (2 | = * |)
-      (4 | = * |)
-      (5 disjoin))))
+   ("(L)(T*)(A)(T*)(.*)"
+    (1 otf:arab=medi)
+    (3 otf:arab=fina)
+    (2 | = * |)
+    (4 | = * |)
+    (5 disjoin))
 
    ("[DL].*"
     (cond
@@ -207,20 +191,12 @@
  (disjoin
   (cond
    ;; LAM-ALEF pattern.  See the above comment.
-   ("L(T*)A.*"
-    (cond
-     ("(.)(T*)(A)(T*)([DLRA].*)"
-      (1 otf:arab=init)
-      (3 otf:arab=fina)
-      (2 | = * |)
-      (4 | = * |)
-      (5 join))
-     ("(.)(T*)(A)(T*)(.*)"			; == (D)(T*)(U.*)
-      (1 otf:arab=init)
-      (3 otf:arab=fina)
-      (2 | = * |)
-      (4 | = * |)
-      (5 disjoin))))
+   ("(L)(T*)(A)(T*)(.*)"
+    (1 otf:arab=init)
+    (3 otf:arab=fina)
+    (2 | = * |)
+    (4 | = * |)
+    (5 disjoin))
 
    ("[DL].*"
     (cond
