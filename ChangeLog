@@ -1,3 +1,11 @@
+2011-08-02  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* FLT/ARAB-OTF-NO-GPOS.flt: Fix the handling of LAM-ALEF.
+
+2011-03-22  Kenichi Handa  <handa@m17n.org>
+
+	* po/de.po, po/ja.po, po/m17n-db.pot, po/vi.po: Update po files
+
 2011-01-05  Kenichi Handa  <handa@m17n.org>
 
 	* FORMATS/FLT.txt: Fix typo.
