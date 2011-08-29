@@ -1,6 +1,9 @@
 ;; si-sumihiri.mim -- Sinhala input method for sumihiri transliteration scheme
 ;; m17n Keymap file for Sinhala (Sri Lanka) (2008-09-12)
-;; Copyright (C) 2010 Sarath Camillus Jayewardena
+;; Copyright (C) 2007-2008  Harshula Jayasuriya <harshula@gmail.com>
+;; Copyright (C) 2010 Sarath Camillus Jayewardena <sakzje@gmail.com>
+;; Adopted for 'sumihiri' transliteration scheme from Harshula Jayasuriya's
+;; si-trans.mim.
 
 ;; Maintainer: Sarath Camillus Jayewardena <sakzje@gmail.com>
 ;; Last Updated: 2008-09-12
