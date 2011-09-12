@@ -2,10 +2,6 @@
 
 	* Version 1.6.3 released.
 
-2011-09-12  Kenichi Handa  <handa@m17n.org>
-
-	* configure.ac: Versions changed to 1.6.3.
-
 2011-08-02  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* FLT/ARAB-OTF-NO-GPOS.flt: Fix the handling of LAM-ALEF.
