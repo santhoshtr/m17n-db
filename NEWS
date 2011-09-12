@@ -1,8 +1,19 @@
 * NEWS -- What's new in the m17n database.			-*- outline -*-
-Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011
   National Institute of Advanced Industrial Science and Technology (AIST)
   Registration Number H15PRO112
 See the end for copying conditions.
+
+
+* Changes in the m17n database 1.6.3
+
+** A new input method is added.
+
+ua-kbd.mim -- Ukrainian input method with Ukrainian/Russian keyboard layout
+
+** An input method is deleted.
+
+bo-ewts.mim is moved to m17n-contrib package.
 
 
 * Changes in the m17n database 1.6.2
@@ -212,7 +223,7 @@ kk-kdb.mim (Kazakh in Cyrillic script)
 
 * Copyright information
 
-Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011
   National Institute of Advanced Industrial Science and Technology (AIST)
   Registration Number H15PRO112
 
