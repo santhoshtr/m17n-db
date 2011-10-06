@@ -1,6 +1,14 @@
-2011-09-12  Kenichi Handa  <handa@m17n.org>
+2011-10-06  Kenichi Handa  <handa@m17n.org>
 
 	* Version 1.6.3 released.
+
+2011-10-06  Kenichi Handa  <handa@m17n.org>
+
+	* MIM/zh-util.mim (map:commit-preedit): Add SPC.
+
+2011-09-12  Kenichi Handa  <handa@m17n.org>
+
+	* configure.ac: Versions changed to 1.6.3.
 
 2011-08-02  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
