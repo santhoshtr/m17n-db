@@ -65,7 +65,8 @@ to be included in the other Chinese input method (e.g. zh-py).
   ((BackSpace)))
 
  (commit-preedit
-  ((S-\ ))))
+  ((S-\ ))
+  ((\ ))))
 
 (state
  (check-undo
