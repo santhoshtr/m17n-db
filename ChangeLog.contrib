@@ -1,3 +1,8 @@
+2011-10-18  TAKAHASHI Naoto  <ntakahas@m17n.org>
+
+	* AUTHORS: Rename singlish to si-singlish.
+	Delete si-phonetic-static.
+
 2011-10-11  Kenichi Handa  <handa@m17n.org>
 
 	* Version 1.1.13 released.
