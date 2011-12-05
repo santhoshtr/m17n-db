@@ -362,7 +362,7 @@ For more information, see the page http://www.geez.org/IM/.
   ("u" ?ኡ)
   ("U" ?ኡ)
   ("i" ?ኢ)
-  ("a" ?ኣ)
+  ("a" ?አ)
   ("A" ?ኣ)
   ("E" ?ኤ)
   ;; ("ee" ?ኤ) ; Alef-E is rare vs Aynu-I, so ee = Aynu-I
