@@ -1,5 +1,5 @@
 ;; si-trans.mim -- Sinhala transliteration keymap
-;; Copyright (C) 2007-2008  Harshula Jayasuriya <harshula@gmail.com>
+;; Copyright (C) 2007-2011  Harshula Jayasuriya <harshula@gmail.com>
 
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License
@@ -18,7 +18,7 @@
 
 ;; m17n Keymap file for Sinhala (Sri Lanka) (2007-07-08)
 ;; Maintainer: Harshula Jayasuriya <harshula@gmail.com>
-;; Last Updated: 2008-09-10
+;; Last Updated: 2011-12-05
 ;; This is a transliteration mapping for a standard US-English keyboard
 ;; (qwerty)
 ;; http://www.nongnu.org/sinhala/doc/transliteration/sinhala-transliteration_5.html
@@ -41,16 +41,20 @@
   ("NG" "ඞ්")		; 0x0d9e - kantaja naasikyaya (nga)
   ("Mg" "ඟ්")		; 0x0d9f - sanyaka gayanna (nnga)
   ((A-n g) "ඟ්")		; AS ABOVE
+  ((G-n g) "ඟ්")		; AS ABOVE
   ("c" "ච්")		; 0x0da0 - alpapraana cayanna (ca)
   ("cH" "ඡ්")		; 0x0da1 - mahaapraana cayanna (cha)
   ("j" "ජ්")		; 0x0da2 - alpapraana jayanna (ja)
   ("jH" "ඣ්")		; 0x0da3 - mahaapraana jayanna (jha)
   ("My" "ඤ්")		; 0x0da4 - taaluja naasikyaya (nya)
   ((A-n y) "ඤ්")		; AS ABOVE
+  ((G-n y) "ඤ්")		; AS ABOVE
   ("jqMy" "ඥ්")		; 0x0da5 - taaluja sanyooga naasikyaya (jnya)
   ((j q A-n y) "ඥ්")		; AS ABOVE
+  ((j q G-n y) "ඥ්")		; AS ABOVE
   ("Mj" "ඦ්")		; 0x0da6 - sanyaka jayanna (nyja)
   ((A-n j) "ඦ්")		; AS ABOVE
+  ((G-n j) "ඦ්")		; AS ABOVE
   ("T" "ට්")		; 0x0da7 - alpapraana ttayanna (tta)
   ("TH" "ඨ්")		; 0x0da8 - mahaapraana ttayanna (ttha)
   ("D" "ඩ්")		; 0x0da9 - alpapraana ddayanna (dda)
@@ -58,6 +62,7 @@
   ("N" "ණ්")		; 0x0dab - muurdhaja nayanna (nna)
   ("MD" "ඬ්")		; 0x0dac - sanyaka ddayanna (nndda)
   ((A-n D) "ඬ්")		; AS ABOVE
+  ((G-n D) "ඬ්")		; AS ABOVE
   ("t" "ත්")		; 0x0dad - alpapraana tayanna (ta)
   ("tH" "ථ්")		; 0x0dae - mahaapraana tayanna (tha)
   ("d" "ද්")		; 0x0daf - alpapraana dayanna (da)
@@ -65,6 +70,7 @@
   ("n" "න්")		; 0x0db1 - dantaja nayanna (na)
   ("Md" "ඳ්")		; 0x0db3 - sanyaka dayanna (nda)
   ((A-n d) "ඳ්")		; AS ABOVE
+  ((G-n d) "ඳ්")		; AS ABOVE
   ("p" "ප්")		; 0x0db4 - alpapraana payanna (pa)
   ("pH" "ඵ්")		; 0x0db5 - mahaapraana payanna (pha)
   ("b" "බ්")		; 0x0db6 - alpapraana bayanna (ba)
@@ -105,10 +111,13 @@
   ("nG" "ං")		; 0x0d82 - anusvaraya (anusvara)
   ("H" "ඃ")		; 0x0d83 - visargaya (visarga)
   ((A-h) "ඃ")		; AS ABOVE
+  ((G-h) "ඃ")		; AS ABOVE
   ((A-.) "෴")		; 0x0df4 - kunddaliya (punctuation)
+  ((G-.) "෴")		; 0x0df4 - kunddaliya (punctuation)
   ;; Shift-space and Alt-space
   ((S-\ ) " ")		; 0x00a0 - no-break space
   ((A-\ ) "‌")		; 0x200c - ZWNJ
+  ((G-\ ) "‌")		; 0x200c - ZWNJ
  )
 
  (dependent

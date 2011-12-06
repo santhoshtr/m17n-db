@@ -1,5 +1,5 @@
 ;; si-phonetic-dynamic.mim -- Sinhala phonetic dynamic keymap
-;; Copyright (C) 2007-2008  Harshula Jayasuriya <harshula@gmail.com>
+;; Copyright (C) 2007-2011  Harshula Jayasuriya <harshula@gmail.com>
 
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License
@@ -18,7 +18,7 @@
 
 ;; m17n Keymap file for Sinhala (Sri Lanka) (2007-07-08)
 ;; Maintainer: Harshula Jayasuriya <harshula@gmail.com>
-;; Last Updated: 2008-12-26
+;; Last Updated: 2011-12-05
 ;; This is a phonetic dynamic mapping for a standard US-English keyboard
 ;; (qwerty)
 ;; http://www.nongnu.org/sinhala/doc/keymaps/sinhala-keyboard_4.html
@@ -82,6 +82,7 @@
 (map
  (phon
   ((A-n) "ං")		; 0x0d82 - anusvaraya (anusvara)
+  ((G-n) "ං")		; 0x0d82 - anusvaraya (anusvara)
   ("H" "ඃ")		; 0x0d83 - visargaya (visarga)
 
   ("a" (set c 0x0D85) (insert-vowel))	; 0x0d85 - ayanna (a)
@@ -95,20 +96,26 @@
   ("q" (set c 0x0D8D) (insert-vowel))	; 0x0d8d - iruyanna (iru)
   ("Q" (set c 0x0D8E) (insert-vowel))	; 0x0d8e - iruuyanna (iruu)
   ((A-l) (set c 0x0D8F) (insert-vowel))	; 0x0d8f - iluyanna (ilu)
+  ((G-l) (set c 0x0D8F) (insert-vowel))	; 0x0d8f - iluyanna (ilu)
   ((A-L) (set c 0x0D90) (insert-vowel))	; 0x0d90 - iluuyanna (iluu)
+  ((G-L) (set c 0x0D90) (insert-vowel))	; 0x0d90 - iluuyanna (iluu)
   ("e" (set c 0x0D91) (insert-vowel))	; 0x0d91 - eyanna (e)
   ("E" (set c 0x0D92) (insert-vowel))	; 0x0d92 - eeyanna (ee)
   ((A-e) (set c 0x0D93) (insert-vowel))	; 0x0d93 - aiyanna (ai)
+  ((G-e) (set c 0x0D93) (insert-vowel))	; 0x0d93 - aiyanna (ai)
   ("o" (set c 0x0D94) (insert-vowel))	; 0x0d94 - oyanna (o)
   ("O" (set c 0x0D95) (insert-vowel))	; 0x0d95 - ooyanna (oo)
   ((A-o) (set c 0x0D96) (insert-vowel))	; 0x0d96 - auyanna (au)
+  ((G-o) (set c 0x0D96) (insert-vowel))	; 0x0d96 - auyanna (au)
 
   ("k" "ක")		; 0x0d9a - alpapraana kayanna (ka)
   ("K" "ඛ")		; 0x0d9b - mahaapraana kayanna (kha)
   ("g" "ග")		; 0x0d9c - alpapraana gayanna (ga)
   ("G" "ඝ")		; 0x0d9d - mahaapraana gayanna (gha)
   ((A-N) "ඞ")		; 0x0d9e - kantaja naasikyaya (nga)
+  ((G-N) "ඞ")		; 0x0d9e - kantaja naasikyaya (nga)
   ((A-g) "ඟ")		; 0x0d9f - sanyaka gayanna (nnga)
+  ((G-g) "ඟ")		; 0x0d9f - sanyaka gayanna (nnga)
   ("c" "ච")		; 0x0da0 - alpapraana cayanna (ca)
   ("C" "ඡ")		; 0x0da1 - mahaapraana cayanna (cha)
   ("j" "ජ")		; 0x0da2 - alpapraana jayanna (ja)
@@ -116,10 +123,15 @@
   ("z" "ඤ")		; 0x0da4 - taaluja naasikyaya (nya)
   ("Z" "ඥ")		; 0x0da5 - taaluja sanyooga naasikyaya (jnya)
   ((A-j) "ඦ")		; 0x0da6 - sanyaka jayanna (nyja)
+  ((G-j) "ඦ")		; 0x0da6 - sanyaka jayanna (nyja)
   ((A-t) "ට")		; 0x0da7 - alpapraana ttayanna (tta)
+  ((G-t) "ට")		; 0x0da7 - alpapraana ttayanna (tta)
   ((A-T) "ඨ")		; 0x0da8 - mahaapraana ttayanna (ttha)
+  ((G-T) "ඨ")		; 0x0da8 - mahaapraana ttayanna (ttha)
   ((A-d) "ඩ")		; 0x0da9 - alpapraana ddayanna (dda)
+  ((G-d) "ඩ")		; 0x0da9 - alpapraana ddayanna (dda)
   ((A-D) "ඪ")		; 0x0daa - mahaapraana ddayanna (ddha)
+  ((G-D) "ඪ")		; 0x0daa - mahaapraana ddayanna (ddha)
   ("N" "ණ")		; 0x0dab - muurdhaja nayanna (nna)
   ("X" "ඬ")		; 0x0dac - sanyaka ddayanna (nndda)
   ("t" "ත")		; 0x0dad - alpapraana tayanna (ta)
@@ -140,23 +152,29 @@
   ("v" "ව")		; 0x0dc0 - vayanna (va)
   ("S" "ශ")		; 0x0dc1 - taaluja sayanna (sha)
   ((A-s) "ෂ")		; 0x0dc2 - muurdhaja sayanna (ssa)
+  ((G-s) "ෂ")		; 0x0dc2 - muurdhaja sayanna (ssa)
   ("s" "ස")		; 0x0dc3 - dantaja sayanna (sa)
   ("h" "හ")		; 0x0dc4 - hayanna (ha)
   ("L" "ළ")		; 0x0dc5 - muurdhaja layanna (lla)
   ("f" "ෆ")		; 0x0dc6 - fayanna (fa)
 
   ((A-.) "෴")		; 0x0df4 - kunddaliya (punctuation)
+  ((G-.) "෴")		; 0x0df4 - kunddaliya (punctuation)
 
   ("R" "්‍ර")		;  0x0dca,0x200d,0x0dbb - rakaaranshaya
   ("Y" "්‍ය")		;  0x0dca,0x200d,0x0dba - yansaya
   ((A-r) "ර්‍")		;  0x0dbb,0x0dca,0x200d - repaya
+  ((G-r) "ර්‍")		;  0x0dbb,0x0dca,0x200d - repaya
 
   ((A-,) "්‍")		; 0x0dca,0x200d - join - conjunct letters cons 0DCA ZWJ cons
+  ((G-,) "්‍")		; 0x0dca,0x200d - join - conjunct letters cons 0DCA ZWJ cons
   ((A-/) "‍්")		; 0x200d,0x0dca - touch - cons ZWJ 0DCA cons
+  ((G-/) "‍්")		; 0x200d,0x0dca - touch - cons ZWJ 0DCA cons
 
   ;; Shift-space and Alt-space
   ((S-\ ) " ")		; 0x00a0 - no-break space
   ((A-\ ) "‌")		; 0x200c - ZWNJ
+  ((G-\ ) "‌")		; 0x200c - ZWNJ
 
   ((BackSpace)
    (cond
