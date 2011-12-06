@@ -1,3 +1,8 @@
+2011-12-06  Harshula Jayasuriya <harshula@gmail.com>
+
+	* im/si-phonetic-dynamic.mim, im/si-trans.mim:
+	Add alt-gr mappings (G- ) to correspond to alt mappings (A- ).
+
 2011-10-18  TAKAHASHI Naoto  <ntakahas@m17n.org>
 
 	* AUTHORS: Rename singlish to si-singlish.
