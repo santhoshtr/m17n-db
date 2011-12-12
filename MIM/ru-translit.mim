@@ -1,5 +1,5 @@
 ;; ru-translit.mim -- Cyrillic input method with translit keyboard layout
-;; Copyright (C) 2007
+;; Copyright (C) 2007, 2011
 ;; Maxim Treskin <zerthurd@gmail.com>
 
 ;; This file is part of the m17n contrib; a sub-part of the m17n
@@ -39,7 +39,7 @@ are included.  Should handle most cases.  However:
   я (YA) = \"ya\", \"ja\" or \"q\".
 
 Russian alphabet: a b v=w g d e yo=jo zh z i j=j' k l m n o p r s t
-u f h=kh=x c ch sh shch=sj=/s=/sht ~ y ' e' yu=ju ya=ja=q
+u f h=kh=x c ch sh shch=/s=/sht ~ y ' e' yu=ju ya=ja=q
 
 Also included are Ukrainian є (YE) = \"/e\" and ї (YI) = \"yi\",
 Belarusian ў (SHORT U) = \"u'\",
@@ -56,7 +56,7 @@ cyrillic і (I DECIMAL) = \"/i\", ј (JE) = \"/j\",
   ("a" ?а)
   ("b" ?б)
   ("v" ?в)
-  ("w" ?щ)
+  ("w" ?в)
   ("g" ?г)
   ("d" ?д)
 
@@ -96,6 +96,7 @@ cyrillic і (I DECIMAL) = \"/i\", ј (JE) = \"/j\",
   ("sh" ?ш)
 
   ("shch" ?щ)
+  ("sj" ?щ)
 
   ("/sht" ?щ)
   ("/t" ?щ)
