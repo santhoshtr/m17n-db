@@ -1,3 +1,8 @@
+2012-03-02  Evuraan  <Evuraan at Gmail Dot Com>
+
+	* im/ml-mozhi.mim: Support atomic encoding of Malayalam Chillu
+	characters.  Add more mappings for convenience.
+
 2011-12-06  Harshula Jayasuriya <harshula@gmail.com>
 
 	* im/si-phonetic-dynamic.mim, im/si-trans.mim:
