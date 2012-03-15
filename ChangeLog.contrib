@@ -1,3 +1,8 @@
+2012-03-15  Parag Nemade  <pnemade@redhat.com>
+
+	* pa-jhelum.mim: Use AltGr instead of Ctrl+Alt.
+	Add some new mappings.
+
 2012-03-02  Evuraan  <Evuraan at Gmail Dot Com>
 
 	* im/ml-mozhi.mim: Support atomic encoding of Malayalam Chillu
