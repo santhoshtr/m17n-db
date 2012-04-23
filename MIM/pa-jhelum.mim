@@ -1,5 +1,5 @@
 ;; pa-jhelum.mim -- Punjabi input method for jhelum layout
-;; Copyright (c) 2004-2006 Red Hat, Inc. All rights reserved.
+;; Copyright (c) 2004-2012 Red Hat, Inc. All rights reserved.
 
 ;; This file is part of the m17n contrib; a sub-part of the m17n
 ;; library.
