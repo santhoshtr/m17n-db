@@ -1,6 +1,8 @@
-2012-04-23  Kenichi Handa  <handa@m17n.org>
+2012-08-31  Kenichi Handa  <handa@gnu.org>
 
 	* Version 1.6.4 released.
+
+2012-04-23  Kenichi Handa  <handa@m17n.org>
 
 	* configure.ac: Versions changed to 1.6.4.
 
