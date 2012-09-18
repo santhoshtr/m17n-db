@@ -7,7 +7,12 @@ See the end for copying conditions.
 
 * Changes in the m17n-contrib 1.1.14
 
-This release is just for bug fixing.
+** Improved input method:
+
+im/ml-mozhi.mim
+im/pa-jhelum.mim
+im/si-phonetic-dynamic.mim
+im/si-trans.mim
 
 
 * Changes in the m17n-contrib 1.1.13

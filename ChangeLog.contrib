@@ -1,12 +1,14 @@
-2012-04-23  Kenichi Handa  <handa@m17n.org>
+2012-09-18  Kenichi Handa  <handa@gnu.org>
 
 	* Version 1.1.14 released.
+
+2012-04-23  Kenichi Handa  <handa@m17n.org>
 
 	* configure.ac: Version changed to 1.1.14.
 
 2012-03-15  Parag Nemade  <pnemade@redhat.com>
 
-	* pa-jhelum.mim: Use AltGr instead of Ctrl+Alt.
+	* im/pa-jhelum.mim: Use AltGr instead of Ctrl+Alt.
 	Add some new mappings.
 
 2012-03-02  Evuraan  <Evuraan at Gmail Dot Com>
