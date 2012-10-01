@@ -2,6 +2,7 @@
 ;; Copyright (C) 2003, 2004, 2005, 2006, 2007
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
+;; Copyright (C) 2012  Kenichi Handa <handa@m17n.org>
 
 ;; This file is part of the m17n database; a sub-part of the m17n
 ;; library.
@@ -48,19 +49,36 @@ For the detail of ITRANS, see the page:
   ("kh" "ख्")
   ("g" "ग्")
   ("gh" "घ्")
+  ("nk" "ङ्क्")
+  ("nkh" "ङ्ख्")
+  ("ng" "ङ्ग्")
+  ("ngh" "ङ्घ्")
   ("~N" "ङ्")
   ("N^" "ङ्")
   ("ch" "च्")
   ("Ch" "छ्")			      ; not in ITRANS Devenagari table
+  ("c" "च्")
+  ("C" "छ्")			      ; not in ITRANS Devenagari table
   ("chh" "छ्")
   ("j" "ज्")
   ("jh" "झ्")
+  ("nch" "ञ्च्")
+  ("nCh" "ञ्छ्")			      ; not in ITRANS Devenagari table
+  ("nc" "ञ्च्")
+  ("nC" "ञ्छ्")			      ; not in ITRANS Devenagari table
+  ("nchh" "ञ्छ्")
+  ("nj" "ञ्ज्")
+  ("njh" "ञ्झ्")
   ("~n" "ञ्")
   ("JN" "ञ्")
   ("T" "ट्")
   ("Th" "ठ्")
   ("D" "ड्")
   ("Dh" "ढ्")
+  ("nT" "ण्ट्")
+  ("nTh" "ण्ठ्")
+  ("nD" "ण्ड्")
+  ("nDh" "ण्ढ्")
   ("N" "ण्")
   ("t" "त्")
   ("th" "थ्")
@@ -75,13 +93,15 @@ For the detail of ITRANS, see the page:
   ("m" "म्")
   ("y" "य्")
   ("r" "र्")
-  ("rh" "ऱ्")			      ; not in ITRANS Devenagari table
+;  ("rh" "ऱ्")			      ; not in ITRANS Devenagari table
   ("l" "ल्")
   ("L" "ळ्")
   ("ld" "ळ्")
   ("v" "व्")
   ("w" "व्")
   ("sh" "श्")
+  ("z" "श्")
+  ("S" "ष्")
   ("Sh" "ष्")
   ("shh" "ष्")
   ("s" "स्")
@@ -96,6 +116,7 @@ For the detail of ITRANS, see the page:
   ("f" "फ़्")
   ("Y" "य़्")			      ; not in ITRANS Devanagari table
   ("yh" "य़्")			      ; not in ITRANS Devanagari table
+  ("jn" "ज्ञ्")
   ("j~n" "ज्ञ्")
   ("GY" "ज्ञ्")
   ("dny" "ज्ञ्")		      ; not in ITRANS Devanagari table
@@ -111,6 +132,7 @@ For the detail of ITRANS, see the page:
   ("u" "उ")
   ("uu" "ऊ")
   ("U" "ऊ")
+  ("R" "ऋ")
   ("RRi" "ऋ")
   ("R^i" "ऋ")
   ("LLi" "ऌ")			      ; not in ITRANS Devanagari table
@@ -127,6 +149,7 @@ For the detail of ITRANS, see the page:
   ("o" "ओ")
   ("au" "औ")
   ("RRI" "ॠ")			      ; not in ITRANS Devanagari table
+  ("RR" "ॠ")			      ; not in ITRANS Devanagari table
   ("R^I" "ॠ")			      ; not in ITRANS Devanagari table
   ("LLI" "ॡ")			      ; not in ITRANS Devanagari table
   ("L^I" "ॡ")			      ; not in ITRANS Devanagari table
@@ -176,6 +199,7 @@ For the detail of ITRANS, see the page:
   ("u" (delete @-) "ु")
   ("uu" (delete @-) "ू")
   ("U" (delete @-) "ू")
+  ("R" (delete @-) "ृ")
   ("RRi" (delete @-) "ृ")
   ("R^i" (delete @-) "ृ")
   ("LLi" (delete @-) "ॢ")	      ; not in ITRANS Devanagari table
@@ -186,6 +210,7 @@ For the detail of ITRANS, see the page:
   ("ai" (delete @-) "ै")
   ("O" (delete @-) "ॊ")		      ; not in ITRANS Devanagari table
   ("au" (delete @-) "ौ")
+  ("RR" (delete @-) "ॄ")	      ; not in ITRANS Devanagari table
   ("RRI" (delete @-) "ॄ")	      ; not in ITRANS Devanagari table
   ("R^I" (delete @-) "ॄ")	      ; not in ITRANS Devanagari table
   ("LLI" (delete @-) "ॣ")	      ; not in ITRANS Devanagari table
@@ -202,7 +227,9 @@ For the detail of ITRANS, see the page:
 
  (danda
   ("." ".")
-  (".." "।" (shift init)))	      ; not in ITRANS Devanagari table
+  (".." "।" (shift init))
+  (".," "॥" (shift init))
+  )	      ; not in ITRANS Devanagari table
 
  (return
   ((Return)))
