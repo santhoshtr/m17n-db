@@ -1,3 +1,9 @@
+2012-10-02  Vishvas Vasuki  <vishvasv@samskritabharatiusa.org>
+
+	* MIM/hi-itrans.mim: Add ".," for DOUBLE DANDA.  Add "nk", "ng",
+	etc. for rapid typing.  Adopt shortcut typing "c", "z", "C, "S"
+	from Kyoto-Harvard system.
+
 2012-09-28  Kenichi Handa  <handa@gnu.org>
 
 	* MIM/hi-itrans.mim: Fix handling of danda.
