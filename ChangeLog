@@ -1,3 +1,15 @@
+2012-10-18  Kenichi Handa  <handa@gnu.org>
+
+	* MIM/sa-itrans.mim: New input method.
+
+	* MIM/hi-itrans.mim (variable:trim-last-halant): New variable.
+	(map:independent, map:dependent): Add code for handling candra-e
+	and Candra-o.
+	(map:digit, map:dot, map:eo-dot-c): New maps.
+	(state:intermediate, state:second): Handle variables
+	LAST-HALANT-POS and CANDRA-E-O.
+	(state:after-eo): Renamed from "third".
+
 2012-10-02  Vishvas Vasuki  <vishvasv@samskritabharatiusa.org>
 
 	* MIM/hi-itrans.mim: Add ".," for DOUBLE DANDA.  Add "nk", "ng",
