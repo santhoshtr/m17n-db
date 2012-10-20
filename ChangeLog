@@ -1,3 +1,11 @@
+2012-10-20  Shankar Prasad  <svenkate@redhat.com>
+
+	* MIM/kn-itrans.mim: Add examples to the description.
+
+2012-10-20  Ani Peter  <apeter@redhat.com>
+
+	* MIM/ml-itrans.mim: Add key mappings to the description.
+
 2012-10-18  Kenichi Handa  <handa@gnu.org>
 
 	* MIM/sa-itrans.mim: New input method.
