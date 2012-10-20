@@ -1,3 +1,7 @@
+2012-10-20  Kenichi Handa  <handa@gnu.org>
+
+	* .cvsignore: Add *.sig.
+
 2012-10-20  Shankar Prasad  <svenkate@redhat.com>
 
 	* MIM/kn-itrans.mim: Add examples to the description.
