@@ -6,6 +6,7 @@ config.*
 configure
 glibc*
 *.tar.gz
+*.sig
 *.map
 mapconv
 m17n-db
