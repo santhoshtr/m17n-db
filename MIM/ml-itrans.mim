@@ -24,6 +24,97 @@
 (input-method ml itrans)
 
 (description "Malayalam input method by ITRANS transliteration.
+Itrans keyboard helps you to type the way you speak. Once SCIM is activated and you select Malayalam Itrans from the SCIM tab appearing on the down right corner, you can input Malayalam text with the help of following keys.
+
+Key - Consonant
+k - ക്
+kh - ഖ്
+g - ഗ്
+gh - ഘ്
+~N - ങ്
+N^ - ങ്
+ch - ച്
+Ch - ഛ്
+chh - ഛ്
+j - ജ്
+jh - ഝ്
+~n - ഞ്
+JN - ഞ്
+T - ട്
+Th - ഠ്
+D - ഡ്
+Dh - ഢ്
+N - ണ്
+t - ത്
+th - ഥ്
+d - ദ്
+dh - ധ്
+n - ന്
+p - പ്
+ph - ഫ്
+b - ബ്
+bh - ഭ്
+m - മ്
+y - യ്
+r - ര്
+rh - റ്
+l - ല്
+L - ള്
+ld - ള്
+v - വ്
+w - വ്
+sh - ശ്
+Sh - ഷ്
+shh - ഷ്
+s - സ്
+h - ഹ്
+GY - ജ്ഞ്
+dny - ജ്ഞ്
+x - ക്ഷ്)
+
+Key - Vowel
+a - അ
+aa - ആ
+A - ആ
+i - ഇ
+ii - ഈ
+I - ഈ
+u - ഉ
+uu - ഊ
+U - ഊ
+RRi - ഋ
+R^i - ഋ
+LLi - ഌ
+L^i - ഌ
+e - എ
+E - ഏ
+ee - ഏ
+ai - ഐ
+o - ഒ
+oo - ഓ
+O - ഓ
+au - ഔ
+.n - ം
+M - ം
+H - ഃ
+.h - ്
+0 - ൦
+1 - ൧
+2 - ൨
+3 - ൩
+4 - ൪
+5 - ൫
+6 - ൬
+7 - ൭
+8 - ൮
+9 - ൯
+# - ്ര
+$ - ര്
+^ - ത്ര
+* - ശ്ര
+
+For more information refer to following:
+http://fedoraproject.org/wiki/I18N/Indic/MalayalamKeyboardLayouts
 For the detail of ITRANS, see the page:
   <http://www.aczoom.com/itrans/>
 ")
