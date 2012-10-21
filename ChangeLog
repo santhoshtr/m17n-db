@@ -1,3 +1,8 @@
+2012-10-21  Kenichi Handa  <handa@gnu.org>
+
+	* MIM/ml-itrans.mim: Refer to SCIM only as an example of input
+	method framework.  Format key mappings.
+
 2012-10-20  Kenichi Handa  <handa@gnu.org>
 
 	* .cvsignore: Add *.sig.
