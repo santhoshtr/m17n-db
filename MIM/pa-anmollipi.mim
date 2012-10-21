@@ -1,0 +1,152 @@
+;; pa-anmollipi.mim -- Punjabi input method for AnmolLipi (Phonetic)
+;; Copyright (c) 2012 Red Hat, Inc. All rights reserved.
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+(input-method pa anmollipi)
+
+(description "Punjabi input method for AnmolLipi (Phonetic).
+Author: Parag Nemade <pnemade@redhat.com>")
+
+(title "ਕ")
+(map
+ (trans
+
+  ("1" "੧")
+  ("2" "੨")
+  ("3" "੩")
+  ("4" "੪")
+  ("5" "੫")
+  ("6" "੬")
+  ("7" "੭")
+  ("8" "੮")
+  ("(" "(")
+  ("9" "੯")
+  (")" ")")
+  ("0" "੦")
+  ("_" "_")
+  ("-" "-")
+  ("+" "+")
+  ("=" "=")
+
+  ("Q" "ਥ")
+  ("q" "ਤ")
+  ("W" "ਾਂ")
+  ("w" "ਾ")
+  ("E" "")
+  ("e" "ੲ")
+  ("R" "")
+  ("r" "ਰ")
+  ("T" "ਠ")
+  ("t" "ਟ")
+  ("Y" "ੈ")
+  ("y" "ੇ")
+  ("U" "ੂ")
+  ("u" "ੁ")
+  ("I" "ੀ")
+  ("i" "ਿ")
+  ("O" "ੌ")
+  ("o" "ੋ")
+  ("P" "ਫ")
+  ("p" "ਪ")
+  ("{" "{")
+  ("[" "|")
+  ("}" "}")
+  ("]" "||")
+
+  ("a" "")
+
+  ("au" "ਉ")
+  ("aU" "ਊ")
+  ("aq" "ਓ")
+  ("aw" "ਆ")
+  ("aY" "ਐ")
+  ("aO" "ਔ")
+  ("ai" "ਇ")
+  ("aI" "ਈ")
+  ("ay" "ਏ")
+
+  ("aa" "ਅ")
+  ("as" "ਸ਼")
+  ("aK" "ਖ਼")
+  ("ag" "ਗ਼")
+  ("aj" "ਜ਼")
+  ("aP" "ਫ਼")
+  ("al" "ਲ਼")
+
+  ("A" "ੳ")
+  ("S" "ਸ਼")
+  ("s" "ਸ")
+  ("D" "ਧ")
+  ("d" "ਦ")
+  ("F" "ਢ")
+  ("f" "ਡ")
+  ("G" "ਘ")
+  ("g" "ਗ")
+  ("h" "ਹ")
+  ("J" "ਝ")
+  ("j" "ਜ")
+  ("K" "ਖ")
+  ("k" "ਕ")
+  ("L" "ਲ਼")
+  ("l" "ਲ")
+  (":" ":")
+  (";" ";")
+  ("'" "'")
+  ("|" "ਙ")
+  ("`" "ੱ")
+  ("~" "੍")
+
+  ("Z" "ੵ")
+  ("z" "ੑ")
+  ("X" "ਯ")
+  ("x" "ਣ")
+  ("C" "ਛ")
+  ("c" "ਚ")
+  ("V" "ੜ")
+  ("v" "ਵ")
+  ("B" "ਭ")
+  ("b" "ਬ")
+  ("N" "ਂ")
+  ("n" "ਨ")
+  ("M" "ੰ")
+  ("m" "ਮ")
+
+  ("," ",")
+  ("<" "ੴ")
+  ("." "਼")
+  (">" "☬")
+  ("?" "?")
+  ("\\" "ਞ")
+
+
+  ("^" "")
+  ("^A" "ਅ")
+  ("^(" "")
+  ("^)" "")
+  ("^{" "")
+  ("^}" "")
+  ("^^" "^")
+  ("^N" "ਃ")
+  ("^M" "ੰ")
+  ))
+
+(state
+ (init
+  (trans)))
