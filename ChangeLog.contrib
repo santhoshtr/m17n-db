@@ -1,3 +1,27 @@
+2012-10-21  Parag Nemade  <pnemade@redhat.com>
+
+	* im/as-inscript.mim: Escape " by \ in the description string.
+
+	* im/or-inscript.mim: Add mappings for ZWJ and ZWNJ.
+
+	* im/te-inscript.mim: Add mappings for ZWJ, VOCALIC RR, CANDRABINDU.
+
+	* im/kn-typewriter.mim: New input method.
+
+	* im/pa-anmollipi.mim: New input method.
+
+2012-10-21  Runa Bhattacharjee  <runab@redhat.com>
+
+	* im/bn-probhat.mim: Fix keys for ZWJ and ZWNJ.
+
+2012-10-21  Ani Peter  <apeter@redhat.com>
+
+	* im/ml-inscript.mim: Add the detail in description.
+
+2012-10-21  Kenichi Handa  <handa@gnu.org>
+
+	* im/mai-inscript.mim: New input method.
+
 2012-09-18  Kenichi Handa  <handa@gnu.org>
 
 	* Version 1.1.14 released.
