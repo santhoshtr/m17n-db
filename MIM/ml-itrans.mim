@@ -24,94 +24,39 @@
 (input-method ml itrans)
 
 (description "Malayalam input method by ITRANS transliteration.
-Itrans keyboard helps you to type the way you speak. Once SCIM is activated and you select Malayalam Itrans from the SCIM tab appearing on the down right corner, you can input Malayalam text with the help of following keys.
+Itrans keyboard helps you to type the way you speak.
+For instance, if your input method framework is SCIM,
+activate it and select Malayalam Itrans from the SCIM tab
+appearing on the down right corner.  Then you can input
+Malayalam text with the help of following keys.
 
 Key - Consonant
-k - ക്
-kh - ഖ്
-g - ഗ്
-gh - ഘ്
-~N - ങ്
-N^ - ങ്
-ch - ച്
-Ch - ഛ്
-chh - ഛ്
-j - ജ്
-jh - ഝ്
-~n - ഞ്
-JN - ഞ്
-T - ട്
-Th - ഠ്
-D - ഡ്
-Dh - ഢ്
-N - ണ്
-t - ത്
-th - ഥ്
-d - ദ്
-dh - ധ്
-n - ന്
-p - പ്
-ph - ഫ്
-b - ബ്
-bh - ഭ്
-m - മ്
-y - യ്
-r - ര്
-rh - റ്
-l - ല്
-L - ള്
-ld - ള്
-v - വ്
-w - വ്
-sh - ശ്
-Sh - ഷ്
-shh - ഷ്
-s - സ്
-h - ഹ്
-GY - ജ്ഞ്
-dny - ജ്ഞ്
-x - ക്ഷ്)
+k - ക്	~n - ഞ്	n - ന്	ld - ള്
+kh - ഖ്	JN - ഞ്	p - പ്	v - വ്
+g - ഗ്	T - ട്	ph - ഫ്	w - വ്
+gh - ഘ് 	Th - ഠ്	b - ബ്	sh - ശ്
+~N - ങ്	D - ഡ്	bh - ഭ്	Sh - ഷ്
+N^ - ങ്	Dh - ഢ്	m - മ്	shh - ഷ്
+ch - ച്	N - ണ്	y - യ്	s - സ്
+Ch - ഛ്	t - ത്	r - ര്		h - ഹ്
+chh - ഛ്	th - ഥ്	rh - റ്	GY - ജ്ഞ്
+j - ജ്		d - ദ്	l - ല്		dny - ജ്ഞ്
+jh - ഝ്	dh - ധ്	L - ള്	x - ക്ഷ്)
 
 Key - Vowel
-a - അ
-aa - ആ
-A - ആ
-i - ഇ
-ii - ഈ
-I - ഈ
-u - ഉ
-uu - ഊ
-U - ഊ
-RRi - ഋ
-R^i - ഋ
-LLi - ഌ
-L^i - ഌ
-e - എ
-E - ഏ
-ee - ഏ
-ai - ഐ
-o - ഒ
-oo - ഓ
-O - ഓ
-au - ഔ
-.n - ം
-M - ം
-H - ഃ
-.h - ്
-0 - ൦
-1 - ൧
-2 - ൨
-3 - ൩
-4 - ൪
-5 - ൫
-6 - ൬
-7 - ൭
-8 - ൮
-9 - ൯
-# - ്ര
-$ - ര്
-^ - ത്ര
-* - ശ്ര
+a - അ	I - ഈ	R^i - ഋ	ee - ഏ	au - ഔ
+aa - ആ	u - ഉ	LLi - ഌ	ai - ഐ
+A - ആ	uu - ഊ	L^i - ഌ	o - ഒ
+i - ഇ	U - ഊ	e - എ	oo - ഓ
+ii - ഈ	RRi - ഋ	E - ഏ	O - ഓ
+
+Key - Misc
+
+0 - ൦	5 - ൫	.n - ം	# - ്ര
+1 - ൧	6 - ൬	M - ം	$ - ര്
+2 - ൨	7 - ൭	H - ഃ	^ - ത്ര
+3 - ൩	8 - ൮	.h - ്	* - ശ്ര
+4 - ൪	9 - ൯
 
 For more information refer to following:
 http://fedoraproject.org/wiki/I18N/Indic/MalayalamKeyboardLayouts
