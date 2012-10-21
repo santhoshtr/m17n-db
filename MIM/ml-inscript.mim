@@ -24,106 +24,127 @@
 (input-method ml inscript)
 
 (description "Malayalam input method for inscript layout.
+INSCRIPT (Indian Script) is a keyboard layout scheme to input Indic text on computer, standardized by Government of India. Each key on keyboard is mapped to a Malayalam alphabet. Once SCIM is activated, select Malayalam Inscript from the SCIM tab appearing on the down right corner and input Malayalam text. To type 0-9 in Malayalam press 0-9 on Inscript keyboard. For English numerals, switch back to English keyboard using control + space bar and press 0-9.
+INSCRIPT KEYBOARD LAYOUT is available at:
+http://fedoraproject.org/wiki/I18N/Indic/MalayalamKeyboardLayouts
+http://tdil.mit.gov.in/isciichart.pdfwill be provided in the next release.
 
-Key summary:
+IMPORTANT:
 
-ZWNJ is mapped to '\\' key.
+1. key ']' is mapped to Zero Width Joiner (ZWJ) which helps you to write the five chillaksharam.
+2. key '\\' is mapped to Zero Width Non Joiner (ZWNJ) which helps you to stop the consonants from joining to form conjuncts.
+[Note: consonants are ക, ഖ, ഗ,..... and conjuncts are those formed using two consonants like ക്ക, ഗ്ഗ, ന്ത, ക്യ, ക്വ, ....]
+
+Following are the conjuncts formed in our language, shown along with the keys to reproduce them:
 
 Case 1:
-The  conjuncts called CHILLU letters can be resolved using the following keys:
+CHILLU aksharam:
+(i) ന്‍   =   ന + ് + zero width joiner(zwj)
+ie,    key 'V' + key 'D' + key ']'    
 
-(i) IN - na + chandrakala + zero width joiner(zwj)
-ie, key 'V' + key 'D' + key ']'
+(ii) ല്‍   =   ല + ് + zero width joiner(zwj)
+ie,    key 'N' + key 'D' + key ']'    
 
-(ii)IL - la + chandrakala + zero width joiner(zwj)
-ie, key 'N' + key 'D' + key ']'
+(iii) ര്‍   =   ര + ് + zero width joiner(zwj)
+ie,    key 'J' + key 'D' + key ']'   
 
-(iii)IRR - rra(or ra) + chandrakala + zero width joiner(zwj)
-ie, key 'J' + key 'D' + key ']'
+(iv) ണ്‍   =   ണ + ് + zero width joiner(zwj)
+ie,    shift key 'C' + key 'D' + key ']' 
 
-(iv)INN - nna + chandrakala + zero width joiner(zwj)
-ie, key 'C' + key 'D' + key ']'
-
-(v)ILL - ill + chandrakala + zero width joiner(zwj)
-ie, shift key 'N' + key 'D' + key ']'
-
+(v) ള്‍   =   ള + ് + zero width joiner(zwj)
+ie,    shift key 'N' + key 'D' + key ']'
+         
 Case 2:
-The following set of conjuncts are formed as shown below:
-
-(i) INGA - gha + chandrakala + ka
+(i) ങ്ങ   =   ങ +  ്  +  ക
 ie, shift key 'U' + key 'D' + key 'K'               
 
-(ii)INTHA - na + chandrakala + tha
+(ii) ന്ത   =   ന + ് + ത
 ie, key 'V'  + key 'D' + key 'L'
 
-(iii)INCHA - nja + chandrakala + cha
+(iii) ഞ്ച   =    ഞ + ് + ച
 ie, shift key '}' + key 'D' + key ';'
 
-(iv)INDA - nna + chandrakala + da
+(iv) ണ്ട   =   ണ + ് + ട
 ie, shift key 'C' + key 'D' + key '\"'
 
-(v)INPA - na + chandrakala + pa
+(v) മ്പ   =   മ + ് + പ
 ie, key 'V' + key 'D' + key 'H'
 
+(vi) ക്ഷ   =    ക + ് + ഷ
+ie, key 'C' + key 'D' + shift key '<'
+
 Case 3:
+Koottaksharangal:
 
-The conjuncts called \"Koottaksharangal\" are formed as below:
-
-(i) KKA - ka + chankrakala + ka
+(i) ക്ക   =   ക + ് + ക
 ie, key 'K' + key 'D' + key 'K'
 
-(ii)NGHA - nga + chankrakala + nga
-ie,shift key 'U' + key 'D' + shift key 'U'
+(ii) ങ്ങ   =   ങ + ് + ങ
+ie, shift key 'U' + key 'D' + shift key 'U'
 
-(iii)CCHA - cha + chankrakala + cha
-ie,key ';' + key 'D' + key ';'
+(iii) ച്ച   =   ച + ് + ച
+ie, key ';' + key 'D' + key ';'
 
-(iv)NJJA - nja + chankrakala + nja
-ie,shift key '}' + key 'D' + shift key '}'
+(iv) ഞ്ഞ   =   ഞ + ് + ഞ
+ie, shift key '}' + key 'D' + shift key '}'
 
-(v)TTA - ta + chankrakala + ta
+(v) ട്ട   =   ട + ് + ട
 ie, key '\"' + key 'D' + key '\"' 
 
-(vi)NNNA - nna + chankrakala + nna 
+(vi) ണ്ണ   =   ണ + ് + ണ 
 ie, shift key 'C' + key 'D' + shift key 'C' 
 
-(vii)TTHA - tha + chankrakala + tha
+(vii) ത്ത   =   ത + ് + ത
 ie, key 'L' + key 'D' +  key 'L' 
 
-(viii)NNA - na + chankrakala + na
+(viii) ന്ന   =   ന + ് + ന
 ie, key 'V' + key 'D' +  key 'V' 
 
-(ix)MMA -ma + chankrakala + ma
+(ix) മ്മ   =   മ + ് + മ
 ie, key 'C' + key 'D' + key 'C'
 
-(x)LLA - la + chankrakala + la
-ie, shift key 'N' + key 'D' + shift key 'N' 
+(x) ല്ല   =   ല + ് + ല
+ie, key 'N' + key 'D' + key 'N' 
 
-(xi)VVA - va + chankrakala + va
+(xi) വ്വ   =   വ + ് + വ
 ie, key 'B' + key 'D' + key 'B'
 
-(xii)YYA - ya + chankrakala + ya
+(xii) യ്യ   =   യ + ് + യ
 ie, key '?' + key 'D' + key '?'
 
-(xiii)SSHA -sha + chankrakala +sha 
-ie, shift 'M' + key 'D' + shift 'M' 
+(xiii) ശ്ശ   =   ശ + ് + ശ 
+ie, shift key 'M' + key 'D' + shift key 'M' 
 
-(xiv)SSA - sa  + chankrakala + sa
+(xiv) സ്സ   =   സ  + ് + സ
 ie, key 'M' + key 'D' + key 'M' 
 
-(xv)LLLA - lla + chankrakala + lla
+(xv) ള്ള   =   ള + ് + ള
 ie, shift key 'N' + key 'D' + shift key 'N'
 
-(xvi)TTTA - tta + chankrakala + tta
-ie, shift key 'J' + key 'D' + shift key 'J' 
+(xvi) റ്റ   =   റ + ് + റ
+ie, shift key 'J' + key 'D' + shift key 'J'
+
+Case 4:
+(Following conjuncts are explained with the help of consonant 'ക')
+
+(1) Conjuncts formed with ര (ra):
+ ക്ര   =   ക + ് + ര
+ie, key 'K' + key 'D' + key 'J'
+
+(2) Conjuncts formed with യ (ya):
+ ക്യ   =   ക + ് + യ
+ie, key 'K' + key 'D' + key '?'
+
+(3) Conjuncts formed with വ (va):
+ ക്വ   =   ക + ് + വ
+ie, key 'K' + key 'D' + key 'B'
 
 Special case:
 
-NTA - na + chandrakala + zero width joiner(zwj) + rra
-ie, key 'V' + key 'D' + key ']' + shift key 'J'
+ന്റ   =   ന + ് + റ
+ie, key 'V' + key 'D' + shift key 'J'
 
 Author: Ani Peter <apeter@redhat.com>
-
 ")
 
 (title "ക")
