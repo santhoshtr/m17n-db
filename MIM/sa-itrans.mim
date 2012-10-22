@@ -38,7 +38,8 @@ For details, see: http://en.wikipedia.org/wiki/Devanagari_transliteration.")
 
 (title "क")
 
-(variable (trim-last-halant nil 0))
+(variable (trim-last-halant nil 0)
+	  (enable-udatta nil 1))
 
 (include (hi itrans) map)
 (include (hi itrans) state)
