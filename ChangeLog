@@ -1,3 +1,13 @@
+2012-10-22  Kenichi Handa  <handa@gnu.org>
+
+	* MIM/sa-itrans.mim (enable-udatta): Set to 1.
+
+	* MIM/hi-itrans.mim (enable-udatta): New variable.
+	(map:danda-udatta): Renamed from danda.  Add mappings for udatta
+	and anundatta.
+	(state:intermediate, state:second, state:after-eo): Adjusted for
+	the above change.
+
 2012-10-21  Kenichi Handa  <handa@gnu.org>
 
 	* MIM/ml-itrans.mim: Refer to SCIM only as an example of input
