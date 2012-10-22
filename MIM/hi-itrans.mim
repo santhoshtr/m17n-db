@@ -47,7 +47,11 @@ For details, see: http://en.wikipedia.org/wiki/Devanagari_transliteration.")
   (_"If this variable is 1 (the default), the last Halant in a syllable
 is removed if it is followed by non Devanagari letter.  For instance,
 typing \"har..\" produces \"हर।\", not \"हर्।\".")
-  1 0 1))
+  1 0 1)
+
+ (enable-udatta
+  (_"If this variable is 1 (the default is 0), the key sequences \".'\"
+and \".-\" are mapped to \"॑\" and \"॒\" respectively.")))
 
 (map
  (starter
@@ -243,9 +247,11 @@ typing \"har..\" produces \"हर।\", not \"हर्।\".")
  (eo-dot-c
   (".c" (delete @-) (insert CANDRA-E-O)))
 
- (danda
+ (danda-udatta
   (".." "।")			      ; not in ITRANS Devanagari table
-  (".," "॥"))			      ; not in ITRANS Devanagari table
+  (".," "॥")			      ; not in ITRANS Devanagari table
+  (".'" (cond (enable-udatta "॑") (1 ".'")))
+  (".-" (cond (enable-udatta "॒") (1 ".-"))))
 
  (return
   ((Return)))
@@ -268,7 +274,7 @@ typing \"har..\" produces \"हर।\", not \"हर्।\".")
   (consonant (mark LAST-HALANT-POS) (shift second))
   (independent (cond (CANDRA-E-O (shift after-eo)) (1 (shift init))))
   (digit (shift init))
-  (danda (shift init))
+  (danda-udatta (shift init))
   (backspace)
   (return (shift init)))
 
@@ -279,8 +285,9 @@ typing \"har..\" produces \"हर।\", not \"हर्।\".")
   (t (set CANDRA-E-O 0))
   (consonant (mark LAST-HALANT-POS))
   (dependent (cond (CANDRA-E-O (shift after-eo)) (1 (shift init))))
-  (danda (cond (trim-last-halant (move LAST-HALANT-POS) (delete @-) (move @>)))
-	 (shift init))
+  (danda-udatta
+   (cond (trim-last-halant (move LAST-HALANT-POS) (delete @-) (move @>)))
+   (shift init))
   (backspace)
   (return (shift init))
   (nil (cond (trim-last-halant (move LAST-HALANT-POS) (delete @-) (move @>)))
@@ -290,7 +297,7 @@ typing \"har..\" produces \"हर।\", not \"हर्।\".")
   (t (set DOT 0))
   (dot)
   (eo-dot-c (shift init))
-  (danda (shift init))
+  (danda-udatta (shift init))
   (nil (cond (DOT (delete @-) (pushback 1))) (shift init))))
 
 ;; Local Variables:
