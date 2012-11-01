@@ -33,6 +33,7 @@ sequences such as the below.
   nch->ञ्च्, nCh->ञ्छ्, nc->ञ्च्, nC->ञ्छ्, nchh->ञ्छ्,
   nj->ञ्ज्, njh->ञ्झ्, nT->ण्ट्, nTh->ण्ठ्, nD->ण्ड्, nDh->ण्ढ्
   c->च्, C->छ्, z->श्, S->ष्, jn->ज्ञ्, R->ऋ
+  _->॑, ''->॒
 
 For details, see: http://en.wikipedia.org/wiki/Devanagari_transliteration.")
 
@@ -42,7 +43,58 @@ For details, see: http://en.wikipedia.org/wiki/Devanagari_transliteration.")
 	  (enable-udatta nil 1))
 
 (include (hi itrans) map)
-(include (hi itrans) state)
+
+(map
+ (udattta
+  ("_" "॒")
+  ("''" "॑")))
+
+(state
+ (init
+  (starter (pushback 1) (shift intermediate)))
+
+ (intermediate
+  ;; CANDRA-E-O is set to the character CANDRA E or CANDRA O when "e"
+  ;; or "o" is typed, and in that case, if ".c" is typed, the
+  ;; character set to CANDRA-E-O is inserted.
+  (t (set CANDRA-E-O 0))
+  ;; LAST-HALANT-POS is set to the position after a consonat + HALANT
+  ;; sequence.  If the following key is for non-letter, that HALANT
+  ;; character is removed.
+  (consonant (mark LAST-HALANT-POS) (shift second))
+  (independent (cond (CANDRA-E-O (shift after-eo)) (1 (shift init))))
+  (digit (shift init))
+  (danda (shift init))
+  (udattta (shift init))
+  (backspace)
+  (commit-key (shift init)))
+
+ (second
+  ;; CANDRA-E-O is set to the character CANDRA E or CANDRA O when "e"
+  ;; or "o" is typed, and in that case, if ".c" is typed, the
+  ;; character set to CANDRA-E-O is inserted.
+  (t (set CANDRA-E-O 0))
+  (consonant (mark LAST-HALANT-POS))
+  (dependent (cond (CANDRA-E-O (shift after-eo)) (1 (shift init))))
+  (danda
+   (cond (trim-last-halant (move LAST-HALANT-POS) (delete @-) (move @>)))
+   (shift init))
+  (udattta
+   (cond (trim-last-halant (move LAST-HALANT-POS) (delete @-) (move @>)))
+   (shift init))
+  (backspace)
+  (commit-key (shift init))
+  (nil (cond (trim-last-halant (move LAST-HALANT-POS) (delete @-) (move @>)))
+       (shift init)))
+
+ (after-eo
+  (t (set DOT 0))
+  (dot)
+  (eo-dot-c (shift init))
+  (danda (shift init))
+  (udattta (shift init))
+  (commit-key (shift init))
+  (nil (cond (DOT (delete @-) (pushback 1))) (shift init))))
 
 ;; Local Variables:
 ;; coding: utf-8
