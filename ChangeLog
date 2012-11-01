@@ -1,3 +1,18 @@
+2012-11-01  Kenichi Handa  <handa@gnu.org>
+
+	* MIM/hi-itrans.mim (enable-udatta): Delete it.
+	(map:starter): Add "_" and "'".
+	(map:danda): Renamed back from danda-udatta.  Delete ".'" and
+	".-".  Add ". ".
+	(map:return): Delete it.
+	(map:commit-key): New map for "./".
+	(state:intermediate, state:second, state:after-eo): Change
+	danda-udatta to danda.  Change return to commit-key.
+
+	* MIM/sa-itrans.mim: Do not include states of hi-itrans.
+	(map:udatta): New map.
+	(state): Copied from hi-itrans.  Add udatta to each state.
+
 2012-10-22  Kenichi Handa  <handa@gnu.org>
 
 	* MIM/sa-itrans.mim (enable-udatta): Set to 1.
