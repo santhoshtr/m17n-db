@@ -47,11 +47,7 @@ For details, see: http://en.wikipedia.org/wiki/Devanagari_transliteration.")
   (_"If this variable is 1 (the default), the last Halant in a syllable
 is removed if it is followed by non Devanagari letter.  For instance,
 typing \"har..\" produces \"हर।\", not \"हर्।\".")
-  1 0 1)
-
- (enable-udatta
-  (_"If this variable is 1 (the default is 0), the key sequences \".'\"
-and \".-\" are mapped to \"॑\" and \"॒\" respectively.")))
+  1 0 1))
 
 (map
  (starter
@@ -64,7 +60,8 @@ and \".-\" are mapped to \"॑\" and \"॒\" respectively.")))
   ("j") ("k") ("l") ("m") ("n") ("o") ("p") ("q") ("r")
   ("s") ("t") ("u") ("v") ("w") ("x") ("y") ("z")
   ((KP_1)) ((KP_2)) ((KP_3)) ((KP_4)) ((KP_5))
-  ((KP_6)) ((KP_7)) ((KP_8)) ((KP_9)) ((KP_0)))
+  ((KP_6)) ((KP_7)) ((KP_8)) ((KP_9)) ((KP_0))
+  ("_") ("'"))
 
  (consonant
   ("k" "क्")
@@ -247,14 +244,13 @@ and \".-\" are mapped to \"॑\" and \"॒\" respectively.")))
  (eo-dot-c
   (".c" (delete @-) (insert CANDRA-E-O)))
 
- (danda-udatta
+ (danda
   (".." "।")			      ; not in ITRANS Devanagari table
   (".," "॥")			      ; not in ITRANS Devanagari table
-  (".'" (cond (enable-udatta "॑") (1 ".'")))
-  (".-" (cond (enable-udatta "॒") (1 ".-"))))
+  (". " "।" (pushback 1)))
 
- (return
-  ((Return)))
+ (commit-key
+  ("./"))
 
  (backspace
   ((BackSpace) (undo))))
@@ -274,9 +270,9 @@ and \".-\" are mapped to \"॑\" and \"॒\" respectively.")))
   (consonant (mark LAST-HALANT-POS) (shift second))
   (independent (cond (CANDRA-E-O (shift after-eo)) (1 (shift init))))
   (digit (shift init))
-  (danda-udatta (shift init))
+  (danda (shift init))
   (backspace)
-  (return (shift init)))
+  (commit-key (shift init)))
 
  (second
   ;; CANDRA-E-O is set to the character CANDRA E or CANDRA O when "e"
@@ -285,11 +281,11 @@ and \".-\" are mapped to \"॑\" and \"॒\" respectively.")))
   (t (set CANDRA-E-O 0))
   (consonant (mark LAST-HALANT-POS))
   (dependent (cond (CANDRA-E-O (shift after-eo)) (1 (shift init))))
-  (danda-udatta
+  (danda
    (cond (trim-last-halant (move LAST-HALANT-POS) (delete @-) (move @>)))
    (shift init))
   (backspace)
-  (return (shift init))
+  (commit-key (shift init))
   (nil (cond (trim-last-halant (move LAST-HALANT-POS) (delete @-) (move @>)))
        (shift init)))
 
@@ -297,7 +293,8 @@ and \".-\" are mapped to \"॑\" and \"॒\" respectively.")))
   (t (set DOT 0))
   (dot)
   (eo-dot-c (shift init))
-  (danda-udatta (shift init))
+  (danda (shift init))
+  (commit-key (shift init))
   (nil (cond (DOT (delete @-) (pushback 1))) (shift init))))
 
 ;; Local Variables:
