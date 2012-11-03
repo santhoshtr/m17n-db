@@ -1,3 +1,7 @@
+2012-11-03  Satyam Pothamsetti  <satyam@teluguvahini.com>
+
+	* im/te-sarala.mim: New input method.
+
 2012-10-21  Parag Nemade  <pnemade@redhat.com>
 
 	* im/as-inscript.mim: Escape " by \ in the description string.
