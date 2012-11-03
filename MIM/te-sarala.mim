@@ -1,0 +1,206 @@
+;; te-sarala.mim -- Telugu input method with enhanced Sarala layout
+;; Copyright (C) 2012  Satyam Pothamsetti <satyam@teluguvahini.com>
+
+;; This program is free software: you can redistribute it and/or modify
+;;   it under the terms of the GNU General Public License as published by
+;;   the Free Software Foundation, either version 3 of the License, or
+;;   (at your option) any later version.
+
+;;   This program is distributed in the hope that it will be useful,
+;;   but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;   GNU General Public License for more details.
+
+;;   You should have received a copy of the GNU General Public License
+;;   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+;; The initial versions of Sarala Ergonomic Telugu Keyboard for Professionals
+;; was designed by Krishna Dhullipalla, for Windows. 
+;; Please visit http://www.medhajananam.org/sarala/
+;; and read the 'Research Paper' on the website to see 
+;; why Sarala is a faster and ergonomic layout for typing in Telugu. 
+;; Please start by practicing the exercise words from the document, 
+;; 'Learn Sarala in 2 hours'.
+
+;; You can also practice those exercises at http://lekhini.org/sarala/
+;; That site is useful especially when you need to quickly use Sarala from 
+;; a machine that does not have this layout installed.
+
+;; This is an enhanced layout of Sarala for Telugu, with several new keys.
+
+(input-method te sarala)
+
+(description "Enhanced Sarala Telugu Keyboard layout for Professionals
+Author: Current developer & maintainer, Satyam Pothamsetti <satyam@teluguvahini.com>
+Initial layout designer: Krishna Dhullipalla, http://www.medhajananam.org/sarala/
+")
+
+(title "స")
+
+(map
+	(kbd
+	
+		("`"	"ృ")
+		("~"	"ఋ")
+
+		((A-1)	"౧")
+		((C-!)	"౹")
+
+		((A-2)	"౨")
+		((C-@)	"॥")
+
+		((A-3)	"౩")
+		((C-#)	"౼")
+
+		((A-4)	"౪")
+		((C-$)	"₹")
+
+		((A-5)	"౫")
+		((C-%)	"౿")
+
+		((A-6)	"౬")
+		((C-^)	"౺")
+
+		((A-7)	"౭")
+		((C-&)	"౽")
+
+		((A-8)	"౮")
+		((C-*)	"౻")
+
+		((A-9)	"౯")
+		((C-\()	"౾")
+
+		((A-0)	"౦")
+		((C-\))	"౸")
+
+		("-"	"‌") ; ZWNJ
+		((A--)	"-")
+
+		("+"	"‍") ; ZWJ
+		((A-=)	"+")
+
+		("q"	"ె")
+		("Q"	"ఎ")
+
+		("w"	"స")
+		("W"	"ష")
+
+		("e"	"ే")
+		("E"	"ఏ")
+
+		("r"	"ర")
+		("R"	"ఱ")
+		((A-r)	"ౄ")
+		((A-R)	"ౠ")
+
+		("t"	"త")
+		("T"	"థ")
+
+		("y"	"ీ")
+		("Y"	"ఈ")
+
+		("u"	"ు")
+		("U"	"ఉ")
+
+		("i"	"ి")
+		("I"	"ఇ")
+
+		("o"	"ో")
+		("O"	"ఓ")
+		((A-o)  "ॐ")
+
+		("p"	"ప")
+		("P"	"ఫ")
+
+		("["	"జ")
+		((C-{)	"ౙ")
+		("{"	"ఝ")
+		((A-[)	"[")
+		((A-{)	"{")
+
+		("]"	"ై")
+		("}"	"ఐ")
+		((A-])	"]")
+		((A-})	"}")
+
+		("\\"	"ౌ")
+		("|"	"ఔ")
+
+		("a"	"య")
+		("A"	"ఽ")
+
+		("s"	"ం")
+		("S"	"ః")
+
+		("d"	"ద")
+		("D"	"ధ")
+
+		("f"	"్")
+		("F"	"అ")
+
+		("g"	"గ")
+		("G"	"ఘ")
+
+		("h"	"చ")
+		((A-h)	"ౘ")
+		("H"	"ఛ")
+
+		("j"	"ా")
+		("J"	"ఆ")
+
+		("k"	"క")
+		("K"	"ఖ")
+
+		("l"	"ల")
+		("L"	"ళ")
+		((A-l)	"ఌ")
+		((A-L)	"ౡ")
+
+		(";"	"ట")
+		(":"	"ఠ")
+		((A-\;)	";")
+		((A-:)	":")
+
+		("z"	"ొ")
+		("Z"	"ఒ")
+
+		("x"	"ూ")
+		("X"	"ఊ")
+
+		("c"	"డ")
+		("C"	"ఢ")
+
+		("v"	"వ")
+		("V"	"హ")
+
+		("b"	"బ")
+		("B"	"భ")
+
+		("n"	"న")
+		("N"	"ణ")
+
+		("m"	"మ")
+		("M"	"ఁ")
+
+		("<"	"ఞ")
+		((A-,)	"<")
+		
+		(">"	"ఙ")
+		((A-.)	">")
+
+		("/"	"శ")
+		((A-/)	"/")
+
+	)
+)
+
+(state
+	(init
+	    (kbd)
+	)
+)
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: emacs-lisp
+;; End:
