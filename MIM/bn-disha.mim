@@ -1,0 +1,310 @@
+;; bn-disha.mim -- Bengali input method for visual input sequence.
+;; Copyright (c) 2012 Ankur.org.in <ankur.org.in>, Sayak Sarkar <sayak.bugsmith@gmail.com>
+
+;; This file is part of the m17n contrib; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+(input-method bn disha (version "1.6.1"))
+
+(description "Bengali input method based on probhat layout.
+
+Visual Based Bengali Keymap Layout created by Sayak Sarkar and proposed by Ankur Group (www.ankur.org.in) as part of Google Summer of Code, 2012. 
+
+Link to Project Page: http://sayak-sarkar.github.com/Disha/
+
+Link to Proposal: http://www.google-melange.com/gsoc/proposal/review/google/gsoc2012/sayak_sarkar/6001
+
+Key summary:
+
+To write \"juktakhor\" i.e. conjunct characters of consonants please use the \"halant\" character on the key '/' between the two consonant akshar. 
+
+E.g. ক্ষ = k+/+S
+          র্কি = r+/+i+k
+         ক্তি = k+/+i+f
+
+To write two-part vowels please type the pre-base vowel followed by the consonant further followed by the post-base vowel.
+
+E.g. কো = [+k+a
+
+Author: Sayak Sarkar <sayak.bugsmith@gmail.com>
+Mentor: Runa Bhattacharjee <runabh@gmail.com>")
+
+(title "দি")
+
+(map
+ (dependent
+  (">","ঁ")				; 0981
+  ("L","ং")				; 0982
+  ("H","ঃ")				; 0983
+  ("e","ী")				; 09C0
+  ("u","ু")				; 09C1
+  ("w","ূ")				; 09C2
+  ("<","ৃ")				; 09C3
+  ("}","৺"))                            ; 09FA
+
+ (halant
+  ("/","্"))				; 09CD
+
+ (a-kar
+  ("a","া")				; 09BE
+  ("]","ৗ"))				; 09D7
+
+ (pre-vowel
+  ("i","ি")				; 09BF
+  ("[","ে")				; 09C7
+  ("{","ৈ"))				; 09C8
+
+ (independent
+  ("A","অ")				; 0985
+  ("v","আ")				; 0986
+  ("I","ই")				; 0987
+  ("E","ঈ")				; 0988
+  ("U","উ")				; 0989
+  ("W","ঊ")				; 098A
+  ("V","ঋ")				; 098B
+  ("y","এ")				; 098F
+  ("Y","ঐ")				; 0990
+  ("o","ও")				; 0993
+  ("O","ঔ"))				; 0994
+
+ (consonant
+  ("k","ক")				; 0995
+  ("K","খ")				; 0996
+  ("g","গ")				; 0997
+  ("G","ঘ")				; 0998
+  ("M","ঙ")				; 0999
+  ("c","চ")				; 099A
+  ("C","ছ")				; 099B
+  ("j","জ")				; 099C
+  ("J","ঝ")				; 099D
+  ("&","ঞ")				; 099E
+  ("t","ট")				; 099F
+  ("T","ঠ")				; 09A0
+  ("d","ড")				; 09A1
+  ("D","ঢ")				; 09A2
+  ("N","ণ")				; 09A3
+  ("f","ত")				; 09A4
+  ("F","থ")				; 09A5
+  ("q","দ")				; 09A6
+  ("Q","ধ")				; 09A7
+  ("n","ন")				; 09A8
+  ("p","প")				; 09AA
+  ("P","ফ")				; 09AB
+  ("b","ব")				; 09AC
+  ("B","ভ")				; 09AD
+  ("m","ম")				; 09AE
+  ("Z","য")				; 09AF
+  ("r","র")				; 09B0
+  ("l","ল")				; 09B2
+  ("x","শ")				; 09B6
+  ("S","ষ")				; 09B7
+  ("s","স")				; 09B8
+  ("h","হ")				; 09B9
+  ("*","ৎ")				; 09CE
+  ("R","ড়")				; 09DC
+  ("X","ঢ়")				; 09DD
+  ("z","য়"))				; 09DF
+
+ (numpad
+  ((KP_0) "০")                          ; 09E6
+  ((KP_1) "১")                          ; 09E7
+  ((KP_2) "২")                          ; 09E8
+  ((KP_3) "৩")                          ; 09E9
+  ((KP_4) "৪")                          ; 09EA
+  ((KP_5) "৫")                          ; 09EB
+  ((KP_6) "৬")                          ; 09EC
+  ((KP_7) "৭")                          ; 09ED
+  ((KP_8) "৮")                          ; 09EE
+  ((KP_9) "৯")                          ; 09EF
+  ((KP_Decimal) ".")
+  ((KP_Divide) "/")
+  ((KP_Multiply) "*")
+  ((KP_Add) "+")
+  ((KP_Subtract) "-"))
+
+ (number
+  ("0" ?০)                              ; 09E6
+  ("1" ?১)                              ; 09E7
+  ("2" ?২)                              ; 09E8
+  ("3" ?৩)                              ; 09E9
+  ("4" ?৪)                              ; 09EA
+  ("5" ?৫)                              ; 09EB
+  ("6" ?৬)                              ; 09EC
+  ("7" ?৭)                              ; 09ED
+  ("8" ?৮)                              ; 09EE
+  ("9" ?৯))                             ; 09EF
+
+ (AltGr
+  ((G-\() "ঌ")				; 098C
+  ((G-\;) "়")				; 09BC
+  ((G-h) "ঽ")				; 09BD
+  ((G-=) "ৄ")				; 09C4
+  ((G-') "ো")		        	; 09CB
+  ((G-\") "ৌ") 	                ; 09CC
+  ((G-+) "ৠ")				; 09E0
+  ((G-\)) "ৡ")				; 09E1
+  ((G-l) "ৢ")				; 09E2
+  ((G-k) "ৣ")				; 09E3
+  ((G-r) "ৰ")				; 09F0
+  ((G-t) "ৱ")				; 09F1
+  ((G-y) "৲")				; 09F2
+  ((G-$) "৳")				; 09F3
+  ((G-!) "৴")				; 09F4
+  ((G-@) "৵")				; 09F5
+  ((G-#) "৶")				; 09F6
+  ((G-~) "₹")
+  ((G-%) "৸")				; 09F8
+  ((G-^) "৹")				; 09F9
+  ((G-?) "৻")				; 09FB
+  ((G-\\) ""))                          ; ZWNJ
+
+ (special
+  ("." ?।)                              ; 09F7
+  ("!" ?!)
+  ("@" ?@)
+  ("#" ?#)
+  ("$" ?৳)
+  ("%" ?%)
+  ("^" ?^)
+  ("(" ?()
+  (")" ?))
+  ("_" ?_)
+  ("=" ?=)
+  (":" ?:)
+  (";" ?\;)
+  ("\"" ?\")
+  ("'" ?')
+  ("|" ?॥)
+  ("~" ?~)
+  ("`" ?`)
+  ("," ?,)
+  ("?" ??))
+
+ (backspace ((BackSpace))))
+
+(state
+ (init
+  (consonant)
+  (numpad)
+  (number)
+  (special)
+  (independent)
+  (dependent)
+  (AltGr)
+  (a-kar)
+
+  (halant    (cond
+	      ((| (= @-2 0x09BF) (= @-2 0x09C7) (= @-2 0x09C8))
+	       (shift pre-vowel))))
+
+  (backspace (set m @-1)                ; M is the previous character (possibly pre-vowel)
+	     (set b @-2)                ; B is the previous consonant (possibly consonant)
+	     (cond                      ; check if the input buffer is currently empty
+	      ((< m 0)
+	       (set m 0)))              ; dummy input to do nothing
+	     (delete @-1)               ; delete the previous character
+	     (cond
+	      ((& (| (= m 0x09BF) (= m 0x09C7) (= m 0x09C8)) (> b 0)) 
+					; check whether M is a pre-vowel
+	       (delete @-1)             ; delete the previous consonant
+	       (cond
+		((= @-1 0x09CD)         ; check if the previous character is a halant, i.e. if the previous characters were conjoined
+		 (delete @-2))))        ; delete halant as well as the previous consonant
+	      
+
+	      ((& (| (= m 0x09CB) (= m 0x09CC)) (> b 0)) 
+					; check whether M is ো / ৌ
+	       0x09C7                   ; insert ে
+	       (commit))))
+
+  (pre-vowel (set flag 1)               ; set the pre-vowel flag to indicate that the pre-vowel is has not yet been processed
+	     (shift pre-vowel)))
+
+ (pre-vowel  
+  (consonant (cond
+	      ((& (= @-2 0x09CD) (| (= @-3 0x09BF) (= @-3 0x09C7) (= @-3 0x09C8)))
+					; check if the second last character is a halant and the third last character is a pre-vowel
+	       (set n @-1)              ; N is the just typed consonant
+	       (set m @-2)              ; M is the halant
+	       (set p @-3)              ; P is the pre-vowel
+	       (delete @-3)             ; delete the last three characters
+	       (insert m)               ; insert the halant
+	       (insert n)               ; insert the last consonant
+	       (insert p)               ; insert the pre-vowel
+	       (commit)                 ; commit the combination sequence join
+	       (shift init))            ; shift to the init state
+
+	      ((!= @-2 0x09CD)
+	       (set c @-1)		; C is the just typed consonant
+	       (delete @-1)		; delete the consonant
+	       (move @-1)        	; move to before the pre-vowel
+	       (insert c) 		; re-insert the consonant
+	       (move @>)                ; move to the end
+	       (set flag 0)             ; reset the flag to indicate that the pre-vowel has been processed.
+	       (commit))))              ; commit the processed pre-vowel consonant join
+
+  (halant    (cond
+	      ((| (= @-2 0x09BF) (= @-2 0x09C7) (= @-2 0x09C8))
+	       (set h @-1)              ; H is the halant
+	       (delete @-1)             ; delete the halant
+	       (move @-2)               ; move to before the pre-vowel
+	       (insert h))))            ; insert the halant before the pre-vowel
+
+  
+  (a-kar     (cond
+	      ((& (> @-3 -1) (= @-2 0x09C7))
+	       (set f @-3)              ; F is the consonant
+	       (set s @-1)              ; S stores া / ৗ
+	       (delete @-1)             ; delete া / ৗ
+	       (delete @-2)             ; delete ে
+	       (insert f)               ; re-insert the consonant
+	       (cond
+		((= s 0x09BE)		; if previous combination == ে+<consonant>+া replace it with <consonant>+ো
+		 0x09CB)                ; insert ো
+		((= s 0x09D7)           ; if previous combination == ে+<consonant>+ৗ replace it with <consonant>+ৌ
+		 0x09CC))               ; insert ৌ
+	       (commit)))               ; commit the the split vowel join
+	     (commit))                  ; commit and exit if it is not a valid sequence
+  
+
+  (backspace (set m @-1)                ; M is the previous character (possibly pre-vowel)
+	     (set b @-2)                ; B is the previous consonant (possibly consonant)
+	     (cond                      ; check if the input buffer is currently empty
+	      ((< m 0)
+	       (set m 0)))              ; dummy input to do nothing
+	     (delete @-1)               ; delete the previous character
+	     (cond
+	      ((& (| (= m 0x09BF) (= m 0x09C7) (= m 0x09C8)) (> b 0)) 
+					; check whether M is a pre-vowel
+	       (cond
+		((= flag 0)             ; check if the pre-vowel has been processed
+		 (delete @-1)           ; delete the previous consonant
+		 (cond
+		  ((= @-1 0x09CD)       ; check if the previous character is a halant, i.e. if the previous characters were conjoined
+		   (delete @-2))))))    ; delete halant as well as the previous consonant
+
+	      ((& (| (= m 0x09CB) (= m 0x09CC)) (> b 0)) 
+					; check whether M is ো / ৌ
+	       0x09C7                   ; insert ে
+	       (commit)))               ; commit the split vowel break
+	     (set flag 0))))            ; reset the pre-vowel flag
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: emacs-lisp
+;; End:
