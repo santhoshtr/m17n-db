@@ -51,7 +51,8 @@ For details, see: http://en.wikipedia.org/wiki/Devanagari_transliteration.")
 
 (state
  (init
-  (starter (pushback 1) (shift intermediate)))
+  (starter (pushback 1) (shift intermediate))
+  (misc))
 
  (intermediate
   ;; CANDRA-E-O is set to the character CANDRA E or CANDRA O when "e"
