@@ -51,17 +51,15 @@ typing \"har..\" produces \"हर।\", not \"हर्।\".")
 
 (map
  (starter
-  (".") ("~") ("#") ("$") ("^") ("*") ((S-\ )) ((C-@))
-  ("0") ("1") ("2") ("3") ("4")
-  ("5") ("6") ("7") ("8") ("9")
+  (".") ("~") ("#") ("$") ("^") ("*") ("]") ((S-\ )) ((C-@))
+  ("0") ("1") ("2") ("3") ("4") ("5") ("6") ("7") ("8") ("9")
   ("A") ("C") ("D") ("E") ("G") ("H") ("I") ("J") ("K") ("L")
   ("M") ("N") ("O") ("R") ("S") ("T") ("U") ("Y")
   ("a") ("b") ("c") ("d") ("e") ("f") ("g") ("h") ("i")
   ("j") ("k") ("l") ("m") ("n") ("o") ("p") ("q") ("r")
   ("s") ("t") ("u") ("v") ("w") ("x") ("y") ("z")
   ((KP_1)) ((KP_2)) ((KP_3)) ((KP_4)) ((KP_5))
-  ((KP_6)) ((KP_7)) ((KP_8)) ((KP_9)) ((KP_0))
-  ("_") ("'"))
+  ((KP_6)) ((KP_7)) ((KP_8)) ((KP_9)) ((KP_0)))
 
  (consonant
   ("k" "क्")
@@ -139,7 +137,16 @@ typing \"har..\" produces \"हर।\", not \"हर्।\".")
   ("j~n" "ज्ञ्")
   ("GY" "ज्ञ्")
   ("dny" "ज्ञ्")		      ; not in ITRANS Devanagari table
-  ("x" "क्ष्"))
+  ("x" "क्ष्")
+  (".k" "क़् ")
+  (".kh" "ख़्")
+  (".K" "ख़्")
+  (".g" "ग़्")
+  (".j" "ज़्")
+  (".ph" "फ़्")
+  (".D" "ड़्")
+  (".Dh" "ढ़्")
+  (".y" "य़्"))
 
  (independent
   ("a" "अ")
@@ -247,17 +254,32 @@ typing \"har..\" produces \"हर।\", not \"हर्।\".")
  (danda
   (".." "।")			      ; not in ITRANS Devanagari table
   (".," "॥")			      ; not in ITRANS Devanagari table
-  (". " "।" (pushback 1)))
+  (". " "।" (pushback 1))
+  ((?. Return) "।" (pushback 1))
+  ((?. Tab) "।" (pushback 1))
+  (".(" "।" (pushback 1))
+  (".)" "।" (pushback 1))
+  (".[" "।" (pushback 1))
+  (".]" "।" (pushback 1))
+  (".{" "।" (pushback 1))
+  (".}" "।" (pushback 1))
+  (".'" "।" (pushback 1))
+  (".\"" "।" (pushback 1)))
 
  (commit-key
-  ("./"))
+  ((S-C-Return)))
 
  (backspace
-  ((BackSpace) (undo))))
+  ((BackSpace) (undo)))
+
+ (misc
+  ("//" "/")
+  ("/..." "…")))
 
 (state
  (init
-  (starter (pushback 1) (shift intermediate)))
+  (starter (pushback 1) (shift intermediate))
+  (misc))
 
  (intermediate
   ;; CANDRA-E-O is set to the character CANDRA E or CANDRA O when "e"
