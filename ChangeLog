@@ -1,3 +1,15 @@
+2012-11-15  Kenichi Handa  <handa@gnu.org>
+
+	* MIM/sa-itrans.mim (state:init): Add "misc" branch.
+
+	* MIM/hi-itrans.mim (map:starter): Cancel the previous change.
+	Add "]".
+	(map:cosonant): Add keys for consonants with NUKTA.
+	(map:danda): Add more keys that change "." to DANDA.
+	(map:commit-key): Change "./" to S-C-Return.
+	(map:misc): New map.
+	(state:init): Add "misc" branch.
+
 2012-11-01  Kenichi Handa  <handa@gnu.org>
 
 	* MIM/hi-itrans.mim (enable-udatta): Delete it.
