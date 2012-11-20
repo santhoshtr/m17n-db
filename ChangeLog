@@ -1,3 +1,10 @@
+2012-11-20  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
+
+	* MIM/hi-itrans.mim (description): Improved.
+	(map:consonant, map:independent, map:dependent): Add more mappings.
+
+	* MIM/sa-itrans.mim (description): Refer to hi-itrans.mim.
+
 2012-11-15  Kenichi Handa  <handa@gnu.org>
 
 	* MIM/sa-itrans.mim (state:init): Add "misc" branch.
@@ -64,7 +71,7 @@
 	LAST-HALANT-POS and CANDRA-E-O.
 	(state:after-eo): Renamed from "third".
 
-2012-10-02  Vishvas Vasuki  <vishvasv@samskritabharatiusa.org>
+2012-10-02  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
 
 	* MIM/hi-itrans.mim: Add ".," for DOUBLE DANDA.  Add "nk", "ng",
 	etc. for rapid typing.  Adopt shortcut typing "c", "z", "C, "S"
