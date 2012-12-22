@@ -1,3 +1,10 @@
+2012-12-22  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
+
+	* MIM/hi-itrans.mim (map:consonant): Add mappings "nx", "gH", jH",
+	"DH", and "bH", delete "ggg", "jjj", "DDD", "bbb".
+	(map:independent): Remove mapping "#", "*", and "]" which must be
+	used for inputting the corresponding symbols.
+
 2012-11-20  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
 
 	* MIM/hi-itrans.mim (description): Improved.
