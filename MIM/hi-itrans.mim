@@ -79,6 +79,7 @@ typing \"har..\" produces \"हर।\", not \"हर्।\".")
   (".K" "ख़्")
   (".g" "ग़्")
   ("nk" "ङ्क्")
+  ("nx" "ङ्क्ष्")
   ("nkh" "ङ्ख्")
   ("nK" "ङ्ख्")
   ("ng" "ङ्ग्")
@@ -156,10 +157,10 @@ typing \"har..\" produces \"हर।\", not \"हर्।\".")
   ("dny" "ज्ञ्")		      ; not in ITRANS Devanagari table
   ("x" "क्ष्")
   ("ksh" "क्ष्")
-  ("ggg"  ॻ्)
-  ("jjj"  ॼ्)
-  ("DDD"  "ॾ")
-  ("bbb"  "ॿ"))
+  ("gH"  ॻ्)
+  ("jH"  ॼ्)
+  ("DH"  "ॾ्")
+  ("bH"  "ॿ्"))
 
  (independent
   ("a" "अ")
@@ -202,11 +203,8 @@ typing \"har..\" produces \"हर।\", not \"हर्।\".")
   (".h" "्")
   ("AUM" "ॐ")
   ("OM" "ॐ")
-  ("#" "्र")			      ; not in ITRANS Devanagari table
   ("$" "र्")			      ; not in ITRANS Devanagari table
   ("^" "त्र")			      ; not in ITRANS Devanagari table
-  ("*" "श्र")			      ; not in ITRANS Devanagari table
-  ("]" "़")			      ; not in ITRANS Devanagari table
   ((S-\ ) "‌")			      ; not in ITRANS Devanagari table
   ((C-@) "‍"))			      ; not in ITRANS Devanagari table
 
