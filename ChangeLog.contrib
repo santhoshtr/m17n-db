@@ -1,3 +1,8 @@
+2012-12-28  Evuraan  <Evuraan at Gmail Dot Com>
+
+	* im/ml-mozhi.mim (map:consonant): Add mappings "nthh".
+	(map:independent): Add mappings "LLLI",	"L^I", "m~".
+
 2012-12-22  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
 
 	* im/math-latex.png: New file.
