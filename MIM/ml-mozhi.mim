@@ -23,7 +23,6 @@
 (input-method ml mozhi)
 
 (description "Malayalam input method.
-Supports both Atomic and Non-Atomic Malayalam Chillu characters.
 For the details, see the page:
   <http://chithrangal.blogspot.com/2012/02/ml-mozhi.html>
 ")
@@ -70,6 +69,7 @@ For the details, see the page:
   ("nT" "ണ്ട്")
   ("nt" "ന്റ്")
   ("nth" "ന്ത്")
+  ("nthh" "ന്ഥ്")
   ("th" "ത്")
   ("thh" "ഥ്")
   ("d" "ദ്")
@@ -135,7 +135,9 @@ For the details, see the page:
   ("R^" "ഋ")
   ("r^" "ഋ")
   ("LLLi" "ഌ")
+  ("LLLI" "ൡ")
   ("L^i" "ഌ")
+  ("L^I" "ൡ")
   ("E" "ഏ")
   ("e" "എ")
   ("ai" "ഐ")
@@ -149,6 +151,7 @@ For the details, see the page:
   ("m_" "ം")
   ("m " "ം ")
   ("m," "ം,")
+  ("m~" "മ്")
   ("m." "ം.")
   ("m?" "ം?")
   ("M." "ം.")
