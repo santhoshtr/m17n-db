@@ -1,3 +1,21 @@
+2012-12-29  Kenichi Handa  <handa@gnu.org>
+
+	* FORMATS/0Genenral.ja.txt: Encoding changed to utf-8.
+
+	* FORMATS/CharsetList.ja.txt: Likewise.
+
+	* FORMATS/CodingList.ja.txt: Likewise.
+
+	* FORMATS/Dir.ja.txt: Likewise.
+
+	* FORMATS/FLT.ja.txt: Likewise.
+
+	* FORMATS/FontEncoding.ja.txt: Likewise.
+
+	* FORMATS/Fontset.ja.txt: Likewise.
+
+	* FORMATS/IM.ja.txt: Likewise. Add examples in Japanese.
+
 2012-12-22  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
 
 	* MIM/hi-itrans.mim (map:consonant): Add mappings "nx", "gH", jH",
