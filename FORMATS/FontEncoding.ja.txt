@@ -1,17 +1,17 @@
-/* Copyright (C) 2003, 2004
+/* Copyright (C) 2003, 2004				-*- coding: utf-8; -*-
      National Institute of Advanced Industrial Science and Technology (AIST)
      Registration Number H15PRO112
    See the end for copying conditions.  */
 
 /***ja
 
-@page mdbFontEncoding �ե���ȥ��󥳡��ǥ���
+@page mdbFontEncoding フォントエンコーディング
 
-@section font-encoding-description ����
+@section font-encoding-description 説明
 
-m17n �饤�֥��ϡ�m17n �ǡ����١������� \<font, encoding\> �����ˤ��
-�Ƹġ��Υե���ȤΥ��󥳡��ǥ��󥰤˴ؤ�����������ɤ��롣���Υǡ���
-�ϰʲ��Υե����ޥåȤΥץ��ѥƥ��ꥹ�ȤȤ��ƥ����ɤ���롣
+m17n ライブラリは、m17n データベースから \<font, encoding\> タグによっ
+て個々のフォントのエンコーディングに関する情報をロードする。このデータ
+は以下のフォーマットのプロパティリストとしてロードされる。
 
 @verbatim
 FONT-ENCODING ::= PER-FONT *
@@ -26,32 +26,32 @@ FONT-SPEC ::=
 ENCODING ::= SYMBOL
 @endverbatim
 
-@c FONT-SPEC �ϥե���ȤΥץ��ѥƥ�����ꤹ�롣@c FOUNDRY ���� @c
-REGISTRY �ϥե���Ȥ� #Mfoundry ���� #Mregistry �ץ��ѥƥ����б����륷
-��ܥ�Ǥ��롣�ƥץ��ѥƥ��ΰ�̣�ˤĤ��Ƥ� @ref m17nFont ���ȡ�
+@c FONT-SPEC はフォントのプロパティを指定する。@c FOUNDRY から @c
+REGISTRY はフォントの #Mfoundry から #Mregistry プロパティに対応するシ
+ンボルである。各プロパティの意味については @ref m17nFont 参照。
 
-���Ȥ��Ф��� @c FONT-SPEC:
+たとえばこの @c FONT-SPEC:
 
 @verbatim
     (nil alice0\ lao iso8859-1)
 @endverbatim
 
-�ϥե���ȤΥե��ߥ�̾�� "alice0 lao" �ǥ쥸���ȥ꤬ "iso8859-1" �Ǥ�
-�뤹�٤ƤΥե���Ȥ�Ŭ�ѤǤ��롣
+はフォントのファミリ名が "alice0 lao" でレジストリが "iso8859-1" であ
+るすべてのフォントに適用できる。
 
-@c ENCODING ��ʸ�����åȤ򼨤�����ܥ�Ǥ��롣@c FONT-SPEC �˹��פ���
-�ե���Ȥϡ�����ʸ�����åȤ���ʸ���򥵥ݡ��Ȥ�������ʸ�����åȤˤ�ä�
-ʸ�������ɤϤ��Υե���Ȥ��б����륰��ե����ɤ˥ޥåפ���롣
+@c ENCODING は文字セットを示すシンボルである。@c FONT-SPEC に合致する
+フォントは、その文字セットの全文字をサポートし、その文字セットによって
+文字コードはそのフォントの対応するグリフコードにマップされる。
 
-@c REPERTORY ��ʸ�����åȤ򼨤�����ܥ뤫 "nil" �Ǥ��롣��ά�������ϡ�
-@c ENCODING �� @c REPERTORY �˻��ꤷ���Τ�Ʊ����̣�ˤʤ롣"nil" �Ǥʤ�
-��С�ʸ�����åȤϥե���ȤΥ�ѡ��ȥꡢ���ʤ�����ݡ��Ȥ���ʸ���򼨤���
-�����Ǥʤ���С������ʸ�������Υե���Ȥǥ��ݡ��Ȥ���Ƥ��뤫�ɤ�����
-�ġ��Υե���ȥɥ饤�Ф��䤤��碌�롣
+@c REPERTORY は文字セットを示すシンボルか "nil" である。省略した場合は、
+@c ENCODING を @c REPERTORY に指定したのと同じ意味になる。"nil" でなけ
+れば、文字セットはフォントのレパートリ、すなわちサポートする文字を示す。
+そうでなければ、特定の文字がそのフォントでサポートされているかどうかは
+個々のフォントドライバに問い合わせる。
 
-�������˥����ɥե���� (�쥸���ȥ�� "iso10646-1") �ˤĤ��Ƥϡ���
-�̥�˥�����ʸ���ΰ����������ݡ��Ȥ��Ƥ��ʤ����ᡢ@c REPERTORY �� 
-"nil" �ˤ��뤳�Ȥ�˾�ޤ�����     */
+いわゆるユニコードフォント (レジストリは "iso10646-1") については、普
+通ユニコード文字の一部しかサポートしていないため、@c REPERTORY を 
+"nil" にすることが望ましい。     */
 
 /* 
 Copyright (C) 2003, 2004

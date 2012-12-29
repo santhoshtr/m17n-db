@@ -1,17 +1,17 @@
-/* Copyright (C) 2003, 2004
+/* Copyright (C) 2003, 2004				-*- coding: utf-8; -*-
      National Institute of Advanced Industrial Science and Technology (AIST)
      Registration Number H15PRO112
    See the end for copying conditions.  */
 
 /***ja
 
-@page mdbFontset �ե���ȥ��å�
+@page mdbFontset フォントセット
 
-@section fontset-description ����
+@section fontset-description 説明
 
-m17n �饤�֥��ϡ�m17n �ǡ����١������� \<fontset, FONTSET-NAME\> ��
-���ˤ�äƥե���ȥ��åȤ����������ɤ��롣���Υǡ����ϰʲ��Υե����ޥ�
-�ȤΥץ��ѥƥ��ꥹ�ȤȤ��ƥ����ɤ���롣
+m17n ライブラリは、m17n データベースから \<fontset, FONTSET-NAME\> タ
+グによってフォントセットの定義をロードする。このデータは以下のフォーマッ
+トのプロパティリストとしてロードされる。
 
 @verbatim
 FONTSET ::= PER-SCRIPT * PER-CHARSET * FALLBACK *
@@ -32,19 +32,19 @@ FONT-SPEC ::=
          REGISTRY ')'
 @endverbatim    
 
-@c SCRIPT �ϥ�����ץ�̾ (e.g. latin, han) �򼨤�����ܥ뤫 @c nil�Ǥ�
-�롣@c LANGUAGE ��ISO 639 ��������줿����̾������ (e.g. ja, zh) �Ǥ�
-�룲ʸ���Υ���ܥ뤫 @c nil �Ǥ��롣
+@c SCRIPT はスクリプト名 (e.g. latin, han) を示すシンボルか @c nilであ
+る。@c LANGUAGE はISO 639 に定義された言語名コード (e.g. ja, zh) であ
+る２文字のシンボルか @c nil である。
 
-@c FONT-SPEC �ϥե���ȤΥץ��ѥƥ�����ꤹ�롣@c FOUNDRY ���� @c
-REGISTRY �ϥե���Ȥ� #Mfoundry ���� #Mregistry �ץ��ѥƥ����б����륷
-��ܥ�Ǥ��롣�ƥץ��ѥƥ��ΰ�̣�ˤĤ��Ƥ� @ref m17nFont ���ȡ�
+@c FONT-SPEC はフォントのプロパティを指定する。@c FOUNDRY から @c
+REGISTRY はフォントの #Mfoundry から #Mregistry プロパティに対応するシ
+ンボルである。各プロパティの意味については @ref m17nFont 参照。
 
-@c FLT-NAME �ϥե���ȥ쥤�����ȥơ��֥��̾���Ǥ��롣(@ref mdbFLT).
+@c FLT-NAME はフォントレイアウトテーブルの名前である。(@ref mdbFLT).
 
-@section fontset-example ��
+@section fontset-example 例
 
-����� @c PER_SCRIPT ����Ǥ��롣
+これは @c PER_SCRIPT の例である。
 
 @verbatim
 (han
@@ -56,15 +56,15 @@ REGISTRY �ϥե���Ȥ� #Mfoundry ���� #Mregistry �ץ��ѥƥ����б����륷
     ((big5-0))))
 @endverbatim
 
-����ˤ�äƥե���ȥ��쥯���ϡ�"han" ʸ�� (�Ĥޤ�#Mscript �ץ��ѥƥ�
-�� 'han' �Ǥ���ʸ��)�Τ�����ʸ���� M-text ��Ǥ� #Mlanguage �ƥ����ȥ�
-���ѥƥ��� "ja" �Ǥ��ꤽ��ʸ�����ե���ȤΥ�ѡ��ȥ꡼�˴ޤޤ�Ƥ����
-�ΤˤĤ��Ƥϡ��쥸���ȥ꤬"jisx0208.1983-0" �Ǥ���ե���Ȥ�Ȥ����Ȥ�
-�ؼ�����롣�����Ǥʤ���С��쥸���ȥ꤬ "gb2312.1980-0" ��"big5-0" ��
-�����Τ����롣"han" ʸ���� #Mlanguage �ƥ����ȥץ��ѥƥ���̵����
-�С����ĤȤ���롣
+これによってフォントセレクタは、"han" 文字 (つまり#Mscript プロパティ
+が 'han' である文字)のうち、文字の M-text 中での #Mlanguage テキストプ
+ロパティが "ja" でありその文字がフォントのレパートリーに含まれていれも
+のについては、レジストリが"jisx0208.1983-0" であるフォントを使うことを
+指示される。そうでなければ、レジストリが "gb2312.1980-0" や"big5-0" で
+あるものが試される。"han" 文字に #Mlanguage テキストプロパティが無けれ
+ば、３つとも試される。
 
-�ե��������ξܺ٤ˤĤ��Ƥϴؿ� mdraw_text () ���ȡ�
+フォント選択の詳細については関数 mdraw_text () 参照。
 */
 
 /* 

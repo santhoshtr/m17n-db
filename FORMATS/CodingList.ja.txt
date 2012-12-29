@@ -1,17 +1,17 @@
-/* Copyright (C) 2003, 2004
+/* Copyright (C) 2003, 2004				-*- coding: utf-8; -*-
      National Institute of Advanced Industrial Science and Technology (AIST)
      Registration Number H15PRO112
    See the end for copying conditions.  */
 
 /***ja
 
-@page mdbCodingList �����ɷ�����Υꥹ��
+@page mdbCodingList コード系定義のリスト
 
-@section coding-list-description ����
+@section coding-list-description 説明
 
-m17n �饤�֥��ϡ�������κ� m17n �ǡ����١����Υ��� \<coding-list\> 
-�ΤĤ����ǡ������饳���ɷ�����Υꥹ�Ȥ�����ɤ��롣���Υǡ����ϰʲ���
-�ե����ޥåȤΥץ��ѥƥ��ꥹ�ȤȤ��ƥ����ɤ���롣
+m17n ライブラリは、初期化の際 m17n データベースのタグ \<coding-list\> 
+のついたデータからコード系定義のリストをロードする。このデータは以下の
+フォーマットのプロパティリストとしてロードされる。
 
 @verbatim
 CODING-LIST ::= DEFINITION *
@@ -24,12 +24,12 @@ KEY ::= SYMBOL
 VALUE ::= SYMBOL | INTEGER | MTEXT | PLIST
 @endverbatim
 
-@c NAME ��������륳���ɷϤ�̾���Ǥ��롣
+@c NAME は定義するコード系の名前である。
 
-@c KEY �� @c VALUE �Υڥ��ϡ��ؿ� mchar_define_coding () �ˣ����ܤΰ�
-���Ȥ���Ϳ������ץ��ѥƥ��Ǥ��롣
+@c KEY と @c VALUE のペアは、関数 mchar_define_coding () に２番目の引
+数として与えられるプロパティである。
 
-@section coding-list-seealso ����
+@section coding-list-seealso 参照
 
 @ref mdbGeneral "mdbGeneral(5)", mconv_define_coding ()
 */

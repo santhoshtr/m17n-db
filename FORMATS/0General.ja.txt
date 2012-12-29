@@ -1,95 +1,95 @@
-/* Copyright (C) 2003, 2004
+/* Copyright (C) 2003, 2004				-*- coding: utf-8; -*-
      National Institute of Advanced Industrial Science and Technology (AIST)
      Registration Number H15PRO112
    See the end for copying conditions.  */
 
 /***ja
 
-@page mdbGeneral ����Ū�ʥե����ޥå�
+@page mdbGeneral 一般的なフォーマット
 
-@section general-description ����
+@section general-description 説明
 
-�ؿ� mdatabase_load () �ϡ���쥿���� @c Mchartable �� @c Mcharset ��
-�ʤ��¤ꡢ�����ǻ��ꤵ�줿�ǡ�����ץ��ѥƥ��ꥹ�Ȥη����֤����֤����
-�ץ��ѥƥ��ꥹ�ȤΥ�����<tt>Minteger</tt>, <tt>Msymbol</tt>,
-<tt>Mtext</tt>, <tt>Mplist</tt> �˸¤롣�ͤη��ϥ����ˤ�ä�ۣ�����ʤ�
-���ꤵ��롣������ <tt>Minteger</tt> �ʤ���ͤ������ͤǤ��ꡢ������ 
-<tt>Msymbol</tt> �ʤ��ͤϥ���ܥ롢<tt>Mtext</tt> �ʤ�� M-text��
-<tt>Mplist</tt> �ʤ�Хץ��ѥƥ��ꥹ�ȤǤ��롣
+関数 mdatabase_load () は、第一タグが @c Mchartable か @c Mcharset で
+ない限り、タグで指定されたデータをプロパティリストの形で返す。返される
+プロパティリストのキーは<tt>Minteger</tt>, <tt>Msymbol</tt>,
+<tt>Mtext</tt>, <tt>Mplist</tt> に限る。値の型はキーによって曖昧性なく
+決定される。キーが <tt>Minteger</tt> ならば値は整数値であり、キーが 
+<tt>Msymbol</tt> なら値はシンボル、<tt>Mtext</tt> ならば M-text、
+<tt>Mplist</tt> ならばプロパティリストである。
 
-�ץ��ѥƥ��ꥹ�Ȥ򼨤�����ˤϤ��ޤ��ޤ�ɽ����������ǽ�Ǥ��롣���Ȥ���
-<tt>(K1:V1, K2:V2, ..., Kn:Vn)</tt> �Ȥ������ǡ��ǽ��K1 �� V1�������
-�Υ������ͤ�K2 �� V2 �Ȥ��ä��ץ��ѥƥ��ꥹ�Ȥ�ɽ�����뤳�Ȥ�Ǥ��롣
-��������m17n �ǡ����١������Ѥ�����ץ��ѥƥ��ꥹ�ȤΥ����פϤ��ʤ�
-���ꤵ��Ƥ���Τǡ���ä�ñ���ɽ���������Ѥ��뤳�Ȥ��Ǥ��롣
+プロパティリストを示すためにはさまざまな表現形式が可能である。たとえば
+<tt>(K1:V1, K2:V2, ..., Kn:Vn)</tt> という形で、最初のK1 と V1、二つ目
+のキーと値がK2 と V2 といったプロパティリストを表現することもできる。
+しかし、m17n データベースで用いられるプロパティリストのタイプはかなり
+限定されているので、もっと単純な表現形式を用いることができる。
 
-����ʹߡ��ץ��ѥƥ��ꥹ�Ȥμ�������ˤ� S �����������ɽ�����Ѥ��롣
-(�º� m17n �饤�֥��Υǥե���ȤΥǡ����١����������Ϥ���ɽ���ǽ�
-�줿�ǡ����ե�������ɤ�褦���߷פ���Ƥ��롣)
+これ以降、プロパティリストの示すためには S 式に類似した表現を用いる。
+(実際 m17n ライブラリのデフォルトのデータベースローダはこの表現で書か
+れたデータファイルを読むように設計されている。)
 
-����ɽ�������� 1 �ʤ�������ʾ�� <i>���� (element)</i> ����ʤ롣�ġ�
-�����Ǥϥץ��ѥƥ����ʤ���ץ��ѥƥ��ꥹ�Ȥΰ�Ĥ����Ǥ�ɽ����
+この表現形式は 1 ないしそれ以上の <i>要素 (element)</i> からなる。個々
+の要素はプロパティすなわちプロパティリストの一つの要素を表す。
 
-���Ǵ֤� 1 �ʤ�������ʾ�� <i> ���� (whitespace)</i> ���ʤ�����ڡ���
-(code 32)������ (code 9)������ (code 10) �Τ����줫�Ƕ��ڤ��롣����
-������(<tt>;</tt>) �ǻϤޤ�Ԥϥ����ȤǤ��롣
+要素間は 1 ないしそれ以上の <i> 空白 (whitespace)</i> すなわちスペース
+(code 32)、タブ (code 9)、改行 (code 10) のいずれかで区切られる。セミ
+コロン(<tt>;</tt>) で始まる行はコメントである。
 
-�ƥץ��ѥƥ��Υ������ͤϡ����ǤΥ����פ˴�Ť��ưʲ��Τ褦�˷��ꤵ��롣
+各プロパティのキーと値は、要素のタイプに基づいて以下のように決定される。
 
 <ul>
 
-<li> ����
+<li> 整数
 
-����ɽ��<tt>-?[0-9]+</tt> �ޤ���<tt>0[xX][0-9A-Fa-f]+</tt> �˹��פ���
-���Ǥϡ�������<tt>Minteger</tt>�Ǥ���ץ��ѥƥ��򼨤����ǽ������ɽ��
-�ȹ��פ����Τ� 10 �ʤ��������������ɽ���ȹ��פ����Τ� 16 �ʤ�����
-�Ȳ�ᤷ�����β��η�̤��ץ��ѥƥ����ͤǤ��롣
+正規表現<tt>-?[0-9]+</tt> または<tt>0[xX][0-9A-Fa-f]+</tt> に合致する
+要素は、キーが<tt>Minteger</tt>であるプロパティを示す。最初の正規表現
+と合致するものは 10 進の整数、後の正規表現と合致するものは 16 進の整数
+と解釈し、その解釈の結果がプロパティの値である。
 
-���Ȥ��С����� <tt>0xA0</tt> ��10 �ʤ� 160 ���ͤȤ���ץ��ѥƥ��Ǥ��롣
+たとえば、要素 <tt>0xA0</tt> は10 進で 160 を値とするプロパティである。
 
-<li> ����ܥ�
+<li> シンボル
 
-����ɽ��<tt>[^-0-9(]([^\\()]|\\.)+</tt> �˹��פ������Ǥϡ�������<tt>
-Msymbol</tt>�Ǥ���ץ��ѥƥ��򼨤���������� <tt>\\t</tt>,
-<tt>\\n</tt>, <tt>\\r</tt>, <tt>\\e</tt> �Ϥ��줾�졢���� (code 9)����
-�� (code 10)������(code 13)������������ (code 27) ���֤��������롣�Х�
-������å����³��¾��ʸ���Ϥ��켫�ȤȲ�ᤵ��롣�ץ��ѥƥ����ͤϡ���
-�̤Ȥ���������ʸ�����̾���Ȥ��ƻ��ĥ���ܥ�Ǥ��롣
+正規表現<tt>[^-0-9(]([^\\()]|\\.)+</tt> に合致する要素は、キーが<tt>
+Msymbol</tt>であるプロパティを示す。要素中の <tt>\\t</tt>,
+<tt>\\n</tt>, <tt>\\r</tt>, <tt>\\e</tt> はそれぞれ、タブ (code 9)、改
+行 (code 10)、復帰(code 13)、エスケープ (code 27) に置き換えられる。バッ
+クスラッシュに続く他の文字はそれ自身と解釈される。プロパティの値は、結
+果として得られる文字列を名前として持つシンボルである。
 
-���Ȥ��С����� <tt>abc\ def</tt> �� "abc def" ��̾���Ȥ��ƻ��ĥ���ܥ�
-���ͤȤ���ץ��ѥƥ��Ǥ��롣
+たとえば、要素 <tt>abc\ def</tt> は "abc def" を名前として持つシンボル
+を値とするプロパティである。
 
 <li> MTEXT
 
-����ɽ�� <tt>"([^"]|\\")*"</tt> �˹��פ������Ǥϡ����� <tt>Mtext</tt> 
-�Ǥ���ץ��ѥƥ��򼨤����嵭�ΥХå�����å���ˤ�륨�������פϤ�����
-��ͭ���Ǥ��롣����ˡ������������ɽ��
-<tt>\\[xX][0-9A-Fa-f][0-9A-Fa-f]</tt> �˹��פ�����ʬ�ϡ�16�ʤǲ�ᤷ��
-��̤��֤��������롣
+正規表現 <tt>"([^"]|\\")*"</tt> に合致する要素は、キー <tt>Mtext</tt> 
+であるプロパティを示す。上記のバックスラッシュによるエスケープはここで
+も有効である。さらに、要素中の正規表現
+<tt>\\[xX][0-9A-Fa-f][0-9A-Fa-f]</tt> に合致する部分は、16進で解釈した
+結果に置き換えられる。
 
-�Хå�����å��奨�������פ����������ǡ����֥륯�����ȤˤϤ��ޤ줿��
-�������UTF-8 ��Ȥ��Ʋ�ᤷ��M-text �˥ǥ����ɤ��롣���� M-text ����
-���ѥƥ����ͤǤ��롣
+バックスラッシュエスケープを処理した上で、ダブルクオートにはさまれたバ
+イト列をUTF-8 列として解釈し、M-text にデコードする。この M-text がプ
+ロパティの値である。
 
 <li> PLIST
 
-�б������̤ˤϤ��ޤ줿 0 �İʾ�����Ǥ�<tt>Mplist</tt> �򥭡��Ȥ���
-�ץ��ѥƥ��򼨤�����̤�����ζ���ϼ�������롣�ץ��ѥƥ����ͤϡ���
-���ѥƥ��ꥹ�ȤǤ��ꡢ���γ����γ����Ǥ�Ƶ�Ū�˲�ᤷ����̤Ǥ��롣
+対応する括弧にはさまれた 0 個以上の要素は<tt>Mplist</tt> をキーとする
+プロパティを示す。括弧の前後の空白は取り除かれる。プロパティの値は、プ
+ロパティリストであり、その括弧内の各要素を再帰的に解釈した結果である。
 
 </ul>
 
-@section general-syntax ʸˡ��ɽ��
+@section general-syntax 文法の表記
 
-�ǡ����Υץ��ѥƥ��ꥹ�ȥե����ޥåȤ������Ǥϡ�BNF���ε�ˡ���Ѥ����
-�롣���ε�ˡ�Ǥϡ���ü����ʸ���ʴ֤�'-'�����äƤ�褤�� �ǡ���ü�� " 
-�ǰϤä�ɽ����롣���̤���ü INTEGER, SYMBOL,
-MTEXT, PLIST �Ϥ��줾���б�����ץ��ѥƥ����̣���롣
+データのプロパティリストフォーマットの説明では、BNF風の記法が用いられ
+る。この記法では、非終端は大文字（間に'-'が入ってもよい） で、終端は " 
+で囲って表される。特別な非終端 INTEGER, SYMBOL,
+MTEXT, PLIST はそれぞれ対応するプロパティを意味する。
 
-@section general-example ��
+@section general-example 例
 
-����ñ��ʷ����Υץ��ѥƥ��ꥹ�Ȥ��ɤ߹��ޤ�롢�ǡ����١����Υǡ�����
-����򼨤���
+次の単純な形式のプロパティリストに読み込まれる、データベースのデータの
+一例を示す：
 
 @verbatim
 DATA-FORMAT ::=
@@ -105,27 +105,27 @@ FUNC-ARG ::=
     INTEGER | SYMBOL | MTEXT | '(' FUNC-ARG ')'
 @endverbatim
 
-���Ȥ��С����Υƥ����Ȥ�ޤ�ǡ����ե�����Ͼ��ʸˡ�˹��פ��롧
+たとえば、次のテキストを含むデータファイルは上の文法に合致する：
 
 @verbatim
 abc 123 (pqr 0xff) "m\"text" (_\\_ ("string" xyz) -456)
 @endverbatim
 
-�����Ƽ��Τ褦�ʥץ��ѥƥ��ꥹ�ȤȤ����ɤ߹��ޤ�롧
+そして次のようなプロパティリストとして読み込まれる：
 
 @verbatim
-�裱����: ����: Msymbol,  ��: abc
-�裲����: ����: Minteger, ��: 123
-�裳����: ����: Mplist,   ��: �������Ǥ���ʤ�ץ��ѥƥ��ꥹ��
-    �裱����: ���� Msymbol,  ��: pgr
-    �裲����: ���� Minteger, ��: 255
-�裴����: ����: Mtext,    ��: m"text
-�裵����: ����: Mplist,   ��: �������Ǥ���ʤ�ץ��ѥƥ��ꥹ��
-    �裱����: ����: Msymbol, ��: _\_
-    �裲����: ����: Mplist,  ��: �������Ǥ���ʤ�ץ��ѥƥ��ꥹ��
-        �裱����: ����: Mtext,    ��: string
-	�裲����: ����: Msymbol,  ��: xyz
-	�裳����: ����: Minteger, ��: -456
+第１要素: キー: Msymbol,  値: abc
+第２要素: キー: Minteger, 値: 123
+第３要素: キー: Mplist,   値: 次の要素からなるプロパティリスト
+    第１要素: キー Msymbol,  値: pgr
+    第２要素: キー Minteger, 値: 255
+第４要素: キー: Mtext,    値: m"text
+第５要素: キー: Mplist,   値: 次の要素からなるプロパティリスト
+    第１要素: キー: Msymbol, 値: _\_
+    第２要素: キー: Mplist,  値: 次の要素からなるプロパティリスト
+        第１要素: キー: Mtext,    値: string
+	第２要素: キー: Msymbol,  値: xyz
+	第３要素: キー: Minteger, 値: -456
 @endverbatim
 */
 

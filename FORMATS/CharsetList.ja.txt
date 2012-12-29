@@ -1,17 +1,17 @@
-/* Copyright (C) 2003, 2004, 2006
+/* Copyright (C) 2003, 2004, 2006			-*- coding: utf-8; -*-
      National Institute of Advanced Industrial Science and Technology (AIST)
      Registration Number H15PRO112
    See the end for copying conditions.  */
 
 /***ja
 
-@page mdbCharsetList Ê¸»ú¥»¥Ã¥ÈÄêµÁ¤Î¥ê¥¹¥È
+@page mdbCharsetList æ–‡å­—ã‚»ãƒƒãƒˆå®šç¾©ã®ãƒªã‚¹ãƒˆ
 
-@section cslist-description ÀâÌÀ
+@section cslist-description èª¬æ˜
 
-m17n ¥é¥¤¥Ö¥é¥ê¤Ï¡¢m17n¥Ç¡¼¥¿¥Ù¡¼¥¹¤Î¥¿¥°\<charset-list\>¤Î¤Ä¤¤¤¿¥Ç¡¼¥¿
-¤«¤é¡¢Ê¸»ú¥»¥Ã¥ÈÄêµÁ¤Î¥ê¥¹¥È¤ò¥í¡¼¥É¤¹¤ë¡£¤³¤Î¥Ç¡¼¥¿¤Ï°Ê²¼¤Î¥Õ¥©¡¼¥Ş¥Ã
-¥È¤Î¥×¥í¥Ñ¥Æ¥£¥ê¥¹¥È¤È¤·¤Æ¥í¡¼¥É¤µ¤ì¤ë¡£
+m17n ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã¯ã€m17nãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®ã‚¿ã‚°\<charset-list\>ã®ã¤ã„ãŸãƒ‡ãƒ¼ã‚¿
+ã‹ã‚‰ã€æ–‡å­—ã‚»ãƒƒãƒˆå®šç¾©ã®ãƒªã‚¹ãƒˆã‚’ãƒ­ãƒ¼ãƒ‰ã™ã‚‹ã€‚ã“ã®ãƒ‡ãƒ¼ã‚¿ã¯ä»¥ä¸‹ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒ
+ãƒˆã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒªã‚¹ãƒˆã¨ã—ã¦ãƒ­ãƒ¼ãƒ‰ã•ã‚Œã‚‹ã€‚
 
 @verbatim
 CHARSET-LIST ::= DEFINITION *
@@ -25,12 +25,12 @@ KEY ::= SYMBOL
 VALUE ::= SYMBOL | INTEGER | MTEXT | PLIST
 @endverbatim
 
-@c NAME ¤ÏÄêµÁ¤¹¤ëÊ¸»ú¥»¥Ã¥È¤ÎÌ¾Á°¤Ç¤¢¤ë¡£
+@c NAME ã¯å®šç¾©ã™ã‚‹æ–‡å­—ã‚»ãƒƒãƒˆã®åå‰ã§ã‚ã‚‹ã€‚
 
-@c KEY ¤È @c VALUE ¤Î¥Ú¥¢¤Ï¡¢´Ø¿ô mchar_define_charset () ¤Ë£²ÈÖÌÜ¤Î°ú
-¿ô $PLIST ¤Î³ÆÍ×ÁÇ¤È¤·¤ÆÍ¿¤¨¤é¤ì¤ë¥×¥í¥Ñ¥Æ¥£¤Ç¤¢¤ë¡£
+@c KEY ã¨ @c VALUE ã®ãƒšã‚¢ã¯ã€é–¢æ•° mchar_define_charset () ã«ï¼’ç•ªç›®ã®å¼•
+æ•° $PLIST ã®å„è¦ç´ ã¨ã—ã¦ä¸ãˆã‚‰ã‚Œã‚‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã§ã‚ã‚‹ã€‚
 
-@section cslist-seealso »²¾È
+@section cslist-seealso å‚ç…§
 
 @ref mdbGeneral "mdbGeneral(5)", mchar_define_charset ()
 */
