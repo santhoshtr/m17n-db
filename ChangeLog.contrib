@@ -1,3 +1,8 @@
+2013-01-20  BD Satish  <bdsatish@gmail.com>
+
+	* im/sa-iast.mim (map:trans): Add mappings to cover the entire ISO
+	15919.
+
 2012-12-28  Evuraan  <Evuraan at Gmail Dot Com>
 
 	* im/ml-mozhi.mim (map:consonant): Add mappings "nthh".
