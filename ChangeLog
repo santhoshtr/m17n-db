@@ -1,3 +1,16 @@
+2013-02-03  Kenichi Handa  <handa@gnu.org>
+
+	* Makefile.am (SUBDIRS): Delete FLT and MIM.
+	(pkgdata_DATA): Add @INPUT_METHOD@, @FLT@, and @ICONS@.
+	(EXTRA_DIST): Likewise.
+
+	* configure.ac (INPUT_METHOD, FLT): New variables.
+	(ICONS): Set it with sub-directory name.
+	(AC_CONFIG_FILES): Delete icons/Makefile, FLT/Makefile,
+	MIM/Makefile.
+
+	* FLT/Makefile.am, MIM/Makefile.am, icons/Makefile.am: Deleted.
+
 2012-12-29  Kenichi Handa  <handa@gnu.org>
 
 	* FORMATS/0Genenral.ja.txt: Encoding changed to utf-8.
