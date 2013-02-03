@@ -21,13 +21,16 @@
 # Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301, USA.
 
-SUBDIRS = po icons FLT MIM LANGDATA
+SUBDIRS = po icons LANGDATA
 
 pkgdata_DATA = \
 	${CHARSETS} \
 	${CHAR_TABLE} \
 	${MISC_TABLE} \
 	BLOCK.tab \
+	@INPUT_METHOD@ \
+	@FLT@ \
+	@ICONS@ \
 	mdb.dir
 
 EXTRA_DIST = config.rpath mkinstalldirs m4/ChangeLog bootstrap.sh \
@@ -40,6 +43,9 @@ EXTRA_DIST = config.rpath mkinstalldirs m4/ChangeLog bootstrap.sh \
 	CASED.awk CASE-MAPPING.awk \
 	SCRIPT.awk SCRIPT.ext \
 	get-glibc.sh \
+	@INPUT_METHOD@ \
+	@FLT@ \
+	@ICONS@ \
 	${FORMATS}
 
 CHARSETS = ${ISO8859} ${IBM} ${CODEPAGE} ${CJK} ${MISC}
