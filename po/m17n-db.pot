@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: bugs-m17n-lib@m17n.org\n"
-"POT-Creation-Date: 2012-09-18 20:21+0900\n"
+"POT-Creation-Date: 2013-02-03 16:28+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -267,6 +267,13 @@ msgid ""
 "Note that the length of key-sequence bound for this command must be 1.\n"
 "This is one of special commands reserved by the m17n library, and\n"
 "should not be used in a map of an input method."
+msgstr ""
+
+#: MIM/hi-itrans.mim:52
+msgid ""
+"If this variable is 1 (the default), the last Halant in a syllable\n"
+"is removed if it is followed by non Devanagari letter.  For instance,\n"
+"typing \"har..\" produces \"हर।\", not \"हर्।\"."
 msgstr ""
 
 #: MIM/si-wijesekera.mim:36

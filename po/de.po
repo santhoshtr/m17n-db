@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: m17n-db 1.6.1-1\n"
 "Report-Msgid-Bugs-To: bugs-m17n-lib@m17n.org\n"
-"POT-Creation-Date: 2012-09-18 20:21+0900\n"
+"POT-Creation-Date: 2013-02-03 16:28+0900\n"
 "PO-Revision-Date: 2010-07-14 23:30+0100\n"
 "Last-Translator: Chris Leick <c.leick@vollbio.de>\n"
 "Language-Team: German <debian-l10n-german@lists.debian.org>\n"
@@ -373,6 +373,13 @@ msgstr ""
 "verbundenen Tastenabfolge 1 sein muss. Dies ist einer der von der\n"
 "»m17n«-Bibliothek reservierten Spezialbefehle und sollte nicht in einer\n"
 "Belegung einer Eingabemethode benutzt werden."
+
+#: MIM/hi-itrans.mim:52
+msgid ""
+"If this variable is 1 (the default), the last Halant in a syllable\n"
+"is removed if it is followed by non Devanagari letter.  For instance,\n"
+"typing \"har..\" produces \"हर।\", not \"हर्।\"."
+msgstr ""
 
 #: MIM/si-wijesekera.mim:36
 msgid ""
