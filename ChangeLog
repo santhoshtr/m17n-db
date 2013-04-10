@@ -1,3 +1,56 @@
+2013-04-10  Kenichi Handa  <handa@gnu.org>
+
+	* MIM/as-inscript.mim, MIM/as-phonetic.mim, MIM/ath-phonetic.mim,
+	MIM/be-kbd.mim, MIM/bla-phonetic.mim, MIM/bn-disha.mim,
+	MIM/bn-inscript.mim, MIM/bn-probhat.mim, MIM/bo-ewts.mim,
+	MIM/cr-western.mim, MIM/cs-kbd.mim, MIM/eo-h-f.mim, MIM/eo-h.mim,
+	MIM/eo-plena.mim, MIM/eo-q.mim, MIM/eo-vi.mim, MIM/eo-x.mim,
+	MIM/gu-inscript.mim, MIM/gu-phonetic.mim, MIM/hi-inscript.mim,
+	MIM/hi-phonetic.mim, MIM/hi-remington.mim, MIM/hi-vedmata.mim,
+	MIM/ii-phonetic.mim, MIM/iu-phonetic.mim, MIM/kn-inscript.mim,
+	MIM/kn-kgp.mim, MIM/kn-typewriter.mim, MIM/ks-inscript.mim,
+	MIM/ks-kbd.mim, MIM/mai-inscript.mim, MIM/math-latex.mim,
+	MIM/ml-inscript.mim, MIM/ml-mozhi.mim, MIM/ml-swanalekha.mim,
+	MIM/mr-inscript.mim, MIM/mr-itrans.mim, MIM/mr-phonetic.mim,
+	MIM/ne-rom.mim, MIM/ne-trad.mim, MIM/nsk-phonetic.mim,
+	MIM/oj-phonetic.mim, MIM/or-inscript.mim, MIM/or-phonetic.mim,
+	MIM/pa-anmollipi.mim, MIM/pa-inscript.mim, MIM/pa-jhelum.mim,
+	MIM/pa-phonetic.mim, MIM/ps-phonetic.mim, MIM/ru-translit.mim,
+	MIM/sa-iast.mim, MIM/sd-inscript.mim, MIM/si-phonetic-dynamic.mim,
+	MIM/si-singlish.mim, MIM/si-sumihiri.mim, MIM/si-trans.mim,
+	MIM/ta-inscript.mim, MIM/ta-phonetic.mim, MIM/ta-tamil99.mim,
+	MIM/ta-typewriter.mim, MIM/ta-vutam.mim, MIM/tai-sonla.mim,
+	MIM/te-apple.mim, MIM/te-inscript.mim, MIM/te-pothana.mim,
+	MIM/te-rts.mim, MIM/te-sarala.mim, MIM/ur-phonetic.mim,
+	MIM/uz-kbd.mim, MIM/vi-han.mim, MIM/vi-nom-vni.mim,
+	MIM/vi-nom.mim, MIM/yi-yivo.mim, MIM/zh-pinyin-vi.mim,
+	MIM/zh-zhuyin.mim: Merged from the m17n-contrib package.
+
+	* icons/as-inscript.png, icons/as-phonetic.png, icons/be-kbd.png,
+	icons/bn-inscript.png, icons/bn-probhat.png, icons/cs-kbd.png,
+	icons/eo-h-fundamente.png, icons/eo-h-sistemo.png,
+	icons/eo-plena.png, icons/eo-q-sistemo.png,
+	icons/eo-x-sistemo.png, icons/gu-inscript.png,
+	icons/gu-phonetic.png, icons/hi-inscript.png,
+	icons/hi-phonetic.png, icons/hi-remington.png,
+	icons/hi-vedmata.png, icons/ii-phonetic.png,
+	icons/kn-inscript.png, icons/kn-kgp.png, icons/math-latex.png,
+	icons/ml-inscript.png, icons/ml-mozhi.png,
+	icons/ml-swanalekha.png, icons/mr-inscript.png, icons/ne-rom.png,
+	icons/ne-trad.png, icons/or-inscript.png, icons/pa-inscript.png,
+	icons/pa-jhelum.png, icons/pa-phonetic.png, icons/ps-phonetic.png,
+	icons/sd-inscript.png, icons/si-phonetic-dynamic.png,
+	icons/si-sumihiri.png, icons/si-transliteration.png,
+	icons/ta-inscript.png, icons/ta-phonetic.png,
+	icons/ta-tamil99.png, icons/ta-typewriter.png, icons/ta-vutam.png,
+	icons/te-apple.png, icons/te-inscript.png, icons/te-pothana.png,
+	icons/te-sarala.png, icons/ur-phonetic.png, icons/uz-kbd.png,
+	icons/vi-nom-vni.png, icons/vi-nom.png, icons/yi-yivo.png,
+	icons/zh-zhuyin.png: Merged from the m17n-contrib package.
+
+	* ChangeLog.contrib, NEWS.contrib: Copied from ChangeLog and NEWS
+	of the m17n-contrib package.
+
 2013-02-03  Kenichi Handa  <handa@gnu.org>
 
 	* Makefile.am (SUBDIRS): Delete FLT and MIM.

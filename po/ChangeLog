@@ -1,3 +1,15 @@
+2013-04-10  Kenichi Handa  <handa@gnu.org>
+
+	* LINGUAS: Add eo.
+
+	* m17n-db.pot: Updated.
+
+	* de.po: Merge msgstr from m17n-contrib.
+
+	* ja.po, vi.po: Re-generated.
+
+	* eo.po: Merged from m17n-contrib.
+
 2010-07-16  Kenichi Handa  <handa@m17n.org>
 
 	* LINGUAS: Add de.
