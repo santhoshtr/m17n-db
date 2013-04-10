@@ -1,5 +1,7 @@
 2013-04-10  Kenichi Handa  <handa@gnu.org>
 
+	* AUTHORS: Merged from m17n-contrib.
+
 	* MIM/as-inscript.mim, MIM/as-phonetic.mim, MIM/ath-phonetic.mim,
 	MIM/be-kbd.mim, MIM/bla-phonetic.mim, MIM/bn-disha.mim,
 	MIM/bn-inscript.mim, MIM/bn-probhat.mim, MIM/bo-ewts.mim,
@@ -47,6 +49,8 @@
 	icons/te-sarala.png, icons/ur-phonetic.png, icons/uz-kbd.png,
 	icons/vi-nom-vni.png, icons/vi-nom.png, icons/yi-yivo.png,
 	icons/zh-zhuyin.png: Merged from the m17n-contrib package.
+
+	* tbl2mim.awk: Merged from the m17n-contrib package.
 
 	* ChangeLog.contrib, NEWS.contrib: Copied from ChangeLog and NEWS
 	of the m17n-contrib package.
@@ -2805,7 +2809,7 @@
 	* Version 1.0 released.
 
 
-Copyright (C) 2003, 2004
+Copyright (C) 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013
   National Institute of Advanced Industrial Science and Technology (AIST)
   Registration Number H15PRO112
 
