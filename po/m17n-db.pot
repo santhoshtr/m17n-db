@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: bugs-m17n-lib@m17n.org\n"
-"POT-Creation-Date: 2013-02-03 16:28+0900\n"
+"POT-Creation-Date: 2013-04-10 20:27+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,42 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: MIM/bo-ewts.mim:35
+msgid ""
+"Flag to tell whether or not to generate precomposed characters.\n"
+"If 1, generate precomposed characters if available (e.g. \"ྲྀ\"(U+0F76).\n"
+"If 0, generate only decomposed characters (e.g. \"ྲྀ\" (U+0FB2 U+0F80)."
+msgstr ""
+
 #: MIM/cmc-kbd.mim:26
 msgid ""
 "Cham input method simulating Cham keyboard.\n"
 "Cham characters are encoded in logical order in memory and in files.\n"
 "But, you can type Cham text in visual order with this input method.\n"
 "Backspace and Delete also work in the manner of visual order."
+msgstr ""
+
+#: MIM/eo-h-f.mim:29
+msgid ""
+"Meant for writing Esperanto-letters using Zamenhof's fundamental system."
+msgstr ""
+
+#: MIM/eo-h.mim:29
+msgid "Meant for writing Esperanto-letters adding h's."
+msgstr ""
+
+#: MIM/eo-plena.mim:29
+msgid ""
+"Meant for writing Esperanto-letters with the fundamental system and the X-"
+"system, like the default of EK."
+msgstr ""
+
+#: MIM/eo-q.mim:29
+msgid "Meant for writing Esperanto-letters adding q's."
+msgstr ""
+
+#: MIM/eo-x.mim:29
+msgid "Meant for writing Esperanto-letters adding x's (the X-system)."
 msgstr ""
 
 #: MIM/fr-azerty.mim:26
@@ -286,6 +316,29 @@ msgstr ""
 msgid ""
 "Surrounding text vs. preedit\n"
 "If 1, try to use surrounding text.  Otherwise, use preedit."
+msgstr ""
+
+#: MIM/tai-sonla.mim:30
+msgid ""
+"Tai Viet input method using the phonetic key sequence with the Tai Son La "
+"keyboard layout.\n"
+"The phonetic key sequence means that you type a syllable in this order:\n"
+"  C W? V v? F? T?\n"
+"where\n"
+"  C is an initial consonant,\n"
+"  W is a label for labializing C ('ꪫ'),\n"
+"  V is a vowel (V1:prefix, V2:combining, or V3:postfix),\n"
+"  v is the second vowel of a digraph vowel\n"
+"        (in the case that V is 'ꪹ' and v is 'ꪸ', 'ꪷ', or 'ꪱ'),\n"
+"  F is a final consonant,\n"
+"  T is a tonemark (spacing or combining).\n"
+"\n"
+"You can type special symbols by these keys:\n"
+"  '$' -> 'ꫛ'\n"
+"  '#' -> 'ꫜ'\n"
+"  '%' -> 'ꫝ'\n"
+"  '!' -> '꫞'\n"
+"  '@' -> '꫟'\n"
 msgstr ""
 
 #: MIM/th-kesmanee.mim:35 MIM/th-pattachote.mim:35 MIM/th-tis820.mim:35
