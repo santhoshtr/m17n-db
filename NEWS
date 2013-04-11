@@ -7,11 +7,11 @@ See the end for copying conditions.
 
 * Changes in the m17n database 1.6.5
 
+** All input methods in the m17n contrib package are merged.
+
 ** A new input method is added.
 
 sa-itrans.mim: Sanskrit input method with ITRANS method
-
-** All input methods in the m17n contrib package are merged.
 
 
 * Changes in the m17n database 1.6.4
