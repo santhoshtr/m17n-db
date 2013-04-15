@@ -297,6 +297,9 @@ pkgconfigdir = ${datadir}/pkgconfig
 
 pkgconfig_DATA = m17n-db.pc
 
+m17n_scriptdir =  $(datadir)/m17n/scripts
+m17n_script_SCRIPTS = tbl2mim.awk
+
 # Clear files that are automatically generated.
 clean:
 	rm -f ${CHARSETS} ${CHAR_TABLE}
