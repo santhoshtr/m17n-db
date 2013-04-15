@@ -1,6 +1,9 @@
-2013-04-10  Kenichi Handa  <handa@gnu.org>
+2013-04-13  Kenichi Handa  <handa@gnu.org>
 
 	* AUTHORS: Merged from m17n-contrib.
+
+	* Makefile.am (m17n_scriptdir): New variable.
+	(m17n_script_SCRIPTS): New variable.
 
 	* MIM/as-inscript.mim, MIM/as-phonetic.mim, MIM/ath-phonetic.mim,
 	MIM/be-kbd.mim, MIM/bla-phonetic.mim, MIM/bn-disha.mim,
