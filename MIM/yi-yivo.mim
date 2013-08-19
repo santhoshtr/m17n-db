@@ -1,8 +1,8 @@
 ;; yi-yivo.mim -- Yiddish input method with YIVO transliteration
 ;; Copyright (C) 2010
-;; Raghav Krishnapriyan (raghav.r.krishnapriyan@gmail.com)
+;; Raghav Krishnapriyan (raghav.k11n@gmail.com)
 
-;; This file is part of the m17n contrib; a sub-part of the m17n
+;; This file is part of the m17n database; a sub-part of the m17n
 ;; library.
 
 ;; The m17n library is free software; you can redistribute it and/or
@@ -32,6 +32,7 @@ A description of the YIVO orthography can be found in Mordkhe Schaechter, _Der e
   (initials
 	("i" "אי")
 	("u" "או")
+	("u|" ?ו)
 	("ey" "אײ")
 	("ay" "אײַ")
 	("oy" "אױ")
@@ -43,14 +44,15 @@ A description of the YIVO orthography can be found in Mordkhe Schaechter, _Der e
 	("o" "אָ")
   )
   (otherchars
-	("A") ("b") ("d") ("f") ("g") ("h") ("H") ("k") ("l") ("m") ("n") ("p") ("r") ("s") ("S") ("t") ("u") ("v") ("y") ("z") ("B") ("K") ("T") ("W")
+	("A") ("b") ("c") ("d") ("f") ("g") ("h") ("H") ("k") ("l") ("m") ("n") ("p") ("P") ("r") ("s") ("S") ("t") ("u") ("v") ("x") ("y") ("z") ("B") ("K") ("T") ("w") ("W") 
   )
   (allchars
-	("A") ("b") ("d") ("f") ("g") ("h") ("H") ("k") ("l") ("m") ("n") ("p") ("r") ("s") ("S") ("t") ("u") ("v") ("y") ("z") ("B") ("K") ("T") ("W") ("a") ("e") ("o") ("i") ("u")
+	("A") ("b") ("c") ("d") ("f") ("g") ("h") ("H") ("k") ("l") ("m") ("n") ("p") ("P") ("r") ("s") ("S") ("t") ("u") ("v") ("x") ("y") ("z") ("B") ("K") ("T") ("w") ("W") ("a") ("e") ("o") ("i") ("u") ("|") ("`")
   )
   (medials
 	("A" ?א)
 	("b" ?ב)
+	("c" ?ץ)
 	("d" ?ד)
 	("e" ?ע)
 	("ey" "ײ")
@@ -61,23 +63,29 @@ A description of the YIVO orthography can be found in Mordkhe Schaechter, _Der e
 	("i" ?י)
 	("k" ?ק)
 	("kh" ?ך)
+	("k|h" "קה")
 	("l" ?ל)
 	("m" ?ם)
 	("n" ?ן)
 	("oy" "ױ")
+	("P" ?פ)
 	("r" ?ר)
 	("s" ?ס)
 	("sh" ?ש)
+	("s|h" "סה")
 	("S" ?ת)
 	("t" ?ט)
 	("ts" ?ץ)
+	("t|s" "טס")
 	("u" ?ו)
 	("v" "װ")
+	("x" ?ך)
 	("y" ?י)
 	("z" ?ז)
 	("a" "אַ")
 	("B" "בֿ")
 	("ay" "ײַ")
+	("w" ?ש)
 	("K" "כּ")
 	("o" "אָ")
 	("p" "פּ")
@@ -96,8 +104,10 @@ A description of the YIVO orthography can be found in Mordkhe Schaechter, _Der e
 	("ii" "יִיִ")
 	("ayi" "ײַיִ")
 	("ayo" "אַיאָ")
+	("iy" "יִי") 
 	("ia" "יִאַ")
 	("io" "יִאָ")
+	("uu" "וּו")
 	("uvu" "וּװוּ")	; For words like "tsuvuks!"
   )
   (abbreviations
@@ -105,17 +115,31 @@ A description of the YIVO orthography can be found in Mordkhe Schaechter, _Der e
 	("m'" "מ'")
 	("kh'" "כ'")
   )
-  (openquotes ("\"" "„"))
-  (closequotes ("\"" "‟") ("?\"" "?‟") (".\"" ".‟") ("!\"" "!‟"))
+  (openquotes
+	("\"" "„")
+	(",," "„")
+	)
+  (closequotes 
+	("\"" "‟")
+	("?\"" "?‟")
+	(".\"" ".‟")
+	("!\"" "!‟")
+	("''" "‟")
+  )
   (parentheses
 	("\(" "\)")
 	("\)" "\(")
   )
-  (makef ("-" "־"))
+  (normal ("|"))
+  (makef ("-" "־") ("--" "-"))
   (gershayim
 	("`" "׳")
 	("``" "״")
   )
+  (bidi
+	("L" "‎")
+	("R" "‏")
+  ) 
   (backspace
 	((BackSpace) (undo)))
 )
@@ -127,6 +151,7 @@ A description of the YIVO orthography can be found in Mordkhe Schaechter, _Der e
 	(openquotes)
 	(otherchars (pushback 1) (shift subsq))
 	(backspace)
+	(bidi)
 	(parentheses)
   )
   (subsq
@@ -141,14 +166,15 @@ A description of the YIVO orthography can be found in Mordkhe Schaechter, _Der e
 		)
 		(shift letters))
 	(closequotes)
-	(gershayim)
 	(makef (shift init))
 	(backspace)
 	(nil (shift init))
   )
   (letters
+	(normal (shift subsq))
 	(medials (shift subsq))
 	(abbreviations (shift init))
+	(gershayim)
 	(nil (shift subsq))
   )
 )
