@@ -3,6 +3,7 @@
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
 ;; Copyright (C) 2012  Kenichi Handa <handa@m17n.org>
+;; Copyright (C) 2013  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
 
 ;; This file is part of the m17n database; a sub-part of the m17n
 ;; library.
@@ -156,6 +157,7 @@ typing \"har..\" produces \"हर।\", not \"हर्।\".")
   ("GY" "ज्ञ्")
   ("dny" "ज्ञ्")		      ; not in ITRANS Devanagari table
   ("x" "क्ष्")
+  ("ks" "क्स्")
   ("ksh" "क्ष्")
   ("gH"  ॻ्)
   ("jH"  ॼ्)

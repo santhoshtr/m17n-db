@@ -1,3 +1,7 @@
+2013-08-20  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
+
+	* MIM/hi-itrans.mim (map:starter): Add "ks" mapping.
+
 2013-08-19  Raghav Krishnapriyan  <raghav.k11n@gmail.com>
 
 	* MIM/yi-yivo.mim: Add various maps.
