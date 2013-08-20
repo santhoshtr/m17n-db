@@ -1,4 +1,4 @@
-2013-08-20  Kenichi Handa  <handa@gnu.org>
+2013-08-20  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
 
 	* MIM/kn-itrans.mim: Carrying over improvements from hi-intrans to
 	kn-itrans.mim (e.g. write ಶಂಕರ by typing shankara).
