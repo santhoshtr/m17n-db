@@ -1,3 +1,11 @@
+2013-08-26  Sebin Abraham Jacob  <sebinajacob@gmail.com>
+
+	* MIM/ml-remington.mim: New input method.
+
+2013-08-26  Hiran Venugopal  <hiran.v@gmail.com>
+
+	* icons/ml-remington.png: New icon file.
+
 2013-08-20  Dominik Wujastyk  <wujastyk@gmail.com>
 
 	* MIM/sa-harvard-kyoto.mim: Add mappings for avagraha (".a"),
