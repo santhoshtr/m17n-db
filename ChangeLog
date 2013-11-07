@@ -1,3 +1,11 @@
+2013-11-07  Kenichi Handa  <handa@gnu.org>
+
+	* default.fst (katakana): Remove superfluous close paren.
+
+	* .gitignore, LANGDATA/.gitignore, po/.gitignore: New files
+
+	* .cvsignore, */.cvsignore: Remove them.
+
 2013-08-26  Sebin Abraham Jacob  <sebinajacob@gmail.com>
 
 	* MIM/ml-remington.mim: New input method.

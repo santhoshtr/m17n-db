@@ -131,7 +131,7 @@
   ((ksc5601.1987-0))))
 (katakana
  (nil
-  ((nil nil unicode-bmp :lang=ja)))
+  ((nil nil unicode-bmp :lang=ja))
   ((jisx0208.1983-0))
   ((jisx0201.1976-0))
   ((gb2312.1980-0))
