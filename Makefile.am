@@ -43,6 +43,7 @@ EXTRA_DIST = config.rpath mkinstalldirs m4/ChangeLog bootstrap.sh \
 	CASED.awk CASE-MAPPING.awk \
 	SCRIPT.awk SCRIPT.ext \
 	get-glibc.sh \
+	tbl2mim.awk \
 	@INPUT_METHOD@ \
 	@FLT@ \
 	@ICONS@ \

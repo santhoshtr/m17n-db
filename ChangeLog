@@ -1,3 +1,7 @@
+2013-11-09  Kenichi Handa  <handa@gnu.org>
+
+	* Makefile.am (EXTRA_DIST): Add tbl2mim.awk.
+
 2013-11-09  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
 
 	* MIM/hi-itrans.mim (starter): Remove "^".
