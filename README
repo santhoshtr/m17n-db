@@ -52,10 +52,11 @@ po/ -- directory containing localized messages of input methods
 ----------------------------------------------------------------------
 ## Thanks ##
 
-We appreciate all contributers (see the file AUTHORS) adding values to
-the m17n library.  We also appreciate Harshula Jayasuriya helping this
-project in various aspects (setting up Savannah infrastructure,
-advising on GIT, appropriate suggestions, etc).
+We appreciate all contributers (see the section "Contributed files"
+below) improving the m17n library.  We also appreciate Harshula
+Jayasuriya helping this project in various aspects (setting up
+Savannah infrastructure, advising on GIT, appropriate suggestions,
+etc).
 
 ----------------------------------------------------------------------
 ## Copyright information ##
