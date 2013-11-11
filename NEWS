@@ -13,6 +13,8 @@ See the end for copying conditions.
 
 sa-itrans.mim: Sanskrit input method with ITRANS method
 
+ml-remington.mim: Malayalam input method.
+
 
 * Changes in the m17n database 1.6.4
 
