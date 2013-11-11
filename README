@@ -50,6 +50,14 @@ po/ -- directory containing localized messages of input methods
 *.map -- Charaset set mapping tables
 
 ----------------------------------------------------------------------
+## Thanks ##
+
+We appreciate all contributers (see the file AUTHORS) adding values to
+the m17n library.  We also appreciate Harshula Jayasuriya helping this
+project in various aspects (setting up Savannah infrastructure,
+advising on GIT, appropriate suggestions, etc).
+
+----------------------------------------------------------------------
 ## Copyright information ##
 
 Most files in this package are copyrighted by AIST as below;
