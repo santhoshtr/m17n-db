@@ -1,0 +1,50 @@
+;; lsymbol.mim -- input method for various symbols.
+;; Copyright (C) 2014  K. Handa  <handa@gnu.org>
+
+;; This file is part of the m17n library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+(input-method t lsymbol)
+
+(description (_"Input method for symbols with relatively longer key sequences.
+All key sequences start with the key \"/\".
+This input methods is registered as one of fallback input methods by default.
+If you prefer shorter key sequences, try \"ssymbol\"."))
+
+(map
+ ;; All starter keys must be registered here.
+ (starter ("/" "/"))
+
+ ;; Mapping table.  Each key sequence should not include the starter
+ ;; key.
+ (map
+  ("/" "/")
+  ("..." "…")
+  ("->" "→")
+  ("<-" "←")))
+
+(state
+ (init
+  (starter (shift main)))
+
+ (main
+  (map (move @<) (delete 1) (move @>) (shift init))))
+
+;; Local Variables:
+;; mode: lisp
+;; coding: utf-8
+;; End:

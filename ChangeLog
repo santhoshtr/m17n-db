@@ -1,3 +1,11 @@
+2014-03-22  K. Handa  <handa@gnu.org>
+
+	* MIM/lsymbol.mim, MIM/ssymbol.mim: New input methods.
+
+2014-02-23  K. Handa  <handa@gnu.org>
+
+	* MIM/global.mim (fallback-input-method): New global variable.
+
 2013-12-07  K. Handa  <handa@gnu.org>
 
 	* Version 1.6.5 released.

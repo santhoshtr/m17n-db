@@ -41,7 +41,19 @@ Value must be a symbol representing a charater set, or nil.
 If the value is not nil, a candidate containing a character not belonging
 to the specified character set is ignored.")
   nil)
- )
+
+ (fallback-input-method
+  (_"Fallback input methods.
+Value must be comma separated fallback input method names.
+When you type a key that is not handled by the currently activated intup method,
+fallback input methods (in the order specified in this variable) try
+to handle that key, and the first one that can handle the key is activated
+temporarily.
+For instance, as the default value of this variable is \"lsymbol, unicode\",
+when you type \"/...\" while you are activating an input method
+that doesn't handle that key sequence, \"lsymbol\" input method is activated
+and \"…\" (U+2026: HORIZONTAL ELLIPSIS) is inserted.")
+  "lsymbol, unicode"))
 
 (command
  (commit
