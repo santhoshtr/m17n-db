@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: m17n-db 1.3.4\n"
 "Report-Msgid-Bugs-To: bugs-m17n-lib@m17n.org\n"
-"POT-Creation-Date: 2013-11-11 09:53+0900\n"
+"POT-Creation-Date: 2014-03-23 23:09+0900\n"
 "PO-Revision-Date: 2007-06-14 22:54+0900\n"
 "Last-Translator: Phan Anh Dung <padung@huesoft.com.vn>\n"
 "Language-Team: Phan Anh Dung <padung@huesoft.com.vn>\n"
-"Language: \n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -104,193 +104,210 @@ msgid ""
 "to the specified character set is ignored."
 msgstr ""
 
-#: MIM/global.mim:48
+#: MIM/global.mim:46
+msgid ""
+"Fallback input methods.\n"
+"Value must be comma separated fallback input method names.\n"
+"When you type a key that is not handled by the currently activated intup "
+"method,\n"
+"fallback input methods (in the order specified in this variable) try\n"
+"to handle that key, and the first one that can handle the key is activated\n"
+"temporarily.\n"
+"For instance, as the default value of this variable is \"lsymbol, unicode"
+"\",\n"
+"when you type \"/...\" while you are activating an input method\n"
+"that doesn't handle that key sequence, \"lsymbol\" input method is "
+"activated\n"
+"and \"…\" (U+2026: HORIZONTAL ELLIPSIS) is inserted."
+msgstr ""
+
+#: MIM/global.mim:60
 msgid ""
 "Commit\n"
 "Commit the preedit text"
 msgstr ""
 
-#: MIM/global.mim:52
+#: MIM/global.mim:64
 msgid ""
 "Convert\n"
 "Convert the preedit text"
 msgstr ""
 
-#: MIM/global.mim:56
+#: MIM/global.mim:68
 msgid ""
 "Revert\n"
 "Revert the conversion"
 msgstr ""
 
-#: MIM/global.mim:60
+#: MIM/global.mim:72
 msgid ""
 "Previous candidate\n"
 "Spot the previous candidate"
 msgstr ""
 
-#: MIM/global.mim:64
+#: MIM/global.mim:76
 msgid ""
 "Next candidate\n"
 "Spot the next candidate"
 msgstr ""
 
-#: MIM/global.mim:68
+#: MIM/global.mim:80
 msgid ""
 "First candidate\n"
 "Spot the first candidate in the current group"
 msgstr ""
 
-#: MIM/global.mim:72
+#: MIM/global.mim:84
 msgid ""
 "Last candidate\n"
 "Spot the last candidate in the current group"
 msgstr ""
 
-#: MIM/global.mim:76
+#: MIM/global.mim:88
 msgid ""
 "Previous candidate group\n"
 "Move to the previous candidate group"
 msgstr ""
 
-#: MIM/global.mim:80
+#: MIM/global.mim:92
 msgid ""
 "Next candidate group\n"
 "Move to the next candidate group"
 msgstr ""
 
-#: MIM/global.mim:84
+#: MIM/global.mim:96
 msgid ""
 "Select the 1st candidate\n"
 "Select the first candidate in the current group"
 msgstr ""
 
-#: MIM/global.mim:88
+#: MIM/global.mim:100
 msgid ""
 "Select the 2nd candidate\n"
 "Select the second candidate in the current group"
 msgstr ""
 
-#: MIM/global.mim:92
+#: MIM/global.mim:104
 msgid ""
 "Select the 3rd candidate\n"
 "Select the third candidate in the current group"
 msgstr ""
 
-#: MIM/global.mim:96
+#: MIM/global.mim:108
 msgid ""
 "Select the 4th candidate\n"
 "Select the fourth candidate in the current group"
 msgstr ""
 
-#: MIM/global.mim:100
+#: MIM/global.mim:112
 msgid ""
 "Select the 5th candidate\n"
 "Select the fifth candidate in the current group"
 msgstr ""
 
-#: MIM/global.mim:104
+#: MIM/global.mim:116
 msgid ""
 "Select the 6th candidate\n"
 "Select the sixth candidate in the current group"
 msgstr ""
 
-#: MIM/global.mim:108
+#: MIM/global.mim:120
 msgid ""
 "Select the 7th candidate\n"
 "Select the seventh candidate in the current group"
 msgstr ""
 
-#: MIM/global.mim:112
+#: MIM/global.mim:124
 msgid ""
 "select the 8th candidate\n"
 "Select the eighth candidate in the current group"
 msgstr ""
 
-#: MIM/global.mim:116
+#: MIM/global.mim:128
 msgid ""
 "Select the 9th candidate\n"
 "Select the ninth candidate in the current group"
 msgstr ""
 
-#: MIM/global.mim:120
+#: MIM/global.mim:132
 msgid ""
 "Select the 10th candidate\n"
 "Select the tenth candidate in the current group"
 msgstr ""
 
-#: MIM/global.mim:124
+#: MIM/global.mim:136
 msgid ""
 "Previous character\n"
 "Move to the previous character in the preedit text"
 msgstr ""
 
-#: MIM/global.mim:128
+#: MIM/global.mim:140
 msgid ""
 "Next character\n"
 "Move to the next character in the preedit text"
 msgstr ""
 
-#: MIM/global.mim:132
+#: MIM/global.mim:144
 msgid ""
 "Fist character\n"
 "Move to the first character in the preedit text"
 msgstr ""
 
-#: MIM/global.mim:136
+#: MIM/global.mim:148
 msgid ""
 "Last character\n"
 "Move to the last character in the preedit text"
 msgstr ""
 
-#: MIM/global.mim:140
+#: MIM/global.mim:152
 msgid ""
 "Delete char backward\n"
 "Delete the previous character in the preedit text"
 msgstr ""
 
-#: MIM/global.mim:144
+#: MIM/global.mim:156
 msgid ""
 "Delete char\n"
 "Delete the following character in the preedit text"
 msgstr ""
 
-#: MIM/global.mim:148
+#: MIM/global.mim:160
 msgid ""
 "Previous segment\n"
 "Move to the previous segment in the preedit text"
 msgstr ""
 
-#: MIM/global.mim:152
+#: MIM/global.mim:164
 msgid ""
 "Next segment\n"
 "Move to the next segment in the preedit text"
 msgstr ""
 
-#: MIM/global.mim:156
+#: MIM/global.mim:168
 msgid ""
 "First segment\n"
 "Move to the first segment in the preedit text"
 msgstr ""
 
-#: MIM/global.mim:160
+#: MIM/global.mim:172
 msgid ""
 "Last segment\n"
 "Move to the last segment in the preedit text"
 msgstr ""
 
-#: MIM/global.mim:164
+#: MIM/global.mim:176
 msgid ""
 "Extend segment\n"
 "Extend the current segment length to the tail"
 msgstr ""
 
-#: MIM/global.mim:168
+#: MIM/global.mim:180
 msgid ""
 "Shrink segment\n"
 "Shrink the current segment length from the tail"
 msgstr ""
 
-#: MIM/global.mim:172
+#: MIM/global.mim:184
 msgid ""
 "Reload input method\n"
 "Reload the input method (and configulation if any) and freshly start it.\n"
@@ -306,10 +323,28 @@ msgid ""
 "typing \"har..\" produces \"हर।\", not \"हर्।\"."
 msgstr ""
 
+#: MIM/lsymbol.mim:23
+msgid ""
+"Input method for symbols with relatively longer key sequences.\n"
+"All key sequences start with the key \"/\".\n"
+"This input methods is registered as one of fallback input methods by "
+"default.\n"
+"If you prefer shorter key sequences, try \"ssymbol\"."
+msgstr ""
+
 #: MIM/si-wijesekera.mim:36
 msgid ""
 "Surrounding text vs. preedit.\n"
 "If 1, try to use surrounding text.  Otherwise, use preedit."
+msgstr ""
+
+#: MIM/ssymbol.mim:23
+msgid ""
+"Input method for symbols with relatively shorter key sequences.\n"
+"This input methods is suitable for a fallback input method.\n"
+"If you prefer this input method to \"lsymbol\" which is registered\n"
+"as one of fallback input methods by default, customize the variable\n"
+"\"fallback-input-method\"."
 msgstr ""
 
 #: MIM/ta-lk-renganathan.mim:33
