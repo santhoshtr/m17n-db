@@ -1,3 +1,16 @@
+2014-03-23  K. Handa  <handa@gnu.org>
+
+	* MIM/hi-itrans.mim (map:misc): Remove it.
+	(state:init): Remove the branch "misc".
+
+	* configure.ac (AM_INIT_AUTOMAKE): Remove arguments.
+
+	* Makefile.am (pkgdata_DATA, EXTRA_DIST): Remove @ICONS@.
+	(iconsdir, dist_icons_DATA): New varibables.
+
+	* po/m17n-db.pot, po/de.po, po/eo.po, po/ja.po, po/vi.po: Updated
+	for the changes of global.mim, lsymbol.mim, and ssymbol.mim.
+
 2014-03-22  K. Handa  <handa@gnu.org>
 
 	* MIM/lsymbol.mim, MIM/ssymbol.mim: New input methods.
