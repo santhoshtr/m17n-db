@@ -288,16 +288,11 @@ typing \"har..\" produces \"हर।\", not \"हर्।\".")
   ((S-C-Return)))
 
  (backspace
-  ((BackSpace) (undo)))
-
- (misc
-  ("//" "/")
-  ("/..." "…")))
+  ((BackSpace) (undo))))
 
 (state
  (init
-  (starter (pushback 1) (shift intermediate))
-  (misc))
+  (starter (pushback 1) (shift intermediate)))
 
  (intermediate
   ;; CANDRA-E-O is set to the character CANDRA E or CANDRA O when "e"
