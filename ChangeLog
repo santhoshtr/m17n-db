@@ -1,5 +1,7 @@
 2014-03-23  K. Handa  <handa@gnu.org>
 
+	* .gitignore: Include *~.
+
 	* MIM/hi-itrans.mim (map:misc): Remove it.
 	(state:init): Remove the branch "misc".
 
