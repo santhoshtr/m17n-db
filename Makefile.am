@@ -30,7 +30,6 @@ pkgdata_DATA = \
 	BLOCK.tab \
 	@INPUT_METHOD@ \
 	@FLT@ \
-	@ICONS@ \
 	mdb.dir
 
 EXTRA_DIST = config.rpath mkinstalldirs m4/ChangeLog bootstrap.sh \
@@ -46,7 +45,6 @@ EXTRA_DIST = config.rpath mkinstalldirs m4/ChangeLog bootstrap.sh \
 	tbl2mim.awk \
 	@INPUT_METHOD@ \
 	@FLT@ \
-	@ICONS@ \
 	${FORMATS}
 
 CHARSETS = ${ISO8859} ${IBM} ${CODEPAGE} ${CJK} ${MISC}
@@ -290,7 +288,10 @@ LINEBREAK.tab: UNIDATA/LineBreak.txt LINEBREAK.awk
 	  $(AWK) -f CHARTAB.awk FIELD=$@ $< >>$@; \
 	fi
 
-pkgdatadir=$(datadir)/m17n
+pkgdatadir = $(datadir)/m17n
+
+iconsdir = $(pkgdatadir)/icons
+dist_icons_DATA = @ICONS@
 
 bin_SCRIPTS = m17n-db
 
