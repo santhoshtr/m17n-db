@@ -1,3 +1,16 @@
+2014-03-28  K. Handa  <handa@gnu.org>
+
+	* MIM/ne-rom.mim (map:trans): Remove unnecessary equivalent
+	mappings.
+
+2014-03-28  Santosh Pradhan  <sapradhan8@gmail.com>
+
+	* MIM/ne-trad.mim (map:trans): Fix mappings to be compatible with
+	LTK.
+
+	* MIM/ne-rom.mim (map:trans): Fix mappings to be compatible with
+	LTK.
+
 2014-03-23  K. Handa  <handa@gnu.org>
 
 	* .gitignore: Include *~.
