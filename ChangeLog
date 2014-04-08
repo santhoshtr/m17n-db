@@ -1,3 +1,9 @@
+2014-04-09  Srikanth Lakshmanan  <srik.lak@gmail.com>
+
+	* MIM/ta-phonetic.mim (map:trans), MIM/ta-tamil99.mim (map:trans):
+	Add missing characters ஶ்,க்‌ஷ் (non conjunct) series, symbols and
+	fixing SRI ஶ்ரீ as per Unicode 4.1 guidelines.
+
 2014-03-28  K. Handa  <handa@gnu.org>
 
 	* MIM/ne-rom.mim (map:trans): Remove unnecessary equivalent
