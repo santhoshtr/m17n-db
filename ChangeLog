@@ -2,9 +2,9 @@
 
 	* MIM/bo-ewts.mim: Make it more compatible with EWTS.
 	(variable:precomposed): Change the default value to 1.
-	(map:standard-stack) Fix bug#42656 (mapping for "brl").  Add
+	(map:standard-stack): Fix bug#42656 (mapping for "brl").  Add
 	missing EWTS mappings.
-	(map:vowel) Replace characters deprecated in Unicode 7.0 with the
+	(map:vowel): Replace characters deprecated in Unicode 7.0 with the
 	correponding character sequences.
 	(map:consonant): Removing ambiguous combinations not in EWTS standard.
 	(map:special-subjoined): Add more Unicode compositions.
