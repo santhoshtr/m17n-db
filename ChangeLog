@@ -1,3 +1,14 @@
+2014-07-16  Elie Roux  <elie.roux@telecom-bretagne.eu>
+
+	* MIM/bo-ewts.mim: Make it more compatible with EWTS.
+	(variable:precomposed): Change the default value to 1.
+	(map:standard-stack) Fix bug#42656 (mapping for "brl").  Add
+	missing EWTS mappings.
+	(map:vowel) Replace characters deprecated in Unicode 7.0 with the
+	correponding character sequences.
+	(map:consonant): Removing ambiguous combinations not in EWTS standard.
+	(map:special-subjoined): Add more Unicode compositions.
+
 2014-04-09  Srikanth Lakshmanan  <srik.lak@gmail.com>
 
 	* MIM/ta-phonetic.mim (map:trans), MIM/ta-tamil99.mim (map:trans):
