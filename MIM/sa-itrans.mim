@@ -52,6 +52,7 @@ For motivations and further details, see description of hi-itrans.mim.")
 (state
  (init
   (starter (pushback 1) (shift intermediate))
+  (udattta)
   (misc))
 
  (intermediate

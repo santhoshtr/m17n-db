@@ -1,3 +1,7 @@
+2014-07-25  K. Handa  <handa@gnu.org>
+
+	* MIM/sa-itrans.mim (state:init): Add udatta.
+
 2014-07-16  Elie Roux  <elie.roux@telecom-bretagne.eu>
 
 	* MIM/bo-ewts.mim: Make it more compatible with EWTS.
