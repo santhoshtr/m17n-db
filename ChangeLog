@@ -1,3 +1,8 @@
+2014-07-25  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
+
+	* MIM/sa-itrans.mim (map:independent): Change Kannada sign
+	JIHVAMULIYA and UPADHMANIYA to the corresponding Vedic signs.
+
 2014-07-25  K. Handa  <handa@gnu.org>
 
 	* MIM/sa-itrans.mim (state:init): Add udatta.
