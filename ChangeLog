@@ -1,3 +1,7 @@
+2014-08-14  Elie Roux  <elie.roux@telecom-bretagne.eu>
+
+	* MIM/bo-ewts.mim (map:vowel): Fix previous change.
+
 2014-07-25  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
 
 	* MIM/sa-itrans.mim (map:independent): Change Kannada sign

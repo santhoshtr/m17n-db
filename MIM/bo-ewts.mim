@@ -241,7 +241,7 @@ If 0, generate only decomposed characters (i.e. NFD) (e.g. \"ྲྀ\" (U+0FB2 U+
   ("u" "ུ")
   ("e" "ེ")
   ("o" "ོ")
-  ("-i" "ྀ")
+  ("i" "ི")
   ("A" "ཱ")
   ("I" "ཱི")
   ("U" "ཱུ")
