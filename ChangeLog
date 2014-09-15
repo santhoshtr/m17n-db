@@ -1,3 +1,7 @@
+2014-09-15  Florêncio Neves  <florencioneves@gmail.com>
+
+	* MIM/latn1-pre.mim: New input method.
+
 2014-08-14  Elie Roux  <elie.roux@telecom-bretagne.eu>
 
 	* MIM/bo-ewts.mim (map:vowel): Fix previous change.
