@@ -1,0 +1,99 @@
+;; ar-translit.mim -- Arabic input method based on Roman transliteration.
+;; Copyright (C) 2014 "Joop Kiefte (LaPingvino)" <joop@kiefte.net>
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+(input-method ar translit)
+
+(description "Arabic input method based on Roman transliteration.
+It uses common transliterations, when several interpretations are possible you can get other variations with a preceding dot. For some letters the commonly used numbers from chat usage are used, these are then preceded by or two dots. Usually the dotted variation also has dots in the written form. If you speak Arabic, use this translit and have motivated suggestions to improve it, please mail me on joop@kiefte.net")
+
+(title "ض")
+
+(map
+ (generic
+  ("1" "١")
+  ("2" "٢")
+  ("3" "٣")
+  ("4" "٤")
+  ("5" "٥")
+  ("6" "٦")
+  ("7" "٧")
+  ("8" "٨")
+  ("9" "٩")
+  ("0" "٠")
+
+  (".2" "ء")
+  ("a" "ا")
+  ("A" "أ")
+  (".A" "إ")
+  ("b" "ب")
+  ("t" "ت")
+  (".t" "ث")
+  ("j" "ج")
+  (".7" "ح")
+  (".5" "خ")
+  ("d" "د")
+  (".d" "ذ")
+  ("r" "ر")
+  ("z" "ز")
+  ("s" "س")
+  (".s" "ش")
+  (".9" "ص")
+  ("..9" "ض")
+  (".6" "ط")
+  ("..6" "ظ")
+  (".3" "ع")
+  ("..3" "غ")
+  ("f" "ف")
+  ("q" "ق")
+  ("k" "ك")
+  ("l" "ل")
+  ("m" "م")
+  ("n" "ن")
+  ("h" "ه")
+  ("w" "و")
+  (".w" "ؤ")
+  ("y" "ي")
+  ("a" "ى")
+  (".y" "ئ")
+  (".a" "آ")
+  (".h" "ة")
+  ("e" "َ")	; fathah
+  ("u" "ُ")	; dammah
+  ("i" "ِ")	; kasrah
+  ("x" "ْ")	; sukun
+  ("o" "ٰ")	; superscript alif
+  ("v" "ّ")	; shaddah
+
+  ("?" "؟")
+
+  ("J" "‍")	; zero width joiner
+  ("L" "‎")	; left to right mark
+  ("N" "‌")	; zero width non joiner
+  ("R" "‏")	; right to left mark
+))
+
+(state
+ (init
+  (generic)))
+
+;; Local Variables:
+;; mode: lisp
+;; End:
