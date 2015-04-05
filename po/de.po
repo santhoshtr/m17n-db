@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: m17n-db 1.6.1-1\n"
 "Report-Msgid-Bugs-To: bugs-m17n-lib@m17n.org\n"
-"POT-Creation-Date: 2014-03-23 23:09+0900\n"
+"POT-Creation-Date: 2014-12-12 23:29+0900\n"
 "PO-Revision-Date: 2010-07-14 23:30+0100\n"
 "Last-Translator: Chris Leick <c.leick@vollbio.de>\n"
 "Language-Team: German <debian-l10n-german@lists.debian.org>\n"
@@ -17,11 +17,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 # FIXME blank missing before (U+0F76
-#: MIM/bo-ewts.mim:35
+#: MIM/bo-ewts.mim:36
+#, fuzzy
 msgid ""
 "Flag to tell whether or not to generate precomposed characters.\n"
-"If 1, generate precomposed characters if available (e.g. \"ྲྀ\"(U+0F76).\n"
-"If 0, generate only decomposed characters (e.g. \"ྲྀ\" (U+0FB2 U+0F80)."
+"If 1 (the default), generate precomposed characters (i.e. NFC) if available "
+"(e.g. \"ྲྀ\"(U+0F76).\n"
+"If 0, generate only decomposed characters (i.e. NFD) (e.g. \"ྲྀ\" (U+0FB2 U"
+"+0F80)."
 msgstr ""
 "Markierung, die angibt, ob zusammengesetzte Zeichen generiert werden oder\n"
 "nicht.\n"

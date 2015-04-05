@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: m17n-db 1.6.5\n"
+"Project-Id-Version: m17n-db 1.7.0\n"
 "Report-Msgid-Bugs-To: bugs-m17n-lib@m17n.org\n"
-"POT-Creation-Date: 2014-03-23 23:09+0900\n"
+"POT-Creation-Date: 2014-12-12 23:29+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: MIM/bo-ewts.mim:35
+#: MIM/bo-ewts.mim:36
 msgid ""
 "Flag to tell whether or not to generate precomposed characters.\n"
-"If 1, generate precomposed characters if available (e.g. \"ྲྀ\"(U+0F76).\n"
-"If 0, generate only decomposed characters (e.g. \"ྲྀ\" (U+0FB2 U+0F80)."
+"If 1 (the default), generate precomposed characters (i.e. NFC) if available "
+"(e.g. \"ྲྀ\"(U+0F76).\n"
+"If 0, generate only decomposed characters (i.e. NFD) (e.g. \"ྲྀ\" (U+0FB2 U"
+"+0F80)."
 msgstr ""
 
 #: MIM/cmc-kbd.mim:26

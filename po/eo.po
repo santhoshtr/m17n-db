@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: m17n-contrib 1.1.2\n"
 "Report-Msgid-Bugs-To: bugs-m17n-lib@m17n.org\n"
-"POT-Creation-Date: 2014-03-23 23:09+0900\n"
+"POT-Creation-Date: 2014-12-12 23:29+0900\n"
 "PO-Revision-Date: 2007-07-20 16:15+0900\n"
 "Last-Translator: Kenichi Handa <m17n-lib@m17n.org>\n"
 "Language-Team: Esperanto\n"
@@ -17,11 +17,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: MIM/bo-ewts.mim:35
+#: MIM/bo-ewts.mim:36
 msgid ""
 "Flag to tell whether or not to generate precomposed characters.\n"
-"If 1, generate precomposed characters if available (e.g. \"ྲྀ\"(U+0F76).\n"
-"If 0, generate only decomposed characters (e.g. \"ྲྀ\" (U+0FB2 U+0F80)."
+"If 1 (the default), generate precomposed characters (i.e. NFC) if available "
+"(e.g. \"ྲྀ\"(U+0F76).\n"
+"If 0, generate only decomposed characters (i.e. NFD) (e.g. \"ྲྀ\" (U+0FB2 U"
+"+0F80)."
 msgstr ""
 
 #: MIM/cmc-kbd.mim:26
