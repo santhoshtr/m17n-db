@@ -1,3 +1,9 @@
+2015-04-05  K. Handa  <handa@gnu.org>
+
+	* m17n-db.in: Change encoding to utf-8.
+
+	* FORMATS/IM.ja.txt: Delete local variables section at the end.
+
 2014-12-12  K. Handa  <handa@gnu.org>
 
 	* Version 1.7.0 released.

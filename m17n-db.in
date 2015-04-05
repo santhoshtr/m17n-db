@@ -97,7 +97,7 @@ exit 0
 
 cat > /dev/null <<EOF
 /***en @page m17n-db Print information about the m17n database */
-/***ja @page m17n-db m17n ¥Ç¡¼¥¿¥Ù¡¼¥¹¤Î¾ðÊó¤òÉ½¼¨ */
+/***ja @page m17n-db m17n ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®æƒ…å ±ã‚’è¡¨ç¤º */
 
 /***
 @section m17n-db-synopsis SYNOPSIS
@@ -144,5 +144,5 @@ EOF
 # Boston, MA 02110-1301, USA.
 
 # Local Variables:
-# coding: euc-japan
+# coding: utf-8
 # End:
