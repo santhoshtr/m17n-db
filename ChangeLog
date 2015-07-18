@@ -1,3 +1,7 @@
+2015-07-18  handa  <handa@gnu.org>
+
+	* FLT/COMBINING.flt: Suppress GSUB lookups.
+
 2015-04-05  K. Handa  <handa@gnu.org>
 
 	* m17n-db.in: Change encoding to utf-8.
