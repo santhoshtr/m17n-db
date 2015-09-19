@@ -159,3 +159,9 @@ William Giddings <wjgiddings@googlemail.com>
 Sebin Abraham Jacob  <sebinajacob@gmail.com>
 Hiran Venugopal  <hiran.v@gmail.com>
 	ml-remington.mim -- Malayalam input method.
+
+Vishvas Vasuki  <vishvas.vasuki@gmail.com>
+	hi-optitransv2.mim -- Hindi input method
+	kn-itrans.mim -- Kannada input method with ITRANS method
+	kn-optitransv2.mim -- Kannada input method
+	math-latex.mim -- Mathematics input method using LaTeX command names
