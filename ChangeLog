@@ -1,3 +1,9 @@
+2015-09-19  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
+
+	* MIM/kn-optitransv2.mim: New input method.
+
+	* MIM/hi-optitransv2.mim: New input method.
+
 2015-07-18  handa  <handa@gnu.org>
 
 	* FLT/COMBINING.flt: Suppress GSUB lookups.
