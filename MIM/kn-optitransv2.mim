@@ -149,28 +149,24 @@ Also, see: http://en.wikipedia.org/wiki/Devanagari_transliteration.")
   ("nnD" "ಣ್" (pushback 1))
   ("nnDh" "ಣ್" (pushback 1))
 
-  ; nn shortcuts with space
+  ) ; consonant ends
+
+(consonant_with_space
   ("nn " "ನ್ ")
+  ("nn  " "ನ್ ") ; handle the case where the transformation to ಙ್ etc.. is not desired, even when followed by a character like k.
   ("nn k" "ಙ್ " (pushback 1))
   ("nn x" "ಙ್ " (pushback 1))
-  ("nn kh" "ಙ್ " (pushback 1))
   ("nn K" "ಙ್ " (pushback 1))
   ("nn g" "ಙ್ " (pushback 1))
-  ("nn gh" "ಙ್ " (pushback 1))
   ("nn G" "ಙ್ " (pushback 1))
-  ("nn ch" "ಞ್ " (pushback 1))
-  ("nn Ch" "ಞ್ " (pushback 1))
   ("nn c" "ಞ್ " (pushback 1))
   ("nn C" "ಞ್ " (pushback 1))
   ("nn j" "ಞ್ " (pushback 1))
-  ("nn jh" "ಞ್ " (pushback 1))
   ("nn J" "ಞ್ " (pushback 1))
 
   ("nn T" "ಣ್ " (pushback 1))
-  ("nn Th" "ಣ್ " (pushback 1))
   ("nn D" "ಣ್ " (pushback 1))
-  ("nn Dh" "ಣ್ " (pushback 1))
-  ) ; consonant ends
+  ) ; consonant_with_space ends
 
 (consonant_with_viraama
   ; virAma shortcuts
@@ -379,6 +375,7 @@ Also, see: http://en.wikipedia.org/wiki/Devanagari_transliteration.")
  (state_indic_letter
   (consonant (shift state_consonant_pressed))
   (ayogavAhas_with_consonant (shift state_consonant_pressed))
+  (consonant_with_space (shift state_init))
   (consonant_with_viraama (shift state_init))
   (independent (shift state_init))
   (danda (shift state_init))
@@ -389,6 +386,7 @@ Also, see: http://en.wikipedia.org/wiki/Devanagari_transliteration.")
  (state_consonant_pressed
   (consonant)
   (ayogavAhas_with_consonant)
+  (consonant_with_space (shift state_init))
   (consonant_with_viraama (shift state_init))
   (dependent (shift state_init))
   (danda (shift state_init))

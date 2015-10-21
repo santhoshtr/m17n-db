@@ -1,5 +1,21 @@
 2015-09-19  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
 
+	* MIM/kn-optitransv2.mim (consonant_with_space): New map separated
+	from consonant.
+	(state_indic_letter, state_consonant_pressed) Add a branch for
+	consonant_with_space.
+
+	* MIM/hi-optitransv2.mim (consonant_with_space): New map separated
+	from consonant.
+	(state_indic_letter, state_consonant_pressed) Add a branch for
+	consonant_with_space.
+
+	* icons/hi-optitransv2.png: New icon file.
+
+	* icons/kn-optitransv2.png: New icon file.
+
+2015-09-19  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
+
 	* MIM/kn-optitransv2.mim: New input method.
 
 	* MIM/hi-optitransv2.mim: New input method.
