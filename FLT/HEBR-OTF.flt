@@ -1,5 +1,6 @@
 ;; HEBR-OTF.flt -- Font Layout Table for Hebrew OpenType fonts
 ;; Copyright (C) 2010 AIST (H15PRO112)
+;; Copyright (C) 2015  K. Handa <handa@gnu.org>
 ;; See the end for copying conditions.
 
 (font layouter hebr-otf nil
@@ -21,6 +22,7 @@
  (0x05C7	?v)			; qamats qatan
  (0x05D0 0x05EA	?C)			; consonants
  (0x05E9	?S)			; shin
+ (0x05F0 0x05F2	?C)			; yiddish ligatures
 
  (0xFB1D 0xFB4F	?X)			; generic
  (0xFB1E	?p)			; judeo-spanish varika
@@ -29,22 +31,34 @@
  (0x200C	?N)			; ZWNJ
  (0x200D	?J)			; ZWJ
  (0x25CC	?X)			; DOTTED CIRCLE
+ (mark		?M)			; OTF feature "mark" is applied.
+ (mkmk		?k)			; OTF feature "mkmk" is applied.
  )
+
+;; Order the marks roughly according to "SBL Hebrew manual"
+;; <http://www.sbl-site.org/Fonts/SBLHebrewUserManual1.5x.pdf>.
+(generator
+ (0
+  (cond
+   ("((s)|(d)|(p)|(v)|([mP]))+"
+    (2 =) (3 =) (4 =) (5 =) (6 =))
+   
+   ("." =))
+  *))
 
 (generator
  (0
   (cond
-   ("Cd?v?[NJ]?[Pp]?m?"
-    < :otf=hebr >)
-   ("Cd?PGvm?"
-    < :otf=hebr >)
+   ;; Special case SHIN first: Allow the SHIN dots (?s).
+   ("S[sdGJmPpv]+"
+    | < :otf=hebr > |)
 
-   ("S(ds?|sd?)?v?[NJ]?[Pp]?m?"
-    < :otf=hebr >)
-   ("S(ds?|sd?)PGvm?"
-    < :otf=hebr >)
+   ;; The general case without the SHIN dots (?s).
+   ("C[dGJmPpv]+"
+    | < :otf=hebr > |)
 
-   ("[mvdps]"
+   ;; Put stand-alone diacritics on a DOTTED CIRCLE.
+   ("[dmPpsv]+"
     (cond
      ((font-facility 0x25CC) < 0x25CC = >)
      ("." [ = ])))
@@ -52,9 +66,27 @@
    ("." =))
   *))
 
+;; Put marks without the mark/mkmk feature before the base character.
+;; Glyph clusters are surrounded by the mnemonic " " added by the
+;; previous generator.
+(generator
+ (0
+  (cond
+   ;; Precomposed.
+   (" ([^ ]) " (1 =))
+   ;; Feature "mark" and/or "mkmk" are applied.
+   (" ([^ ]M[Mk]*) " (1 = =))
+   ;; No OTF feature is applied.  Hope the font metric is designed
+   ;; properly so that drawing the combined marks first then the base
+   ;; character yields correct result.
+   (" ([^ ])([^ ]+) " [ (2 = *) (1 =) ])
+   ("." =))
+  *))
+
 ;; Copyright (C) 2010
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
+;; Copyright (C) 2015  K. Handa <handa@gnu.org>
 
 ;; This file is part of the m17n database; a sub-part of the m17n
 ;; library.

@@ -1,3 +1,14 @@
+2015-11-25  B. Riefenstahl  <b.riefenstahl@turtle-trading.net>  (tiny chnage)
+
+	* FLT/HEBR-OTF.flt (category): Add Yiddish ligature.
+	(generator): Re-order marks.  Generalize the previous change (bug
+	#46399).
+
+2015-11-25  K. Handa  <handa@gnu.org>
+
+	* FLT/HEBR-OTF.flt (generator)  Add code for handling combining
+	marks not handled by OTF tables (bug #46399).
+
 2015-09-19  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
 
 	* MIM/kn-optitransv2.mim (consonant_with_space): New map separated
