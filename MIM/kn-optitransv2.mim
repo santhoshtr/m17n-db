@@ -38,11 +38,18 @@ vowel a*. For example, k maps to ಕ, not ಕ್.
 For example, sh yields ಶ. But if one wanted to type ಸಹ, one can type: s<Commit key>h or s<left arrow, right arrow>h.
 
 Examples:
-kml or kamala - ಕಮಲ 
-sikkt - ಸಿಕ್ತ
-shn;kr  or shankara or shnnkr- ಶಙ್ಕರ।
-sn;cit or snncit - ಸಞ್ಚಿತ
-s<Commit key>h or s<left arrow, right arrow>h - ಸಹ
+- Avoiding unnecessary 'a'-s.
+  - kml or kamala - ಕಮಲ 
+- Typing vyanjana-s with a virAma
+  - sikkt - ಸಿಕ್ತ
+  - sik;t - ಸಿಕ್ತ
+- Shortcut for typing panchama-s/ anunAsika-s of vargIya-vyanjana-s
+  - shankara or shnnkr- ಶಙ್ಕರ।
+  - snncit - ಸಞ್ಚಿತ
+  - shann karoti - ಶಙ್ ಕರೋತಿ।
+- Overriding shortcuts
+  - pashyann  karoti - ಪಶ್ಯನ್ ಕರೋತಿ। (Note two spaces here. Avoids ಪಶ್ಯಙ್ ಕರೋತಿ )
+  - s<Commit key>h or s<left arrow, right arrow>h or sah or saha - ಸಹ (Avoids ಶ)
 
 
 The motivation behind additions made to the basic ITRANS scheme

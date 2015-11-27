@@ -1,3 +1,9 @@
+2015-11-27  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
+
+	* MIM/hi-optitransv2.mim: Improve the description string.
+
+	* MIM/kn-optitransv2.mim: Improve the description string.
+
 2015-11-25  B. Riefenstahl  <b.riefenstahl@turtle-trading.net>  (tiny chnage)
 
 	* FLT/HEBR-OTF.flt (category): Add Yiddish ligature.

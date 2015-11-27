@@ -38,12 +38,18 @@ vowel a*. For example, k maps to क, not क्.
 For example, sh yields श. But if one wanted to type सह, one can type: s<Commit key>h or s<left arrow, right arrow>h.
 
 Examples:
-kml or kamala - कमल 
-sikkt - सिक्त
-shn;kr  or shankara or shnnkr- शङ्कर।
-sn;cit or snncit - सञ्चित
-s<Commit key>h or s<left arrow, right arrow>h - सह
-
+- Avoiding unnecessary 'a'-s.
+  - kml or kamala - कमल 
+- Typing vyanjana-s with a virAma
+  - sikkt - सिक्त
+  - sik;t - सिक्त
+- Shortcut for typing panchama-s/ anunAsika-s of vargIya-vyanjana-s
+  - shankara or shnnkr- शङ्कर।
+  - snncit - सञ्चित
+  - shann karoti - शङ् करोति।
+- Overriding shortcuts
+  - pashyann  karoti - पश्यन् करोति। (Note two spaces here. Avoids पश्यङ् करोति )
+  - s<Commit key>h or s<left arrow, right arrow>h or sah or saha - सह (Avoids श)
 
 The motivation behind additions made to the basic ITRANS scheme
 is described in https://sites.google.com/site/sanskritcode/optitrans,
