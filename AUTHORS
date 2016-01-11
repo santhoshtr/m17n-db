@@ -12,156 +12,237 @@ Naoto Takahashi <ntakahas.m17n@gmail.com>
 Satoru Tomura <tomura@m17n.org>
 	Core developer.
 
-# Contributers of specific input methods in the MIM subdir:
+# Contributers of input methods, icons, translations.
 
 Amanpreet Singh Brar <apbrar@gmail.com>
-	pa-inscript.mim -- Punjabi input method for inscript layout
-	pa-jhelum.mim -- Punjabi input method for jhelum layout
+	MIM/pa-inscript.mim -- Punjabi input method for inscript layout
+	icons/pa-inscript.png
+	MIM/pa-jhelum.mim -- Punjabi input method for jhelum layout
+	icnos/pa-jhelum.png
 
 Harshula Jayasuriya
-	si-phonetic-dynamic.mim -- Sinhala phonetic dynamic keymap
-	si-trans.mim -- Sinhala transliteration keymap
+	MIM/si-phonetic-dynamic.mim -- Sinhala phonetic dynamic keymap
+	icnos/si-phonetic-dynamic.png
+	MIM/si-singlish.mim -- Sinhala singlish keymap
+	MIM/si-sumihiri.mim -- Sinhala transliteration keymap
+	icons/si-sumihiri.png
+	MIM/si-trans.mim -- Sinhala transliteration keymap
+	icons/si-transliteration.png
 
 Chaitanya Kamisetty <chaitanya@atc.tcs.co.in>
-	te-apple.mim -- Apple keyboard layout for Telugu
-	te-rts.mim -- Telugu input method with RTS method
+	MIM/te-apple.mim -- Apple keyboard layout for Telugu
+	icnos/te-apple.png
 
+AIST
 Suraj N. Kurapati <sunaku@gmail.com>
-	te-rts.mim -- Telugu input method with RTS method
+Chaitanya Kamisetty <chaitanya@atc.tcs.co.in>
+	MIM/te-rts.mim -- Telugu input method with RTS method
 
 Tahir Abdul Rauf Butt <linux_kernel_worm@yahoo.com>
-	ur-phonetic.mim -- Urdu input method for phonetic layout
+	MIM/ur-phonetic.mim -- Urdu input method for phonetic layout
+	icons/ur-phonetic.png
 
 Suyash Shrestha <suyash.shr@gmail.com>
-	ne-rom.mim -- Nepali input method for romanized layout
-	ne-trad.mim -- Nepali input method for traditional layout
+	MIM/ne-rom.mim -- Nepali input method for romanized layout
+	icons/ne-rom.png
+	MIM/ne-trad.mim -- Nepali input method for traditional layout
+	icons/ne-trad.png
 
 Maxim Treskin <zerthurd@gmail.com>
-	ru-translit.mim -- Cyrillic input method with translit keyboard layout
+	MIM/ru-translit.mim -- Cyrillic input method with translit keyboard layout
 
-Subhransu Behera <sbehera@redhat.com>
-Rahul Bhalerao <rbhalera@redhat.com>
-Runa Bhattacharjee <runab@redhat.com>
-I. Felix <ifelix@redhat.com>
-Mayank Jain <majain@redhat.com>
-Jatin Nansi <jnansi@redhat.com>
-Ani Peter <apeter@redhat.com>
-Jens Petersen <petersen@redhat.com>
-Amitakhya Phukan <aphukan@redhat.com>
-Shankar Prasad <svenkate@redhat.com>
-Ankitkumar Rameshchandra Patel <ankit@redhat.com>
-Rajesh Ranjan <rranjan@redhat.com>
-Pravin Satpute <psatpute@redhat.com>
-Jaswinder Singh <jsingh@redhat.com>
-Sree Thottempudi <sthottem@redhat.com>
-	as-inscript.mim -- Assamese input method for inscript layout
-	as-phonetic.mim -- Assamese input method for phonetic layout
-	bn-inscript.mim -- Bengali input method for inscript layout
-	bn-probhat.mim -- Bengali input method for probhat layout
-	gu-inscript.mim -- Gujarati input method for inscript layout
-	gu-phonetic.mim -- Gujarati input method for phonetic layout
-	hi-inscript.mim -- Hindi input method for inscript layout
-	hi-phonetic.mim -- Hindi input method for phonetic layout
-	hi-remington.mim -- Hindi input method for Remington typewriter layout
-	kn-inscript.mim -- Kannada input method for inscript layout
-	ml-inscript.mim -- Malayalam input method for inscript layout
-	mr-inscript.mim -- Marathi input method for inscript layout
-	mr-itrans.mim -- Marathi input method with ITRANS method
-	mr-phonetic.mim -- Marathi input method for phonetic layout
-	or-inscript.mim -- Oriya input method for inscript layout
-	or-phonetic.mim -- Oriya input method for phonetic layout
-	pa-inscript.mim -- Punjabi input method for inscript layout
+Red Had, Inc (by Subhransu Behera <sbehera@redhat.com>
+		Rahul Bhalerao <rbhalera@redhat.com>
+		Runa Bhattacharjee <runab@redhat.com>
+		I. Felix <ifelix@redhat.com>
+		Mayank Jain <majain@redhat.com>
+		Jatin Nansi <jnansi@redhat.com>
+		Ani Peter <apeter@redhat.com>
+		Jens Petersen <petersen@redhat.com>
+		Amitakhya Phukan <aphukan@redhat.com>
+		Shankar Prasad <svenkate@redhat.com>
+		Ankitkumar Rameshchandra Patel <ankit@redhat.com>
+		Rajesh Ranjan <rranjan@redhat.com>
+		Pravin Satpute <psatpute@redhat.com>
+		Jaswinder Singh <jsingh@redhat.com>
+		Sree Thottempudi <sthottem@redhat.com>)
+	MIM/as-inscript.mim -- Assamese input method for inscript layout
+	icons/as-inscript.png
+	MIM/as-phonetic.mim -- Assamese input method for phonetic layout
+	icons/as-phonetic.png
+	MIM/bn-probhat.mim -- Bengali input method for probhat layout
+	icons/bn-probhat.png
+	MIM/gu-phonetic.mim -- Gujarati input method for phonetic layout
+	icons/gu-phonetic.png
+	MIM/hi-phonetic.mim -- Hindi input method for phonetic layout
+	icons/hi-phonetic.png
+	MIM/hi-remington.mim -- Hindi input method for Remington typewriter layout
+	icons/hi-remington.png
+	MIM/kn-typewriter.mim -- Kannada input-method for typewriter layout
+	MIM/mr-inscript.mim -- Marathi input method for inscript layout
+	icons/mr-inscript.png
+	MIM/mr-itrans.mim -- Marathi input method with ITRANS method
+	MIM/mr-phonetic.mim -- Marathi input method for phonetic layout
+	MIM/or-inscript.mim -- Oriya input method for inscript layout
+	icons/or-inscript.png
+	MIM/or-phonetic.mim -- Oriya input method for phonetic layout
+	pa-anmollipi.mim -- Punjabi input method for for AnmolLipi (Phonetic)
 	pa-jhelum.mim -- Punjabi input method for jhelum layout
 	pa-phonetic.mim -- Punjabi input method for phonetic layout
-	sd-inscript.mim -- Sindhi input method for inscript layout
-	ta-inscript.mim -- Tamil input method for inscript layout
-	ta-phonetic.mim -- Tamil input method for phonetic layout
-	ta-tamil99.mim -- Tamil input method for tamil99 layout
-	ta-typewriter.mim -- Tamil input method for type writer layout
-	te-inscript.mim -- Telugu input method for inscript layout
+	icons/pa-phonetic.png
+	MIM/ta-phonetic.mim -- Tamil input method for phonetic layout
+	MIM/ta-tamil99.mim -- Tamil input method for tamil99 layout
+	MIM/ta-typewriter.mim -- Tamil input method for type writer layout
 
-Phan Anh Dung  <padung@huesoft.com.vn>
-	vi-nom.mim -- Chu Nom input method with Viet-Phonetic sequence
-	vi-han.mim -- Han Viet input method with Viet-Phonetic sequence
+Sun Microsystems, Inc.
+	MIM/bn-inscript.mim -- Bengali input method for inscript layout
+	icons/bn-inscript.png
+	MIM/gu-inscript.mim -- Gujarati input method for inscript layout
+	icons/gu-inscript.png
+	MIM/hi-inscript.mim -- Hindi input method for inscript layout
+	icons/hi-inscript.png
+	MIM/kn-inscript.mim -- Kannada input method for inscript layout
+	icons/kn-inscript.png
+	MIM/ml-inscript.mim -- Malayalam input method for inscript layout
+	icons/ml-inscript.png
+	MIM/pa-inscript.mim -- Punjabi input method for inscript layout
+	icons/pa-inscript.png
+	MIM/sd-inscript.mim -- Sindhi input method for inscript layout
+	icons/sd-inscript.png
+	MIM/ta-inscript.mim -- Tamil input method for inscript layout
+	MIM/ta-inscript.png
+	MIM/te-inscript.mim -- Telugu input method for inscript layout
+	icons/te-inscript.png
 
-Tuyet Nhung  <dangtuyetnhung@gmail.com>
-	tai-sonla.mim -- Tai Viet input method with Phonetic sequence
+Red Hat, Inc
+Sun Microsystems, Inc.
+	MIM/ks-inscript.mim - Kashmiri Devanagari input method for inscript layout
+
+Thua Thien Hue Center of Information Technology (HueCIT, Vietnam)
+		(by Phan Anh Dung <padung@huesoft.com.vn>)
+	MIM/vi-nom.mim -- Chu Nom input method with Viet-Phonetic telex sequence
+	icons/vi-nom.png
+	MIM/vi-nom-vni.mim -- Chu Nom input method with Viet-Phonetic VNI sequence
+	icons/vi-nom-vni.png
+	MIM/vi-han.mim -- Han Viet input method with Viet-Phonetic sequence
+
+AIST
+Thua Thien Hue Center of Information Technology (HueCIT, Vietnam)
+		(by Tuyet Nhung  <dangtuyetnhung@gmail.com>)
+	MIM/tai-sonla.mim -- Tai Viet input method with Phonetic sequence
 
 Joop Kiefte <ikojba@gmail.com>
-	eo-h-f.mim -- Esperanto input method
-	eo-h.mim -- Esperanto input method
-	eo-plena.mim -- Esperanto input method
-	eo-q.mim -- Esperanto input method
-	eo-x.mim -- Esperanto input method
+	MIM/eo-h-f.mim -- Esperanto input method
+	icons/eo-h-fundamente.png
+	MIM/eo-h.mim -- Esperanto input method
+	icons/eo-h-sistemo.png
+	MIM/eo-plena.mim -- Esperanto input method
+	icons/eo-plena.png
+	MIM/eo-q.mim -- Esperanto input method
+	icons/eo-q-sistemo.png
+	MIM/eo-x.mim -- Esperanto input method
+	icons/eo-x-sistemo.png
 
 Arjuna Rao Chavala <arjunaraoc@googlemail.com>
-	te-pothana.mim -- Telugu input method proposed by Thirumala Krishna Desikachari along with Pothana font for Windows environments.
+	MIM/te-pothana.mim -- Telugu input method proposed by Thirumala Krishna Desikachari along with Pothana font for Windows environments.
 
 Evuraan <Evuraan at Gmail Dot Com>
-	ml-mozhi.mim -- Malayalam input method with ITRANS method
+	MIM/ml-mozhi.mim -- Malayalam input method with ITRANS method (mozhi layout)
 
 Santhosh Thottingal <santhosh.thottingal@gmail.com>
-	ml-swanalekha.mim -- m17n version of  Swanalekha Malayalam input method
+	MIM/ml-swanalekha.mim -- Swanalekha Malayalam input method
+	icons/ml-swanalekha.png
 
 Sridhar M.A., Mysore <mas@mylug.org>
-	kn-kgp.mim -- Kannada input method for KGP layout
+	MIM/kn-kgp.mim -- Kannada input method for KGP layout
+	icons/kn-kgp.png
 
-Tran Ngoc Quan <vnwildman@gmail.com>
-	eo-vi.mim -- Esperanto input method using double key press
-	zh-pinyin-vi.mim -- Input method for Chinese Pinyin characters using "j" for first tone "s" for the second tone, "r" and "f" for the third and fourth tone.
+Trần Ngọc Quân <vnwildman@gmail.com>
+	MIM/eo-vi.mim -- Esperanto input method using double key press
+	MIM/zh-pinyin-vi.mim -- Input method for Chinese Pinyin characters using "j" for first tone "s" for the second tone, "r" and "f" for the third and fourth tone.
 
 Michaël Monzo <elbrazotontodelaley@free.fr>
-	ps-phonetic.mim -- Pashto input method for phonetic layout
+	MIM/ps-phonetic.mim -- Pashto input method for phonetic layout
+	icons/ps-phonetic.png
 
 Mohammad Nayeem Teli <mohammad.nayeem@gmail.com>
-	ks-kbd.mim -- Kashmiri input method with Kashmiri keyboard layout
+	MIM/ks-kbd.mim -- Kashmiri input method with Kashmiri keyboard layout
 
 Matěj Cepl <mcepl@redhat.com>
-	cs-kbd.mim -- Czech input method with Czech keyboard layout
+	MIM/cs-kbd.mim -- Czech input method with Czech keyboard layout
+	icons/cs-kbd.png
 
 V.Ramasami <v.ramasami@gmail.com>
-	ta-vutam.mim -- Tamil input method for "vutam"  Type_As_You_Write layout
+	MIM/ta-vutam.mim -- Tamil input method for "vutam"  Type_As_You_Write layout
+	icons/ta-vutam.png
 
 Ding-Yi Chen <dchen at redhat dot com>
-	zh-zhuyin.mim -- zhuyin input method
+	MIM/zh-zhuyin.mim -- zhuyin input method
+	icons/zh-zhuyin.png
 
 Goren <goren -at- riseup.net>
-	ii-phonetic.mim -- Phonetic input method for Yi
+	MIM/ath-phonetic.mim -- Phonetic input method for Eastern Cree syllabics (Carrier)
+	MIM/bla-phonetic.mim -- Phonetic input method for Eastern Cree syllabics (Blackfoot)
+	MIM/cr-western.mim -- Phonetic input method for Western Cree syllabics
+	MIM/ii-phonetic.mim -- Phonetic input method for Yi
+	icons/ii-phonetic.png
+	MIM/iu-phonetic.mim -- Phonetic input method for Inuktitut
+	MIM/nsk-phonetic.mim -- Phonetic input method for Eastern Cree syllabics (Naskapi)
+	MIM/oj-phonetic.mim -- Phonetic input method for Ojibwe syllabics
 
 Sarath Camillus Jayewardena <sakzje@gmail.com>
-	si-sumihiri.mim -- Sinhala input method for sumihiri transliteration scheme
+	MIM/si-sumihiri.mim -- Sinhala input method for sumihiri transliteration scheme
 
 Raghav Krishnapriyan <raghav.r.krishnapriyan@gmail.com>
-	yi-yivo.mim -- Yiddish input method with YIVO transliteration
+	MIM/yi-yivo.mim -- Yiddish input method with YIVO transliteration
+	icons/yi-yivo.png
 
 Yuri Victorovich <yuri@tsoft.com>
-	be-kbd.mim -- Belarusian input method with Belarusian keyboard layout
+	MIM/be-kbd.mim -- Belarusian input method with Belarusian keyboard layout
+	icons/be-kbd.png
 
 Madura Anushanga <madura.x86@gmail.com>
-	si-singlish.mim -- Singlish Transliteration Keymap
+	MIM/si-singlish.mim -- Singlish Transliteration Keymap
 
 Shantikunj, Haridwar, UK, INDIA <www.awgp.org>
-	hi-vedmata.mim -- Hindi input method with Remington method
+	MIM/hi-vedmata.mim -- Hindi input method with Remington method
+	icons/hi-vedmata.png
 
+AIST
 Hugues MOISY <hugues.moisy@gmail.com>
-	bo-ewts.mim -- Tibetan input method with EWTS
-	   Improvement from the original one (was in m17n-db package).
+	MIM/bo-ewts.mim -- Tibetan input method with EWTS
 
 Praveen Illa <mail2ipn@gmail.com>
-	te-apple.png -- Icon for te-apple.mim
+	icons/te-apple.png -- Icon for te-apple.mim
 
 Bahodir Mansurov  <beemzet@gmail.com>
-	uz-kbd.mim, uz-kbd.png -- Uzbek input method
+	MIM/uz-kbd.mim -- Uzbek input method
+	icons/uz-kbd.png
 
 William Giddings <wjgiddings@googlemail.com>
-	sa-iast.mim -- Romanized Sanskrit/Pali using the ITRANS/ISO 15919 scheme
+	MIM/sa-iast.mim -- Romanized Sanskrit/Pali using the ITRANS/ISO 15919 scheme
 
 Sebin Abraham Jacob  <sebinajacob@gmail.com>
 Hiran Venugopal  <hiran.v@gmail.com>
 	ml-remington.mim -- Malayalam input method.
 
+Ankur.org.in <ankur.org.in>
+Sayak Sarkar <sayak.bugsmith@gmail.com>
+	MIM/bn-disha.mim -- Bengali input method for visual input sequence.
+
+Urs Holzer <urs@andonyar.com>
+Vishvas Vasuki <vishvas.vasuki@gmail.com>
+	MIM/math-latex.mim -- Mathematics input method using LaTeX command names
+	icons/math-latex.png
+
 Vishvas Vasuki  <vishvas.vasuki@gmail.com>
 	hi-optitransv2.mim -- Hindi input method
 	kn-itrans.mim -- Kannada input method with ITRANS method
 	kn-optitransv2.mim -- Kannada input method
-	math-latex.mim -- Mathematics input method using LaTeX command names
+
+Satyam Pothamsetti <satyam@teluguvahini.com>
+	MIM/te-sarala.mim -- Telugu input method with enhanced Sarala layout
+	icons/te-sarala.png
+
+Chris Leick <c.leick@vollbio.de>
+	po/de.po - German translations
