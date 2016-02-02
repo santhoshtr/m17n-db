@@ -1,3 +1,26 @@
+2016-02-02  K. Handa  <handa@gnu.org>
+
+	* MIM/lsymbol.mim (multi-choice): New maps for many symbols.
+	(choose, change-candidate, focus-move, focus-change, backspace)
+	(commit-preedit): New maps copied from zh-util.mim.
+	(check-undo, select): New states copied from zh-util.mim.
+
+2016-01-24  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
+
+	* MIM/kn-optitransv2.mim: (dot_start): Renamed from danda.  Add
+	"./" key map.
+	(misc): Delete this map.
+	(state_init): Delete "misc" branch.  Change "danda" branch to
+	"dot_start".
+
+2016-01-20  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
+
+	* MIM/hi-optitransv2.mim: (dot_start): Renamed from danda.  Add
+	"./" key map.
+	(misc): Delete this map.
+	(state_init): Delete "misc" branch.  Change "danda" branch to
+	"dot_start".
+
 2015-11-27  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
 
 	* MIM/hi-optitransv2.mim: Improve the description string.
