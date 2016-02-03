@@ -1,3 +1,7 @@
+2016-02-03  K. Handa  <handa@gnu.org>
+
+	* MIM/lsymbol.mim (multi-choice): Add more symbols.
+
 2016-02-02  K. Handa  <handa@gnu.org>
 
 	* MIM/lsymbol.mim (multi-choice): New maps for many symbols.

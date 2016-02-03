@@ -90,7 +90,7 @@ See the documentation page of m17n input methods for more detail.
 
  (multi-choice
   ;; stars
-  ("*" (delete @0) ("★☆"))
+  ("*" (delete @0) ("★☆" "🌹💐❁✽" "⭐🌟💫✨🌠✯" "☀❂✷✸✹☄"))
 
   ;; checks
   ("cx" (delete @0) ("✔✘☐☑☒"))
@@ -102,13 +102,20 @@ See the documentation page of m17n input methods for more detail.
   ("||" (delete @0) ("👍👎👌✋👏🙆" "🙏👋🙌✌✊" "💁💪👊✍"))
 
   ;; happy faces
-  (":)" (delete @0) ("☺😃😅😆😉" "😏😛😜😝😋" "💏💋😍😘😚😽😻"))
+  (":)" (delete @0) ("☺😃😅😆😉😇" "😏😛😜😝😋" "💏💋😍😘😚😽😻"))
 
   ;; unhappy faces
-  (":(" (delete @0) ("😢😡"))
+  (":(" (delete @0) ("😢😩😡"))
 
   ;; hearts
-  ("<3" (delete @0) ("♥♡💔💖💘💓" "💞💕💌💑")))
+  ("<3" (delete @0) ("♥♡💔💖💘💓" "💞💕💌💑"))
+
+  ;; currency symbols
+  ("$" (delete @0) ("€£¥﷼₱₹" "💰💵💶💴💷"))
+  ;; legal signs
+  ("@" (delete @0) ("©®™"))
+
+  )
 
  ;; Typing 1, 2, ..., 0 selects the 0th, 1st, ..., 9th candidate.
  (choose
