@@ -1,3 +1,15 @@
+2016-08-26  handa  <handa@gnu.org>
+
+	* MIM/lsymbol.mim (multi-choice): Add more symbols for hand
+	gestures, happy/unhappy/neutral faces, hearts, stars, spiritual,
+	checks, and legal/text signs.
+
+	* .gitignore: Add "compile".
+
+2016-08-25  Mike FABIAN  <mfabian@redhat.com>
+
+	* MIM/hu-rovas-post.mim: New input method.
+
 2016-02-03  K. Handa  <handa@gnu.org>
 
 	* MIM/lsymbol.mim (multi-choice): Add more symbols.
