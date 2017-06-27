@@ -1,4 +1,18 @@
-2016-08-26  handa  <handa@gnu.org>
+2017-06-27  U. Sudhakar <sudhakaru@cdac.in>
+
+	* MIM/mr-remigton.mim: New input method.
+
+        * MIM/mr-typewriter.mim: New input method.
+
+2017-01-24 Santosh Pradhan <sapradhan8@gmail.com>
+
+	* MIM/ne-rom-translit.mim: New input method.
+
+	* MIM/ne-trad-ttf.mim: New iinput method.
+
+	* icons/ne-trad-ttf.png: New icon file.
+
+2016-08-26  K. Handa  <handa@gnu.org>
 
 	* MIM/lsymbol.mim (multi-choice): Add more symbols for hand
 	gestures, happy/unhappy/neutral faces, hearts, stars, spiritual,
