@@ -232,7 +232,7 @@
  (lang-forms
   (cond
    ("(.H)J" (1 :otf=beng=half+))
-   (".H" :otf=beng=blwf,half,vatu+)
+   (".+H" :otf=beng=blwf,half,vatu+)
    ("." =)))
 
  (post

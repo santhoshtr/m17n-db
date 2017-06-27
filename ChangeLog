@@ -1,3 +1,8 @@
+2017-06-27  handa  <handa@gnu.org>
+
+	* FLT/BENG-OTF.flt (generator:lang-forms): Apply blwf,half,vatu to
+	multiple characters before HALANT.
+
 2017-06-27  U. Sudhakar <sudhakaru@cdac.in>
 
 	* MIM/mr-remigton.mim: New input method.
