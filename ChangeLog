@@ -1,3 +1,8 @@
+2017-11-05  handa  <handa@gnu.org>
+
+	* FLT/LAOO-OTF.flt (layouter): Do not limit to "phetsarath ot".
+	Add OTF spec.
+
 2017-06-27  handa  <handa@gnu.org>
 
 	* FLT/BENG-OTF.flt (generator:lang-forms): Apply blwf,half,vatu to
