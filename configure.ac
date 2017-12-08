@@ -1,5 +1,5 @@
 # Copyright (C) 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011,
-#   2012, 2013, 2014
+#   2012, 2013, 2014, 2015, 2016, 2017
 #   National Institute of Advanced Industrial Science and Technology (AIST)
 #   Registration Number H15PRO112
 
@@ -22,7 +22,7 @@
 # Boston, MA 02110-1301, USA.
 
 # Process this file with autoconf to produce a configure script.
-AC_INIT(m17n-db, 1.7.0, bugs-m17n-lib@m17n.org)
+AC_INIT(m17n-db, 1.8.0, bugs-m17n-lib@m17n.org)
 AM_INIT_AUTOMAKE
 AM_GNU_GETTEXT([external])
 
