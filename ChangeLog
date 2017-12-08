@@ -1,3 +1,7 @@
+2017-12-09  handa  <handa@gnu.org>
+
+	* MIM/global.mim (first): Fix typo (bug #45075).
+
 2017-12-08  Jithin Thankachan <jithin@space-kerala.org>
 
 	* MIM/ml-enhanced-inscript.mim: New file.
