@@ -17,6 +17,7 @@ ne-rom-translit.mim: Nepali input method with roman transliteration
 ne-trad.mim: Nepali input method for traditional layout
 kn-optitransv2.mim: Kannada input method by the OPTITRANS transliteration system
 hi-optitransv2.mim: Hindi input method  by the OPTITRANS transliteration system
+ml-enhanced-inscript.mim: Malayalam input method for enhanced inscript layout
 
 ** This input method is largely changed.
 

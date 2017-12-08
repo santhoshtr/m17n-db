@@ -1,0 +1,149 @@
+;; ml-enhanced-inscript.mim -- Malayalam input method for inscript layout
+;; This file is derived from the ml-inscript.mim file.
+;; Copyright (c) 2003 Sun Microsystems, Inc. All Rights Reserved.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+(input-method ml enhanced-inscript)
+
+(description "Malayalam input method for enhanced inscript layout.
+INSCRIPT (Indian Script) is a keyboard layout scheme to input Indic
+text on computer, standardized by Government of India. This input
+method is based on Enhanced Inscript which supports atomic chillu.
+
+Author: Jithin Thankachan <jithin@space-kerala.org>
+")
+
+(title "ക")
+
+(map
+ (trans
+ 
+  ((KP_1) "1")
+  ((KP_2) "2")
+  ((KP_3) "3")
+  ((KP_4) "4")
+  ((KP_5) "5")
+  ((KP_6) "6")
+  ((KP_7) "7")
+  ((KP_8) "8")
+  ((KP_9) "9")
+  ((KP_0) "0")
+  ((KP_Decimal) ".")
+  ((KP_Divide) "/")
+  ((KP_Multiply) "*")
+  ((KP_Add) "+")
+  ((KP_Subtract) "-") 
+ 
+  ("!" "!")
+  ("1" "1")
+  ("@" "@")
+  ("2" "2")
+  ("3" "3")
+  ("$" "$")
+  ("4" "4")
+  ((G-4) "₹")
+  ("%" "%")
+  ("5" "5")
+  ("^" "^")
+  ("6" "6")
+  ("7" "7")
+  ("*" "*")
+  ("8" "8")
+  ("(" "(")
+  ("9" "9")
+  (")" ")")
+  ("0" "0")
+  ("_" "ഃ")
+  ("-" "-")
+  ("+" "ഋ")
+  ("=" "ൃ")
+  ("Q" "ഔ")
+  ("q" "ൗ")
+  ("W" "ഐ")
+  ("w" "ൈ")
+  ("E" "ആ")
+  ("e" "ാ")
+  ("R" "ഈ")
+  ("r" "ീ")
+  ("T" "ഊ")
+  ("t" "ൂ")
+  ("Y" "ഭ")
+  ("y" "ബ")
+  ("U" "ങ")
+  ("u" "ഹ")
+  ("I" "ഘ")
+  ("i" "ഗ")
+  ("O" "ധ")
+  ("o" "ദ")
+  ("P" "ഝ")
+  ("p" "ജ")
+  ("{" "ഢ")
+  ("[" "ഡ")
+  ("}" "ഞ")
+  ("]" "‍")
+  ("A" "ഓ")
+  ("a" "ോ")
+  ("S" "ഏ")
+  ("s" "േ")
+  ("D" "അ")
+  ("d" "്")
+  ("F" "ഇ")
+  ("f" "ി")
+  ("G" "ഉ")
+  ("g" "ു")
+  ("H" "ഫ")
+  ("h" "പ")
+  ("J" "റ")
+  ("j" "ര")
+  ("K" "ഖ")
+  ("k" "ക")
+  ("L" "ഥ")
+  ("l" "ത")
+  (":" "ഛ")
+  (";" "ച")
+  ("\"" "ഠ")
+  ("'" "ട")
+  ("|" "\\")
+  ("\\" "ർ")
+  ("~" "ഒ")
+  ("`" "ൊ")
+  ("Z" "എ")
+  ("z" "െ")
+  ("X" "ൺ")
+  ("x" "ം")
+  ("C" "ണ")
+  ("c" "മ")
+  ("V" "ൻ")
+  ("v" "ന")
+  ("B" "ഴ")
+  ("b" "വ")
+  ("N" "ള")
+  ("n" "ല")
+  ("M" "ശ")
+  ("m" "സ")
+  ("<" "ഷ")
+  ("," ",")
+  (">" "ൽ")
+  ("." ".")
+  ("/" "യ")
+  ("#" "്ര")
+  ("&" "ക്ഷ")
+  ))
+
+(state
+  (init
+    (trans)))
