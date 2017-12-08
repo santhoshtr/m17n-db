@@ -1,4 +1,4 @@
-;; ua-kbd.mim -- Ukrainian input method with Ukrainian/Russian keyboard layout
+;; uk-kbd.mim -- Ukrainian input method with Ukrainian/Russian keyboard layout
 ;; Copyright (C) 2005
 ;;   National Institute of Advanced Industrial Science and Technology (AIST)
 ;;   Registration Number H15PRO112
@@ -28,7 +28,7 @@
 
 ;; Nov 2010  Modified by Nikolay Orlyuk (virkony gmail com) from ru-kbd.mim
 
-(input-method ua kbd)
+(input-method uk kbd)
 
 (description
  "Ukrainian input method simulating the Ukrainian keyboard.

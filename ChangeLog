@@ -1,5 +1,8 @@
 2017-12-09  handa  <handa@gnu.org>
 
+	* MIM/uk-kbd.mim: Renamed from ua-kbd.mim.  Language name fixed
+	(bug #45221).
+
 	* MIM/global.mim (first): Fix typo (bug #45075).
 
 2017-12-08  Jithin Thankachan <jithin@space-kerala.org>

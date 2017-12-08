@@ -23,6 +23,10 @@ ml-enhanced-inscript.mim: Malayalam input method for enhanced inscript layout
 
 lsymbol.mim: Add many symbols.
 
+** This input method is name changed.
+
+uk-kbd.mim: renamed from ua-kbd.mim
+
 
 * Changes in the m17n database 1.7.0
 
