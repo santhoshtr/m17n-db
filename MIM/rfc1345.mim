@@ -25,9 +25,19 @@
 
 (description "Generic input method using RFC1345 mnemonics.
 Input characters by typing & (ampersand) followed by two or three
-keys.  It doesn't include RFC1345 mnemonics for ASCII and
-Control-1 characters (U+0000..U+009F) except for & itself which
-can be input by typing & twice.
+keys.  It doesn not include RFC1345 mnemonics for ASCII except for
+the following characters:
+
+&SP 0020 SPACE
+&Nb 0023 NUMBER SIGN
+&DO 0024 DOLLAR SIGN
+&&  0026 AMPERSAND
+&At 0040 COMMERCIAL AT
+&<( 005b LEFT SQUARE BRACKET
+&// 005c REVERSE SOLIDUS
+&)> 005d RIGHT SQUARE BRACKET
+&'> 005e CIRCUMFLEX ACCENT
+&'! 0060 GRAVE ACCENT
 ")
 
 (title "RFC1345")
@@ -66,6 +76,15 @@ can be input by typing & twice.
   ("&GS" 0x1D)
   ("&RS" 0x1E)
   ("&US" 0x1F)
+  ("&SP" 0x20)
+  ("&Nb" 0x23)
+  ("&DO" 0x24)
+  ("&At" 0x40)
+  ("&<(" 0x5b)
+  ("&//" 0x5c)
+  ("&)>" 0x5d)
+  ("&'>" 0x5e)
+  ("&'!" 0x60)
   ("&&" ?&)
   ("&PA" 0x80)
   ("&HO" 0x81)

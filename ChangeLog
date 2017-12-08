@@ -1,3 +1,7 @@
+2017-12-08  Jón Fairbairn  <jf-nongnu@bookofsand.co.uk>
+
+	* MIM/rfc1345.mim: Add rules for a few more ASCII characters.
+
 2017-11-05  handa  <handa@gnu.org>
 
 	* FLT/LAOO-OTF.flt (layouter): Do not limit to "phetsarath ot".
