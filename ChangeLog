@@ -1,5 +1,7 @@
 2017-12-09  handa  <handa@gnu.org>
 
+	* MIM/zh-zhuyin.mim: Chinese input method name to zh-zhuyin.
+
 	* MIM/uk-kbd.mim: Renamed from ua-kbd.mim.  Language name fixed
 	(bug #45221).
 
