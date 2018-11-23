@@ -1,3 +1,7 @@
+2018-11-23  Santhosh Thottingal  <santhosh.thottingal@gmail.com>
+
+	* MIM/ml-swanalekha.mim: Adjusted for the latest Unicode.
+
 2018-02-08  K. Handa  <handa@gnu.org>
 
 	Version 1.8.0 released.
