@@ -1,3 +1,12 @@
+2019-01-06  Vishvas Vasuki  <vishvas.vasuki@gmail.com>
+
+	* MIM/hi-itrans.mim (starter, independent): Map C-S-SPACE (instead
+	of S-SPACE) to ZWNJ.
+
+2018-12-29  U. Sudhakar  <sudhakaru@cdac.in>
+
+	* MIM/pa-remington.mim: New input method.
+
 2018-11-23  Santhosh Thottingal  <santhosh.thottingal@gmail.com>
 
 	* MIM/ml-swanalekha.mim: Adjusted for the latest Unicode.
@@ -37,7 +46,7 @@
 
 2017-06-27  U. Sudhakar <sudhakaru@cdac.in>
 
-	* MIM/mr-remigton.mim: New input method.
+	* MIM/mr-remington.mim: New input method.
 
         * MIM/mr-typewriter.mim: New input method.
 

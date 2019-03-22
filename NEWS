@@ -11,7 +11,7 @@ Copyright (C) 2015, 2016, 2017, 2018 Kenichi Handa <handa@gnu.org>
 
 ** New input methods are added.
 
-mr-remigton.mim: Marathi input method for remington layout
+mr-remington.mim: Marathi input method for remington layout
 mr-typewriter.mim: Marathi input method for typewriter layout
 ne-rom-translit.mim: Nepali input method with roman transliteration
 ne-trad.mim: Nepali input method for traditional layout

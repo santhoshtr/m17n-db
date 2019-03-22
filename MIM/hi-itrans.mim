@@ -57,7 +57,7 @@ typing \"har..\" produces \"हर।\", not \"हर्।\".")
 
 (map
  (starter
-  (".") ("~") ("#") ("$") ("*") ("]") ((S-\ )) ((C-@))
+  (".") ("~") ("#") ("$") ("*") ("]") ((C-S-\ )) ((C-@))
   ("0") ("1") ("2") ("3") ("4") ("5") ("6") ("7") ("8") ("9")
   ("A") ("C") ("D") ("E") ("G") ("H") ("I") ("J") ("K") ("L")
   ("M") ("N") ("O") ("R") ("S") ("T") ("U") ("Y")
@@ -206,7 +206,7 @@ typing \"har..\" produces \"हर।\", not \"हर्।\".")
   ("AUM" "ॐ")
   ("OM" "ॐ")
   ("$" "र्")			      ; not in ITRANS Devanagari table
-  ((S-\ ) "‌")			      ; not in ITRANS Devanagari table
+  ((C-S-\ ) "‌")		      ; not in ITRANS Devanagari table
   ((C-@) "‍"))			      ; not in ITRANS Devanagari table
 
  (digit
