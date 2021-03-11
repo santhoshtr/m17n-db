@@ -1,3 +1,7 @@
+2021-03-07  Mutoh  <mechamutoh@gmail.com>
+
+	* icons/ru-translist.png: New icon file.
+
 2016-02-03  K. Handa  <handa@gnu.org>
 
 	* MIM/lsymbol.mim (multi-choice): Add more symbols.
