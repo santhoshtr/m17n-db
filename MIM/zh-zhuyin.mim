@@ -1,4 +1,4 @@
-;; zh-zhuyin.mim -- zhuyin input method
+;; zh-zhuyin.mim -- Chinese input method using zhuyin layout
 ;; Copyright (c) 2009  Red Hat, Inc. All rights reserved.
 ;; Copyright (c) 2009  Ding-Yi Chen <dchen at redhat dot com>
 
@@ -20,7 +20,7 @@
 ;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;; Input method for Bopomofo.
+;;; Input method for Chinese.
 ;;; @image html bopo-kbd.png "Keyboard Layout"
 ;;; @image latex bopo-kbd.eps "Keyboard Layout" width=\narrowwidth
 
@@ -29,10 +29,10 @@
 ;;   ㄇ  ㄋ  ㄎ  ㄑ  ㄕ  ㄘ  ㄨ  ㄜ  ㄠ  ㄤ  '"  \|
 ;;    ㄈ  ㄌ  ㄏ  ㄒ  ㄖ  ㄙ  ㄩ  ㄝ  ㄡ  ㄥ
 
-(input-method zh bopomofo)
+(input-method zh zhuyin)
 
 (description
- "Bopomofo input method using this keyboard layout.
+ "Chinese input method using this zhuyin keyboard layout.
    ㄅ  ㄉ  ˇ   ˋ  ㄓ  ˊ  ˙   ㄚ  ㄞ  ㄢ  ㄦ
     ㄆ  ㄊ  ㄍ  ㄐ  ㄔ  ㄗ  ㄧ  ㄛ  ㄟ  ㄣ  「  」
      ㄇ  ㄋ  ㄎ  ㄑ  ㄕ  ㄘ  ㄨ  ㄜ  ㄠ  ㄤ  、

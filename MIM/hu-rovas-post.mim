@@ -1,0 +1,296 @@
+;; hu-rovas.mim -- Old Hungarian (Hungarian Runes) input method
+
+(input-method hu rovas-post)
+
+(description "Input method for the Old Hungarian script
+
+Can be used on any keyboard layout which supports ASCII.
+The accented modern Hungarian characters are typed in
+the same way as in the latn-post.mim input method
+(o' -> ó, o\" -> ö, o: -> ő etc. ..). For details see
+the table below.
+
+This table follows the information in the Wikipedia page
+
+https://en.wikipedia.org/wiki/Old_Hungarian_alphabet
+
+Latin letter(s) | Input sequence | Old Hungarian
+================================================
+a                 a                𐳀
+A                 A                𐲀
+á                 a'               𐳁
+Á                 A'               𐲁
+b                 b                𐳂
+B                 B                𐲂
+c                 c                𐳄
+C                 C                𐲄
+cs                cs               𐳆
+Cs                Cs               𐲆
+CS                CS               𐲆
+d                 d                𐳇
+D                 D                𐲇
+dz                dz               𐳇‍𐳯  ¹
+Dz                DZ               𐲇‍𐲯  ¹
+DZ                DZ               𐲇‍𐲯  ¹
+dzs               dzs              𐳇‍𐳰  ¹
+Dzs               DZs              𐲇‍𐲰  ¹
+DZs               DZs              𐲇‍𐲰  ¹
+DZS               DZS              𐲇‍𐲰  ¹
+e                 e                𐳉
+E                 E                𐲉
+ë                 e\"               𐳊
+Ë                 E\"               𐲊
+é                 e'               𐳋
+É                 E'               𐲋
+f                 f                𐳌
+F                 F                𐲌
+g                 g                𐳍
+G                 G                𐲍
+gy                gy               𐳎
+Gy                Gy               𐲎
+GY                GY               𐲎
+h                 h                𐳏
+H                 H                𐲏
+i                 i                𐳐
+I                 I                𐲐
+í                 i'               𐳑
+Í                 I'               𐲑
+j                 j                𐳒
+J                 J                𐲒
+k                 k                𐳓
+K                 K                𐲓
+k                 AltGr-k          𐳔
+K                 AltGr-K          𐲔
+l                 l                𐳖
+L                 L                𐲖
+ly                ly               𐳗
+Ly                Ly               𐲗
+LY                LY               𐲗
+m                 m                𐳘
+M                 M                𐲘
+n                 n                𐳙
+N                 N                𐲙
+ny                ny               𐳚
+Ny                Ny               𐲚
+NY                NY               𐲚
+o                 o                𐳛
+O                 O                𐲛
+ó                 o'               𐳜
+Ó                 O'               𐲜
+ö                 o\"               𐳞
+Ö                 O\"               𐲞
+ö                 AltGr-o          𐳝
+Ö                 AltGr-O          𐲝
+ő                 o:               𐳟
+Ő                 O:               𐲟
+p                 p                𐳠
+P                 P                𐲠
+q                 q                𐳓‍𐳮  ¹
+Q                 Q                𐲓‍𐲮  ¹
+r                 r                𐳢
+R                 R                𐲢
+s                 s                𐳤
+S                 S                𐲤
+sz                sz               𐳥
+Sz                Sz               𐲥
+SZ                SZ               𐲥
+t                 t                𐳦
+T                 T                𐲦
+ty                ty               𐳨
+Ty                Ty               𐲨
+TY                TY               𐲨
+u                 u                𐳪
+U                 U                𐲪
+ú                 u'               𐳫
+Ú                 U'               𐲫
+ü                 u\"               𐳬
+Ü                 U\"               𐲬
+ű                 u:               𐳭
+Ű                 U:               𐲭
+v                 v                𐳮
+V                 V                𐲮
+w                 w                𐳮‍𐳮  ¹
+W                 W                𐲮‍𐲮  ¹
+x                 x                𐳓‍𐳥  ¹
+X                 X                𐲓‍𐲥  ¹
+y                 y                𐳐‍𐳒  ¹
+Y                 Y                𐲐‍𐲒  ¹
+z                 z                𐳯
+Z                 Z                𐲯
+zs                zs               𐳰
+Zs                Zs               𐲰
+ZS                ZS               𐲰
+ENT               ENT              𐲧  ³
+EMP               EMP              𐲡  ³
+UNK               UNK              𐲕  ³
+US                US               𐲲  ³
+AMB               AMB              𐲃  ³
+
+Footnotes:
+
+¹ With a supporting font, this will be displayed as a ligature.
+
+² Repeating the postfix changes ambiguous combining marks:
+  Example: u -> 𐳪, u' -> 𐳫, u'' -> 𐳪', u''' -> 𐳫'
+
+³ The Hungarian runes also include some non-alphabetical runes
+  which are not ligatures but separate signs.
+  These are called capita dictionum.")
+
+(title "𐲢")
+
+(map
+ (trans
+  ;; There are no lower or upper case letters, but the first letter
+  ;; of a proper name was often written a bit larger. Though the Unicode
+  ;; standard has upper and lowercase letters, which are same shaped,
+  ;; the difference is only their size.
+  ("a" ?𐳀)
+  ("A" ?𐲀)
+  ("a'" ?𐳁)
+  ("a''" "𐳀'")
+  ("A'" ?𐲁)
+  ("A''" "𐲁'")
+  ("b" ?𐳂)
+  ("B" ?𐲂)
+  ("c" ?𐳄)
+  ("C" ?𐲄)
+  ("cs" ?𐳆)
+  ("Cs" ?𐲆)
+  ("CS" ?𐲆)
+  ("d" ?𐳇)
+  ("D" ?𐲇)
+  ("dz" "𐳇‍𐳯") ; Ligature of 𐳇 and 𐳯
+  ("Dz" "𐲇‍𐲯") ; Ligature of 𐲇 and 𐲯
+  ("DZ" "𐲇‍𐲯") ; Ligature of 𐲇 and 𐲯
+  ("dzs" "𐳇‍𐳰") ; Ligature of 𐳇 and 𐳰
+  ("Dzs" "𐲇‍𐲰") ; Ligature of 𐳇 and 𐳰
+  ("DZs" "𐲇‍𐲰") ; Ligature of 𐳇 and 𐳰
+  ("DZS" "𐲇‍𐲰") ; Ligature of 𐲇 and 𐲰
+  ("e" ?𐳉)
+  ("E" ?𐲉)
+  ("e\"" ?𐳊)
+  ("e\"\"" "𐳊\"")
+  ("E\"" ?𐲊)
+  ("E\"\"" "𐲊\"")
+  ("e'" ?𐳋)
+  ("e''" "𐳋'")
+  ("E'" ?𐲋)
+  ("E''" "𐲋'")
+  ("f" ?𐳌)
+  ("F" ?𐲌)
+  ("g" ?𐳍)
+  ("G" ?𐲍)
+  ("gy" ?𐳎)
+  ("Gy" ?𐲎)
+  ("GY" ?𐲎)
+  ("h" ?𐳏)
+  ("H" ?𐲏)
+  ("i" ?𐳐)
+  ("I" ?𐲐)
+  ("i'" ?𐳑)
+  ("i''" "𐳑'")
+  ("I'" ?𐲑)
+  ("I''" "𐲑'")
+  ("j" ?𐳒)
+  ("J" ?𐲒)
+  ("k" ?𐳓)
+  ("K" ?𐲓)
+  ((G-k) ?𐳔)
+  ((G-K) ?𐲔)
+  ("l" ?𐳖)
+  ("L" ?𐲖)
+  ("ly" ?𐳗)
+  ("Ly" ?𐲗)
+  ("LY" ?𐲗)
+  ("m" "𐳘")
+  ("M" "𐲘")
+  ("n" "𐳙")
+  ("N" "𐲙")
+  ("ny" ?𐳚)
+  ("Ny" ?𐲚)
+  ("NY" ?𐲚)
+  ("o" ?𐳛)
+  ("O" ?𐲛)
+  ("o'" ?𐳜)
+  ("o''" "𐳛'")
+  ("o'''" "𐳜'")
+  ("O'" ?𐲜)
+  ("O''" "𐲛'")
+  ("O'''" "𐲜'")
+  ("o\"" ?𐳞)
+  ("o\"\"" "𐳛\"")
+  ("o\"\"\"" "𐳞\"")
+  ("O\"" ?𐲞)
+  ("O\"\"" "𐲜\"")
+  ("O\"\"\"" "𐲞\"")
+  ((G-o) ?𐳝)
+  ((G-O) ?𐲝)
+  ("o:" ?𐳟)
+  ("o::" "𐳛:")
+  ("o:::" "𐳟:")
+  ("O:" ?𐲟)
+  ("O::" "𐲛:")
+  ("O:::" "𐲟:")
+  ("p" ?𐳠)
+  ("P" ?𐲠)
+  ("q" "𐳓‍𐳮") ; Ligature of 𐳓 and 𐳮, contains ZERO WIDTH JOINER
+  ("Q" "𐲓‍𐲮") ; Ligature of 𐲓 and 𐲮, contains ZERO WIDTH JOINER
+  ("r" ?𐳢)
+  ("R" ?𐲢)
+  ("s" ?𐳤)
+  ("S" ?𐲤)
+  ("sz" ?𐳥)
+  ("Sz" ?𐲥)
+  ("SZ" ?𐲥)
+  ("t" ?𐳦)
+  ("T" ?𐲦)
+  ("ty" ?𐳨)
+  ("Ty" ?𐲨)
+  ("TY" ?𐲨)
+  ("u" ?𐳪)
+  ("U" ?𐲪)
+  ("u'" ?𐳫)
+  ("u''" "𐳪'")
+  ("u'''" "𐳫'")
+  ("U'" ?𐲫)
+  ("U''" "𐲪'")
+  ("U'''" "𐲫'")
+  ("u\"" ?𐳬)
+  ("u\"\"" "𐳪\"")
+  ("u\"\"\"" "𐳬\"")
+  ("U\"" ?𐲬)
+  ("U\"\"" "𐲪\"")
+  ("U\"\"\"" "𐲬\"")
+  ("u:" ?𐳭)
+  ("u::" "𐳪:")
+  ("u:::" "𐳭:")
+  ("U:" ?𐲭)
+  ("U::" "𐲪:")
+  ("U:::" "𐲭:")
+  ("v" ?𐳮)
+  ("V" ?𐲮)
+  ("w" "𐳮‍𐳮") ; Ligature of 𐳮 and 𐳮, contains ZERO WIDTH JOINER
+  ("W" "𐲮‍𐲮") ; Ligature of 𐲮 and 𐲮, contains ZERO WIDTH JOINER
+  ("x" "𐳓‍𐳥") ; Ligature of 𐳓 and 𐳥, contains ZERO WIDTH JOINER
+  ("X" "𐲓‍𐲥" ) ; Ligature of 𐲓 and 𐲥, contains ZERO WIDTH JOINER
+  ("y" "𐳐‍𐳒") ; Ligature of 𐳐 and 𐳒, contains ZERO WIDTH JOINER
+  ("Y" "𐲐‍𐲒") ; Ligature of 𐲐 and 𐲒, contains ZERO WIDTH JOINER
+  ("z" ?𐳯)
+  ("Z" ?𐲯)
+  ("zs" ?𐳰)
+  ("Zs" ?𐲰)
+  ("ZS" ?𐲰)
+  ;; The Hungarian runes also include some non-alphabetical runes
+  ;; which are not ligatures but separate signs.
+  ;; These are called capita dictionum:
+  ("ENT" ?𐲧)
+  ("EMP" ?𐲡)
+  ("UNK" ?𐲕)
+  ("US" ?𐲲)
+  ("AMB" ?𐲃)
+  ))
+
+(state
+  (init
+    (trans)))

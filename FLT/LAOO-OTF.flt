@@ -3,7 +3,7 @@
 ;; See the end for copying conditions.
 
 (font layouter laoo-otf nil
-      (font (nil phetsarath\ ot unicode-bmp)))
+      (font (nil nil unicode-bmp :otf=lao\ )))
 
 ;;; <li> LAOO-OTF.flt
 

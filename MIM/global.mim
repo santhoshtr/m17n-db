@@ -141,7 +141,7 @@ Move to the previous character in the preedit text")
 Move to the next character in the preedit text")
   (Right) (C-F))
  (first-char
-  (_"Fist character
+  (_"First character
 Move to the first character in the preedit text")
   (C-A))
  (last-char

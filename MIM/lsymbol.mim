@@ -29,11 +29,12 @@ pressed.  For instance,
    \"/:)\" -> happy faces (e.g. ☺😃)
    \"/:(\" -> unhappy faces (e.g. 😢😡)
    \"/<3\" -> hearts (e.g. ♥♡)
-   \"/cx\" -> cheks (e.g. ✔✘)
-   \"/*\"  -> stars (e.g. ★☆)
+   \"/*\"  -> flowers and stars (e.g. 🌹★)
+   \"&&\" -> spiritual (e.g. ☸☯)   \"/xx\" -> checks (e.g. ✔✘)
+   \"$\" -> currency (€£)          \"@\" -> legal/text signs (e.g "©¶")
 
-The user can easily select the appropriate symbol using ↑,↓,→,←
-(or C-p, C-n, C-f, C-b) keys and the digits.
+The user can select the appropriate symbol using ↑,↓,→,←
+(or C-p, C-n, C-f, C-b) keys and/or the digits.
 
 Other miscellaneous keys are:
    \"//\" -> \"/\"
@@ -89,31 +90,38 @@ See the documentation page of m17n input methods for more detail.
   ("..." "…"))
 
  (multi-choice
-  ;; stars
-  ("*" (delete @0) ("★☆" "🌹💐❁✽" "⭐🌟💫✨🌠✯" "☀❂✷✸✹☄"))
-
-  ;; checks
-  ("cx" (delete @0) ("✔✘☐☑☒"))
-
   ;; arrows
   ("->" (delete @0) ("→←↑↓" "👉👈👆👇✋" "►◄▲▾◤◥◣◢"))
 
   ;; hand gestures
-  ("||" (delete @0) ("👍👎👌✋👏🙆" "🙏👋🙌✌✊" "💁💪👊✍"))
+  ("||" (delete @0) ("👍👎👌✋👏🙆" "🙏👋🙌✌✊👊" "💁🙋💪✍💆💅"))
 
   ;; happy faces
-  (":)" (delete @0) ("☺😃😅😆😉😇" "😏😛😜😝😋" "💏💋😍😘😚😽😻"))
+  (":)" (delete @0) ("☺😃😅😆😉😇😂" "😏😛😜😝😋😉" "💏💋😍😘😚😽😻"))
 
   ;; unhappy faces
-  (":(" (delete @0) ("😢😩😡"))
+  (":(" (delete @0) ("😢😩😡😭😪" "🙈🙊🙉"))
+
+  ;; neutral faces
+  (":|" (delete @0) ("🤔"))
 
   ;; hearts
-  ("<3" (delete @0) ("♥♡💔💖💘💓" "💞💕💌💑"))
+  ("<3" (delete @0) ("♥♡💔💖💘💓" "💞💕💌💑😍😘"))
+
+  ;; *-like things: flowers, stars, other bright things, snowflakes
+  ("*" (delete @0) ("🌹💐❁✽" "★☆⭐🌟💫✨🌠✯🌃" "☀❂✷✸✹🌞⛅🌅🌇" "💡☄⚡ϟ🔥🌈🎆" "❄❆❅"))
+
+  ;; spiritual symbols.
+  ("&&" (delete @0) ("💀☠👹👼😇" "卍卐☸☯♋☬" "✝☦✙✡☪💒⛪" "🙈🙊🙉"))
+
+  ;; checks
+  ("xx" (delete @0) ("✔✘☐☑☒"))
 
   ;; currency symbols
   ("$" (delete @0) ("€£¥﷼₱₹" "💰💵💶💴💷"))
-  ;; legal signs
-  ("@" (delete @0) ("©®™"))
+
+  ;; legal signs and text signs
+  ("@" (delete @0) ("©®™§¶†‡"))
 
   )
 

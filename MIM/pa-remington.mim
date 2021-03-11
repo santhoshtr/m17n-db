@@ -1,0 +1,130 @@
+; pa-remington.mim -- Punjabi input method for remington layout
+;; Copyright (C) 2018  U. Sudhakar <sudhakaru@cdac.in>
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+(input-method pa remington)
+
+(description "Punjabi input method for remington layout.
+Author: sudhakar u <sudhakaru@cdac.in>")
+
+(title "ਕ")
+
+(map
+ (trans
+
+  ("~" "~")
+  ("`" "`")
+  ("!" "!")
+  ("1" "1")
+  ("@" "@")
+  ("2" "2")
+  ("#" "#")
+  ("3" "3")
+  ("$" "$")
+  ("4" "4")
+  ("%" "%")
+  ("5" "5")
+  ("^" "^")
+  ("6" "6")
+  ("&" "&")
+  ("7" "7")
+  ("8" "8")
+  ("(" "(")
+  ("9" "9")
+  (")" ")")
+  ("0" "0")
+  ("_" "_")
+  ("-" "-")
+  ("+" "+")
+  ("=" "=")
+
+  ("Q" " ੍ਹ")
+  ("q" " ੍ਰ")
+  ("W" "W")
+  ("w" "ਮ")
+  ("E" "ਥ")
+  ("e" "ਕ")
+  ("R" "ਞ")
+  ("r" "ਗ")
+  ("T" "ਊ")
+  ("t" "ਵ")
+  ("Y" "ਢ")
+  ("y" "ਖ")
+  ("U" "ਓ")
+  ("u" "ਚ")
+  ("I" " ਂ")
+  ("i" ";")
+  ("O" "O")
+  ("o" "ਰ")
+  ("p" "ਬ")
+  ("{" " ੂ")
+  ("[" " ੁ")
+  ("}"  "ਜ਼")
+  ("]"  "੬")
+  ("A" "A")
+  ("a" "਼")
+  ("S" "ਛ")
+  ("s" "ਤ")
+  ("D" "ਣ")
+  ("d" "੍")
+  ("F" "ਸ਼")
+  ("f" "ਿ")
+  ("G" "ਭ")
+  ("g" "ਪ")
+  ("H" ".")
+  ("h" " ੀ")
+  ("J" "ੲ")
+  ("j" "ਹ")
+  ("K" " ਾਂ")
+  ("k" " ਾ")
+  ("L" ":")
+  (":" " ਯ")
+  (";"  "ਸ")
+  ("\"" " ੌ")
+  ("'" " ੋ")
+  ("|" " ਗ਼")
+  ("\\"  "ਫ਼")
+  ("Z" "ੱ")
+  ("z" "ੰ")
+  ("X" "ਧ")
+  ("x" "ਜ਼")
+  ("C" "ਙ")
+  ("c" "ਫ")
+  ("V" "ੜ")
+  ("v" "ਡ"	)
+  ("B" "ਨ")
+  ("b" "ਲ")
+  ("N" "ਟ")
+  ("n" "ਅ")
+  ("M" "ਝ")
+  ("m" "ਠ")
+  ("<" "?")
+  ("," ",")
+  (">" ">")
+  ("." ".")
+  ("?" " ੈ")
+  ("/" " ੇ")
+  ("ba" "ਲ਼")
+  
+  ))
+
+(state
+ (init
+  (trans)))

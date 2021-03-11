@@ -1,0 +1,129 @@
+;; mr-remington.mim -- Marathi input method for remington layout
+;; Copyright (c) 2017  U. Sudhakar <sudhakaru@cdac.in>
+
+;; This file is part of the m17n database; a sub-part of the m17n
+;; library.
+
+;; The m17n library is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU Lesser General Public License
+;; as published by the Free Software Foundation; either version 2.1 of
+;; the License, or (at your option) any later version.
+
+;; The m17n library is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; Lesser General Public License for more details.
+
+;; You should have received a copy of the GNU Lesser General Public
+;; License along with the m17n library; if not, write to the Free
+;; Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+(input-method mr remington)
+
+(description "Marathi input method for remington layout.
+Author: sudhakar u <sudhakaru@cdac.in>")
+
+(title "क")
+
+(map
+ (trans
+
+  ("~" "द्य")                    
+  ("!" "।") 
+  ("1" "१")
+  ("@" "/") 
+  ("2" "२")
+  ("#" ":")
+  ("3" "३")
+  ("$" "=")
+  ("4" "४")
+  ("%" "-")
+  ("^" "\"")     
+  ("6" "६")	
+  ("&" "‘’")     
+  ("7" "७")	
+  ("*" "द्ध")	
+  ("8" "८")	
+  ("(" "त्र")	
+  ("9" "९")	
+  (")" "ऋ") 	
+  ("0" "०")	
+  ("_" ".")  
+  ("-" "ञ")
+  ("+" " ््")  
+  ("Q" "फ")
+  ("E" "म्‍")	
+  ("e" "म")	
+  ("R" "त्‍")	
+  ("r" "त")	
+  ("T" "ज्‍")	
+  ("t" "ज")	
+  ("Y" "ल्‍")	
+  ("y" "ल")	
+  ("U" "न्‍")	
+  ("u" "न") 	 
+  ("I" "प्‍")	 
+  ("i" "र")	
+  ("O" "व्‍") 	
+  ("o" "व")	
+  ("P" "च्‍") 	
+  ("p" "च")	
+  ("{" "क्ष्")	
+  ("[" "ख्")	
+  ("}" "व्द")	
+  ("]" ",")	
+  ("A" " ा")	
+  ("D" "क्‍")
+  ("d" "क")
+  ("F" "थ्‍") 
+  ("G" "ळ")
+  ("g" "ह")
+  ("H" "भ्‍") 
+  ("J" "श्र")
+  ("j" "र")
+  ("K" "ज्ञ")
+  ("L" "स्‍") 
+  ("Z" "र्")
+  ("X" "ग्‍") 
+  ("x" "ग")	
+  ("C" "ब्‍")	 
+  ("c" "ब")	
+  ("V" "ट")	
+  ("v" "अ")	
+  ("B" "ठ")	
+  ("b" "इ")	
+  ("N" "छ")	
+  ("n" "द")	
+  ("M" "ड")	
+  ("m" "उ")	
+  ("l" "स")
+  (":" "य्")
+  (";" "य")
+  ("\"" "ष्")
+  ("\'" "श्")
+  ("<" "ढ")	
+  ("," "ए")	 
+  (">" "झ")	
+  ("." "ण्")	
+  ("?" "घ्")	
+  ("/" "ध्")
+  ("k" "ा")
+  ("h" "ी")
+  ("f" "ि")
+  ("s" "े") 
+  ("a" "ं")	
+  ("S" "ै") 	
+  ("W" "ॅ")	
+  ("w" "ू")
+  ("z" "")
+  ("|" "")
+  ("q" "ु")
+  ("=" " ़")
+  ("`" " ृ")
+  
+))
+
+(state
+  (init
+    (trans)))
