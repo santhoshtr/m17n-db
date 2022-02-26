@@ -1,3 +1,7 @@
+2022-02-26  Mike FABIAN  <mfabian@redhat.com>
+
+	* icons/-translit.png: Renamed from icons/ru-translist.png.
+
 2021-07-06  Mohan R  <mohan43u@gmail.com>
 
 	* MIM/ta-remington.mim: New input method.
