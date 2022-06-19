@@ -1,3 +1,30 @@
+2022-06-18  Parag Nemade  <pnemade@redhat.com>
+
+	* MIM/as-inscript2.mim, MIM/bn-inscript2.mim,
+	MIM/brx-inscript2-deva.mim, MIM/doi-inscript2-deva.mim,
+	MIM/gu-inscript2.mim, MIM/hi-inscript2.mim, MIM/kn-inscript2.mim,
+	MIM/kok-inscript2-deva.mim, MIM/ks-inscript2-deva.mim,
+	MIM/mai-inscript2.mim, MIM/ml-inscript2.mim,
+	MIM/mni-inscript2-beng.mim, MIM/mni-inscript2-mtei.mim,
+	MIM/mr-inscript2.mim, MIM/ne-inscript2-deva.mim,
+	MIM/or-inscript2.mim, MIM/pa-inscript2-guru.mim,
+	MIM/sa-inscript2.mim, MIM/sat-inscript2-deva.mim,
+	MIM/sat-inscript2-olck.mim, MIM/sd-inscript2-deva.mim,
+	MIM/ta-inscript2.mim, MIM/te-inscript2.mim: New input methods.
+
+	* icons/as-inscript2.png, icons/bn-inscript2.png,
+	icons/brx-inscript2-deva.png, icons/doi-inscript2-deva.png,
+	icons/gu-inscript2.png, icons/hi-inscript2.png,
+	icons/kn-inscript2.png, icons/kok-inscript2-deva.png,
+	icons/ks-inscript2-deva.png, icons/mai-inscript2.png,
+	icons/ml-inscript2.png, icons/mni-inscript2-beng.png,
+	icons/mr-inscript2.png, icons/ne-inscript2-deva.png,
+	icons/or-inscript2.png, icons/pa-inscript2-guru.png,
+	icons/sa-inscript2.png, icons/sat-inscript2-deva.png,
+	icons/sd-inscript2-deva.png, icons/ta-inscript2.png,
+	icons/te-inscript2.png: Copied from some other icon files of
+	m17n-db.
+
 2022-06-18  Mike FABIAN  <mfabian@redhat.com>
 
 	* MIM/hu-rovas-post.mim (description): Fix two typos.
